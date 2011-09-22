@@ -15,7 +15,7 @@ import org.eclipse.swt.widgets.Composite;
  */
 public class LibraryEmfView extends EmfView {
 
-	public static final String resourceUri = "platform:/plugin/org.eclipse.emf.formeditor.tests.swtbot/models/My.extlibrary";
+	public static final String resourceUri = "platform:/plugin/it.rcpvision.emf.components.tests.swtbot/models/My.extlibrary";
 
 	public LibraryEmfView() {
 

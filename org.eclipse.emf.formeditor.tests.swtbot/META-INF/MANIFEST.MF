@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: EMF Form Editor SWTBOT Tests
-Bundle-SymbolicName: org.eclipse.emf.formeditor.tests.swtbot;singleton:=true
+Bundle-SymbolicName: it.rcpvision.emf.components.tests.swtbot;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: RCP-VISION
