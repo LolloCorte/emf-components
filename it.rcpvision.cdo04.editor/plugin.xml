@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="it.rcpvision.cdo04.editor.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="RCP Perspective"
+            class="it.rcpvision.cdo04.editor.Perspective"
+            id="it.rcpvision.cdo04.editor.perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="it.rcpvision.cdo04.editor.OpenEditor"
+            id="it.rcpvision.cdo04.editor.command1"
+            name="Open Editor">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <command
+               commandId="it.rcpvision.cdo04.editor.command1"
+               label="Open Editor"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="*">
+         <view
+               id="it.rcpvision.cdo04.editor.view1"
+               minimized="false"
+               relationship="bottom"
+               relative="org.eclipse.ui.editorss">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="it.rcpvision.cdo04.editor.guice.DemoExecutableExtensionFactory:org.eclipse.emf.formeditor.EmfFormEditor"
+            contributorClass="org.eclipse.emf.ecore.presentation.EcoreActionBarContributor"
+            default="false"
+            id="it.rcpvision.cdo04.editor.editor1"
+            name="Demo Editor">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="it.rcpvision.cdo04.editor.guice.DemoExecutableExtensionFactory:org.eclipse.emf.formeditor.views.GenericDetailViewPart"
+            id="it.rcpvision.cdo04.editor.view1"
+            name="Details"
+            restorable="true">
+      </view>
+   </extension>
+
+</plugin>

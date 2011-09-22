@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<extlib:Library xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:extlib="http:///org/eclipse/emf/examples/library/extlibrary.ecore/1.0.0" name="prova">
+  <stock xsi:type="extlib:Book" title="Title1" author="//@writers.0"/>
+  <stock xsi:type="extlib:Book" borrowers="//@borrowers.0" title="Title2" category="ScienceFiction" author="//@writers.0"/>
+  <writers firstName="Lorenzo" lastName="Bettini" books="//@stock.0 //@stock.1"/>
+  <borrowers firstName="Pippo" lastName="Pluto" borrowed="//@stock.1"/>
+  <writers firstName="Pippo" lastName="Pluto"/>
+</extlib:Library>

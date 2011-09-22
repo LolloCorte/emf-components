@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="org.eclipse.emf.formeditor.cdo.examples.rcp.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="RCP Perspective"
+            class="org.eclipse.emf.formeditor.cdo.examples.rcp.Perspective"
+            id="org.eclipse.emf.formeditor.cdo.examples.rcp.perspective">
+      </perspective>
+   </extension>
+    <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <command
+               commandId="org.eclipse.emf.formeditor.cdo.examples.rcp.openEditor"
+               label="Open Editor"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="org.eclipse.emf.formeditor.cdo.examples.rcp.handler.OpenEditor"
+            id="org.eclipse.emf.formeditor.cdo.examples.rcp.openEditor"
+            name="Open Editor">
+      </command>
+   </extension>
+
+</plugin>

@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EMF Form Editor SWTBOT Tests
+Bundle-SymbolicName: org.eclipse.emf.formeditor.tests.swtbot;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: RCP-VISION
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.eclipse.swtbot.go,
+ org.eclipse.xtext.ui.junit;bundle-version="2.0.0",
+ org.eclipse.core.resources;bundle-version="3.7.100",
+ org.eclipse.emf.formeditor;bundle-version="1.0.0",
+ org.eclipse.xtext.example.fowlerdsl;bundle-version="1.0.0",
+ org.eclipse.xtext.example.fowlerdsl.ui;bundle-version="1.0.0",
+ org.eclipse.emf.examples.library.edit;bundle-version="2.5.0"
+Bundle-Activator: org.eclipse.emf.formeditor.tests.EmfFormEditorTestsActivator
+Export-Package: org.eclipse.emf.formeditor.tests,
+ org.eclipse.emf.formeditor.tests.editors,
+ org.eclipse.emf.formeditor.tests.views

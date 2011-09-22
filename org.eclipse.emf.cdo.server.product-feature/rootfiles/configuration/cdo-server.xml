@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdoServer>
+	
+	<!--acceptor type="http"/ -->
+	
+	<acceptor type="tcp" listenAddr="0.0.0.0" port="2036">
+		<!-- negotiator type="challenge" description="/temp/users.db"/ 
+		<negotiator type="challenge" description="C:/Temp/repo_countervision1.users"/>-->
+	</acceptor>
+	
+	<repository name="demo">
+		<property name="overrideUUID" value="1ff5d226-b1f0-40fb-aba2-0c31b38c764f"/>
+		<property name="supportingAudits" value="true"/>
+		<property name="hibernate.hbm2ddl.auto" value="update"/>
+	<!-- 
+ 	<userManager type="file" description="/opt/countervision/repo_countervision.users"/>
+ 	<userManager type="file" description="C:/Temp/repo_countervision.users"/>
+ 	-->
+		<store type="db">
+			<mappingStrategy type="horizontal">
+				<property name="qualifiedNames" value="false"/>
+				<property name="toManyReferences" value="ONE_TABLE_PER_REFERENCE"/>
+				<property name="toOneReferences" value="LIKE_ATTRIBUTES"/>
+			</mappingStrategy>
+			
+			<dbAdapter name="mysql"/>
+			<dataSource class="com.mysql.jdbc.jdbc2.optional.MysqlDataSource" 
+				url="jdbc:mysql://localhost/cdotest05?createDatabaseIfNotExist=true"
+				user="root"
+				password="admin"
+				/>
+			
+            <!--            <dbAdapter name="h2"/>
+			<dataSource class="org.h2.jdbcx.JdbcDataSource"
+				uRL="jdbc:h2:_database/cdodb1"/>			
+			-->
+                   <!-- <dbAdapter name="derby-embedded"/>
+			<dataSource class="org.apache.derby.jdbc.EmbeddedDataSource"
+				databaseName="/temp/cdodb1"
+				createDatabase="create"/>-->
+                        
+
+			<!--<dbAdapter name="hsqldb"/>
+			<dataSource class="org.eclipse.net4j.db.hsqldb.HSQLDBDataSource" 
+				database="jdbc:hsqldb:mem:cdodb1"
+				user="sa"/>-->
+			
+			<!--<dbAdapter name="postgresql"/>
+			<dataSource class="org.postgresql.ds.PGSimpleDataSource"
+				url="jdbc:postgresql://localhost:5432/cdo"
+				databaseName="cdo"
+				user="cdo"
+				password="cdo"/>-->
+		</store>
+	</repository>
+	
+</cdoServer>
