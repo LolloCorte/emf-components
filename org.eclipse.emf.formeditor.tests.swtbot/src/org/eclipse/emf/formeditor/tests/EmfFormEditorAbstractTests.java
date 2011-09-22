@@ -14,7 +14,6 @@ import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.emf.formeditor.EmfFormEditorActivator;
 import org.eclipse.emf.formeditor.tests.views.LibraryEmfView;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
@@ -116,7 +115,8 @@ public class EmfFormEditorAbstractTests {
 		}
 
 		editorNamesToId = new HashMap<String, String>();
-		editorNamesToId.put(EMF_FORM_EDITOR, EmfFormEditorActivator.PLUGIN_ID);
+		editorNamesToId.put(EMF_FORM_EDITOR,
+				EmfFormEditorTestsActivator.EMF_FORM_EDITOR);
 		editorNamesToId.put(EMF_FORM_EDITOR_STATEMACHINE,
 				EmfFormEditorTestsActivator.EMF_FORM_EDITOR_FOR_STATEMACHINE);
 		editorNamesToId.put(EMF_FORM_EDITOR_NO_MOUSE,
@@ -164,7 +164,8 @@ public class EmfFormEditorAbstractTests {
 				.expand().getNode("TEST " + WRITER_LABEL + " ENDTEST");
 	}
 
-	protected SWTBotTreeItem accessTreeWithCustomLibraryLabels(SWTBotTreeItem rootOfTree) {
+	protected SWTBotTreeItem accessTreeWithCustomLibraryLabels(
+			SWTBotTreeItem rootOfTree) {
 		return rootOfTree.expand().getNode(LIBRARY_LABEL).expand()
 				.getNode("Book: Lorenzo's Book");
 	}
@@ -336,17 +337,21 @@ public class EmfFormEditorAbstractTests {
 
 	protected ImageDescriptor getImageDescriptorFromLibraryEdit(
 			String imageFileName) {
-		return getImageDescriptorFromPlugin("org.eclipse.emf.examples.library.edit", "icons/full/obj16/" + imageFileName);
-	}
-	
-	protected ImageDescriptor getImageDescriptorFromTest(
-			String imageFileName) {
-		return getImageDescriptorFromPlugin("org.eclipse.emf.formeditor.tests.swtbot", "icons/" + imageFileName);
+		return getImageDescriptorFromPlugin(
+				"org.eclipse.emf.examples.library.edit", "icons/full/obj16/"
+						+ imageFileName);
 	}
 
-	protected ImageDescriptor getImageDescriptorFromPlugin(String pluginId, String imageFileName) {
-		return AbstractUIPlugin.imageDescriptorFromPlugin(
-				pluginId, imageFileName);
+	protected ImageDescriptor getImageDescriptorFromTest(String imageFileName) {
+		return getImageDescriptorFromPlugin(
+				"org.eclipse.emf.formeditor.tests.swtbot", "icons/"
+						+ imageFileName);
+	}
+
+	protected ImageDescriptor getImageDescriptorFromPlugin(String pluginId,
+			String imageFileName) {
+		return AbstractUIPlugin.imageDescriptorFromPlugin(pluginId,
+				imageFileName);
 	}
 
 	protected SWTBotView openTestLibraryView(String libraryView) {

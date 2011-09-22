@@ -17,6 +17,8 @@ public class EmfFormEditorTestsActivator extends AbstractUIPlugin {
 	// The shared instance
 	private static EmfFormEditorTestsActivator plugin;
 	
+	public static final String EMF_FORM_EDITOR = "org.eclipse.emf.formeditor";
+
 	public static final String EMF_FORM_EDITOR_NO_MOUSE_ID = "org.eclipse.emf.formeditor.noMouseEvents";
 	
 	public static final String EMF_FORM_EDITOR_CUSTOM_LABEL = "org.eclipse.emf.formeditor.customLabel";

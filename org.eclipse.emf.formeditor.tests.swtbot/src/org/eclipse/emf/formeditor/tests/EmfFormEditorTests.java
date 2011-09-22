@@ -23,6 +23,7 @@ public class EmfFormEditorTests extends EmfFormEditorAbstractTests {
 		getProjectTreeItem(MY_TEST_PROJECT).expand();
 	}
 
+	@Test
 	public void canOpenEmfFormEditorOnTestFile() throws Exception {
 		openEmfFormEditorOnTestFile(EMF_FORM_EDITOR, MY_EXTLIBRARY);
 	}

@@ -8,10 +8,10 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  it.rcpvision.cdo04.model;bundle-version="1.0.0",
  org.eclipse.emf.common.ui;bundle-version="2.6.0",
- org.eclipse.emf.formeditor;bundle-version="1.0.0",
+ it.rcpvision.emf.components;bundle-version="1.0.0",
  org.eclipse.emf.cdo.net4j;bundle-version="4.0.0",
  org.eclipse.net4j.tcp;bundle-version="4.0.0",
  org.junit;bundle-version="4.8.2",
- org.eclipse.emf.formeditor.cdo;bundle-version="1.0.0"
+ it.rcpvision.emf.components.cdo;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

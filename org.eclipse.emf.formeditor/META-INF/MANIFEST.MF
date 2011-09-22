@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: EMF Form Editor
-Bundle-SymbolicName: org.eclipse.emf.formeditor;singleton:=true
+Bundle-SymbolicName: it.rcpvision.emf.components;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.eclipse.emf.formeditor.EmfFormEditorActivator
 Bundle-Vendor: RCP-VISION

@@ -9,7 +9,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.eclipse.swtbot.go,
  org.eclipse.xtext.ui.junit;bundle-version="2.0.0",
  org.eclipse.core.resources;bundle-version="3.7.100",
- org.eclipse.emf.formeditor;bundle-version="1.0.0",
+ it.rcpvision.emf.components;bundle-version="1.0.0",
  org.eclipse.xtext.example.fowlerdsl;bundle-version="1.0.0",
  org.eclipse.xtext.example.fowlerdsl.ui;bundle-version="1.0.0",
  org.eclipse.emf.examples.library.edit;bundle-version="2.5.0"
