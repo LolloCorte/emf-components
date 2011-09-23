@@ -9,5 +9,5 @@ setting parameter 'net4j.config' to value './features/cdo_1.0.0/rootfiles/config
 
 this way
 
-  -Dnet4j.config=./features/cdo_1.0.0/rootfiles/configuration
+  -Dnet4j.config=./features/cdo.server.feature_1.0.0/rootfiles/configuration
   
