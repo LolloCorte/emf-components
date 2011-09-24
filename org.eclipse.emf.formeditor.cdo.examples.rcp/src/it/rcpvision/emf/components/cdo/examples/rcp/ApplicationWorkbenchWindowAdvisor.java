@@ -1,4 +1,4 @@
-package org.eclipse.emf.formeditor.cdo.examples.rcp;
+package it.rcpvision.emf.components.cdo.examples.rcp;
 
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.ui.application.ActionBarAdvisor;

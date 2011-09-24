@@ -1,4 +1,4 @@
-package org.eclipse.emf.formeditor.cdo.examples.rcp;
+package it.rcpvision.emf.components.cdo.examples.rcp;
 
 import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchAdvisor;

@@ -1,4 +1,4 @@
-package org.eclipse.emf.formeditor.cdo.examples.rcp.handler;
+package it.rcpvision.emf.components.cdo.examples.rcp.handler;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;

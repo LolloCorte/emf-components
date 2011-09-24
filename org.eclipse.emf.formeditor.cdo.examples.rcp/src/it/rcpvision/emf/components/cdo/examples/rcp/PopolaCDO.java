@@ -1,4 +1,4 @@
-package org.eclipse.emf.formeditor.cdo.examples.rcp;
+package it.rcpvision.emf.components.cdo.examples.rcp;
 
 import library.Book;
 import library.Library;

@@ -1,4 +1,4 @@
-package org.eclipse.emf.formeditor.cdo.examples.rcp;
+package it.rcpvision.emf.components.cdo.examples.rcp;
 
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
