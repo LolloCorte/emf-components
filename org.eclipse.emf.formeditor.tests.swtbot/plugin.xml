@@ -4,10 +4,10 @@
 	<extension
          point="org.eclipse.ui.editors">
       <editor
-            class="org.eclipse.emf.formeditor.tests.factories.NoMouseEventExecutableExtensionFactory:org.eclipse.emf.formeditor.EmfFormEditor"
+            class="it.rcpvision.emf.components.tests.factories.NoMouseEventExecutableExtensionFactory:it.rcpvision.emf.components.EmfFormEditor"
             contributorClass="org.eclipse.emf.presentation.EmfFormEditorActionBarContributor"
             default="false"
-            id="org.eclipse.emf.formeditor.noMouseEvents"
+            id="it.rcpvision.emf.components.noMouseEvents"
             name="EMF Form Editor No Mouse Events">
          <contentTypeBinding
                contentTypeId="org.eclipse.emf.ecore.xmi">
@@ -18,10 +18,10 @@
    	<extension
          point="org.eclipse.ui.editors">
       <editor
-            class="org.eclipse.emf.formeditor.tests.factories.CustomLabelExecutableExtensionFactory:org.eclipse.emf.formeditor.EmfFormEditor"
+            class="it.rcpvision.emf.components.tests.factories.CustomLabelExecutableExtensionFactory:it.rcpvision.emf.components.EmfFormEditor"
             contributorClass="org.eclipse.emf.presentation.EmfFormEditorActionBarContributor"
             default="false"
-            id="org.eclipse.emf.formeditor.customLabel"
+            id="it.rcpvision.emf.components.customLabel"
             name="EMF Form Editor Custom Label">
          <contentTypeBinding
                contentTypeId="org.eclipse.emf.ecore.xmi">
@@ -31,14 +31,14 @@
     <extension
           point="org.eclipse.ui.views">
        <view
-             class="org.eclipse.emf.formeditor.tests.factories.EmfFormEditorTestsExecutableExtensionFactory:org.eclipse.emf.formeditor.tests.views.LibraryEmfView"
-             id="org.eclipse.emf.formeditor.tests.views.libraryview"
+             class="it.rcpvision.emf.components.tests.factories.EmfFormEditorTestsExecutableExtensionFactory:it.rcpvision.emf.components.tests.views.LibraryEmfView"
+             id="it.rcpvision.emf.components.tests.views.libraryview"
              name="LibraryEmfView"
              restorable="true">
        </view>
        <view
-             class="org.eclipse.emf.formeditor.tests.factories.CustomLabelExecutableExtensionFactory:org.eclipse.emf.formeditor.tests.views.LibraryEmfView"
-             id="org.eclipse.emf.formeditor.tests.views.libraryviewcustom"
+             class="it.rcpvision.emf.components.tests.factories.CustomLabelExecutableExtensionFactory:it.rcpvision.emf.components.tests.views.LibraryEmfView"
+             id="it.rcpvision.emf.components.tests.views.libraryviewcustom"
              name="LibraryEmfView Custom Label"
              restorable="true">
        </view>
@@ -46,10 +46,10 @@
     <extension
           point="org.eclipse.ui.editors">
        <editor
-             class="org.eclipse.emf.formeditor.tests.factories.CustomLabelExecutableExtensionFactory:org.eclipse.emf.formeditor.tests.editors.TestFormEditor"
+             class="it.rcpvision.emf.components.tests.factories.CustomLabelExecutableExtensionFactory:it.rcpvision.emf.components.tests.editors.TestFormEditor"
              contributorClass="org.eclipse.emf.presentation.EmfFormEditorActionBarContributor"
              default="false"
-             id="org.eclipse.emf.formeditor.customLabel"
+             id="it.rcpvision.emf.components.customLabel"
              name="EMF Form Editor Derived">
           <contentTypeBinding
                 contentTypeId="org.eclipse.emf.ecore.xmi">
@@ -59,30 +59,30 @@
     <extension
           point="org.eclipse.ui.editors">
        <editor
-             class="org.eclipse.emf.formeditor.EmfFormEditorExecutableExtensionFactory:org.eclipse.emf.formeditor.EmfFormEditor"
+             class="it.rcpvision.emf.components.EmfFormEditorExecutableExtensionFactory:it.rcpvision.emf.components.EmfFormEditor"
              contributorClass="org.eclipse.emf.presentation.EmfFormEditorActionBarContributor"
              default="false"
              extensions="statemachine"
-             id="org.eclipse.emf.formeditor.statemachine"
+             id="it.rcpvision.emf.components.statemachine"
              name="EMF Form Editor Statemachine">
        </editor>
     </extension>
     <extension
           point="org.eclipse.ui.editors">
        <editor
-             class="org.eclipse.emf.formeditor.tests.factories.CustomLibraryExecutableExtensionFactory:org.eclipse.emf.formeditor.tests.editors.TestFormEditor"
+             class="it.rcpvision.emf.components.tests.factories.CustomLibraryExecutableExtensionFactory:it.rcpvision.emf.components.tests.editors.TestFormEditor"
              contributorClass="org.eclipse.emf.presentation.EmfFormEditorActionBarContributor"
              default="false"
              extensions="extlibrary"
-             id="org.eclipse.emf.formeditor.customLibrary"
+             id="it.rcpvision.emf.components.customLibrary"
              name="EMF Custom Library Editor">
        </editor>
     </extension>
     <extension
           point="org.eclipse.ui.views">
        <view
-             class="org.eclipse.emf.formeditor.tests.factories.CustomLibraryExecutableExtensionFactory:org.eclipse.emf.formeditor.views.GenericDetailViewPart"
-             id="org.eclipse.emf.formeditor.tests.views.librarydetailviewcustom"
+             class="it.rcpvision.emf.components.tests.factories.CustomLibraryExecutableExtensionFactory:it.rcpvision.emf.components.views.GenericDetailViewPart"
+             id="it.rcpvision.emf.components.tests.views.librarydetailviewcustom"
              name="Library Emf Detail View"
              restorable="true">
        </view>

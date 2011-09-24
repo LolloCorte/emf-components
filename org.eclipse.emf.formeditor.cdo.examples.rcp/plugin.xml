@@ -7,7 +7,7 @@
          point="org.eclipse.core.runtime.applications">
       <application>
          <run
-               class="org.eclipse.emf.formeditor.cdo.examples.rcp.Application">
+               class="it.rcpvision.emf.components.cdo.examples.rcp.Application">
          </run>
       </application>
    </extension>
@@ -15,8 +15,8 @@
          point="org.eclipse.ui.perspectives">
       <perspective
             name="RCP Perspective"
-            class="org.eclipse.emf.formeditor.cdo.examples.rcp.Perspective"
-            id="org.eclipse.emf.formeditor.cdo.examples.rcp.perspective">
+            class="it.rcpvision.emf.components.cdo.examples.rcp.Perspective"
+            id="it.rcpvision.emf.components.cdo.examples.rcp.perspective">
       </perspective>
    </extension>
     <extension
@@ -25,7 +25,7 @@
             allPopups="false"
             locationURI="menu:org.eclipse.ui.main.menu">
          <command
-               commandId="org.eclipse.emf.formeditor.cdo.examples.rcp.openEditor"
+               commandId="it.rcpvision.emf.components.cdo.examples.rcp.openEditor"
                label="Open Editor"
                style="push">
          </command>
@@ -34,8 +34,8 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            defaultHandler="org.eclipse.emf.formeditor.cdo.examples.rcp.handler.OpenEditor"
-            id="org.eclipse.emf.formeditor.cdo.examples.rcp.openEditor"
+            defaultHandler="it.rcpvision.emf.components.cdo.examples.rcp.handler.OpenEditor"
+            id="it.rcpvision.emf.components.cdo.examples.rcp.openEditor"
             name="Open Editor">
       </command>
    </extension>

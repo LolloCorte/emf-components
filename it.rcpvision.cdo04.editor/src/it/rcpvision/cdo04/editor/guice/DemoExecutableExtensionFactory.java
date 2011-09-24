@@ -1,9 +1,9 @@
 package it.rcpvision.cdo04.editor.guice;
 
 import it.rcpvision.cdo04.editor.Activator;
+import it.rcpvision.emf.components.EmfFormEditorExecutableExtensionFactory;
+import it.rcpvision.emf.components.service.EmfFormEditorGenericModule;
 
-import org.eclipse.emf.formeditor.EmfFormEditorExecutableExtensionFactory;
-import org.eclipse.emf.formeditor.service.EmfFormEditorGenericModule;
 import org.osgi.framework.Bundle;
 
 public class DemoExecutableExtensionFactory extends

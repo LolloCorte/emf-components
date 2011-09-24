@@ -1,8 +1,9 @@
 package it.rcpvision.cdo04.editor.labeling;
 
+import it.rcpvision.emf.components.ui.binding.ControlObservablePair;
+import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.formeditor.ui.binding.ControlObservablePair;
-import org.eclipse.emf.formeditor.ui.binding.EmfSwtBindingFactory;
 import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.DateTime;

@@ -13,7 +13,7 @@ Require-Bundle: org.eclipse.swtbot.go,
  org.eclipse.xtext.example.fowlerdsl;bundle-version="1.0.0",
  org.eclipse.xtext.example.fowlerdsl.ui;bundle-version="1.0.0",
  org.eclipse.emf.examples.library.edit;bundle-version="2.5.0"
-Bundle-Activator: org.eclipse.emf.formeditor.tests.EmfFormEditorTestsActivator
-Export-Package: org.eclipse.emf.formeditor.tests,
- org.eclipse.emf.formeditor.tests.editors,
- org.eclipse.emf.formeditor.tests.views
+Bundle-Activator: it.rcpvision.emf.components.tests.EmfFormEditorTestsActivator
+Export-Package: it.rcpvision.emf.components.tests,
+ it.rcpvision.emf.components.tests.editors,
+ it.rcpvision.emf.components.tests.views

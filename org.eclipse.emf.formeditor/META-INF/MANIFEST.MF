@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: EMF Form Editor
 Bundle-SymbolicName: it.rcpvision.emf.components;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: org.eclipse.emf.formeditor.EmfFormEditorActivator
+Bundle-Activator: it.rcpvision.emf.components.EmfFormEditorActivator
 Bundle-Vendor: RCP-VISION
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.editor;visibility:=reexport,
@@ -15,10 +15,10 @@ Require-Bundle: org.eclipse.core.runtime,
  org.apache.log4j;bundle-version="1.2.15"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
-Export-Package: org.eclipse.emf.formeditor,
- org.eclipse.emf.formeditor.listeners,
- org.eclipse.emf.formeditor.service,
- org.eclipse.emf.formeditor.ui.binding,
- org.eclipse.emf.formeditor.ui.provider,
- org.eclipse.emf.formeditor.views,
+Export-Package: it.rcpvision.emf.components,
+ it.rcpvision.emf.components.listeners,
+ it.rcpvision.emf.components.service,
+ it.rcpvision.emf.components.ui.binding,
+ it.rcpvision.emf.components.ui.provider,
+ it.rcpvision.emf.components.views,
  org.eclipse.emf.presentation

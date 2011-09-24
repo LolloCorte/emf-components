@@ -13,7 +13,7 @@
  * </copyright>
  *
  */
-package org.eclipse.emf.formeditor.old.ui.binding;
+package it.rcpvision.emf.components.old.ui.binding;
 
 import java.lang.reflect.Method;
 import java.util.Collections;
@@ -36,9 +36,9 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EEnumImpl;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.emf.formeditor.EmfFormEditorActivator;
-import org.eclipse.emf.formeditor.old.ui.ProposalCreator;
-import org.eclipse.emf.formeditor.ui.binding.ControlObservablePair;
+import it.rcpvision.emf.components.EmfFormEditorActivator;
+import it.rcpvision.emf.components.old.ui.ProposalCreator;
+import it.rcpvision.emf.components.ui.binding.ControlObservablePair;
 import org.eclipse.jface.bindings.keys.KeyStroke;
 import org.eclipse.jface.bindings.keys.ParseException;
 import org.eclipse.jface.databinding.swt.SWTObservables;

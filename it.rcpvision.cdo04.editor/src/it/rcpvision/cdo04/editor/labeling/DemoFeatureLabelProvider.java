@@ -1,7 +1,8 @@
 package it.rcpvision.cdo04.editor.labeling;
 
+import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.formeditor.ui.provider.FeatureLabelProvider;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;

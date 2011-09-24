@@ -1,5 +1,6 @@
 package it.rcpvision.cdo04.editor.labeling;
 
+import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 import my.Container;
 import my.Customer;
 import my.Item;
@@ -7,7 +8,6 @@ import my.Order;
 import my.OrderRow;
 
 import org.eclipse.emf.cdo.eresource.CDOResource;
-import org.eclipse.emf.formeditor.ui.provider.CompositeLabelProvider;
 
 public class DemoLabelProvider extends CompositeLabelProvider {
 

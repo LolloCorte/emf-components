@@ -11,7 +11,7 @@
 <booleanAttribute key="clearwslog" value="false"/>
 <stringAttribute key="configLocation" value="${workspace_loc}/.metadata/.plugins/org.eclipse.pde.core/pde-junit"/>
 <booleanAttribute key="default" value="false"/>
-<stringAttribute key="deselected_workspace_plugins" value="it.rcpvision.cdo04.editor,it.rcpvision.cdo04.model,it.rcpvision.emf.components.cdo,org.eclipse.emf.formeditor.cdo.examples.model,org.eclipse.emf.formeditor.cdo.examples.rcp,org.eclipse.emf.formeditor.cdo.tests"/>
+<stringAttribute key="deselected_workspace_plugins" value="it.rcpvision.cdo04.editor,it.rcpvision.cdo04.model,it.rcpvision.emf.components.cdo,it.rcpvision.emf.components.cdo.examples.model,it.rcpvision.emf.components.cdo.examples.rcp,it.rcpvision.emf.components.cdo.tests"/>
 <booleanAttribute key="includeOptional" value="true"/>
 <stringAttribute key="location" value="${workspace_loc}/../junit-workspace"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
@@ -24,7 +24,7 @@
 <booleanAttribute key="org.eclipse.jdt.junit.KEEPRUNNING_ATTR" value="false"/>
 <stringAttribute key="org.eclipse.jdt.junit.TESTNAME" value=""/>
 <stringAttribute key="org.eclipse.jdt.junit.TEST_KIND" value="org.eclipse.jdt.junit.loader.junit4"/>
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.eclipse.emf.formeditor.tests.EmfFormEditorTestsSuite"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="it.rcpvision.emf.components.tests.EmfFormEditorTestsSuite"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -consoleLog"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="it.rcpvision.emf.components.tests.swtbot"/>
 <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.pde.ui.workbenchClasspathProvider"/>

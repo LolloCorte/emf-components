@@ -4,10 +4,10 @@
    <extension
          point="org.eclipse.ui.editors">
       <editor
-            class="org.eclipse.emf.formeditor.EmfFormEditorExecutableExtensionFactory:org.eclipse.emf.formeditor.EmfFormEditor"
+            class="it.rcpvision.emf.components.EmfFormEditorExecutableExtensionFactory:it.rcpvision.emf.components.EmfFormEditor"
             contributorClass="org.eclipse.emf.presentation.EmfFormEditorActionBarContributor"
             default="false"
-            id="org.eclipse.emf.formeditor"
+            id="it.rcpvision.emf.components"
             name="EMF Form Editor">
          <contentTypeBinding
                contentTypeId="org.eclipse.emf.ecore.xmi">
@@ -17,14 +17,14 @@
    <extension
          point="org.eclipse.ui.views">
       <view
-            class="org.eclipse.emf.formeditor.EmfFormEditorExecutableExtensionFactory:org.eclipse.emf.formeditor.views.EmfView"
-            id="org.eclipse.emf.formeditor.emfview"
+            class="it.rcpvision.emf.components.EmfFormEditorExecutableExtensionFactory:it.rcpvision.emf.components.views.EmfView"
+            id="it.rcpvision.emf.components.emfview"
             name="Emf View"
             restorable="true">
       </view>
       <view
-            class="org.eclipse.emf.formeditor.EmfFormEditorExecutableExtensionFactory:org.eclipse.emf.formeditor.views.GenericDetailViewPart"
-            id="org.eclipse.emf.formeditor.detailView"
+            class="it.rcpvision.emf.components.EmfFormEditorExecutableExtensionFactory:it.rcpvision.emf.components.views.GenericDetailViewPart"
+            id="it.rcpvision.emf.components.detailView"
             name="Emf Detail View"
             restorable="true">
       </view>

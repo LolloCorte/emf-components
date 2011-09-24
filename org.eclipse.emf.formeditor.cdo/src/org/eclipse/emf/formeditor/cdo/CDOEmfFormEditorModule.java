@@ -3,8 +3,9 @@
  */
 package org.eclipse.emf.formeditor.cdo;
 
-import org.eclipse.emf.formeditor.ResourceLoader;
-import org.eclipse.emf.formeditor.service.EmfFormEditorGenericModule;
+import it.rcpvision.emf.components.ResourceLoader;
+import it.rcpvision.emf.components.service.EmfFormEditorGenericModule;
+
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 /**

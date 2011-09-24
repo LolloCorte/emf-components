@@ -54,7 +54,7 @@
    <extension
          point="org.eclipse.ui.editors">
       <editor
-            class="it.rcpvision.cdo04.editor.guice.DemoExecutableExtensionFactory:org.eclipse.emf.formeditor.EmfFormEditor"
+            class="it.rcpvision.cdo04.editor.guice.DemoExecutableExtensionFactory:it.rcpvision.emf.components.EmfFormEditor"
             contributorClass="org.eclipse.emf.ecore.presentation.EcoreActionBarContributor"
             default="false"
             id="it.rcpvision.cdo04.editor.editor1"
@@ -64,7 +64,7 @@
    <extension
          point="org.eclipse.ui.views">
       <view
-            class="it.rcpvision.cdo04.editor.guice.DemoExecutableExtensionFactory:org.eclipse.emf.formeditor.views.GenericDetailViewPart"
+            class="it.rcpvision.cdo04.editor.guice.DemoExecutableExtensionFactory:it.rcpvision.emf.components.views.GenericDetailViewPart"
             id="it.rcpvision.cdo04.editor.view1"
             name="Details"
             restorable="true">

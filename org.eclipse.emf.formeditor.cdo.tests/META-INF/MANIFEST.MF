@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Emf Form Editor CDO Tests
-Bundle-SymbolicName: org.eclipse.emf.formeditor.cdo.tests
+Bundle-SymbolicName: it.rcpvision.emf.components.cdo.tests
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: org.eclipse.emf.formeditor.cdo.tests.Activator
+Bundle-Activator: it.rcpvision.emf.components.cdo.tests.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.junit4;bundle-version="4.8.1",

@@ -3,8 +3,8 @@
  */
 package org.eclipse.emf.formeditor.cdo;
 
-import org.eclipse.emf.formeditor.EmfFormEditorExecutableExtensionFactory;
-import org.eclipse.emf.formeditor.service.EmfFormEditorGenericModule;
+import it.rcpvision.emf.components.EmfFormEditorExecutableExtensionFactory;
+import it.rcpvision.emf.components.service.EmfFormEditorGenericModule;
 
 /**
  * @author bettini

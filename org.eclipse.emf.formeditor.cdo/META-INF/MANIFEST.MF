@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Cdo
 Bundle-SymbolicName: it.rcpvision.emf.components.cdo;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: org.eclipse.emf.formeditor.cdo.Activator
+Bundle-Activator: it.rcpvision.emf.components.cdo.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  it.rcpvision.emf.components;bundle-version="1.0.0";visibility:=reexport,
@@ -18,5 +18,5 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.edit;bundle-version="2.6.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: org.eclipse.emf.formeditor.cdo,
- org.eclipse.emf.formeditor.cdo.util
+Export-Package: it.rcpvision.emf.components.cdo,
+ it.rcpvision.emf.components.cdo.util

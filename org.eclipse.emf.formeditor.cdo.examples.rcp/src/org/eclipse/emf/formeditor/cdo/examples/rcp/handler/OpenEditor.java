@@ -22,7 +22,7 @@ public class OpenEditor extends AbstractHandler implements IHandler {
 		URI uri = URI.createURI(uriStr);
 		try {
 			page.openEditor(new URIEditorInput(uri),
-					"org.eclipse.emf.formeditor.cdo");
+					"it.rcpvision.emf.components.cdo");
 		} catch (PartInitException e) {
 			e.printStackTrace();
 		}
