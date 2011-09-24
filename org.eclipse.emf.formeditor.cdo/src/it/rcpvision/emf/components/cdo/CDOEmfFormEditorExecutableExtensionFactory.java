@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.eclipse.emf.formeditor.cdo;
+package it.rcpvision.emf.components.cdo;
 
 import it.rcpvision.emf.components.EmfFormEditorExecutableExtensionFactory;
 import it.rcpvision.emf.components.service.EmfFormEditorGenericModule;

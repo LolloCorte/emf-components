@@ -4,9 +4,9 @@
 package org.eclipse.emf.formeditor.cdo.tests;
 
 import static org.junit.Assert.assertEquals;
+import it.rcpvision.emf.components.cdo.util.CDOURIData;
 
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.formeditor.cdo.util.CDOURIData;
 import org.junit.Test;
 
 /**

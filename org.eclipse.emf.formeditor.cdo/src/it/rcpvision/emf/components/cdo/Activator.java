@@ -1,4 +1,4 @@
-package org.eclipse.emf.formeditor.cdo;
+package it.rcpvision.emf.components.cdo;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;

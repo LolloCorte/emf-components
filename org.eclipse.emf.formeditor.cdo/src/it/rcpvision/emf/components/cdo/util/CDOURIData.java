@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.eclipse.emf.formeditor.cdo.util;
+package it.rcpvision.emf.components.cdo.util;
 
 import org.eclipse.emf.common.util.URI;
 

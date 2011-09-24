@@ -1,9 +1,10 @@
 /**
  * 
  */
-package org.eclipse.emf.formeditor.cdo;
+package it.rcpvision.emf.components.cdo;
 
 import it.rcpvision.emf.components.ResourceLoader;
+import it.rcpvision.emf.components.cdo.util.CDOURIData;
 
 import org.eclipse.emf.cdo.eresource.CDOResource;
 import org.eclipse.emf.cdo.net4j.CDONet4jUtil;
@@ -15,7 +16,6 @@ import org.eclipse.emf.cdo.view.CDOAdapterPolicy;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.formeditor.cdo.util.CDOURIData;
 import org.eclipse.net4j.Net4jUtil;
 import org.eclipse.net4j.connector.IConnector;
 import org.eclipse.net4j.tcp.TCPUtil;
