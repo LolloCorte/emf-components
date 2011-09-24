@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.eclipse.emf.formeditor.cdo.tests;
+package it.rcpvision.emf.components.cdo.tests;
 
 import static org.junit.Assert.assertEquals;
 import it.rcpvision.emf.components.cdo.util.CDOURIData;

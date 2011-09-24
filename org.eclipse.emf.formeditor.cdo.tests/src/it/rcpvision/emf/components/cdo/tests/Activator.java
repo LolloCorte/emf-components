@@ -1,4 +1,4 @@
-package org.eclipse.emf.formeditor.cdo.tests;
+package it.rcpvision.emf.components.cdo.tests;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
