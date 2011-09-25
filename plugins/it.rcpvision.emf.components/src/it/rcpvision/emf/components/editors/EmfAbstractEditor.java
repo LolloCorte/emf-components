@@ -17,7 +17,12 @@
 package it.rcpvision.emf.components.editors;
 
 
+import it.rcpvision.emf.components.handlers.ContentOutlineSelectionHandler;
+import it.rcpvision.emf.components.listeners.EmfViewerMouseAdapter;
 import it.rcpvision.emf.components.listeners.ResourceDeltaVisitor;
+import it.rcpvision.emf.components.resource.EditingDomainFactory;
+import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
+import it.rcpvision.emf.components.views.EmfViewerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,7 +31,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.EventObject;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -54,14 +58,9 @@ import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.EValidator;
-import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecore.presentation.EcoreActionBarContributor;
 import org.eclipse.emf.ecore.presentation.EcoreEditorPlugin;
-import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EContentAdapter;
@@ -72,18 +71,13 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
-import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
-import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
 import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
 import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
 import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
-import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
@@ -93,6 +87,7 @@ import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+import org.eclipse.jface.viewers.IBaseLabelProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
@@ -106,14 +101,9 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.Transfer;
-import org.eclipse.swt.events.ControlAdapter;
-import org.eclipse.swt.events.ControlEvent;
-import org.eclipse.swt.events.MouseAdapter;
-import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
-import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
@@ -134,6 +124,8 @@ import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
+import com.google.inject.Inject;
+
 
 /**
  * This is an example of a Ecore model editor.
@@ -141,11 +133,11 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EmfAbstractEditor
+public abstract class EmfAbstractEditor
   extends MultiPageEditorPart
   implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker
 {
-  public static class XML extends EmfAbstractEditor
+  public static abstract class XML extends EmfAbstractEditor
   {
     public XML()
     {
@@ -163,28 +155,6 @@ public class EmfAbstractEditor
       }
     }
     
-    @Override
-    public void createModel()
-    {
-      super.createModel();
-      
-      // Load the schema and packages that were used to load the instance into this resource set.
-      //
-      ResourceSet resourceSet = editingDomain.getResourceSet();
-      if (!resourceSet.getResources().isEmpty())
-      {
-        Resource resource = resourceSet.getResources().get(0);
-        if (!resource.getContents().isEmpty())
-        {
-          EObject rootObject = resource.getContents().get(0);
-          Resource metaDataResource =  rootObject.eClass().eResource();
-          if (metaDataResource != null && metaDataResource.getResourceSet() != null)
-          {
-            resourceSet.getResources().addAll(metaDataResource.getResourceSet().getResources());
-          }
-        }
-      }
-    }
   }
 
   /**
@@ -498,6 +468,21 @@ public class EmfAbstractEditor
       }
     };
 
+@Inject
+protected EmfViewerFactory emfTreeViewerFactory;
+
+@Inject
+protected EmfViewerMouseAdapter emfViewerMouseAdapter;
+
+@Inject
+protected ContentOutlineSelectionHandler contentOutlineSelectionHandler;
+
+@Inject
+protected EditingDomainFactory editingDomainFactory;
+
+@Inject
+protected EditingDomainResourceLoader resourceLoader;
+
   /**
    * Handles activation of the editor or it's associated views.
    * <!-- begin-user-doc -->
@@ -679,63 +664,40 @@ public class EmfAbstractEditor
   public EmfAbstractEditor()
   {
     super();
-    // Lore: removed; it is called by init() initializeEditingDomain();
   }
 
-  /**
-   * This sets up the editing domain for the model editor.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void initializeEditingDomain()
-  {
-    // Create an adapter factory that yields item providers.
-    //
-    adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+	protected void initializeEditingDomain() {
+		editingDomain = editingDomainFactory.create();
+		adapterFactory = (ComposedAdapterFactory) editingDomain
+				.getAdapterFactory();
+		// Add a listener to set the most recent command's affected objects to
+		// be the selection of the viewer with focus.
+		editingDomain.getCommandStack().addCommandStackListener(
+				new CommandStackListener() {
+					public void commandStackChanged(final EventObject event) {
+						getContainer().getDisplay().asyncExec(new Runnable() {
+							public void run() {
+								firePropertyChange(IEditorPart.PROP_DIRTY);
 
-    adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+								// Try to select the affected objects.
+								//
+								Command mostRecentCommand = ((CommandStack) event
+										.getSource()).getMostRecentCommand();
+								if (mostRecentCommand != null) {
+									setSelectionToViewer(mostRecentCommand
+											.getAffectedObjects());
+								}
+								if (propertySheetPage != null
+										&& !propertySheetPage.getControl()
+												.isDisposed()) {
+									propertySheetPage.refresh();
+								}
+							}
+						});
+					}
+				});
+	}
 
-    // Create the command stack that will notify this editor as commands are executed.
-    //
-    BasicCommandStack commandStack = new BasicCommandStack();
-
-    // Add a listener to set the most recent command's affected objects to be the selection of the viewer with focus.
-    //
-    commandStack.addCommandStackListener
-      (new CommandStackListener()
-       {
-         public void commandStackChanged(final EventObject event)
-         {
-           getContainer().getDisplay().asyncExec
-             (new Runnable()
-              {
-                public void run()
-                {
-                  firePropertyChange(IEditorPart.PROP_DIRTY);
-
-                  // Try to select the affected objects.
-                  //
-                  Command mostRecentCommand = ((CommandStack)event.getSource()).getMostRecentCommand();
-                  if (mostRecentCommand != null)
-                  {
-                    setSelectionToViewer(mostRecentCommand.getAffectedObjects());
-                  }
-                  if (propertySheetPage != null && !propertySheetPage.getControl().isDisposed())
-                  {
-                    propertySheetPage.refresh();
-                  }
-                }
-              });
-         }
-       });
-
-    // Create the editing domain with a special command stack.
-    //
-    editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
-  }
 
   /**
    * This is here for the listener to be able to call it.
@@ -943,81 +905,19 @@ public class EmfAbstractEditor
     viewer.addDropSupport(dndOperations, transfers, new EditingDomainViewerDropAdapter(editingDomain, viewer));
   }
 
-  protected void createContextMenuFor(StructuredViewer viewer)
-  {
-    createContextMenuForGen(viewer);
+	protected void createContextMenuFor(StructuredViewer viewer) {
+		createContextMenuForGen(viewer);
 
-    viewer.getControl().addMouseListener
-     (new MouseAdapter()
-      {
-        @Override
-        public void mouseDoubleClick(MouseEvent event) 
-        {
-          if (event.button == 1)
-          {
-            try
-            {
-              getEditorSite().getPage().showView("org.eclipse.ui.views.PropertySheet");
-            }
-            catch (PartInitException exception)
-            {
-              EcoreEditorPlugin.INSTANCE.log(exception);
-            }
-          }
-        }
-      });
-   }
+		EmfViewerMouseAdapter listener = getEmfViewerMouseAdapter();
+		viewer.getControl().addMouseListener(listener);
+	}
 
-  /**
-   * This is the method called to load a resource into the editing domain's resource set based on the editor's input.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void createModelGen()
-  {
-    URI resourceURI = EditUIUtil.getURI(getEditorInput());
-    Exception exception = null;
-    Resource resource = null;
-    try
-    {
-      // Load the resource through the editing domain.
-      //
-      resource = editingDomain.getResourceSet().getResource(resourceURI, true);
-    }
-    catch (Exception e)
-    {
-      exception = e;
-      resource = editingDomain.getResourceSet().getResource(resourceURI, false);
-    }
+	protected EmfViewerMouseAdapter getEmfViewerMouseAdapter() {
+		if (emfViewerMouseAdapter.getEmfFormEditor() == null)
+			emfViewerMouseAdapter.setEmfFormEditor(this);
+		return emfViewerMouseAdapter;
+	}
 
-    Diagnostic diagnostic = analyzeResourceProblems(resource, exception);
-    if (diagnostic.getSeverity() != Diagnostic.OK)
-    {
-      resourceToDiagnosticMap.put(resource,  analyzeResourceProblems(resource, exception));
-    }
-    editingDomain.getResourceSet().eAdapters().add(problemIndicationAdapter);
-  }
-
-  public void createModel()
-  {
-    editingDomain.getResourceSet().getURIConverter().getURIMap().putAll(EcorePlugin.computePlatformURIMap());
-
-    createModelGen();
-
-    if (!editingDomain.getResourceSet().getResources().isEmpty())
-    {
-      for (Iterator<EObject> i = editingDomain.getResourceSet().getResources().get(0).getAllContents(); i.hasNext(); )
-      {
-        EObject eObject = i.next();
-        if (eObject instanceof ETypeParameter || eObject instanceof EGenericType && !((EGenericType)eObject).getETypeArguments().isEmpty())
-        {
-          ((EcoreActionBarContributor)getActionBarContributor()).showGenerics(true);
-          break;
-        }
-      }
-    }
-  }
 
   /**
    * Returns a diagnostic describing the errors and warnings listed in the resource
@@ -1054,66 +954,6 @@ public class EmfAbstractEditor
     {
       return Diagnostic.OK_INSTANCE;
     }
-  }
-
-  /**
-   * This is the method used by the framework to install your own controls.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated NOT
-   * <p>This is not generated to preserve setting the selection until that goes into the template. 
-   */
-  @Override
-  public void createPages()
-  {
-    // Creates the model from the editor input
-    //
-    createModel();
-
-    // Only creates the other pages if there is something that can be edited
-    //
-    if (!getEditingDomain().getResourceSet().getResources().isEmpty())
-    {
-      // Create a page for the selection tree view.
-      //
-      Tree tree = new Tree(getContainer(), SWT.MULTI);
-      selectionViewer = new TreeViewer(tree);
-      setCurrentViewer(selectionViewer);
-
-      selectionViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-      selectionViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-      selectionViewer.setInput(editingDomain.getResourceSet());
-      selectionViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
-
-      new AdapterFactoryTreeEditor(selectionViewer.getTree(), adapterFactory);
-
-      createContextMenuFor(selectionViewer);
-      int pageIndex = addPage(tree);
-      setPageText(pageIndex, getString("_UI_SelectionPage_label"));
-
-      setActivePage(0);
-    }
-
-    // Ensures that this editor will only display the page's tab
-    // area if there are more than one page
-    //
-    getContainer().addControlListener
-      (new ControlAdapter()
-       {
-        boolean guard = false;
-        @Override
-        public void controlResized(ControlEvent event)
-        {
-          if (!guard)
-          {
-            guard = true;
-            hideTabs();
-            guard = false;
-          }
-        }
-       });
-
-    updateProblemIndication();
   }
 
   /**
@@ -1203,79 +1043,82 @@ public class EmfAbstractEditor
     }
   }
 
-  /**
-   * This accesses a cached version of the content outliner.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public IContentOutlinePage getContentOutlinePage()
-  {
-    if (contentOutlinePage == null)
-    {
-      // The content outline is just a tree.
-      //
-      class MyContentOutlinePage extends ContentOutlinePage
-      {
-        @Override
-        public void createControl(Composite parent)
-        {
-          super.createControl(parent);
-          contentOutlineViewer = getTreeViewer();
-          contentOutlineViewer.addSelectionChangedListener(this);
+	public IContentOutlinePage getContentOutlinePage() {
+		if (contentOutlinePage == null) {
+			// The content outline is just a tree.
+			//
+			class MyContentOutlinePage extends ContentOutlinePage {
+				@Override
+				public void createControl(Composite parent) {
+					super.createControl(parent);
+					contentOutlineViewer = getTreeViewer();
+					contentOutlineViewer.addSelectionChangedListener(this);
 
-          // Set up the tree viewer.
-          //
-          contentOutlineViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-          contentOutlineViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-          contentOutlineViewer.setInput(editingDomain.getResourceSet());
+					// Set up the tree viewer.
+					//
+					contentOutlineViewer
+							.setContentProvider(new AdapterFactoryContentProvider(
+									adapterFactory));
+					contentOutlineViewer.setLabelProvider(getLabelProvider());
+					contentOutlineViewer.setInput(editingDomain
+							.getResourceSet());
 
-          // Make sure our popups work.
-          //
-          createContextMenuFor(contentOutlineViewer);
+					// Make sure our popups work.
+					//
+					createContextMenuFor(contentOutlineViewer);
 
-          if (!editingDomain.getResourceSet().getResources().isEmpty())
-          {
-            // Select the root object in the view.
-            //
-            contentOutlineViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
-          }
-        }
+					if (!editingDomain.getResourceSet().getResources()
+							.isEmpty()) {
+						// Select the root object in the view.
+						//
+						contentOutlineViewer
+								.setSelection(new StructuredSelection(
+										editingDomain.getResourceSet()
+												.getResources().get(0)), true);
+					}
+				}
 
-        @Override
-        public void makeContributions(IMenuManager menuManager, IToolBarManager toolBarManager, IStatusLineManager statusLineManager)
-        {
-          super.makeContributions(menuManager, toolBarManager, statusLineManager);
-          contentOutlineStatusLineManager = statusLineManager;
-        }
+				@Override
+				public void makeContributions(IMenuManager menuManager,
+						IToolBarManager toolBarManager,
+						IStatusLineManager statusLineManager) {
+					super.makeContributions(menuManager, toolBarManager,
+							statusLineManager);
+					contentOutlineStatusLineManager = statusLineManager;
+				}
 
-        @Override
-        public void setActionBars(IActionBars actionBars)
-        {
-          super.setActionBars(actionBars);
-          getActionBarContributor().shareGlobalActions(this, actionBars);
-        }
-      }
+				@Override
+				public void setActionBars(IActionBars actionBars) {
+					super.setActionBars(actionBars);
+					getActionBarContributor().shareGlobalActions(this,
+							actionBars);
+				}
+			}
 
-      contentOutlinePage = new MyContentOutlinePage();
+			contentOutlinePage = new MyContentOutlinePage();
 
-      // Listen to selection so that we can handle it is a special way.
-      //
-      contentOutlinePage.addSelectionChangedListener
-        (new ISelectionChangedListener()
-         {
-           // This ensures that we handle selections correctly.
-           //
-           public void selectionChanged(SelectionChangedEvent event)
-           {
-             handleContentOutlineSelection(event.getSelection());
-           }
-         });
-    }
+			// Listen to selection so that we can handle it is a special way.
+			//
+			contentOutlinePage
+					.addSelectionChangedListener(new ISelectionChangedListener() {
+						// This ensures that we handle selections correctly.
+						//
+						public void selectionChanged(SelectionChangedEvent event) {
+							handleContentOutlineSelection(event.getSelection());
+						}
+					});
+		}
 
-    return contentOutlinePage;
-  }
+		return contentOutlinePage;
+	}
 
+
+	protected IBaseLabelProvider getLabelProvider() {
+		return selectionViewer.getLabelProvider();
+	}
+
+
+	
   /**
    * This accesses a cached version of the property sheet.
    * <!-- begin-user-doc -->
@@ -1309,36 +1152,12 @@ public class EmfAbstractEditor
     return propertySheetPage;
   }
 
-  /**
-   * This deals with how we want selection in the outliner to affect the other views.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void handleContentOutlineSelection(ISelection selection)
-  {
-    if (selectionViewer != null && !selection.isEmpty() && selection instanceof IStructuredSelection)
-    {
-      Iterator<?> selectedElements = ((IStructuredSelection)selection).iterator();
-      if (selectedElements.hasNext())
-      {
-        // Get the first selected element.
-        //
-        Object selectedElement = selectedElements.next();
+	public void handleContentOutlineSelection(ISelection selection) {
+		if (contentOutlineSelectionHandler.getSelectionViewer() == null)
+			contentOutlineSelectionHandler.setSelectionViewer(selectionViewer);
+		contentOutlineSelectionHandler.handleContentOutlineSelection(selection);
+	}
 
-        ArrayList<Object> selectionList = new ArrayList<Object>();
-        selectionList.add(selectedElement);
-        while (selectedElements.hasNext())
-        {
-          selectionList.add(selectedElements.next());
-        }
-
-        // Set the selection to the widget.
-        //
-        selectionViewer.setSelection(new StructuredSelection(selectionList));
-      }
-    }
-  }
 
   /**
    * This is for implementing {@link IEditorPart} and simply tests the command stack.
@@ -1563,16 +1382,17 @@ public class EmfAbstractEditor
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void init(IEditorSite site, IEditorInput editorInput)
-  {
-    setSite(site);
-    setInputWithNotify(editorInput);
-    setPartName(editorInput.getName());
-    site.setSelectionProvider(this);
-    site.getPage().addPartListener(partListener);
-    ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener, IResourceChangeEvent.POST_CHANGE);
-  }
+	@Override
+	public void init(IEditorSite site, IEditorInput editorInput) {
+		setSite(site);
+		setInputWithNotify(editorInput);
+		setPartName(editorInput.getName());
+		site.setSelectionProvider(this);
+		site.getPage().addPartListener(partListener);
+		initializeEditingDomain();
+		ResourcesPlugin.getWorkspace().addResourceChangeListener(
+				resourceChangeListener, IResourceChangeEvent.POST_CHANGE);
+	}
 
   /**
    * <!-- begin-user-doc -->
