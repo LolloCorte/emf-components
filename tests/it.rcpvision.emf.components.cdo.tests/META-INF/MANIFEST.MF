@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Emf Form Editor CDO Tests
+Bundle-Name: EMF Tree Editor CDO Tests
 Bundle-SymbolicName: it.rcpvision.emf.components.cdo.tests
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: it.rcpvision.emf.components.cdo.tests.Activator

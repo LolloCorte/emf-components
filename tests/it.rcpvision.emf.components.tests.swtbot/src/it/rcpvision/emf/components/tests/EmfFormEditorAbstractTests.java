@@ -64,13 +64,13 @@ public class EmfFormEditorAbstractTests {
 
 	protected static final String TRANSITION_LABEL = "Transition";
 
-	protected static final String EMF_FORM_EDITOR = "EMF Form Editor";
+	protected static final String EMF_FORM_EDITOR = "EMF Tree Editor";
 
-	protected static final String EMF_FORM_EDITOR_STATEMACHINE = "EMF Form Editor Statemachine";
+	protected static final String EMF_FORM_EDITOR_STATEMACHINE = "EMF Tree Editor Statemachine";
 
-	protected static final String EMF_FORM_EDITOR_NO_MOUSE = "EMF Form Editor No Mouse Events";
+	protected static final String EMF_FORM_EDITOR_NO_MOUSE = "EMF Tree Editor No Mouse Events";
 
-	protected static final String EMF_FORM_EDITOR_CUSTOM_LABEL = "EMF Form Editor Custom Label";
+	protected static final String EMF_FORM_EDITOR_CUSTOM_LABEL = "EMF Tree Editor Custom Label";
 
 	protected static final String EMF_CUSTOM_LIBRARY_EDITOR = "EMF Custom Library Editor";
 

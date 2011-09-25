@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: EMF Form Editor
+Bundle-Name: EMF Tree Editor
 Bundle-SymbolicName: it.rcpvision.emf.components;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: it.rcpvision.emf.components.EmfComponentsActivator

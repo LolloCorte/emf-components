@@ -8,7 +8,7 @@
             contributorClass="org.eclipse.emf.presentation.EmfFormEditorActionBarContributor"
             default="false"
             id="it.rcpvision.emf.components"
-            name="EMF Form Editor">
+            name="EMF Tree Editor">
          <contentTypeBinding
                contentTypeId="org.eclipse.emf.ecore.xmi">
          </contentTypeBinding>

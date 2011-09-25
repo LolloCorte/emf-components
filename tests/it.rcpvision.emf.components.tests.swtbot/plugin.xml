@@ -8,7 +8,7 @@
             contributorClass="org.eclipse.emf.presentation.EmfFormEditorActionBarContributor"
             default="false"
             id="it.rcpvision.emf.components.noMouseEvents"
-            name="EMF Form Editor No Mouse Events">
+            name="EMF Tree Editor No Mouse Events">
          <contentTypeBinding
                contentTypeId="org.eclipse.emf.ecore.xmi">
          </contentTypeBinding>
@@ -22,7 +22,7 @@
             contributorClass="org.eclipse.emf.presentation.EmfFormEditorActionBarContributor"
             default="false"
             id="it.rcpvision.emf.components.customLabel"
-            name="EMF Form Editor Custom Label">
+            name="EMF Tree Editor Custom Label">
          <contentTypeBinding
                contentTypeId="org.eclipse.emf.ecore.xmi">
          </contentTypeBinding>
@@ -50,7 +50,7 @@
              contributorClass="org.eclipse.emf.presentation.EmfFormEditorActionBarContributor"
              default="false"
              id="it.rcpvision.emf.components.customLabel"
-             name="EMF Form Editor Derived">
+             name="EMF Tree Editor Derived">
           <contentTypeBinding
                 contentTypeId="org.eclipse.emf.ecore.xmi">
           </contentTypeBinding>
@@ -64,7 +64,7 @@
              default="false"
              extensions="statemachine"
              id="it.rcpvision.emf.components.statemachine"
-             name="EMF Form Editor Statemachine">
+             name="EMF Tree Editor Statemachine">
        </editor>
     </extension>
     <extension
