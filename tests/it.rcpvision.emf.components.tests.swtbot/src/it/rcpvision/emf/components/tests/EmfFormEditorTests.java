@@ -35,6 +35,15 @@ public class EmfFormEditorTests extends EmfFormEditorAbstractTests {
 	}
 
 	@Test
+	public void canAccessContextMenuOfLibrary() throws Exception {
+		getSubMenuItem(
+				getLibraryNode(
+						getRootOfEditorTree(EMF_TREE_EDITOR, MY_EXTLIBRARY,
+								MY_EXT_LIBRARY_PLATFORM_URI)).contextMenu(
+						"New Child"), "Book");
+	}
+
+	@Test
 	public void canAccessEditorTreeOfStatemachine() throws Exception {
 		accessStateMachineNodes(getRootOfEditorTree(
 				EMF_TREE_EDITOR_STATEMACHINE, MY_STATEMACHINE,
