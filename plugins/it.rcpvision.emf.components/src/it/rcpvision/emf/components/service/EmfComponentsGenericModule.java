@@ -30,11 +30,11 @@ import com.google.inject.Provider;
  * @author bettini
  * 
  */
-public class EmfFormEditorGenericModule extends AbstractGenericModule {
+public class EmfComponentsGenericModule extends AbstractGenericModule {
 
 	private final AbstractUIPlugin plugin;
 
-	public EmfFormEditorGenericModule(AbstractUIPlugin plugin) {
+	public EmfComponentsGenericModule(AbstractUIPlugin plugin) {
 		this.plugin = plugin;
 	}
 

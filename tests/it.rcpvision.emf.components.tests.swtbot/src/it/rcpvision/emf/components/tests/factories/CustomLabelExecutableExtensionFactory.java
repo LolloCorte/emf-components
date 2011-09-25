@@ -3,7 +3,7 @@
  */
 package it.rcpvision.emf.components.tests.factories;
 
-import it.rcpvision.emf.components.service.EmfFormEditorGenericModule;
+import it.rcpvision.emf.components.service.EmfComponentsGenericModule;
 import it.rcpvision.emf.components.tests.EmfFormEditorTestsActivator;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 
@@ -29,8 +29,8 @@ public class CustomLabelExecutableExtensionFactory extends
 	}
 
 	@Override
-	protected EmfFormEditorGenericModule getModule() {
-		return new EmfFormEditorGenericModule(EmfFormEditorTestsActivator.getDefault()) {
+	protected EmfComponentsGenericModule getModule() {
+		return new EmfComponentsGenericModule(EmfFormEditorTestsActivator.getDefault()) {
 
 			@Override
 			public Class<? extends CompositeLabelProvider> bindCompositeLabelProvider() {

@@ -36,7 +36,7 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EEnumImpl;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import it.rcpvision.emf.components.EmfFormEditorActivator;
+import it.rcpvision.emf.components.EmfComponentsActivator;
 import it.rcpvision.emf.components.old.ui.ProposalCreator;
 import it.rcpvision.emf.components.ui.binding.ControlObservablePair;
 import org.eclipse.jface.bindings.keys.KeyStroke;

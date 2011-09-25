@@ -3,7 +3,7 @@
  */
 package it.rcpvision.emf.components.tests.factories;
 
-import it.rcpvision.emf.components.service.EmfFormEditorGenericModule;
+import it.rcpvision.emf.components.service.EmfComponentsGenericModule;
 import it.rcpvision.emf.components.tests.EmfFormEditorTestsActivator;
 import it.rcpvision.emf.components.tests.binding.CustomLibraryBindingFactory;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryFeatureLabelProvider;
@@ -23,8 +23,8 @@ public class CustomLibraryExecutableExtensionFactory extends
 		EmfFormEditorTestsExecutableExtensionFactory {
 
 	@Override
-	protected EmfFormEditorGenericModule getModule() {
-		return new EmfFormEditorGenericModule(
+	protected EmfComponentsGenericModule getModule() {
+		return new EmfComponentsGenericModule(
 				EmfFormEditorTestsActivator.getDefault()) {
 
 			@Override

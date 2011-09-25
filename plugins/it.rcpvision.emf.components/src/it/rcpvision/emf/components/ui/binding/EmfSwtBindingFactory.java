@@ -15,7 +15,7 @@
  */
 package it.rcpvision.emf.components.ui.binding;
 
-import it.rcpvision.emf.components.EmfFormEditorActivator;
+import it.rcpvision.emf.components.EmfComponentsActivator;
 import it.rcpvision.emf.components.old.ui.ProposalCreator;
 import it.rcpvision.emf.components.old.ui.binding.MultipleFeatureControl;
 import it.rcpvision.emf.components.old.ui.binding.MultipleFeatureControlObservable;
@@ -261,11 +261,11 @@ public class EmfSwtBindingFactory {
 			try {
 				keyStroke = KeyStroke.getInstance(string);
 			} catch (ParseException e) {
-				EmfFormEditorActivator
+				EmfComponentsActivator
 						.getDefault()
 						.getLog()
 						.log(new Status(IStatus.ERROR,
-								EmfFormEditorActivator.PLUGIN_ID,
+								EmfComponentsActivator.PLUGIN_ID,
 								"Error while parse: " + string, e));
 			}
 			new ContentProposalAdapter(t, new TextContentAdapter(),

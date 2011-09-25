@@ -5,7 +5,7 @@ package it.rcpvision.emf.components.tests.factories;
 
 import it.rcpvision.emf.components.listeners.EmfViewerMouseAdapter;
 import it.rcpvision.emf.components.listeners.EmfViewerNoOpMouseAdapter;
-import it.rcpvision.emf.components.service.EmfFormEditorGenericModule;
+import it.rcpvision.emf.components.service.EmfComponentsGenericModule;
 import it.rcpvision.emf.components.tests.EmfFormEditorTestsActivator;
 
 
@@ -19,8 +19,8 @@ public class NoMouseEventExecutableExtensionFactory extends
 		EmfFormEditorTestsExecutableExtensionFactory {
 
 	@Override
-	protected EmfFormEditorGenericModule getModule() {
-		return new EmfFormEditorGenericModule(
+	protected EmfComponentsGenericModule getModule() {
+		return new EmfComponentsGenericModule(
 				EmfFormEditorTestsActivator.getDefault()) {
 
 			@Override

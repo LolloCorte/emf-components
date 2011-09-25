@@ -1,13 +1,13 @@
 package it.rcpvision.cdo04.editor.guice;
 
 import it.rcpvision.cdo04.editor.Activator;
-import it.rcpvision.emf.components.EmfFormEditorExecutableExtensionFactory;
-import it.rcpvision.emf.components.service.EmfFormEditorGenericModule;
+import it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory;
+import it.rcpvision.emf.components.service.EmfComponentsGenericModule;
 
 import org.osgi.framework.Bundle;
 
 public class DemoExecutableExtensionFactory extends
-		EmfFormEditorExecutableExtensionFactory {
+		EmfComponentsExecutableExtensionFactory {
 
 	@Override
 	protected Bundle getBundle() {
@@ -15,7 +15,7 @@ public class DemoExecutableExtensionFactory extends
 	}
 
 	@Override
-	protected EmfFormEditorGenericModule getModule() {
+	protected EmfComponentsGenericModule getModule() {
 		return new DemoModule(Activator.getDefault());
 	}
 

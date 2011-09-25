@@ -4,7 +4,7 @@
 package it.rcpvision.emf.components;
 
 import static com.google.inject.Guice.createInjector;
-import it.rcpvision.emf.components.service.EmfFormEditorGenericModule;
+import it.rcpvision.emf.components.service.EmfComponentsGenericModule;
 
 import org.eclipse.xtext.ui.guice.AbstractGuiceAwareExecutableExtensionFactory;
 import org.osgi.framework.Bundle;
@@ -15,7 +15,7 @@ import com.google.inject.Injector;
  * @author bettini
  * 
  */
-public class EmfFormEditorExecutableExtensionFactory extends
+public class EmfComponentsExecutableExtensionFactory extends
 		AbstractGuiceAwareExecutableExtensionFactory {
 
 	/**
@@ -29,7 +29,7 @@ public class EmfFormEditorExecutableExtensionFactory extends
 	 */
 	@Override
 	protected Bundle getBundle() {
-		return EmfFormEditorActivator.getDefault().getBundle();
+		return EmfComponentsActivator.getDefault().getBundle();
 	}
 
 	/*
@@ -44,8 +44,8 @@ public class EmfFormEditorExecutableExtensionFactory extends
 		return createInjector(getModule());
 	}
 
-	protected EmfFormEditorGenericModule getModule() {
-		return new EmfFormEditorGenericModule(EmfFormEditorActivator.getDefault());
+	protected EmfComponentsGenericModule getModule() {
+		return new EmfComponentsGenericModule(EmfComponentsActivator.getDefault());
 	}
 
 }

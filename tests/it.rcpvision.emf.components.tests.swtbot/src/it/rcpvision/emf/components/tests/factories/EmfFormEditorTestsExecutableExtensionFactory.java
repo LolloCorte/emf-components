@@ -3,7 +3,7 @@
  */
 package it.rcpvision.emf.components.tests.factories;
 
-import it.rcpvision.emf.components.EmfFormEditorExecutableExtensionFactory;
+import it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory;
 import it.rcpvision.emf.components.tests.EmfFormEditorTestsActivator;
 
 import org.osgi.framework.Bundle;
@@ -17,12 +17,12 @@ import com.google.inject.Injector;
  * 
  */
 public class EmfFormEditorTestsExecutableExtensionFactory extends
-		EmfFormEditorExecutableExtensionFactory {
+		EmfComponentsExecutableExtensionFactory {
 
 	/**
 	 * We override it since we use guice to load a class from this very plugin.
 	 * 
-	 * @see it.rcpvision.emf.components.EmfFormEditorExecutableExtensionFactory#getBundle()
+	 * @see it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory#getBundle()
 	 */
 	@Override
 	protected Bundle getBundle() {

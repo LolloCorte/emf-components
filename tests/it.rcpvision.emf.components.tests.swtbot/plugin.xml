@@ -59,7 +59,7 @@
     <extension
           point="org.eclipse.ui.editors">
        <editor
-             class="it.rcpvision.emf.components.EmfFormEditorExecutableExtensionFactory:it.rcpvision.emf.components.EmfFormEditor"
+             class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.EmfFormEditor"
              contributorClass="org.eclipse.emf.presentation.EmfFormEditorActionBarContributor"
              default="false"
              extensions="statemachine"

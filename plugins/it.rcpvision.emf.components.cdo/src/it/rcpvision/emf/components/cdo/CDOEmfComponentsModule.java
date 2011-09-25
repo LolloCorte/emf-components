@@ -4,7 +4,7 @@
 package it.rcpvision.emf.components.cdo;
 
 import it.rcpvision.emf.components.ResourceLoader;
-import it.rcpvision.emf.components.service.EmfFormEditorGenericModule;
+import it.rcpvision.emf.components.service.EmfComponentsGenericModule;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
@@ -12,9 +12,9 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
  * @author bettini
  *
  */
-public class CDOEmfFormEditorModule extends EmfFormEditorGenericModule {
+public class CDOEmfComponentsModule extends EmfComponentsGenericModule {
 
-	public CDOEmfFormEditorModule(AbstractUIPlugin plugin) {
+	public CDOEmfComponentsModule(AbstractUIPlugin plugin) {
 		super(plugin);
 	}
 

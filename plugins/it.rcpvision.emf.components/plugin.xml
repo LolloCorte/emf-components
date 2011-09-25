@@ -4,7 +4,7 @@
    <extension
          point="org.eclipse.ui.editors">
       <editor
-            class="it.rcpvision.emf.components.EmfFormEditorExecutableExtensionFactory:it.rcpvision.emf.components.EmfFormEditor"
+            class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.EmfFormEditor"
             contributorClass="org.eclipse.emf.presentation.EmfFormEditorActionBarContributor"
             default="false"
             id="it.rcpvision.emf.components"
@@ -17,13 +17,13 @@
    <extension
          point="org.eclipse.ui.views">
       <view
-            class="it.rcpvision.emf.components.EmfFormEditorExecutableExtensionFactory:it.rcpvision.emf.components.views.EmfView"
+            class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.EmfView"
             id="it.rcpvision.emf.components.emfview"
             name="Emf View"
             restorable="true">
       </view>
       <view
-            class="it.rcpvision.emf.components.EmfFormEditorExecutableExtensionFactory:it.rcpvision.emf.components.views.GenericDetailViewPart"
+            class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.GenericDetailViewPart"
             id="it.rcpvision.emf.components.detailView"
             name="Emf Detail View"
             restorable="true">

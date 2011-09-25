@@ -6,18 +6,18 @@ import org.osgi.framework.BundleContext;
 /**
  * The activator class controls the plug-in life cycle
  */
-public class EmfFormEditorActivator extends AbstractUIPlugin {
+public class EmfComponentsActivator extends AbstractUIPlugin {
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "it.rcpvision.emf.components"; //$NON-NLS-1$
 
 	// The shared instance
-	private static EmfFormEditorActivator plugin;
+	private static EmfComponentsActivator plugin;
 	
 	/**
 	 * The constructor
 	 */
-	public EmfFormEditorActivator() {
+	public EmfComponentsActivator() {
 	}
 
 	/*
@@ -43,7 +43,7 @@ public class EmfFormEditorActivator extends AbstractUIPlugin {
 	 *
 	 * @return the shared instance
 	 */
-	public static EmfFormEditorActivator getDefault() {
+	public static EmfComponentsActivator getDefault() {
 		return plugin;
 	}
 
