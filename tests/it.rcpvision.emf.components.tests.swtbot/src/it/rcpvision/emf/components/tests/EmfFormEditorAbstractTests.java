@@ -64,13 +64,13 @@ public class EmfFormEditorAbstractTests {
 
 	protected static final String TRANSITION_LABEL = "Transition";
 
-	protected static final String EMF_FORM_EDITOR = "EMF Tree Editor";
+	protected static final String EMF_TREE_EDITOR = "EMF Tree Editor";
 
-	protected static final String EMF_FORM_EDITOR_STATEMACHINE = "EMF Tree Editor Statemachine";
+	protected static final String EMF_TREE_EDITOR_STATEMACHINE = "EMF Tree Editor Statemachine";
 
-	protected static final String EMF_FORM_EDITOR_NO_MOUSE = "EMF Tree Editor No Mouse Events";
+	protected static final String EMF_TREE_EDITOR_NO_MOUSE = "EMF Tree Editor No Mouse Events";
 
-	protected static final String EMF_FORM_EDITOR_CUSTOM_LABEL = "EMF Tree Editor Custom Label";
+	protected static final String EMF_TREE_EDITOR_CUSTOM_LABEL = "EMF Tree Editor Custom Label";
 
 	protected static final String EMF_CUSTOM_LIBRARY_EDITOR = "EMF Custom Library Editor";
 
@@ -116,14 +116,14 @@ public class EmfFormEditorAbstractTests {
 		}
 
 		editorNamesToId = new HashMap<String, String>();
-		editorNamesToId.put(EMF_FORM_EDITOR,
-				EmfFormEditorTestsActivator.EMF_FORM_EDITOR);
-		editorNamesToId.put(EMF_FORM_EDITOR_STATEMACHINE,
-				EmfFormEditorTestsActivator.EMF_FORM_EDITOR_FOR_STATEMACHINE);
-		editorNamesToId.put(EMF_FORM_EDITOR_NO_MOUSE,
-				EmfFormEditorTestsActivator.EMF_FORM_EDITOR_NO_MOUSE_ID);
-		editorNamesToId.put(EMF_FORM_EDITOR_CUSTOM_LABEL,
-				EmfFormEditorTestsActivator.EMF_FORM_EDITOR_CUSTOM_LABEL);
+		editorNamesToId.put(EMF_TREE_EDITOR,
+				EmfFormEditorTestsActivator.EMF_TREE_EDITOR);
+		editorNamesToId.put(EMF_TREE_EDITOR_STATEMACHINE,
+				EmfFormEditorTestsActivator.EMF_TREE_EDITOR_FOR_STATEMACHINE);
+		editorNamesToId.put(EMF_TREE_EDITOR_NO_MOUSE,
+				EmfFormEditorTestsActivator.EMF_TREE_EDITOR_NO_MOUSE_ID);
+		editorNamesToId.put(EMF_TREE_EDITOR_CUSTOM_LABEL,
+				EmfFormEditorTestsActivator.EMF_TREE_EDITOR_CUSTOM_LABEL);
 		editorNamesToId.put(EMF_CUSTOM_LIBRARY_EDITOR,
 				EmfFormEditorTestsActivator.EMF_EDITOR_FOR_LIBRARY);
 

@@ -17,13 +17,13 @@ public class EmfFormEditorTestsActivator extends AbstractUIPlugin {
 	// The shared instance
 	private static EmfFormEditorTestsActivator plugin;
 	
-	public static final String EMF_FORM_EDITOR = "it.rcpvision.emf.components";
+	public static final String EMF_TREE_EDITOR = "it.rcpvision.emf.components";
 
-	public static final String EMF_FORM_EDITOR_NO_MOUSE_ID = "it.rcpvision.emf.components.noMouseEvents";
+	public static final String EMF_TREE_EDITOR_NO_MOUSE_ID = "it.rcpvision.emf.components.noMouseEvents";
 	
-	public static final String EMF_FORM_EDITOR_CUSTOM_LABEL = "it.rcpvision.emf.components.customLabel";
+	public static final String EMF_TREE_EDITOR_CUSTOM_LABEL = "it.rcpvision.emf.components.customLabel";
 
-	public static final String EMF_FORM_EDITOR_FOR_STATEMACHINE = "it.rcpvision.emf.components.statemachine";
+	public static final String EMF_TREE_EDITOR_FOR_STATEMACHINE = "it.rcpvision.emf.components.statemachine";
 
 	public static final String EMF_EDITOR_FOR_LIBRARY = "it.rcpvision.emf.components.customLibrary";
 
