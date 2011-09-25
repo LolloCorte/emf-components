@@ -58,7 +58,7 @@ import com.google.inject.Inject;
  * @author bettini
  * 
  */
-public class EmfFormEditor extends EcoreEditor {
+public class EmfTreeEditor extends EcoreEditor {
 
 	@Inject
 	protected EmfViewerFactory emfTreeViewerFactory;
@@ -78,7 +78,7 @@ public class EmfFormEditor extends EcoreEditor {
 	/**
 	 * 
 	 */
-	public EmfFormEditor() {
+	public EmfTreeEditor() {
 
 	}
 

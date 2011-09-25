@@ -3,13 +3,13 @@
  */
 package it.rcpvision.emf.components.tests.editors;
 
-import it.rcpvision.emf.components.editors.EmfFormEditor;
+import it.rcpvision.emf.components.editors.EmfTreeEditor;
 
 /**
  * @author bettini
  *
  */
-public class TestFormEditor extends EmfFormEditor {
+public class TestFormEditor extends EmfTreeEditor {
 
 	/**
 	 * 

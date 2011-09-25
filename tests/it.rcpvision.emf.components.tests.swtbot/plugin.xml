@@ -4,7 +4,7 @@
 	<extension
          point="org.eclipse.ui.editors">
       <editor
-            class="it.rcpvision.emf.components.tests.factories.NoMouseEventExecutableExtensionFactory:it.rcpvision.emf.components.editors.EmfFormEditor"
+            class="it.rcpvision.emf.components.tests.factories.NoMouseEventExecutableExtensionFactory:it.rcpvision.emf.components.editors.EmfTreeEditor"
             contributorClass="org.eclipse.emf.presentation.EmfFormEditorActionBarContributor"
             default="false"
             id="it.rcpvision.emf.components.noMouseEvents"
@@ -18,7 +18,7 @@
    	<extension
          point="org.eclipse.ui.editors">
       <editor
-            class="it.rcpvision.emf.components.tests.factories.CustomLabelExecutableExtensionFactory:it.rcpvision.emf.components.editors.EmfFormEditor"
+            class="it.rcpvision.emf.components.tests.factories.CustomLabelExecutableExtensionFactory:it.rcpvision.emf.components.editors.EmfTreeEditor"
             contributorClass="org.eclipse.emf.presentation.EmfFormEditorActionBarContributor"
             default="false"
             id="it.rcpvision.emf.components.customLabel"
@@ -59,7 +59,7 @@
     <extension
           point="org.eclipse.ui.editors">
        <editor
-             class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.editors.EmfFormEditor"
+             class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.editors.EmfTreeEditor"
              contributorClass="org.eclipse.emf.presentation.EmfFormEditorActionBarContributor"
              default="false"
              extensions="statemachine"

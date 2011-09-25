@@ -1,6 +1,6 @@
 package it.rcpvision.emf.components.listeners;
 
-import it.rcpvision.emf.components.editors.EmfFormEditor;
+import it.rcpvision.emf.components.editors.EmfTreeEditor;
 
 import org.eclipse.emf.ecore.presentation.EcoreEditorPlugin;
 import org.eclipse.swt.events.MouseAdapter;
@@ -17,14 +17,14 @@ public class EmfViewerMouseAdapter extends MouseAdapter {
 	/**
 	 * 
 	 */
-	private EmfFormEditor emfFormEditor;
+	private EmfTreeEditor emfTreeEditor;
 
-	public EmfFormEditor getEmfFormEditor() {
-		return emfFormEditor;
+	public EmfTreeEditor getEmfFormEditor() {
+		return emfTreeEditor;
 	}
 
-	public void setEmfFormEditor(EmfFormEditor emfFormEditor) {
-		this.emfFormEditor = emfFormEditor;
+	public void setEmfFormEditor(EmfTreeEditor emfTreeEditor) {
+		this.emfTreeEditor = emfTreeEditor;
 	}
 
 	@Override
