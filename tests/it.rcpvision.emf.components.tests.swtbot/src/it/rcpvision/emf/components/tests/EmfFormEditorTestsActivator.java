@@ -17,7 +17,7 @@ public class EmfFormEditorTestsActivator extends AbstractUIPlugin {
 	// The shared instance
 	private static EmfFormEditorTestsActivator plugin;
 	
-	public static final String EMF_TREE_EDITOR = "it.rcpvision.emf.components";
+	public static final String EMF_TREE_EDITOR = "it.rcpvision.emf.components.editors.treeEditor";
 
 	public static final String EMF_TREE_EDITOR_NO_MOUSE_ID = "it.rcpvision.emf.components.noMouseEvents";
 	

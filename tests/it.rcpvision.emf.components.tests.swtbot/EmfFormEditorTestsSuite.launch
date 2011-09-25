@@ -15,7 +15,7 @@
 <booleanAttribute key="includeOptional" value="true"/>
 <stringAttribute key="location" value="${workspace_loc}/../junit-workspace"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/it.rcpvision.emf.components.tests.swtbot/src/org/eclipse/emf/formeditor/tests/EmfFormEditorTestsSuite.java"/>
+<listEntry value="/it.rcpvision.emf.components.tests.swtbot/src/it/rcpvision/emf/components/tests/EmfFormEditorTestsSuite.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
