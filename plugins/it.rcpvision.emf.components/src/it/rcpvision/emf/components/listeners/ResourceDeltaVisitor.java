@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
 /**
- * Extracted and adapted from EcoreEditor
+ * Extracted and adapted from EmfAbstractEditor
  * 
  * @author Lorenzo Bettini
  * 

@@ -58,7 +58,7 @@ import com.google.inject.Inject;
  * @author bettini
  * 
  */
-public class EmfTreeEditor extends EcoreEditor {
+public class EmfTreeEditor extends EmfAbstractEditor {
 
 	@Inject
 	protected EmfViewerFactory emfTreeViewerFactory;

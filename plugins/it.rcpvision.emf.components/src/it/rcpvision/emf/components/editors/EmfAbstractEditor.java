@@ -12,7 +12,7 @@
  *
  * </copyright>
  *
- * $Id: EcoreEditor.java,v 1.62 2011/05/12 20:21:12 emerks Exp $
+ * $Id: EmfAbstractEditor.java,v 1.62 2011/05/12 20:21:12 emerks Exp $
  */
 package it.rcpvision.emf.components.editors;
 
@@ -141,11 +141,11 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EcoreEditor
+public class EmfAbstractEditor
   extends MultiPageEditorPart
   implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker
 {
-  public static class XML extends EcoreEditor
+  public static class XML extends EmfAbstractEditor
   {
     public XML()
     {
@@ -300,7 +300,7 @@ public class EcoreEditor
         {
           if (((ContentOutline)p).getCurrentPage() == contentOutlinePage)
           {
-            getActionBarContributor().setActiveEditor(EcoreEditor.this);
+            getActionBarContributor().setActiveEditor(EmfAbstractEditor.this);
 
             setCurrentViewer(contentOutlineViewer);
           }
@@ -309,11 +309,11 @@ public class EcoreEditor
         {
           if (((PropertySheet)p).getCurrentPage() == propertySheetPage)
           {
-            getActionBarContributor().setActiveEditor(EcoreEditor.this);
+            getActionBarContributor().setActiveEditor(EmfAbstractEditor.this);
             handleActivate();
           }
         }
-        else if (p == EcoreEditor.this)
+        else if (p == EmfAbstractEditor.this)
         {
           handleActivate();
         }
@@ -469,7 +469,7 @@ public class EcoreEditor
                    removedResources.addAll(visitor.getRemovedResources());
                    if (!isDirty())
                    {
-                     getSite().getPage().closeEditor(EcoreEditor.this, false);
+                     getSite().getPage().closeEditor(EmfAbstractEditor.this, false);
                    }
                  }
                });
@@ -483,7 +483,7 @@ public class EcoreEditor
                  public void run()
                  {
                    changedResources.addAll(visitor.getChangedResources());
-                   if (getSite().getPage().getActiveEditor() == EcoreEditor.this)
+                   if (getSite().getPage().getActiveEditor() == EmfAbstractEditor.this)
                    {
                      handleActivate();
                    }
@@ -521,7 +521,7 @@ public class EcoreEditor
     {
       if (handleDirtyConflict())
       {
-        getSite().getPage().closeEditor(EcoreEditor.this, false);
+        getSite().getPage().closeEditor(EmfAbstractEditor.this, false);
       }
       else
       {
@@ -676,7 +676,7 @@ public class EcoreEditor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EcoreEditor()
+  public EmfAbstractEditor()
   {
     super();
     // Lore: removed; it is called by init() initializeEditingDomain();
@@ -1292,8 +1292,8 @@ public class EcoreEditor
           @Override
           public void setSelectionToViewer(List<?> selection)
           {
-            EcoreEditor.this.setSelectionToViewer(selection);
-            EcoreEditor.this.setFocus();
+            EmfAbstractEditor.this.setSelectionToViewer(selection);
+            EmfAbstractEditor.this.setFocus();
           }
 
           @Override
