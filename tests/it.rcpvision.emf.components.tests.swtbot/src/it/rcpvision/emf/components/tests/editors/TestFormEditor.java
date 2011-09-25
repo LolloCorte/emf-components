@@ -3,7 +3,7 @@
  */
 package it.rcpvision.emf.components.tests.editors;
 
-import it.rcpvision.emf.components.EmfFormEditor;
+import it.rcpvision.emf.components.editors.EmfFormEditor;
 
 /**
  * @author bettini

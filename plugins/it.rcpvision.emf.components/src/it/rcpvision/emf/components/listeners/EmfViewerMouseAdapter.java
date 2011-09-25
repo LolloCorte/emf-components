@@ -1,6 +1,6 @@
 package it.rcpvision.emf.components.listeners;
 
-import it.rcpvision.emf.components.EmfFormEditor;
+import it.rcpvision.emf.components.editors.EmfFormEditor;
 
 import org.eclipse.emf.ecore.presentation.EcoreEditorPlugin;
 import org.eclipse.swt.events.MouseAdapter;

@@ -3,7 +3,7 @@
  */
 package it.rcpvision.emf.components.cdo;
 
-import it.rcpvision.emf.components.ResourceLoader;
+import it.rcpvision.emf.components.resource.ResourceLoader;
 import it.rcpvision.emf.components.service.EmfComponentsGenericModule;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;

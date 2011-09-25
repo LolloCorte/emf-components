@@ -1,7 +1,7 @@
 /**
  * 
  */
-package it.rcpvision.emf.components;
+package it.rcpvision.emf.components.resource;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;

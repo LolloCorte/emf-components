@@ -3,8 +3,8 @@
  */
 package it.rcpvision.emf.components.cdo;
 
-import it.rcpvision.emf.components.ResourceLoader;
 import it.rcpvision.emf.components.cdo.util.CDOURIData;
+import it.rcpvision.emf.components.resource.ResourceLoader;
 
 import org.eclipse.emf.cdo.eresource.CDOResource;
 import org.eclipse.emf.cdo.net4j.CDONet4jUtil;

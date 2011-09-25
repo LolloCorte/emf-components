@@ -16,7 +16,10 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: it.rcpvision.emf.components,
+ it.rcpvision.emf.components.editors,
+ it.rcpvision.emf.components.handlers,
  it.rcpvision.emf.components.listeners,
+ it.rcpvision.emf.components.resource,
  it.rcpvision.emf.components.service,
  it.rcpvision.emf.components.ui.binding,
  it.rcpvision.emf.components.ui.provider,

@@ -3,12 +3,12 @@
  */
 package it.rcpvision.emf.components.service;
 
-import it.rcpvision.emf.components.EditingDomainFactory;
-import it.rcpvision.emf.components.EditingDomainResourceLoader;
-import it.rcpvision.emf.components.ResourceLoader;
 import it.rcpvision.emf.components.handlers.ContentOutlineSelectionHandler;
 import it.rcpvision.emf.components.listeners.EmfViewerMouseAdapter;
 import it.rcpvision.emf.components.listeners.ResourceDeltaVisitor;
+import it.rcpvision.emf.components.resource.EditingDomainFactory;
+import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
+import it.rcpvision.emf.components.resource.ResourceLoader;
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;

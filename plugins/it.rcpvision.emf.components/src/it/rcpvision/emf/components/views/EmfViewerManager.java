@@ -3,8 +3,8 @@
  */
 package it.rcpvision.emf.components.views;
 
-import it.rcpvision.emf.components.EditingDomainFactory;
-import it.rcpvision.emf.components.EditingDomainResourceLoader;
+import it.rcpvision.emf.components.resource.EditingDomainFactory;
+import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;

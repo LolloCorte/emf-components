@@ -1,10 +1,13 @@
 /**
  * 
  */
-package it.rcpvision.emf.components;
+package it.rcpvision.emf.components.editors;
 
 import it.rcpvision.emf.components.handlers.ContentOutlineSelectionHandler;
 import it.rcpvision.emf.components.listeners.EmfViewerMouseAdapter;
+import it.rcpvision.emf.components.resource.EditingDomainFactory;
+import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
+import it.rcpvision.emf.components.resource.LoadResourceResponse;
 import it.rcpvision.emf.components.views.EmfViewerFactory;
 
 import java.util.EventObject;

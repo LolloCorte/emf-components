@@ -14,7 +14,7 @@
  *
  * $Id: EcoreEditor.java,v 1.62 2011/05/12 20:21:12 emerks Exp $
  */
-package it.rcpvision.emf.components;
+package it.rcpvision.emf.components.editors;
 
 
 import it.rcpvision.emf.components.listeners.ResourceDeltaVisitor;

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package it.rcpvision.emf.components;
+package it.rcpvision.emf.components.resource;
 
 import java.util.HashMap;
 
