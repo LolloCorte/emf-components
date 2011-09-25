@@ -913,8 +913,6 @@ protected EditingDomainResourceLoader resourceLoader;
 	}
 
 	protected EmfViewerMouseAdapter getEmfViewerMouseAdapter() {
-		if (emfViewerMouseAdapter.getEmfFormEditor() == null)
-			emfViewerMouseAdapter.setEmfFormEditor(this);
 		return emfViewerMouseAdapter;
 	}
 
