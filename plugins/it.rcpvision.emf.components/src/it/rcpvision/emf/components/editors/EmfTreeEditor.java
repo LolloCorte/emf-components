@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.presentation.EcoreEditorPlugin;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ControlAdapter;
@@ -53,6 +54,8 @@ public class EmfTreeEditor extends EmfAbstractEditor {
 		selectionViewer = emfTreeViewer;
 		setCurrentViewer(selectionViewer);
 
+		selectionViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
+		
 		updateActionBarContributor();
 
 		new AdapterFactoryTreeEditor(selectionViewer.getTree(), adapterFactory);
