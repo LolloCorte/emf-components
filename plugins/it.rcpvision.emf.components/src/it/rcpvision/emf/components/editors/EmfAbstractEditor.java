@@ -117,6 +117,7 @@ import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 
 
 /**
@@ -464,7 +465,7 @@ public abstract class EmfAbstractEditor
 protected EmfViewerFactory emfTreeViewerFactory;
 
 @Inject
-protected EmfViewerMouseAdapter emfViewerMouseAdapter;
+protected Provider<EmfViewerMouseAdapter> emfViewerMouseAdapterProvider;
 
 @Inject
 protected ContentOutlineSelectionHandler contentOutlineSelectionHandler;
@@ -897,7 +898,7 @@ protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;
 	}
 
 	protected EmfViewerMouseAdapter getEmfViewerMouseAdapter() {
-		return emfViewerMouseAdapter;
+		return emfViewerMouseAdapterProvider.get();
 	}
 
 
