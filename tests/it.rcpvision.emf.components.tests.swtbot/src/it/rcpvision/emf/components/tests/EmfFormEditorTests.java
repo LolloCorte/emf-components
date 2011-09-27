@@ -118,8 +118,8 @@ public class EmfFormEditorTests extends EmfFormEditorAbstractTests {
 		SWTBotView detailView = openTestView(EMF_DETAIL_VIEW);
 		getLibraryWriterNode(getRootOfOutlineViewTree()).select();
 		SWTFormsBot formbot = new SWTFormsBot(detailView.getWidget());
-		System.out.println(formbot.label("address"));
-		System.out.println(formbot.text("writer's address"));
+		formbot.label(ADDRESS_LABEL);
+		formbot.text(WRITER_S_ADDRESS_TEXT);
 	}
 
 }

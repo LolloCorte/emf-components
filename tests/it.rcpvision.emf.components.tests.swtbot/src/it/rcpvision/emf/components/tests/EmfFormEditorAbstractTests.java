@@ -100,6 +100,10 @@ public class EmfFormEditorAbstractTests {
 
 	protected static final String EMF_DETAIL_VIEW = "Emf Detail View";
 
+	protected static final String WRITER_S_ADDRESS_TEXT = "writer's address";
+
+	protected static final String ADDRESS_LABEL = "address";
+
 	protected static SWTWorkbenchBot bot;
 
 	protected static Map<String, String> editorNamesToId;
