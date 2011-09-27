@@ -7,6 +7,7 @@ import it.rcpvision.emf.components.resource.LoadResourceResponse;
 
 import java.util.Iterator;
 
+import org.eclipse.emf.common.ui.ViewerPane;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EGenericType;
@@ -17,10 +18,13 @@ import org.eclipse.emf.ecore.presentation.EcoreEditorPlugin;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Tree;
 
 
@@ -47,19 +51,36 @@ public class EmfTreeEditor extends EmfAbstractEditor {
 
 		handleProblems(response);
 
-		Tree tree = new Tree(getContainer(), SWT.MULTI);
-		TreeViewer emfTreeViewer = emfTreeViewerFactory.createTreeViewer(tree,
-				editingDomain);
-		selectionViewer = emfTreeViewer;
+		ViewerPane viewerPane = new ViewerPane(getSite().getPage(),
+				EmfTreeEditor.this) {
+			@Override
+			public Viewer createViewer(Composite composite) {
+				Tree tree = new Tree(composite, SWT.MULTI);
+				TreeViewer newTreeViewer = emfTreeViewerFactory.createTreeViewer(tree,
+						editingDomain);
+				return newTreeViewer;
+			}
+
+			@Override
+			public void requestActivation() {
+				super.requestActivation();
+				setCurrentViewer(getViewer());
+			}
+		};
+		viewerPane.createControl(getContainer());
+
+		selectionViewer = (TreeViewer) viewerPane.getViewer();
 		setCurrentViewer(selectionViewer);
 
+		selectionViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
+		
 		updateActionBarContributor();
 
 		new AdapterFactoryTreeEditor(selectionViewer.getTree(), adapterFactory);
 
 		createContextMenuFor(selectionViewer);
 
-		int pageIndex = addPage(tree);
+		int pageIndex = addPage(viewerPane.getControl());
 		setPageText(pageIndex, getString("_UI_SelectionPage_label"));
 
 		setActivePage(0);

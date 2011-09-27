@@ -6,6 +6,7 @@ package it.rcpvision.emf.components.service;
 import it.rcpvision.emf.components.handlers.ContentOutlineSelectionHandler;
 import it.rcpvision.emf.components.listeners.EmfViewerMouseAdapter;
 import it.rcpvision.emf.components.listeners.ResourceDeltaVisitor;
+import it.rcpvision.emf.components.menus.StructuredViewerContextMenuCreator;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
 import it.rcpvision.emf.components.resource.ResourceLoader;
@@ -96,5 +97,9 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 
 	public Class<? extends Provider<ComposedAdapterFactory>> provideComposedAdapterFactory() {
 		return ComposedAdapterFactoryProvider.class;
+	}
+
+	public Class<? extends StructuredViewerContextMenuCreator> bindStructuredViewerContextMenuCreator() {
+		return StructuredViewerContextMenuCreator.class;
 	}
 }

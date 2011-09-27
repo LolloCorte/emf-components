@@ -20,6 +20,7 @@ package it.rcpvision.emf.components.editors;
 import it.rcpvision.emf.components.handlers.ContentOutlineSelectionHandler;
 import it.rcpvision.emf.components.listeners.EmfViewerMouseAdapter;
 import it.rcpvision.emf.components.listeners.ResourceDeltaVisitor;
+import it.rcpvision.emf.components.menus.StructuredViewerContextMenuCreator;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
 import it.rcpvision.emf.components.views.EmfViewerFactory;
@@ -72,19 +73,13 @@ import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
-import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
-import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
-import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
-import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
 import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.jface.action.IToolBarManager;
-import org.eclipse.jface.action.MenuManager;
-import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.viewers.IBaseLabelProvider;
@@ -99,11 +94,8 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
-import org.eclipse.swt.dnd.DND;
-import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
@@ -125,6 +117,7 @@ import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 
 
 /**
@@ -472,7 +465,7 @@ public abstract class EmfAbstractEditor
 protected EmfViewerFactory emfTreeViewerFactory;
 
 @Inject
-protected EmfViewerMouseAdapter emfViewerMouseAdapter;
+protected Provider<EmfViewerMouseAdapter> emfViewerMouseAdapterProvider;
 
 @Inject
 protected ContentOutlineSelectionHandler contentOutlineSelectionHandler;
@@ -482,6 +475,9 @@ protected EditingDomainFactory editingDomainFactory;
 
 @Inject
 protected EditingDomainResourceLoader resourceLoader;
+
+@Inject
+protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;
 
   /**
    * Handles activation of the editor or it's associated views.
@@ -891,18 +887,7 @@ protected EditingDomainResourceLoader resourceLoader;
    */
   protected void createContextMenuForGen(StructuredViewer viewer)
   {
-    MenuManager contextMenu = new MenuManager("#PopUp");
-    contextMenu.add(new Separator("additions"));
-    contextMenu.setRemoveAllWhenShown(true);
-    contextMenu.addMenuListener(this);
-    Menu menu= contextMenu.createContextMenu(viewer.getControl());
-    viewer.getControl().setMenu(menu);
-    getSite().registerContextMenu(contextMenu, new UnwrappingSelectionProvider(viewer));
-
-    int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
-    Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance() };
-    viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(viewer));
-    viewer.addDropSupport(dndOperations, transfers, new EditingDomainViewerDropAdapter(editingDomain, viewer));
+	  structuredViewerContextMenuCreator.createContextMenuFor(viewer, this);
   }
 
 	protected void createContextMenuFor(StructuredViewer viewer) {
@@ -913,9 +898,7 @@ protected EditingDomainResourceLoader resourceLoader;
 	}
 
 	protected EmfViewerMouseAdapter getEmfViewerMouseAdapter() {
-		if (emfViewerMouseAdapter.getEmfFormEditor() == null)
-			emfViewerMouseAdapter.setEmfFormEditor(this);
-		return emfViewerMouseAdapter;
+		return emfViewerMouseAdapterProvider.get();
 	}
 
 
