@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="it.rcpvision.emf.components.cdo.feature"
+      label="Feature CDO"
+      version="1.0.0.qualifier">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <includes
+         id="org.eclipse.emf"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.emf.cdo"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.net4j.db"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.net4j"
+         version="0.0.0"/>
+
+   <plugin
+         id="it.rcpvision.emf.components"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="it.rcpvision.emf.components.cdo"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
