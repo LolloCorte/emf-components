@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="it.rcpvision.emf.components.tests.cdo.app.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="RCP Perspective"
+            class="it.rcpvision.emf.components.tests.cdo.app.Perspective"
+            id="it.rcpvision.emf.components.tests.cdo.app.perspective">
+      </perspective>
+   </extension>
+       <extension
+          point="org.eclipse.ui.views">
+       <view
+             class="it.rcpvision.emf.components.tests.cdo.app.guice.DemoExecutableExtensionFactory:it.rcpvision.emf.components.tests.cdo.app.views.LibraryEmfView"
+             id="it.rcpvision.emf.components.tests.views.libraryview"
+             name="LibraryEmfView"
+             restorable="true">
+       </view>
+    </extension>
+    <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="*">
+         <view
+               id="it.rcpvision.emf.components.tests.cdo.app.views.genericDetailView"
+               minimized="false"
+               ratio="0.3"
+               relationship="right"
+               relative="org.eclipse.ui.editorss">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="it.rcpvision.emf.components.tests.cdo.app.guice.DemoExecutableExtensionFactory:it.rcpvision.emf.components.editors.EmfTreeEditor"
+            contributorClass="org.eclipse.emf.ecore.presentation.EcoreActionBarContributor"
+            default="false"
+            id="it.rcpvision.emf.components.tests.cdo.app.editor"
+            name="Demo Editor">
+      </editor>
+   </extension>
+    <extension
+          point="org.eclipse.ui.views">
+       <view
+             class="it.rcpvision.emf.components.tests.cdo.app.guice.DemoExecutableExtensionFactory:it.rcpvision.emf.components.views.GenericDetailViewPart"
+             id="it.rcpvision.emf.components.tests.cdo.app.views.genericDetailView"
+             name="Generic Detail View"
+             restorable="true">
+       </view>
+    </extension>
+     <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="it.rcpvision.emf.components.tests.cdo.app.editor.OpenEditor"
+            id="it.rcpvision.emf.components.tests.cdo.app.editor.openCommand"
+            name="Open Editor">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <command
+               commandId="it.rcpvision.emf.components.tests.cdo.app.editor.openCommand"
+               label="Open Editor"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+    
+</plugin>
+
