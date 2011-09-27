@@ -16,18 +16,22 @@
       [Enter License Description here.]
    </license>
 
+   <includes
+         id="it.rcpvision.emf.components.cdo.feature"
+         version="0.0.0"/>
+
    <requires>
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="it.rcpvision.emf.components" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="it.rcpvision.emf.components.cdo" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.cdo" version="4.0.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.net4j" version="4.0.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.cdo.net4j" version="4.0.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.net4j.tcp" version="4.0.0" match="greaterOrEqual"/>
       <import plugin="org.junit" version="4.8.2" match="greaterOrEqual"/>
-      <import plugin="it.rcpvision.emf.components.tests.cdo.model" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="it.rcpvision.emf.components" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="it.rcpvision.emf.components.cdo" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="it.rcpvision.emf.components.tests.cdo.model" version="1.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
