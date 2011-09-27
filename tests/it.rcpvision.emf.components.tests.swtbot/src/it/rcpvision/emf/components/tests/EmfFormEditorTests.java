@@ -2,6 +2,8 @@ package it.rcpvision.emf.components.tests;
 
 import static org.junit.Assert.assertTrue;
 
+import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
+import org.eclipse.swtbot.forms.finder.SWTFormsBot;
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 import org.junit.Test;
@@ -107,6 +109,17 @@ public class EmfFormEditorTests extends EmfFormEditorAbstractTests {
 		getLibraryWriterNode(getRootOfOutlineViewTree()).select();
 		assertTrue("writer node should be selected",
 				getLibraryWriterNode(editorTreeRoot).isSelected());
+	}
+
+	@Test
+	public void detailViewShowsDetailsOnSelection() throws Exception {
+		getRootOfEditorTree(EMF_TREE_EDITOR, MY_EXTLIBRARY,
+				MY_EXT_LIBRARY_PLATFORM_URI);
+		SWTBotView detailView = openTestView(EMF_DETAIL_VIEW);
+		getLibraryWriterNode(getRootOfOutlineViewTree()).select();
+		SWTFormsBot formbot = new SWTFormsBot(detailView.getWidget());
+		System.out.println(formbot.label("address"));
+		System.out.println(formbot.text("writer's address"));
 	}
 
 }

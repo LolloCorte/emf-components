@@ -56,7 +56,7 @@ public class EmfProviderTests extends EmfFormEditorAbstractTests {
 	public void testLibraryFeatureLabelProviderForLabelWidget() {
 		final FeatureLabelProvider featureLabelProvider = factory.getInjector()
 				.getInstance(CustomLibraryFeatureLabelProvider.class);
-		final SWTBotView view = openTestLibraryView(LIBRARY_EMF_VIEW);
+		final SWTBotView view = openTestView(LIBRARY_EMF_VIEW);
 		Display.getDefault().syncExec(new Runnable() {
 			public void run() {
 				try {
@@ -87,7 +87,7 @@ public class EmfProviderTests extends EmfFormEditorAbstractTests {
 				.createURI("http:///My.extlibrary"));
 		final Writer writer = EXTLibraryFactory.eINSTANCE.createWriter();
 		resource.getContents().add(writer);
-		final SWTBotView view = openTestLibraryView(LIBRARY_EMF_VIEW);
+		final SWTBotView view = openTestView(LIBRARY_EMF_VIEW);
 		Display.getDefault().syncExec(new Runnable() {
 			public void run() {
 				try {

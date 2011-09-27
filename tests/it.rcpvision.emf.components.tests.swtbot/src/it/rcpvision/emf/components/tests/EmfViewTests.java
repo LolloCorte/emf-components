@@ -15,14 +15,14 @@ public class EmfViewTests extends EmfFormEditorAbstractTests {
 
 	@Test
 	public void canOpenEmfTestView() throws Exception {
-		openTestLibraryView(LIBRARY_EMF_VIEW);
+		openTestView(LIBRARY_EMF_VIEW);
 		// bot.sleep(2000);
 		closeLibraryView(LIBRARY_EMF_VIEW);
 	}
 
 	@Test
 	public void emfTestViewHasTree() throws Exception {
-		SWTBotView view = openTestLibraryView(LIBRARY_EMF_VIEW);
+		SWTBotView view = openTestView(LIBRARY_EMF_VIEW);
 		getWriterNode(getLibraryNode(view.bot().tree()
 				.getTreeItem(HARDCODED_LIBRARY_PLATFORM_URI)));
 		// bot.sleep(2000);
@@ -31,7 +31,7 @@ public class EmfViewTests extends EmfFormEditorAbstractTests {
 
 	@Test
 	public void emfTestViewHasTreeWithCustomLabels() throws Exception {
-		SWTBotView view = openTestLibraryView(LIBRARY_EMF_VIEW_CUSTOM_LABEL);
+		SWTBotView view = openTestView(LIBRARY_EMF_VIEW_CUSTOM_LABEL);
 		accessTreeWithCustomLabels(view.bot().tree()
 				.getTreeItem(HARDCODED_LIBRARY_PLATFORM_URI));
 		// bot.sleep(2000);
@@ -40,7 +40,7 @@ public class EmfViewTests extends EmfFormEditorAbstractTests {
 
 	@Test
 	public void emfViewShowsSelectedFile() throws Exception {
-		SWTBotView view = openTestLibraryView(LIBRARY_EMF_VIEW);
+		SWTBotView view = openTestView(LIBRARY_EMF_VIEW);
 		createProjectAndTestFiles();
 		getFileItemFromTestProject(MY_EXTLIBRARY).select();
 		bot.sleep(2000);
@@ -56,7 +56,7 @@ public class EmfViewTests extends EmfFormEditorAbstractTests {
 
 	@Test
 	public void testCustomBookImage() throws Exception {
-		SWTBotView view = openTestLibraryView(LIBRARY_EMF_VIEW);
+		SWTBotView view = openTestView(LIBRARY_EMF_VIEW);
 		createProjectAndTestFiles();
 		getFileItemFromTestProject(MY_EXTLIBRARY).select();
 		bot.sleep(2000);

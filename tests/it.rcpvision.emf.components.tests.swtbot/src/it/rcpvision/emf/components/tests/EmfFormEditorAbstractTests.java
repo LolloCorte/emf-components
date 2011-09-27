@@ -98,6 +98,8 @@ public class EmfFormEditorAbstractTests {
 
 	protected static final String LIBRARY_EMF_VIEW_CUSTOM_LABEL = "LibraryEmfView Custom Label";
 
+	protected static final String EMF_DETAIL_VIEW = "Emf Detail View";
+
 	protected static SWTWorkbenchBot bot;
 
 	protected static Map<String, String> editorNamesToId;
@@ -355,7 +357,7 @@ public class EmfFormEditorAbstractTests {
 				imageFileName);
 	}
 
-	protected SWTBotView openTestLibraryView(String libraryView) {
+	protected SWTBotView openTestView(String libraryView) {
 		bot.menu("Window").menu("Show View").menu("Other...").click();
 		SWTBotShell shell = bot.shell("Show View");
 		shell.activate();
