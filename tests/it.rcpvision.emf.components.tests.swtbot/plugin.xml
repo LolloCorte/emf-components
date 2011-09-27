@@ -46,7 +46,7 @@
     <extension
           point="org.eclipse.ui.editors">
        <editor
-             class="it.rcpvision.emf.components.tests.factories.CustomLabelExecutableExtensionFactory:it.rcpvision.emf.components.tests.editors.TestFormEditor"
+             class="it.rcpvision.emf.components.tests.factories.CustomLabelExecutableExtensionFactory:it.rcpvision.emf.components.tests.editors.TestEditor"
              contributorClass="org.eclipse.emf.presentation.EmfFormEditorActionBarContributor"
              default="false"
              id="it.rcpvision.emf.components.customLabel"
@@ -70,7 +70,7 @@
     <extension
           point="org.eclipse.ui.editors">
        <editor
-             class="it.rcpvision.emf.components.tests.factories.CustomLibraryExecutableExtensionFactory:it.rcpvision.emf.components.tests.editors.TestFormEditor"
+             class="it.rcpvision.emf.components.tests.factories.CustomLibraryExecutableExtensionFactory:it.rcpvision.emf.components.tests.editors.TestEditor"
              contributorClass="org.eclipse.emf.presentation.EmfFormEditorActionBarContributor"
              default="false"
              extensions="extlibrary"

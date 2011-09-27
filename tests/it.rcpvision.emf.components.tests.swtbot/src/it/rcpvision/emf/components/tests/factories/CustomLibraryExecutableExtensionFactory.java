@@ -4,7 +4,7 @@
 package it.rcpvision.emf.components.tests.factories;
 
 import it.rcpvision.emf.components.service.EmfComponentsGenericModule;
-import it.rcpvision.emf.components.tests.EmfFormEditorTestsActivator;
+import it.rcpvision.emf.components.tests.EmfComponentsTestsActivator;
 import it.rcpvision.emf.components.tests.binding.CustomLibraryBindingFactory;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryFeatureLabelProvider;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryLabelProvider;
@@ -25,7 +25,7 @@ public class CustomLibraryExecutableExtensionFactory extends
 	@Override
 	protected EmfComponentsGenericModule getModule() {
 		return new EmfComponentsGenericModule(
-				EmfFormEditorTestsActivator.getDefault()) {
+				EmfComponentsTestsActivator.getDefault()) {
 
 			@Override
 			public Class<? extends CompositeLabelProvider> bindCompositeLabelProvider() {

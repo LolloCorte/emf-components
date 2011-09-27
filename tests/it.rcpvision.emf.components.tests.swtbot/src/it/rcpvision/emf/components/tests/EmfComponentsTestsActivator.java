@@ -12,10 +12,10 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
-public class EmfFormEditorTestsActivator extends AbstractUIPlugin {
+public class EmfComponentsTestsActivator extends AbstractUIPlugin {
 
 	// The shared instance
-	private static EmfFormEditorTestsActivator plugin;
+	private static EmfComponentsTestsActivator plugin;
 	
 	public static final String EMF_TREE_EDITOR = "it.rcpvision.emf.components.editors.treeEditor";
 
@@ -27,7 +27,7 @@ public class EmfFormEditorTestsActivator extends AbstractUIPlugin {
 
 	public static final String EMF_EDITOR_FOR_LIBRARY = "it.rcpvision.emf.components.customLibrary";
 
-	public EmfFormEditorTestsActivator() {
+	public EmfComponentsTestsActivator() {
 	}
 
 	/*
@@ -60,7 +60,7 @@ public class EmfFormEditorTestsActivator extends AbstractUIPlugin {
 	 * 
 	 * @return the shared instance
 	 */
-	public static EmfFormEditorTestsActivator getDefault() {
+	public static EmfComponentsTestsActivator getDefault() {
 		return plugin;
 	}
 

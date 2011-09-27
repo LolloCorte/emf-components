@@ -33,7 +33,7 @@ import org.junit.runner.RunWith;
  * 
  */
 @RunWith(SWTBotJunit4ClassRunner.class)
-public class EmfProviderTests extends EmfFormEditorAbstractTests {
+public class EmfProviderTests extends EmfComponentsAbstractTests {
 
 	protected static CustomLibraryExecutableExtensionFactory factory;
 

@@ -46,7 +46,7 @@ import org.junit.runner.RunWith;
  * 
  */
 @RunWith(SWTBotJunit4ClassRunner.class)
-public class EmfFormEditorAbstractTests {
+public class EmfComponentsAbstractTests {
 
 	protected static final String WRITER_LABEL = "Writer Lorenzo Bettini";
 
@@ -125,15 +125,15 @@ public class EmfFormEditorAbstractTests {
 
 		editorNamesToId = new HashMap<String, String>();
 		editorNamesToId.put(EMF_TREE_EDITOR,
-				EmfFormEditorTestsActivator.EMF_TREE_EDITOR);
+				EmfComponentsTestsActivator.EMF_TREE_EDITOR);
 		editorNamesToId.put(EMF_TREE_EDITOR_STATEMACHINE,
-				EmfFormEditorTestsActivator.EMF_TREE_EDITOR_FOR_STATEMACHINE);
+				EmfComponentsTestsActivator.EMF_TREE_EDITOR_FOR_STATEMACHINE);
 		editorNamesToId.put(EMF_TREE_EDITOR_NO_MOUSE,
-				EmfFormEditorTestsActivator.EMF_TREE_EDITOR_NO_MOUSE_ID);
+				EmfComponentsTestsActivator.EMF_TREE_EDITOR_NO_MOUSE_ID);
 		editorNamesToId.put(EMF_TREE_EDITOR_CUSTOM_LABEL,
-				EmfFormEditorTestsActivator.EMF_TREE_EDITOR_CUSTOM_LABEL);
+				EmfComponentsTestsActivator.EMF_TREE_EDITOR_CUSTOM_LABEL);
 		editorNamesToId.put(EMF_CUSTOM_LIBRARY_EDITOR,
-				EmfFormEditorTestsActivator.EMF_EDITOR_FOR_LIBRARY);
+				EmfComponentsTestsActivator.EMF_EDITOR_FOR_LIBRARY);
 
 		bot.viewByTitle(OUTLINE_VIEW).show();
 	}
@@ -277,7 +277,7 @@ public class EmfFormEditorAbstractTests {
 	}
 
 	protected String localFileContents(String string) throws IOException {
-		return EmfFormEditorTestsActivator.localFileContents(string);
+		return EmfComponentsTestsActivator.localFileContents(string);
 	}
 
 	protected void createSimpleProject() {

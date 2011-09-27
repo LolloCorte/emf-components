@@ -4,7 +4,7 @@
 package it.rcpvision.emf.components.tests.factories;
 
 import it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory;
-import it.rcpvision.emf.components.tests.EmfFormEditorTestsActivator;
+import it.rcpvision.emf.components.tests.EmfComponentsTestsActivator;
 
 import org.osgi.framework.Bundle;
 
@@ -26,7 +26,7 @@ public class EmfFormEditorTestsExecutableExtensionFactory extends
 	 */
 	@Override
 	protected Bundle getBundle() {
-		return EmfFormEditorTestsActivator.getDefault().getBundle();
+		return EmfComponentsTestsActivator.getDefault().getBundle();
 	}
 
 	@Override

@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
  * 
  */
 @RunWith(SWTBotJunit4ClassRunner.class)
-public class EmfViewTests extends EmfFormEditorAbstractTests {
+public class EmfViewTests extends EmfComponentsAbstractTests {
 
 	@Test
 	public void canOpenEmfTestView() throws Exception {
