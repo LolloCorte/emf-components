@@ -52,7 +52,7 @@ public class EmfFormEditorAbstractTests {
 
 	protected static final String BOOK_LABEL = "Book Lorenzo's Book";
 
-	protected static final String LIBRARY_LABEL = "Library";
+	protected static final String LIBRARY_LABEL = "Library My Library";
 
 	protected static final String OUTLINE_VIEW = "Outline";
 
@@ -103,6 +103,8 @@ public class EmfFormEditorAbstractTests {
 	protected static final String WRITER_S_ADDRESS_TEXT = "writer's address";
 
 	protected static final String ADDRESS_LABEL = "address";
+
+	protected static final String LIBRARY_S_ADDRESS_TEXT = "Library's address";
 
 	protected static SWTWorkbenchBot bot;
 

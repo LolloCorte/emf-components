@@ -113,11 +113,20 @@ public class EmfFormEditorTests extends EmfFormEditorAbstractTests {
 
 	@Test
 	public void detailViewShowsDetailsOnSelection() throws Exception {
-		getRootOfEditorTree(EMF_TREE_EDITOR, MY_EXTLIBRARY,
-				MY_EXT_LIBRARY_PLATFORM_URI);
 		SWTBotView detailView = openTestView(EMF_DETAIL_VIEW);
-		getLibraryWriterNode(getRootOfOutlineViewTree()).select();
+		// select on the editor's tree
+		SWTBotTreeItem rootOfEditorTree = getRootOfEditorTree(EMF_TREE_EDITOR, MY_EXTLIBRARY,
+				MY_EXT_LIBRARY_PLATFORM_URI);
+		getLibraryWriterNode(rootOfEditorTree).select();
 		SWTFormsBot formbot = new SWTFormsBot(detailView.getWidget());
+		formbot.label(ADDRESS_LABEL);
+		formbot.text(WRITER_S_ADDRESS_TEXT);
+		// select on the outline view
+		getLibraryNode(getRootOfOutlineViewTree()).select();
+		formbot.label(ADDRESS_LABEL);
+		formbot.text(LIBRARY_S_ADDRESS_TEXT);
+		// now select again on the editor's tree
+		getLibraryWriterNode(rootOfEditorTree).select();
 		formbot.label(ADDRESS_LABEL);
 		formbot.text(WRITER_S_ADDRESS_TEXT);
 	}
