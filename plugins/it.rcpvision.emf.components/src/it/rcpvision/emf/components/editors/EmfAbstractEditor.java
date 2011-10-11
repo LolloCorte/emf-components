@@ -205,7 +205,7 @@ public abstract class EmfAbstractEditor
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TreeViewer selectionViewer;
+  protected StructuredViewer selectionViewer;
 
   /**
    * This keeps track of the active content viewer, which may be either one of the viewers in the pages or the content outline viewer.

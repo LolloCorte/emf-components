@@ -58,6 +58,7 @@ public class EmfTreeEditor extends EmfAbstractEditor {
 				Tree tree = new Tree(composite, SWT.MULTI);
 				TreeViewer newTreeViewer = emfTreeViewerFactory.createTreeViewer(tree,
 						editingDomain);
+				new AdapterFactoryTreeEditor(tree, adapterFactory);
 				return newTreeViewer;
 			}
 
@@ -75,8 +76,6 @@ public class EmfTreeEditor extends EmfAbstractEditor {
 		selectionViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
 		
 		updateActionBarContributor();
-
-		new AdapterFactoryTreeEditor(selectionViewer.getTree(), adapterFactory);
 
 		createContextMenuFor(selectionViewer);
 

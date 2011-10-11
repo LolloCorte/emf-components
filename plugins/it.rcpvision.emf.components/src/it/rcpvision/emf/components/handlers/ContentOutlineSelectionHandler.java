@@ -9,20 +9,20 @@ import java.util.Iterator;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.jface.viewers.StructuredViewer;
 
 /**
  * @author bettini
  * 
  */
 public class ContentOutlineSelectionHandler {
-	protected TreeViewer selectionViewer;
+	protected StructuredViewer selectionViewer;
 
-	public TreeViewer getSelectionViewer() {
+	public StructuredViewer getSelectionViewer() {
 		return selectionViewer;
 	}
 
-	public void setSelectionViewer(TreeViewer selectionViewer) {
+	public void setSelectionViewer(StructuredViewer selectionViewer) {
 		this.selectionViewer = selectionViewer;
 	}
 
