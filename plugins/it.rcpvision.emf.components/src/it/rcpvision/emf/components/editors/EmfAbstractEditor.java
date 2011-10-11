@@ -1039,15 +1039,7 @@ protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;
 					//
 					createContextMenuFor(contentOutlineViewer);
 
-					if (!editingDomain.getResourceSet().getResources()
-							.isEmpty()) {
-						// Select the root object in the view.
-						//
-						contentOutlineViewer
-								.setSelection(new StructuredSelection(
-										editingDomain.getResourceSet()
-												.getResources().get(0)), true);
-					}
+					setSelectionOnRoot(contentOutlineViewer);
 				}
 
 				@Override
@@ -1089,7 +1081,13 @@ protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;
 		return selectionViewer.getLabelProvider();
 	}
 
-
+	protected void setSelectionOnRoot(StructuredViewer viewer) {
+		if (!editingDomain.getResourceSet().getResources().isEmpty()) {
+			// Select the root object in the view.
+			viewer.setSelection(new StructuredSelection(editingDomain
+					.getResourceSet().getResources().get(0)), true);
+		}
+	}
 	
   /**
    * This accesses a cached version of the property sheet.
