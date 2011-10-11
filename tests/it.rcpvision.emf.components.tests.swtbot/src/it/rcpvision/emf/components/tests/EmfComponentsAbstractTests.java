@@ -42,7 +42,9 @@ import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTree;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 import org.eclipse.ui.IActionBars;
+import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IViewSite;
+import org.eclipse.ui.IWorkbenchPartSite;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.junit.After;
@@ -359,17 +361,28 @@ public class EmfComponentsAbstractTests {
 	protected void assertStatusLine(final String expectedStatusLineText) {
 		Display.getDefault().syncExec(new Runnable() {
 			public void run() {
-				IViewSite vSite = (IViewSite) PlatformUI.getWorkbench()
+				IWorkbenchPartSite site = PlatformUI.getWorkbench()
 						.getActiveWorkbenchWindow().getActivePage()
 						.getActivePart().getSite();
-				IActionBars actionBars = vSite.getActionBars();
 
+				if (site instanceof IViewSite) {
+					assertStatusLine(expectedStatusLineText,
+							((IViewSite) site).getActionBars());
+				} else if (site instanceof IEditorSite) {
+					assertStatusLine(expectedStatusLineText,
+							((IEditorSite) site).getActionBars());
+				} else {
+					fail("unknown site: " + site);
+				}
+			}
+
+			protected void assertStatusLine(
+					final String expectedStatusLineText, IActionBars actionBars) {
 				IStatusLineManager statusLineManager = actionBars
 						.getStatusLineManager();
 
 				// this is a terrible hack to read the current text of the
-				// status line manager
-				// as suggested here:
+				// status line manager as suggested here:
 				// http://stackoverflow.com/questions/5173838/reading-eclipse-status-line
 				SubStatusLineManager subStatusLineManager = (SubStatusLineManager) statusLineManager;
 				Control control = ((StatusLineManager) subStatusLineManager
