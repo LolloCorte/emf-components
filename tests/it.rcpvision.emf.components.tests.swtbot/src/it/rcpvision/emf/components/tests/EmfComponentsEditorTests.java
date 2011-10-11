@@ -116,12 +116,20 @@ public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 		assertTrue("writer node should be selected",
 				getLibraryWriterNode(editorTreeRoot).isSelected());
 	}
-	
+
 	@Test
 	public void statusLineFromOutlineView() throws Exception {
-		getRootOfEditorTree(EMF_TREE_EDITOR,
-				MY_EXTLIBRARY, MY_EXT_LIBRARY_PLATFORM_URI);
+		getRootOfEditorTree(EMF_TREE_EDITOR, MY_EXTLIBRARY,
+				MY_EXT_LIBRARY_PLATFORM_URI);
 		getLibraryWriterNode(getRootOfOutlineViewTree()).select();
+		assertStatusLine("Selected Object: " + WRITER_LABEL);
+	}
+
+	@Test
+	public void statusLineFromEditor() throws Exception {
+		getLibraryWriterNode(
+				getRootOfEditorTree(EMF_TREE_EDITOR, MY_EXTLIBRARY,
+						MY_EXT_LIBRARY_PLATFORM_URI)).select();
 		assertStatusLine("Selected Object: " + WRITER_LABEL);
 	}
 
