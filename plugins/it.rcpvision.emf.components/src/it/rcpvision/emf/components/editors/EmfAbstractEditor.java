@@ -21,10 +21,11 @@ import it.rcpvision.emf.components.handlers.ContentOutlineSelectionHandler;
 import it.rcpvision.emf.components.listeners.EmfViewerMouseAdapter;
 import it.rcpvision.emf.components.listeners.ResourceDeltaVisitor;
 import it.rcpvision.emf.components.menus.StructuredViewerContextMenuCreator;
+import it.rcpvision.emf.components.outline.EmfEditorContentOutlineFactory;
+import it.rcpvision.emf.components.outline.EmfEditorContentOutlinePage;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
 import it.rcpvision.emf.components.views.EmfViewerFactory;
-import it.rcpvision.emf.components.views.EmfViewerManager;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -69,7 +70,6 @@ import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.GenericXMLResourceFactoryImpl;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -94,7 +94,6 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
@@ -109,7 +108,6 @@ import org.eclipse.ui.ide.IGotoMarker;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
 import org.eclipse.ui.views.contentoutline.ContentOutline;
-import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
@@ -165,13 +163,7 @@ public abstract class EmfAbstractEditor
    */
   protected ComposedAdapterFactory adapterFactory;
 
-  /**
-   * This is the content outline page.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected ContentOutlinePage contentOutlinePage;
+  protected EmfEditorContentOutlinePage contentOutlinePage;
 
   /**
    * This is the content outline page's viewer.
@@ -456,10 +448,10 @@ public abstract class EmfAbstractEditor
 protected EmfViewerFactory emfTreeViewerFactory;
 
 @Inject
-protected EmfViewerManager emfViewerManager;
+protected Provider<EmfViewerMouseAdapter> emfViewerMouseAdapterProvider;
 
 @Inject
-protected Provider<EmfViewerMouseAdapter> emfViewerMouseAdapterProvider;
+protected EmfEditorContentOutlineFactory emfContentOutlineFactory;
 
 @Inject
 protected ContentOutlineSelectionHandler contentOutlineSelectionHandler;
@@ -739,7 +731,8 @@ protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;
    * <!-- end-user-doc -->
    * @generated
    */
-  public EditingDomain getEditingDomain()
+  @Override
+  public AdapterFactoryEditingDomain getEditingDomain()
   {
     return editingDomain;
   }
@@ -873,7 +866,7 @@ protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;
     return currentViewer;
   }
 
-	protected void createContextMenuFor(StructuredViewer viewer) {
+	public void createContextMenuFor(StructuredViewer viewer) {
 		structuredViewerContextMenuCreator.createContextMenuFor(viewer, this);
 
 		EmfViewerMouseAdapter listener = getEmfViewerMouseAdapter();
@@ -1011,37 +1004,9 @@ protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;
 
 	public IContentOutlinePage getContentOutlinePage() {
 		if (contentOutlinePage == null) {
-			// The content outline is just a tree.
-			//
-			class MyContentOutlinePage extends ContentOutlinePage {
-				@Override
-				public void createControl(Composite parent) {
-					super.createControl(parent);
-					contentOutlineViewer = getTreeViewer();
-					contentOutlineViewer.addSelectionChangedListener(this);
-
-					// Set up the tree viewer.
-					emfViewerManager.initialize(contentOutlineViewer, editingDomain);
-
-					// Make sure our popups work.
-					//
-					createContextMenuFor(contentOutlineViewer);
-
-					setSelectionOnRoot(contentOutlineViewer);
-				}
-
-				@Override
-				public void setActionBars(IActionBars actionBars) {
-					super.setActionBars(actionBars);
-					getActionBarContributor().shareGlobalActions(this,
-							actionBars);
-				}
-			}
-
-			contentOutlinePage = new MyContentOutlinePage();
+			contentOutlinePage = emfContentOutlineFactory.create(this);
 
 			// Listen to selection so that we can handle it is a special way.
-			//
 			contentOutlinePage
 					.addSelectionChangedListener(new ISelectionChangedListener() {
 						// This ensures that we handle selections correctly.
@@ -1055,7 +1020,7 @@ protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;
 		return contentOutlinePage;
 	}
 
-	protected void setSelectionOnRoot(StructuredViewer viewer) {
+	public void setSelectionOnRoot(StructuredViewer viewer) {
 		if (!editingDomain.getResourceSet().getResources().isEmpty()) {
 			// Select the root object in the view.
 			viewer.setSelection(new StructuredSelection(editingDomain
@@ -1549,4 +1514,8 @@ protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;
   {
     return false;
   }
+
+	public void setContentOutlineViewer(TreeViewer treeViewer) {
+		contentOutlineViewer = treeViewer;
+	}
 }
