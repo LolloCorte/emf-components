@@ -234,26 +234,29 @@ public class EmfComponentsAbstractTests {
 		return treeItemRoot;
 	}
 
-	protected SWTBotTree getEditorTree(String emfFormEditorContextMenuString,
+	protected SWTBotTree getEditorTree(String emfEditorContextMenuString,
 			String fileName) throws CoreException, InvocationTargetException,
 			InterruptedException, IOException {
-		SWTBotEditor editor = openEmfFormEditorOnTestFile(
-				emfFormEditorContextMenuString, fileName);
+		SWTBotEditor editor = openEmfEditorOnTestFile(
+				emfEditorContextMenuString, fileName);
 		SWTBotTree tree = editor.bot().tree();
 		return tree;
 	}
 
-	protected SWTBotEditor openEmfFormEditorOnTestFile(
-			String emfFormEditorContextMenuString, String fileName)
+	protected SWTBotEditor openEmfEditorOnTestFile(
+			String emfEditorContextMenuString, String fileName)
 			throws CoreException, InvocationTargetException,
 			InterruptedException, IOException {
 		createProjectAndTestFiles();
 		SWTBotMenu contextMenu = getFileItemFromTestProject(fileName)
 				.contextMenu("Open With");
-		getSubMenuItem(contextMenu, emfFormEditorContextMenuString).click();
-		SWTBotEditor editor = bot.editorById(editorNamesToId
-				.get(emfFormEditorContextMenuString));
+		getSubMenuItem(contextMenu, emfEditorContextMenuString).click();
+		SWTBotEditor editor = getEditor(emfEditorContextMenuString);
 		return editor;
+	}
+
+	protected SWTBotEditor getEditor(String emfEditorContextMenuString) {
+		return bot.editorById(editorNamesToId.get(emfEditorContextMenuString));
 	}
 
 	protected SWTBotTreeItem getFileItemFromTestProject(String fileName) {
