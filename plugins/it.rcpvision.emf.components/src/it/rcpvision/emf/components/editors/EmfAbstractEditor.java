@@ -24,6 +24,7 @@ import it.rcpvision.emf.components.menus.StructuredViewerContextMenuCreator;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
 import it.rcpvision.emf.components.views.EmfViewerFactory;
+import it.rcpvision.emf.components.views.EmfViewerManager;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -82,7 +83,6 @@ import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
-import org.eclipse.jface.viewers.IBaseLabelProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
@@ -463,6 +463,9 @@ public abstract class EmfAbstractEditor
 
 @Inject
 protected EmfViewerFactory emfTreeViewerFactory;
+
+@Inject
+protected EmfViewerManager emfViewerManager;
 
 @Inject
 protected Provider<EmfViewerMouseAdapter> emfViewerMouseAdapterProvider;
@@ -1027,13 +1030,7 @@ protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;
 					contentOutlineViewer.addSelectionChangedListener(this);
 
 					// Set up the tree viewer.
-					//
-					contentOutlineViewer
-							.setContentProvider(new AdapterFactoryContentProvider(
-									adapterFactory));
-					contentOutlineViewer.setLabelProvider(getLabelProvider());
-					contentOutlineViewer.setInput(editingDomain
-							.getResourceSet());
+					emfViewerManager.initialize(contentOutlineViewer, editingDomain);
 
 					// Make sure our popups work.
 					//
@@ -1074,11 +1071,6 @@ protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;
 		}
 
 		return contentOutlinePage;
-	}
-
-
-	protected IBaseLabelProvider getLabelProvider() {
-		return selectionViewer.getLabelProvider();
 	}
 
 	protected void setSelectionOnRoot(StructuredViewer viewer) {
