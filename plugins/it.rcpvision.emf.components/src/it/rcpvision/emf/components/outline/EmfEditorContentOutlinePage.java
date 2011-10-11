@@ -12,7 +12,6 @@ import org.eclipse.ui.part.IPageSite;
 import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 
 import com.google.inject.Inject;
-import com.google.inject.Provider;
 
 /**
  * @author bettini
@@ -23,11 +22,10 @@ public class EmfEditorContentOutlinePage extends ContentOutlinePage {
 	protected EmfAbstractEditor editor;
 
 	@Inject
-	protected Provider<EmfViewerManager> emfViewerManagerProvider;
+	protected EmfViewerManager emfViewerManager;
 
-	public EmfEditorContentOutlinePage(EmfAbstractEditor editor, Provider<EmfViewerManager> emfViewerManagerProvider) {
+	public void init(EmfAbstractEditor editor) {
 		this.editor = editor;
-		this.emfViewerManagerProvider = emfViewerManagerProvider;
 	}
 
 	@Override
@@ -38,7 +36,8 @@ public class EmfEditorContentOutlinePage extends ContentOutlinePage {
 		editor.setContentOutlineViewer(contentOutlineViewer);
 
 		// Set up the tree viewer.
-		emfViewerManagerProvider.get().initialize(contentOutlineViewer, editor.getEditingDomain());
+		emfViewerManager.initialize(contentOutlineViewer,
+				editor.getEditingDomain());
 		// Make sure our popups work.
 		editor.createContextMenuFor(contentOutlineViewer);
 		// select the root
@@ -56,4 +55,5 @@ public class EmfEditorContentOutlinePage extends ContentOutlinePage {
 	public TreeViewer getTreeViewer() {
 		return super.getTreeViewer();
 	}
+
 }

@@ -17,8 +17,13 @@ public class EmfEditorContentOutlineFactory {
 
 	@Inject
 	protected Provider<EmfViewerManager> emfViewerManagerProvider;
+	
+	@Inject
+	protected Provider<EmfEditorContentOutlinePage> outlinePageProvider;
 
 	public EmfEditorContentOutlinePage create(EmfAbstractEditor editor) {
-		return new EmfEditorContentOutlinePage(editor, emfViewerManagerProvider);
+		EmfEditorContentOutlinePage outlinePage = outlinePageProvider.get();
+		outlinePage.init(editor);
+		return outlinePage;
 	}
 }
