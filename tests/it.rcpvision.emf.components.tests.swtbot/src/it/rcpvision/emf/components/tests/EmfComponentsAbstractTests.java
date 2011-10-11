@@ -430,6 +430,10 @@ public class EmfComponentsAbstractTests {
 		bot.button("OK").click();
 		return getLibraryView(libraryView);
 	}
+	
+	protected void undo(String undoText) {
+		bot.menu("Edit").menu("Undo " + undoText).click();
+	}
 
 	protected SWTBotView getLibraryView(String libraryView) {
 		return bot.viewByTitle(libraryView);

@@ -2,6 +2,7 @@ package it.rcpvision.emf.components.tests;
 
 import static org.junit.Assert.assertTrue;
 
+import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotEditor;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
 import org.eclipse.swtbot.forms.finder.SWTFormsBot;
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
@@ -48,7 +49,11 @@ public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 				.click();
 		// check that the new item was created
 		libraryNode.expand().getNode(BOOK_ON_TAPE);
-		getEditor(EMF_TREE_EDITOR).saveAndClose();
+		SWTBotEditor editor = getEditor(EMF_TREE_EDITOR);
+		assertTrue("editor should be in dirty state", editor.isDirty());
+		undo("New " + BOOK_ON_TAPE);
+		assertTrue("editor should NOT be in dirty state", !editor.isDirty());
+		editor.saveAndClose();
 	}
 
 	@Test
