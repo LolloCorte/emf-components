@@ -3,9 +3,9 @@ package it.rcpvision.emf.components.tests;
 import static org.eclipse.xtext.ui.junit.util.IResourcesSetupUtil.cleanWorkspace;
 import static org.eclipse.xtext.ui.junit.util.IResourcesSetupUtil.createFile;
 import static org.eclipse.xtext.ui.junit.util.IResourcesSetupUtil.waitForAutoBuild;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-
 import it.rcpvision.emf.components.tests.views.LibraryEmfView;
 
 import java.io.IOException;
@@ -16,10 +16,16 @@ import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.jface.action.IStatusLineManager;
+import org.eclipse.jface.action.StatusLineManager;
+import org.eclipse.jface.action.SubStatusLineManager;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.graphics.RGB;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
@@ -35,6 +41,9 @@ import org.eclipse.swtbot.swt.finder.widgets.SWTBotMenu;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTree;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
+import org.eclipse.ui.IActionBars;
+import org.eclipse.ui.IViewSite;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -343,6 +352,40 @@ public class EmfComponentsAbstractTests {
 				} catch (Exception ex) {
 					ex.printStackTrace();
 				}
+			}
+		});
+	}
+
+	protected void assertStatusLine(final String expectedStatusLineText) {
+		Display.getDefault().syncExec(new Runnable() {
+			public void run() {
+				IViewSite vSite = (IViewSite) PlatformUI.getWorkbench()
+						.getActiveWorkbenchWindow().getActivePage()
+						.getActivePart().getSite();
+				IActionBars actionBars = vSite.getActionBars();
+
+				IStatusLineManager statusLineManager = actionBars
+						.getStatusLineManager();
+
+				// this is a terrible hack to read the current text of the
+				// status line manager
+				// as suggested here:
+				// http://stackoverflow.com/questions/5173838/reading-eclipse-status-line
+				SubStatusLineManager subStatusLineManager = (SubStatusLineManager) statusLineManager;
+				Control control = ((StatusLineManager) subStatusLineManager
+						.getParent()).getControl();
+				Control[] children = ((Composite) control).getChildren();
+
+				for (Control child : children) {
+					if (child instanceof CLabel) {
+						assertEquals(expectedStatusLineText,
+								((CLabel) child).getText());
+						return;
+					}
+				}
+
+				// if we're here we failed
+				fail("could not find the text of the status line");
 			}
 		});
 	}
