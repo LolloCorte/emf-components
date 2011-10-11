@@ -879,19 +879,8 @@ protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;
     return currentViewer;
   }
 
-  /**
-   * This creates a context menu for the viewer and adds a listener as well registering the menu for extension.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void createContextMenuForGen(StructuredViewer viewer)
-  {
-	  structuredViewerContextMenuCreator.createContextMenuFor(viewer, this);
-  }
-
 	protected void createContextMenuFor(StructuredViewer viewer) {
-		createContextMenuForGen(viewer);
+		structuredViewerContextMenuCreator.createContextMenuFor(viewer, this);
 
 		EmfViewerMouseAdapter listener = getEmfViewerMouseAdapter();
 		viewer.getControl().addMouseListener(listener);
