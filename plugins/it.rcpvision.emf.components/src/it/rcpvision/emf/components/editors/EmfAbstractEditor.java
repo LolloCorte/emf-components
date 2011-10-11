@@ -80,7 +80,6 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IStatusLineManager;
-import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.viewers.ISelection;
@@ -172,15 +171,7 @@ public abstract class EmfAbstractEditor
    * <!-- end-user-doc -->
    * @generated
    */
-  protected IContentOutlinePage contentOutlinePage;
-
-  /**
-   * This is a kludge...
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected IStatusLineManager contentOutlineStatusLineManager;
+  protected ContentOutlinePage contentOutlinePage;
 
   /**
    * This is the content outline page's viewer.
@@ -1040,15 +1031,6 @@ protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;
 				}
 
 				@Override
-				public void makeContributions(IMenuManager menuManager,
-						IToolBarManager toolBarManager,
-						IStatusLineManager statusLineManager) {
-					super.makeContributions(menuManager, toolBarManager,
-							statusLineManager);
-					contentOutlineStatusLineManager = statusLineManager;
-				}
-
-				@Override
 				public void setActionBars(IActionBars actionBars) {
 					super.setActionBars(actionBars);
 					getActionBarContributor().shareGlobalActions(this,
@@ -1426,7 +1408,7 @@ protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;
   public void setStatusLineManager(ISelection selection)
   {
     IStatusLineManager statusLineManager = currentViewer != null && currentViewer == contentOutlineViewer ?
-      contentOutlineStatusLineManager : getActionBars().getStatusLineManager();
+      contentOutlinePage.getSite().getActionBars().getStatusLineManager() : getActionBars().getStatusLineManager();
 
     if (statusLineManager != null)
     {
