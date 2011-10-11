@@ -16,6 +16,10 @@ import org.junit.runner.RunWith;
 @RunWith(SWTBotJunit4ClassRunner.class)
 public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 
+	protected static final String BOOK_ON_TAPE = "Book On Tape";
+
+	protected static final String NEW_CHILD = "New Child";
+
 	public void canCreateProject() throws Exception {
 		createSimpleProject();
 	}
@@ -27,7 +31,7 @@ public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 
 	@Test
 	public void canOpenEmfFormEditorOnTestFile() throws Exception {
-		openEmfFormEditorOnTestFile(EMF_TREE_EDITOR, MY_EXTLIBRARY);
+		openEmfEditorOnTestFile(EMF_TREE_EDITOR, MY_EXTLIBRARY);
 	}
 
 	@Test
@@ -38,11 +42,13 @@ public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 
 	@Test
 	public void canAccessContextMenuOfLibrary() throws Exception {
-		getSubMenuItem(
-				getLibraryNode(
-						getRootOfEditorTree(EMF_TREE_EDITOR, MY_EXTLIBRARY,
-								MY_EXT_LIBRARY_PLATFORM_URI)).contextMenu(
-						"New Child"), "Book");
+		SWTBotTreeItem libraryNode = getLibraryNode(getRootOfEditorTree(
+				EMF_TREE_EDITOR, MY_EXTLIBRARY, MY_EXT_LIBRARY_PLATFORM_URI));
+		getSubMenuItem(libraryNode.contextMenu(NEW_CHILD), BOOK_ON_TAPE)
+				.click();
+		// check that the new item was created
+		libraryNode.expand().getNode(BOOK_ON_TAPE);
+		getEditor(EMF_TREE_EDITOR).saveAndClose();
 	}
 
 	@Test
@@ -54,7 +60,7 @@ public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 
 	@Test
 	public void canPopulateOutlineView() throws Exception {
-		openEmfFormEditorOnTestFile(EMF_TREE_EDITOR, MY_EXTLIBRARY);
+		openEmfEditorOnTestFile(EMF_TREE_EDITOR, MY_EXTLIBRARY);
 		getRootOfOutlineViewTree();
 	}
 
@@ -115,8 +121,8 @@ public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 	public void detailViewShowsDetailsOnSelection() throws Exception {
 		SWTBotView detailView = openTestView(EMF_DETAIL_VIEW);
 		// select on the editor's tree
-		SWTBotTreeItem rootOfEditorTree = getRootOfEditorTree(EMF_TREE_EDITOR, MY_EXTLIBRARY,
-				MY_EXT_LIBRARY_PLATFORM_URI);
+		SWTBotTreeItem rootOfEditorTree = getRootOfEditorTree(EMF_TREE_EDITOR,
+				MY_EXTLIBRARY, MY_EXT_LIBRARY_PLATFORM_URI);
 		getLibraryWriterNode(rootOfEditorTree).select();
 		SWTFormsBot formbot = new SWTFormsBot(detailView.getWidget());
 		formbot.label(ADDRESS_LABEL);
