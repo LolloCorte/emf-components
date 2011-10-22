@@ -16,6 +16,7 @@ import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 import it.rcpvision.emf.components.views.ComposedAdapterFactoryProvider;
 import it.rcpvision.emf.components.views.EmfViewerFactory;
 import it.rcpvision.emf.components.views.EmfViewerManager;
+import it.rcpvision.emf.components.views.EObjectManager;
 
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.jface.dialogs.IDialogSettings;
@@ -101,5 +102,9 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 
 	public Class<? extends StructuredViewerContextMenuCreator> bindStructuredViewerContextMenuCreator() {
 		return StructuredViewerContextMenuCreator.class;
+	}
+	
+	public Class<? extends EObjectManager> bindEObjectManager(){
+		return EObjectManager.class;
 	}
 }

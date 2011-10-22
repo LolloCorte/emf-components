@@ -5,6 +5,7 @@ package it.rcpvision.emf.components.cdo;
 
 import it.rcpvision.emf.components.resource.ResourceLoader;
 import it.rcpvision.emf.components.service.EmfComponentsGenericModule;
+import it.rcpvision.emf.components.views.EObjectManager;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
@@ -22,5 +23,14 @@ public class CDOEmfComponentsModule extends EmfComponentsGenericModule {
 	public Class<? extends ResourceLoader> bindResourceLoader() {
 		return CDOResourceLoader.class;
 	}
-
+	
+	@Override
+	public Class<? extends EObjectManager> bindEObjectManager(){
+		return CDOObjectManager.class;
+	}
+	
+	public Class<? extends CDOSessionManager> bindCDOSessionManager(){
+		return CDOSessionManager.class;
+	}
+	
 }

@@ -2,6 +2,10 @@ package it.rcpvision.emf.components.views;
 
 import it.rcpvision.emf.components.old.ui.ButtonsComposite;
 
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.viewers.ISelection;
@@ -9,23 +13,19 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.ui.ISaveablePart2;
 import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.forms.widgets.ExpandableComposite;
 import org.eclipse.ui.forms.widgets.FormToolkit;
-import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.part.ViewPart;
 
 import com.google.inject.Inject;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.layout.GridData;
 
-public class GenericDetailViewPart extends ViewPart implements
-		ISelectionListener {
+public class GenericDetailViewPart extends ViewPart implements ISelectionListener,ISaveablePart2 {
 	public GenericDetailViewPart() {
 	}
 
@@ -40,7 +40,12 @@ public class GenericDetailViewPart extends ViewPart implements
 	@Inject
 	protected EmfDetailsFactory emfDetailsFactory;
 	
+	@Inject
+	protected EObjectManager saver;
+	
 	protected GenericComposite genericComponent;
+
+	private boolean modified=false;
 
 	@Override
 	public void setFocus() {
@@ -106,13 +111,10 @@ public class GenericDetailViewPart extends ViewPart implements
 		buttonsComposite.addSaveSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				try {
-					modelResource.save(null);
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				saver.doSave(modelResource);
 			}
+
+			
 		});
 		// secButtons.setClient(buttonsComposite);
 
@@ -120,14 +122,16 @@ public class GenericDetailViewPart extends ViewPart implements
 		getSite().getPage().addSelectionListener((ISelectionListener) this);
 
 	}
+	
+	
 
 	@Override
 	public void selectionChanged(IWorkbenchPart part, ISelection selection) {
 		if (selection instanceof IStructuredSelection) {
 			Object obj = ((IStructuredSelection) selection).getFirstElement();
 			if (obj instanceof EObject) {
-				EObject model = (EObject) obj;
-				modelResource = model.eResource();
+				EObject model = saver.prepareModel(obj);
+				
 				if (genericComponent != null) {
 					genericComponent.dispose();
 				}
@@ -152,11 +156,79 @@ public class GenericDetailViewPart extends ViewPart implements
 						main, SWT.NONE);
 				formToolkit.adapt(genericComponent);
 				genericComponent.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-				genericComponent.init(modelResource.getResourceSet(), model);
+				model.eAdapters().add(new Adapter(){
+
+					@Override
+					public void notifyChanged(Notification notification) {
+						modified=true;
+						firePropertyChange(PROP_DIRTY);
+					}
+
+					@Override
+					public Notifier getTarget() {
+						// TODO Auto-generated method stub
+						return null;
+					}
+
+					@Override
+					public void setTarget(Notifier newTarget) {
+						// TODO Auto-generated method stub
+						System.out.println();
+					}
+
+					@Override
+					public boolean isAdapterForType(Object type) {
+						// TODO Auto-generated method stub
+						return false;
+					}
+					
+				});
+				modelResource=model.eResource();
+				
+				genericComponent.init(model);
+				
 				main.layout(true);
 			}
 		}
 	}
+
+	@Override
+	public void doSave(IProgressMonitor monitor) {
+		saver.doSave(modelResource);
+		modified=false;
+		firePropertyChange(PROP_DIRTY);
+	}
+
+	@Override
+	public void doSaveAs() {
+		//
+	}
+
+	@Override
+	public boolean isDirty() {
+		System.out.println(modified);
+		return modified||(modelResource!=null?modelResource.isModified():false);
+	}
+
+	@Override
+	public boolean isSaveAsAllowed() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isSaveOnCloseNeeded() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public int promptToSaveOnClose() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	
 
 	// private ExtXptFacade createExtXptFacade() {
 	//
