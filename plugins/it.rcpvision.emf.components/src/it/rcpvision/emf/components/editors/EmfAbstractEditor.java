@@ -25,6 +25,7 @@ import it.rcpvision.emf.components.outline.EmfEditorContentOutlineFactory;
 import it.rcpvision.emf.components.outline.EmfEditorContentOutlinePage;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
+import it.rcpvision.emf.components.util.EmfComponentsUtil;
 import it.rcpvision.emf.components.views.EmfViewerFactory;
 
 import java.io.IOException;
@@ -191,14 +192,6 @@ public abstract class EmfAbstractEditor
   protected StructuredViewer selectionViewer;
 
   /**
-   * This keeps track of the active content viewer, which may be either one of the viewers in the pages or the content outline viewer.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected Viewer currentViewer;
-
-  /**
    * This listens to which ever viewer is active.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -248,7 +241,7 @@ public abstract class EmfAbstractEditor
           {
             getActionBarContributor().setActiveEditor(EmfAbstractEditor.this);
 
-            setCurrentViewer(contentOutlineViewer);
+            //setCurrentViewer(contentOutlineViewer);
           }
         }
         else if (p instanceof PropertySheet)
@@ -704,7 +697,7 @@ protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;
     final Collection<?> theSelection = collection;
     // Make sure it's okay.
     //
-    if (theSelection != null && !theSelection.isEmpty())
+    if (theSelection != null && !theSelection.isEmpty()) 
     {
       Runnable runnable =
         new Runnable()
@@ -713,9 +706,9 @@ protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;
           {
             // Try to select the items in the current content viewer of the editor.
             //
-            if (currentViewer != null)
+            if (selectionViewer != null)
             {
-              currentViewer.setSelection(new StructuredSelection(theSelection.toArray()), true);
+            	selectionViewer.setSelection(new StructuredSelection(theSelection.toArray()), true);
             }
           }
         };
@@ -802,69 +795,17 @@ protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;
     }
   }
 
-  /**
-   * This makes sure that one content viewer, either for the current page or the outline view, if it has focus,
-   * is the current one.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setCurrentViewer(Viewer viewer)
-  {
-    // If it is changing...
-    //
-    if (currentViewer != viewer)
-    {
-      if (selectionChangedListener == null)
-      {
-        // Create the listener on demand.
-        //
-        selectionChangedListener =
-          new ISelectionChangedListener()
-          {
-            // This just notifies those things that are affected by the section.
-            //
-            public void selectionChanged(SelectionChangedEvent selectionChangedEvent)
-            {
-              setSelection(selectionChangedEvent.getSelection());
-            }
-          };
-      }
 
-      // Stop listening to the old one.
-      //
-      if (currentViewer != null)
-      {
-        currentViewer.removeSelectionChangedListener(selectionChangedListener);
-      }
-
-      // Start listening to the new one.
-      //
-      if (viewer != null)
-      {
-        viewer.addSelectionChangedListener(selectionChangedListener);
-      }
-
-      // Remember it.
-      //
-      currentViewer = viewer;
-
-      // Set the editors selection based on the current viewer's selection.
-      //
-      setSelection(currentViewer == null ? StructuredSelection.EMPTY : currentViewer.getSelection());
-    }
-  }
-
-  /**
-   * This returns the viewer as required by the {@link IViewerProvider} interface.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Viewer getViewer()
-  {
-    return currentViewer;
-  }
+	protected ISelectionChangedListener createSelectionChangedListener() {
+		return new ISelectionChangedListener() {
+			// This just notifies those things that are affected by the section.
+			//
+			public void selectionChanged(
+					SelectionChangedEvent selectionChangedEvent) {
+				setSelection(selectionChangedEvent.getSelection());
+			}
+		};
+	}
 
 	public void createContextMenuFor(StructuredViewer viewer) {
 		structuredViewerContextMenuCreator.createContextMenuFor(viewer, this);
@@ -1372,8 +1313,7 @@ protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;
    */
   public void setStatusLineManager(ISelection selection)
   {
-    IStatusLineManager statusLineManager = currentViewer != null && currentViewer == contentOutlineViewer ?
-      contentOutlinePage.getSite().getActionBars().getStatusLineManager() : getActionBars().getStatusLineManager();
+    IStatusLineManager statusLineManager = EmfComponentsUtil.getStatusLineManager();
 
     if (statusLineManager != null)
     {
@@ -1518,4 +1458,10 @@ protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;
 	public void setContentOutlineViewer(TreeViewer treeViewer) {
 		contentOutlineViewer = treeViewer;
 	}
+
+	@Override
+	public Viewer getViewer() {
+		return selectionViewer;
+	}
+	
 }

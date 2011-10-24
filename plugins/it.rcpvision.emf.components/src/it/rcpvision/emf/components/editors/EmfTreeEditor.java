@@ -64,13 +64,12 @@ public class EmfTreeEditor extends EmfAbstractEditor {
 			@Override
 			public void requestActivation() {
 				super.requestActivation();
-				setCurrentViewer(getViewer());
 			}
 		};
 		viewerPane.createControl(getContainer());
 
 		selectionViewer = (TreeViewer) viewerPane.getViewer();
-		setCurrentViewer(selectionViewer);
+		selectionViewer.addSelectionChangedListener(createSelectionChangedListener());
 
 		setSelectionOnRoot(selectionViewer);
 		
