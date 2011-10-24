@@ -24,5 +24,6 @@ Export-Package: it.rcpvision.emf.components,
  it.rcpvision.emf.components.service,
  it.rcpvision.emf.components.ui.binding,
  it.rcpvision.emf.components.ui.provider,
+ it.rcpvision.emf.components.util,
  it.rcpvision.emf.components.views,
  org.eclipse.emf.presentation
