@@ -7,7 +7,6 @@ import it.rcpvision.emf.components.resource.LoadResourceResponse;
 
 import java.util.Iterator;
 
-import org.eclipse.emf.common.ui.ViewerPane;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EGenericType;
@@ -19,11 +18,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.jface.viewers.TreeViewer;
-import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
-import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Tree;
 
 
@@ -50,34 +47,21 @@ public class EmfTreeEditor extends EmfAbstractEditor {
 
 		handleProblems(response);
 
-		ViewerPane viewerPane = new ViewerPane(getSite().getPage(),
-				EmfTreeEditor.this) {
-			@Override
-			public Viewer createViewer(Composite composite) {
-				Tree tree = new Tree(composite, SWT.MULTI);
-				TreeViewer newTreeViewer = emfTreeViewerFactory.createTreeViewer(tree,
-						editingDomain);
-				new AdapterFactoryTreeEditor(tree, adapterFactory);
-				return newTreeViewer;
-			}
-
-			@Override
-			public void requestActivation() {
-				super.requestActivation();
-			}
-		};
-		viewerPane.createControl(getContainer());
-
-		selectionViewer = (TreeViewer) viewerPane.getViewer();
-		selectionViewer.addSelectionChangedListener(createSelectionChangedListener());
-
+		Tree tree = new Tree(getContainer(), SWT.MULTI);
+		TreeViewer emfTreeViewer = emfTreeViewerFactory.createTreeViewer(tree,
+				editingDomain);
+		selectionViewer = emfTreeViewer;
 		setSelectionOnRoot(selectionViewer);
-		
+
 		updateActionBarContributor();
 
-		createContextMenuFor(selectionViewer);
+		new AdapterFactoryTreeEditor(emfTreeViewer.getTree(), adapterFactory);
 
-		int pageIndex = addPage(viewerPane.getControl());
+		createContextMenuFor(selectionViewer);
+		
+		selectionViewer.addSelectionChangedListener(createSelectionChangedListener());
+
+		int pageIndex = addPage(tree);
 		setPageText(pageIndex, getString("_UI_SelectionPage_label"));
 
 		setActivePage(0);
