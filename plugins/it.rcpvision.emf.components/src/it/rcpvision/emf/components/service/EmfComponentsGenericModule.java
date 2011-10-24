@@ -16,6 +16,7 @@ import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 import it.rcpvision.emf.components.views.ComposedAdapterFactoryProvider;
+import it.rcpvision.emf.components.views.EObjectManager;
 import it.rcpvision.emf.components.views.EmfViewerFactory;
 import it.rcpvision.emf.components.views.EmfViewerManager;
 
@@ -111,5 +112,9 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 
 	public Class<? extends EmfEditorContentOutlineFactory> bindEmfEditorContentOutlineFactory() {
 		return EmfEditorContentOutlineFactory.class;
+	}
+	
+	public Class<? extends EObjectManager> bindEObjectManager(){
+		return EObjectManager.class;
 	}
 }

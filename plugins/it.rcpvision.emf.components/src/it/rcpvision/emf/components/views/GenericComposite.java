@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.swt.layout.GridLayout;
@@ -45,7 +46,9 @@ public class GenericComposite extends Composite {
 		this.composedAdapterFactoryProvider = composedAdapterFactoryProvider;
 	}
 
-	public void init(ResourceSet rs, EObject model) {
+	public void init(EObject model) {
+			
+		ResourceSet rs=model.eResource().getResourceSet();
 
 		EClass eClass = model.eClass();
 		EList<EStructuralFeature> allStructuralFeatures = new BasicEList<EStructuralFeature>(
@@ -142,5 +145,7 @@ public class GenericComposite extends Composite {
 			return name != null ? name : "";
 		}
 	}
+
+	
 
 }
