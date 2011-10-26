@@ -18,7 +18,6 @@
          point="org.eclipse.ui.views">
       <view
             class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.EmfView"
-            icon="icon/view.jpg"
             id="it.rcpvision.emf.components.emfview"
             name="Emf View"
             restorable="true">
@@ -28,6 +27,13 @@
             icon="icon/detail.jpg"
             id="it.rcpvision.emf.components.detailView"
             name="Emf Detail View"
+            restorable="true">
+      </view>
+      <view
+            class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.GenericTableViewPart"
+            icon="icon/table.jpg"
+            id="it.rcpvision.emf.components.tableView"
+            name="Emf Table View"
             restorable="true">
       </view>
    </extension>
