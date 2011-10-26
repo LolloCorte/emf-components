@@ -125,13 +125,22 @@ public interface MyPackage extends EPackage {
 	int CUSTOMER__LIST_ORDER = 1;
 
 	/**
+	 * The feature id for the '<em><b>Address</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOMER__ADDRESS = 2;
+
+	/**
 	 * The number of structural features of the '<em>Customer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOMER_FEATURE_COUNT = 2;
+	int CUSTOMER_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link my.impl.ItemImpl <em>Item</em>}' class.
@@ -310,6 +319,17 @@ public interface MyPackage extends EPackage {
 	EReference getCustomer_ListOrder();
 
 	/**
+	 * Returns the meta object for the attribute '{@link my.Customer#getAddress <em>Address</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Address</em>'.
+	 * @see my.Customer#getAddress()
+	 * @see #getCustomer()
+	 * @generated
+	 */
+	EAttribute getCustomer_Address();
+
+	/**
 	 * Returns the meta object for class '{@link my.Item <em>Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -478,6 +498,14 @@ public interface MyPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CUSTOMER__LIST_ORDER = eINSTANCE.getCustomer_ListOrder();
+
+		/**
+		 * The meta object literal for the '<em><b>Address</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CUSTOMER__ADDRESS = eINSTANCE.getCustomer_Address();
 
 		/**
 		 * The meta object literal for the '{@link my.impl.ItemImpl <em>Item</em>}' class.
