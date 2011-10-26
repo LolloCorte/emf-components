@@ -40,6 +40,16 @@
                relative="org.eclipse.ui.editorss">
          </view>
       </perspectiveExtension>
+      <perspectiveExtension
+            targetID="*">
+         <view
+               id="it.rcpvision.emf.components.tableView"
+               minimized="false"
+               ratio="0.5"
+               relationship="bottom"
+               relative="it.rcpvision.emf.components.tests.cdo.app.views.genericDetailView">
+         </view>
+      </perspectiveExtension>
    </extension>
    <extension
          point="org.eclipse.ui.editors">
@@ -78,6 +88,36 @@
                label="Open Editor"
                style="push">
          </command>
+      </menuContribution>
+       <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+        <command
+          commandId="org.eclipse.ui.views.showView"
+          icon="icon/detail.jpg"
+          label="Generic Detail"
+          style="push"
+          tooltip="Open the Generic Detail">
+	       <parameter
+	             name="org.eclipse.ui.views.showView.viewId"
+	             value="it.rcpvision.cashflow.ui.genericDetail">
+	       </parameter>
+	    </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+        <command
+          commandId="org.eclipse.ui.views.showView"
+          icon="icon/table.jpg"
+          label="Generic Table"
+          style="push"
+          tooltip="Open the Generic Table">
+	       <parameter
+	             name="org.eclipse.ui.views.showView.viewId"
+	             value="it.rcpvision.emf.components.tableView">
+	       </parameter>
+	    </command>
       </menuContribution>
    </extension>
     
