@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.jface.viewers.ColumnViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 
 import com.google.inject.Inject;
@@ -38,7 +39,7 @@ public class EmfViewerManager {
 		initialize(treeViewer, loadResource(resourceURI));
 	}
 
-	public void initialize(TreeViewer treeViewer,
+	public void initialize(ColumnViewer treeViewer,
 			AdapterFactoryEditingDomain editingDomain) {
 		AdapterFactory editingDomainAdapterFactory = editingDomain
 				.getAdapterFactory();

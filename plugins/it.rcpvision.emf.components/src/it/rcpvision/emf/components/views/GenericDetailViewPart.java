@@ -41,9 +41,9 @@ public class GenericDetailViewPart extends ViewPart implements ISelectionListene
 	protected EmfDetailsFactory emfDetailsFactory;
 	
 	@Inject
-	protected EObjectManager saver;
+	protected EObjectManager objectManager;
 	
-	protected GenericComposite genericComponent;
+	protected GenericDetailComposite genericComponent;
 
 	private boolean modified=false;
 
@@ -111,7 +111,7 @@ public class GenericDetailViewPart extends ViewPart implements ISelectionListene
 		buttonsComposite.addSaveSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				saver.doSave(modelResource);
+				objectManager.doSave(modelResource);
 			}
 
 			
@@ -130,7 +130,7 @@ public class GenericDetailViewPart extends ViewPart implements ISelectionListene
 		if (selection instanceof IStructuredSelection) {
 			Object obj = ((IStructuredSelection) selection).getFirstElement();
 			if (obj instanceof EObject) {
-				EObject model = saver.prepareModel(obj);
+				EObject model = objectManager.prepareModel(obj);
 				
 				if (genericComponent != null) {
 					genericComponent.dispose();
@@ -194,7 +194,7 @@ public class GenericDetailViewPart extends ViewPart implements ISelectionListene
 
 	@Override
 	public void doSave(IProgressMonitor monitor) {
-		saver.doSave(modelResource);
+		objectManager.doSave(modelResource);
 		modified=false;
 		firePropertyChange(PROP_DIRTY);
 	}

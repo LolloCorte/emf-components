@@ -25,6 +25,7 @@ import org.eclipse.emf.internal.cdo.CDOObjectImpl;
  * <ul>
  *   <li>{@link my.impl.CustomerImpl#getCode <em>Code</em>}</li>
  *   <li>{@link my.impl.CustomerImpl#getListOrder <em>List Order</em>}</li>
+ *   <li>{@link my.impl.CustomerImpl#getAddress <em>Address</em>}</li>
  * </ul>
  * </p>
  *
@@ -86,6 +87,24 @@ public class CustomerImpl extends CDOObjectImpl implements Customer {
 	@SuppressWarnings("unchecked")
 	public EList<Order> getListOrder() {
 		return (EList<Order>)eGet(MyPackage.Literals.CUSTOMER__LIST_ORDER, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getAddress() {
+		return (String)eGet(MyPackage.Literals.CUSTOMER__ADDRESS, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAddress(String newAddress) {
+		eSet(MyPackage.Literals.CUSTOMER__ADDRESS, newAddress);
 	}
 
 } //CustomerImpl

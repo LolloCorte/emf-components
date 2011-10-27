@@ -4,6 +4,7 @@
 package it.rcpvision.emf.components.views;
 
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
+import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -32,8 +33,15 @@ public class EmfDetailsFactory {
 
 	}
 
-	public GenericComposite createDetailsComposite(Composite parent, int style) {
-		return new GenericComposite(parent, style,
+	public GenericDetailComposite createDetailsComposite(Composite parent, int style) {
+		return new GenericDetailComposite(parent, style,
+				featureLabelProviderProvider.get(), bindingFactoryProvider,
+				composedAdapterFactoryProvider);
+	}
+	
+	
+	public GenericTableComposite createTableComposite(Composite parent, int style) {
+		return new GenericTableComposite(parent, style,
 				featureLabelProviderProvider.get(), bindingFactoryProvider,
 				composedAdapterFactoryProvider);
 	}

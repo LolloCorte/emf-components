@@ -30,5 +30,12 @@
             name="Emf Detail View"
             restorable="true">
       </view>
+      <view
+            class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.GenericTableViewPart"
+            icon="icon/table.jpg"
+            id="it.rcpvision.emf.components.tableView"
+            name="Emf Table View"
+            restorable="true">
+      </view>
    </extension>
 </plugin>

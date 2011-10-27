@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link my.Customer#getCode <em>Code</em>}</li>
  *   <li>{@link my.Customer#getListOrder <em>List Order</em>}</li>
+ *   <li>{@link my.Customer#getAddress <em>Address</em>}</li>
  * </ul>
  * </p>
  *
@@ -70,5 +71,31 @@ public interface Customer extends CDOObject {
 	 * @generated
 	 */
 	EList<Order> getListOrder();
+
+	/**
+	 * Returns the value of the '<em><b>Address</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Address</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Address</em>' attribute.
+	 * @see #setAddress(String)
+	 * @see my.MyPackage#getCustomer_Address()
+	 * @model
+	 * @generated
+	 */
+	String getAddress();
+
+	/**
+	 * Sets the value of the '{@link my.Customer#getAddress <em>Address</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Address</em>' attribute.
+	 * @see #getAddress()
+	 * @generated
+	 */
+	void setAddress(String value);
 
 } // Customer
