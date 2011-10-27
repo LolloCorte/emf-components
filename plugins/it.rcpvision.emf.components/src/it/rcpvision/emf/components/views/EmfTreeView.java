@@ -27,7 +27,7 @@ import com.google.inject.Inject;
  * @author Lorenzo Bettini
  * 
  */
-public class EmfView extends ViewPart {
+public class EmfTreeView extends ViewPart {
 
 	protected PageBook pagebook;
 
@@ -43,13 +43,13 @@ public class EmfView extends ViewPart {
 		public void selectionChanged(IWorkbenchPart sourcepart,
 				ISelection selection) {
 			// we ignore our own selections
-			if (sourcepart != EmfView.this) {
+			if (sourcepart != EmfTreeView.this) {
 				updateOnSelection(sourcepart, selection);
 			}
 		}
 	};
 
-	public EmfView() {
+	public EmfTreeView() {
 	}
 
 	protected void updateOnSelection(IWorkbenchPart sourcepart,

@@ -17,9 +17,9 @@
    <extension
          point="org.eclipse.ui.views">
       <view
-            class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.EmfView"
+            class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.EmfTreeView"
             icon="icon/view.jpg"
-            id="it.rcpvision.emf.components.emfview"
+            id="it.rcpvision.emf.components.emftreeview"
             name="Emf View"
             restorable="true">
       </view>
