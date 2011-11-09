@@ -158,4 +158,16 @@ public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 		formbot.text(WRITER_S_ADDRESS_TEXT);
 	}
 
+	@Test
+	public void selectionViewShowsDetailsOnSelection() throws Exception {
+		SWTBotView selectionView = openTestView(LIBRARY_EMF_VIEW);
+		// select on the editor's tree
+		SWTBotTreeItem rootOfEditorTree = getRootOfEditorTree(EMF_TREE_EDITOR,
+				MY_EXTLIBRARY, MY_EXT_LIBRARY_PLATFORM_URI);
+		// we select the library in the editor...
+		getLibraryNode(rootOfEditorTree).select();
+		// and the selection view should show its children (so we must find the writer)
+		getRootOfTreeFromView(LIBRARY_EMF_VIEW).getTreeItem(WRITER_LABEL);
+		selectionView.close();
+	}
 }

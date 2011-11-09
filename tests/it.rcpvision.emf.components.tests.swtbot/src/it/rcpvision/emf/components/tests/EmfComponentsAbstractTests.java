@@ -190,8 +190,8 @@ public class EmfComponentsAbstractTests {
 				.getNode("Book: Lorenzo's Book");
 	}
 
-	protected SWTBotTreeItem getLibraryNode(final SWTBotTreeItem treeItemRoot) {
-		return treeItemRoot.expand().getNode(LIBRARY_LABEL);
+	protected SWTBotTreeItem getLibraryNode(final SWTBotTreeItem treeItem) {
+		return treeItem.expand().getNode(LIBRARY_LABEL);
 	}
 
 	protected SWTBotTreeItem getWriterNode(final SWTBotTreeItem treeItem) {
