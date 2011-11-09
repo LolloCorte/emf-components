@@ -159,15 +159,35 @@ public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 	}
 
 	@Test
-	public void selectionViewShowsDetailsOnSelection() throws Exception {
+	public void selectionViewOnSelection() throws Exception {
 		SWTBotView selectionView = openTestView(LIBRARY_EMF_VIEW);
 		// select on the editor's tree
 		SWTBotTreeItem rootOfEditorTree = getRootOfEditorTree(EMF_TREE_EDITOR,
 				MY_EXTLIBRARY, MY_EXT_LIBRARY_PLATFORM_URI);
 		// we select the library in the editor...
 		getLibraryNode(rootOfEditorTree).select();
-		// and the selection view should show its children (so we must find the writer)
+		// and the selection view should show its children (so we must find the
+		// writer)
 		getRootOfTreeFromView(LIBRARY_EMF_VIEW).getTreeItem(WRITER_LABEL);
+		selectionView.close();
+	}
+
+	@Test
+	public void selectionViewOnSelectionOnStatemachine()
+			throws Exception {
+		SWTBotView selectionView = openTestView(LIBRARY_EMF_VIEW);
+		// select on the editor's tree
+		SWTBotTreeItem rootOfEditorTree = getRootOfEditorTree(
+				EMF_TREE_EDITOR_STATEMACHINE, MY_STATEMACHINE,
+				MY_STATEMACHINE_PLATFORM_URI);
+		// we select the statemachine in the editor...
+		getStatemachineNode(rootOfEditorTree).select();
+		// and the selection view should show its children (so we must find the
+		// events)
+		getRootOfTreeFromView(LIBRARY_EMF_VIEW).getTreeItem(EVENT_LABEL);
+		// and states
+		getTransitionNode(getRootOfTreeFromView(LIBRARY_EMF_VIEW).getTreeItem(
+				STATE_LABEL));
 		selectionView.close();
 	}
 }

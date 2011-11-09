@@ -36,6 +36,9 @@ public class EmfViewerManager {
 	protected EditingDomainFactory editingDomainFactory;
 
 	@Inject
+	protected Provider<ComposedAdapterFactory> composedAdapterFactoryProvider;
+
+	@Inject
 	protected Provider<CompositeLabelProvider> compositeLabelProviderProvider;
 
 	public void initialize(StructuredViewer viewer, URI resourceURI) {
@@ -43,13 +46,15 @@ public class EmfViewerManager {
 	}
 
 	public void initialize(StructuredViewer viewer, Resource resource) {
-		initialize(viewer, resource, new ComposedAdapterFactory(
-				ComposedAdapterFactory.Descriptor.Registry.INSTANCE));
+		initialize(viewer, resource, createComposedAdapterFactory());
 	}
 
 	public void initialize(StructuredViewer viewer, EObject eObject) {
-		initialize(viewer, eObject, new ComposedAdapterFactory(
-				ComposedAdapterFactory.Descriptor.Registry.INSTANCE));
+		initialize(viewer, eObject, createComposedAdapterFactory());
+	}
+
+	protected ComposedAdapterFactory createComposedAdapterFactory() {
+		return composedAdapterFactoryProvider.get();
 	}
 
 	public void initialize(StructuredViewer viewer,
