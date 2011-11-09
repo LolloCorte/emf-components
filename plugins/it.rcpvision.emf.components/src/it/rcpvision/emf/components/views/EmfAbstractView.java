@@ -4,8 +4,9 @@
 package it.rcpvision.emf.components.views;
 
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.text.Document;
 import org.eclipse.jface.text.TextViewer;
 import org.eclipse.jface.viewers.ISelection;
@@ -21,8 +22,8 @@ import org.eclipse.ui.part.ViewPart;
 import com.google.inject.Inject;
 
 /**
- * An abstract View that visualizes the emf selected resource (it also acts as
- * a selection provider).
+ * An abstract View that visualizes the emf selected resource (it also acts as a
+ * selection provider).
  * 
  * @author Lorenzo Bettini
  * 
@@ -58,18 +59,24 @@ public abstract class EmfAbstractView extends ViewPart {
 			IStructuredSelection ss = (IStructuredSelection) selection;
 			if (ss.size() == 1) {
 				Object element = ss.getFirstElement();
-				if (element instanceof IAdaptable) {
-					IAdaptable adaptable = (IAdaptable) element;
-					Object adapter = adaptable.getAdapter(IResource.class);
-					if (adapter != null) {
-						IResource resource = (IResource) adapter;
-						URI uri = URI.createPlatformResourceURI(resource
-								.getFullPath().toString(), true);
-						emfViewerManager.initialize(viewer, uri);
-						//viewer.expandAll();
-						showEmfViewer();
-						return;
-					}
+				if (element instanceof IResource) {
+					IResource resource = (IResource) element;
+					URI uri = URI.createPlatformResourceURI(resource
+							.getFullPath().toString(), true);
+					emfViewerManager.initialize(viewer, uri);
+					// viewer.expandAll();
+					showEmfViewer();
+					return;
+				} else if (element instanceof Resource) {
+					Resource resource = (Resource) element;
+					emfViewerManager.initialize(viewer, resource);
+					showEmfViewer();
+					return;
+				} else if (element instanceof EObject) {
+					EObject eObject = (EObject) element;
+					emfViewerManager.initialize(viewer, eObject);
+					showEmfViewer();
+					return;
 				}
 			}
 		}
@@ -99,6 +106,7 @@ public abstract class EmfAbstractView extends ViewPart {
 
 	/**
 	 * Subclasses should implement this.
+	 * 
 	 * @return
 	 */
 	protected abstract StructuredViewer createViewer();

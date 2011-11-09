@@ -9,7 +9,11 @@ import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.viewers.StructuredViewer;
@@ -38,19 +42,40 @@ public class EmfViewerManager {
 		initialize(viewer, loadResource(resourceURI));
 	}
 
+	public void initialize(StructuredViewer viewer, Resource resource) {
+		initialize(viewer, resource, new ComposedAdapterFactory(
+				ComposedAdapterFactory.Descriptor.Registry.INSTANCE));
+	}
+
+	public void initialize(StructuredViewer viewer, EObject eObject) {
+		initialize(viewer, eObject, new ComposedAdapterFactory(
+				ComposedAdapterFactory.Descriptor.Registry.INSTANCE));
+	}
+
 	public void initialize(StructuredViewer viewer,
 			AdapterFactoryEditingDomain editingDomain) {
+		ResourceSet resourceSet = editingDomain.getResourceSet();
 		AdapterFactory editingDomainAdapterFactory = editingDomain
 				.getAdapterFactory();
+		initialize(viewer, resourceSet, editingDomainAdapterFactory);
+	}
+
+	/**
+	 * @param viewer
+	 * @param input
+	 * @param adapterFactory
+	 */
+	public void initialize(StructuredViewer viewer, Object input,
+			AdapterFactory adapterFactory) {
 		viewer.setContentProvider(new AdapterFactoryContentProvider(
-				editingDomainAdapterFactory));
+				adapterFactory));
 		CompositeLabelProvider compositeLabelProvider = compositeLabelProviderProvider
 				.get();
 		compositeLabelProvider
 				.setDelegateLabelProvider(new AdapterFactoryLabelProvider(
-						editingDomainAdapterFactory));
+						adapterFactory));
 		viewer.setLabelProvider(compositeLabelProvider);
-		viewer.setInput(editingDomain.getResourceSet());
+		viewer.setInput(input);
 	}
 
 	protected AdapterFactoryEditingDomain loadResource(URI resourceURI) {
