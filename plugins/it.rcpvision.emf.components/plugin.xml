@@ -44,5 +44,12 @@
             name="Emf List View"
             restorable="true">
       </view>
+      <view
+            class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.EmfTableView"
+            icon="icon/view.jpg"
+            id="it.rcpvision.emf.components.emftabularview"
+            name="Emf Tabular View"
+            restorable="true">
+      </view>
    </extension>
 </plugin>
