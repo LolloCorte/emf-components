@@ -95,14 +95,15 @@ public class GenericTableComposite extends Composite {
 
 	private void createColumn(String title, int bound,final EStructuralFeature feature) {
 		TableViewerColumn col = createTableViewerColumn(title, bound, 0);
-//		col.setLabelProvider(new ColumnLabelProvider() {
-//			@Override
-//			public String getText(Object element) {
-//				EObject p = (EObject) element;
-//				return p.eGet(feature)!=null?p.eGet(feature).toString():"";
-//			}
-//		});
-		col.setLabelProvider(new WrappedViewerLabelProvider(new AdapterFactoryLabelProvider(adapterFactory)));
+		col.setLabelProvider(new ColumnLabelProvider() {
+			@Override
+			public String getText(Object element) {
+				EObject p = (EObject) element;
+				return p.eGet(feature)!=null?p.eGet(feature).toString():"";
+			}
+		});
+		//TODO non lo prende...
+//		col.setLabelProvider(new WrappedViewerLabelProvider(new AdapterFactoryLabelProvider(adapterFactory)));
 		
 		//WrappedViewerLabelProvider
 	}

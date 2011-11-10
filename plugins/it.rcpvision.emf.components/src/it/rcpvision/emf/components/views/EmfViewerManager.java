@@ -12,7 +12,8 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.jface.viewers.StructuredViewer;
+import org.eclipse.jface.viewers.ColumnViewer;
+import org.eclipse.jface.viewers.TreeViewer;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -34,23 +35,23 @@ public class EmfViewerManager {
 	@Inject
 	protected Provider<CompositeLabelProvider> compositeLabelProviderProvider;
 
-	public void initialize(StructuredViewer viewer, URI resourceURI) {
-		initialize(viewer, loadResource(resourceURI));
+	public void initialize(TreeViewer treeViewer, URI resourceURI) {
+		initialize(treeViewer, loadResource(resourceURI));
 	}
 
-	public void initialize(StructuredViewer viewer,
+	public void initialize(ColumnViewer treeViewer,
 			AdapterFactoryEditingDomain editingDomain) {
 		AdapterFactory editingDomainAdapterFactory = editingDomain
 				.getAdapterFactory();
-		viewer.setContentProvider(new AdapterFactoryContentProvider(
+		treeViewer.setContentProvider(new AdapterFactoryContentProvider(
 				editingDomainAdapterFactory));
 		CompositeLabelProvider compositeLabelProvider = compositeLabelProviderProvider
 				.get();
 		compositeLabelProvider
 				.setDelegateLabelProvider(new AdapterFactoryLabelProvider(
 						editingDomainAdapterFactory));
-		viewer.setLabelProvider(compositeLabelProvider);
-		viewer.setInput(editingDomain.getResourceSet());
+		treeViewer.setLabelProvider(compositeLabelProvider);
+		treeViewer.setInput(editingDomain.getResourceSet());
 	}
 
 	protected AdapterFactoryEditingDomain loadResource(URI resourceURI) {

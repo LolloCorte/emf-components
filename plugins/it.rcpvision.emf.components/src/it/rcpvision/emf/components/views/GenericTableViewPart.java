@@ -1,5 +1,9 @@
  package it.rcpvision.emf.components.views;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 
 import org.eclipse.emf.common.util.BasicEList;
@@ -31,7 +35,7 @@ public class GenericTableViewPart extends ViewPart implements ISelectionListener
 	@Inject
 	protected EmfDetailsFactory emfDetailsFactory;
 
-	private GenericTableComposite genericComponent;
+	private List<GenericTableComposite> genericComponentList=new ArrayList<GenericTableComposite>();
 
 	private EStructuralFeature feature;
 	
@@ -65,33 +69,28 @@ public class GenericTableViewPart extends ViewPart implements ISelectionListener
 			Object obj = ((IStructuredSelection) selection).getFirstElement();
 			if (obj instanceof EObject) {
 				EObject model = (EObject)obj;
-				if (genericComponent != null) {
-					genericComponent.dispose();
+				if (genericComponentList.size()>0) {
+					for (Iterator<GenericTableComposite> iterator = genericComponentList.iterator(); iterator
+							.hasNext();) {
+						iterator.next().dispose();
+						
+					}
+					genericComponentList.clear();
 				}
 				
-				genericComponent = emfDetailsFactory.createTableComposite(
-						main, SWT.NONE);
-				formToolkit.adapt(genericComponent);
-				
-				
-				genericComponent.init((EList) model.eGet(firstFeature(model.eClass())));
+				EList<EStructuralFeature> allStructuralFeatures = new BasicEList<EStructuralFeature>(model.eClass().getEAllStructuralFeatures());
+				for (final EStructuralFeature feature : allStructuralFeatures) {
+					if (feature.isChangeable() && !feature.isDerived() && (feature instanceof EReference && ((EReference) feature).isMany())) {
+						GenericTableComposite genericComponent;
+						genericComponentList.add(genericComponent= emfDetailsFactory.createTableComposite(main, SWT.NONE));
+						formToolkit.adapt(genericComponent);
+						genericComponent.init((EList) model.eGet(feature));
+					}
+				}
 				main.layout(true);
 			}
 		}
 	}
-
-	private EStructuralFeature firstFeature(EClass eClass) {
-		EList<EStructuralFeature> allStructuralFeatures = new BasicEList<EStructuralFeature>(eClass.getEAllStructuralFeatures());
-		for (final EStructuralFeature feature : allStructuralFeatures) {
-			// derived, unchangeable, container and containment features
-			// ignored
-			if (feature.isChangeable() && !feature.isDerived() && (feature instanceof EReference && ((EReference) feature).isMany())) {
-				 return feature;
-			}
-		}
-		return null;
-	}
-
 
 
 	@Override
