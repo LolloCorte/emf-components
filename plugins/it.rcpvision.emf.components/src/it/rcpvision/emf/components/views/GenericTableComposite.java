@@ -131,6 +131,9 @@ public class GenericTableComposite extends Composite {
 
 	public void init(EList list) {
 
+		if (list.size() == 0)
+			return;
+		
 		EObject model=(EObject)list.get(0);
 		ResourceSet rs = model.eResource().getResourceSet();
 
