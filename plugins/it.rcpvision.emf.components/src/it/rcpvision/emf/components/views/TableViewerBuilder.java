@@ -46,21 +46,23 @@ public class TableViewerBuilder {
 			column.dispose();
 		}
 
+		tableViewer.setInput(null);
+
+		tableViewer.refresh();
+
 		// Layout the viewer
 		/*
-		GridData gridData = new GridData();
-		gridData.verticalAlignment = GridData.FILL;
-		gridData.horizontalSpan = 2;
-		gridData.grabExcessHorizontalSpace = true;
-		gridData.grabExcessVerticalSpace = true;
-		gridData.horizontalAlignment = GridData.FILL;
-		tableViewer.getControl().setLayoutData(gridData);
-		*/
+		 * GridData gridData = new GridData(); gridData.verticalAlignment =
+		 * GridData.FILL; gridData.horizontalSpan = 2;
+		 * gridData.grabExcessHorizontalSpace = true;
+		 * gridData.grabExcessVerticalSpace = true; gridData.horizontalAlignment
+		 * = GridData.FILL; tableViewer.getControl().setLayoutData(gridData);
+		 */
 
-        TableLayout layout = new TableLayout();
-        table.setLayout(layout);
-        table.setHeaderVisible(true);
-        table.setLinesVisible(true);
+		TableLayout layout = new TableLayout();
+		table.setLayout(layout);
+		table.setHeaderVisible(true);
+		table.setLinesVisible(true);
 
 		EList<EStructuralFeature> typeFeatures = eClass
 				.getEAllStructuralFeatures();

@@ -34,6 +34,7 @@ public class EmfTableView extends EmfAbstractView {
 		tableViewerBuilder.buildTableViewer((TableViewer) viewer,
 				eObject.eClass());
 		super.performUpdateOnSelection(eObject);
+		viewer.refresh();
 	}
 
 }
