@@ -61,20 +61,18 @@ public abstract class EmfAbstractView extends ViewPart {
 				Object element = ss.getFirstElement();
 				if (element instanceof IResource) {
 					IResource resource = (IResource) element;
-					URI uri = URI.createPlatformResourceURI(resource
-							.getFullPath().toString(), true);
-					emfViewerManager.initialize(viewer, uri);
+					performUpdateOnSelection(resource);
 					// viewer.expandAll();
 					showEmfViewer();
 					return;
 				} else if (element instanceof Resource) {
 					Resource resource = (Resource) element;
-					emfViewerManager.initialize(viewer, resource);
+					performUpdateOnSelection(resource);
 					showEmfViewer();
 					return;
 				} else if (element instanceof EObject) {
 					EObject eObject = (EObject) element;
-					emfViewerManager.initialize(viewer, eObject);
+					performUpdateOnSelection(eObject);
 					showEmfViewer();
 					return;
 				}
@@ -82,6 +80,29 @@ public abstract class EmfAbstractView extends ViewPart {
 		}
 
 		showText();
+	}
+
+	/**
+	 * @param eObject
+	 */
+	protected void performUpdateOnSelection(EObject eObject) {
+		emfViewerManager.initialize(viewer, eObject);
+	}
+
+	/**
+	 * @param resource
+	 */
+	protected void performUpdateOnSelection(Resource resource) {
+		emfViewerManager.initialize(viewer, resource);
+	}
+
+	/**
+	 * @param resource
+	 */
+	protected void performUpdateOnSelection(IResource resource) {
+		URI uri = URI.createPlatformResourceURI(resource
+				.getFullPath().toString(), true);
+		emfViewerManager.initialize(viewer, uri);
 	}
 
 	@Override
