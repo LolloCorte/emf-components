@@ -4,6 +4,7 @@
 package it.rcpvision.emf.components.views;
 
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
+import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
