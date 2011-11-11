@@ -30,9 +30,9 @@ import com.google.inject.Inject;
  */
 public abstract class EmfAbstractView extends ViewPart {
 
-	protected PageBook pagebook;
+	private PageBook pagebook;
 
-	protected TextViewer textviewer;
+	private TextViewer textviewer;
 
 	private StructuredViewer viewer;
 
@@ -126,9 +126,9 @@ public abstract class EmfAbstractView extends ViewPart {
 		textviewer = new TextViewer(pagebook, SWT.H_SCROLL | SWT.V_SCROLL);
 		textviewer.setEditable(false);
 		textviewer.setDocument(new Document(
-				"Select one XMI resource in the explorer"));
+				"Select one XMI resource in the explorer or any EObject in a view"));
 
-		viewer = createViewer();
+		viewer = createViewer(pagebook);
 
 		showText();
 
@@ -140,10 +140,11 @@ public abstract class EmfAbstractView extends ViewPart {
 
 	/**
 	 * Subclasses should implement this.
+	 * @param parent TODO
 	 * 
 	 * @return
 	 */
-	protected abstract StructuredViewer createViewer();
+	protected abstract StructuredViewer createViewer(Composite parent);
 
 	protected void showText() {
 		pagebook.showPage(textviewer.getControl());

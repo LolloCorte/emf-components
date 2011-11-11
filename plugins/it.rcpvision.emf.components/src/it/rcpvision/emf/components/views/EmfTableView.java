@@ -27,8 +27,8 @@ public class EmfTableView extends EmfAbstractView {
 	}
 
 	@Override
-	protected StructuredViewer createViewer() {
-		return new TableViewer(pagebook);
+	protected StructuredViewer createViewer(Composite parent) {
+		return new TableViewer(parent);
 	}
 
 	@Override
