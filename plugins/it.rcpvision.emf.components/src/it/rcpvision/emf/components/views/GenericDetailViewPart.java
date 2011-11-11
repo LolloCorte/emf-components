@@ -172,8 +172,6 @@ public class GenericDetailViewPart extends ViewPart implements ISelectionListene
 
 					@Override
 					public void setTarget(Notifier newTarget) {
-						// TODO Auto-generated method stub
-						System.out.println();
 					}
 
 					@Override
@@ -206,7 +204,6 @@ public class GenericDetailViewPart extends ViewPart implements ISelectionListene
 
 	@Override
 	public boolean isDirty() {
-		System.out.println(modified);
 		return modified||(modelResource!=null?modelResource.isModified():false);
 	}
 
