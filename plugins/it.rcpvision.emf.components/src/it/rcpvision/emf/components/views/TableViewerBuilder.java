@@ -10,9 +10,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.jface.viewers.TableViewer;
-import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 
@@ -40,25 +38,6 @@ public class TableViewerBuilder {
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
 
-		TableColumn[] columns = tableViewer.getTable().getColumns();
-
-		for (TableColumn column : columns) {
-			column.dispose();
-		}
-
-		tableViewer.setInput(null);
-
-		tableViewer.refresh();
-
-		// Layout the viewer
-		/*
-		 * GridData gridData = new GridData(); gridData.verticalAlignment =
-		 * GridData.FILL; gridData.horizontalSpan = 2;
-		 * gridData.grabExcessHorizontalSpace = true;
-		 * gridData.grabExcessVerticalSpace = true; gridData.horizontalAlignment
-		 * = GridData.FILL; tableViewer.getControl().setLayoutData(gridData);
-		 */
-
 		TableLayout layout = new TableLayout();
 		table.setLayout(layout);
 		table.setHeaderVisible(true);
@@ -78,12 +57,5 @@ public class TableViewerBuilder {
 		layout.addColumnData(new ColumnWeightData(3, 100, true));
 		objectColumn.setText(eStructuralFeature.getName());
 		objectColumn.setResizable(true);
-		/*
-		 * final TableViewerColumn viewerColumn = new TableViewerColumn(
-		 * tableViewer, SWT.NONE); final TableColumn column =
-		 * viewerColumn.getColumn();
-		 * column.setText(eStructuralFeature.getName());
-		 * column.setResizable(true); column.setMoveable(true);
-		 */
 	}
 }

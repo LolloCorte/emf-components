@@ -34,7 +34,7 @@ public abstract class EmfAbstractView extends ViewPart {
 
 	protected TextViewer textviewer;
 
-	protected StructuredViewer viewer;
+	private StructuredViewer viewer;
 
 	@Inject
 	protected EmfViewerManager emfViewerManager;
@@ -51,6 +51,19 @@ public abstract class EmfAbstractView extends ViewPart {
 	};
 
 	public EmfAbstractView() {
+	}
+
+	public StructuredViewer getViewer() {
+		return viewer;
+	}
+
+	/**
+	 * Sets the viewer and makes the pagebook show it
+	 * @param viewer
+	 */
+	public void setViewer(StructuredViewer viewer) {
+		this.viewer = viewer;
+		pagebook.showPage(viewer.getControl());
 	}
 
 	protected void updateOnSelection(IWorkbenchPart sourcepart,
@@ -100,8 +113,8 @@ public abstract class EmfAbstractView extends ViewPart {
 	 * @param resource
 	 */
 	protected void performUpdateOnSelection(IResource resource) {
-		URI uri = URI.createPlatformResourceURI(resource
-				.getFullPath().toString(), true);
+		URI uri = URI.createPlatformResourceURI(resource.getFullPath()
+				.toString(), true);
 		emfViewerManager.initialize(viewer, uri);
 	}
 
