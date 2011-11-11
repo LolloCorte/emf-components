@@ -3,9 +3,12 @@
  */
 package it.rcpvision.emf.components.views;
 
+import java.util.Collections;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
+import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.widgets.Composite;
@@ -25,7 +28,7 @@ public class EmfTableView extends EmfAbstractView {
 
 	@Inject
 	protected TableViewerBuilder tableViewerBuilder;
-	
+
 	@Inject
 	protected Provider<ComposedAdapterFactory> composedAdapterFactoryProvider;
 
@@ -52,8 +55,10 @@ public class EmfTableView extends EmfAbstractView {
 		// Create columns
 		tableViewerBuilder.buildTableViewer(tableViewer, eObject.eClass());
 		// no label provider, since we use column label providers
-		emfViewerManager.initialize(tableViewer, eObject.eContainer(), new AdapterFactoryContentProvider(
-				composedAdapterFactoryProvider.get()), null);
+
+		emfViewerManager.initialize(tableViewer,
+				Collections.singleton(eObject), new ArrayContentProvider(),
+				null);
 		parent.layout(true, true); // You need to relayout
 	}
 
