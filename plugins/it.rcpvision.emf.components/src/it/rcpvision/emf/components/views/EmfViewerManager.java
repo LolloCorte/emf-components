@@ -16,6 +16,8 @@ import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.jface.viewers.IBaseLabelProvider;
+import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.StructuredViewer;
 
 import com.google.inject.Inject;
@@ -72,14 +74,29 @@ public class EmfViewerManager {
 	 */
 	public void initialize(StructuredViewer viewer, Object input,
 			AdapterFactory adapterFactory) {
-		viewer.setContentProvider(new AdapterFactoryContentProvider(
-				adapterFactory));
+		AdapterFactoryContentProvider contentProvider = new AdapterFactoryContentProvider(
+				adapterFactory);
 		CompositeLabelProvider compositeLabelProvider = compositeLabelProviderProvider
 				.get();
 		compositeLabelProvider
 				.setDelegateLabelProvider(new AdapterFactoryLabelProvider(
 						adapterFactory));
-		viewer.setLabelProvider(compositeLabelProvider);
+		initialize(viewer, input, contentProvider, compositeLabelProvider);
+	}
+
+	/**
+	 * @param viewer
+	 * @param input
+	 * @param contentProvider
+	 * @param labelProvider
+	 *            can be null (in that case it is not set)
+	 */
+	public void initialize(StructuredViewer viewer, Object input,
+			IStructuredContentProvider contentProvider,
+			IBaseLabelProvider labelProvider) {
+		viewer.setContentProvider(contentProvider);
+		if (labelProvider != null)
+			viewer.setLabelProvider(labelProvider);
 		viewer.setInput(input);
 	}
 
