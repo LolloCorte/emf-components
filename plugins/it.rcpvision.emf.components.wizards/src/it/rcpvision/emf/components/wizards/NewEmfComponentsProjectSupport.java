@@ -129,21 +129,6 @@ public class NewEmfComponentsProjectSupport {
 		IPath projectPath = project.getFullPath();
 		IPath javaSource = projectPath.append("src");
 		
-		IPath sourceContainerPath = javaSource.removeFirstSegments(1).makeAbsolute();
-		IContainer sourceContainer = project;
-    	sourceContainer = project.getFolder(sourceContainerPath);
-    	if (!sourceContainer.exists())
-    	{
-    	  for (int i = sourceContainerPath.segmentCount() - 1; i >= 0; i--)
-    	  {
-            sourceContainer = project.getFolder(sourceContainerPath.removeLastSegments(i));
-            if (!sourceContainer.exists())
-            {
-              ((IFolder)sourceContainer).create(false, true, monitor);  
-            }
-          }
-        }
-    	
     	IClasspathEntry sourceClasspathEntry = JavaCore.newSourceEntry(javaSource);
         for (Iterator<IClasspathEntry> i = classpathEntries.iterator(); i.hasNext(); )
         {
