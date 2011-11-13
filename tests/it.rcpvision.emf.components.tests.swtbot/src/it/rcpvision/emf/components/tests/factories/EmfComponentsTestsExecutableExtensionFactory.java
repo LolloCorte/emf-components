@@ -16,7 +16,7 @@ import com.google.inject.Injector;
  * @author bettini
  * 
  */
-public class EmfFormEditorTestsExecutableExtensionFactory extends
+public class EmfComponentsTestsExecutableExtensionFactory extends
 		EmfComponentsExecutableExtensionFactory {
 
 	/**

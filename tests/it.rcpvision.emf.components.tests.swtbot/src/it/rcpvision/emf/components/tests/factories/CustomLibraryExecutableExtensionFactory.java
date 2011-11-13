@@ -20,7 +20,7 @@ import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
  * 
  */
 public class CustomLibraryExecutableExtensionFactory extends
-		EmfFormEditorTestsExecutableExtensionFactory {
+		EmfComponentsTestsExecutableExtensionFactory {
 
 	@Override
 	protected EmfComponentsGenericModule getModule() {

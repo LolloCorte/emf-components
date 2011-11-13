@@ -16,7 +16,7 @@ import it.rcpvision.emf.components.tests.EmfComponentsTestsActivator;
  * 
  */
 public class NoMouseEventExecutableExtensionFactory extends
-		EmfFormEditorTestsExecutableExtensionFactory {
+		EmfComponentsTestsExecutableExtensionFactory {
 
 	@Override
 	protected EmfComponentsGenericModule getModule() {

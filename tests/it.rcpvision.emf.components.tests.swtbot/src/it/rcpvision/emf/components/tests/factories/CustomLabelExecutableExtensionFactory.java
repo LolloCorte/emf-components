@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
  * 
  */
 public class CustomLabelExecutableExtensionFactory extends
-		EmfFormEditorTestsExecutableExtensionFactory {
+		EmfComponentsTestsExecutableExtensionFactory {
 
 	public static class CustomLabelProvider extends CompositeLabelProvider {
 		@Override
