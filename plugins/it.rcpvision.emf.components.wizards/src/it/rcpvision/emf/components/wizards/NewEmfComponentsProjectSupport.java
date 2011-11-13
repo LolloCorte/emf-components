@@ -29,6 +29,9 @@ import org.eclipse.jdt.launching.JavaRuntime;
  * 
  */
 public class NewEmfComponentsProjectSupport {
+
+	static EmfComponentsProjectFilesGenerator filesGenerator = new EmfComponentsProjectFilesGenerator();
+
 	/**
 	 * We need to: - create the default Eclipse project - add the java and
 	 * plugin natures - create the folder structure
@@ -44,27 +47,44 @@ public class NewEmfComponentsProjectSupport {
 
 		String srcFolder = "src";
 		String metaInfPath = "META-INF";
+		String projectPackagePath = srcFolder + "/" + projectName.replaceAll("\\.", "/");
 
 		IProject project = createBaseProject(projectName, location);
 		try {
-			addNature(project);
+			addNatures(project);
 
-			String[] paths = { srcFolder, metaInfPath }; //$NON-NLS-1$ //$NON-NLS-2$
+			String[] paths = { srcFolder, projectPackagePath, metaInfPath }; //$NON-NLS-1$ //$NON-NLS-2$
 			addToProjectStructure(project, paths);
 
-			EmfComponentsProjectFilesGenerator filesGenerator = new EmfComponentsProjectFilesGenerator();
-
-			String projectPackage = projectName.replaceAll(".", "/");
-			IFile manifestFile = project.getFile(metaInfPath + "/MANIFEST.MF");
-			manifestFile.create(new ByteArrayInputStream(filesGenerator
-					.generateManifest(projectName).toString().getBytes()),
-					true, null);
+			createProjectFile(project, metaInfPath + "/MANIFEST.MF",
+					filesGenerator.generateManifest(projectName).toString());
+			createProjectFile(project, "/build.properties",
+					filesGenerator.generateBuildProperties().toString());
+			createProjectFile(project, projectPackagePath + "/Activator.java",
+					filesGenerator.generateActivator(projectName).toString());
+			createProjectFile(project, projectPackagePath + "/ExecutableExtensionFactory.java",
+					filesGenerator.generateExecutableExtensionFactory(projectName).toString());
+			createProjectFile(project, projectPackagePath + "/EmfComponentsGuiceModule.java",
+					filesGenerator.generateModule(projectName).toString());
 		} catch (CoreException e) {
 			e.printStackTrace();
 			project = null;
 		}
 
 		return project;
+	}
+
+	/**
+	 * @param project
+	 * @param fileName
+	 * @param contents
+	 * @throws CoreException
+	 */
+	public static void createProjectFile(IProject project, String fileName,
+			String contents) throws CoreException {
+		IFile manifestFile = project.getFile(fileName);
+		manifestFile.create(new ByteArrayInputStream(contents.getBytes()),
+				true, null);
 	}
 
 	/**
@@ -128,7 +148,7 @@ public class NewEmfComponentsProjectSupport {
 		}
 	}
 
-	private static void addNature(IProject project) throws CoreException {
+	private static void addNatures(IProject project) throws CoreException {
 		List<IClasspathEntry> classpathEntries = new UniqueEList<IClasspathEntry>();
 		
 		IJavaProject javaProject = JavaCore.create(project);
