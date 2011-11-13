@@ -7,6 +7,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 
 /**
  * @author Lorenzo Bettini
@@ -14,11 +15,13 @@ import org.eclipse.ui.IWorkbench;
  */
 public class NewEmfComponentsProjectWizard extends Wizard implements INewWizard {
 
+	private WizardNewProjectCreationPage _pageOne;
+	
 	/**
 	 * 
 	 */
 	public NewEmfComponentsProjectWizard() {
-		// TODO Auto-generated constructor stub
+		setWindowTitle("New Emf Components Project");
 	}
 
 	/* (non-Javadoc)
@@ -26,8 +29,17 @@ public class NewEmfComponentsProjectWizard extends Wizard implements INewWizard 
 	 */
 	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
-		// TODO Auto-generated method stub
+	}
 
+	@Override
+	public void addPages() {
+	    super.addPages();
+
+	    _pageOne = new WizardNewProjectCreationPage("Emf Components Project Wizard");
+	    _pageOne.setTitle("Emf Component Project");
+	    _pageOne.setDescription("Create a plugin project for Emf Components.");
+
+	    addPage(_pageOne);
 	}
 
 	/* (non-Javadoc)
@@ -35,8 +47,7 @@ public class NewEmfComponentsProjectWizard extends Wizard implements INewWizard 
 	 */
 	@Override
 	public boolean performFinish() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }
