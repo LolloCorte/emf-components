@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Emf Components Wizards
+Bundle-SymbolicName: it.rcpvision.emf.components.wizards
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: it.rcpvision.emf.components.wizards.Activator
+Bundle-Vendor: RCP-VISION
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
