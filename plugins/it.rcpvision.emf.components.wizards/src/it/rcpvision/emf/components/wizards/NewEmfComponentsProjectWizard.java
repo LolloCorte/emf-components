@@ -3,6 +3,8 @@
  */
 package it.rcpvision.emf.components.wizards;
 
+import java.net.URI;
+
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
@@ -56,6 +58,14 @@ public class NewEmfComponentsProjectWizard extends Wizard implements INewWizard 
 	 */
 	@Override
 	public boolean performFinish() {
+		String name = _pageOne.getProjectName();
+	    URI location = null;
+	    if (!_pageOne.useDefaults()) {
+	        location = _pageOne.getLocationURI();
+	    } // else location == null
+
+	    NewEmfComponentsProjectSupport.createProject(name, location);
+
 		return true;
 	}
 
