@@ -1,10 +1,14 @@
 package it.rcpvision.emf.components.wizards;
 
+import it.rcpvision.emf.components.wizards.gen.EmfComponentsProjectFilesGenerator;
+
+import java.io.ByteArrayInputStream;
 import java.net.URI;
 import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
@@ -38,13 +42,23 @@ public class NewEmfComponentsProjectSupport {
 		Assert.isNotNull(projectName);
 		Assert.isTrue(projectName.trim().length() > 0);
 
+		String srcFolder = "src";
+		String metaInfPath = "META-INF";
+
 		IProject project = createBaseProject(projectName, location);
 		try {
 			addNature(project);
 
-			String[] paths = {"src",
-					"parent/child1-1/child2", "parent/child1-2/child2/child3" }; //$NON-NLS-1$ //$NON-NLS-2$
+			String[] paths = { srcFolder, metaInfPath }; //$NON-NLS-1$ //$NON-NLS-2$
 			addToProjectStructure(project, paths);
+
+			EmfComponentsProjectFilesGenerator filesGenerator = new EmfComponentsProjectFilesGenerator();
+
+			String projectPackage = projectName.replaceAll(".", "/");
+			IFile manifestFile = project.getFile(metaInfPath + "/MANIFEST.MF");
+			manifestFile.create(new ByteArrayInputStream(filesGenerator
+					.generateManifest(projectName).toString().getBytes()),
+					true, null);
 		} catch (CoreException e) {
 			e.printStackTrace();
 			project = null;
