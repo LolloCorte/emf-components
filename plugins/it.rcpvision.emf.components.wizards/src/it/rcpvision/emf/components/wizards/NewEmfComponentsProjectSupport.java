@@ -1,26 +1,24 @@
 package it.rcpvision.emf.components.wizards;
 
 import java.net.URI;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Iterator;
+import java.util.List;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.launching.JavaRuntime;
-import org.eclipse.jdt.ui.PreferenceConstants;
-import org.eclipse.jface.preference.IPreferenceStore;
 
 /**
  * @author Lorenzo Bettini
@@ -117,8 +115,58 @@ public class NewEmfComponentsProjectSupport {
 	}
 
 	private static void addNature(IProject project) throws CoreException {
-		IProjectDescription description = project.getDescription();
-		String[] prevNatures = description.getNatureIds();
+		List<IClasspathEntry> classpathEntries = new UniqueEList<IClasspathEntry>();
+		
+		IJavaProject javaProject = JavaCore.create(project);
+        IProjectDescription projectDescription = project.getDescription();
+        
+		projectDescription.setNatureIds(new String[] { JavaCore.NATURE_ID,
+				"org.eclipse.pde.PluginNature" });
+
+		IProgressMonitor monitor = null;
+		project.setDescription(projectDescription, monitor);
+		
+		IPath projectPath = project.getFullPath();
+		IPath javaSource = projectPath.append("src");
+		
+		IPath sourceContainerPath = javaSource.removeFirstSegments(1).makeAbsolute();
+		IContainer sourceContainer = project;
+    	sourceContainer = project.getFolder(sourceContainerPath);
+    	if (!sourceContainer.exists())
+    	{
+    	  for (int i = sourceContainerPath.segmentCount() - 1; i >= 0; i--)
+    	  {
+            sourceContainer = project.getFolder(sourceContainerPath.removeLastSegments(i));
+            if (!sourceContainer.exists())
+            {
+              ((IFolder)sourceContainer).create(false, true, monitor);  
+            }
+          }
+        }
+    	
+    	IClasspathEntry sourceClasspathEntry = JavaCore.newSourceEntry(javaSource);
+        for (Iterator<IClasspathEntry> i = classpathEntries.iterator(); i.hasNext(); )
+        {
+          IClasspathEntry classpathEntry = i.next();
+          if (classpathEntry.getPath().isPrefixOf(javaSource))
+          {
+            i.remove();
+          }
+        }
+        classpathEntries.add(0, sourceClasspathEntry);
+
+		classpathEntries.add(JavaRuntime.getDefaultJREContainerEntry());
+
+		classpathEntries.add(JavaCore.newContainerEntry(new Path(
+				"org.eclipse.pde.core.requiredPlugins")));
+
+		javaProject
+				.setRawClasspath(classpathEntries
+						.toArray(new IClasspathEntry[classpathEntries.size()]),
+						monitor);
+
+        /*
+        String[] prevNatures = description.getNatureIds();
 		String[] newNatures = new String[prevNatures.length + 1];
 		System.arraycopy(prevNatures, 0, newNatures, 0, prevNatures.length);
 		newNatures[prevNatures.length] = JavaCore.NATURE_ID;
@@ -144,12 +192,13 @@ public class NewEmfComponentsProjectSupport {
 			srcFolder= javaProject.getProject();
 		}
 		classPathEntries.add(JavaCore.newSourceEntry(srcFolder.getLocation()));
-		*/
 		
 		javaProject
 				.setRawClasspath(classPathEntries
 						.toArray(new IClasspathEntry[classPathEntries.size()]),
 						monitor);
+				*/
+
 	}
 
 }
