@@ -1,16 +1,26 @@
 package it.rcpvision.emf.components.wizards;
 
 import java.net.URI;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.jdt.core.IClasspathEntry;
+import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
+import org.eclipse.jdt.launching.JavaRuntime;
+import org.eclipse.jdt.ui.PreferenceConstants;
+import org.eclipse.jface.preference.IPreferenceStore;
 
 /**
  * @author Lorenzo Bettini
@@ -34,7 +44,7 @@ public class NewEmfComponentsProjectSupport {
 		try {
 			addNature(project);
 
-			String[] paths = {
+			String[] paths = {"src",
 					"parent/child1-1/child2", "parent/child1-2/child2/child3" }; //$NON-NLS-1$ //$NON-NLS-2$
 			addToProjectStructure(project, paths);
 		} catch (CoreException e) {
@@ -116,6 +126,30 @@ public class NewEmfComponentsProjectSupport {
 
 		IProgressMonitor monitor = null;
 		project.setDescription(description, monitor);
+
+		IJavaProject javaProject = JavaCore.create(project);
+		Set<IClasspathEntry> classPathEntries = new HashSet<IClasspathEntry>();
+		IClasspathEntry[] rawClasspath = javaProject.getRawClasspath();
+		classPathEntries.addAll(Arrays.asList(rawClasspath));
+		
+		classPathEntries.add(JavaRuntime.getDefaultJREContainerEntry());
+
+		/*
+		IResource srcFolder;
+		IPreferenceStore store= PreferenceConstants.getPreferenceStore();
+		String sourceFolderName= store.getString(PreferenceConstants.SRCBIN_SRCNAME);
+		if (store.getBoolean(PreferenceConstants.SRCBIN_FOLDERS_IN_NEWPROJ) && sourceFolderName.length() > 0) {
+			srcFolder= javaProject.getProject().getFolder(sourceFolderName);
+		} else {
+			srcFolder= javaProject.getProject();
+		}
+		classPathEntries.add(JavaCore.newSourceEntry(srcFolder.getLocation()));
+		*/
+		
+		javaProject
+				.setRawClasspath(classPathEntries
+						.toArray(new IClasspathEntry[classPathEntries.size()]),
+						monitor);
 	}
 
 }
