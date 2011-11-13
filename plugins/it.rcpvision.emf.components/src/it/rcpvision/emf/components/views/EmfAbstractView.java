@@ -56,28 +56,23 @@ public abstract class EmfAbstractView extends EmfAbstractViewOnSelection {
 
 	protected void updateOnSelection(IWorkbenchPart sourcepart,
 			ISelection selection) {
-		if (selection instanceof IStructuredSelection) {
-			IStructuredSelection ss = (IStructuredSelection) selection;
-			if (ss.size() == 1) {
-				Object element = ss.getFirstElement();
-				if (element instanceof IResource) {
-					IResource resource = (IResource) element;
-					performUpdateOnSelection(resource);
-					// viewer.expandAll();
-					showEmfViewer();
-					return;
-				} else if (element instanceof Resource) {
-					Resource resource = (Resource) element;
-					performUpdateOnSelection(resource);
-					showEmfViewer();
-					return;
-				} else if (element instanceof EObject) {
-					EObject eObject = (EObject) element;
-					performUpdateOnSelection(eObject);
-					showEmfViewer();
-					return;
-				}
-			}
+		Object element = getFirstSelectedElement(selection);
+		if (element instanceof IResource) {
+			IResource resource = (IResource) element;
+			performUpdateOnSelection(resource);
+			// viewer.expandAll();
+			showEmfViewer();
+			return;
+		} else if (element instanceof Resource) {
+			Resource resource = (Resource) element;
+			performUpdateOnSelection(resource);
+			showEmfViewer();
+			return;
+		} else if (element instanceof EObject) {
+			EObject eObject = (EObject) element;
+			performUpdateOnSelection(eObject);
+			showEmfViewer();
+			return;
 		}
 
 		showText();

@@ -4,6 +4,7 @@
 package it.rcpvision.emf.components.views;
 
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.IWorkbenchPart;
@@ -36,6 +37,14 @@ public abstract class EmfAbstractViewOnSelection extends ViewPart {
 	public void createPartControl(Composite parent) {
 		getSite().getWorkbenchWindow().getSelectionService()
 				.addSelectionListener(listener);
+	}
+	
+	protected Object getFirstSelectedElement(ISelection selection) {
+		if (selection instanceof IStructuredSelection) {
+			IStructuredSelection ss = (IStructuredSelection) selection;
+			return ss.getFirstElement();
+		}
+		return null;
 	}
 
 	public void dispose() {
