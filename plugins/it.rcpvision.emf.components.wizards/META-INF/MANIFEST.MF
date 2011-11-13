@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Emf Components Wizards
-Bundle-SymbolicName: it.rcpvision.emf.components.wizards
+Bundle-SymbolicName: it.rcpvision.emf.components.wizards;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: it.rcpvision.emf.components.wizards.Activator
 Bundle-Vendor: RCP-VISION
