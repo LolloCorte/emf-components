@@ -313,7 +313,8 @@ public class EmfComponentsAbstractTests {
 		bot.textWithLabel("Project name:").setText(projectName);
 
 		bot.button("Finish").click();
-		bot.waitUntil(shellCloses(shell));
+		// creation of a project might require some time
+		bot.waitUntil(shellCloses(shell), 50000);
 		assertTrue("Project doesn't exist", isProjectCreated(projectName));
 
 		waitForAutoBuild();
