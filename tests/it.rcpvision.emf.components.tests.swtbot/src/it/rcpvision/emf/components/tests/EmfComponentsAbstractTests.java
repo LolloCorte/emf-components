@@ -276,7 +276,7 @@ public class EmfComponentsAbstractTests {
 
 	protected void createProjectAndTestFile() throws CoreException,
 			InvocationTargetException, InterruptedException, IOException {
-		createSimpleProject();
+		createMyTestProject();
 		IFile file = createFile(MY_EXTLIBRARY_RELATIVE_PATH,
 				localFileContents(MY_EXTLIBRARY));
 		assertTrue(file.exists());
@@ -294,19 +294,24 @@ public class EmfComponentsAbstractTests {
 		return EmfComponentsTestsActivator.localFileContents(string);
 	}
 
-	protected void createSimpleProject() {
+	protected void createMyTestProject() {
+		createProjectInWorkspace("General", "Project", MY_TEST_PROJECT);
+	}
+
+	protected void createProjectInWorkspace(String category,
+			String projectType, String projectName) {
 		bot.menu("File").menu("New").menu("Project...").click();
 
 		SWTBotShell shell = bot.shell("New Project");
 		shell.activate();
-		bot.tree().expandNode("General").select("Project");
+		bot.tree().expandNode(category).select(projectType);
 		bot.button("Next >").click();
 
-		bot.textWithLabel("Project name:").setText(MY_TEST_PROJECT);
+		bot.textWithLabel("Project name:").setText(projectName);
 
 		bot.button("Finish").click();
 
-		assertTrue("Project doesn't exist", isProjectCreated(MY_TEST_PROJECT));
+		assertTrue("Project doesn't exist", isProjectCreated(projectName));
 
 		waitForAutoBuild();
 	}

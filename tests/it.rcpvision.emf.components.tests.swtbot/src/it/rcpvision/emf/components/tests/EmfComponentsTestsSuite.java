@@ -11,7 +11,8 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
   EmfProviderTests.class,
   EmfComponentsViewTests.class,
-  EmfComponentsEditorTests.class
+  EmfComponentsEditorTests.class,
+  EmfComponentsWizardsTests.class
 })
 public class EmfComponentsTestsSuite {
 }
