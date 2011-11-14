@@ -17,7 +17,9 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
@@ -38,23 +40,30 @@ public class NewEmfComponentsProjectSupport {
 	 * 
 	 * @param projectName
 	 * @param location
+	 * @param progressMonitor 
 	 * @param natureId
 	 * @return
 	 */
-	public static IProject createProject(String projectName, URI location) {
+	public static IProject createProject(String projectName, URI location, IProgressMonitor progressMonitor) {
 		Assert.isNotNull(projectName);
 		Assert.isTrue(projectName.trim().length() > 0);
+		
+		progressMonitor.beginTask("Creating project " + projectName, 10);
+		//progressMonitor.subTask("Creating project " + projectName);
 
 		String srcFolder = "src";
 		String metaInfPath = "META-INF";
 		String projectPackagePath = srcFolder + "/" + projectName.replaceAll("\\.", "/");
 
-		IProject project = createBaseProject(projectName, location);
+		IProject project = createBaseProject(projectName, location, new NullProgressMonitor());
+		progressMonitor.worked(1);
 		try {
-			addNatures(project);
-
+			addNatures(project, new NullProgressMonitor());
+			progressMonitor.worked(1);
+			
 			String[] paths = { srcFolder, projectPackagePath, metaInfPath }; //$NON-NLS-1$ //$NON-NLS-2$
 			addToProjectStructure(project, paths);
+			progressMonitor.worked(1);
 
 			createProjectFile(project, metaInfPath + "/MANIFEST.MF",
 					filesGenerator.generateManifest(projectName).toString());
@@ -66,11 +75,14 @@ public class NewEmfComponentsProjectSupport {
 					filesGenerator.generateExecutableExtensionFactory(projectName).toString());
 			createProjectFile(project, projectPackagePath + "/EmfComponentsGuiceModule.java",
 					filesGenerator.generateModule(projectName).toString());
+			progressMonitor.worked(1);
 		} catch (CoreException e) {
 			e.printStackTrace();
 			project = null;
 		}
 
+		progressMonitor.done();
+		
 		return project;
 	}
 
@@ -92,8 +104,9 @@ public class NewEmfComponentsProjectSupport {
 	 * 
 	 * @param location
 	 * @param projectName
+	 * @param progressMonitor 
 	 */
-	private static IProject createBaseProject(String projectName, URI location) {
+	private static IProject createBaseProject(String projectName, URI location, IProgressMonitor progressMonitor) {
 		// it is acceptable to use the ResourcesPlugin class
 		IProject newProject = ResourcesPlugin.getWorkspace().getRoot()
 				.getProject(projectName);
@@ -110,14 +123,16 @@ public class NewEmfComponentsProjectSupport {
 
 			desc.setLocationURI(projectLocation);
 			try {
-				newProject.create(desc, null);
+				newProject.create(desc, new SubProgressMonitor(progressMonitor, 1));
 				if (!newProject.isOpen()) {
-					newProject.open(null);
+					newProject.open(new SubProgressMonitor(progressMonitor, 1));
 				}
 			} catch (CoreException e) {
 				e.printStackTrace();
 			}
 		}
+		
+		progressMonitor.done();
 
 		return newProject;
 	}
@@ -148,7 +163,7 @@ public class NewEmfComponentsProjectSupport {
 		}
 	}
 
-	private static void addNatures(IProject project) throws CoreException {
+	private static void addNatures(IProject project, IProgressMonitor progressMonitor) throws CoreException {
 		List<IClasspathEntry> classpathEntries = new UniqueEList<IClasspathEntry>();
 		
 		IJavaProject javaProject = JavaCore.create(project);
@@ -182,7 +197,9 @@ public class NewEmfComponentsProjectSupport {
 		javaProject
 				.setRawClasspath(classpathEntries
 						.toArray(new IClasspathEntry[classpathEntries.size()]),
-						monitor);
+						new SubProgressMonitor(progressMonitor, 1));
+		
+		progressMonitor.done();
 
         /*
         String[] prevNatures = description.getNatureIds();

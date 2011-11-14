@@ -3,8 +3,11 @@
  */
 package it.rcpvision.emf.components.wizards;
 
+import java.lang.reflect.InvocationTargetException;
 import java.net.URI;
 
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
@@ -27,7 +30,6 @@ public class NewEmfComponentsProjectWizard extends Wizard implements INewWizard 
 	 * 
 	 */
 	public NewEmfComponentsProjectWizard() {
-		setWindowTitle(WIZARD_NAME);
 	}
 
 	/*
@@ -38,6 +40,8 @@ public class NewEmfComponentsProjectWizard extends Wizard implements INewWizard 
 	 */
 	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
+		setNeedsProgressMonitor(true);
+		setWindowTitle(WIZARD_NAME);
 	}
 
 	@Override
@@ -58,13 +62,29 @@ public class NewEmfComponentsProjectWizard extends Wizard implements INewWizard 
 	 */
 	@Override
 	public boolean performFinish() {
-		String name = _pageOne.getProjectName();
-	    URI location = null;
-	    if (!_pageOne.useDefaults()) {
-	        location = _pageOne.getLocationURI();
-	    } // else location == null
+		final String name = _pageOne.getProjectName();
+		URI _location = null;
+		if (!_pageOne.useDefaults()) {
+			_location = _pageOne.getLocationURI();
+		} // else location == null
+		final URI location = _location;
 
-	    NewEmfComponentsProjectSupport.createProject(name, location);
+		IRunnableWithProgress op = new IRunnableWithProgress() {
+			@Override
+			public void run(IProgressMonitor monitor)
+					throws InvocationTargetException {
+				NewEmfComponentsProjectSupport.createProject(name, location,
+						monitor);
+				monitor.done();
+			}
+		};
+
+		try {
+			getContainer().run(true, false, op);
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			return false;
+		}
 
 		return true;
 	}
