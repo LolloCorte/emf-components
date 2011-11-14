@@ -58,23 +58,28 @@ public class NewEmfComponentsProjectSupport {
 		IProject project = createBaseProject(projectName, location, new NullProgressMonitor());
 		progressMonitor.worked(1);
 		try {
-			addNatures(project, new NullProgressMonitor());
-			progressMonitor.worked(1);
-			
 			String[] paths = { srcFolder, projectPackagePath, metaInfPath }; //$NON-NLS-1$ //$NON-NLS-2$
 			addToProjectStructure(project, paths);
 			progressMonitor.worked(1);
 
-			createProjectFile(project, metaInfPath + "/MANIFEST.MF",
-					filesGenerator.generateManifest(projectName).toString());
-			createProjectFile(project, "/build.properties",
-					filesGenerator.generateBuildProperties().toString());
 			createProjectFile(project, projectPackagePath + "/Activator.java",
 					filesGenerator.generateActivator(projectName).toString());
+			progressMonitor.worked(1);
 			createProjectFile(project, projectPackagePath + "/ExecutableExtensionFactory.java",
 					filesGenerator.generateExecutableExtensionFactory(projectName).toString());
+			progressMonitor.worked(1);
 			createProjectFile(project, projectPackagePath + "/EmfComponentsGuiceModule.java",
 					filesGenerator.generateModule(projectName).toString());
+			progressMonitor.worked(1);
+
+			createProjectFile(project, metaInfPath + "/MANIFEST.MF",
+					filesGenerator.generateManifest(projectName).toString());
+			progressMonitor.worked(1);
+			createProjectFile(project, "/build.properties",
+					filesGenerator.generateBuildProperties().toString());
+			progressMonitor.worked(1);
+
+			addNatures(project, new NullProgressMonitor());
 			progressMonitor.worked(1);
 		} catch (CoreException e) {
 			e.printStackTrace();
