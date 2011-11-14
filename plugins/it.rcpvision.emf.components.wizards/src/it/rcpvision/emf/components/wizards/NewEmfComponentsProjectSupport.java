@@ -25,6 +25,7 @@ import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.launching.JavaRuntime;
+import org.eclipse.pde.core.project.IBundleProjectDescription;
 
 /**
  * @author Lorenzo Bettini
@@ -175,7 +176,7 @@ public class NewEmfComponentsProjectSupport {
         IProjectDescription projectDescription = project.getDescription();
         
 		projectDescription.setNatureIds(new String[] { JavaCore.NATURE_ID,
-				"org.eclipse.pde.PluginNature" });
+				IBundleProjectDescription.PLUGIN_NATURE });
 
 		IProgressMonitor monitor = null;
 		project.setDescription(projectDescription, monitor);
