@@ -1,5 +1,6 @@
 package it.rcpvision.emf.components.tests;
 
+import static org.eclipse.swtbot.swt.finder.waits.Conditions.shellCloses;
 import static org.eclipse.xtext.ui.junit.util.IResourcesSetupUtil.cleanWorkspace;
 import static org.eclipse.xtext.ui.junit.util.IResourcesSetupUtil.createFile;
 import static org.eclipse.xtext.ui.junit.util.IResourcesSetupUtil.waitForAutoBuild;
@@ -133,6 +134,8 @@ public class EmfComponentsAbstractTests {
 		} catch (WidgetNotFoundException e) {
 			// OK!
 		}
+
+		bot.resetWorkbench();
 
 		editorNamesToId = new HashMap<String, String>();
 		editorNamesToId.put(EMF_TREE_EDITOR,
@@ -310,7 +313,7 @@ public class EmfComponentsAbstractTests {
 		bot.textWithLabel("Project name:").setText(projectName);
 
 		bot.button("Finish").click();
-
+		bot.waitUntil(shellCloses(shell));
 		assertTrue("Project doesn't exist", isProjectCreated(projectName));
 
 		waitForAutoBuild();
