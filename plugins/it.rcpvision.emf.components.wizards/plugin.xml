@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="it.rcpvision.emf.components.wizards"
+            name="Emf Components">
+      </category>
+      <wizard
+            category="it.rcpvision.emf.components.wizards"
+            class="it.rcpvision.emf.components.wizards.NewEmfComponentsProjectWizard"
+            icon="icons/sample.gif"
+            id="it.rcpvision.emf.components.wizards.NewEmfComponentsProject"
+            name="New Emf Components Project"
+            project="true">
+      </wizard>
+   </extension>
+
+</plugin>

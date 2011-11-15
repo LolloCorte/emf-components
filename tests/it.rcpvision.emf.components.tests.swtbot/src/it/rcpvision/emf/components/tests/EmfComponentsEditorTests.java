@@ -22,7 +22,7 @@ public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 	protected static final String NEW_CHILD = "New Child";
 
 	public void canCreateProject() throws Exception {
-		createSimpleProject();
+		createMyTestProject();
 	}
 
 	public void canCreateProjectWithFile() throws Exception {

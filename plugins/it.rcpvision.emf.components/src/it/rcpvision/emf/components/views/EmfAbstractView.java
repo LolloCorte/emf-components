@@ -14,10 +14,8 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.part.PageBook;
-import org.eclipse.ui.part.ViewPart;
 
 import com.google.inject.Inject;
 
@@ -28,7 +26,7 @@ import com.google.inject.Inject;
  * @author Lorenzo Bettini
  * 
  */
-public abstract class EmfAbstractView extends ViewPart {
+public abstract class EmfAbstractView extends EmfAbstractViewOnSelection {
 
 	private PageBook pagebook;
 
@@ -39,17 +37,6 @@ public abstract class EmfAbstractView extends ViewPart {
 	@Inject
 	protected EmfViewerManager emfViewerManager;
 
-	// the listener we register with the selection service
-	private ISelectionListener listener = new ISelectionListener() {
-		public void selectionChanged(IWorkbenchPart sourcepart,
-				ISelection selection) {
-			// we ignore our own selections
-			if (sourcepart != EmfAbstractView.this) {
-				updateOnSelection(sourcepart, selection);
-			}
-		}
-	};
-
 	public EmfAbstractView() {
 	}
 
@@ -59,6 +46,7 @@ public abstract class EmfAbstractView extends ViewPart {
 
 	/**
 	 * Sets the viewer and makes the pagebook show it
+	 * 
 	 * @param viewer
 	 */
 	public void setViewer(StructuredViewer viewer) {
@@ -68,28 +56,23 @@ public abstract class EmfAbstractView extends ViewPart {
 
 	protected void updateOnSelection(IWorkbenchPart sourcepart,
 			ISelection selection) {
-		if (selection instanceof IStructuredSelection) {
-			IStructuredSelection ss = (IStructuredSelection) selection;
-			if (ss.size() == 1) {
-				Object element = ss.getFirstElement();
-				if (element instanceof IResource) {
-					IResource resource = (IResource) element;
-					performUpdateOnSelection(resource);
-					// viewer.expandAll();
-					showEmfViewer();
-					return;
-				} else if (element instanceof Resource) {
-					Resource resource = (Resource) element;
-					performUpdateOnSelection(resource);
-					showEmfViewer();
-					return;
-				} else if (element instanceof EObject) {
-					EObject eObject = (EObject) element;
-					performUpdateOnSelection(eObject);
-					showEmfViewer();
-					return;
-				}
-			}
+		Object element = getFirstSelectedElement(selection);
+		if (element instanceof IResource) {
+			IResource resource = (IResource) element;
+			performUpdateOnSelection(resource);
+			// viewer.expandAll();
+			showEmfViewer();
+			return;
+		} else if (element instanceof Resource) {
+			Resource resource = (Resource) element;
+			performUpdateOnSelection(resource);
+			showEmfViewer();
+			return;
+		} else if (element instanceof EObject) {
+			EObject eObject = (EObject) element;
+			performUpdateOnSelection(eObject);
+			showEmfViewer();
+			return;
 		}
 
 		showText();
@@ -120,27 +103,29 @@ public abstract class EmfAbstractView extends ViewPart {
 
 	@Override
 	public void createPartControl(Composite parent) {
+		super.createPartControl(parent);
+
 		// the PageBook allows simple switching between two viewers
 		pagebook = new PageBook(parent, SWT.NONE);
 
 		textviewer = new TextViewer(pagebook, SWT.H_SCROLL | SWT.V_SCROLL);
 		textviewer.setEditable(false);
-		textviewer.setDocument(new Document(
-				"Select one XMI resource in the explorer or any EObject in a view"));
+		textviewer
+				.setDocument(new Document(
+						"Select one XMI resource in the explorer or any EObject in a view"));
 
 		viewer = createViewer(pagebook);
 
 		showText();
-
-		getSite().getWorkbenchWindow().getSelectionService()
-				.addSelectionListener(listener);
 
 		getSite().setSelectionProvider(viewer);
 	}
 
 	/**
 	 * Subclasses should implement this.
-	 * @param parent TODO
+	 * 
+	 * @param parent
+	 *            TODO
 	 * 
 	 * @return
 	 */
@@ -161,13 +146,5 @@ public abstract class EmfAbstractView extends ViewPart {
 
 	public void init(URI resourceURI) {
 		emfViewerManager.initialize(viewer, resourceURI);
-	}
-
-	public void dispose() {
-		// important: We need do unregister our listener when the view is
-		// disposed
-		getSite().getWorkbenchWindow().getSelectionService()
-				.removeSelectionListener(listener);
-		super.dispose();
 	}
 }

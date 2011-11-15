@@ -1,5 +1,6 @@
 package it.rcpvision.emf.components.tests;
 
+import static org.eclipse.swtbot.swt.finder.waits.Conditions.shellCloses;
 import static org.eclipse.xtext.ui.junit.util.IResourcesSetupUtil.cleanWorkspace;
 import static org.eclipse.xtext.ui.junit.util.IResourcesSetupUtil.createFile;
 import static org.eclipse.xtext.ui.junit.util.IResourcesSetupUtil.waitForAutoBuild;
@@ -133,6 +134,8 @@ public class EmfComponentsAbstractTests {
 		} catch (WidgetNotFoundException e) {
 			// OK!
 		}
+
+		bot.resetWorkbench();
 
 		editorNamesToId = new HashMap<String, String>();
 		editorNamesToId.put(EMF_TREE_EDITOR,
@@ -276,7 +279,7 @@ public class EmfComponentsAbstractTests {
 
 	protected void createProjectAndTestFile() throws CoreException,
 			InvocationTargetException, InterruptedException, IOException {
-		createSimpleProject();
+		createMyTestProject();
 		IFile file = createFile(MY_EXTLIBRARY_RELATIVE_PATH,
 				localFileContents(MY_EXTLIBRARY));
 		assertTrue(file.exists());
@@ -294,19 +297,25 @@ public class EmfComponentsAbstractTests {
 		return EmfComponentsTestsActivator.localFileContents(string);
 	}
 
-	protected void createSimpleProject() {
+	protected void createMyTestProject() {
+		createProjectInWorkspace("General", "Project", MY_TEST_PROJECT);
+	}
+
+	protected void createProjectInWorkspace(String category,
+			String projectType, String projectName) {
 		bot.menu("File").menu("New").menu("Project...").click();
 
 		SWTBotShell shell = bot.shell("New Project");
 		shell.activate();
-		bot.tree().expandNode("General").select("Project");
+		bot.tree().expandNode(category).select(projectType);
 		bot.button("Next >").click();
 
-		bot.textWithLabel("Project name:").setText(MY_TEST_PROJECT);
+		bot.textWithLabel("Project name:").setText(projectName);
 
 		bot.button("Finish").click();
-
-		assertTrue("Project doesn't exist", isProjectCreated(MY_TEST_PROJECT));
+		// creation of a project might require some time
+		bot.waitUntil(shellCloses(shell), 50000);
+		assertTrue("Project doesn't exist", isProjectCreated(projectName));
 
 		waitForAutoBuild();
 	}

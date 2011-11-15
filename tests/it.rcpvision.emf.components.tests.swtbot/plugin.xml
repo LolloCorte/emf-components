@@ -31,7 +31,7 @@
     <extension
           point="org.eclipse.ui.views">
        <view
-             class="it.rcpvision.emf.components.tests.factories.EmfFormEditorTestsExecutableExtensionFactory:it.rcpvision.emf.components.tests.views.LibraryEmfView"
+             class="it.rcpvision.emf.components.tests.factories.EmfComponentsTestsExecutableExtensionFactory:it.rcpvision.emf.components.tests.views.LibraryEmfView"
              id="it.rcpvision.emf.components.tests.views.libraryview"
              name="LibraryEmfView"
              restorable="true">

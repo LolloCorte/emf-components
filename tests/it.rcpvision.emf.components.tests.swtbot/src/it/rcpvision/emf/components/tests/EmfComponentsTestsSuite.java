@@ -10,8 +10,9 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
   EmfProviderTests.class,
-  EmfViewTests.class,
-  EmfComponentsEditorTests.class
+  EmfComponentsViewTests.class,
+  EmfComponentsEditorTests.class,
+  EmfComponentsWizardsTests.class
 })
 public class EmfComponentsTestsSuite {
 }
