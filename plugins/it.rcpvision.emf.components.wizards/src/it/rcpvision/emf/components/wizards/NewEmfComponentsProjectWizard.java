@@ -75,7 +75,6 @@ public class NewEmfComponentsProjectWizard extends Wizard implements INewWizard 
 					throws InvocationTargetException {
 				NewEmfComponentsProjectSupport.createProject(name, location,
 						monitor);
-				monitor.done();
 			}
 		};
 

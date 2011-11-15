@@ -17,7 +17,6 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.emf.common.util.UniqueEList;
@@ -45,64 +44,64 @@ public class NewEmfComponentsProjectSupport {
 	 * @param natureId
 	 * @return
 	 */
-	public static IProject createProject(String projectName, URI location, IProgressMonitor progressMonitor) {
+	public static IProject createProject(String projectName, URI location,
+			IProgressMonitor progressMonitor) {
 		Assert.isNotNull(projectName);
 		Assert.isTrue(projectName.trim().length() > 0);
-		
+
 		progressMonitor.beginTask("Creating project " + projectName, 10);
-		//progressMonitor.subTask("Creating project " + projectName);
 
 		String srcFolder = "src";
 		String metaInfPath = "META-INF";
-		String projectPackagePath = srcFolder + "/" + projectName.replaceAll("\\.", "/");
+		String projectPackagePath = srcFolder + "/"
+				+ projectName.replaceAll("\\.", "/");
 
-		IProject project = createBaseProject(projectName, location, new NullProgressMonitor());
-		progressMonitor.worked(1);
+		IProject project = createBaseProject(projectName, location,
+				createSubProgressMonitor(progressMonitor));
 		try {
-			String[] paths = { srcFolder, projectPackagePath, metaInfPath }; //$NON-NLS-1$ //$NON-NLS-2$
-			addToProjectStructure(project, paths);
-			progressMonitor.worked(1);
+			String[] paths = { srcFolder, projectPackagePath, metaInfPath };
+			addToProjectStructure(project, paths,
+					createSubProgressMonitor(progressMonitor));
 
 			createProjectFile(project, projectPackagePath + "/Activator.java",
-					filesGenerator.generateActivator(projectName).toString());
-			progressMonitor.worked(1);
-			createProjectFile(project, projectPackagePath + "/ExecutableExtensionFactory.java",
-					filesGenerator.generateExecutableExtensionFactory(projectName).toString());
-			progressMonitor.worked(1);
-			createProjectFile(project, projectPackagePath + "/EmfComponentsGuiceModule.java",
-					filesGenerator.generateModule(projectName).toString());
-			progressMonitor.worked(1);
+					filesGenerator.generateActivator(projectName).toString(),
+					createSubProgressMonitor(progressMonitor));
+			createProjectFile(
+					project,
+					projectPackagePath + "/ExecutableExtensionFactory.java",
+					filesGenerator.generateExecutableExtensionFactory(
+							projectName).toString(),
+					createSubProgressMonitor(progressMonitor));
+			createProjectFile(project, projectPackagePath
+					+ "/EmfComponentsGuiceModule.java", filesGenerator
+					.generateModule(projectName).toString(),
+					createSubProgressMonitor(progressMonitor));
 
 			createProjectFile(project, metaInfPath + "/MANIFEST.MF",
-					filesGenerator.generateManifest(projectName).toString());
-			progressMonitor.worked(1);
-			createProjectFile(project, "/build.properties",
-					filesGenerator.generateBuildProperties().toString());
-			progressMonitor.worked(1);
+					filesGenerator.generateManifest(projectName).toString(),
+					createSubProgressMonitor(progressMonitor));
+			createProjectFile(project, "/build.properties", filesGenerator
+					.generateBuildProperties().toString(),
+					createSubProgressMonitor(progressMonitor));
 
-			addNatures(project, new NullProgressMonitor());
-			progressMonitor.worked(1);
+			addNatures(project, createSubProgressMonitor(progressMonitor));
 		} catch (CoreException e) {
 			e.printStackTrace();
 			project = null;
 		}
 
 		progressMonitor.done();
-		
+
 		return project;
 	}
 
 	/**
-	 * @param project
-	 * @param fileName
-	 * @param contents
-	 * @throws CoreException
+	 * @param progressMonitor
+	 * @return
 	 */
-	public static void createProjectFile(IProject project, String fileName,
-			String contents) throws CoreException {
-		IFile manifestFile = project.getFile(fileName);
-		manifestFile.create(new ByteArrayInputStream(contents.getBytes()),
-				true, null);
+	protected static IProgressMonitor createSubProgressMonitor(
+			IProgressMonitor progressMonitor) {
+		return new SubProgressMonitor(progressMonitor, 1);
 	}
 
 	/**
@@ -113,6 +112,8 @@ public class NewEmfComponentsProjectSupport {
 	 * @param progressMonitor 
 	 */
 	private static IProject createBaseProject(String projectName, URI location, IProgressMonitor progressMonitor) {
+		progressMonitor.subTask("Creating project resource");
+		
 		// it is acceptable to use the ResourcesPlugin class
 		IProject newProject = ResourcesPlugin.getWorkspace().getRoot()
 				.getProject(projectName);
@@ -129,9 +130,9 @@ public class NewEmfComponentsProjectSupport {
 
 			desc.setLocationURI(projectLocation);
 			try {
-				newProject.create(desc, new SubProgressMonitor(progressMonitor, 1));
+				newProject.create(desc, createSubProgressMonitor(progressMonitor));
 				if (!newProject.isOpen()) {
-					newProject.open(new SubProgressMonitor(progressMonitor, 1));
+					newProject.open(createSubProgressMonitor(progressMonitor));
 				}
 			} catch (CoreException e) {
 				e.printStackTrace();
@@ -141,6 +142,27 @@ public class NewEmfComponentsProjectSupport {
 		progressMonitor.done();
 
 		return newProject;
+	}
+	
+	/**
+	 * Create a folder structure with a parent root, overlay, and a few child
+	 * folders.
+	 * 
+	 * @param newProject
+	 * @param paths
+	 * @param progressMonitor
+	 *            TODO
+	 * @throws CoreException
+	 */
+	private static void addToProjectStructure(IProject newProject,
+			String[] paths, IProgressMonitor progressMonitor)
+			throws CoreException {
+		progressMonitor.subTask("Creating project folders");
+		for (String path : paths) {
+			IFolder etcFolders = newProject.getFolder(path);
+			createFolder(etcFolders);
+		}
+		progressMonitor.done();
 	}
 
 	private static void createFolder(IFolder folder) throws CoreException {
@@ -154,22 +176,23 @@ public class NewEmfComponentsProjectSupport {
 	}
 
 	/**
-	 * Create a folder structure with a parent root, overlay, and a few child
-	 * folders.
-	 * 
-	 * @param newProject
-	 * @param paths
+	 * @param project
+	 * @param fileName
+	 * @param contents
+	 * @param progressMonitor TODO
 	 * @throws CoreException
 	 */
-	private static void addToProjectStructure(IProject newProject,
-			String[] paths) throws CoreException {
-		for (String path : paths) {
-			IFolder etcFolders = newProject.getFolder(path);
-			createFolder(etcFolders);
-		}
+	public static void createProjectFile(IProject project, String fileName,
+			String contents, IProgressMonitor progressMonitor) throws CoreException {
+		progressMonitor.subTask("Creating file " + fileName);
+		IFile iFile = project.getFile(fileName);
+		iFile.create(new ByteArrayInputStream(contents.getBytes()),
+				true, null);
+		progressMonitor.done();
 	}
 
 	private static void addNatures(IProject project, IProgressMonitor progressMonitor) throws CoreException {
+		progressMonitor.subTask("Adding natures");
 		List<IClasspathEntry> classpathEntries = new UniqueEList<IClasspathEntry>();
 		
 		IJavaProject javaProject = JavaCore.create(project);
@@ -203,7 +226,7 @@ public class NewEmfComponentsProjectSupport {
 		javaProject
 				.setRawClasspath(classpathEntries
 						.toArray(new IClasspathEntry[classpathEntries.size()]),
-						new SubProgressMonitor(progressMonitor, 1));
+						createSubProgressMonitor(progressMonitor));
 		
 		progressMonitor.done();
 
