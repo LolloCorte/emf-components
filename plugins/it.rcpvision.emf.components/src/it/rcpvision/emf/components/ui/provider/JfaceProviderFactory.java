@@ -3,9 +3,10 @@
  */
 package it.rcpvision.emf.components.ui.provider;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.jface.viewers.IBaseLabelProvider;
+import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 
 import com.google.inject.Inject;
@@ -22,8 +23,11 @@ public class JfaceProviderFactory {
 
 	@Inject
 	protected Provider<ComposedAdapterFactory> composedAdapterFactoryProvider;
+	
+	@Inject
+	protected Provider<EStructuralFeatureColumnProvider> eStructuralFeatureColumnProviderProvider;
 
-	public IBaseLabelProvider createLabelProvider(
+	public ILabelProvider createLabelProvider(
 			ILabelProvider delegateLabelProvider) {
 		CompositeLabelProvider compositeLabelProvider = compositeLabelProviderProvider
 				.get();
@@ -31,8 +35,15 @@ public class JfaceProviderFactory {
 		return compositeLabelProvider;
 	}
 
-	public IBaseLabelProvider createLabelProvider() {
+	public ILabelProvider createLabelProvider() {
 		return createLabelProvider(new AdapterFactoryLabelProvider(
 				composedAdapterFactoryProvider.get()));
+	}
+	
+	public ColumnLabelProvider createColumnLabelProvider(EStructuralFeature eStructuralFeature) {
+		EStructuralFeatureColumnProvider columnProvider = eStructuralFeatureColumnProviderProvider.get();
+		columnProvider.seteStructuralFeature(eStructuralFeature);
+		columnProvider.setLabelProvider(createLabelProvider());
+		return columnProvider;
 	}
 }

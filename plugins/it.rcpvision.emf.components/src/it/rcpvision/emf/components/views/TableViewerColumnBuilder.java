@@ -3,7 +3,7 @@
  */
 package it.rcpvision.emf.components.views;
 
-import it.rcpvision.emf.components.ui.provider.EStructuralFeatureColumnProvider;
+import it.rcpvision.emf.components.ui.provider.JfaceProviderFactory;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -17,14 +17,19 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 
+import com.google.inject.Inject;
+
 /**
- * Sets the columns of a TableViewer according to an EClass
- * (adds a column for each feature of the EClass).
+ * Sets the columns of a TableViewer according to an EClass (adds a column for
+ * each feature of the EClass).
  * 
  * @author Lorenzo Bettini
  * 
  */
 public class TableViewerColumnBuilder {
+
+	@Inject
+	protected JfaceProviderFactory jfaceProviderFactory;
 
 	public void buildTableViewer(TableViewer tableViewer,
 			EStructuralFeature feature) {
@@ -67,10 +72,11 @@ public class TableViewerColumnBuilder {
 	}
 
 	protected TableViewerColumn createTableViewerColumn(
-			TableViewer tableViewer, final EStructuralFeature eStructuralFeature) {
+			TableViewer tableViewer, EStructuralFeature eStructuralFeature) {
 		TableViewerColumn tableViewerColumn = new TableViewerColumn(
 				tableViewer, SWT.NONE);
-		tableViewerColumn.setLabelProvider(new EStructuralFeatureColumnProvider(eStructuralFeature));
+		tableViewerColumn.setLabelProvider(jfaceProviderFactory
+				.createColumnLabelProvider(eStructuralFeature));
 		return tableViewerColumn;
 	}
 }
