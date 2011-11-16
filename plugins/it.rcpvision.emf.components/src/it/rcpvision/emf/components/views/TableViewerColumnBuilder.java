@@ -3,12 +3,12 @@
  */
 package it.rcpvision.emf.components.views;
 
+import it.rcpvision.emf.components.ui.provider.EStructuralFeatureColumnProvider;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.jface.viewers.TableViewer;
@@ -70,19 +70,7 @@ public class TableViewerColumnBuilder {
 			TableViewer tableViewer, final EStructuralFeature eStructuralFeature) {
 		TableViewerColumn tableViewerColumn = new TableViewerColumn(
 				tableViewer, SWT.NONE);
-		tableViewerColumn.setLabelProvider(new ColumnLabelProvider() {
-			@Override
-			public String getText(Object element) {
-				try {
-					EObject p = (EObject) element;
-					Object featureValue = p.eGet(eStructuralFeature);
-					return featureValue != null ? featureValue.toString() : "";
-				} catch (Exception e) {
-					// avoid exceptions during rendering
-					return "";
-				}
-			}
-		});
+		tableViewerColumn.setLabelProvider(new EStructuralFeatureColumnProvider(eStructuralFeature));
 		return tableViewerColumn;
 	}
 }
