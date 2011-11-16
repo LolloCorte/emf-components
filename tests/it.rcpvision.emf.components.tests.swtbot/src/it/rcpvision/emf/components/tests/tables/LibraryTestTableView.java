@@ -16,6 +16,7 @@ import org.eclipse.emf.examples.extlibrary.Library;
 import org.eclipse.emf.examples.extlibrary.VideoCassette;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -55,9 +56,15 @@ public class LibraryTestTableView extends ViewPart {
 				URI.createURI(resourceUri));
 
 		Library library = (Library) resource.getContents().get(0);
+		
+		ScrolledComposite scrolledComposite = new ScrolledComposite(parent,
+				SWT.V_SCROLL | SWT.BORDER);
+		scrolledComposite.setExpandHorizontal(true);
 
-		composite = new Composite(parent, SWT.NONE);
+		composite = new Composite(scrolledComposite, SWT.BORDER);
+		scrolledComposite.setContent(composite);
 		composite.setLayout(new GridLayout(1, false));
+		composite.setLayoutData(new GridData(GridData.FILL_BOTH));
 
 		buildTable("Library", library, library.eClass());
 		buildTable("Books", library.getBooks(), EXTLibraryPackage.Literals.BOOK);
@@ -66,6 +73,9 @@ public class LibraryTestTableView extends ViewPart {
 		buildTable("Videos",
 				EcoreUtil2.getAllContentsOfType(library, VideoCassette.class),
 				EXTLibraryPackage.Literals.VIDEO_CASSETTE);
+		
+		composite.setSize(composite.computeSize(SWT.DEFAULT, SWT.DEFAULT));
+		composite.layout(true);
 	}
 
 	/**
