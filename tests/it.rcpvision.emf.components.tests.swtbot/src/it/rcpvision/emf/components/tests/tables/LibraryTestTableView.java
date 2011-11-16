@@ -4,11 +4,7 @@
 package it.rcpvision.emf.components.tests.tables;
 
 import it.rcpvision.emf.components.resource.ResourceLoader;
-import it.rcpvision.emf.components.views.EmfViewerManager;
-import it.rcpvision.emf.components.views.TableViewerColumnBuilder;
-
-import java.util.Collections;
-import java.util.List;
+import it.rcpvision.emf.components.views.TableViewerBuilder;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
@@ -18,7 +14,6 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.examples.extlibrary.EXTLibraryPackage;
 import org.eclipse.emf.examples.extlibrary.Library;
 import org.eclipse.emf.examples.extlibrary.VideoCassette;
-import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -42,13 +37,10 @@ public class LibraryTestTableView extends ViewPart {
 	public static final String resourceUri = "platform:/plugin/it.rcpvision.emf.components.tests.swtbot/models/My.extlibrary";
 
 	@Inject
-	protected TableViewerColumnBuilder tableViewerColumnBuilder;
+	protected TableViewerBuilder tableViewerBuilder;
 
 	@Inject
 	protected ResourceLoader resourceLoader;
-
-	@Inject
-	protected EmfViewerManager emfViewerManager;
 
 	private Composite composite;
 
@@ -85,19 +77,11 @@ public class LibraryTestTableView extends ViewPart {
 
 		TableViewer tableViewer = new TableViewer(composite, SWT.BORDER
 				| SWT.FULL_SELECTION);
-		tableViewerColumnBuilder.buildTableViewer(tableViewer, eClass);
+		
+		tableViewerBuilder.buildAndFill(tableViewer, object, eClass);
 
 		Table table = tableViewer.getTable();
 		table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-
-		if (object instanceof List<?>) {
-			emfViewerManager.initialize(tableViewer, object,
-					new ArrayContentProvider(), null);
-		} else {
-			emfViewerManager.initialize(tableViewer,
-					Collections.singleton(object), new ArrayContentProvider(),
-					null);
-		}
 	}
 
 	@Override
