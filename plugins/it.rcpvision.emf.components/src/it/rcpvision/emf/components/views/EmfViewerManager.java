@@ -5,7 +5,7 @@ package it.rcpvision.emf.components.views;
 
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
-import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
+import it.rcpvision.emf.components.ui.provider.JfaceProviderFactory;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.URI;
@@ -41,7 +41,7 @@ public class EmfViewerManager {
 	protected Provider<ComposedAdapterFactory> composedAdapterFactoryProvider;
 
 	@Inject
-	protected Provider<CompositeLabelProvider> compositeLabelProviderProvider;
+	protected JfaceProviderFactory jfaceProviderFactory;
 
 	public void initialize(StructuredViewer viewer, URI resourceURI) {
 		initialize(viewer, loadResource(resourceURI));
@@ -76,12 +76,10 @@ public class EmfViewerManager {
 			AdapterFactory adapterFactory) {
 		AdapterFactoryContentProvider contentProvider = new AdapterFactoryContentProvider(
 				adapterFactory);
-		CompositeLabelProvider compositeLabelProvider = compositeLabelProviderProvider
-				.get();
-		compositeLabelProvider
-				.setDelegateLabelProvider(new AdapterFactoryLabelProvider(
-						adapterFactory));
-		initialize(viewer, input, contentProvider, compositeLabelProvider);
+		initialize(viewer, input, contentProvider,
+				jfaceProviderFactory
+						.createLabelProvider(new AdapterFactoryLabelProvider(
+								adapterFactory)));
 	}
 
 	/**
