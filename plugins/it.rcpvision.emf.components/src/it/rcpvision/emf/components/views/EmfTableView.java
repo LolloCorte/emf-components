@@ -24,7 +24,7 @@ import com.google.inject.Inject;
 public class EmfTableView extends EmfAbstractView {
 
 	@Inject
-	protected TableViewerBuilder tableViewerBuilder;
+	protected TableViewerColumnBuilder tableViewerColumnBuilder;
 
 	public EmfTableView() {
 	}
@@ -47,7 +47,7 @@ public class EmfTableView extends EmfAbstractView {
 		setViewer(tableViewer);
 
 		// Create columns
-		tableViewerBuilder.buildTableViewer(tableViewer, eObject.eClass());
+		tableViewerColumnBuilder.buildTableViewer(tableViewer, eObject.eClass());
 		// no label provider, since we use column label providers
 
 		emfViewerManager.initialize(tableViewer,

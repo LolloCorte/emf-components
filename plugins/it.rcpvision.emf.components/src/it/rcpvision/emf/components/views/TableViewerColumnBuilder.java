@@ -18,10 +18,13 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 
 /**
- * @author bettini
+ * Sets the columns of a TableViewer according to an EClass
+ * (adds a column for each feature of the EClass).
+ * 
+ * @author Lorenzo Bettini
  * 
  */
-public class TableViewerBuilder {
+public class TableViewerColumnBuilder {
 
 	public void buildTableViewer(TableViewer tableViewer,
 			EStructuralFeature feature) {
