@@ -21,6 +21,8 @@ import it.rcpvision.emf.components.views.ComposedAdapterFactoryProvider;
 import it.rcpvision.emf.components.views.EObjectManager;
 import it.rcpvision.emf.components.views.EmfViewerFactory;
 import it.rcpvision.emf.components.views.EmfViewerManager;
+import it.rcpvision.emf.components.views.TableViewerBuilder;
+import it.rcpvision.emf.components.views.TableViewerColumnBuilder;
 
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.jface.dialogs.IDialogSettings;
@@ -33,7 +35,9 @@ import com.google.inject.Binder;
 import com.google.inject.Provider;
 
 /**
- * @author bettini
+ * Default Google Guice bindings.
+ * 
+ * @author Lorenzo Bettini
  * 
  */
 public class EmfComponentsGenericModule extends AbstractGenericModule {
@@ -126,5 +130,13 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 
 	public Class<? extends EStructuralFeatureColumnProvider> bindEStructuralFeatureColumnProvider() {
 		return EStructuralFeatureColumnProvider.class;
+	}
+
+	public Class<? extends TableViewerBuilder> bindTableViewerBuilder() {
+		return TableViewerBuilder.class;
+	}
+
+	public Class<? extends TableViewerColumnBuilder> bindTableViewerColumnBuilder() {
+		return TableViewerColumnBuilder.class;
 	}
 }
