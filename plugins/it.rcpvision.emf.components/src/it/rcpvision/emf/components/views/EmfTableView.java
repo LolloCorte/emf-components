@@ -3,14 +3,11 @@
  */
 package it.rcpvision.emf.components.views;
 
-import it.rcpvision.emf.components.ui.provider.JfaceProviderFactory;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
@@ -36,14 +33,9 @@ public class EmfTableView extends EmfAbstractViewOnSelection {
 	@Inject
 	protected TableViewerBuilder tableViewerBuilder;
 
-	@Inject
-	protected JfaceProviderFactory jfaceProviderFactory;
-
 	protected Composite parent;
 
 	protected ScrolledComposite scrolledComposite;
-
-	protected ILabelProvider labelProvider;
 
 	public EmfTableView() {
 	}
@@ -51,8 +43,6 @@ public class EmfTableView extends EmfAbstractViewOnSelection {
 	@Override
 	public void createPartControl(Composite parent) {
 		super.createPartControl(parent);
-
-		labelProvider = jfaceProviderFactory.createLabelProvider();
 
 		this.parent = parent;
 		resetView();
@@ -80,9 +70,9 @@ public class EmfTableView extends EmfAbstractViewOnSelection {
 	}
 
 	/**
-	 * Builds many tables: the first one with the features of the passed
-	 * eObject and, in turn, a table for each single multi feature of the eObject
-	 * (each such table with the contents of the multi feature)
+	 * Builds many tables: the first one with the features of the passed eObject
+	 * and, in turn, a table for each single multi feature of the eObject (each
+	 * such table with the contents of the multi feature)
 	 * 
 	 * @param eObject
 	 * @param composite
@@ -90,8 +80,7 @@ public class EmfTableView extends EmfAbstractViewOnSelection {
 	protected void buildTableForSelectedObject(EObject eObject,
 			Composite composite) {
 		EClass eObjectEClass = eObject.eClass();
-		buildTable(eObject, eObjectEClass, composite,
-				labelProvider.getText(eObject));
+		buildTable(eObject, eObjectEClass, composite, eObjectEClass.getName());
 		EList<EStructuralFeature> features = eObjectEClass
 				.getEAllStructuralFeatures();
 		for (EStructuralFeature eStructuralFeature : features) {
@@ -107,10 +96,12 @@ public class EmfTableView extends EmfAbstractViewOnSelection {
 	}
 
 	/**
-	 * @param object the contents to show in the table
-	 * @param eClass the EClass of the contents (that is, the EClass of the object
-	 * if the contents is a single object, or the EClass of the objects in the list,
-	 * if the contents is a list)
+	 * @param object
+	 *            the contents to show in the table
+	 * @param eClass
+	 *            the EClass of the contents (that is, the EClass of the object
+	 *            if the contents is a single object, or the EClass of the
+	 *            objects in the list, if the contents is a list)
 	 * @param composite
 	 * @param label
 	 */
