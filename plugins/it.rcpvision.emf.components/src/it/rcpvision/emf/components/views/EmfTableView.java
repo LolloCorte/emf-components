@@ -3,8 +3,14 @@
  */
 package it.rcpvision.emf.components.views;
 
+import it.rcpvision.emf.components.ui.provider.JfaceProviderFactory;
+
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
@@ -12,11 +18,11 @@ import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.ui.IWorkbenchPart;
 
 import com.google.inject.Inject;
-import com.google.inject.Provider;
 
 /**
  * A View that visualizes the list of elements of an emf selected resource (it
@@ -31,14 +37,13 @@ public class EmfTableView extends EmfAbstractViewOnSelection {
 	protected TableViewerBuilder tableViewerBuilder;
 
 	@Inject
-	protected Provider<ComposedAdapterFactory> composedAdapterFactoryProvider;
-
-	@Inject
-	protected EmfViewerManager emfViewerManager;
+	protected JfaceProviderFactory jfaceProviderFactory;
 
 	protected Composite parent;
 
 	protected ScrolledComposite scrolledComposite;
+
+	protected ILabelProvider labelProvider;
 
 	public EmfTableView() {
 	}
@@ -47,14 +52,16 @@ public class EmfTableView extends EmfAbstractViewOnSelection {
 	public void createPartControl(Composite parent) {
 		super.createPartControl(parent);
 
+		labelProvider = jfaceProviderFactory.createLabelProvider();
+
 		this.parent = parent;
-		cleanView();
+		resetView();
 	}
 
 	@Override
 	protected void updateOnSelection(IWorkbenchPart sourcepart,
 			ISelection selection) {
-		cleanView();
+		resetView();
 
 		Object selectedObject = getFirstSelectedElement(selection);
 		if (selectedObject != null && selectedObject instanceof EObject) {
@@ -65,22 +72,63 @@ public class EmfTableView extends EmfAbstractViewOnSelection {
 			composite.setLayout(new GridLayout(1, false));
 			composite.setLayoutData(new GridData(GridData.FILL_BOTH));
 
-			TableViewer tableViewer = new TableViewer(composite, SWT.BORDER
-					| SWT.FULL_SELECTION);
-
-			tableViewerBuilder.buildAndFill(tableViewer, eObject,
-					eObject.eClass());
-
-			Table table = tableViewer.getTable();
-			table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1,
-					1));
+			buildTableForSelectedObject(eObject, composite);
 
 			composite.setSize(composite.computeSize(SWT.DEFAULT, SWT.DEFAULT));
 			parent.layout(true, true);
 		}
 	}
 
-	private void cleanView() {
+	/**
+	 * Builds many tables: the first one with the features of the passed
+	 * eObject and, in turn, a table for each single multi feature of the eObject
+	 * (each such table with the contents of the multi feature)
+	 * 
+	 * @param eObject
+	 * @param composite
+	 */
+	protected void buildTableForSelectedObject(EObject eObject,
+			Composite composite) {
+		EClass eObjectEClass = eObject.eClass();
+		buildTable(eObject, eObjectEClass, composite,
+				labelProvider.getText(eObject));
+		EList<EStructuralFeature> features = eObjectEClass
+				.getEAllStructuralFeatures();
+		for (EStructuralFeature eStructuralFeature : features) {
+			if (eStructuralFeature.isMany()) {
+				EClassifier eType = eStructuralFeature.getEType();
+				if (eType instanceof EClass) {
+					EClass eClass = (EClass) eType;
+					buildTable(eObject.eGet(eStructuralFeature), eClass,
+							composite, eStructuralFeature.getName());
+				}
+			}
+		}
+	}
+
+	/**
+	 * @param object the contents to show in the table
+	 * @param eClass the EClass of the contents (that is, the EClass of the object
+	 * if the contents is a single object, or the EClass of the objects in the list,
+	 * if the contents is a list)
+	 * @param composite
+	 * @param label
+	 */
+	protected void buildTable(Object object, EClass eClass,
+			Composite composite, String label) {
+		Label lblNewLabel = new Label(composite, SWT.NONE);
+		lblNewLabel.setText(label);
+
+		TableViewer tableViewer = new TableViewer(composite, SWT.BORDER
+				| SWT.FULL_SELECTION);
+
+		tableViewerBuilder.buildAndFill(tableViewer, object, eClass);
+
+		Table table = tableViewer.getTable();
+		table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+	}
+
+	private void resetView() {
 		if (scrolledComposite != null)
 			scrolledComposite.dispose();
 
@@ -90,6 +138,7 @@ public class EmfTableView extends EmfAbstractViewOnSelection {
 	}
 
 	public void setFocus() {
+		scrolledComposite.setFocus();
 	}
 
 }
