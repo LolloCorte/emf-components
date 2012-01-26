@@ -1,25 +1,24 @@
 package it.rcpvision.emf.components.views;
 
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
-import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
-import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.core.databinding.observable.map.IObservableMap;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.databinding.EMFProperties;
+import org.eclipse.emf.databinding.IEMFListProperty;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
-import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.jface.databinding.viewers.ObservableListContentProvider;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
@@ -49,6 +48,7 @@ public class GenericTableComposite extends Composite {
 	private ComposedAdapterFactory adapterFactory;
 	private FormToolkit formToolkit;
 	private TableViewer viewer;
+	private ObservableListContentProvider cp;
 
 	public GenericTableComposite(Composite parent, int style, FeatureLabelProvider featureLabelProvider, Provider<EmfSwtBindingFactory> bindingFactoryProvider, Provider<ComposedAdapterFactory> composedAdapterFactoryProvider) {
 		super(parent, style);
@@ -76,8 +76,8 @@ public class GenericTableComposite extends Composite {
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
 
-		viewer.setContentProvider(new ArrayContentProvider());
-	    
+//		viewer.setContentProvider(new ArrayContentProvider());
+		viewer.setContentProvider(cp=new ObservableListContentProvider());
 		
 		// Layout the viewer
 		GridData gridData = new GridData();
@@ -94,18 +94,18 @@ public class GenericTableComposite extends Composite {
 	}
 
 	private void createColumn(String title, int bound,final EStructuralFeature feature) {
+		IObservableMap observableMap=EMFProperties.value(feature).observeDetail(cp.getKnownElements());
+
 		TableViewerColumn col = createTableViewerColumn(title, bound, 0);
-		col.setLabelProvider(new ColumnLabelProvider() {
-			@Override
-			public String getText(Object element) {
-				EObject p = (EObject) element;
-				return p.eGet(feature)!=null?p.eGet(feature).toString():"";
-			}
-		});
-		//TODO non lo prende...
-//		col.setLabelProvider(new WrappedViewerLabelProvider(new AdapterFactoryLabelProvider(adapterFactory)));
-		
-		//WrappedViewerLabelProvider
+//		col.setLabelProvider(new ColumnLabelProvider() {
+//			@Override
+//			public String getText(Object element) {
+//				EObject p = (EObject) element;
+//				return p.eGet(feature)!=null?p.eGet(feature).toString():"";
+//			}
+//		});
+		col.setLabelProvider(new GenericMapCellLabelProvider("{0}", observableMap));
+
 	}
 
 	private TableViewerColumn createTableViewerColumn(String title, int bound, final int colNumber) {
@@ -128,8 +128,12 @@ public class GenericTableComposite extends Composite {
 	public boolean setFocus() {
 		return viewer.getControl().setFocus();
 	}
+	
+	public void init(EObject container, IEMFListProperty listProp) {
+		init(listProp.observe(container));
+	}
 
-	public void init(EList list) {
+	public void init(List list) {
 
 		if (list.size() == 0)
 			return;
