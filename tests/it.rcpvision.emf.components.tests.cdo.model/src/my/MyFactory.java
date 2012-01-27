@@ -71,6 +71,15 @@ public interface MyFactory extends EFactory {
 	OrderRow createOrderRow();
 
 	/**
+	 * Returns a new object of class '<em>Address</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Address</em>'.
+	 * @generated
+	 */
+	Address createAddress();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

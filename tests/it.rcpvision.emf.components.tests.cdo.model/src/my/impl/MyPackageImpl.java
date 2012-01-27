@@ -6,6 +6,7 @@
  */
 package my.impl;
 
+import my.Address;
 import my.Customer;
 import my.Item;
 import my.MyFactory;
@@ -61,6 +62,13 @@ public class MyPackageImpl extends EPackageImpl implements MyPackage {
 	 * @generated
 	 */
 	private EClass orderRowEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass addressEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -182,8 +190,8 @@ public class MyPackageImpl extends EPackageImpl implements MyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCustomer_Address() {
-		return (EAttribute)customerEClass.getEStructuralFeatures().get(2);
+	public EReference getCustomer_Address() {
+		return (EReference)customerEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -272,6 +280,24 @@ public class MyPackageImpl extends EPackageImpl implements MyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAddress() {
+		return addressEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAddress_Via() {
+		return (EAttribute)addressEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MyFactory getMyFactory() {
 		return (MyFactory)getEFactoryInstance();
 	}
@@ -302,7 +328,7 @@ public class MyPackageImpl extends EPackageImpl implements MyPackage {
 		customerEClass = createEClass(CUSTOMER);
 		createEAttribute(customerEClass, CUSTOMER__CODE);
 		createEReference(customerEClass, CUSTOMER__LIST_ORDER);
-		createEAttribute(customerEClass, CUSTOMER__ADDRESS);
+		createEReference(customerEClass, CUSTOMER__ADDRESS);
 
 		itemEClass = createEClass(ITEM);
 		createEAttribute(itemEClass, ITEM__CODE);
@@ -315,6 +341,9 @@ public class MyPackageImpl extends EPackageImpl implements MyPackage {
 		orderRowEClass = createEClass(ORDER_ROW);
 		createEReference(orderRowEClass, ORDER_ROW__ITEM);
 		createEAttribute(orderRowEClass, ORDER_ROW__NUMBER);
+
+		addressEClass = createEClass(ADDRESS);
+		createEAttribute(addressEClass, ADDRESS__VIA);
 	}
 
 	/**
@@ -354,7 +383,7 @@ public class MyPackageImpl extends EPackageImpl implements MyPackage {
 		initEClass(customerEClass, Customer.class, "Customer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCustomer_Code(), ecorePackage.getEString(), "code", null, 0, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCustomer_ListOrder(), this.getOrder(), null, "listOrder", null, 0, -1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCustomer_Address(), ecorePackage.getEString(), "address", null, 0, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCustomer_Address(), this.getAddress(), null, "address", null, 0, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(itemEClass, Item.class, "Item", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getItem_Code(), ecorePackage.getEString(), "code", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -367,6 +396,9 @@ public class MyPackageImpl extends EPackageImpl implements MyPackage {
 		initEClass(orderRowEClass, OrderRow.class, "OrderRow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOrderRow_Item(), this.getItem(), null, "item", null, 0, 1, OrderRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOrderRow_Number(), ecorePackage.getEInt(), "number", null, 0, 1, OrderRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(addressEClass, Address.class, "Address", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAddress_Via(), ecorePackage.getEString(), "Via", null, 0, 1, Address.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

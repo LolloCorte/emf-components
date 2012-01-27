@@ -65,6 +65,7 @@ public class MyFactoryImpl extends EFactoryImpl implements MyFactory {
 			case MyPackage.ITEM: return (EObject)createItem();
 			case MyPackage.ORDER: return (EObject)createOrder();
 			case MyPackage.ORDER_ROW: return (EObject)createOrderRow();
+			case MyPackage.ADDRESS: return (EObject)createAddress();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -118,6 +119,16 @@ public class MyFactoryImpl extends EFactoryImpl implements MyFactory {
 	public OrderRow createOrderRow() {
 		OrderRowImpl orderRow = new OrderRowImpl();
 		return orderRow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Address createAddress() {
+		AddressImpl address = new AddressImpl();
+		return address;
 	}
 
 	/**
