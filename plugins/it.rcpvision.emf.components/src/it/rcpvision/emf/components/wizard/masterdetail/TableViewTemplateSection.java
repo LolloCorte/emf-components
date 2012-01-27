@@ -4,6 +4,7 @@ import it.rcpvision.emf.components.EmfComponentsActivator;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -107,13 +108,17 @@ public class TableViewTemplateSection extends OptionTemplateSection  {
 	@Override
 	public IPluginReference[] getDependencies(String schemaVersion) {
 		List<IPluginReference> result = new ArrayList<IPluginReference>();
-		result.add(new PluginReference("org.eclipse.ui", null, 0));
-		result.add(new PluginReference("org.eclipse.core.resources", null, 0)); //$NON-NLS-1$
-		result.add(new PluginReference("org.eclipse.ui.navigator", null, 0)); //$NON-NLS-1$
-		result.add(new PluginReference("org.eclipse.ui.navigator.resources", null, 0)); //$NON-NLS-1$
-		return (IPluginReference[]) result.toArray(new IPluginReference[result.size()]);
+		result.addAll(Arrays.asList(super.getDependencies(schemaVersion)));
+		result.add(new PluginReference("org.eclipse.core.runtime", null, 0)); //$NON-NLS-1$
+		result.add(new PluginReference("org.eclipse.emf.cdo", null, 0)); //$NON-NLS-1$
+		result.add(new PluginReference("org.eclipse.emf.cdo.net4j", null, 0)); //$NON-NLS-1$
+		result.add(new PluginReference("org.eclipse.net4j.tcp", null, 0)); //$NON-NLS-1$
+		result.add(new PluginReference("org.eclipse.xtext", null, 0)); //$NON-NLS-1$
+		result.add(new PluginReference("org.eclipse.ui.forms", null, 0)); //$NON-NLS-1$
+		result.add(new PluginReference("it.rcpvision.emf.components", null, 0)); //$NON-NLS-1$
+		result.add(new PluginReference("it.rcpvision.emf.components.cdo", null, 0)); //$NON-NLS-1$
+		result.add(new PluginReference("org.eclipse.core.databinding.property", null, 0)); //$NON-NLS-1$
+		return result.toArray(new IPluginReference[result.size()]);
 	}
-
-	
 	
 }
