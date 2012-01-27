@@ -69,7 +69,7 @@ public class TableViewTemplateSection extends OptionTemplateSection  {
 	public void addPages(Wizard wizard) {
 		 WizardPage page = createPage(0, IHelpContextIds.TEMPLATE_INTRO);
 		 page.setTitle("Table Master Detail Template");
-		 page.setDescription("Creates a Table Master  Detail view");
+		 page.setDescription("Creates a Table Master Detail view");
 		 wizard.addPage(page);
 		 markPagesAdded();
 	}
