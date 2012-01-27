@@ -3,6 +3,8 @@ package it.rcpvision.emf.components.wizard.masterdetail;
 import it.rcpvision.emf.components.EmfComponentsActivator;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import org.eclipse.core.runtime.CoreException;
@@ -14,8 +16,10 @@ import org.eclipse.pde.core.plugin.IPluginBase;
 import org.eclipse.pde.core.plugin.IPluginElement;
 import org.eclipse.pde.core.plugin.IPluginExtension;
 import org.eclipse.pde.core.plugin.IPluginModelFactory;
+import org.eclipse.pde.core.plugin.IPluginReference;
 import org.eclipse.pde.internal.ui.IHelpContextIds;
 import org.eclipse.pde.ui.templates.OptionTemplateSection;
+import org.eclipse.pde.ui.templates.PluginReference;
 
 public class TableViewTemplateSection extends OptionTemplateSection  {
 
@@ -24,6 +28,7 @@ public class TableViewTemplateSection extends OptionTemplateSection  {
 	    createOptions();	
 	}
 	
+	private static final String KEY_PACKAGE_NAME = "packageName";
 	private static final String KEY_CLASS_NAME = "className";
 	private static final String KEY_VIEW_NAME = "viewName";
 	private static final String KEY_MESSAGE_NAME = "message";
@@ -97,6 +102,18 @@ public class TableViewTemplateSection extends OptionTemplateSection  {
 		 extension.add(element);
 		 
 		 plugin.add(extension);
-} 
+	} 
+	
+	@Override
+	public IPluginReference[] getDependencies(String schemaVersion) {
+		List<IPluginReference> result = new ArrayList<IPluginReference>();
+		result.add(new PluginReference("org.eclipse.ui", null, 0));
+		result.add(new PluginReference("org.eclipse.core.resources", null, 0)); //$NON-NLS-1$
+		result.add(new PluginReference("org.eclipse.ui.navigator", null, 0)); //$NON-NLS-1$
+		result.add(new PluginReference("org.eclipse.ui.navigator.resources", null, 0)); //$NON-NLS-1$
+		return (IPluginReference[]) result.toArray(new IPluginReference[result.size()]);
+	}
 
+	
+	
 }
