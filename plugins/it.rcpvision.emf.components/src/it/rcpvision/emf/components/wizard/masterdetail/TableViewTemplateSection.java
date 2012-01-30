@@ -34,7 +34,7 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 	private static final String KEY_CLASS_NAME = "className";
 	private static final String KEY_VIEW_NAME = "viewName";
 	private static final String KEY_MESSAGE_NAME = "message";
-	private static final String KEY_IMP_MESSAGE_NAME = "importantMessage";
+	private static final String KEY_EDITABLE = "editableView";
 	
 	@Override
 	public String getUsedExtensionPoint() {
@@ -77,11 +77,11 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 	}
 	
 	private void createOptions() {
-		addOption(KEY_PACKAGE_NAME, "Package", "packageName", 0);
+//		addOption(KEY_PACKAGE_NAME, "Package", "packageName", 0);
 		addOption(KEY_CLASS_NAME, "Class Name ", "ClassName", 0);
-		addOption(KEY_VIEW_NAME, "View Name", "viewName", 0);
-		addOption(KEY_MESSAGE_NAME, "Message", "message", 0);
-		addOption(KEY_IMP_MESSAGE_NAME, "Important?", false, 0);
+//		addOption(KEY_VIEW_NAME, "View Name", "viewName", 0);
+//		addOption(KEY_MESSAGE_NAME, "Message", "message", 0);
+		addOption(KEY_EDITABLE, "Is editable ", true, 0);
 	}
 	
 	protected void updateModel(IProgressMonitor monitor) throws CoreException {

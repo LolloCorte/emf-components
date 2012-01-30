@@ -6,8 +6,8 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.part.ViewPart;
 
 public class $className$ extends ViewPart {
-		 
-		 public void createPartControl(Composite parent) {
+	
+	public void createPartControl(Composite parent) {
 		 		 Label label = new Label(parent, SWT.CENTER);
 		 		 
 %if importantMessage
@@ -17,7 +17,8 @@ public class $className$ extends ViewPart {
 %endif
 		 		 label.setText(message);
 		 }
-		 
-		 public void setFocus() {}
-		 
+	
+	public void setFocus() {
+	}
+	
 }

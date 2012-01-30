@@ -1,6 +1,6 @@
 package it.rcpvision.emf.components.cdo.view;
 
-import it.rcpvision.emf.components.cdo.CDOSessionManager;
+import it.rcpvision.emf.components.cdo.ViewConfigurator;
 import it.rcpvision.emf.components.views.EObjectManager;
 import it.rcpvision.emf.components.views.EmfDetailsFactory;
 import it.rcpvision.emf.components.views.GenericDetailComposite;
@@ -36,7 +36,7 @@ import org.eclipse.ui.part.ViewPart;
 
 import com.google.inject.Inject;
 
-public class MasterDetailView extends ViewPart implements ISaveablePart,ISaveablePart2{
+public class MasterDetailView extends ViewPart implements ISaveablePart, ISaveablePart2 {
 
 	private FormToolkit formToolkit;
 
@@ -51,19 +51,18 @@ public class MasterDetailView extends ViewPart implements ISaveablePart,ISaveabl
 	
 	protected GenericDetailComposite genericComponent;
 	
-	private boolean modified=false;
+	private boolean modified = false;
 	
 	private Resource modelResource;
 	
-	private List<GenericTableComposite> genericComponentList=new ArrayList<GenericTableComposite>();
+	private List<GenericTableComposite> genericComponentList = new ArrayList<GenericTableComposite>();
 	
 	@Inject
-	CDOSessionManager sessionManager;
+	ViewConfigurator viewConfigurator;
 
 	List list;
 
 	private CDOSession session;
-	
 	
 	private void initialize() {
 		//Inizializzazione
@@ -71,28 +70,26 @@ public class MasterDetailView extends ViewPart implements ISaveablePart,ISaveabl
 //		cdoView.options().addChangeSubscriptionPolicy(CDOAdapterPolicy.ALL);
 //		Resource resource = cdoView.getResource("/Customer");
 		
-		manageList(sessionManager.getContainer(), sessionManager.getListProperty());
+		manageList(viewConfigurator.getContainer(), viewConfigurator.getListProperty());
 		
 	}
-
-	private void manageList(EObject obj, IEMFListProperty listProp){
+	
+	private void manageList(EObject obj, IEMFListProperty listProp) {
 		
 //		genericComponent.getViewer().
 		GenericTableComposite genericComponent;
-		genericComponentList.add(genericComponent= emfDetailsFactory.createTableComposite(master, SWT.NONE));
+		genericComponentList.add(genericComponent = emfDetailsFactory.createTableComposite(master, SWT.NONE));
 		formToolkit.adapt(genericComponent);
-		genericComponent.init(obj,listProp);
+		genericComponent.init(obj, listProp);
 		addSelectionListener(genericComponent.getViewer());
 		master.layout(true);
 	}
 	
-
-	
 	private void addSelectionListener(TableViewer viewer) {
-		viewer.addSelectionChangedListener(new ISelectionChangedListener() {		
+		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
-				EObject obj=(EObject) ((IStructuredSelection)event.getSelection()).getFirstElement();
+				EObject obj = (EObject) ((IStructuredSelection) event.getSelection()).getFirstElement();
 				manageDetail(obj);
 			}
 
@@ -111,11 +108,11 @@ public class MasterDetailView extends ViewPart implements ISaveablePart,ISaveabl
 				detail, SWT.NONE);
 		formToolkit.adapt(genericComponent);
 		genericComponent.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-		model.eAdapters().add(new Adapter(){
+		model.eAdapters().add(new Adapter() {
 
 			@Override
 			public void notifyChanged(Notification notification) {
-				modified=true;
+				modified = true;
 				firePropertyChange(PROP_DIRTY);
 			}
 
@@ -136,14 +133,14 @@ public class MasterDetailView extends ViewPart implements ISaveablePart,ISaveabl
 			}
 			
 		});
-		modelResource=model.eResource();
+		modelResource = model.eResource();
 		
 		genericComponent.init(model);
 		
 		detail.layout(true);
-	
+		
 	}
-
+	
 	@Override
 	public void createPartControl(Composite parent) {
 		formToolkit = new FormToolkit(parent.getDisplay());
@@ -161,6 +158,13 @@ public class MasterDetailView extends ViewPart implements ISaveablePart,ISaveabl
 		detail.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		detail.setLayout(new GridLayout(2, false));
 		
+		if (viewConfigurator.isEditable())
+			createCommandButtons(parent);
+		
+		initialize();
+	}
+
+	private void createCommandButtons(Composite parent) {
 		Composite composite = formToolkit.createComposite(parent, SWT.NONE);
 		formToolkit.paintBordersFor(composite);
 		composite.setLayout(new GridLayout(1, false));
@@ -171,8 +175,6 @@ public class MasterDetailView extends ViewPart implements ISaveablePart,ISaveabl
 				doSave(new NullProgressMonitor());
 			}
 		});
-		
-		initialize();
 	}
 
 	@Override
@@ -181,12 +183,10 @@ public class MasterDetailView extends ViewPart implements ISaveablePart,ISaveabl
 
 	}
 	
-	
-
 	@Override
 	public void doSave(IProgressMonitor monitor) {
 		objectManager.doSave(modelResource);
-		modified=false;
+		modified = false;
 		firePropertyChange(PROP_DIRTY);
 	}
 
@@ -197,7 +197,7 @@ public class MasterDetailView extends ViewPart implements ISaveablePart,ISaveabl
 
 	@Override
 	public boolean isDirty() {
-		return modified||(modelResource!=null?modelResource.isModified():false);
+		return modified || (modelResource != null ? modelResource.isModified() : false);
 	}
 
 	@Override
