@@ -33,6 +33,7 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 	private static final String KEY_PACKAGE_NAME = "packageName";
 	private static final String KEY_PREFIX_CLASSESNAME = "prefixClassesname";
 	private static final String KEY_VIEW_NAME = "viewName";
+//	private static final String KEY_MESSAGE_NAME = "message";
 	private static final String KEY_EDITABLE = "editableView";
 	
 	private static final String MASTERDETAIL_VIEWNAME = "it.rcpvision.emf.components.cdo.view.MasterDetailView";
@@ -154,9 +155,9 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 		result.add(new PluginReference("org.eclipse.net4j.tcp", null, 0)); //$NON-NLS-1$
 		result.add(new PluginReference("org.eclipse.xtext", null, 0)); //$NON-NLS-1$
 		result.add(new PluginReference("org.eclipse.ui.forms", null, 0)); //$NON-NLS-1$
+		result.add(new PluginReference("org.eclipse.core.databinding.property", null, 0)); //$NON-NLS-1$
 		result.add(new PluginReference("it.rcpvision.emf.components", null, 0)); //$NON-NLS-1$
 		result.add(new PluginReference("it.rcpvision.emf.components.cdo", null, 0)); //$NON-NLS-1$
-		result.add(new PluginReference("org.eclipse.core.databinding.property", null, 0)); //$NON-NLS-1$
 		return result.toArray(new IPluginReference[result.size()]);
 	}
 	
