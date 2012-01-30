@@ -31,10 +31,11 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 	
 	private static final String PATH_ABSTRACT_DISPATCHER_PREFIX = "it.rcpvision.countervision.ui.cusomer.internal.guice.DemoExecutableExtensionFactory:";
 	private static final String KEY_PACKAGE_NAME = "packageName";
-	private static final String KEY_CLASS_NAME = "className";
+	private static final String KEY_PREFIX_CLASSESNAME = "prefixClassesname";
 	private static final String KEY_VIEW_NAME = "viewName";
-	private static final String KEY_MESSAGE_NAME = "message";
 	private static final String KEY_EDITABLE = "editableView";
+	
+	private static final String MASTERDETAIL_VIEWNAME = "it.rcpvision.emf.components.cdo.view.MasterDetailView";
 	
 	@Override
 	public String getUsedExtensionPoint() {
@@ -77,21 +78,20 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 	}
 	
 	private void createOptions() {
-//		addOption(KEY_PACKAGE_NAME, "Package", "packageName", 0);
-		addOption(KEY_CLASS_NAME, "Class Name ", "ClassName", 0);
-//		addOption(KEY_VIEW_NAME, "View Name", "viewName", 0);
-//		addOption(KEY_MESSAGE_NAME, "Message", "message", 0);
+		addOption(KEY_PREFIX_CLASSESNAME, "Prefix classes name ", "Prefix", 0);
+		addOption(KEY_VIEW_NAME, "View Name", MASTERDETAIL_VIEWNAME, 0);
 		addOption(KEY_EDITABLE, "Is editable ", true, 0);
 	}
 	
 	protected void updateModel(IProgressMonitor monitor) throws CoreException {
-		IPluginBase plugin = model.getPluginBase();
-		IPluginModelFactory factory = model.getPluginFactory();
+		String projectId = project.getDescription().getName();
+		addOption(KEY_PACKAGE_NAME, "Package Name", projectId, 0);
 		
+		IPluginModelFactory factory = model.getPluginFactory();
 		IPluginExtension extensionView = createExtensionView(factory);
-
 		IPluginExtension extensionMenu = createExtensionMenu(factory);
 		
+		IPluginBase plugin = model.getPluginBase();
 		plugin.add(extensionView);
 		plugin.add(extensionMenu);
 	}
@@ -115,7 +115,7 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 		IPluginElement elementSubMenuParameter = factory.createElement(elementSubMenu);
 		elementSubMenuParameter.setName("parameter");
 		elementSubMenuParameter.setAttribute("name", "org.eclipse.ui.views.showView.viewId");
-		String viewId = getStringOption(KEY_PACKAGE_NAME) + "." + getStringOption(KEY_CLASS_NAME);
+		String viewId = getStringOption(KEY_PACKAGE_NAME) + "." + getStringOption(KEY_PREFIX_CLASSESNAME);
 		elementSubMenuParameter.setAttribute("value", viewId);
 		
 		extensionMenu.add(elementMenu);
@@ -131,7 +131,7 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 
 		IPluginElement elementView = factory.createElement(extensionView);
 		elementView.setName("view");
-		String viewId = getStringOption(KEY_PACKAGE_NAME) + "." + getStringOption(KEY_CLASS_NAME);
+		String viewId = getStringOption(KEY_PACKAGE_NAME) + "." + getStringOption(KEY_PREFIX_CLASSESNAME);
 		elementView.setAttribute("id", viewId);
 		elementView.setAttribute("name", getStringOption(KEY_VIEW_NAME));
 
