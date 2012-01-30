@@ -4,25 +4,14 @@ import org.eclipse.emf.cdo.session.CDOSession;
 import org.eclipse.emf.databinding.IEMFListProperty;
 import org.eclipse.emf.ecore.EObject;
 
-public class ViewConfigurator {
+public abstract class ViewConfigurator {
 
-	public CDOSession getSession(EObject obj) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public abstract CDOSession getSession(EObject obj);
 	
-	public EObject getContainer() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public abstract EObject getContainer();
 	
-	public IEMFListProperty getListProperty() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public abstract IEMFListProperty getListProperty();
 
-	public Boolean isEditable() {
-		return null;
-	}
+	public abstract Boolean isEditable();
 
 }
