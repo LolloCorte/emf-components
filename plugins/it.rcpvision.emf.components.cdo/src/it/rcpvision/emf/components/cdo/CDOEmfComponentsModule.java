@@ -29,7 +29,7 @@ public class CDOEmfComponentsModule extends EmfComponentsGenericModule {
 		return CDOObjectManager.class;
 	}
 	
-	public Class<? extends ViewConfigurator> bindCDOSessionManager(){
+	public Class<? extends ViewConfigurator> bindViewConfigurator(){
 		return ViewConfigurator.class;
 	}
 	
