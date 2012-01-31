@@ -116,7 +116,8 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 		IPluginElement elementSubMenuParameter = factory.createElement(elementSubMenu);
 		elementSubMenuParameter.setName("parameter");
 		elementSubMenuParameter.setAttribute("name", "org.eclipse.ui.views.showView.viewId");
-		elementSubMenuParameter.setAttribute("value", MASTERDETAIL_VIEWNAME);
+		String viewId = getStringOption(KEY_PREFIX_CLASSESNAME) + "_VIEW";
+		elementSubMenuParameter.setAttribute("value", viewId);
 		
 		extensionMenu.add(elementMenu);
 		elementMenu.add(elementSubMenu);
@@ -131,7 +132,8 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 
 		IPluginElement elementView = factory.createElement(extensionView);
 		elementView.setName("view");
-		elementView.setAttribute("id", MASTERDETAIL_VIEWNAME);
+		String viewId = getStringOption(KEY_PREFIX_CLASSESNAME) + "_VIEW";
+		elementView.setAttribute("id", viewId);
 		elementView.setAttribute("name", getStringOption(KEY_PREFIX_CLASSESNAME));
 
 		String fullClassName = getAbstractDispatcherPath() + MASTERDETAIL_VIEWNAME;
