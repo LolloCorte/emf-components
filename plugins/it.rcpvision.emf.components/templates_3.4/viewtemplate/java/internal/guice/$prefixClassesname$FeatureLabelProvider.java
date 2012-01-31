@@ -7,7 +7,7 @@ import org.eclipse.swt.widgets.Label;
 
 import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 
-public class $prefixClassesname$DetailLabelProvider extends FeatureLabelProvider{
+public class $prefixClassesname$FeatureLabelProvider extends FeatureLabelProvider{
 	
 	/**
 	 * 
