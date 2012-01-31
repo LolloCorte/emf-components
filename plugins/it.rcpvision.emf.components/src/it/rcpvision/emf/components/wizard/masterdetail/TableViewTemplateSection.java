@@ -29,11 +29,8 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 		createOptions();
 	}
 	
-//	private static final String PATH_ABSTRACT_DISPATCHER_PREFIX = "it.rcpvision.countervision.ui.cusomer.internal.guice.DemoExecutableExtensionFactory:";
 	private static final String KEY_PROJECT_NAME = "packageName";
 	private static final String KEY_PREFIX_CLASSESNAME = "prefixClassesname";
-	private static final String KEY_VIEW_NAME = "viewName";
-//	private static final String KEY_MESSAGE_NAME = "message";
 	private static final String KEY_EDITABLE = "editableView";
 	
 	private static final String MASTERDETAIL_VIEWNAME = "it.rcpvision.emf.components.cdo.view.MasterDetailView";
@@ -79,8 +76,7 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 	}
 	
 	private void createOptions() {
-		addOption(KEY_PREFIX_CLASSESNAME, "Prefix classes name ", "Prefix", 0);
-		addOption(KEY_VIEW_NAME, "View Name", MASTERDETAIL_VIEWNAME, 0);
+		addOption(KEY_PREFIX_CLASSESNAME, "Prefix classes name ", "", 0);
 		addOption(KEY_EDITABLE, "Is editable ", true, 0);
 	}
 	
@@ -148,8 +144,7 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 	}
 
 	private String getViewId() {
-		String viewId = getStringOption(KEY_PROJECT_NAME) + "." + getStringOption(KEY_PREFIX_CLASSESNAME) + ".viewId";
-		return viewId;
+		return getStringOption(KEY_PROJECT_NAME) + "." + getStringOption(KEY_PREFIX_CLASSESNAME);
 	}
 
 	@Override
