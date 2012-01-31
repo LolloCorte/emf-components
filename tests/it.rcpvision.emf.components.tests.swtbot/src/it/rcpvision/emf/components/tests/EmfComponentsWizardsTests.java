@@ -25,6 +25,10 @@ public class EmfComponentsWizardsTests extends EmfComponentsAbstractTests {
 	public void canCreateProjectWithWizard() throws Exception {
 		createProjectInWorkspace(EMF_COMPONENTS_CATEGORY,
 				NEW_EMF_COMPONENTS_PROJECT, EMF_COMPONENTS_PROJECT);
+		assertNoErrorsInProject();
+	}
+
+	protected void assertNoErrorsInProject() throws CoreException {
 		IMarker[] markers = root().findMarkers(IMarker.PROBLEM, true,
 				IResource.DEPTH_INFINITE);
 		assertEquals("expected no markers: " + printMarkers(markers),
