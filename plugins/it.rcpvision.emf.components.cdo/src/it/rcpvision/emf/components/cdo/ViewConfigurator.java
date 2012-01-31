@@ -3,6 +3,7 @@ package it.rcpvision.emf.components.cdo;
 import org.eclipse.emf.cdo.session.CDOSession;
 import org.eclipse.emf.databinding.IEMFListProperty;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 
 public abstract class ViewConfigurator {
 
@@ -10,7 +11,7 @@ public abstract class ViewConfigurator {
 	
 	public abstract EObject getContainer();
 	
-	public abstract IEMFListProperty getListProperty();
+	public abstract EReference getListFeature();
 
 	public abstract Boolean isEditable();
 

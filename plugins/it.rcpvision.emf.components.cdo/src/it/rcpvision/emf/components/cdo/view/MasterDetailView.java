@@ -15,7 +15,9 @@ import org.eclipse.emf.cdo.session.CDOSession;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
+import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipse.emf.databinding.IEMFListProperty;
+import org.eclipse.emf.databinding.IEMFObservable;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -69,8 +71,8 @@ public class MasterDetailView extends ViewPart implements ISaveablePart, ISaveab
 //		CDOView cdoView = sessionManager.getSession(null).openView();
 //		cdoView.options().addChangeSubscriptionPolicy(CDOAdapterPolicy.ALL);
 //		Resource resource = cdoView.getResource("/Customer");
-		
-		manageList(viewConfigurator.getContainer(), viewConfigurator.getListProperty());
+		IEMFListProperty listProperty=EMFProperties.list(viewConfigurator.getListFeature());
+		manageList(viewConfigurator.getContainer(), listProperty );
 		
 	}
 	
