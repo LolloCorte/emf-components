@@ -30,7 +30,7 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 	}
 	
 //	private static final String PATH_ABSTRACT_DISPATCHER_PREFIX = "it.rcpvision.countervision.ui.cusomer.internal.guice.DemoExecutableExtensionFactory:";
-	private static final String KEY_PACKAGE_NAME = "packageName";
+	private static final String KEY_PROJECT_NAME = "packageName";
 	private static final String KEY_PREFIX_CLASSESNAME = "prefixClassesname";
 	private static final String KEY_VIEW_NAME = "viewName";
 //	private static final String KEY_MESSAGE_NAME = "message";
@@ -86,7 +86,7 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 	
 	protected void updateModel(IProgressMonitor monitor) throws CoreException {
 		String projectId = project.getDescription().getName();
-		addOption(KEY_PACKAGE_NAME, "Package Name", projectId, 0);
+		addOption(KEY_PROJECT_NAME, "Project Name", projectId, 0);
 		
 		IPluginModelFactory factory = model.getPluginFactory();
 		IPluginExtension extensionView = createExtensionView(factory);
@@ -116,8 +116,7 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 		IPluginElement elementSubMenuParameter = factory.createElement(elementSubMenu);
 		elementSubMenuParameter.setName("parameter");
 		elementSubMenuParameter.setAttribute("name", "org.eclipse.ui.views.showView.viewId");
-		String viewId = getStringOption(KEY_PREFIX_CLASSESNAME) + "_VIEW";
-		elementSubMenuParameter.setAttribute("value", viewId);
+		elementSubMenuParameter.setAttribute("value", getViewId());
 		
 		extensionMenu.add(elementMenu);
 		elementMenu.add(elementSubMenu);
@@ -132,8 +131,7 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 
 		IPluginElement elementView = factory.createElement(extensionView);
 		elementView.setName("view");
-		String viewId = getStringOption(KEY_PREFIX_CLASSESNAME) + "_VIEW";
-		elementView.setAttribute("id", viewId);
+		elementView.setAttribute("id", getViewId());
 		elementView.setAttribute("name", getStringOption(KEY_PREFIX_CLASSESNAME));
 
 		String fullClassName = getAbstractDispatcherPath() + MASTERDETAIL_VIEWNAME;
@@ -146,7 +144,12 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 	}
 	
 	private String getAbstractDispatcherPath() {
-		return getStringOption(KEY_PACKAGE_NAME) + ".internal.guice." + getStringOption(KEY_PREFIX_CLASSESNAME) + "ExecutableExtensionFactory:";
+		return getStringOption(KEY_PROJECT_NAME) + ".internal.guice." + getStringOption(KEY_PREFIX_CLASSESNAME) + "ExecutableExtensionFactory:";
+	}
+
+	private String getViewId() {
+		String viewId = getStringOption(KEY_PROJECT_NAME) + "." + getStringOption(KEY_PREFIX_CLASSESNAME) + ".viewId";
+		return viewId;
 	}
 
 	@Override
