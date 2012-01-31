@@ -158,8 +158,12 @@ public class MasterDetailView extends ViewPart implements ISaveablePart, ISaveab
 		detail.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		detail.setLayout(new GridLayout(2, false));
 		
-		if (viewConfigurator.isEditable())
+		if (viewConfigurator.isEditable()) {
+			detail.setEnabled(true);
 			createCommandButtons(parent);
+		} else {
+			detail.setEnabled(false);
+		}
 		
 		initialize();
 	}
