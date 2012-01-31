@@ -20,7 +20,7 @@ public class $prefixClassesname$Module extends CDOEmfComponentsModule {
 	
 	@Override
 	public Class<? extends FeatureLabelProvider> bindFeatureLabelProvider() {
-		return $prefixClassesname$DetailLabelProvider.class;
+		return $prefixClassesname$FeatureLabelProvider.class;
 	}
 	
 }
