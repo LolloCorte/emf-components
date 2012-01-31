@@ -56,6 +56,7 @@
          point="org.eclipse.pde.ui.pluginContent">
       <wizard
             class="it.rcpvision.emf.components.wizard.masterdetail.TablePluginContentWizard"
+            icon="icon/component.jpg"
             id="it.rcpvision.emf.components.masterdetail.tablewizard"
             java="true"
             name="Table Master Detail Wizard"
@@ -70,6 +71,7 @@
       <template
             class="it.rcpvision.emf.components.wizard.masterdetail.TableViewTemplateSection"
             contributingId="org.eclipse.ui.views"
+            icon="icon/component.jpg"
             id="it.rcpvision.emf.components.masterdetail.tabletemplate"
             name="Table Master Detail View"/>
 	</extension>

@@ -2,8 +2,10 @@ package $packageName$.internal.guice;
 
 
 import $packageName$.$prefixClassesname$ViewConfigurator;
+import $packageName$.$prefixClassesname$CDOSessionManager;
 import it.rcpvision.emf.components.cdo.CDOEmfComponentsModule;
-import it.rcpvision.emf.components.cdo.ViewConfigurator;
+import it.rcpvision.emf.components.cdo.CDOSessionManager;
+import it.rcpvision.emf.components.view.masterdetail.ViewConfigurator;
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 
@@ -17,6 +19,10 @@ public class $prefixClassesname$Module extends CDOEmfComponentsModule {
 
 	public Class<? extends ViewConfigurator> bindViewConfigurator(){
 		return $prefixClassesname$ViewConfigurator.class;
+	}
+	
+	public Class<? extends CDOSessionManager> bindCDOSessionManager(){
+		return $prefixClassesname$CDOSessionManager.class;
 	}
 	
 	@Override

@@ -33,7 +33,7 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 	private static final String KEY_PREFIX_CLASSESNAME = "prefixClassesname";
 	private static final String KEY_EDITABLE = "editableView";
 	
-	private static final String MASTERDETAIL_VIEWNAME = "it.rcpvision.emf.components.cdo.view.MasterDetailView";
+	private static final String MASTERDETAIL_VIEWNAME = "it.rcpvision.emf.components.view.masterdetail.MasterDetailView";
 	
 	@Override
 	public String getUsedExtensionPoint() {
@@ -132,7 +132,7 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 
 		String fullClassName = getAbstractDispatcherPath() + MASTERDETAIL_VIEWNAME;
 		elementView.setAttribute("class", fullClassName);
-		elementView.setAttribute("icon", "icons/sample.gif");
+		elementView.setAttribute("icon", "icons/table.jpg");
 		
 		extensionView.add(elementView);
 

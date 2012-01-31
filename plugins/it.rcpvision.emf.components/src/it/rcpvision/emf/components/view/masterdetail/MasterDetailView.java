@@ -1,6 +1,5 @@
-package it.rcpvision.emf.components.cdo.view;
+package it.rcpvision.emf.components.view.masterdetail;
 
-import it.rcpvision.emf.components.cdo.ViewConfigurator;
 import it.rcpvision.emf.components.views.EObjectManager;
 import it.rcpvision.emf.components.views.EmfDetailsFactory;
 import it.rcpvision.emf.components.views.GenericDetailComposite;
@@ -11,7 +10,6 @@ import java.util.List;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.emf.cdo.session.CDOSession;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
@@ -62,9 +60,6 @@ public class MasterDetailView extends ViewPart implements ISaveablePart, ISaveab
 	@Inject
 	ViewConfigurator viewConfigurator;
 
-	List list;
-
-	private CDOSession session;
 	
 	private void initialize() {
 		//Inizializzazione

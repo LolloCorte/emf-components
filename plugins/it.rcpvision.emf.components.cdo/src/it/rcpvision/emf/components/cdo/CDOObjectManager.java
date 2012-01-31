@@ -20,7 +20,7 @@ import it.rcpvision.emf.components.views.EObjectManager;
 public class CDOObjectManager extends EObjectManager {
 	
 	@Inject
-	ViewConfigurator sessionManager;
+	CDOSessionManager sessionManager;
 	
 	@Override
 	public void doSave(Resource resource) {

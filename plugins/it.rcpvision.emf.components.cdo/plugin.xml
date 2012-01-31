@@ -14,7 +14,7 @@
    <extension
          point="org.eclipse.ui.views">
       <view
-            class="it.rcpvision.emf.components.cdo.view.MasterDetailView"
+            class="it.rcpvision.emf.components.cdo.view.MasterDetailViewOLD"
             id="it.rcpvision.emf.components.cdo.view.MasterDetailView"
             name="MasterDetailView"
             restorable="true">
