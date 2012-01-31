@@ -1,10 +1,10 @@
 package it.rcpvision.emf.components.wizards.gen;
 
-import org.eclipse.xtext.xtend2.lib.StringConcatenation;
+import org.eclipse.xtend2.lib.StringConcatenation;
 
 @SuppressWarnings("all")
 public class EmfComponentsProjectFilesGenerator {
-  public StringConcatenation generateManifest(final String projectName) {
+  public CharSequence generateManifest(final String projectName) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("Manifest-Version: 1.0");
     _builder.newLine();
@@ -38,7 +38,7 @@ public class EmfComponentsProjectFilesGenerator {
     return _builder;
   }
   
-  public StringConcatenation generateBuildProperties() {
+  public CharSequence generateBuildProperties() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("source.. = src/");
     _builder.newLine();
@@ -52,7 +52,7 @@ public class EmfComponentsProjectFilesGenerator {
     return _builder;
   }
   
-  public StringConcatenation generateActivator(final String projectName) {
+  public CharSequence generateActivator(final String projectName) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package ");
     _builder.append(projectName, "");
@@ -188,7 +188,7 @@ public class EmfComponentsProjectFilesGenerator {
     return _builder;
   }
   
-  public StringConcatenation generateExecutableExtensionFactory(final String projectName) {
+  public CharSequence generateExecutableExtensionFactory(final String projectName) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package ");
     _builder.append(projectName, "");
@@ -240,7 +240,7 @@ public class EmfComponentsProjectFilesGenerator {
     return _builder;
   }
   
-  public StringConcatenation generateModule(final String projectName) {
+  public CharSequence generateModule(final String projectName) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package ");
     _builder.append(projectName, "");
