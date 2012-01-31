@@ -11,5 +11,14 @@
             name="My CDO EMF Tree Editor">
       </editor>
    </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="it.rcpvision.emf.components.cdo.view.MasterDetailView"
+            id="it.rcpvision.emf.components.cdo.view.MasterDetailView"
+            name="MasterDetailView"
+            restorable="true">
+      </view>
+   </extension>
 
 </plugin>

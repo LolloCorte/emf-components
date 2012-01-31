@@ -73,29 +73,29 @@ public interface Customer extends CDOObject {
 	EList<Order> getListOrder();
 
 	/**
-	 * Returns the value of the '<em><b>Address</b></em>' attribute.
+	 * Returns the value of the '<em><b>Address</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Address</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Address</em>' attribute.
-	 * @see #setAddress(String)
+	 * @return the value of the '<em>Address</em>' reference.
+	 * @see #setAddress(Address)
 	 * @see my.MyPackage#getCustomer_Address()
 	 * @model
 	 * @generated
 	 */
-	String getAddress();
+	Address getAddress();
 
 	/**
-	 * Sets the value of the '{@link my.Customer#getAddress <em>Address</em>}' attribute.
+	 * Sets the value of the '{@link my.Customer#getAddress <em>Address</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Address</em>' attribute.
+	 * @param value the new value of the '<em>Address</em>' reference.
 	 * @see #getAddress()
 	 * @generated
 	 */
-	void setAddress(String value);
+	void setAddress(Address value);
 
 } // Customer

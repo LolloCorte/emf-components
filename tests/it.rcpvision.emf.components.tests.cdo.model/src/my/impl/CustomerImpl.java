@@ -6,6 +6,7 @@
  */
 package my.impl;
 
+import my.Address;
 import my.Customer;
 import my.MyPackage;
 import my.Order;
@@ -94,8 +95,8 @@ public class CustomerImpl extends CDOObjectImpl implements Customer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getAddress() {
-		return (String)eGet(MyPackage.Literals.CUSTOMER__ADDRESS, true);
+	public Address getAddress() {
+		return (Address)eGet(MyPackage.Literals.CUSTOMER__ADDRESS, true);
 	}
 
 	/**
@@ -103,7 +104,7 @@ public class CustomerImpl extends CDOObjectImpl implements Customer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAddress(String newAddress) {
+	public void setAddress(Address newAddress) {
 		eSet(MyPackage.Literals.CUSTOMER__ADDRESS, newAddress);
 	}
 

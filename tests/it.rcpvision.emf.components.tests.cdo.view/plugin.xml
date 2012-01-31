@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+        <command
+          commandId="org.eclipse.ui.views.showView"
+          label="Customers"
+          style="push"
+          tooltip="Open the Master Detail">
+	       <parameter
+	             name="org.eclipse.ui.views.showView.viewId"
+	             value="it.rcpvision.emf.components.tests.cdo.view.masterdetail">
+	       </parameter>
+	    </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+        <command
+          commandId="org.eclipse.ui.views.showView"
+          label="Items"
+          style="push"
+          tooltip="Open the Items Master Detail">
+	       <parameter
+	             name="org.eclipse.ui.views.showView.viewId"
+	             value="it.rcpvision.emf.components.tests.cdo.view.itemsmasterdetail">
+	       </parameter>
+	    </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="it.rcpvision.emf.components.tests.cdo.view.guice.DemoExecutableExtensionFactory:it.rcpvision.emf.components.tests.cdo.view.MasterDetailView"
+            id="it.rcpvision.emf.components.tests.cdo.view.masterdetail"
+            name="Master Detail"
+            restorable="true">
+      </view>
+       <view
+            class="it.rcpvision.emf.components.tests.cdo.view.guice.DemoExecutableExtensionFactory:it.rcpvision.emf.components.tests.cdo.view.ItemsMasterDetailView"
+            id="it.rcpvision.emf.components.tests.cdo.view.itemsmasterdetail"
+            name="Items Master Detail"
+            restorable="true">
+      </view>
+   </extension>
+
+</plugin>
