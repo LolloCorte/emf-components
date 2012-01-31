@@ -29,7 +29,7 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 		createOptions();
 	}
 	
-	private static final String PATH_ABSTRACT_DISPATCHER_PREFIX = "it.rcpvision.countervision.ui.cusomer.internal.guice.DemoExecutableExtensionFactory:";
+//	private static final String PATH_ABSTRACT_DISPATCHER_PREFIX = "it.rcpvision.countervision.ui.cusomer.internal.guice.DemoExecutableExtensionFactory:";
 	private static final String KEY_PACKAGE_NAME = "packageName";
 	private static final String KEY_PREFIX_CLASSESNAME = "prefixClassesname";
 	private static final String KEY_VIEW_NAME = "viewName";
@@ -109,15 +109,14 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 		IPluginElement elementSubMenu = factory.createElement(elementMenu);
 		elementSubMenu.setName("command");
 		elementSubMenu.setAttribute("commandId", "org.eclipse.ui.views.showView");
-		elementSubMenu.setAttribute("label", getStringOption(KEY_VIEW_NAME));
+		elementSubMenu.setAttribute("label", getStringOption(KEY_PREFIX_CLASSESNAME));
 		elementSubMenu.setAttribute("tooltip", "Open the Master Detail");
 		elementSubMenu.setAttribute("style", "push");
 		
 		IPluginElement elementSubMenuParameter = factory.createElement(elementSubMenu);
 		elementSubMenuParameter.setName("parameter");
 		elementSubMenuParameter.setAttribute("name", "org.eclipse.ui.views.showView.viewId");
-		String viewId = getStringOption(KEY_PACKAGE_NAME) + "." + getStringOption(KEY_PREFIX_CLASSESNAME);
-		elementSubMenuParameter.setAttribute("value", viewId);
+		elementSubMenuParameter.setAttribute("value", MASTERDETAIL_VIEWNAME);
 		
 		extensionMenu.add(elementMenu);
 		elementMenu.add(elementSubMenu);
@@ -132,11 +131,10 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 
 		IPluginElement elementView = factory.createElement(extensionView);
 		elementView.setName("view");
-		String viewId = getStringOption(KEY_PACKAGE_NAME) + "." + getStringOption(KEY_PREFIX_CLASSESNAME);
-		elementView.setAttribute("id", viewId);
-		elementView.setAttribute("name", getStringOption(KEY_VIEW_NAME));
+		elementView.setAttribute("id", MASTERDETAIL_VIEWNAME);
+		elementView.setAttribute("name", getStringOption(KEY_PREFIX_CLASSESNAME));
 
-		String fullClassName = PATH_ABSTRACT_DISPATCHER_PREFIX + viewId;
+		String fullClassName = getAbstractDispatcherPath() + MASTERDETAIL_VIEWNAME;
 		elementView.setAttribute("class", fullClassName);
 		elementView.setAttribute("icon", "icons/sample.gif");
 		
@@ -145,6 +143,10 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 		return extensionView;
 	}
 	
+	private String getAbstractDispatcherPath() {
+		return getStringOption(KEY_PACKAGE_NAME) + ".internal.guice." + getStringOption(KEY_PREFIX_CLASSESNAME) + "ExecutableExtensionFactory:";
+	}
+
 	@Override
 	public IPluginReference[] getDependencies(String schemaVersion) {
 		List<IPluginReference> result = new ArrayList<IPluginReference>();
