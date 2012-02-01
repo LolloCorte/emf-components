@@ -20,7 +20,7 @@ public class EObjectManager {
 	}
 
 	public EObject createNewChild(EObject object, EReference eReference) {
-		//TODO DA IMPLEMENTARE!!!
+		//TODO DA IMPLEMENTARE
 		throw new UnsupportedOperationException();
 	}
 
