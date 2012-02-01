@@ -47,6 +47,19 @@ public class CDOObjectManager extends EObjectManager {
 		super.doSave(resource);
 	}
 
+	@Override
+	public void delete(EObject container, EReference eReference,EObject eObject) {
+		try {
+			EList<EObject> list=(EList)container.eGet(eReference);
+			CDOResource cdoResource=sessionManager.getTransactionalResourceFor(eReference.getEReferenceType());
+			cdoResource.getContents().remove(eObject);
+			list.remove(eObject);
+			cdoResource.save(null);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	@Override
 	public EObject createNewChild(EObject container, EReference eReference) {

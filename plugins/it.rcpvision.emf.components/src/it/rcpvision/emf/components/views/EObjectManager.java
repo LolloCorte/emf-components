@@ -24,4 +24,9 @@ public class EObjectManager {
 		throw new UnsupportedOperationException();
 	}
 
+	public void delete(EObject eObject, EReference eReference, EObject eObject2) {
+		//TODO DA IMPLEMENTARE
+		throw new UnsupportedOperationException();	
+	}
+
 }

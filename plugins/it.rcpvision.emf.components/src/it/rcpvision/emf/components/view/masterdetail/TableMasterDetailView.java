@@ -17,8 +17,11 @@ import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipse.emf.databinding.IEMFListProperty;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
@@ -30,6 +33,7 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.ISaveablePart;
@@ -65,6 +69,10 @@ public class TableMasterDetailView extends ViewPart implements ISaveablePart, IS
 	
 	private GenericTableComposite genericTable;
 
+	private Adapter modelAdapter;
+
+	private EObject model;
+
 	
 	private void initialize() {
 		//Inizializzazione
@@ -89,25 +97,32 @@ public class TableMasterDetailView extends ViewPart implements ISaveablePart, IS
 			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
 				EObject obj = (EObject) ((IStructuredSelection) event.getSelection()).getFirstElement();
-				manageDetail(obj);
+				if(obj!=null){
+					manageDetail(obj);
+				}
 			}
 
 		});
 	}
-
-	protected void manageDetail(EObject obj) {
-
-		EObject model = objectManager.prepareModel(obj);
-		
+	
+	private void disposeGenericDetail(EObject obj) {
 		if (genericComponent != null) {
+			model.eAdapters().remove(modelAdapter);
 			genericComponent.dispose();
 		}
+	}
 
-		genericComponent = emfDetailsFactory.createDetailsComposite(
-				detail, SWT.NONE);
+	
+
+	protected void manageDetail(EObject obj) {
+		disposeGenericDetail(obj);
+		
+		model = objectManager.prepareModel(obj);
+
+		genericComponent = emfDetailsFactory.createDetailsComposite(detail, SWT.NONE);
 		formToolkit.adapt(genericComponent);
 		genericComponent.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-		model.eAdapters().add(new Adapter() {
+		model.eAdapters().add(modelAdapter=new Adapter() {
 
 			@Override
 			public void notifyChanged(Notification notification) {
@@ -176,7 +191,7 @@ public class TableMasterDetailView extends ViewPart implements ISaveablePart, IS
 	private void createCommandButtons(Composite parent) {
 		Composite composite = formToolkit.createComposite(parent, SWT.NONE);
 		formToolkit.paintBordersFor(composite);
-		composite.setLayout(new GridLayout(1, false));
+		composite.setLayout(new RowLayout());
 		Button buttonInsert = formToolkit.createButton(composite, "Insert", SWT.NONE);
 		buttonInsert.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -193,6 +208,25 @@ public class TableMasterDetailView extends ViewPart implements ISaveablePart, IS
 			public void widgetSelected(SelectionEvent e) {
 				doSave(new NullProgressMonitor());
 			}
+		});
+		Button buttonDelete = formToolkit.createButton(composite, "Delete", SWT.NONE);
+		buttonDelete.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				ISelection selection=genericTable.getViewer().getSelection();
+				if(selection !=null && !selection.isEmpty() && selection instanceof IStructuredSelection){
+					if(MessageDialog.openConfirm(TableMasterDetailView.this.getViewSite().getShell(), "Cancellazione", "Sei sicuro di voler eliminare l'elemento selezionato?")){
+						EObject eObject=(EObject) ((IStructuredSelection)selection).getFirstElement();
+						disposeGenericDetail(eObject);
+						objectManager.delete(viewConfigurator.getContainer(),viewConfigurator.getListFeature(),eObject);
+						modified = false;
+						firePropertyChange(PROP_DIRTY);
+					}
+				}else{
+					MessageDialog.openInformation(TableMasterDetailView.this.getViewSite().getShell(), "Cancellazione", "Selezionare l'elemento da eliminare");
+				}
+			}
+
 		});
 	}
 
