@@ -1,5 +1,6 @@
 package it.rcpvision.emf.components.cdo;
 
+import java.io.IOException;
 import java.util.Map;
 
 import javax.management.RuntimeErrorException;
@@ -9,8 +10,12 @@ import org.eclipse.emf.cdo.eresource.CDOResource;
 import org.eclipse.emf.cdo.session.CDOSession;
 import org.eclipse.emf.cdo.transaction.CDOTransaction;
 import org.eclipse.emf.cdo.util.CDOUtil;
+import org.eclipse.emf.cdo.util.CommitException;
 import org.eclipse.emf.cdo.view.CDOView;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import com.google.inject.Inject;
@@ -40,6 +45,25 @@ public class CDOObjectManager extends EObjectManager {
 			
 		}
 		super.doSave(resource);
+	}
+
+	
+	@Override
+	public EObject createNewChild(EObject container, EReference eReference) {
+		EClass eClass=eReference.getEReferenceType();
+		EObject eObject = eClass.getEPackage().getEFactoryInstance().create(eClass);
+		
+		try {
+			EList<EObject> list=(EList)container.eGet(eReference);
+			CDOResource cdoResource=sessionManager.getTransactionalResourceFor(eReference.getEReferenceType());
+			cdoResource.getContents().add(eObject);
+			list.add(eObject);
+			cdoResource.save(null);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return eObject;	
 	}
 	
 	

@@ -13,14 +13,17 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipse.emf.databinding.IEMFListProperty;
 import org.eclipse.emf.databinding.IEMFObservable;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -49,7 +52,7 @@ public class MasterDetailView extends ViewPart implements ISaveablePart, ISaveab
 	@Inject
 	protected EmfDetailsFactory emfDetailsFactory;
 	
-	protected GenericDetailComposite genericComponent;
+	private GenericDetailComposite genericComponent;
 	
 	private boolean modified = false;
 	
@@ -59,6 +62,8 @@ public class MasterDetailView extends ViewPart implements ISaveablePart, ISaveab
 	
 	@Inject
 	ViewConfigurator viewConfigurator;
+	
+	private GenericTableComposite genericTable;
 
 	
 	private void initialize() {
@@ -72,13 +77,10 @@ public class MasterDetailView extends ViewPart implements ISaveablePart, ISaveab
 	}
 	
 	private void manageList(EObject obj, IEMFListProperty listProp) {
-		
-//		genericComponent.getViewer().
-		GenericTableComposite genericComponent;
-		genericComponentList.add(genericComponent = emfDetailsFactory.createTableComposite(master, SWT.NONE));
-		formToolkit.adapt(genericComponent);
-		genericComponent.init(obj, listProp);
-		addSelectionListener(genericComponent.getViewer());
+		genericComponentList.add(genericTable = emfDetailsFactory.createTableComposite(master, SWT.NONE));
+		formToolkit.adapt(genericTable);
+		genericTable.init(obj, listProp);
+		addSelectionListener(genericTable.getViewer());
 		master.layout(true);
 	}
 	
@@ -169,6 +171,16 @@ public class MasterDetailView extends ViewPart implements ISaveablePart, ISaveab
 		Composite composite = formToolkit.createComposite(parent, SWT.NONE);
 		formToolkit.paintBordersFor(composite);
 		composite.setLayout(new GridLayout(1, false));
+		Button buttonInsert = formToolkit.createButton(composite, "Insert", SWT.NONE);
+		buttonInsert.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				EObject eObject=objectManager.createNewChild(viewConfigurator.getContainer(),viewConfigurator.getListFeature());
+				genericTable.getViewer().setSelection(new StructuredSelection(eObject));
+				modified = true;
+				firePropertyChange(PROP_DIRTY);
+			}
+		});
 		Button buttonSave = formToolkit.createButton(composite, "Save", SWT.NONE);
 		buttonSave.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -190,6 +202,7 @@ public class MasterDetailView extends ViewPart implements ISaveablePart, ISaveab
 		modified = false;
 		firePropertyChange(PROP_DIRTY);
 	}
+	
 
 	@Override
 	public void doSaveAs() {
