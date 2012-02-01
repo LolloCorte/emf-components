@@ -1,6 +1,5 @@
 package it.rcpvision.emf.components.views;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -21,7 +20,7 @@ public class EObjectManager {
 	}
 
 	public EObject createNewChild(EObject object, EReference eReference) {
-		//TODO DA IMPLEMENTARE
+		//TODO DA IMPLEMENTARE!!!
 		throw new UnsupportedOperationException();
 	}
 
