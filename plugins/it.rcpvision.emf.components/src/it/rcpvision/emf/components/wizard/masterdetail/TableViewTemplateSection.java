@@ -76,8 +76,8 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 	}
 	
 	private void createOptions() {
-		addOption(KEY_PREFIX_CLASSESNAME, "Prefix classes name ", "", 0);
-		addOption(KEY_EDITABLE, "Is editable ", true, 0);
+		addOption(KEY_PREFIX_CLASSESNAME, "Prefix classes name", "", 0);
+		addOption(KEY_EDITABLE, "Is editable", true, 0);
 	}
 	
 	protected void updateModel(IProgressMonitor monitor) throws CoreException {
