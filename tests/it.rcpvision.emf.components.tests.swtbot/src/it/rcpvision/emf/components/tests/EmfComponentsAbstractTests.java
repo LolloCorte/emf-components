@@ -320,6 +320,33 @@ public class EmfComponentsAbstractTests {
 		waitForAutoBuild();
 	}
 
+	protected void createEditableMasterDetailFromWizard(String category,
+			String projectType, String projectName, String nameEntity) {
+		bot.menu("File").menu("New").menu("Project...").click();
+
+		SWTBotShell shell = bot.shell("New Project");
+		shell.activate();
+		bot.tree().expandNode(category).select(projectType);
+		bot.button("Next >").click();
+
+		bot.textWithLabel("Project name:").setText(projectName);
+		bot.button("Next >").click();
+		bot.button("Next >").click();
+
+		SWTBotShell shellPluginProject = bot.shell("New Plug-in Project");
+		shellPluginProject.activate();
+		bot.table().getTableItem("Table Master Detail Wizard").select();
+		bot.button("Next >").click();
+
+		SWTBotShell shellSimpleViewWiz = bot.shell("Simple View Wizard");
+		shellSimpleViewWiz.activate();
+		bot.textWithLabel("Prefix classes name ").setText(nameEntity);
+		bot.button("Finish").click();
+
+		// creation of a project might require some time
+//		bot.waitUntil(shellCloses(shell), 50000);
+	}
+
 	protected static SWTBotView getPackageExplorer() {
 		SWTBotView view = bot.viewByTitle("Package Explorer");
 		return view;
@@ -439,7 +466,7 @@ public class EmfComponentsAbstractTests {
 		bot.button("OK").click();
 		return getLibraryView(libraryView);
 	}
-	
+
 	protected void undo(String undoText) {
 		bot.menu("Edit").menu("Undo " + undoText).click();
 	}
@@ -508,6 +535,16 @@ public class EmfComponentsAbstractTests {
 					+ "\" not found.");
 		} else {
 			return new SWTBotMenu(menuItem);
+		}
+	}
+
+	protected void checkPerspectiveDialog() {
+		try {
+			SWTBotShell shellPerspectiveAlert = bot.shell("Open Associated Perspective?");
+			shellPerspectiveAlert.activate();
+			bot.button("Yes").click();
+		} catch (WidgetNotFoundException e) {
+			return;
 		}
 	}
 }

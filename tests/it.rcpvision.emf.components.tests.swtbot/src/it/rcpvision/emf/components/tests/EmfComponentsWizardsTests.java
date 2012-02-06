@@ -1,7 +1,10 @@
 package it.rcpvision.emf.components.tests;
 
 import static org.eclipse.xtext.ui.junit.util.IResourcesSetupUtil.root;
+import static org.eclipse.xtext.ui.junit.util.IResourcesSetupUtil.waitForAutoBuild;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
@@ -20,8 +23,13 @@ public class EmfComponentsWizardsTests extends EmfComponentsAbstractTests {
 	protected static final String EMF_COMPONENTS_PROJECT = "EmfComponentsProject";
 	protected static final String NEW_EMF_COMPONENTS_PROJECT = "New Emf Components Project";
 	protected static final String EMF_COMPONENTS_CATEGORY = "Emf Components";
+	
+	protected static final String PLUGINPROJECT_CATEGORY = "Plug-in Development";
+	protected static final String NEW_PLUGINPROJECT = "Plug-in Project";
+	protected static final String NAME_PLUGINPROJECT = "it.rcpvision.countervision.demoentity";
+	protected static final String NAME_ENTITY = "DemoEntity";
 
-	@Test
+//	@Test
 	public void canCreateProjectWithWizard() throws Exception {
 		createProjectInWorkspace(EMF_COMPONENTS_CATEGORY,
 				NEW_EMF_COMPONENTS_PROJECT, EMF_COMPONENTS_PROJECT);
@@ -47,4 +55,15 @@ public class EmfComponentsWizardsTests extends EmfComponentsAbstractTests {
 		return buffer.toString();
 	}
 
+	@Test
+	public void createPluginProjectFromWizard() throws Exception {
+		createEditableMasterDetailFromWizard(PLUGINPROJECT_CATEGORY,
+				NEW_PLUGINPROJECT, NAME_PLUGINPROJECT, NAME_ENTITY);
+		checkPerspectiveDialog();
+		assertTrue("Project doesn't exist", isProjectCreated(NAME_PLUGINPROJECT));
+		assertNoErrorsInProject();
+		runAfterEveryTest();
+	}
+	
+	
 }
