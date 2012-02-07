@@ -17,6 +17,7 @@ import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeatureColumnProvider;
 import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 import it.rcpvision.emf.components.ui.provider.JfaceProviderFactory;
+import it.rcpvision.emf.components.view.masterdetail.TreeActionBarContributor;
 import it.rcpvision.emf.components.views.ComposedAdapterFactoryProvider;
 import it.rcpvision.emf.components.views.EObjectManager;
 import it.rcpvision.emf.components.views.EmfViewerFactory;
@@ -139,4 +140,9 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 	public Class<? extends TableViewerColumnBuilder> bindTableViewerColumnBuilder() {
 		return TableViewerColumnBuilder.class;
 	}
+	
+	public Class<? extends TreeActionBarContributor> bindActionBarContributor(){
+		return TreeActionBarContributor.class;
+	}
+	
 }
