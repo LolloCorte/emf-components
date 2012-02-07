@@ -65,7 +65,7 @@ public class TableMasterDetailView extends ViewPart implements ISaveablePart, IS
 	private List<GenericTableComposite> genericComponentList = new ArrayList<GenericTableComposite>();
 	
 	@Inject
-	ViewConfigurator viewConfigurator;
+	TableViewConfigurator tableViewConfigurator;
 	
 	private GenericTableComposite genericTable;
 
@@ -76,11 +76,8 @@ public class TableMasterDetailView extends ViewPart implements ISaveablePart, IS
 	
 	private void initialize() {
 		//Inizializzazione
-//		CDOView cdoView = sessionManager.getSession(null).openView();
-//		cdoView.options().addChangeSubscriptionPolicy(CDOAdapterPolicy.ALL);
-//		Resource resource = cdoView.getResource("/Customer");
-		IEMFListProperty listProperty=EMFProperties.list(viewConfigurator.getListFeature());
-		manageList(viewConfigurator.getContainer(), listProperty );
+		IEMFListProperty listProperty=EMFProperties.list(tableViewConfigurator.getListFeature());
+		manageList(tableViewConfigurator.getContainer(), listProperty );
 		
 	}
 	
@@ -111,8 +108,6 @@ public class TableMasterDetailView extends ViewPart implements ISaveablePart, IS
 			genericComponent.dispose();
 		}
 	}
-
-	
 
 	protected void manageDetail(EObject obj) {
 		disposeGenericDetail(obj);
@@ -176,7 +171,7 @@ public class TableMasterDetailView extends ViewPart implements ISaveablePart, IS
 		detail.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		detail.setLayout(new GridLayout(2, false));
 		
-		if (viewConfigurator.isEditable()) {
+		if (tableViewConfigurator.isEditable()) {
 			detail.setEnabled(true);
 			createCommandButtons(sashForm);
 			sashForm.setWeights(new int[] { 70, 20, 10 });
@@ -196,7 +191,7 @@ public class TableMasterDetailView extends ViewPart implements ISaveablePart, IS
 		buttonInsert.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				EObject eObject=objectManager.createNewChild(viewConfigurator.getContainer(),viewConfigurator.getListFeature());
+				EObject eObject=objectManager.createNewChild(tableViewConfigurator.getContainer(),tableViewConfigurator.getListFeature());
 				genericTable.getViewer().setSelection(new StructuredSelection(eObject));
 				modified = true;
 				firePropertyChange(PROP_DIRTY);
@@ -218,7 +213,7 @@ public class TableMasterDetailView extends ViewPart implements ISaveablePart, IS
 					if(MessageDialog.openConfirm(TableMasterDetailView.this.getViewSite().getShell(), "Cancellazione", "Sei sicuro di voler eliminare l'elemento selezionato?")){
 						EObject eObject=(EObject) ((IStructuredSelection)selection).getFirstElement();
 						disposeGenericDetail(eObject);
-						objectManager.delete(viewConfigurator.getContainer(),viewConfigurator.getListFeature(),eObject);
+						objectManager.delete(tableViewConfigurator.getContainer(),tableViewConfigurator.getListFeature(),eObject);
 						modified = false;
 						firePropertyChange(PROP_DIRTY);
 					}

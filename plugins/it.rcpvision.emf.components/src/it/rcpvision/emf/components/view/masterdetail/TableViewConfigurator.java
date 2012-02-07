@@ -3,7 +3,7 @@ package it.rcpvision.emf.components.view.masterdetail;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 
-public abstract class ViewConfigurator {
+public abstract class TableViewConfigurator {
 	
 	public abstract EObject getContainer();
 	

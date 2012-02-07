@@ -5,10 +5,12 @@ package it.rcpvision.emf.components.menus;
 
 import it.rcpvision.emf.components.editors.EmfAbstractEditor;
 
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
 import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
 import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
+import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.viewers.StructuredViewer;
@@ -39,5 +41,24 @@ public class StructuredViewerContextMenuCreator {
 		viewer.addDropSupport(dndOperations, transfers,
 				new EditingDomainViewerDropAdapter(editor.getEditingDomain(),
 						viewer));
+	}
+
+	public void createContextMenuFor(StructuredViewer viewer,
+			IMenuListener menuListener, EditingDomain editingDomain) {
+		MenuManager contextMenu = new MenuManager("#PopUp");
+		contextMenu.add(new Separator("additions"));
+		contextMenu.setRemoveAllWhenShown(true);
+		contextMenu.addMenuListener(menuListener);
+		Menu menu = contextMenu.createContextMenu(viewer.getControl());
+		viewer.getControl().setMenu(menu);
+//		editor.getSite().registerContextMenu(contextMenu,
+//				new UnwrappingSelectionProvider(viewer));
+
+		int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
+		Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance() };
+		viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(
+				viewer));
+		viewer.addDropSupport(dndOperations, transfers,
+				new EditingDomainViewerDropAdapter(editingDomain, viewer));
 	}
 }

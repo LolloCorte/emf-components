@@ -5,7 +5,7 @@ package it.rcpvision.emf.components;
 
 import static com.google.inject.Guice.createInjector;
 import it.rcpvision.emf.components.service.EmfComponentsGenericModule;
-import it.rcpvision.emf.components.view.masterdetail.ViewConfigurator;
+import it.rcpvision.emf.components.view.masterdetail.TableViewConfigurator;
 
 import org.eclipse.xtext.ui.guice.AbstractGuiceAwareExecutableExtensionFactory;
 import org.osgi.framework.Bundle;
@@ -49,8 +49,8 @@ public class EmfComponentsExecutableExtensionFactory extends
 		return new EmfComponentsGenericModule(EmfComponentsActivator.getDefault());
 	}
 	
-	public Class<? extends ViewConfigurator> bindViewConfigurator(){
-		return ViewConfigurator.class;
+	public Class<? extends TableViewConfigurator> bindViewConfigurator(){
+		return TableViewConfigurator.class;
 	}
 
 }
