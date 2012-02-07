@@ -1,5 +1,10 @@
 package it.rcpvision.emf.components.view.masterdetail;
 
+import it.rcpvision.emf.components.views.GenericMapCellLabelProvider;
+
+import java.util.List;
+import java.util.Map;
+
 import org.eclipse.core.databinding.observable.map.IObservableMap;
 import org.eclipse.core.databinding.observable.set.IObservableSet;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -8,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.databinding.viewers.ObservableListContentProvider;
+import org.eclipse.jface.databinding.viewers.ObservableListTreeContentProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ViewerCell;
 
@@ -35,6 +41,6 @@ public abstract class TreeViewConfigurator {
 
 	public abstract void handleAddNew() ;
 
-	public abstract IObservableMap[] getLabelAttributeMap(ObservableListContentProvider cp);
+	public abstract Map<IObservableMap[],String> getLabelAttributeMap(ObservableListTreeContentProvider cp);
 
 }

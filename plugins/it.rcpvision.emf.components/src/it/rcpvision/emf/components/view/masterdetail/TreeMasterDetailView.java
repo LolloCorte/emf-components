@@ -6,6 +6,7 @@ import it.rcpvision.emf.components.views.EObjectManager;
 import it.rcpvision.emf.components.views.EmfDetailsFactory;
 import it.rcpvision.emf.components.views.EmfViewerFactory;
 import it.rcpvision.emf.components.views.GenericDetailComposite;
+import it.rcpvision.emf.components.views.GenericMapTreeCellLabelProvider;
 import it.rcpvision.emf.components.views.GenericTableComposite;
 
 import java.util.ArrayList;
@@ -61,6 +62,7 @@ import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.StyledCellLabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.SashForm;
@@ -142,7 +144,15 @@ public class TreeMasterDetailView extends ViewPart implements ISaveablePart, ISa
 	  IObservableSet set = cp.getKnownElements();
 
 //	  viewer.setLabelProvider(new TreeLabelProviderImpl(treeViewConfigurator.getMapLabelProvider(set)));
-	  viewer.setLabelProvider(new GenericMapCellLabelProvider("{0}, {1}",treeViewConfigurator.getLabelAttributeMap()));
+	  List<IObservableMap> attributeMaps=new ArrayList<IObservableMap>();
+	  for (IObservableMap[] iObservableArray : treeViewConfigurator.getLabelAttributeMap(cp).keySet()) {
+		for (int i = 0; i < iObservableArray.length; i++) {
+			attributeMaps.add(iObservableArray[i]);
+		}
+	  }
+	  
+	  viewer.setLabelProvider(new GenericMapTreeCellLabelProvider(attributeMaps.toArray(new IObservableMap[attributeMaps.size()]),
+			  treeViewConfigurator.getLabelAttributeMap(cp)));
 	  
 	  
 	  viewer.getTree().setLayoutData(new GridData(GridData.FILL_BOTH));
@@ -156,6 +166,7 @@ public class TreeMasterDetailView extends ViewPart implements ISaveablePart, ISa
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
+		addSelectionListener(viewer);
 	}
 	
 	public void createContextMenuFor(StructuredViewer viewer) {
@@ -195,13 +206,13 @@ public class TreeMasterDetailView extends ViewPart implements ISaveablePart, ISa
 	}
 	
 	
-	private void manageList(EObject obj, IEMFListProperty listProp) {
-		genericComponentList.add(genericTable = emfDetailsFactory.createTableComposite(master, SWT.NONE));
-		formToolkit.adapt(genericTable);
-		genericTable.init(obj, listProp);
-		addSelectionListener(genericTable.getViewer());
-		master.layout(true);
-	}
+//	private void manageList(EObject obj, IEMFListProperty listProp) {
+//		genericComponentList.add(genericTable = emfDetailsFactory.createTableComposite(master, SWT.NONE));
+//		formToolkit.adapt(genericTable);
+//		genericTable.init(obj, listProp);
+//		addSelectionListener(genericTable.getViewer());
+//		master.layout(true);
+//	}
 	
 	protected void initializeEditingDomain() {
 		// Create an adapter factory that yields item providers.
@@ -246,7 +257,7 @@ public class TreeMasterDetailView extends ViewPart implements ISaveablePart, ISa
 		firePropertyChange(PROP_DIRTY);
 	}
 	
-	private void addSelectionListener(TableViewer viewer) {
+	private void addSelectionListener(Viewer viewer) {
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
@@ -431,49 +442,34 @@ public class TreeMasterDetailView extends ViewPart implements ISaveablePart, ISa
 	}
 	
 	
-	private class TreeLabelProviderImpl 
-	  extends StyledCellLabelProvider
-	{
-	  private IMapChangeListener mapChangeListener = 
-	    new IMapChangeListener()
-	    {
-	      public void handleMapChange(MapChangeEvent event)
-	      {
-	        Set<?> affectedElements = 
-	          event.diff.getChangedKeys();
-	        if (!affectedElements.isEmpty())
-	        {
-	          LabelProviderChangedEvent newEvent = 
-	            new LabelProviderChangedEvent(
-	              TreeLabelProviderImpl.this, 
-	              affectedElements.toArray()
-	          );
-	          fireLabelProviderChanged(newEvent);
-	        }
-	      }
-	    };
+	private class TreeLabelProviderImpl extends StyledCellLabelProvider {
+		private IMapChangeListener mapChangeListener = new IMapChangeListener() {
+			public void handleMapChange(MapChangeEvent event) {
+				Set<?> affectedElements = event.diff.getChangedKeys();
+				if (!affectedElements.isEmpty()) {
+					LabelProviderChangedEvent newEvent = new LabelProviderChangedEvent(
+							TreeLabelProviderImpl.this,
+							affectedElements.toArray());
+					fireLabelProviderChanged(newEvent);
+				}
+			}
+		};
 
-	  public TreeLabelProviderImpl(
-	    IObservableMap... attributeMaps)
-	  {
-	    for (int i = 0; i < attributeMaps.length; i++)
-	    {
-	      attributeMaps[i].addMapChangeListener(
-	        mapChangeListener
-	      );
-	    }
-	  }
+		public TreeLabelProviderImpl(IObservableMap... attributeMaps) {
+			for (int i = 0; i < attributeMaps.length; i++) {
+				attributeMaps[i].addMapChangeListener(mapChangeListener);
+			}
+		}
 
-	  @Override
-	  public String getToolTipText(Object element)
-	  {
-	    return "#dummy#";
-	  }
+		@Override
+		public String getToolTipText(Object element) {
+			return "#dummy#";
+		}
 
-	  @Override
-	  public void update(ViewerCell cell){
-		  treeViewConfigurator.update(cell);
-	  }
+		@Override
+		public void update(ViewerCell cell) {
+			treeViewConfigurator.update(cell);
+		}
 	}
 
 	@Override
