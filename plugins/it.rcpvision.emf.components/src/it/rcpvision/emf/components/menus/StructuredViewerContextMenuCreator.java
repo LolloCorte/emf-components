@@ -3,62 +3,59 @@
  */
 package it.rcpvision.emf.components.menus;
 
-import it.rcpvision.emf.components.editors.EmfAbstractEditor;
-
-import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
 import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
 import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
-import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.widgets.Menu;
+import org.eclipse.ui.part.WorkbenchPart;
 
 /**
  * @author Lorenzo Bettini
  * 
  */
 public class StructuredViewerContextMenuCreator {
-	public void createContextMenuFor(StructuredViewer viewer,
-			EmfAbstractEditor editor) {
-		MenuManager contextMenu = new MenuManager("#PopUp");
-		contextMenu.add(new Separator("additions"));
-		contextMenu.setRemoveAllWhenShown(true);
-		contextMenu.addMenuListener(editor);
-		Menu menu = contextMenu.createContextMenu(viewer.getControl());
-		viewer.getControl().setMenu(menu);
-		editor.getSite().registerContextMenu(contextMenu,
-				new UnwrappingSelectionProvider(viewer));
 
+	public MenuManager createContextMenuFor(StructuredViewer viewer,
+			WorkbenchPart part, AdapterFactoryEditingDomain editingDomain) {
+		MenuManager menuManager = createMenuManager();
+		createMenu(viewer, part, menuManager);
+		
+		addDragAndDrop(viewer, editingDomain);
+		
+		return menuManager;
+	}
+
+	protected void addDragAndDrop(StructuredViewer viewer,
+			AdapterFactoryEditingDomain editingDomain) {
 		int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
 		Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance() };
 		viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(
 				viewer));
 		viewer.addDropSupport(dndOperations, transfers,
-				new EditingDomainViewerDropAdapter(editor.getEditingDomain(),
+				new EditingDomainViewerDropAdapter(editingDomain,
 						viewer));
 	}
 
-	public void createContextMenuFor(StructuredViewer viewer,
-			IMenuListener menuListener, EditingDomain editingDomain) {
-		MenuManager contextMenu = new MenuManager("#PopUp");
-		contextMenu.add(new Separator("additions"));
-		contextMenu.setRemoveAllWhenShown(true);
-		contextMenu.addMenuListener(menuListener);
-		Menu menu = contextMenu.createContextMenu(viewer.getControl());
+	protected void createMenu(StructuredViewer viewer,
+			WorkbenchPart part, MenuManager menuManager) {
+		Menu menu = menuManager.createContextMenu(viewer.getControl());
 		viewer.getControl().setMenu(menu);
-//		editor.getSite().registerContextMenu(contextMenu,
-//				new UnwrappingSelectionProvider(viewer));
-
-		int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
-		Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance() };
-		viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(
-				viewer));
-		viewer.addDropSupport(dndOperations, transfers,
-				new EditingDomainViewerDropAdapter(editingDomain, viewer));
+		part.getSite().registerContextMenu(menuManager,
+				new UnwrappingSelectionProvider(viewer));
 	}
+
+	protected MenuManager createMenuManager() {
+		MenuManager menuManager = new MenuManager("#PopUp");
+		menuManager.add(new Separator("additions"));
+		menuManager.setRemoveAllWhenShown(true);
+		return menuManager;
+	}
+
 }

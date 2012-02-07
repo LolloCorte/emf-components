@@ -81,6 +81,7 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IStatusLineManager;
+import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.viewers.ISelection;
@@ -808,8 +809,9 @@ protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;
 	}
 
 	public void createContextMenuFor(StructuredViewer viewer) {
-		structuredViewerContextMenuCreator.createContextMenuFor(viewer, this);
-
+		MenuManager menuManager = structuredViewerContextMenuCreator.createContextMenuFor(viewer, this, getEditingDomain());
+		menuManager.addMenuListener(this);
+		
 		EmfViewerMouseAdapter listener = getEmfViewerMouseAdapter();
 		viewer.getControl().addMouseListener(listener);
 	}

@@ -2,14 +2,18 @@ package it.rcpvision.emf.components.view.masterdetail;
 
 import it.rcpvision.emf.components.listeners.EmfViewerMouseAdapter;
 import it.rcpvision.emf.components.menus.StructuredViewerContextMenuCreator;
+import it.rcpvision.emf.components.resource.EditingDomainFactory;
+import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 import it.rcpvision.emf.components.views.EObjectManager;
 import it.rcpvision.emf.components.views.EmfDetailsFactory;
 import it.rcpvision.emf.components.views.EmfViewerFactory;
+import it.rcpvision.emf.components.views.EmfViewerManager;
 import it.rcpvision.emf.components.views.GenericDetailComposite;
 import it.rcpvision.emf.components.views.GenericMapTreeCellLabelProvider;
 import it.rcpvision.emf.components.views.GenericTableComposite;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.EventObject;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -36,16 +40,27 @@ import org.eclipse.emf.databinding.IEMFListProperty;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.ETypeParameter;
+import org.eclipse.emf.ecore.presentation.EcoreEditorPlugin;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
+import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
+import org.eclipse.emf.edit.ui.action.CreateChildAction;
+import org.eclipse.emf.edit.ui.action.DeleteAction;
 import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
 import org.eclipse.jface.action.Action;
+import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.action.IContributionItem;
+import org.eclipse.jface.action.IContributionManager;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
+import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
+import org.eclipse.jface.action.SubContributionItem;
 import org.eclipse.jface.databinding.viewers.ObservableListTreeContentProvider;
 import org.eclipse.jface.databinding.viewers.ObservableMapCellLabelProvider;
 import org.eclipse.jface.databinding.viewers.TreeStructureAdvisor;
@@ -76,6 +91,9 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.ISaveablePart;
 import org.eclipse.ui.ISaveablePart2;
+import org.eclipse.ui.ISharedImages;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.part.ViewPart;
 
@@ -129,31 +147,40 @@ public class TreeMasterDetailView extends ViewPart implements ISaveablePart, ISa
 
 	private boolean fEnabled=true;
 	
+	@Inject
+	protected EmfViewerManager emfViewerManager;
+	
+	@Inject
+	protected EditingDomainFactory editingDomainFactory;
+
+	
 	private void initialize() {
-		//Inizializzazione
-		initializeEditingDomain();
+		editingDomain=editingDomainFactory.create();
 		
-	  viewer = new TreeViewer(master);
+		viewer=emfTreeViewerFactory.createTreeViewer(master, SWT.BORDER, editingDomain);
+		
 	  ObservableListTreeContentProvider cp = 
-	    new ObservableListTreeContentProvider(
-	      new TreeFactoryImpl(), 
-	      new TreeStructureAdvisorImpl()
-	  );
+	    new ObservableListTreeContentProvider(new TreeFactoryImpl(), 
+	      new TreeStructureAdvisorImpl());
 	  viewer.setContentProvider(cp);
 		  
 	  IObservableSet set = cp.getKnownElements();
-
+	  
+	  //Option 1 - Label provider customized via 'update' method
 //	  viewer.setLabelProvider(new TreeLabelProviderImpl(treeViewConfigurator.getMapLabelProvider(set)));
-	  List<IObservableMap> attributeMaps=new ArrayList<IObservableMap>();
-	  for (IObservableMap[] iObservableArray : treeViewConfigurator.getLabelAttributeMap(cp).keySet()) {
-		for (int i = 0; i < iObservableArray.length; i++) {
-			attributeMaps.add(iObservableArray[i]);
-		}
-	  }
 	  
-	  viewer.setLabelProvider(new GenericMapTreeCellLabelProvider(attributeMaps.toArray(new IObservableMap[attributeMaps.size()]),
-			  treeViewConfigurator.getLabelAttributeMap(cp)));
+	  //Option 2 - Generic label provider with ObservableMap
+//	  List<IObservableMap> attributeMaps=new ArrayList<IObservableMap>();
+//	  for (IObservableMap[] iObservableArray : treeViewConfigurator.getLabelAttributeMap(cp).keySet()) {
+//		for (int i = 0; i < iObservableArray.length; i++) {
+//			attributeMaps.add(iObservableArray[i]);
+//		}
+//	  }
+//	  viewer.setLabelProvider(new GenericMapTreeCellLabelProvider(attributeMaps.toArray(new IObservableMap[attributeMaps.size()]),
+//			  treeViewConfigurator.getLabelAttributeMap(cp)));
 	  
+	  //Option 3 - AdapterFactory with EMF standards
+//	  emfViewerManager.initialize(viewer, treeViewConfigurator.getContainer(),adapterFactory);
 	  
 	  viewer.getTree().setLayoutData(new GridData(GridData.FILL_BOTH));
 	  
@@ -170,8 +197,9 @@ public class TreeMasterDetailView extends ViewPart implements ISaveablePart, ISa
 	}
 	
 	public void createContextMenuFor(StructuredViewer viewer) {
-		structuredViewerContextMenuCreator.createContextMenuFor(viewer, this,editingDomain);
-
+		MenuManager menuManager = structuredViewerContextMenuCreator.createContextMenuFor(viewer, this, editingDomain);
+		menuManager.addMenuListener(this);
+		
 		EmfViewerMouseAdapter listener = getEmfViewerMouseAdapter();
 		viewer.getControl().addMouseListener(listener);
 	}
@@ -205,53 +233,7 @@ public class TreeMasterDetailView extends ViewPart implements ISaveablePart, ISa
 		}
 	}
 	
-	
-//	private void manageList(EObject obj, IEMFListProperty listProp) {
-//		genericComponentList.add(genericTable = emfDetailsFactory.createTableComposite(master, SWT.NONE));
-//		formToolkit.adapt(genericTable);
-//		genericTable.init(obj, listProp);
-//		addSelectionListener(genericTable.getViewer());
-//		master.layout(true);
-//	}
-	
-	protected void initializeEditingDomain() {
-		// Create an adapter factory that yields item providers.
-		// For this to work this plugin needs the dependency on the 
-		// EMF edit plugin generated from the ThetaML .ecore and .genmodel
-		this.adapterFactory = new ComposedAdapterFactory(
-				ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
-//		this.adapterFactory
-//				.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		this.adapterFactory
-				.addAdapterFactory(treeViewConfigurator.getCustomAdapterFactory());
-		this.adapterFactory
-				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
-
-		// command stack that will notify this editor as commands are executed
-		BasicCommandStack commandStack = new BasicCommandStack();
-
-		// Add a listener to set the editor dirty of commands have been executed
-		commandStack.addCommandStackListener(new CommandStackListener() {
-			public void commandStackChanged(final EventObject event) {
-				TreeMasterDetailView.this.getSite().getShell().getDisplay().asyncExec(new Runnable() {
-					public void run() {
-						editorDirtyStateChanged();
-					}
-
-					
-				});
-			}
-		});
-
-		// Create the editing domain with our adapterFactory and command stack.
-		this.editingDomain = new AdapterFactoryEditingDomain(adapterFactory,
-				commandStack, new HashMap<Resource, Boolean>());
-		
-//		// These provide access to the model items, their property source and label
-//		this.itemDelegator = new AdapterFactoryItemDelegator(adapterFactory);
-//		this.labelProvider = new AdapterFactoryLabelProvider(adapterFactory);
-	}
 	
 	private void editorDirtyStateChanged() {
 		firePropertyChange(PROP_DIRTY);
@@ -264,6 +246,7 @@ public class TreeMasterDetailView extends ViewPart implements ISaveablePart, ISa
 				EObject obj = (EObject) ((IStructuredSelection) event.getSelection()).getFirstElement();
 				if(obj!=null){
 					manageDetail(obj);
+					selectionChangedGen(event);
 				}
 			}
 
@@ -407,7 +390,7 @@ public class TreeMasterDetailView extends ViewPart implements ISaveablePart, ISa
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
+	
 	private class TreeFactoryImpl implements IObservableFactory {
 
 		public IObservable createObservable(final Object target) {
@@ -473,32 +456,133 @@ public class TreeMasterDetailView extends ViewPart implements ISaveablePart, ISa
 	}
 
 	@Override
-	public void menuAboutToShow(IMenuManager manager) {
-		final ISelection selection = viewer.getSelection();
-		Action newAction = new Action("Add") {
-			public void run() {
-				treeViewConfigurator.handleAddNew();
-			}
-		};
-		newAction.setEnabled(fEnabled);
-		manager.add(newAction);
+	public void menuAboutToShow(IMenuManager menuManager)
+	  {
+	    addDeleteAcion(menuManager);
+	    MenuManager submenuManager = null;
 
-		manager.add(new Separator());
-		IAction renameAction = new Action("Rename") {
-			public void run() {
-				treeViewConfigurator.handleRename(selection);
-			}
-		};
-		renameAction.setEnabled(!selection.isEmpty() && fEnabled);
-		manager.add(renameAction);
+	    submenuManager = new MenuManager(EcoreEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
+	    populateManager(submenuManager, createChildActions, null);
+	    menuManager.add( submenuManager);
+	  }
 
-		Action deleteAction = new Action("Delete") {
-			public void run() {
-				treeViewConfigurator.handleDelete(selection);
-			}
-		};
-		deleteAction.setEnabled(!selection.isEmpty() && fEnabled);
-		manager.add(deleteAction);
+	  protected SelectionChangedEvent lastSelectionChangedEvent;
+	  
+	  
+	  public void selectionChangedGen(SelectionChangedEvent event)
+	  {
+		  lastSelectionChangedEvent = event;
+	    // Remove any menu items for old selection.
+	    //
+	    if (createChildMenuManager != null)
+	    {
+	      depopulateManager(createChildMenuManager, createChildActions);
+	    }
+	    
+	    Collection<?> newChildDescriptors = null;
+
+	    ISelection selection = event.getSelection();
+	    if (selection instanceof IStructuredSelection && ((IStructuredSelection)selection).size() == 1)
+	    {
+	      Object object = ((IStructuredSelection)selection).getFirstElement();
+
+	      newChildDescriptors = editingDomain.getNewChildDescriptors(object, null);
+	    }
+
+	    // Generate actions for selection; populate and redraw the menus.
+	    //
+	    createChildActions = generateCreateChildActions(newChildDescriptors, selection);
+
+	    if (createChildMenuManager != null)
+	    {
+	      populateManager(createChildMenuManager, createChildActions, null);
+	      createChildMenuManager.update(true);
+	    }
+	  
+	   }
+	    
+	    protected IMenuManager createChildMenuManager;
+	    protected Collection<IAction> createChildActions;
+	    
+	    protected void depopulateManager(IContributionManager manager, Collection<? extends IAction> actions)
+	    {
+	      if (actions != null)
+	      {
+	        IContributionItem[] items = manager.getItems();
+	        for (int i = 0; i < items.length; i++)
+	        {
+	          // Look into SubContributionItems
+	          //
+	          IContributionItem contributionItem = items[i];
+	          while (contributionItem instanceof SubContributionItem)
+	          {
+	            contributionItem = ((SubContributionItem)contributionItem).getInnerItem();
+	          }
+
+	          // Delete the ActionContributionItems with matching action.
+	          //
+	          if (contributionItem instanceof ActionContributionItem)
+	          {
+	            IAction action = ((ActionContributionItem)contributionItem).getAction();
+	            if (actions.contains(action))
+	            {
+	              manager.remove(contributionItem);
+	            }
+	          }
+	        }
+	      }
+	    }
+	    protected void populateManager(IContributionManager manager, Collection<? extends IAction> actions, String contributionID)
+	    {
+	      if (actions != null)
+	      {
+	        for (IAction action : actions)
+	        {
+	          if (contributionID != null)
+	          {
+	            manager.insertBefore(contributionID, action);
+	          }
+	          else
+	          {
+	            manager.add(action);
+	          }
+	        }
+	      }
+	    }
+
+	//EditingDomainActionBarContributor
+	private void addDeleteAcion(IMenuManager menuManager) {
+	    DeleteAction deleteAction = createDeleteAction();
+	    menuManager.add(new ActionContributionItem(deleteAction));
+		
 	}
+
+	protected DeleteAction createDeleteAction() {
+		ISharedImages sharedImages = PlatformUI.getWorkbench().getSharedImages();
+	    DeleteAction deleteAction = new DeleteAction(false);
+	    deleteAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_DELETE));
+		return deleteAction;
+	}
+
+	protected Collection<IAction> generateCreateChildActions(Collection<?> descriptors, ISelection selection)
+	  {
+	    Collection<IAction> actions = new ArrayList<IAction>();
+	    if (descriptors != null)
+	    {
+	      for (Object descriptor : descriptors)
+	      {
+//	        if (!showGenericsAction.isChecked() && descriptor instanceof CommandParameter)
+//	        {
+//	          Object feature = ((CommandParameter)descriptor).getFeature();
+//	          if (isGenericFeature(feature))
+//	          {
+//	            continue;
+//	          }
+//	        }
+	        actions.add(new CreateChildAction(TreeMasterDetailView.this.getViewSite().getPart(), selection, descriptor));
+	      }
+	    }
+	    return actions;
+	  }
 	
 }
