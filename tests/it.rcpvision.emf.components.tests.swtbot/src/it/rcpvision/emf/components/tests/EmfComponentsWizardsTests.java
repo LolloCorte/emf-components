@@ -15,6 +15,7 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.swtbot.swt.finder.SWTBot;
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -60,6 +61,33 @@ public class EmfComponentsWizardsTests extends EmfComponentsAbstractTests {
 		return buffer.toString();
 	}
 
+	private void createEditableMasterDetailFromWizard(String category,
+			String projectType, String projectName, String nameEntity) {
+		bot.menu("File").menu("New").menu("Project...").click();
+
+		SWTBotShell shell = bot.shell("New Project");
+		shell.activate();
+		bot.tree().expandNode(category).select(projectType);
+		bot.button("Next >").click();
+
+		bot.textWithLabel("Project name:").setText(projectName);
+		bot.button("Next >").click();
+		bot.button("Next >").click();
+
+		SWTBotShell shellPluginProject = bot.shell("New Plug-in Project");
+		shellPluginProject.activate();
+		bot.table().getTableItem("Table Master Detail Wizard").select();
+		bot.button("Next >").click();
+
+		SWTBotShell shellSimpleViewWiz = bot.shell("Simple View Wizard");
+		shellSimpleViewWiz.activate();
+		bot.textWithLabel("Prefix classes name").setText(nameEntity);
+		bot.button("Finish").click();
+
+		// creation of a project might require some time
+//		bot.waitUntil(shellCloses(shell), 50000);
+	}
+	
 	// @Test
 	public void createPluginProjectFromWizard() throws Exception {
 		createEditableMasterDetailFromWizard(PLUGINPROJECT_CATEGORY,
