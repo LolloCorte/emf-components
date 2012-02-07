@@ -33,7 +33,7 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 	private static final String KEY_PREFIX_CLASSESNAME = "prefixClassesname";
 	private static final String KEY_EDITABLE = "editableView";
 	
-	private static final String MASTERDETAIL_VIEWNAME = "it.rcpvision.emf.components.view.masterdetail.MasterDetailView";
+	private static final String MASTERDETAIL_VIEWNAME = "it.rcpvision.emf.components.view.masterdetail.TableMasterDetailView";
 	
 	@Override
 	public String getUsedExtensionPoint() {
@@ -76,8 +76,8 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 	}
 	
 	private void createOptions() {
-		addOption(KEY_PREFIX_CLASSESNAME, "Prefix classes name ", "", 0);
-		addOption(KEY_EDITABLE, "Is editable ", true, 0);
+		addOption(KEY_PREFIX_CLASSESNAME, "Prefix classes name", "", 0);
+		addOption(KEY_EDITABLE, "Is editable", true, 0);
 	}
 	
 	protected void updateModel(IProgressMonitor monitor) throws CoreException {

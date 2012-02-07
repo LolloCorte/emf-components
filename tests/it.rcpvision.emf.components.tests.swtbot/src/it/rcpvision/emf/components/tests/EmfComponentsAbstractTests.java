@@ -439,7 +439,7 @@ public class EmfComponentsAbstractTests {
 		bot.button("OK").click();
 		return getLibraryView(libraryView);
 	}
-	
+
 	protected void undo(String undoText) {
 		bot.menu("Edit").menu("Undo " + undoText).click();
 	}
@@ -508,6 +508,16 @@ public class EmfComponentsAbstractTests {
 					+ "\" not found.");
 		} else {
 			return new SWTBotMenu(menuItem);
+		}
+	}
+
+	protected void checkPerspectiveDialog() {
+		try {
+			SWTBotShell shellPerspectiveAlert = bot.shell("Open Associated Perspective?");
+			shellPerspectiveAlert.activate();
+			bot.button("Yes").click();
+		} catch (WidgetNotFoundException e) {
+			return;
 		}
 	}
 }
