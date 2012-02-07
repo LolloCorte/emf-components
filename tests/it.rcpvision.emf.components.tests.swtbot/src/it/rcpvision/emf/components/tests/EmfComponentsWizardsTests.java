@@ -88,22 +88,36 @@ public class EmfComponentsWizardsTests extends EmfComponentsAbstractTests {
 	private void checkClassNames() {
 		SWTBotTreeItem srcTreeItem = getProjectTree()
 				.getTreeItem(NAME_PLUGINPROJECT).expand().getNode("src");
+		
+		List<String> packageRootContentClassNames = getPakageRootContent(srcTreeItem);
+		assertTrue(packageRootContentClassNames.size()==3);
+		assertTrue(packageRootContentClassNames.contains("Activator.java"));
+		assertTrue(packageRootContentClassNames.contains(NAME_ENTITY + "ViewConfigurator.java"));
+		assertTrue(packageRootContentClassNames.contains(NAME_ENTITY + "CDOSessionManager.java"));
+		
+		List<String> packageGuiceContentClassNames = getPackageGuiceContent(srcTreeItem);
+		assertTrue(packageGuiceContentClassNames.size()==4);
+		assertTrue(packageGuiceContentClassNames.contains(NAME_ENTITY + "BindingFactory.java"));
+		assertTrue(packageGuiceContentClassNames.contains(NAME_ENTITY + "ExecutableExtensionFactory.java"));
+		assertTrue(packageGuiceContentClassNames.contains(NAME_ENTITY + "FeatureLabelProvider.java"));
+		assertTrue(packageGuiceContentClassNames.contains(NAME_ENTITY + "Module.java"));
+	}
+
+	private List<String> getPakageRootContent(SWTBotTreeItem srcTreeItem) {
 		SWTBotTreeItem[] packageRootContent = srcTreeItem.expand().getNode(NAME_PLUGINPROJECT).expand().getItems();
 		List<String> packageRootContentClassNames = new ArrayList<String>();
 		for (SWTBotTreeItem classItem : packageRootContent) {
 			packageRootContentClassNames.add(classItem.getText());
 		}
-		assertTrue(packageRootContentClassNames.contains("Activator.java"));
-		assertTrue(packageRootContentClassNames.contains(NAME_ENTITY + "ViewConfigurator.java"));
-		
+		return packageRootContentClassNames;
+	}
+
+	private List<String> getPackageGuiceContent(SWTBotTreeItem srcTreeItem) {
 		SWTBotTreeItem[] packageGuiceContent = srcTreeItem.expand().getNode(NAME_PLUGINPROJECT + ".internal.guice").expand().getItems();
 		List<String> packageGuiceContentClassNames = new ArrayList<String>();
 		for (SWTBotTreeItem classInternalItem : packageGuiceContent) {
 			packageGuiceContentClassNames.add(classInternalItem.getText());
 		}
-		assertTrue(packageGuiceContentClassNames.contains(NAME_ENTITY + "BindingFactory.java"));
-		assertTrue(packageGuiceContentClassNames.contains(NAME_ENTITY + "ExecutableExtensionFactory.java"));
-		assertTrue(packageGuiceContentClassNames.contains(NAME_ENTITY + "FeatureLabelProvider.java"));
-		assertTrue(packageGuiceContentClassNames.contains(NAME_ENTITY + "Module.java"));
+		return packageGuiceContentClassNames;
 	}
 }

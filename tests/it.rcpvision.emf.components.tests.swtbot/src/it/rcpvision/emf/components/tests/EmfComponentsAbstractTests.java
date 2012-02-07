@@ -340,7 +340,7 @@ public class EmfComponentsAbstractTests {
 
 		SWTBotShell shellSimpleViewWiz = bot.shell("Simple View Wizard");
 		shellSimpleViewWiz.activate();
-		bot.textWithLabel("Prefix classes name ").setText(nameEntity);
+		bot.textWithLabel("Prefix classes name").setText(nameEntity);
 		bot.button("Finish").click();
 
 		// creation of a project might require some time
