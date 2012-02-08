@@ -8,6 +8,7 @@ import java.util.Collections;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.TableViewer;
 
 import com.google.inject.Inject;
@@ -26,9 +27,14 @@ public class TableViewerBuilder {
 
 	public void buildAndFill(TableViewer tableViewer, Object contents,
 			EClass eClass) {
+		buildAndFill(tableViewer, contents, eClass, new ArrayContentProvider());
+	}
+
+	public void buildAndFill(TableViewer tableViewer, Object contents,
+			EClass eClass, IStructuredContentProvider contentProvider) {
 		columnBuilder.buildTableViewer(tableViewer, eClass);
 		emfViewerManager.initialize(tableViewer, ensureCollection(contents),
-				new ArrayContentProvider(), null);
+				contentProvider, null);
 	}
 
 	protected Collection<?> ensureCollection(Object contents) {

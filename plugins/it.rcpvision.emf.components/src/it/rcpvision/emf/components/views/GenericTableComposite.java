@@ -35,26 +35,29 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 
+import com.google.inject.Inject;
 import com.google.inject.Provider;
 
 public class GenericTableComposite extends Composite {
 
 	private final FormToolkit toolkit = new FormToolkit(Display.getCurrent());
 	private Table table;
-	private FeatureLabelProvider featureLabelProvider;
-	private Provider<EmfSwtBindingFactory> bindingFactoryProvider;
-	private Provider<ComposedAdapterFactory> composedAdapterFactoryProvider;
+//	private FeatureLabelProvider featureLabelProvider;
+//	private Provider<EmfSwtBindingFactory> bindingFactoryProvider;
+//	private Provider<ComposedAdapterFactory> composedAdapterFactoryProvider;
 	private ResourceSet resourceSet;
 	private ComposedAdapterFactory adapterFactory;
 	private FormToolkit formToolkit;
 	private TableViewer viewer;
 	private ObservableListContentProvider cp;
+	private EmfViewerFactory emfViewerFactory;
 
-	public GenericTableComposite(Composite parent, int style, FeatureLabelProvider featureLabelProvider, Provider<EmfSwtBindingFactory> bindingFactoryProvider, Provider<ComposedAdapterFactory> composedAdapterFactoryProvider) {
+	public GenericTableComposite(Composite parent, int style, EmfViewerFactory emfViewerFactory, Object content, EClass type) { //FeatureLabelProvider featureLabelProvider, Provider<EmfSwtBindingFactory> bindingFactoryProvider, Provider<ComposedAdapterFactory> composedAdapterFactoryProvider
 		super(parent, style);
-		this.featureLabelProvider = featureLabelProvider;
-		this.bindingFactoryProvider = bindingFactoryProvider;
-		this.composedAdapterFactoryProvider = composedAdapterFactoryProvider;
+		this.emfViewerFactory=emfViewerFactory;
+//		this.featureLabelProvider = featureLabelProvider;
+//		this.bindingFactoryProvider = bindingFactoryProvider;
+//		this.composedAdapterFactoryProvider = composedAdapterFactoryProvider;
 		addDisposeListener(new DisposeListener() {
 			public void widgetDisposed(DisposeEvent e) {
 				toolkit.dispose();
@@ -65,19 +68,22 @@ public class GenericTableComposite extends Composite {
 		setLayout(new FillLayout(SWT.HORIZONTAL));
 
 		
-		createViewer(parent);
+		createViewer(parent, content, type);
 	}
 
-	private void createViewer(Composite parent) {
-		viewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL
-				| SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.BORDER);
+	private void createViewer(Composite parent, Object content, EClass type) {
+//		viewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL
+//				| SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.BORDER);
+//		
+//		final Table table = viewer.getTable();
+//		table.setHeaderVisible(true);
+//		table.setLinesVisible(true);
+//
+//		viewer.setContentProvider(cp=new ObservableListContentProvider());
 		
-		final Table table = viewer.getTable();
-		table.setHeaderVisible(true);
-		table.setLinesVisible(true);
-
-//		viewer.setContentProvider(new ArrayContentProvider());
-		viewer.setContentProvider(cp=new ObservableListContentProvider());
+		viewer=emfViewerFactory.createTableViewer(parent, SWT.MULTI | SWT.H_SCROLL
+				| SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.BORDER, content, type);
+		
 		
 		// Layout the viewer
 		GridData gridData = new GridData();
@@ -129,48 +135,48 @@ public class GenericTableComposite extends Composite {
 		return viewer.getControl().setFocus();
 	}
 	
-	public void init(EObject container, IEMFListProperty listProp) {
-		init(listProp.observe(container));
-	}
+//	public void init(EObject container, IEMFListProperty listProp) {
+//		init(listProp.observe(container));
+//	}
 
-	public void init(List list) {
-
-		if (list.size() == 0)
-			return;
-		
-		EObject model=(EObject)list.get(0);
-		ResourceSet rs = model.eResource().getResourceSet();
-
-		EClass eClass = model.eClass();
-		EList<EStructuralFeature> allStructuralFeatures = new BasicEList<EStructuralFeature>(eClass.getEAllStructuralFeatures());
-		Collections.sort(allStructuralFeatures, new EStructuralfeatureComparator());
-
-		this.resourceSet = rs;
-		adapterFactory = composedAdapterFactoryProvider.get();
-
-		formToolkit = new FormToolkit(getParent().getDisplay());
-		featureLabelProvider.setFormToolkit(formToolkit);
-
-		// TODO EditingDomain
-		EmfSwtBindingFactory factory = bindingFactoryProvider.get();
-		factory.init(adapterFactory, null, model, this, formToolkit);
-
-		for (final EStructuralFeature feature : allStructuralFeatures) {
-			// derived, unchangeable, container and containment features
-			// ignored
-			if (feature.isChangeable() && !feature.isDerived() && !(feature instanceof EReference && (((EReference) feature).isContainment() || ((EReference) feature).isContainer()))) {
-				 createColumn(feature.getName(), 100, feature);
-			}
-		}
-
-		setLayout(new GridLayout(2, false));
-		// TODO che fa?
-		formToolkit.paintBordersFor(this);
-		this.layout();
-		// getParent().pack();
-		
-		getViewer().setInput(list);
-	}
+//	public void init(List list) {
+//
+//		if (list.size() == 0)
+//			return;
+//		
+//		EObject model=(EObject)list.get(0);
+//		ResourceSet rs = model.eResource().getResourceSet();
+//
+//		EClass eClass = model.eClass();
+//		EList<EStructuralFeature> allStructuralFeatures = new BasicEList<EStructuralFeature>(eClass.getEAllStructuralFeatures());
+//		Collections.sort(allStructuralFeatures, new EStructuralfeatureComparator());
+//
+//		this.resourceSet = rs;
+//		adapterFactory = composedAdapterFactoryProvider.get();
+//
+//		formToolkit = new FormToolkit(getParent().getDisplay());
+//		featureLabelProvider.setFormToolkit(formToolkit);
+//
+//		// TODO EditingDomain
+//		EmfSwtBindingFactory factory = bindingFactoryProvider.get();
+//		factory.init(adapterFactory, null, model, this, formToolkit);
+//
+//		for (final EStructuralFeature feature : allStructuralFeatures) {
+//			// derived, unchangeable, container and containment features
+//			// ignored
+//			if (feature.isChangeable() && !feature.isDerived() && !(feature instanceof EReference && (((EReference) feature).isContainment() || ((EReference) feature).isContainer()))) {
+//				 createColumn(feature.getName(), 100, feature);
+//			}
+//		}
+//
+//		setLayout(new GridLayout(2, false));
+//		// TODO che fa?
+//		formToolkit.paintBordersFor(this);
+//		this.layout();
+//		// getParent().pack();
+//		
+//		getViewer().setInput(list);
+//	}
 
 	private final static class EStructuralfeatureComparator implements Comparator<EStructuralFeature> {
 		public int compare(EStructuralFeature o1, EStructuralFeature o2) {

@@ -39,9 +39,5 @@ public class EmfDetailsFactory {
 	}
 	
 	
-	public GenericTableComposite createTableComposite(Composite parent, int style) {
-		return new GenericTableComposite(parent, style,
-				featureLabelProviderProvider.get(), bindingFactoryProvider,
-				composedAdapterFactoryProvider);
-	}
+	
 }

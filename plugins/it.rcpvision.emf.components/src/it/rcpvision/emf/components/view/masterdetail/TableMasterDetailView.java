@@ -1,7 +1,10 @@
 package it.rcpvision.emf.components.view.masterdetail;
 
+import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
+import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 import it.rcpvision.emf.components.views.EObjectManager;
 import it.rcpvision.emf.components.views.EmfDetailsFactory;
+import it.rcpvision.emf.components.views.EmfViewerFactory;
 import it.rcpvision.emf.components.views.GenericDetailComposite;
 import it.rcpvision.emf.components.views.GenericTableComposite;
 
@@ -13,10 +16,13 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipse.emf.databinding.IEMFListProperty;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.layout.GridDataFactory;
@@ -42,6 +48,7 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.part.ViewPart;
 
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 
 public class TableMasterDetailView extends ViewPart implements ISaveablePart, ISaveablePart2 {
 
@@ -72,19 +79,32 @@ public class TableMasterDetailView extends ViewPart implements ISaveablePart, IS
 	private Adapter modelAdapter;
 
 	private EObject model;
+	
+	@Inject
+	protected Provider<FeatureLabelProvider> featureLabelProviderProvider;
 
+	@Inject
+	protected Provider<EmfSwtBindingFactory> bindingFactoryProvider;
+
+	@Inject
+	protected Provider<ComposedAdapterFactory> composedAdapterFactoryProvider;
+	@Inject
+	protected EmfViewerFactory emfViewerFactory;
 	
 	private void initialize() {
 		//Inizializzazione
-		IEMFListProperty listProperty=EMFProperties.list(tableViewConfigurator.getListFeature());
-		manageList(tableViewConfigurator.getContainer(), listProperty );
+		
+		manageList(tableViewConfigurator.getContainer(), tableViewConfigurator.getListFeature() );
 		
 	}
 	
-	private void manageList(EObject obj, IEMFListProperty listProp) {
-		genericComponentList.add(genericTable = emfDetailsFactory.createTableComposite(master, SWT.NONE));
+	private void manageList(EObject container, EReference eReference ) {
+		IEMFListProperty listProperty=EMFProperties.list(tableViewConfigurator.getListFeature());
+//		EList<EObject> list=(EList<EObject>) container.eGet(eReference);
+		genericTable=new GenericTableComposite(master, SWT.NONE, emfViewerFactory, listProperty.observe(container), eReference.getEReferenceType());
+		genericComponentList.add(genericTable);
 		formToolkit.adapt(genericTable);
-		genericTable.init(obj, listProp);
+//		genericTable.init(obj, listProp);
 		addSelectionListener(genericTable.getViewer());
 		master.layout(true);
 	}
