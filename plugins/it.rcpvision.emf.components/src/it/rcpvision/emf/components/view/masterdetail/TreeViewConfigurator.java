@@ -28,8 +28,6 @@ public abstract class TreeViewConfigurator {
 	public abstract Boolean isEditable();
 	
 	public abstract AdapterFactory getCustomAdapterFactory();
-
-	public abstract void update(ViewerCell cell);
 	
 	public abstract IObservableMap[] getMapLabelProvider(IObservableSet set);
 	

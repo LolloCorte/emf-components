@@ -429,35 +429,35 @@ public class TreeMasterDetailView extends ViewPart implements ISaveablePart, ISa
 	}
 	
 	
-	private class TreeLabelProviderImpl extends StyledCellLabelProvider {
-		private IMapChangeListener mapChangeListener = new IMapChangeListener() {
-			public void handleMapChange(MapChangeEvent event) {
-				Set<?> affectedElements = event.diff.getChangedKeys();
-				if (!affectedElements.isEmpty()) {
-					LabelProviderChangedEvent newEvent = new LabelProviderChangedEvent(
-							TreeLabelProviderImpl.this,
-							affectedElements.toArray());
-					fireLabelProviderChanged(newEvent);
-				}
-			}
-		};
-
-		public TreeLabelProviderImpl(IObservableMap... attributeMaps) {
-			for (int i = 0; i < attributeMaps.length; i++) {
-				attributeMaps[i].addMapChangeListener(mapChangeListener);
-			}
-		}
-
-		@Override
-		public String getToolTipText(Object element) {
-			return "#dummy#";
-		}
-
-		@Override
-		public void update(ViewerCell cell) {
-			treeViewConfigurator.update(cell);
-		}
-	}
+//	private class TreeLabelProviderImpl extends StyledCellLabelProvider {
+//		private IMapChangeListener mapChangeListener = new IMapChangeListener() {
+//			public void handleMapChange(MapChangeEvent event) {
+//				Set<?> affectedElements = event.diff.getChangedKeys();
+//				if (!affectedElements.isEmpty()) {
+//					LabelProviderChangedEvent newEvent = new LabelProviderChangedEvent(
+//							TreeLabelProviderImpl.this,
+//							affectedElements.toArray());
+//					fireLabelProviderChanged(newEvent);
+//				}
+//			}
+//		};
+//
+//		public TreeLabelProviderImpl(IObservableMap... attributeMaps) {
+//			for (int i = 0; i < attributeMaps.length; i++) {
+//				attributeMaps[i].addMapChangeListener(mapChangeListener);
+//			}
+//		}
+//
+//		@Override
+//		public String getToolTipText(Object element) {
+//			return "#dummy#";
+//		}
+//
+//		@Override
+//		public void update(ViewerCell cell) {
+//			treeViewConfigurator.update(cell);
+//		}
+//	}
 
 	
 	
