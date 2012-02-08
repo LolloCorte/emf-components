@@ -64,19 +64,29 @@ public class CDOObjectManager extends EObjectManager {
 	@Override
 	public EObject createNewChild(EObject container, EReference eReference) {
 		EClass eClass=eReference.getEReferenceType();
-		EObject eObject = eClass.getEPackage().getEFactoryInstance().create(eClass);
+		EObject newEObject = eClass.getEPackage().getEFactoryInstance().create(eClass);
 		
 		try {
-			EList<EObject> list=(EList)container.eGet(eReference);
-			CDOResource cdoResource=sessionManager.getTransactionalResourceFor(eReference.getEReferenceType());
-			cdoResource.getContents().add(eObject);
-			list.add(eObject);
-			cdoResource.save(null);
+			EList<EObject> list=(EList<EObject>)container.eGet(eReference);
+			
+			if(!eReference.isContainment()){
+				CDOResource cdoResource=sessionManager.getTransactionalResourceFor(eReference.getEReferenceType());
+				cdoResource.getContents().add(newEObject);
+				list.add(newEObject);
+				cdoResource.save(null);
+			}else{
+				CDOTransaction transaction= sessionManager.getSession(newEObject).openTransaction();
+				EObject  transactionalContainer =transaction.getObject(container);
+				EList<EObject> transactionalList=(EList<EObject>) transactionalContainer.eGet(eReference);
+				transactionalList.add(newEObject);
+				transaction.commit();
+			}
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return eObject;	
+		return newEObject;	
 	}
 	
 	
