@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            name="Tree Master Detail"
+            icon="icons/table.jpg"
+            class="it.rcpvision.emf.components.cdo.examples.masterdetail.tree.internal.guice.TreeMasterDetailExecutableExtensionFactory:it.rcpvision.emf.components.view.masterdetail.TreeMasterDetailView"
+            id="it.rcpvision.emf.components.cdo.examples.masterdetail.tree.view">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               id="entity"
+               label="Tables">
+            <command
+                  commandId="org.eclipse.ui.views.showView"
+                  label="Tree Master Detail"
+                  style="push"
+                  tooltip="Open the Master Detail">
+               <parameter
+                     name="org.eclipse.ui.views.showView.viewId"
+                     value="it.rcpvision.emf.components.cdo.examples.masterdetail.tree.view">
+               </parameter>
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>

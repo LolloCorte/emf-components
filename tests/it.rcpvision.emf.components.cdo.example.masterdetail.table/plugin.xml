@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            name="Table Master Detail"
+            icon="icons/table.jpg"
+            class="it.rcpvision.emf.components.cdo.example.masterdetail.table.internal.guice.TableMasterDetailExecutableExtensionFactory:it.rcpvision.emf.components.view.masterdetail.TableMasterDetailView"
+            id="it.rcpvision.emf.components.cdo.example.masterdetail.table.view">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <command
+               commandId="org.eclipse.ui.views.showView"
+               label="Table Master Detail"
+               style="push"
+               tooltip="Open the Table Master Detail">
+            <parameter
+                  name="org.eclipse.ui.views.showView.viewId"
+                  value="it.rcpvision.emf.components.cdo.example.masterdetail.table.view">
+            </parameter>
+         </command>
+      </menuContribution>
+   </extension>
+
+</plugin>
