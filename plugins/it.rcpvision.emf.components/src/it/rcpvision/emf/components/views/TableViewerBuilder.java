@@ -7,7 +7,9 @@ import java.util.Collection;
 import java.util.Collections;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.jface.databinding.viewers.ObservableListContentProvider;
 import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.IBaseLabelProvider;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.TableViewer;
 
@@ -27,14 +29,20 @@ public class TableViewerBuilder {
 
 	public void buildAndFill(TableViewer tableViewer, Object contents,
 			EClass eClass) {
-		buildAndFill(tableViewer, contents, eClass, new ArrayContentProvider());
+		buildAndFill(tableViewer, contents, eClass, new ObservableListContentProvider());
 	}
 
 	public void buildAndFill(TableViewer tableViewer, Object contents,
-			EClass eClass, IStructuredContentProvider contentProvider) {
-		columnBuilder.buildTableViewer(tableViewer, eClass);
+			EClass eClass, ObservableListContentProvider contentProvider) {
+		buildAndFill(tableViewer, contents, eClass, contentProvider,null);
+	}
+	
+		
+	public void buildAndFill(TableViewer tableViewer, Object contents,
+			EClass eClass, ObservableListContentProvider contentProvider,IBaseLabelProvider labelProvider) {
+		columnBuilder.buildTableViewer(tableViewer, eClass,contentProvider);
 		emfViewerManager.initialize(tableViewer, ensureCollection(contents),
-				contentProvider, null);
+				contentProvider, labelProvider);
 	}
 
 	protected Collection<?> ensureCollection(Object contents) {
