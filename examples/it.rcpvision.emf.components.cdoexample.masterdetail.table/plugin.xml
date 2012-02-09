@@ -7,7 +7,7 @@
       <view
             name="Table Master Detail"
             icon="icons/table.jpg"
-            class="it.rcpvision.emf.components.cdoexample.masterdetail.table.internal.guice.TableMasterDetailExecutableExtensionFactory:it.rcpvision.emf.components.view.masterdetail.TableMasterDetailView"
+            class="it.rcpvision.emf.components.cdoexample.masterdetail.table.internal.guice.TableMasterDetailExFactory:it.rcpvision.emf.components.view.masterdetail.TableMasterDetailView"
             id="it.rcpvision.emf.components.cdoexample.masterdetail.table.view">
       </view>
    </extension>
