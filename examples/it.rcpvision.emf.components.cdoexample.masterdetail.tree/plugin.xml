@@ -7,7 +7,7 @@
       <view
             name="Tree Master Detail"
             icon="icons/table.jpg"
-            class="it.rcpvision.emf.components.cdoexample.masterdetail.tree.internal.guice.TreeMasterDetailExecutableExtensionFactory:it.rcpvision.emf.components.view.masterdetail.TreeMasterDetailView"
+            class="it.rcpvision.emf.components.cdoexample.masterdetail.tree.internal.guice.TreeMasterDetailExFactory:it.rcpvision.emf.components.view.masterdetail.TreeMasterDetailView"
             id="it.rcpvision.emf.components.cdoexample.masterdetail.tree.view">
       </view>
    </extension>

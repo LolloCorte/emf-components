@@ -28,7 +28,7 @@ public class TreeMasterDetailModule extends CDOEmfComponentsModule {
 	
 	@Override
 	public Class<? extends FeatureLabelProvider> bindFeatureLabelProvider() {
-		return TreeMasterDetailFeatureLabelProvider.class;
+		return TreeMasterDetailFeatLblProvider.class;
 	}
 	
 	@Override
