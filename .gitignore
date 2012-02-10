@@ -6,5 +6,5 @@ logs.zip
 *.orig
 .svn/
 xtend-gen/
-*/screeshots/*.jpg
-*/screeshots/*.jpeg
+*/screenshots/*.jpg
+*/screenshots/*.jpeg

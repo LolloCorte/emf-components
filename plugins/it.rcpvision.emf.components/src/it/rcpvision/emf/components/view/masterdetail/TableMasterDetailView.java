@@ -44,6 +44,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.ISaveablePart;
 import org.eclipse.ui.ISaveablePart2;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.part.ViewPart;
 
@@ -106,6 +107,7 @@ public class TableMasterDetailView extends ViewPart implements ISaveablePart, IS
 		formToolkit.adapt(genericTable);
 //		genericTable.init(obj, listProp);
 		addSelectionListener(genericTable.getViewer());
+		genericTable.getViewer().setComparer(tableViewConfigurator.getComparer());
 		master.layout(true);
 	}
 	
@@ -211,8 +213,19 @@ public class TableMasterDetailView extends ViewPart implements ISaveablePart, IS
 		buttonInsert.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				EObject eObject=objectManager.createNewChild(tableViewConfigurator.getContainer(),tableViewConfigurator.getListFeature());
-				genericTable.getViewer().setSelection(new StructuredSelection(eObject));
+				final EObject eObject=objectManager.createNewChild(tableViewConfigurator.getContainer(),tableViewConfigurator.getListFeature());
+				PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
+					
+					@Override
+					public void run() {
+						try{
+							genericTable.getViewer().setSelection(new StructuredSelection(eObject));
+						//genericTable.getViewer().reveal(eObject);
+						}catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
 				modified = true;
 				firePropertyChange(PROP_DIRTY);
 			}

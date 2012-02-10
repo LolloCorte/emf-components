@@ -6,6 +6,7 @@ import library.LibraryPackage;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.jface.viewers.IElementComparer;
 
 public class TableMasterDetailViewConfigurator extends TableViewConfigurator {
 	
@@ -22,6 +23,11 @@ public class TableMasterDetailViewConfigurator extends TableViewConfigurator {
 	@Override
 	public Boolean isEditable(){
 		 return true;
+	}
+
+	@Override
+	public IElementComparer getComparer() {
+		return new CDOElementComparer();
 	}
 	
 }
