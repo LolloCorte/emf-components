@@ -8,13 +8,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(SWTBotJunit4ClassRunner.class)
-public class InsertCustomerTest extends CdoExampleUiTable {
+public class InsertAuthorTest extends CdoExampleUiTable {
 	private static final String AUTHOR_NAME_TOINSERT = "Edward";
 	private static final String AUTHOR_SURNAME_TOINSERT = "Merks";
 	private static final String AUTHOR_BIRTHDAY_TOINSERT = "01/01/1966";
 
 	@Test
-	public void testInsertCustomer() {
+	public void testInsertAuthor() {
 		bot.menu(MENU_MASTER_DETAIL).click();
 		bot.viewByTitle(VIEW_MASTER_DETAIL).setFocus();
 		
