@@ -82,9 +82,9 @@ public class GenericTableViewPart extends ViewPart implements ISelectionListener
 				for (final EStructuralFeature feature : allStructuralFeatures) {
 					if (feature.isChangeable() && !feature.isDerived() && (feature instanceof EReference && ((EReference) feature).isMany())) {
 						GenericTableComposite genericComponent;
-						genericComponentList.add(genericComponent= emfDetailsFactory.createTableComposite(main, SWT.NONE));
-						formToolkit.adapt(genericComponent);
-						genericComponent.init((EList) model.eGet(feature));
+						//genericComponentList.add(genericComponent= emfDetailsFactory.createTableComposite(main, SWT.NONE));
+						//formToolkit.adapt(genericComponent);
+						//genericComponent.init((EList) model.eGet(feature));
 					}
 				}
 				main.layout(true);
