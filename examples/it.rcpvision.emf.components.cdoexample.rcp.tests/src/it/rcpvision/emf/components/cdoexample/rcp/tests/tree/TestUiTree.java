@@ -9,6 +9,6 @@ public class TestUiTree extends CdoExampleAbstract {
 	@Test
 	public void testOpenTreeMD() {
 		bot.menu("Tables").menu("Tree Master Detail").click();
-		bot.viewById("Tree Master Detail").setFocus();
+		bot.viewByTitle("Tree Master Detail").setFocus();
 	}
 }

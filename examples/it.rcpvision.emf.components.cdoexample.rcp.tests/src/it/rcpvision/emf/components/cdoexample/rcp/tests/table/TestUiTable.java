@@ -12,6 +12,6 @@ public class TestUiTable extends CdoExampleAbstract {
 	@Test
 	public void testOpenTableMD() {
 		bot.menu("Table Master Detail").click();
-		bot.viewById("Table Master Detail").setFocus();
+		bot.viewByTitle("Table Master Detail").setFocus();
 	}
 }
