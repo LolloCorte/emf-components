@@ -32,12 +32,9 @@
          id="org.eclipse.net4j"
          version="0.0.0"/>
 
-   <plugin
-         id="it.rcpvision.emf.components"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+   <includes
+         id="it.rcpvision.emf.components.feature"
+         version="0.0.0"/>
 
    <plugin
          id="it.rcpvision.emf.components.cdo"
