@@ -3,13 +3,18 @@
  */
 package it.rcpvision.emf.components.views;
 
+import it.rcpvision.emf.components.old.ui.ButtonsComposite;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 
@@ -31,10 +36,17 @@ public class EmfFormView extends EmfAbstractViewOnSelection {
 
 	protected ScrolledComposite scrolledComposite;
 
-	protected GenericDetailComposite detailFormComposite;
+	protected GenericDetailComposite genericComponent;
 	
-	private final FormToolkit formToolkit = new FormToolkit(Display.getDefault());
+	private Composite main;
 
+	private FormToolkit formToolkit;
+
+	private ButtonsComposite buttonsComposite;
+
+
+	private Text txtNewText;
+	
 	public EmfFormView() {
 	}
 
@@ -43,44 +55,107 @@ public class EmfFormView extends EmfAbstractViewOnSelection {
 		super.createPartControl(parent);
 		
 		this.parent = parent;
-		resetView();
+		
+//		scrolledComposite = new ScrolledComposite(parent, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL);
+//		formToolkit.adapt(scrolledComposite);
+//		formToolkit.paintBordersFor(scrolledComposite);
+//		scrolledComposite.setExpandHorizontal(true);
+//		scrolledComposite.setExpandVertical(true);
+		
+		formToolkit = new FormToolkit(parent.getDisplay());
+		GridLayout gl_parent = new GridLayout(1, false);
+		gl_parent.verticalSpacing = 0;
+		gl_parent.marginHeight = 0;
+		gl_parent.horizontalSpacing = 0;
+		parent.setLayout(gl_parent);
+		main = formToolkit.createComposite(parent, SWT.BORDER);
+		main.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		main.setLayout(new GridLayout(2, false));
+		buttonsComposite = new ButtonsComposite(parent, SWT.NONE);
+		buttonsComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
+		formToolkit.adapt(buttonsComposite);
+		GridLayout gl_buttonsComposite = new GridLayout(3, false);
+		gl_buttonsComposite.marginLeft = 20;
+		buttonsComposite.setLayout(gl_buttonsComposite);
+		new Label(buttonsComposite, SWT.NONE);
+		
 	}
 
 	@Override
 	protected void updateOnSelection(IWorkbenchPart sourcepart,
 			ISelection selection) {
-		resetView();
+		//resetView();
 		
 		EObject eObject = getFirstSelectedEObject(selection);
 		if (eObject != null) {
-			formToolkit.adapt(scrolledComposite);
-			formToolkit.paintBordersFor(scrolledComposite);
-			scrolledComposite.setExpandHorizontal(true);
-			scrolledComposite.setExpandVertical(true);
+			if (genericComponent != null) {
+				genericComponent.dispose();
+			}
 			
-			detailFormComposite = emfDetailsFactory.createDetailsComposite(
-					scrolledComposite, SWT.BORDER);
+			genericComponent = emfDetailsFactory.createDetailsComposite(
+					main, SWT.NONE);
+			formToolkit.adapt(genericComponent);
+			genericComponent.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 			
-			detailFormComposite.init(eObject);
+			genericComponent.init(eObject);
 			
-			formToolkit.adapt(detailFormComposite);
-			detailFormComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+			main.layout(true);
 			
-			parent.layout(true, true);
+//			Composite composite = formToolkit.createComposite(scrolledComposite, SWT.NONE);
+//			formToolkit.paintBordersFor(composite);
+			
+//			Label lblNewLabel = formToolkit.createLabel(composite, "New Label", SWT.NONE);
+//			lblNewLabel.setBounds(27, 46, 53, 13);
+			
+//			txtNewText = formToolkit.createText(composite, "New Text", SWT.NONE);
+//			txtNewText.setBounds(119, 42, 52, 17);
+
+//			genericComposite = emfDetailsFactory.createDetailsComposite(
+//					scrolledComposite, SWT.BORDER);
+//			
+//			
+//			formToolkit.adapt(genericComposite);
+//			
+//			genericComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+//
+//			genericComposite.init(eObject);
+//
+//			
+//			scrolledComposite.setContent(composite);
+//			scrolledComposite.setMinSize(composite.computeSize(SWT.DEFAULT, SWT.DEFAULT));
+//			
+//			composite.layout(true, true);
+			
+//			formToolkit.adapt(scrolledComposite);
+//			formToolkit.paintBordersFor(scrolledComposite);
+//			scrolledComposite.setExpandHorizontal(true);
+//			scrolledComposite.setExpandVertical(true);
+//			
+//			
+//			formToolkit.adapt(genericComposite);
+//			genericComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+//			
+//			parent.layout(true, true);
 		}
 	}
 
-	private void resetView() {
-		if (scrolledComposite != null)
-			scrolledComposite.dispose();
-
-		scrolledComposite = new ScrolledComposite(parent, SWT.V_SCROLL
-				| SWT.BORDER);
-		scrolledComposite.setExpandHorizontal(true);
-	}
-
+	@Override
 	public void setFocus() {
-		scrolledComposite.setFocus();
+		// TODO Auto-generated method stub
+		
 	}
+
+//	private void resetView() {
+//		if (scrolledComposite != null)
+//			scrolledComposite.dispose();
+//
+//		scrolledComposite = new ScrolledComposite(parent, SWT.V_SCROLL
+//				| SWT.BORDER);
+//		scrolledComposite.setExpandHorizontal(true);
+//	}
+//
+//	public void setFocus() {
+//		scrolledComposite.setFocus();
+//	}
 
 }
