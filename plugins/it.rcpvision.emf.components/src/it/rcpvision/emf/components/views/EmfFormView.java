@@ -3,8 +3,6 @@
  */
 package it.rcpvision.emf.components.views;
 
-import it.rcpvision.emf.components.old.ui.ButtonsComposite;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.SWT;
@@ -12,9 +10,6 @@ import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 
@@ -42,11 +37,6 @@ public class EmfFormView extends EmfAbstractViewOnSelection {
 
 	private FormToolkit formToolkit;
 
-	private ButtonsComposite buttonsComposite;
-
-
-	private Text txtNewText;
-	
 	public EmfFormView() {
 	}
 
@@ -70,14 +60,14 @@ public class EmfFormView extends EmfAbstractViewOnSelection {
 		parent.setLayout(gl_parent);
 		main = formToolkit.createComposite(parent, SWT.BORDER);
 		main.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-		main.setLayout(new GridLayout(2, false));
-		buttonsComposite = new ButtonsComposite(parent, SWT.NONE);
-		buttonsComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
-		formToolkit.adapt(buttonsComposite);
-		GridLayout gl_buttonsComposite = new GridLayout(3, false);
-		gl_buttonsComposite.marginLeft = 20;
-		buttonsComposite.setLayout(gl_buttonsComposite);
-		new Label(buttonsComposite, SWT.NONE);
+		main.setLayout(new GridLayout(1, false));
+//		buttonsComposite = new ButtonsComposite(parent, SWT.NONE);
+//		buttonsComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
+//		formToolkit.adapt(buttonsComposite);
+//		GridLayout gl_buttonsComposite = new GridLayout(3, false);
+//		gl_buttonsComposite.marginLeft = 20;
+//		buttonsComposite.setLayout(gl_buttonsComposite);
+//		new Label(buttonsComposite, SWT.NONE);
 		
 	}
 
