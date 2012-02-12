@@ -32,12 +32,18 @@ public class EmfDetailsFactory {
 
 	}
 
-	public GenericDetailComposite createDetailsComposite(Composite parent, int style) {
+	public GenericDetailComposite createDetailsComposite(Composite parent,
+			int style) {
 		return new GenericDetailComposite(parent, style,
 				featureLabelProviderProvider.get(), bindingFactoryProvider,
 				composedAdapterFactoryProvider);
 	}
-	
-	
-	
+
+	public FormDetailComposite createFormDetailComposite(Composite parent,
+			int style) {
+		return new FormDetailComposite(parent, style,
+				featureLabelProviderProvider.get(), bindingFactoryProvider,
+				composedAdapterFactoryProvider);
+	}
+
 }
