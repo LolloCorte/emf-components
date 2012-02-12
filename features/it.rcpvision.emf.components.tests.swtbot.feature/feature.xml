@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="it.rcpvision.emf.components.tests.swtbot.feature"
+      label="EMF Components SWTBOT Tests Feature"
+      version="1.0.0.qualifier">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <includes
+         id="org.eclipse.swtbot"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.swtbot.eclipse"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.swtbot.eclipse.test.junit4"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.swtbot.forms"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.emf"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.emf.ecore"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.emf.ecore.edit"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.emf.ecore.editor"
+         version="0.0.0"/>
+
+   <includes
+         id="it.rcpvision.emf.components.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="it.rcpvision.emf.components.examples.feature"
+         version="0.0.0"/>
+
+   <requires>
+      <import plugin="org.eclipse.swtbot.go"/>
+      <import plugin="org.eclipse.xtext.ui.junit" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.resources" version="3.7.100" match="greaterOrEqual"/>
+      <import plugin="it.rcpvision.emf.components" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.example.fowlerdsl" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.example.fowlerdsl.ui" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.examples.library.edit" version="2.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.swtbot.forms.finder" version="2.0.4" match="greaterOrEqual"/>
+      <import plugin="it.rcpvision.emf.components.wizards" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.examples.library.editor" version="2.5.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="it.rcpvision.emf.components.tests.swtbot"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
