@@ -10,7 +10,7 @@ import it.rcpvision.emf.components.tests.labeling.CustomLibraryFeatureLabelProvi
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryLabelProvider;
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
-import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 
 
 /**
@@ -33,7 +33,7 @@ public class CustomLibraryExecutableExtensionFactory extends
 			}
 
 			@Override
-			public Class<? extends FeatureLabelProvider> bindFeatureLabelProvider() {
+			public Class<? extends FormFeatureLabelProvider> bindFormFeatureLabelProvider() {
 				return CustomLibraryFeatureLabelProvider.class;
 			}
 

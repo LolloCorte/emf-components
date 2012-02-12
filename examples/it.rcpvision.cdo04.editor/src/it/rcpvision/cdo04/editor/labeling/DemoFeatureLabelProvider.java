@@ -1,6 +1,6 @@
 package it.rcpvision.cdo04.editor.labeling;
 
-import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.swt.layout.GridData;
@@ -8,7 +8,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.forms.IFormColors;
 
-public class DemoFeatureLabelProvider extends FeatureLabelProvider {
+public class DemoFeatureLabelProvider extends FormFeatureLabelProvider {
 
 	public String text_Customer_code(EStructuralFeature feature) {
 		return "codice";

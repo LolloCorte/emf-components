@@ -4,7 +4,7 @@ package it.rcpvision.emf.components.tests.cdo.app.guice;
 import it.rcpvision.emf.components.cdo.CDOEmfComponentsModule;
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
-import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
@@ -20,7 +20,7 @@ public class DemoModule extends CDOEmfComponentsModule {
 //	}
 //
 //	@Override
-//	public Class<? extends FeatureLabelProvider> bindFeatureLabelProvider() {
+//	public Class<? extends FormFeatureLabelProvider> bindFormFeatureLabelProvider() {
 //		return DemoFeatureLabelProvider.class;
 //	}
 //

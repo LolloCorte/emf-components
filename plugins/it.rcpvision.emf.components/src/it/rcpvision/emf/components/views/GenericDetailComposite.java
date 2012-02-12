@@ -1,7 +1,7 @@
 package it.rcpvision.emf.components.views;
 
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
-import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -30,18 +30,18 @@ public class GenericDetailComposite extends Composite {
 
 //	private ResourceSet resourceSet;
 
-	protected FeatureLabelProvider featureLabelProvider;
+	protected FormFeatureLabelProvider formFeatureLabelProvider;
 	
 	protected Provider<EmfSwtBindingFactory> bindingFactoryProvider;
 	
 	protected Provider<ComposedAdapterFactory> composedAdapterFactoryProvider;
 	
 	public GenericDetailComposite(Composite parent, int style,
-			FeatureLabelProvider featureLabelProvider,
+			FormFeatureLabelProvider formFeatureLabelProvider,
 			Provider<EmfSwtBindingFactory> bindingFactoryProvider,
 			Provider<ComposedAdapterFactory> composedAdapterFactoryProvider) {
 		super(parent, style);
-		this.featureLabelProvider = featureLabelProvider;
+		this.formFeatureLabelProvider = formFeatureLabelProvider;
 		this.bindingFactoryProvider = bindingFactoryProvider;
 		this.composedAdapterFactoryProvider = composedAdapterFactoryProvider;
 	}
@@ -60,7 +60,7 @@ public class GenericDetailComposite extends Composite {
 		adapterFactory = composedAdapterFactoryProvider.get();
 		
 		formToolkit = new FormToolkit(getParent().getDisplay());
-		featureLabelProvider.setFormToolkit(formToolkit);
+		formFeatureLabelProvider.setFormToolkit(formToolkit);
 
 		// TODO EditingDomain
 		EmfSwtBindingFactory factory = bindingFactoryProvider.get();
@@ -74,7 +74,7 @@ public class GenericDetailComposite extends Composite {
 					&& !(feature instanceof EReference && (((EReference) feature)
 							.isContainment() || ((EReference) feature)
 							.isContainer()))) {
-				featureLabelProvider.getLabel(this, feature);
+				formFeatureLabelProvider.getLabel(this, feature);
 
 				// createLabel(editor.getExtendedReflectiveItemProvider().getTextForFeature(feature));
 

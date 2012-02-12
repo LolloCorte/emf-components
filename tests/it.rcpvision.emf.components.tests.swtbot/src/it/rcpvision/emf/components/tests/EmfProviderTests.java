@@ -5,7 +5,7 @@ import static org.junit.Assert.fail;
 import it.rcpvision.emf.components.tests.factories.CustomLibraryExecutableExtensionFactory;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryFeatureLabelProvider;
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
-import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -44,17 +44,17 @@ public class EmfProviderTests extends EmfComponentsAbstractTests {
 
 	@Test
 	public void testLibraryFeatureLabelProvider() {
-		FeatureLabelProvider featureLabelProvider = factory.getInjector()
+		FormFeatureLabelProvider formFeatureLabelProvider = factory.getInjector()
 				.getInstance(CustomLibraryFeatureLabelProvider.class);
-		assertLabelForFeature(featureLabelProvider, "First name",
+		assertLabelForFeature(formFeatureLabelProvider, "First name",
 				EXTLibraryPackage.Literals.PERSON__FIRST_NAME);
-		assertLabelForFeature(featureLabelProvider, "Last name",
+		assertLabelForFeature(formFeatureLabelProvider, "Last name",
 				EXTLibraryPackage.Literals.PERSON__LAST_NAME);
 	}
 
 	@Test
 	public void testLibraryFeatureLabelProviderForLabelWidget() {
-		final FeatureLabelProvider featureLabelProvider = factory.getInjector()
+		final FormFeatureLabelProvider formFeatureLabelProvider = factory.getInjector()
 				.getInstance(CustomLibraryFeatureLabelProvider.class);
 		final SWTBotView view = openTestView(LIBRARY_EMF_VIEW);
 		Display.getDefault().syncExec(new Runnable() {
@@ -63,8 +63,8 @@ public class EmfProviderTests extends EmfComponentsAbstractTests {
 					// we need a non-null display and parent so we use
 					// those in the view and in the tree
 					FormToolkit formToolkit = createFormToolkit(view);
-					featureLabelProvider.setFormToolkit(formToolkit);
-					Label label = featureLabelProvider.getLabel(
+					formFeatureLabelProvider.setFormToolkit(formToolkit);
+					Label label = formFeatureLabelProvider.getLabel(
 							createCompositeParent(view),
 							EXTLibraryPackage.Literals.WRITER__NAME);
 					assertEquals(
@@ -112,9 +112,9 @@ public class EmfProviderTests extends EmfComponentsAbstractTests {
 	}
 
 	protected void assertLabelForFeature(
-			FeatureLabelProvider featureLabelProvider, String expected,
+			FormFeatureLabelProvider formFeatureLabelProvider, String expected,
 			EStructuralFeature feature) {
-		String labelText = featureLabelProvider.getText(feature);
+		String labelText = formFeatureLabelProvider.getText(feature);
 		assertEquals(expected, labelText);
 	}
 

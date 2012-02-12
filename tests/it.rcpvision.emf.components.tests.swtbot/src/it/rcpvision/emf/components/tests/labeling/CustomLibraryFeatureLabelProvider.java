@@ -3,7 +3,7 @@
  */
 package it.rcpvision.emf.components.tests.labeling;
 
-import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.swt.widgets.Composite;
@@ -14,7 +14,7 @@ import org.eclipse.ui.forms.IFormColors;
  * @author bettini
  * 
  */
-public class CustomLibraryFeatureLabelProvider extends FeatureLabelProvider {
+public class CustomLibraryFeatureLabelProvider extends FormFeatureLabelProvider {
 
 	public String text_Person_firstName(EStructuralFeature feature) {
 		return "First name";

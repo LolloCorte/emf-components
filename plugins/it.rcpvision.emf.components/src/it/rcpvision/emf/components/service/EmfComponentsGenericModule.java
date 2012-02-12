@@ -15,7 +15,7 @@ import it.rcpvision.emf.components.resource.ResourceLoader;
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeatureColumnProvider;
-import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 import it.rcpvision.emf.components.ui.provider.JfaceProviderFactory;
 import it.rcpvision.emf.components.view.masterdetail.TreeActionBarContributor;
 import it.rcpvision.emf.components.views.ComposedAdapterFactoryProvider;
@@ -77,8 +77,8 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 		return CompositeLabelProvider.class;
 	}
 
-	public Class<? extends FeatureLabelProvider> bindFeatureLabelProvider() {
-		return FeatureLabelProvider.class;
+	public Class<? extends FormFeatureLabelProvider> bindFormFeatureLabelProvider() {
+		return FormFeatureLabelProvider.class;
 	}
 
 	public Class<? extends ContentOutlineSelectionHandler> bindContentOutlineSelectionHandler() {

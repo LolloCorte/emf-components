@@ -1,7 +1,7 @@
 package it.rcpvision.emf.components.views;
 
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
-import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -42,7 +42,7 @@ public class GenericTableComposite extends Composite {
 
 	private final FormToolkit toolkit = new FormToolkit(Display.getCurrent());
 	private Table table;
-//	private FeatureLabelProvider featureLabelProvider;
+//	private FormFeatureLabelProvider formFeatureLabelProvider;
 //	private Provider<EmfSwtBindingFactory> bindingFactoryProvider;
 //	private Provider<ComposedAdapterFactory> composedAdapterFactoryProvider;
 	private ResourceSet resourceSet;
@@ -52,10 +52,10 @@ public class GenericTableComposite extends Composite {
 	private ObservableListContentProvider cp;
 	private EmfViewerFactory emfViewerFactory;
 
-	public GenericTableComposite(Composite parent, int style, EmfViewerFactory emfViewerFactory, Object content, EClass type) { //FeatureLabelProvider featureLabelProvider, Provider<EmfSwtBindingFactory> bindingFactoryProvider, Provider<ComposedAdapterFactory> composedAdapterFactoryProvider
+	public GenericTableComposite(Composite parent, int style, EmfViewerFactory emfViewerFactory, Object content, EClass type) { //FormFeatureLabelProvider formFeatureLabelProvider, Provider<EmfSwtBindingFactory> bindingFactoryProvider, Provider<ComposedAdapterFactory> composedAdapterFactoryProvider
 		super(parent, style);
 		this.emfViewerFactory=emfViewerFactory;
-//		this.featureLabelProvider = featureLabelProvider;
+//		this.featureLabelProvider = formFeatureLabelProvider;
 //		this.bindingFactoryProvider = bindingFactoryProvider;
 //		this.composedAdapterFactoryProvider = composedAdapterFactoryProvider;
 		addDisposeListener(new DisposeListener() {
@@ -155,7 +155,7 @@ public class GenericTableComposite extends Composite {
 //		adapterFactory = composedAdapterFactoryProvider.get();
 //
 //		formToolkit = new FormToolkit(getParent().getDisplay());
-//		featureLabelProvider.setFormToolkit(formToolkit);
+//		formFeatureLabelProvider.setFormToolkit(formToolkit);
 //
 //		// TODO EditingDomain
 //		EmfSwtBindingFactory factory = bindingFactoryProvider.get();

@@ -21,7 +21,7 @@ import com.google.common.base.Predicate;
  * @author Lorenzo Bettini
  * 
  */
-public class FeatureLabelProvider {
+public class FormFeatureLabelProvider {
 
 	protected FormToolkit formToolkit;
 

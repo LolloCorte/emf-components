@@ -1,7 +1,7 @@
 package it.rcpvision.emf.components.view.masterdetail;
 
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
-import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 import it.rcpvision.emf.components.views.EObjectManager;
 import it.rcpvision.emf.components.views.EmfDetailsFactory;
 import it.rcpvision.emf.components.views.EmfViewerFactory;
@@ -16,14 +16,12 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipse.emf.databinding.IEMFListProperty;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
@@ -82,7 +80,7 @@ public class TableMasterDetailView extends ViewPart implements ISaveablePart, IS
 	private EObject model;
 	
 	@Inject
-	protected Provider<FeatureLabelProvider> featureLabelProviderProvider;
+	protected Provider<FormFeatureLabelProvider> featureLabelProviderProvider;
 
 	@Inject
 	protected Provider<EmfSwtBindingFactory> bindingFactoryProvider;

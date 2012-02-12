@@ -5,9 +5,9 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 
-import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 
-public class TreeMasterDetailFeatLblProvider extends FeatureLabelProvider{
+public class TreeMasterDetailFeatLblProvider extends FormFeatureLabelProvider{
 	
 	/**
 	 * 

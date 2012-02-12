@@ -8,7 +8,7 @@ import it.rcpvision.emf.components.cdoexample.masterdetail.tree.TreeMasterDetail
 import it.rcpvision.emf.components.view.masterdetail.TreeViewConfigurator;
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
-import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
@@ -27,7 +27,7 @@ public class TreeMasterDetailModule extends CDOEmfComponentsModule {
 	}
 	
 	@Override
-	public Class<? extends FeatureLabelProvider> bindFeatureLabelProvider() {
+	public Class<? extends FormFeatureLabelProvider> bindFormFeatureLabelProvider() {
 		return TreeMasterDetailFeatLblProvider.class;
 	}
 	

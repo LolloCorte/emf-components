@@ -7,7 +7,7 @@ import it.rcpvision.emf.components.cdo.CDOEmfComponentsModule;
 import it.rcpvision.emf.components.cdo.CDOSessionManager;
 import it.rcpvision.emf.components.view.masterdetail.ViewConfigurator;
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
-import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
@@ -26,7 +26,7 @@ public class $prefixClassesname$Module extends CDOEmfComponentsModule {
 	}
 	
 	@Override
-	public Class<? extends FeatureLabelProvider> bindFeatureLabelProvider() {
+	public Class<? extends FeatureLabelProvider> bindFormFeatureLabelProvider() {
 		return $prefixClassesname$FeatureLabelProvider.class;
 	}
 	
