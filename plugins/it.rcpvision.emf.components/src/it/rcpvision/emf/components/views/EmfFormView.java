@@ -11,6 +11,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.forms.widgets.FormToolkit;
 
 import com.google.inject.Inject;
 
@@ -38,9 +39,8 @@ public class EmfFormView extends EmfAbstractViewOnSelection {
 	@Override
 	public void createPartControl(Composite parent) {
 		super.createPartControl(parent);
-
-		this.parent = parent;
-		resetView();
+		detailFormComposite = emfDetailsFactory.createDetailsComposite(
+				parent, SWT.BORDER);
 	}
 
 	@Override
@@ -48,23 +48,6 @@ public class EmfFormView extends EmfAbstractViewOnSelection {
 			ISelection selection) {
 		EObject eObject = getFirstSelectedEObject(selection);
 		if (eObject != null) {
-			if (detailFormComposite == null) {
-				resetView();
-
-				Composite composite = new Composite(scrolledComposite,
-						SWT.BORDER);
-				scrolledComposite.setContent(composite);
-				composite.setLayout(new GridLayout(1, false));
-				composite.setLayoutData(new GridData(GridData.FILL_BOTH));
-
-				detailFormComposite = emfDetailsFactory.createDetailsComposite(
-						composite, SWT.BORDER);
-
-				composite.setSize(composite.computeSize(SWT.DEFAULT,
-						SWT.DEFAULT));
-				parent.layout(true, true);
-			}
-
 			detailFormComposite.init(eObject);
 		}
 	}
@@ -79,7 +62,7 @@ public class EmfFormView extends EmfAbstractViewOnSelection {
 	}
 
 	public void setFocus() {
-		scrolledComposite.setFocus();
+		detailFormComposite.setFocus();
 	}
 
 }
