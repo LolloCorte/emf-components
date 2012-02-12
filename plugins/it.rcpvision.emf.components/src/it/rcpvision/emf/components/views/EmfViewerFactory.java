@@ -6,8 +6,6 @@ package it.rcpvision.emf.components.views;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
-import org.eclipse.jface.databinding.viewers.ObservableListContentProvider;
-import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.widgets.Composite;
@@ -54,11 +52,11 @@ public class EmfViewerFactory {
 		update(treeViewer, editingDomain);
 		return treeViewer;
 	}
-	
-	public TableViewer createTableViewer(Composite parent, int style, Object content, EClass type){
+
+	public TableViewer createTableViewer(Composite parent, int style,
+			Object content, EClass type) {
 		TableViewer tableViewer = new TableViewer(parent, style);
-		ObservableListContentProvider contentProvider=new ObservableListContentProvider(); 
-		tableViewerBuilder.buildAndFill(tableViewer, content, type, contentProvider);
+		tableViewerBuilder.buildAndFill(tableViewer, content, type);
 		return tableViewer;
 	}
 
