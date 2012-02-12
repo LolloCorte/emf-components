@@ -44,6 +44,13 @@
             name="Emf Table View"
             restorable="true">
       </view>
+      <view
+            class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.EmfFormView"
+            icon="icon/view.jpg"
+            id="it.rcpvision.emf.components.formview"
+            name="Emf Form View"
+            restorable="true">
+      </view>
    </extension>
    <extension
          point="org.eclipse.pde.ui.pluginContent">

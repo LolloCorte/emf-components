@@ -12,12 +12,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 
 import com.google.inject.Provider;
@@ -78,7 +75,7 @@ public class GenericDetailComposite extends Composite {
 
 				// createLabel(editor.getExtendedReflectiveItemProvider().getTextForFeature(feature));
 
-				final Control contr = factory.create(feature);
+				factory.create(feature);
 
 				// contr.setMenu(menu);
 				// contr.addFocusListener(new FocusAdapter() {
