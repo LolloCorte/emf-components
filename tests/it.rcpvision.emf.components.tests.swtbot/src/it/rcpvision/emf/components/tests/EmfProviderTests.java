@@ -3,7 +3,7 @@ package it.rcpvision.emf.components.tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 import it.rcpvision.emf.components.tests.factories.CustomLibraryExecutableExtensionFactory;
-import it.rcpvision.emf.components.tests.labeling.CustomLibraryFeatureLabelProvider;
+import it.rcpvision.emf.components.tests.labeling.CustomLibraryFormFeatureLabelProvider;
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 
@@ -45,7 +45,7 @@ public class EmfProviderTests extends EmfComponentsAbstractTests {
 	@Test
 	public void testLibraryFeatureLabelProvider() {
 		FormFeatureLabelProvider formFeatureLabelProvider = factory.getInjector()
-				.getInstance(CustomLibraryFeatureLabelProvider.class);
+				.getInstance(CustomLibraryFormFeatureLabelProvider.class);
 		assertLabelForFeature(formFeatureLabelProvider, "First name",
 				EXTLibraryPackage.Literals.PERSON__FIRST_NAME);
 		assertLabelForFeature(formFeatureLabelProvider, "Last name",
@@ -55,7 +55,7 @@ public class EmfProviderTests extends EmfComponentsAbstractTests {
 	@Test
 	public void testLibraryFeatureLabelProviderForLabelWidget() {
 		final FormFeatureLabelProvider formFeatureLabelProvider = factory.getInjector()
-				.getInstance(CustomLibraryFeatureLabelProvider.class);
+				.getInstance(CustomLibraryFormFeatureLabelProvider.class);
 		final SWTBotView view = openTestView(LIBRARY_EMF_VIEW);
 		Display.getDefault().syncExec(new Runnable() {
 			public void run() {

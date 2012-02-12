@@ -14,17 +14,23 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.xtext.util.PolymorphicDispatcher;
 
 import com.google.common.base.Predicate;
+import com.google.inject.Inject;
 
 /**
  * Provides labels for EStructuralFeatures for FormToolkit. With respect to the
  * superclass {@link FeatureLabelProvider} you can also specify the Label,
- * besides its text.
+ * besides its text.  If a custom FeatureLabelProvider is provided (through
+ * injection) then it tries to get the text also from that one, before
+ * using the default text.
  * 
  * @author Lorenzo Bettini
  * 
  */
 public class FormFeatureLabelProvider extends FeatureLabelProvider {
 
+	@Inject
+	protected FeatureLabelProvider delegate;
+	
 	protected FormToolkit formToolkit;
 
 	private PolymorphicDispatcher.ErrorHandler<Label> errorLabelHandler = new PolymorphicDispatcher.NullErrorHandler<Label>();
@@ -40,6 +46,14 @@ public class FormFeatureLabelProvider extends FeatureLabelProvider {
 		Label lab = formToolkit.createLabel(parent, getText(element));
 		lab.setLayoutData(new GridData());
 		return lab;
+	}
+
+	@Override
+	protected String polymorphicGetText(EStructuralFeature element) {
+		String polymorphicGetText = super.polymorphicGetText(element);
+		if (polymorphicGetText == null)
+			return delegate.getText(element);
+		return polymorphicGetText;
 	}
 
 	protected Label polymorphicGetLabel(Composite parent,

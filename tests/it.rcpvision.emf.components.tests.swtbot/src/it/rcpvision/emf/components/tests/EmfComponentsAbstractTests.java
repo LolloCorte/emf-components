@@ -126,6 +126,8 @@ public class EmfComponentsAbstractTests {
 	protected static final String FIRSTNAME_LABEL = "firstName";
 	
 	protected static final String CUSTOM_FIRSTNAME_LABEL = "First name";
+	
+	protected static final String CUSTOM_SURNAME_LABEL = "Last name";
 
 	protected static final String LIBRARY_S_ADDRESS_TEXT = "Library's address";
 

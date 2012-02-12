@@ -157,9 +157,9 @@ public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 		getLibraryWriterNode(rootOfEditorTree).select();
 		formbot.label(ADDRESS_LABEL);
 		formbot.text(WRITER_S_ADDRESS_TEXT);
-		//detailView.close();
+		// detailView.close();
 	}
-	
+
 	@Test
 	public void detailViewShowsCustomDetailsOnSelection() throws Exception {
 		SWTBotView detailView = openTestView(LIBRARY_CUSTOM_DETAIL_VIEW);
@@ -171,8 +171,9 @@ public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 		formbot.label(ADDRESS_LABEL);
 		formbot.text(WRITER_S_ADDRESS_TEXT);
 		formbot.label(CUSTOM_FIRSTNAME_LABEL);
+		formbot.label(CUSTOM_SURNAME_LABEL);
 	}
-	
+
 	@Test
 	public void tableViewShowsTablesOnSelection() throws Exception {
 		SWTBotView tableView = openTestView(EMF_TABLE_VIEW);
@@ -205,8 +206,7 @@ public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 	}
 
 	@Test
-	public void selectionViewOnSelectionOnStatemachine()
-			throws Exception {
+	public void selectionViewOnSelectionOnStatemachine() throws Exception {
 		SWTBotView selectionView = openTestView(LIBRARY_EMF_VIEW);
 		// select on the editor's tree
 		SWTBotTreeItem rootOfEditorTree = getRootOfEditorTree(
