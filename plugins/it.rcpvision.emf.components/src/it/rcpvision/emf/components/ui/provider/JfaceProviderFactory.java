@@ -3,8 +3,6 @@
  */
 package it.rcpvision.emf.components.ui.provider;
 
-import it.rcpvision.emf.components.views.GenericMapCellLabelProvider;
-
 import java.util.Set;
 
 import org.eclipse.core.databinding.observable.map.IMapChangeListener;
@@ -21,6 +19,7 @@ import org.eclipse.jface.util.SafeRunnable;
 import org.eclipse.jface.viewers.CellLabelProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
+import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.LabelProviderChangedEvent;
 
 import com.google.inject.Inject;
@@ -53,7 +52,7 @@ public class JfaceProviderFactory {
 		return createLabelProvider(new AdapterFactoryLabelProvider(composedAdapterFactoryProvider.get()));
 	}
 	
-	public ILabelProvider createLabelProvider( IObservableMap[] observableMaps) {
+	public ILabelProvider createLabelProvider(IObservableMap[] observableMaps) {
 		return createLabelProvider(new ObservableAdapterFactoryLabelProvider(composedAdapterFactoryProvider.get(), observableMaps));
 	}
 	
@@ -65,12 +64,23 @@ public class JfaceProviderFactory {
 		return columnProvider;
 	}
 	
+	public CellLabelProvider createColumnLabelProvider(
+			EStructuralFeature eStructuralFeature,
+			IStructuredContentProvider contentProvider) {
+		if (contentProvider instanceof ObservableListContentProvider) {
+			return createColumnLabelProvider(eStructuralFeature,
+					(ObservableListContentProvider) contentProvider);
+		} else {
+			return createColumnLabelProvider(eStructuralFeature);
+		}
+	}
+	
 	public CellLabelProvider createColumnLabelProvider(EStructuralFeature eStructuralFeature, ObservableListContentProvider cp) {
 		EStructuralFeatureColumnProvider columnProvider = eStructuralFeatureColumnProviderProvider.get();
 		columnProvider.seteStructuralFeature(eStructuralFeature);
 		
 		IObservableMap observableMap= EMFProperties.value(eStructuralFeature).observeDetail(cp.getKnownElements());
-		IObservableMap[] observableMaps=new IObservableMap[]{observableMap};
+		//IObservableMap[] observableMaps=new IObservableMap[]{observableMap};
 		return new AdapterMapCellLabelProvider(observableMap, createLabelProvider());
 		
 	}
@@ -203,5 +213,6 @@ public class JfaceProviderFactory {
 			}
 		}
 	}
+
 
 }

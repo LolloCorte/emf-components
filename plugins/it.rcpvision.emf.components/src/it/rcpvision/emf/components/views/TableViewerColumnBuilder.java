@@ -9,7 +9,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.jface.databinding.viewers.ObservableListContentProvider;
 import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.TableLayout;
@@ -41,7 +40,7 @@ public class TableViewerColumnBuilder {
 			buildTableViewer(tableViewer, eClass);
 		}
 	}
-	
+
 	public void buildTableViewer(TableViewer tableViewer, EClass eClass) {
 		buildTableViewer(tableViewer, eClass, null);
 	}
@@ -50,7 +49,8 @@ public class TableViewerColumnBuilder {
 	 * @param tableViewer
 	 * @param eClass
 	 */
-	public void buildTableViewer(TableViewer tableViewer, EClass eClass, ObservableListContentProvider contentProvider) {
+	public void buildTableViewer(TableViewer tableViewer, EClass eClass,
+			IStructuredContentProvider contentProvider) {
 		final Table table = tableViewer.getTable();
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
@@ -63,27 +63,34 @@ public class TableViewerColumnBuilder {
 		EList<EStructuralFeature> typeFeatures = eClass
 				.getEAllStructuralFeatures();
 		for (EStructuralFeature eStructuralFeature : typeFeatures) {
-			buildTableViewerColumn(tableViewer, layout, eStructuralFeature, contentProvider);
+			buildTableViewerColumn(tableViewer, layout, eStructuralFeature,
+					contentProvider);
 		}
 	}
-	
+
 	private void buildTableViewerColumn(TableViewer tableViewer,
 			TableLayout layout, EStructuralFeature eStructuralFeature,
-			ObservableListContentProvider contentProvider) {
+			IStructuredContentProvider contentProvider) {
 		TableViewerColumn viewerColumn = createTableViewerColumn(tableViewer,
-				eStructuralFeature,contentProvider);
+				eStructuralFeature, contentProvider);
 		TableColumn objectColumn = viewerColumn.getColumn();
 		layout.addColumnData(new ColumnWeightData(3, 100, true));
 		objectColumn.setText(eStructuralFeature.getName());
 		objectColumn.setResizable(true);
 	}
+
 	protected TableViewerColumn createTableViewerColumn(
-			TableViewer tableViewer, EStructuralFeature eStructuralFeature, ObservableListContentProvider contentProvider) {
-		TableViewerColumn tableViewerColumn = new TableViewerColumn(tableViewer, SWT.NONE);
-		if(contentProvider!=null){
-			tableViewerColumn.setLabelProvider(jfaceProviderFactory.createColumnLabelProvider(eStructuralFeature,contentProvider));
-		}else{
-			tableViewerColumn.setLabelProvider(jfaceProviderFactory.createColumnLabelProvider(eStructuralFeature));
+			TableViewer tableViewer, EStructuralFeature eStructuralFeature,
+			IStructuredContentProvider contentProvider) {
+		TableViewerColumn tableViewerColumn = new TableViewerColumn(
+				tableViewer, SWT.NONE);
+		if (contentProvider != null) {
+			tableViewerColumn.setLabelProvider(jfaceProviderFactory
+					.createColumnLabelProvider(eStructuralFeature,
+							contentProvider));
+		} else {
+			tableViewerColumn.setLabelProvider(jfaceProviderFactory
+					.createColumnLabelProvider(eStructuralFeature));
 		}
 		return tableViewerColumn;
 	}
