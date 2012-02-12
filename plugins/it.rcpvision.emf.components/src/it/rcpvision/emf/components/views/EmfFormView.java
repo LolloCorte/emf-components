@@ -32,7 +32,7 @@ public class EmfFormView extends EmfAbstractViewOnSelection {
 
 	protected ScrolledComposite scrolledComposite;
 
-	protected GenericDetailComposite genericComponent;
+	protected FormDetailComposite genericComponent;
 	
 	private Composite main;
 
@@ -55,17 +55,19 @@ public class EmfFormView extends EmfAbstractViewOnSelection {
 		
 		scrolledComposite = new ScrolledComposite(parent, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL);
 //		formToolkit = new FormToolkit(parent.getDisplay());
-		formToolkit.adapt(scrolledComposite);
-		formToolkit.paintBordersFor(scrolledComposite);
+//		formToolkit.adapt(scrolledComposite);
+//		formToolkit.paintBordersFor(scrolledComposite);
 		scrolledComposite.setExpandHorizontal(true);
 		scrolledComposite.setExpandVertical(true);
+		
+		main = new Composite(scrolledComposite, SWT.BORDER);
 		
 //		GridLayout gl_parent = new GridLayout(1, false);
 //		gl_parent.verticalSpacing = 0;
 //		gl_parent.marginHeight = 0;
 //		gl_parent.horizontalSpacing = 0;
 //		parent.setLayout(gl_parent);
-		main = formToolkit.createComposite(scrolledComposite, SWT.BORDER);
+//		main = formToolkit.createComposite(scrolledComposite, SWT.BORDER);
 //		main.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 //		main.setLayout(new GridLayout(1, false));
 //		buttonsComposite = new ButtonsComposite(parent, SWT.NONE);
@@ -98,10 +100,10 @@ public class EmfFormView extends EmfAbstractViewOnSelection {
 				genericComponent.dispose();
 			}
 			
-			genericComponent = emfDetailsFactory.createDetailsComposite(
+			genericComponent = emfDetailsFactory.createFormDetailComposite(
 					main, SWT.NONE);
-			formToolkit.adapt(genericComponent);
-			genericComponent.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+			//formToolkit.adapt(genericComponent);
+			//genericComponent.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 			
 			genericComponent.init(eObject);
 			
@@ -147,8 +149,7 @@ public class EmfFormView extends EmfAbstractViewOnSelection {
 
 	@Override
 	public void setFocus() {
-		// TODO Auto-generated method stub
-		
+		scrolledComposite.setFocus();
 	}
 
 //	private void resetView() {
