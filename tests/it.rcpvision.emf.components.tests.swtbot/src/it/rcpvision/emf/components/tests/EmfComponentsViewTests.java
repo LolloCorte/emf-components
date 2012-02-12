@@ -70,6 +70,8 @@ public class EmfComponentsViewTests extends EmfComponentsAbstractTests {
 	public void testLibraryTestTableView() throws Exception {
 		SWTBotView view = openTestView(LIBRARY_TEST_EMF_TABLE_VIEW);
 		getTableHeader(ADDRESS_LABEL);
+		// the writers table is the third one
+		getTableHeader(2, CUSTOM_FIRSTNAME_LABEL);
 		view.close();
 	}
 

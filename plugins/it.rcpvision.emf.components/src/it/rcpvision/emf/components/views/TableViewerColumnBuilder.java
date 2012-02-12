@@ -3,6 +3,7 @@
  */
 package it.rcpvision.emf.components.views;
 
+import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 import it.rcpvision.emf.components.ui.provider.JfaceProviderFactory;
 
 import org.eclipse.emf.common.util.EList;
@@ -31,6 +32,9 @@ public class TableViewerColumnBuilder {
 
 	@Inject
 	protected JfaceProviderFactory jfaceProviderFactory;
+
+	@Inject
+	protected FeatureLabelProvider featureLabelProvider;
 
 	public void buildTableViewer(TableViewer tableViewer,
 			EStructuralFeature feature) {
@@ -75,7 +79,7 @@ public class TableViewerColumnBuilder {
 				eStructuralFeature, contentProvider);
 		TableColumn objectColumn = viewerColumn.getColumn();
 		layout.addColumnData(new ColumnWeightData(3, 100, true));
-		objectColumn.setText(eStructuralFeature.getName());
+		objectColumn.setText(featureLabelProvider.getText(eStructuralFeature));
 		objectColumn.setResizable(true);
 	}
 
