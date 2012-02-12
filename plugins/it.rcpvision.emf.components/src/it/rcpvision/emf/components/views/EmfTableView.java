@@ -31,7 +31,7 @@ import com.google.inject.Inject;
 public class EmfTableView extends EmfAbstractViewOnSelection {
 
 	@Inject
-	protected TableViewerBuilder tableViewerBuilder;
+	protected EmfViewerFactory emfViewerFactory;
 
 	protected Composite parent;
 
@@ -110,10 +110,8 @@ public class EmfTableView extends EmfAbstractViewOnSelection {
 		Label lblNewLabel = new Label(composite, SWT.NONE);
 		lblNewLabel.setText(label);
 
-		TableViewer tableViewer = new TableViewer(composite, SWT.BORDER
-				| SWT.FULL_SELECTION);
-
-		tableViewerBuilder.buildAndFill(tableViewer, object, eClass);
+		TableViewer tableViewer = emfViewerFactory.createTableViewer(composite,
+				SWT.BORDER | SWT.FULL_SELECTION, object, eClass);
 
 		Table table = tableViewer.getTable();
 		table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
