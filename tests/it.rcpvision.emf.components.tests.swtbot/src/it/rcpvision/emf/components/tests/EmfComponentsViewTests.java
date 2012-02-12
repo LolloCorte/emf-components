@@ -2,6 +2,7 @@ package it.rcpvision.emf.components.tests;
 
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotTable;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -64,6 +65,14 @@ public class EmfComponentsViewTests extends EmfComponentsAbstractTests {
 				LIBRARY_EMF_VIEW).getTreeItem(MY_EXT_LIBRARY_PLATFORM_URI));
 		assertTreeItemImage(item,
 				getImageDescriptorFromLibraryEdit("custom_book.png"));
+		view.close();
+	}
+	
+	@Test
+	public void testLibraryTestTableView() throws Exception {
+		SWTBotView view = openTestView(LIBRARY_TEST_EMF_TABLE_VIEW);
+		SWTBotTable table = bot.table();
+		table.header(ADDRESS_LABEL);
 		view.close();
 	}
 
