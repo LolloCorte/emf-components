@@ -3,6 +3,7 @@
  */
 package it.rcpvision.emf.components.views;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Composite;
@@ -38,11 +39,19 @@ public abstract class EmfAbstractViewOnSelection extends ViewPart {
 		getSite().getWorkbenchWindow().getSelectionService()
 				.addSelectionListener(listener);
 	}
-	
+
 	protected Object getFirstSelectedElement(ISelection selection) {
 		if (selection instanceof IStructuredSelection) {
 			IStructuredSelection ss = (IStructuredSelection) selection;
 			return ss.getFirstElement();
+		}
+		return null;
+	}
+
+	protected EObject getFirstSelectedEObject(ISelection selection) {
+		Object selected = getFirstSelectedElement(selection);
+		if (selected instanceof EObject) {
+			return (EObject) selected;
 		}
 		return null;
 	}

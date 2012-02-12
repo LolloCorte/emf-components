@@ -53,10 +53,8 @@ public class EmfTableView extends EmfAbstractViewOnSelection {
 			ISelection selection) {
 		resetView();
 
-		Object selectedObject = getFirstSelectedElement(selection);
-		if (selectedObject != null && selectedObject instanceof EObject) {
-			EObject eObject = (EObject) selectedObject;
-
+		EObject eObject = getFirstSelectedEObject(selection);
+		if (eObject != null) {
 			Composite composite = new Composite(scrolledComposite, SWT.BORDER);
 			scrolledComposite.setContent(composite);
 			composite.setLayout(new GridLayout(1, false));
