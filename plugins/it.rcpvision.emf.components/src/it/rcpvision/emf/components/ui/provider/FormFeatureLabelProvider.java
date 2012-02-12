@@ -16,17 +16,17 @@ import org.eclipse.xtext.util.PolymorphicDispatcher;
 import com.google.common.base.Predicate;
 
 /**
- * Provides labels for EStructuralFeatures
+ * Provides labels for EStructuralFeatures for FormToolkit. With respect to the
+ * superclass {@link FeatureLabelProvider} you can also specify the Label,
+ * besides its text.
  * 
  * @author Lorenzo Bettini
  * 
  */
-public class FormFeatureLabelProvider {
+public class FormFeatureLabelProvider extends FeatureLabelProvider {
 
 	protected FormToolkit formToolkit;
 
-	private PolymorphicDispatcher.ErrorHandler<String> errorHandler = new PolymorphicDispatcher.NullErrorHandler<String>();
-	
 	private PolymorphicDispatcher.ErrorHandler<Label> errorLabelHandler = new PolymorphicDispatcher.NullErrorHandler<Label>();
 
 	public Label getLabel(Composite parent, EStructuralFeature element) {
@@ -42,37 +42,8 @@ public class FormFeatureLabelProvider {
 		return lab;
 	}
 
-	public String getText(EStructuralFeature element) {
-		String text = polymorphicGetText(element);
-		if (text != null) {
-			return text;
-		}
-		return defaultText(element);
-	}
-
-	private String polymorphicGetText(EStructuralFeature element) {
-		PolymorphicDispatcher<String> dispatcher = new PolymorphicDispatcher<String>(
-				Collections.singletonList(this), getTextPredicate(element),
-				errorHandler) {
-			@Override
-			protected String handleNoSuchMethod(Object... params) {
-				if (PolymorphicDispatcher.NullErrorHandler.class
-						.equals(errorHandler.getClass()))
-					return null;
-				return super.handleNoSuchMethod(params);
-			}
-		};
-
-		return dispatcher.invoke(element);
-	}
-
-	protected Predicate<Method> getTextPredicate(EStructuralFeature feature) {
-		String methodName = "text_" + feature.getEContainingClass().getName()
-				+ "_" + feature.getName();
-		return PolymorphicDispatcher.Predicates.forName(methodName, 1);
-	}
-	
-	private Label polymorphicGetLabel(Composite parent, EStructuralFeature element) {
+	protected Label polymorphicGetLabel(Composite parent,
+			EStructuralFeature element) {
 		PolymorphicDispatcher<Label> dispatcher = new PolymorphicDispatcher<Label>(
 				Collections.singletonList(this), getLabelPredicate(element),
 				errorLabelHandler) {
@@ -92,10 +63,6 @@ public class FormFeatureLabelProvider {
 		String methodName = "label_" + feature.getEContainingClass().getName()
 				+ "_" + feature.getName();
 		return PolymorphicDispatcher.Predicates.forName(methodName, 2);
-	}
-
-	protected String defaultText(EStructuralFeature element) {
-		return element.getName();
 	}
 
 	public FormToolkit getFormToolkit() {
