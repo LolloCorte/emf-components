@@ -31,13 +31,6 @@
             restorable="true">
       </view>
       <view
-            class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.GenericTableViewPart"
-            icon="icon/table.jpg"
-            id="it.rcpvision.emf.components.tableView"
-            name="Emf Table View"
-            restorable="true">
-      </view>
-      <view
             class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.EmfListView"
             icon="icon/view.jpg"
             id="it.rcpvision.emf.components.emflistview"
@@ -47,8 +40,8 @@
       <view
             class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.EmfTableView"
             icon="icon/view.jpg"
-            id="it.rcpvision.emf.components.emftabularview"
-            name="Emf Tabular View"
+            id="it.rcpvision.emf.components.tableview"
+            name="Emf Table View"
             restorable="true">
       </view>
    </extension>

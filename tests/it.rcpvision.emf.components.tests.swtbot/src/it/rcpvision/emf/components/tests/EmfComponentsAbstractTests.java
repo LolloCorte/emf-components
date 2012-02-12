@@ -40,6 +40,7 @@ import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
 import org.eclipse.swtbot.swt.finder.results.WidgetResult;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotMenu;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotTable;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTree;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 import org.eclipse.ui.IActionBars;
@@ -112,11 +113,15 @@ public class EmfComponentsAbstractTests {
 
 	protected static final String EMF_DETAIL_VIEW = "Emf Detail View";
 	
+	protected static final String EMF_TABLE_VIEW = "Emf Table View";
+	
 	protected static final String LIBRARY_TEST_EMF_TABLE_VIEW = "Library Test Table";
 
 	protected static final String WRITER_S_ADDRESS_TEXT = "writer's address";
 
 	protected static final String ADDRESS_LABEL = "address";
+	
+	protected static final String FIRSTNAME_LABEL = "firstName";
 
 	protected static final String LIBRARY_S_ADDRESS_TEXT = "Library's address";
 
@@ -452,6 +457,16 @@ public class EmfComponentsAbstractTests {
 
 	protected void closeLibraryView(String libraryView) {
 		getLibraryView(libraryView).close();
+	}
+
+	protected void getTableHeader(int tableIndex, String tableHeader) {
+		SWTBotTable table = bot.table(tableIndex);
+		table.header(tableHeader);
+	}
+	
+	protected void getTableHeader(String tableHeader) {
+		SWTBotTable table = bot.table();
+		table.header(tableHeader);
 	}
 
 	protected static void assertImageDataIs(ImageData expectedImageData,

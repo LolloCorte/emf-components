@@ -156,6 +156,24 @@ public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 		getLibraryWriterNode(rootOfEditorTree).select();
 		formbot.label(ADDRESS_LABEL);
 		formbot.text(WRITER_S_ADDRESS_TEXT);
+		//detailView.close();
+	}
+	
+	@Test
+	public void tableViewShowsTablesOnSelection() throws Exception {
+		SWTBotView tableView = openTestView(EMF_TABLE_VIEW);
+		// select on the editor's tree
+		SWTBotTreeItem rootOfEditorTree = getRootOfEditorTree(EMF_TREE_EDITOR,
+				MY_EXTLIBRARY, MY_EXT_LIBRARY_PLATFORM_URI);
+		getLibraryWriterNode(rootOfEditorTree).select();
+		getTableHeader(ADDRESS_LABEL);
+		getTableHeader(FIRSTNAME_LABEL);
+		// select on the outline view
+		getLibraryNode(getRootOfOutlineViewTree()).select();
+		getTableHeader(ADDRESS_LABEL);
+		// the writers table is the second one
+		getTableHeader(1, FIRSTNAME_LABEL);
+		tableView.close();
 	}
 
 	@Test
