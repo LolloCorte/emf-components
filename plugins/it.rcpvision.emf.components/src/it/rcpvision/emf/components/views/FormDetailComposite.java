@@ -13,17 +13,22 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.forms.IFormColors;
+import org.eclipse.ui.forms.ManagedForm;
 import org.eclipse.ui.forms.widgets.FormToolkit;
+import org.eclipse.ui.forms.widgets.ScrolledForm;
 
 import com.google.inject.Provider;
 
 public class FormDetailComposite extends Composite {
 
-	private FormToolkit formToolkit;
+	private ManagedForm managedForm;
 
 	private ComposedAdapterFactory adapterFactory;
 
@@ -32,6 +37,11 @@ public class FormDetailComposite extends Composite {
 	protected Provider<EmfSwtBindingFactory> bindingFactoryProvider;
 
 	protected Provider<ComposedAdapterFactory> composedAdapterFactoryProvider;
+	
+	private Composite main;
+	
+	FormToolkit toolkit;
+	
 
 	public FormDetailComposite(Composite parent, int style,
 			FormFeatureLabelProvider formFeatureLabelProvider,
@@ -41,6 +51,28 @@ public class FormDetailComposite extends Composite {
 		this.formFeatureLabelProvider = formFeatureLabelProvider;
 		this.bindingFactoryProvider = bindingFactoryProvider;
 		this.composedAdapterFactoryProvider = composedAdapterFactoryProvider;
+		
+		toolkit = new FormToolkit(parent.getDisplay());
+		ScrolledForm form = new ScrolledForm(parent) {
+			@Override
+			public void reflow(boolean flushCache) {
+				super.reflow(flushCache);
+			}
+		};
+		form.setExpandHorizontal(true);
+		form.setExpandVertical(true);
+		form.setBackground(toolkit.getColors().getBackground());
+		form.setForeground(toolkit.getColors().getColor(IFormColors.TITLE));
+		form.setFont(JFaceResources.getHeaderFont());
+		toolkit.adapt(parent);
+//		managedForm = new ManagedForm(toolkit, form);
+//		managedForm.getForm().setText("Generic Editor");
+//		managedForm.getToolkit().decorateFormHeading(managedForm.getForm().getForm());
+//		managedForm.getForm().getForm().setToolBarVerticalAlignment(SWT.TOP);
+		
+		formFeatureLabelProvider.setFormToolkit(toolkit);
+		
+		main = form.getBody();
 	}
 
 	public void init(EObject model) {
@@ -50,14 +82,14 @@ public class FormDetailComposite extends Composite {
 		Collections.sort(allStructuralFeatures,
 				new EStructuralfeatureComparator());
 
-		adapterFactory = composedAdapterFactoryProvider.get();
+//		main = managedForm.getToolkit().createComposite(this);
+//		main.setLayout(new GridLayout(2, false));
 
-		formToolkit = new FormToolkit(getParent().getDisplay());
-		formFeatureLabelProvider.setFormToolkit(formToolkit);
+		adapterFactory = composedAdapterFactoryProvider.get();
 
 		// TODO EditingDomain
 		EmfSwtBindingFactory factory = bindingFactoryProvider.get();
-		factory.init(adapterFactory, null, model, this, formToolkit);
+		factory.init(adapterFactory, null, model, main, toolkit);
 
 		for (final EStructuralFeature feature : allStructuralFeatures) {
 			// derived, unchangeable, container and containment features
@@ -74,9 +106,12 @@ public class FormDetailComposite extends Composite {
 			}
 		}
 
-		setLayout(new GridLayout(2, false));
-		setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-		formToolkit.paintBordersFor(this);
+//		setLayout(new GridLayout(2, false));
+//		setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+//		formToolkit.paintBordersFor(this);
+		
+//		managedForm.getToolkit().paintBordersFor(main);
+		
 		this.layout();
 		// getParent().pack();
 	}
@@ -84,6 +119,7 @@ public class FormDetailComposite extends Composite {
 	@Override
 	public void dispose() {
 		super.dispose();
+		toolkit.dispose();
 	}
 
 	private final static class EStructuralfeatureComparator implements
