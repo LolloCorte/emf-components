@@ -20,7 +20,7 @@
             class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.EmfTreeView"
             icon="icon/view.jpg"
             id="it.rcpvision.emf.components.emftreeview"
-            name="Emf View"
+            name="Emf Tree View"
             restorable="true">
       </view>
       <view
