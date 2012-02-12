@@ -53,18 +53,30 @@ public class FormDetailComposite extends Composite {
 		this.composedAdapterFactoryProvider = composedAdapterFactoryProvider;
 		
 		toolkit = new FormToolkit(parent.getDisplay());
-		ScrolledForm form = new ScrolledForm(parent) {
-			@Override
-			public void reflow(boolean flushCache) {
-				super.reflow(flushCache);
-			}
-		};
-		form.setExpandHorizontal(true);
-		form.setExpandVertical(true);
-		form.setBackground(toolkit.getColors().getBackground());
-		form.setForeground(toolkit.getColors().getColor(IFormColors.TITLE));
-		form.setFont(JFaceResources.getHeaderFont());
-		toolkit.adapt(parent);
+		
+		toolkit.adapt(this);
+		toolkit.paintBordersFor(this);
+		setLayout(new GridLayout(1, false));
+		
+		ScrolledForm scrldfrmNewScrolledform = toolkit.createScrolledForm(this);
+		scrldfrmNewScrolledform.setText("My Form");
+		scrldfrmNewScrolledform.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		toolkit.paintBordersFor(scrldfrmNewScrolledform);
+		scrldfrmNewScrolledform.getBody().setLayout(new GridLayout(2, false));
+		
+//		ScrolledForm form = new ScrolledForm(parent) {
+//			@Override
+//			public void reflow(boolean flushCache) {
+//				super.reflow(flushCache);
+//			}
+//		};
+//		form.setExpandHorizontal(true);
+//		form.setExpandVertical(true);
+//		form.setBackground(toolkit.getColors().getBackground());
+//		form.setForeground(toolkit.getColors().getColor(IFormColors.TITLE));
+//		form.setFont(JFaceResources.getHeaderFont());
+//		toolkit.adapt(parent);
+
 //		managedForm = new ManagedForm(toolkit, form);
 //		managedForm.getForm().setText("Generic Editor");
 //		managedForm.getToolkit().decorateFormHeading(managedForm.getForm().getForm());
@@ -72,7 +84,7 @@ public class FormDetailComposite extends Composite {
 		
 		formFeatureLabelProvider.setFormToolkit(toolkit);
 		
-		main = form.getBody();
+		main = scrldfrmNewScrolledform.getBody();
 	}
 
 	public void init(EObject model) {
@@ -99,7 +111,7 @@ public class FormDetailComposite extends Composite {
 					&& !(feature instanceof EReference && (((EReference) feature)
 							.isContainment() || ((EReference) feature)
 							.isContainer()))) {
-				formFeatureLabelProvider.getLabel(this, feature);
+				formFeatureLabelProvider.getLabel(main, feature);
 
 				factory.create(feature);
 
@@ -108,7 +120,7 @@ public class FormDetailComposite extends Composite {
 
 //		setLayout(new GridLayout(2, false));
 //		setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-//		formToolkit.paintBordersFor(this);
+		toolkit.paintBordersFor(main);
 		
 //		managedForm.getToolkit().paintBordersFor(main);
 		

@@ -149,7 +149,8 @@ public class EmfFormView extends EmfAbstractViewOnSelection {
 
 	@Override
 	public void setFocus() {
-		//scrolledComposite.setFocus();
+		if (genericComponent != null)
+			genericComponent.setFocus();
 	}
 
 //	private void resetView() {
