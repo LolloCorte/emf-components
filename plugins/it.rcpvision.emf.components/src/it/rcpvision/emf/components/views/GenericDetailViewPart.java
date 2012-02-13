@@ -41,7 +41,7 @@ public class GenericDetailViewPart extends ViewPart implements
 	@Inject
 	protected EObjectManager objectManager;
 
-	protected GenericDetailComposite genericComponent;
+	protected FormDetailComposite genericComponent;
 
 	private boolean modified = false;
 
@@ -94,9 +94,10 @@ public class GenericDetailViewPart extends ViewPart implements
 					genericComponent.dispose();
 				}
 
-				genericComponent = emfDetailsFactory.createDetailsComposite(
+				genericComponent = emfDetailsFactory.createFormDetailComposite(
 						main, SWT.NONE);
 				formToolkit.adapt(genericComponent);
+				// make sure that the form takes all the space
 				genericComponent.setLayoutData(new GridData(SWT.FILL, SWT.FILL,
 						true, true, 1, 1));
 				model.eAdapters().add(new Adapter() {
