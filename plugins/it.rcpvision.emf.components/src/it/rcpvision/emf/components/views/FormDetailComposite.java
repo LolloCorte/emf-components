@@ -3,6 +3,7 @@ package it.rcpvision.emf.components.views;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.JfaceProviderFactory;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -13,6 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -30,18 +32,24 @@ public class FormDetailComposite extends Composite {
 
 	protected Provider<EditingDomainFinder> editingDomainFinderProvider;
 
+	protected Provider<JfaceProviderFactory> jfaceProviderFactoryProvider;
+
 	private Composite main;
 
 	FormToolkit toolkit;
 
+	private ScrolledForm scrolledForm;
+
 	public FormDetailComposite(Composite parent, int style,
 			FormFeatureLabelProvider formFeatureLabelProvider,
 			Provider<EmfSwtBindingFactory> bindingFactoryProvider,
-			Provider<EditingDomainFinder> editingDomainFinderProvider) {
+			Provider<EditingDomainFinder> editingDomainFinderProvider,
+			Provider<JfaceProviderFactory> jfaceProviderFactoryProvider) {
 		super(parent, style);
 		this.formFeatureLabelProvider = formFeatureLabelProvider;
 		this.bindingFactoryProvider = bindingFactoryProvider;
 		this.editingDomainFinderProvider = editingDomainFinderProvider;
+		this.jfaceProviderFactoryProvider = jfaceProviderFactoryProvider;
 
 		toolkit = new FormToolkit(parent.getDisplay());
 
@@ -49,8 +57,7 @@ public class FormDetailComposite extends Composite {
 		toolkit.paintBordersFor(this);
 		setLayout(new GridLayout(1, false));
 
-		ScrolledForm scrolledForm = toolkit.createScrolledForm(this);
-		scrolledForm.setText("My Form");
+		scrolledForm = toolkit.createScrolledForm(this);
 		// make sure that the form takes all the space
 		scrolledForm.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true,
 				1, 1));
@@ -69,9 +76,15 @@ public class FormDetailComposite extends Composite {
 		Collections.sort(allStructuralFeatures,
 				new EStructuralfeatureComparator());
 
+		ILabelProvider labelProvider = jfaceProviderFactoryProvider.get()
+				.createLabelProvider();
+		scrolledForm.setText(labelProvider.getText(model));
+		scrolledForm.setImage(labelProvider.getImage(model));
+
 		EmfSwtBindingFactory factory = bindingFactoryProvider.get();
-		factory.init(editingDomainFinderProvider.get()
-				.getEditingDomainFor(model), model, main, toolkit);
+		factory.init(
+				editingDomainFinderProvider.get().getEditingDomainFor(model),
+				model, main, toolkit);
 
 		for (final EStructuralFeature feature : allStructuralFeatures) {
 			// derived, unchangeable, container and containment features
