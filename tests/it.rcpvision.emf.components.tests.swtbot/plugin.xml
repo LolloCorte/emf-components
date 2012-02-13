@@ -81,7 +81,7 @@
     <extension
           point="org.eclipse.ui.views">
        <view
-             class="it.rcpvision.emf.components.tests.factories.CustomLibraryExecutableExtensionFactory:it.rcpvision.emf.components.views.GenericDetailViewPart"
+             class="it.rcpvision.emf.components.tests.factories.CustomLibraryExecutableExtensionFactory:it.rcpvision.emf.components.views.EmfFormView"
              id="it.rcpvision.emf.components.tests.views.librarydetailviewcustom"
              name="Library Emf Detail View"
              restorable="true">
