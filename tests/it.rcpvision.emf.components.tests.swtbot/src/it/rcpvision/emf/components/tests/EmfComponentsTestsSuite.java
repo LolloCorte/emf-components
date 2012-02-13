@@ -13,6 +13,7 @@ import org.junit.runners.Suite;
 	EmfProviderTests.class,
 	EmfComponentsViewTests.class,
 	EmfComponentsEditorTests.class,
+	EmfComponentsFormTests.class,
 	EmfComponentsWizardsTests.class
 })
 public class EmfComponentsTestsSuite {
