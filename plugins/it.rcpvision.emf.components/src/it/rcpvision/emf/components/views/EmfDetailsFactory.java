@@ -7,7 +7,6 @@ import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.swt.widgets.Composite;
 
 import com.google.inject.Inject;
@@ -26,9 +25,6 @@ public class EmfDetailsFactory {
 	protected Provider<EmfSwtBindingFactory> bindingFactoryProvider;
 
 	@Inject
-	protected Provider<ComposedAdapterFactory> composedAdapterFactoryProvider;
-	
-	@Inject
 	protected Provider<EditingDomainFinder> editingDomainFinderProvider;
 
 	@Inject
@@ -39,15 +35,14 @@ public class EmfDetailsFactory {
 	public GenericDetailComposite createDetailsComposite(Composite parent,
 			int style) {
 		return new GenericDetailComposite(parent, style,
-				featureLabelProviderProvider.get(), bindingFactoryProvider,
-				composedAdapterFactoryProvider);
+				featureLabelProviderProvider.get(), bindingFactoryProvider);
 	}
 
 	public FormDetailComposite createFormDetailComposite(Composite parent,
 			int style) {
 		return new FormDetailComposite(parent, style,
 				featureLabelProviderProvider.get(), bindingFactoryProvider,
-				composedAdapterFactoryProvider, editingDomainFinderProvider);
+				editingDomainFinderProvider);
 	}
 
 }

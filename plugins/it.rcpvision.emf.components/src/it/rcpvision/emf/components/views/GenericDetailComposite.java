@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.forms.widgets.FormToolkit;
@@ -23,24 +22,18 @@ public class GenericDetailComposite extends Composite {
 
 	private FormToolkit formToolkit;
 
-	private ComposedAdapterFactory adapterFactory;
-
 //	private ResourceSet resourceSet;
 
 	protected FormFeatureLabelProvider formFeatureLabelProvider;
 	
 	protected Provider<EmfSwtBindingFactory> bindingFactoryProvider;
 	
-	protected Provider<ComposedAdapterFactory> composedAdapterFactoryProvider;
-	
 	public GenericDetailComposite(Composite parent, int style,
 			FormFeatureLabelProvider formFeatureLabelProvider,
-			Provider<EmfSwtBindingFactory> bindingFactoryProvider,
-			Provider<ComposedAdapterFactory> composedAdapterFactoryProvider) {
+			Provider<EmfSwtBindingFactory> bindingFactoryProvider) {
 		super(parent, style);
 		this.formFeatureLabelProvider = formFeatureLabelProvider;
 		this.bindingFactoryProvider = bindingFactoryProvider;
-		this.composedAdapterFactoryProvider = composedAdapterFactoryProvider;
 	}
 
 	public void init(EObject model) {
@@ -53,15 +46,12 @@ public class GenericDetailComposite extends Composite {
 		Collections.sort(allStructuralFeatures,
 				new EStructuralfeatureComparator());
 
-//		this.resourceSet = rs;
-		adapterFactory = composedAdapterFactoryProvider.get();
-		
 		formToolkit = new FormToolkit(getParent().getDisplay());
 		formFeatureLabelProvider.setFormToolkit(formToolkit);
 
 		// TODO EditingDomain
 		EmfSwtBindingFactory factory = bindingFactoryProvider.get();
-		factory.init(adapterFactory, null, model, this, formToolkit);
+		factory.init(null, model, this, formToolkit);
 
 		for (final EStructuralFeature feature : allStructuralFeatures) {
 			// derived, unchangeable, container and containment features

@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -29,8 +28,6 @@ public class FormDetailComposite extends Composite {
 
 	protected Provider<EmfSwtBindingFactory> bindingFactoryProvider;
 
-	protected Provider<ComposedAdapterFactory> composedAdapterFactoryProvider;
-
 	protected Provider<EditingDomainFinder> editingDomainFinderProvider;
 
 	private Composite main;
@@ -40,12 +37,10 @@ public class FormDetailComposite extends Composite {
 	public FormDetailComposite(Composite parent, int style,
 			FormFeatureLabelProvider formFeatureLabelProvider,
 			Provider<EmfSwtBindingFactory> bindingFactoryProvider,
-			Provider<ComposedAdapterFactory> composedAdapterFactoryProvider,
 			Provider<EditingDomainFinder> editingDomainFinderProvider) {
 		super(parent, style);
 		this.formFeatureLabelProvider = formFeatureLabelProvider;
 		this.bindingFactoryProvider = bindingFactoryProvider;
-		this.composedAdapterFactoryProvider = composedAdapterFactoryProvider;
 		this.editingDomainFinderProvider = editingDomainFinderProvider;
 
 		toolkit = new FormToolkit(parent.getDisplay());
@@ -74,12 +69,8 @@ public class FormDetailComposite extends Composite {
 		Collections.sort(allStructuralFeatures,
 				new EStructuralfeatureComparator());
 
-		ComposedAdapterFactory adapterFactory = composedAdapterFactoryProvider
-				.get();
-
-		// TODO EditingDomain
 		EmfSwtBindingFactory factory = bindingFactoryProvider.get();
-		factory.init(adapterFactory, editingDomainFinderProvider.get()
+		factory.init(editingDomainFinderProvider.get()
 				.getEditingDomainFor(model), model, main, toolkit);
 
 		for (final EStructuralFeature feature : allStructuralFeatures) {

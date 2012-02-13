@@ -84,7 +84,6 @@ public class EmfSwtBindingFactory {
 	private EObject owner;
 	private EditingDomain domain;
 	private EMFDataBindingContext edbc;
-	private AdapterFactory adapterFactory;
 	private ProposalCreator proposalcreator;
 	public static final String EOBJECT_KEY = EcorePackage.Literals.EOBJECT
 			.getName();
@@ -99,10 +98,8 @@ public class EmfSwtBindingFactory {
 		
 	}
 	
-	public void init(AdapterFactory adapterFactory,
-			EditingDomain domain, EObject owner, Composite parent,
+	public void init(EditingDomain domain, EObject owner, Composite parent,
 			FormToolkit toolkit) {
-		this.adapterFactory = adapterFactory;
 		this.edbc = new EMFDataBindingContext();
 		this.domain = domain;
 		this.proposalcreator = new ProposalCreator(domain == null ? owner

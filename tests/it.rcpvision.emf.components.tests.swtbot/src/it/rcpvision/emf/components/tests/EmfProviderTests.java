@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.examples.extlibrary.EXTLibraryFactory;
 import org.eclipse.emf.examples.extlibrary.EXTLibraryPackage;
 import org.eclipse.emf.examples.extlibrary.Writer;
@@ -94,9 +93,7 @@ public class EmfProviderTests extends EmfComponentsAbstractTests {
 					// we need a non-null display and parent so we use
 					// those in the view and in the tree
 					FormToolkit formToolkit = createFormToolkit(view);
-					ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(
-							ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
-					bindingFactory.init(adapterFactory, null, writer,
+					bindingFactory.init(null, writer,
 							createCompositeParent(view), formToolkit);
 					Control control = bindingFactory
 							.create(EXTLibraryPackage.Literals.WRITER__NAME);
