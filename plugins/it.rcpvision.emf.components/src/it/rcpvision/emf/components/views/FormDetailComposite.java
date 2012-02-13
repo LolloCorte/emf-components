@@ -13,14 +13,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.ui.forms.IFormColors;
-import org.eclipse.ui.forms.ManagedForm;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 
@@ -28,20 +24,15 @@ import com.google.inject.Provider;
 
 public class FormDetailComposite extends Composite {
 
-	private ManagedForm managedForm;
-
-	private ComposedAdapterFactory adapterFactory;
-
 	protected FormFeatureLabelProvider formFeatureLabelProvider;
 
 	protected Provider<EmfSwtBindingFactory> bindingFactoryProvider;
 
 	protected Provider<ComposedAdapterFactory> composedAdapterFactoryProvider;
-	
+
 	private Composite main;
-	
+
 	FormToolkit toolkit;
-	
 
 	public FormDetailComposite(Composite parent, int style,
 			FormFeatureLabelProvider formFeatureLabelProvider,
@@ -51,40 +42,24 @@ public class FormDetailComposite extends Composite {
 		this.formFeatureLabelProvider = formFeatureLabelProvider;
 		this.bindingFactoryProvider = bindingFactoryProvider;
 		this.composedAdapterFactoryProvider = composedAdapterFactoryProvider;
-		
+
 		toolkit = new FormToolkit(parent.getDisplay());
-		
+
 		toolkit.adapt(this);
 		toolkit.paintBordersFor(this);
 		setLayout(new GridLayout(1, false));
-		
-		ScrolledForm scrldfrmNewScrolledform = toolkit.createScrolledForm(this);
-		scrldfrmNewScrolledform.setText("My Form");
-		scrldfrmNewScrolledform.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
-		toolkit.paintBordersFor(scrldfrmNewScrolledform);
-		scrldfrmNewScrolledform.getBody().setLayout(new GridLayout(2, false));
-		
-//		ScrolledForm form = new ScrolledForm(parent) {
-//			@Override
-//			public void reflow(boolean flushCache) {
-//				super.reflow(flushCache);
-//			}
-//		};
-//		form.setExpandHorizontal(true);
-//		form.setExpandVertical(true);
-//		form.setBackground(toolkit.getColors().getBackground());
-//		form.setForeground(toolkit.getColors().getColor(IFormColors.TITLE));
-//		form.setFont(JFaceResources.getHeaderFont());
-//		toolkit.adapt(parent);
 
-//		managedForm = new ManagedForm(toolkit, form);
-//		managedForm.getForm().setText("Generic Editor");
-//		managedForm.getToolkit().decorateFormHeading(managedForm.getForm().getForm());
-//		managedForm.getForm().getForm().setToolBarVerticalAlignment(SWT.TOP);
-		
+		ScrolledForm scrolledForm = toolkit.createScrolledForm(this);
+		scrolledForm.setText("My Form");
+		// make sure that the form takes all the space
+		scrolledForm.setLayoutData(new GridData(SWT.FILL, SWT.FILL,
+				true, true, 1, 1));
+		toolkit.paintBordersFor(scrolledForm);
+		scrolledForm.getBody().setLayout(new GridLayout(2, false));
+
 		formFeatureLabelProvider.setFormToolkit(toolkit);
-		
-		main = scrldfrmNewScrolledform.getBody();
+
+		main = scrolledForm.getBody();
 	}
 
 	public void init(EObject model) {
@@ -94,10 +69,7 @@ public class FormDetailComposite extends Composite {
 		Collections.sort(allStructuralFeatures,
 				new EStructuralfeatureComparator());
 
-//		main = managedForm.getToolkit().createComposite(this);
-//		main.setLayout(new GridLayout(2, false));
-
-		adapterFactory = composedAdapterFactoryProvider.get();
+		ComposedAdapterFactory adapterFactory = composedAdapterFactoryProvider.get();
 
 		// TODO EditingDomain
 		EmfSwtBindingFactory factory = bindingFactoryProvider.get();
@@ -118,14 +90,9 @@ public class FormDetailComposite extends Composite {
 			}
 		}
 
-//		setLayout(new GridLayout(2, false));
-//		setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		toolkit.paintBordersFor(main);
-		
-//		managedForm.getToolkit().paintBordersFor(main);
-		
+
 		this.layout();
-		// getParent().pack();
 	}
 
 	@Override
@@ -140,10 +107,6 @@ public class FormDetailComposite extends Composite {
 			return nullSafe(o1).compareTo(nullSafe(o2));
 		}
 
-		/**
-		 * @param o1
-		 * @return
-		 */
 		private String nullSafe(EStructuralFeature o) {
 			String name = o.getName();
 			return name != null ? name : "";

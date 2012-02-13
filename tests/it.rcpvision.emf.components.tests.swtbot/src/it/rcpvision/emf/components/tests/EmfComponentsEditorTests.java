@@ -172,6 +172,10 @@ public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 		formbot.text(WRITER_S_ADDRESS_TEXT);
 		formbot.label(CUSTOM_FIRSTNAME_LABEL);
 		formbot.label(CUSTOM_SURNAME_LABEL);
+		// select on the outline view
+		getLibraryNode(getRootOfOutlineViewTree()).select();
+		formbot.label(ADDRESS_LABEL);
+		formbot.text(LIBRARY_S_ADDRESS_TEXT);
 	}
 
 	@Test
