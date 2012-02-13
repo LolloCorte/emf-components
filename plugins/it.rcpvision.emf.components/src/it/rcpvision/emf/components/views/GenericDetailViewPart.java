@@ -79,7 +79,7 @@ public class GenericDetailViewPart extends ViewPart implements
 
 		});
 
-		getSite().getPage().addSelectionListener((ISelectionListener) this);
+		getSite().getPage().addSelectionListener(this);
 
 	}
 
@@ -132,6 +132,12 @@ public class GenericDetailViewPart extends ViewPart implements
 				main.layout(true);
 			}
 		}
+	}
+
+	@Override
+	public void dispose() {
+		super.dispose();
+		getSite().getPage().removeSelectionListener(this);
 	}
 
 	@Override
