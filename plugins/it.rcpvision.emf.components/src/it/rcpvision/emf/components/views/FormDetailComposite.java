@@ -1,5 +1,6 @@
 package it.rcpvision.emf.components.views;
 
+import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 
@@ -30,6 +31,8 @@ public class FormDetailComposite extends Composite {
 
 	protected Provider<ComposedAdapterFactory> composedAdapterFactoryProvider;
 
+	protected Provider<EditingDomainFinder> editingDomainFinderProvider;
+
 	private Composite main;
 
 	FormToolkit toolkit;
@@ -37,11 +40,13 @@ public class FormDetailComposite extends Composite {
 	public FormDetailComposite(Composite parent, int style,
 			FormFeatureLabelProvider formFeatureLabelProvider,
 			Provider<EmfSwtBindingFactory> bindingFactoryProvider,
-			Provider<ComposedAdapterFactory> composedAdapterFactoryProvider) {
+			Provider<ComposedAdapterFactory> composedAdapterFactoryProvider,
+			Provider<EditingDomainFinder> editingDomainFinderProvider) {
 		super(parent, style);
 		this.formFeatureLabelProvider = formFeatureLabelProvider;
 		this.bindingFactoryProvider = bindingFactoryProvider;
 		this.composedAdapterFactoryProvider = composedAdapterFactoryProvider;
+		this.editingDomainFinderProvider = editingDomainFinderProvider;
 
 		toolkit = new FormToolkit(parent.getDisplay());
 
@@ -52,8 +57,8 @@ public class FormDetailComposite extends Composite {
 		ScrolledForm scrolledForm = toolkit.createScrolledForm(this);
 		scrolledForm.setText("My Form");
 		// make sure that the form takes all the space
-		scrolledForm.setLayoutData(new GridData(SWT.FILL, SWT.FILL,
-				true, true, 1, 1));
+		scrolledForm.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true,
+				1, 1));
 		toolkit.paintBordersFor(scrolledForm);
 		scrolledForm.getBody().setLayout(new GridLayout(2, false));
 
@@ -69,11 +74,13 @@ public class FormDetailComposite extends Composite {
 		Collections.sort(allStructuralFeatures,
 				new EStructuralfeatureComparator());
 
-		ComposedAdapterFactory adapterFactory = composedAdapterFactoryProvider.get();
+		ComposedAdapterFactory adapterFactory = composedAdapterFactoryProvider
+				.get();
 
 		// TODO EditingDomain
 		EmfSwtBindingFactory factory = bindingFactoryProvider.get();
-		factory.init(adapterFactory, null, model, main, toolkit);
+		factory.init(adapterFactory, editingDomainFinderProvider.get()
+				.getEditingDomainFor(model), model, main, toolkit);
 
 		for (final EStructuralFeature feature : allStructuralFeatures) {
 			// derived, unchangeable, container and containment features

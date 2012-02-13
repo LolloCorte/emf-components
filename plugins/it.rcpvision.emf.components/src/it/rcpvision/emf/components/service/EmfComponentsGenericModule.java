@@ -3,6 +3,7 @@
  */
 package it.rcpvision.emf.components.service;
 
+import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.handlers.ContentOutlineSelectionHandler;
 import it.rcpvision.emf.components.listeners.EmfViewerMouseAdapter;
 import it.rcpvision.emf.components.listeners.ResourceDeltaVisitor;
@@ -81,7 +82,7 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 	public Class<? extends FeatureLabelProvider> bindFeatureLabelProvider() {
 		return FeatureLabelProvider.class;
 	}
-	
+
 	public Class<? extends FormFeatureLabelProvider> bindFormFeatureLabelProvider() {
 		return FormFeatureLabelProvider.class;
 	}
@@ -145,9 +146,12 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 	public Class<? extends TableViewerColumnBuilder> bindTableViewerColumnBuilder() {
 		return TableViewerColumnBuilder.class;
 	}
-	
-	public Class<? extends TreeActionBarContributor> bindActionBarContributor(){
+
+	public Class<? extends TreeActionBarContributor> bindActionBarContributor() {
 		return TreeActionBarContributor.class;
 	}
-	
+
+	public Class<? extends EditingDomainFinder> bindEditingDomainFinder() {
+		return EditingDomainFinder.class;
+	}
 }

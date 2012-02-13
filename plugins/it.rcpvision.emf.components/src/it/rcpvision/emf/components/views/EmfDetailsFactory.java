@@ -3,6 +3,7 @@
  */
 package it.rcpvision.emf.components.views;
 
+import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 
@@ -26,6 +27,9 @@ public class EmfDetailsFactory {
 
 	@Inject
 	protected Provider<ComposedAdapterFactory> composedAdapterFactoryProvider;
+	
+	@Inject
+	protected Provider<EditingDomainFinder> editingDomainFinderProvider;
 
 	@Inject
 	public EmfDetailsFactory() {
@@ -43,7 +47,7 @@ public class EmfDetailsFactory {
 			int style) {
 		return new FormDetailComposite(parent, style,
 				featureLabelProviderProvider.get(), bindingFactoryProvider,
-				composedAdapterFactoryProvider);
+				composedAdapterFactoryProvider, editingDomainFinderProvider);
 	}
 
 }
