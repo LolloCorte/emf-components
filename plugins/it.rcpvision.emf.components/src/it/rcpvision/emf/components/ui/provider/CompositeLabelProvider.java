@@ -3,6 +3,7 @@
  */
 package it.rcpvision.emf.components.ui.provider;
 
+import org.eclipse.emf.ecore.util.FeatureMap.Entry;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
@@ -17,7 +18,7 @@ import com.google.inject.Inject;
  * 
  */
 public class CompositeLabelProvider implements ILabelProvider {
-	
+
 	@Inject
 	private IImageHelper imageHelper;
 
@@ -50,11 +51,13 @@ public class CompositeLabelProvider implements ILabelProvider {
 		}
 		return getDelegateImage(element);
 	}
-	
+
 	/**
 	 * @param imageDescription
-	 *            a {@link String}, an {@link ImageDescriptor} or an {@link Image}
-	 * @return the {@link Image} associated with the description or <code>null</code>
+	 *            a {@link String}, an {@link ImageDescriptor} or an
+	 *            {@link Image}
+	 * @return the {@link Image} associated with the description or
+	 *         <code>null</code>
 	 */
 	protected Image convertToImage(Object imageDescription) {
 		if (imageDescription instanceof Image) {
@@ -101,5 +104,23 @@ public class CompositeLabelProvider implements ILabelProvider {
 
 	public Object image(Object element) {
 		return null;
+	}
+
+	/**
+	 * Custom implementation for {@link Entry} that uses the entry.getValue()
+	 * @param entry
+	 * @return
+	 */
+	public String text(Entry entry) {
+		return getText(entry.getValue());
+	}
+
+	/**
+	 * Custom implementation for {@link Entry} that uses the entry.getValue()
+	 * @param entry
+	 * @return
+	 */
+	public Object image(Entry entry) {
+		return getImage(entry.getValue());
 	}
 }
