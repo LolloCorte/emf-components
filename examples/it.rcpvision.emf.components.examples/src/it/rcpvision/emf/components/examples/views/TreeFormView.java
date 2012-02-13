@@ -9,12 +9,15 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.jface.layout.GridDataFactory;
+import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.SashForm;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchPart;
@@ -56,8 +59,13 @@ public class TreeFormView extends EmfAbstractViewOnSelection {
 	@Override
 	public void createPartControl(Composite parent) {
 		super.createPartControl(parent);
-		pagebook = new PageBook(parent, SWT.NONE);
-		detail = new Composite(parent, SWT.BORDER);
+		
+		SashForm sashForm = new SashForm(parent, SWT.VERTICAL);
+		GridLayoutFactory.fillDefaults().applyTo(sashForm);
+		GridDataFactory.fillDefaults().grab(true, true).applyTo(sashForm);
+		
+		pagebook = new PageBook(sashForm, SWT.BORDER);
+		detail = new Composite(sashForm, SWT.BORDER);
 		detail.setLayout(new FillLayout());
 		treeViewer = createViewer(pagebook);
 		treeViewer.addSelectionChangedListener(new SelectionChangedListener());
