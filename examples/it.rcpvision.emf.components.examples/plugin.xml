@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+         <view
+            class="it.rcpvision.emf.components.examples.EmfComponentsExamplesExecutableExtensionFactory:it.rcpvision.emf.components.examples.views.TreeFormView"
+            id="it.rcpvision.emf.components.examples.treeformview"
+            name="Emf Tree Form View"
+            restorable="true">
+      </view>
+   </extension>
+
+</plugin>
