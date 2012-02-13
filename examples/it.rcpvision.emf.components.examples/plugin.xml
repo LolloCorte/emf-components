@@ -9,6 +9,12 @@
             name="Emf Tree Form View"
             restorable="true">
       </view>
+         <view
+               class="it.rcpvision.emf.components.examples.EmfComponentsExamplesExecutableExtensionFactory:it.rcpvision.emf.components.examples.views.ResourceTreeFormView"
+               id="it.rcpvision.emf.components.examples.resourcetreeformview"
+               name="Resource Tree Form View"
+               restorable="true">
+         </view>
    </extension>
 
 </plugin>
