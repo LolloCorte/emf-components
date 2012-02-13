@@ -153,6 +153,10 @@ public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 		getLibraryNode(getRootOfOutlineViewTree()).select();
 		formbot.label(ADDRESS_LABEL);
 		formbot.text(LIBRARY_S_ADDRESS_TEXT);
+		// the label for 'people'
+		formbot.label(PEOPLE_LABEL);
+		// the inner label listing all the people, before the button "..."
+		formbot.label(PEOPLE_TEXT);
 		// now select again on the editor's tree
 		getLibraryWriterNode(rootOfEditorTree).select();
 		formbot.label(ADDRESS_LABEL);
@@ -176,6 +180,10 @@ public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 		getLibraryNode(getRootOfOutlineViewTree()).select();
 		formbot.label(ADDRESS_LABEL);
 		formbot.text(LIBRARY_S_ADDRESS_TEXT);
+		// the label for 'people'
+		formbot.label(PEOPLE_LABEL);
+		// the inner label listing all the people, before the button "..."
+		formbot.label(CUSTOM_PEOPLE_TEXT);
 	}
 
 	@Test

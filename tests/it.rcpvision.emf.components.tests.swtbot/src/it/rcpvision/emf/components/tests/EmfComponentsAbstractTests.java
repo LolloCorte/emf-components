@@ -63,6 +63,10 @@ public class EmfComponentsAbstractTests {
 
 	protected static final String WRITER_LABEL = "Writer Lorenzo Bettini";
 
+	protected static final String BORROWER_LABEL = "Borrower Bar";
+	
+	protected static final String CUSTOM_BORROWER_LABEL = "Borrower: Foo";
+
 	protected static final String BOOK_LABEL = "Book Lorenzo's Book";
 
 	protected static final String LIBRARY_LABEL = "Library My Library";
@@ -112,24 +116,32 @@ public class EmfComponentsAbstractTests {
 	protected static final String LIBRARY_EMF_VIEW_CUSTOM_LABEL = "LibraryEmfView Custom Label";
 
 	protected static final String EMF_DETAIL_VIEW = "Emf Detail View";
-	
+
 	protected static final String LIBRARY_CUSTOM_DETAIL_VIEW = "Library Emf Detail View";
-	
+
 	protected static final String EMF_TABLE_VIEW = "Emf Table View";
-	
+
 	protected static final String LIBRARY_TEST_EMF_TABLE_VIEW = "Library Test Table";
 
 	protected static final String WRITER_S_ADDRESS_TEXT = "writer's address";
 
 	protected static final String ADDRESS_LABEL = "address";
-	
+
 	protected static final String FIRSTNAME_LABEL = "firstName";
-	
+
 	protected static final String CUSTOM_FIRSTNAME_LABEL = "First name";
-	
+
 	protected static final String CUSTOM_SURNAME_LABEL = "Last name";
 
 	protected static final String LIBRARY_S_ADDRESS_TEXT = "Library's address";
+
+	protected static final String PEOPLE_LABEL = "people";
+	
+	protected static final String PEOPLE_TEXT = WRITER_LABEL + ", "
+			+ BORROWER_LABEL;
+	
+	protected static final String CUSTOM_PEOPLE_TEXT = WRITER_LABEL + ", "
+			+ CUSTOM_BORROWER_LABEL;
 
 	protected static SWTWorkbenchBot bot;
 
@@ -452,7 +464,7 @@ public class EmfComponentsAbstractTests {
 		bot.button("OK").click();
 		return getLibraryView(libraryView);
 	}
-	
+
 	protected void undo(String undoText) {
 		bot.menu("Edit").menu("Undo " + undoText).click();
 	}
@@ -469,7 +481,7 @@ public class EmfComponentsAbstractTests {
 		SWTBotTable table = bot.table(tableIndex);
 		table.header(tableHeader);
 	}
-	
+
 	protected void getTableHeader(String tableHeader) {
 		SWTBotTable table = bot.table();
 		table.header(tableHeader);

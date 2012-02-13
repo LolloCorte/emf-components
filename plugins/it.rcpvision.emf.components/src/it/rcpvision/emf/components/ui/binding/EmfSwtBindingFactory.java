@@ -19,6 +19,7 @@ import it.rcpvision.emf.components.EmfComponentsActivator;
 import it.rcpvision.emf.components.old.ui.ProposalCreator;
 import it.rcpvision.emf.components.old.ui.binding.MultipleFeatureControl;
 import it.rcpvision.emf.components.old.ui.binding.MultipleFeatureControlObservable;
+import it.rcpvision.emf.components.ui.provider.JfaceProviderFactory;
 
 import java.lang.reflect.Method;
 import java.util.Collections;
@@ -63,15 +64,20 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.xtext.util.PolymorphicDispatcher;
 
 import com.google.common.base.Predicate;
+import com.google.inject.Inject;
 
 /**
  * 
  * Creates Control for an {@link EStructuralFeature}
  * 
- * @author Dennis Huebner
+ * @author Dennis Huebner initial code
+ * @author Lorenzo Bettini refactoring for EmfComponents
  * 
  */
 public class EmfSwtBindingFactory {
+	@Inject
+	protected JfaceProviderFactory jfaceProviderFactory;
+	
 	private Composite parent = null;
 
 	private FormToolkit toolkit = null;
@@ -140,7 +146,7 @@ public class EmfSwtBindingFactory {
 	protected ControlObservablePair createControlForList(
 			final EStructuralFeature feature) {
 		MultipleFeatureControl mfc = new MultipleFeatureControl(parent,
-				toolkit, new AdapterFactoryLabelProvider(adapterFactory),
+				toolkit, jfaceProviderFactory.createLabelProvider(),
 				owner, feature, proposalcreator);
 		IObservableValue target = new MultipleFeatureControlObservable(mfc);
 		ControlObservablePair retValAndTargetPair = new ControlObservablePair(mfc, target);
@@ -223,7 +229,7 @@ public class EmfSwtBindingFactory {
 		ComboViewer combo = new ComboViewer(parent, SWT.READ_ONLY);
 		toolkit.adapt(combo.getCombo());
 		combo.setContentProvider(new ArrayContentProvider());
-		combo.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+		combo.setLabelProvider(jfaceProviderFactory.createLabelProvider());
 		combo.setInput(proposals);
 		ControlObservablePair retValAndTargetPair = new ControlObservablePair();
 		retValAndTargetPair.setControl(combo.getCombo());
