@@ -149,7 +149,7 @@ public class GenericTableComposite extends Composite {
 //
 //		EClass eClass = model.eClass();
 //		EList<EStructuralFeature> allStructuralFeatures = new BasicEList<EStructuralFeature>(eClass.getEAllStructuralFeatures());
-//		Collections.sort(allStructuralFeatures, new EStructuralfeatureComparator());
+//		Collections.sort(allStructuralFeatures, new EStructuralFeatureNameComparator());
 //
 //		this.resourceSet = rs;
 //		adapterFactory = composedAdapterFactoryProvider.get();

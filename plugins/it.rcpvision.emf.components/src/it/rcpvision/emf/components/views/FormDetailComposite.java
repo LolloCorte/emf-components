@@ -2,14 +2,12 @@ package it.rcpvision.emf.components.views;
 
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
+import it.rcpvision.emf.components.ui.provider.EClassFeatureProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 import it.rcpvision.emf.components.ui.provider.JfaceProviderFactory;
 
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.List;
 
-import org.eclipse.emf.common.util.BasicEList;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -34,6 +32,8 @@ public class FormDetailComposite extends Composite {
 
 	protected Provider<JfaceProviderFactory> jfaceProviderFactoryProvider;
 
+	protected Provider<EClassFeatureProvider> eClassFeatureProviderProvider;
+
 	private Composite main;
 
 	FormToolkit toolkit;
@@ -44,12 +44,14 @@ public class FormDetailComposite extends Composite {
 			FormFeatureLabelProvider formFeatureLabelProvider,
 			Provider<EmfSwtBindingFactory> bindingFactoryProvider,
 			Provider<EditingDomainFinder> editingDomainFinderProvider,
-			Provider<JfaceProviderFactory> jfaceProviderFactoryProvider) {
+			Provider<JfaceProviderFactory> jfaceProviderFactoryProvider,
+			Provider<EClassFeatureProvider> eClassFeatureProviderProvider) {
 		super(parent, style);
 		this.formFeatureLabelProvider = formFeatureLabelProvider;
 		this.bindingFactoryProvider = bindingFactoryProvider;
 		this.editingDomainFinderProvider = editingDomainFinderProvider;
 		this.jfaceProviderFactoryProvider = jfaceProviderFactoryProvider;
+		this.eClassFeatureProviderProvider = eClassFeatureProviderProvider;
 
 		toolkit = new FormToolkit(parent.getDisplay());
 
@@ -71,10 +73,8 @@ public class FormDetailComposite extends Composite {
 
 	public void init(EObject model) {
 		EClass eClass = model.eClass();
-		EList<EStructuralFeature> allStructuralFeatures = new BasicEList<EStructuralFeature>(
-				eClass.getEAllStructuralFeatures());
-		Collections.sort(allStructuralFeatures,
-				new EStructuralfeatureComparator());
+		List<EStructuralFeature> features = eClassFeatureProviderProvider.get()
+				.getFeatures(eClass);
 
 		ILabelProvider labelProvider = jfaceProviderFactoryProvider.get()
 				.createLabelProvider();
@@ -86,7 +86,7 @@ public class FormDetailComposite extends Composite {
 				editingDomainFinderProvider.get().getEditingDomainFor(model),
 				model, main, toolkit);
 
-		for (final EStructuralFeature feature : allStructuralFeatures) {
+		for (final EStructuralFeature feature : features) {
 			// derived, unchangeable, container and containment features
 			// ignored
 			if (feature.isChangeable()
@@ -110,18 +110,6 @@ public class FormDetailComposite extends Composite {
 	public void dispose() {
 		super.dispose();
 		toolkit.dispose();
-	}
-
-	private final static class EStructuralfeatureComparator implements
-			Comparator<EStructuralFeature> {
-		public int compare(EStructuralFeature o1, EStructuralFeature o2) {
-			return nullSafe(o1).compareTo(nullSafe(o2));
-		}
-
-		private String nullSafe(EStructuralFeature o) {
-			String name = o.getName();
-			return name != null ? name : "";
-		}
 	}
 
 }

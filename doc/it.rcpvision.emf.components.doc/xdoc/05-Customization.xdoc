@@ -1,0 +1,33 @@
+chapter:Customization[Customization]
+
+section:Providers[Providers]
+
+section2[EClass' EStructuralFeatures]
+
+When the framework builds components according to the
+codeRef[org.eclipse.emf.ecore.EStructuralFeature]s of a given
+codeRef[org.eclipse.emf.ecore.EClass] it relies on an injected
+codeRef[it.rcpvision.emf.components.ui.provider.EClassFeatureProvider].
+The default behavior is to simply return all the features of the a given EClass,
+in the order they are defined in the EClass;
+you may want to provide a custom implementation by redefining
+the method code[List<EStructuralFeature> getFeatures(EClass eClass)],
+for instance by returning the features ordered according to their name
+(the following snippet uses an utility class from the framework)
+
+code[Java][
+public class OrderedEClassFeatureProvider 
+	extends EClassFeatureProvider {
+
+	@Inject
+	EStructuralFeatureNameComparator comparator;
+	
+	@Override
+	public List<EStructuralFeature> getFeatures(EClass eClass) {
+		List<EStructuralFeature> features = super.getFeatures(eClass);
+		Collections.sort(features, 
+			new EStructuralFeatureNameComparator());
+		return features;
+	}
+}
+]

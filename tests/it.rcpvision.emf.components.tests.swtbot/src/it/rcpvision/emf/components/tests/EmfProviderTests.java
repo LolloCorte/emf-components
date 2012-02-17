@@ -4,10 +4,14 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 import it.rcpvision.emf.components.tests.factories.CustomLibraryExecutableExtensionFactory;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryFormFeatureLabelProvider;
+import it.rcpvision.emf.components.tests.providers.OrderedEClassFeatureProvider;
+import it.rcpvision.emf.components.tests.utils.EmfComponentsTestsUtils;
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
+import it.rcpvision.emf.components.ui.provider.EClassFeatureProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -36,6 +40,8 @@ public class EmfProviderTests extends EmfComponentsAbstractTests {
 
 	protected static CustomLibraryExecutableExtensionFactory factory;
 
+	protected EmfComponentsTestsUtils utils = new EmfComponentsTestsUtils();
+
 	@BeforeClass
 	public static void initializeFactory() {
 		factory = new CustomLibraryExecutableExtensionFactory();
@@ -43,8 +49,9 @@ public class EmfProviderTests extends EmfComponentsAbstractTests {
 
 	@Test
 	public void testLibraryFeatureLabelProvider() {
-		FormFeatureLabelProvider formFeatureLabelProvider = factory.getInjector()
-				.getInstance(CustomLibraryFormFeatureLabelProvider.class);
+		FormFeatureLabelProvider formFeatureLabelProvider = factory
+				.getInjector().getInstance(
+						CustomLibraryFormFeatureLabelProvider.class);
 		assertLabelForFeature(formFeatureLabelProvider, "First name",
 				EXTLibraryPackage.Literals.PERSON__FIRST_NAME);
 		assertLabelForFeature(formFeatureLabelProvider, "Last name",
@@ -53,8 +60,9 @@ public class EmfProviderTests extends EmfComponentsAbstractTests {
 
 	@Test
 	public void testLibraryFeatureLabelProviderForLabelWidget() {
-		final FormFeatureLabelProvider formFeatureLabelProvider = factory.getInjector()
-				.getInstance(CustomLibraryFormFeatureLabelProvider.class);
+		final FormFeatureLabelProvider formFeatureLabelProvider = factory
+				.getInjector().getInstance(
+						CustomLibraryFormFeatureLabelProvider.class);
 		final SWTBotView view = openTestView(LIBRARY_EMF_VIEW);
 		Display.getDefault().syncExec(new Runnable() {
 			public void run() {
@@ -106,6 +114,34 @@ public class EmfProviderTests extends EmfComponentsAbstractTests {
 			}
 		});
 		closeLibraryView(LIBRARY_EMF_VIEW);
+	}
+
+	@Test
+	public void testEClassFeatureProviderGetAllFeatures() {
+		EClass test = EXTLibraryPackage.Literals.LIBRARY;
+		assertFeatureNames(test.getEAllStructuralFeatures(), factory.getInjector()
+				.getInstance(EClassFeatureProvider.class).getFeatures(test));
+	}
+
+	@Test
+	public void testEClassFeatureProviderOrdered() {
+		EClass test = EXTLibraryPackage.Literals.LIBRARY;
+		assertFeatureNames(
+				"address, books, borrowers, branches, employees, name, parentBranch, people, stock, writers",
+				factory.getInjector()
+						.getInstance(OrderedEClassFeatureProvider.class)
+						.getFeatures(test));
+	}
+
+	protected void assertFeatureNames(Iterable<EStructuralFeature> expected,
+			Iterable<EStructuralFeature> actual) {
+		assertEquals(utils.toStringNameBased(expected),
+				utils.toStringNameBased(actual));
+	}
+
+	protected void assertFeatureNames(String expected,
+			Iterable<EStructuralFeature> actual) {
+		assertEquals(expected, utils.toStringNameBased(actual));
 	}
 
 	protected void assertLabelForFeature(

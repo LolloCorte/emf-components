@@ -5,6 +5,7 @@ package it.rcpvision.emf.components.views;
 
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
+import it.rcpvision.emf.components.ui.provider.EClassFeatureProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 import it.rcpvision.emf.components.ui.provider.JfaceProviderFactory;
 
@@ -30,6 +31,9 @@ public class EmfDetailsFactory {
 	
 	@Inject
 	protected Provider<JfaceProviderFactory> jfaceProviderFactoryProvider;
+	
+	@Inject
+	protected Provider<EClassFeatureProvider> eClassFeatureProviderProvider;
 
 	@Inject
 	public EmfDetailsFactory() {
@@ -46,7 +50,8 @@ public class EmfDetailsFactory {
 			int style) {
 		return new FormDetailComposite(parent, style,
 				featureLabelProviderProvider.get(), bindingFactoryProvider,
-				editingDomainFinderProvider, jfaceProviderFactoryProvider);
+				editingDomainFinderProvider, jfaceProviderFactoryProvider,
+				eClassFeatureProviderProvider);
 	}
 
 }
