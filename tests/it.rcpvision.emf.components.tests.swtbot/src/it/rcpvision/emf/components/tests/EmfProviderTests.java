@@ -1,13 +1,15 @@
 package it.rcpvision.emf.components.tests;
 
+import static org.eclipse.emf.examples.extlibrary.EXTLibraryPackage.Literals.LIBRARY;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 import it.rcpvision.emf.components.tests.factories.CustomLibraryExecutableExtensionFactory;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryFormFeatureLabelProvider;
-import it.rcpvision.emf.components.tests.providers.OrderedEClassFeatureProvider;
+import it.rcpvision.emf.components.tests.providers.LibraryEStructuralFeaturesProvider;
+import it.rcpvision.emf.components.tests.providers.OrderedEStructuralFeaturesProvider;
 import it.rcpvision.emf.components.tests.utils.EmfComponentsTestsUtils;
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
-import it.rcpvision.emf.components.ui.provider.EClassFeatureProvider;
+import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 
 import org.eclipse.emf.common.util.URI;
@@ -39,6 +41,8 @@ import org.junit.runner.RunWith;
 public class EmfProviderTests extends EmfComponentsAbstractTests {
 
 	protected static CustomLibraryExecutableExtensionFactory factory;
+
+	protected EXTLibraryFactory libFactory = EXTLibraryFactory.eINSTANCE;
 
 	protected EmfComponentsTestsUtils utils = new EmfComponentsTestsUtils();
 
@@ -118,19 +122,32 @@ public class EmfProviderTests extends EmfComponentsAbstractTests {
 
 	@Test
 	public void testEClassFeatureProviderGetAllFeatures() {
-		EClass test = EXTLibraryPackage.Literals.LIBRARY;
-		assertFeatureNames(test.getEAllStructuralFeatures(), factory.getInjector()
-				.getInstance(EClassFeatureProvider.class).getFeatures(test));
+		EClass test = LIBRARY;
+		assertFeatureNames(test.getEAllStructuralFeatures(), factory
+				.getInjector().getInstance(EStructuralFeaturesProvider.class)
+				.getFeatures(test));
 	}
 
 	@Test
 	public void testEClassFeatureProviderOrdered() {
-		EClass test = EXTLibraryPackage.Literals.LIBRARY;
+		EClass test = LIBRARY;
 		assertFeatureNames(
 				"address, books, borrowers, branches, employees, name, parentBranch, people, stock, writers",
 				factory.getInjector()
-						.getInstance(OrderedEClassFeatureProvider.class)
+						.getInstance(OrderedEStructuralFeaturesProvider.class)
 						.getFeatures(test));
+	}
+
+	@Test
+	public void testEClassFeatureProviderPolymorphic() {
+		LibraryEStructuralFeaturesProvider provider = factory.getInjector()
+				.getInstance(LibraryEStructuralFeaturesProvider.class);
+		assertFeatureNames("name, address",
+				provider.getFeatures(libFactory.createLibrary()));
+		assertFeatureNames("firstName, lastName, address",
+				provider.getFeatures(libFactory.createPerson()));
+		assertFeatureNames("firstName, lastName, books",
+				provider.getFeatures(libFactory.createWriter()));
 	}
 
 	protected void assertFeatureNames(Iterable<EStructuralFeature> expected,

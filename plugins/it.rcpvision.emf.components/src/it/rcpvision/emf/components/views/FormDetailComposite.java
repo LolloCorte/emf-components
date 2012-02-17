@@ -2,13 +2,12 @@ package it.rcpvision.emf.components.views;
 
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
-import it.rcpvision.emf.components.ui.provider.EClassFeatureProvider;
+import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 import it.rcpvision.emf.components.ui.provider.JfaceProviderFactory;
 
 import java.util.List;
 
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -32,7 +31,7 @@ public class FormDetailComposite extends Composite {
 
 	protected Provider<JfaceProviderFactory> jfaceProviderFactoryProvider;
 
-	protected Provider<EClassFeatureProvider> eClassFeatureProviderProvider;
+	protected Provider<EStructuralFeaturesProvider> eClassFeatureProviderProvider;
 
 	private Composite main;
 
@@ -45,7 +44,7 @@ public class FormDetailComposite extends Composite {
 			Provider<EmfSwtBindingFactory> bindingFactoryProvider,
 			Provider<EditingDomainFinder> editingDomainFinderProvider,
 			Provider<JfaceProviderFactory> jfaceProviderFactoryProvider,
-			Provider<EClassFeatureProvider> eClassFeatureProviderProvider) {
+			Provider<EStructuralFeaturesProvider> eClassFeatureProviderProvider) {
 		super(parent, style);
 		this.formFeatureLabelProvider = formFeatureLabelProvider;
 		this.bindingFactoryProvider = bindingFactoryProvider;
@@ -72,9 +71,8 @@ public class FormDetailComposite extends Composite {
 	}
 
 	public void init(EObject model) {
-		EClass eClass = model.eClass();
 		List<EStructuralFeature> features = eClassFeatureProviderProvider.get()
-				.getFeatures(eClass);
+				.getFeatures(model);
 
 		ILabelProvider labelProvider = jfaceProviderFactoryProvider.get()
 				.createLabelProvider();

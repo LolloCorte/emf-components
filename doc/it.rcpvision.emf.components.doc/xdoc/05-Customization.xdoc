@@ -7,17 +7,18 @@ section2[EClass' EStructuralFeatures]
 When the framework builds components according to the
 codeRef[org.eclipse.emf.ecore.EStructuralFeature]s of a given
 codeRef[org.eclipse.emf.ecore.EClass] it relies on an injected
-codeRef[it.rcpvision.emf.components.ui.provider.EClassFeatureProvider].
+codeRef[it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider].
 The default behavior is to simply return all the features of the a given EClass,
 in the order they are defined in the EClass;
 you may want to provide a custom implementation by redefining
-the method code[List<EStructuralFeature> getFeatures(EClass eClass)],
+the method code[List<EStructuralFeature> getFeatures(EClass)], or
+code[List<EStructuralFeature> getFeatures(EObject)],
 for instance by returning the features ordered according to their name
 (the following snippet uses an utility class from the framework)
 
 code[Java][
-public class OrderedEClassFeatureProvider 
-	extends EClassFeatureProvider {
+public class OrderedEStructuralFeaturesProvider 
+	extends EStructuralFeaturesProvider {
 
 	@Inject
 	EStructuralFeatureNameComparator comparator;
@@ -29,5 +30,41 @@ public class OrderedEClassFeatureProvider
 			new EStructuralFeatureNameComparator());
 		return features;
 	}
+}
+]
+
+Alternatively, you can use the declarative feature (e[polymorphic dispatcher])
+and provide overloaded implementations for the method code[featuresFor]
+with the Java classes of your model; for instance, using the EMF extended library
+example, this customization will return only the e[name] and e[address] features
+for a code[Library] object, the e[firstName], e[lastName] and e[address] for
+a code[Person] object, and the e[firstName], e[lastName] and e[books] (but
+not e[address]) for a code[Writer] object (which inherits from code[Person]).
+
+code[Java][
+import org.eclipse.emf.ecore.EStructuralFeature;
+import static org.eclipse.emf.examples.extlibrary.EXTLibraryPackage.Literals.*;
+import org.eclipse.emf.examples.extlibrary.*;
+
+import com.google.common.collect.Lists;
+
+public class LibraryEStructuralFeaturesProvider 
+	extends EStructuralFeaturesProvider {
+
+	protected List<EStructuralFeature> featuresFor(Library library) {
+		return Lists.<EStructuralFeature> newArrayList(LIBRARY__NAME,
+				ADDRESSABLE__ADDRESS);
+	}
+
+	protected List<EStructuralFeature> featuresFor(Person person) {
+		return Lists.<EStructuralFeature> newArrayList(PERSON__FIRST_NAME,
+				PERSON__LAST_NAME, ADDRESSABLE__ADDRESS);
+	}
+
+	protected List<EStructuralFeature> featuresFor(Writer writer) {
+		return Lists.<EStructuralFeature> newArrayList(PERSON__FIRST_NAME,
+				PERSON__LAST_NAME, WRITER__BOOKS);
+	}
+
 }
 ]
