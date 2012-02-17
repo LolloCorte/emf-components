@@ -142,12 +142,11 @@ public class EmfProviderTests extends EmfComponentsAbstractTests {
 	public void testEClassFeatureProviderPolymorphic() {
 		LibraryEStructuralFeaturesProvider provider = factory.getInjector()
 				.getInstance(LibraryEStructuralFeaturesProvider.class);
-		assertFeatureNames("name, address",
-				provider.getFeatures(libFactory.createLibrary()));
+		assertFeatureNames("name, address", provider.getFeatures(LIBRARY));
 		assertFeatureNames("firstName, lastName, address",
-				provider.getFeatures(libFactory.createPerson()));
+				provider.getFeatures(EXTLibraryPackage.Literals.PERSON));
 		assertFeatureNames("firstName, lastName, books",
-				provider.getFeatures(libFactory.createWriter()));
+				provider.getFeatures(EXTLibraryPackage.Literals.WRITER));
 	}
 
 	protected void assertFeatureNames(Iterable<EStructuralFeature> expected,

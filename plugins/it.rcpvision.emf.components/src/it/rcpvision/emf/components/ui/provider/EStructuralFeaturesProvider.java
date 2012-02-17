@@ -4,38 +4,41 @@
 package it.rcpvision.emf.components.ui.provider;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.xtext.util.PolymorphicDispatcher;
 
 /**
  * Provides the list of {@link EStructuralFeature} of an {@link EClass}. The
  * default is to return the list of all the features in the EClass, but the
  * programmer can customize it (for instance, by returning only a superset, or
  * using a different order) on an EClass-based strategy. The customization can
- * be done also declarative, by providing an implementation of the method
- * featuresFor with a specific Java class of your meta-models as parameter.
+ * be done redefining buildMap and adding mappings.
  * 
  * @author Lorenzo Bettini
  * 
  */
 public class EStructuralFeaturesProvider {
 
-	private PolymorphicDispatcher<List<EStructuralFeature>> getFeaturesDispatcher = PolymorphicDispatcher
-			.createForSingleTarget("featuresFor", 1, 1, this);
+	public static class EClassToEStructuralFeatureMap extends
+			HashMap<EClass, List<EStructuralFeature>> {
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 670116975392207101L;
+
+	}
+
+	protected EClassToEStructuralFeatureMap map = null;
 
 	public List<EStructuralFeature> getFeatures(EObject eObject) {
 		if (eObject == null)
 			return Collections.emptyList();
-
-		List<EStructuralFeature> polymorphicFeaturesFor = getFeaturesDispatcher
-				.invoke(eObject);
-		if (polymorphicFeaturesFor != null)
-			return polymorphicFeaturesFor;
 
 		return getFeatures(eObject.eClass());
 	}
@@ -44,12 +47,28 @@ public class EStructuralFeaturesProvider {
 		if (eClass == null)
 			return Collections.emptyList();
 
+		List<EStructuralFeature> fromMap = getFromMap(eClass);
+		if (fromMap != null)
+			return fromMap;
+
 		return new BasicEList<EStructuralFeature>(
 				eClass.getEAllStructuralFeatures());
 	}
 
-	protected List<EStructuralFeature> featuresFor(EObject eObject) {
-		return null;
+	protected List<EStructuralFeature> getFromMap(EClass eClass) {
+		if (map == null)
+			buildMapInternal();
+
+		return map.get(eClass);
+	}
+
+	private void buildMapInternal() {
+		map = new EClassToEStructuralFeatureMap();
+		buildMap(map);
+	}
+	
+	protected void buildMap(EClassToEStructuralFeatureMap map) {
+		// default implementation is empty
 	}
 
 }
