@@ -33,38 +33,35 @@ public class OrderedEStructuralFeaturesProvider
 }
 ]
 
-Alternatively, you can use the declarative feature (e[polymorphic dispatcher])
-and provide overloaded implementations for the method code[featuresFor]
-with the Java classes of your model; for instance, using the EMF extended library
+Alternatively, you can set the mappings, i.e., specify the structural
+features you want to be used given an EClass, by implementing
+the method code[buildMap], which receives the
+codeRef[it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider$EClassToEStructuralFeatureMap]
+that can be filled with the method code[mapTo]; 
+for instance, using the EMF extended library
 example, this customization will return only the e[name] and e[address] features
-for a code[Library] object, the e[firstName], e[lastName] and e[address] for
-a code[Person] object, and the e[firstName], e[lastName] and e[books] (but
-not e[address]) for a code[Writer] object (which inherits from code[Person]).
+for code[Library], the e[firstName], e[lastName] and e[address] for
+code[Person], and the e[firstName], e[lastName] and e[books] (but
+not e[address]) for code[Writer] (which inherits from code[Person]).
 
 code[Java][
-import org.eclipse.emf.ecore.EStructuralFeature;
 import static org.eclipse.emf.examples.extlibrary.EXTLibraryPackage.Literals.*;
-import org.eclipse.emf.examples.extlibrary.*;
+import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
 
-import com.google.common.collect.Lists;
+public class LibraryEStructuralFeaturesProvider extends
+		EStructuralFeaturesProvider {
 
-public class LibraryEStructuralFeaturesProvider 
-	extends EStructuralFeaturesProvider {
-
-	protected List<EStructuralFeature> featuresFor(Library library) {
-		return Lists.<EStructuralFeature> newArrayList(LIBRARY__NAME,
+	@Override
+	protected void buildMap(EClassToEStructuralFeatureMap map) {
+		super.buildMap(map);
+		map.mapTo(LIBRARY,
+				LIBRARY__NAME, ADDRESSABLE__ADDRESS);
+		map.mapTo(PERSON,
+				PERSON__FIRST_NAME, PERSON__LAST_NAME,
 				ADDRESSABLE__ADDRESS);
+		map.mapTo(WRITER,
+				PERSON__FIRST_NAME, PERSON__LAST_NAME,
+				WRITER__BOOKS);
 	}
-
-	protected List<EStructuralFeature> featuresFor(Person person) {
-		return Lists.<EStructuralFeature> newArrayList(PERSON__FIRST_NAME,
-				PERSON__LAST_NAME, ADDRESSABLE__ADDRESS);
-	}
-
-	protected List<EStructuralFeature> featuresFor(Writer writer) {
-		return Lists.<EStructuralFeature> newArrayList(PERSON__FIRST_NAME,
-				PERSON__LAST_NAME, WRITER__BOOKS);
-	}
-
 }
 ]

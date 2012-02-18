@@ -12,6 +12,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import com.google.common.collect.Lists;
+
 /**
  * Provides the list of {@link EStructuralFeature} of an {@link EClass}. The
  * default is to return the list of all the features in the EClass, but the
@@ -27,10 +29,11 @@ public class EStructuralFeaturesProvider {
 	public static class EClassToEStructuralFeatureMap extends
 			HashMap<EClass, List<EStructuralFeature>> {
 
-		/**
-		 * 
-		 */
 		private static final long serialVersionUID = 670116975392207101L;
+		
+		public void mapTo(EClass eClass, EStructuralFeature...features) {
+			put(eClass, Lists.newArrayList(features));
+		}
 
 	}
 
