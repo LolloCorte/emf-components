@@ -3,6 +3,9 @@ package it.rcpvision.emf.components.examples.views;
 import java.io.IOException;
 
 import it.rcpvision.emf.components.examples.composite.TreeFormComposite;
+import it.rcpvision.emf.components.menus.StructuredViewerContextMenuCreator;
+import it.rcpvision.emf.components.resource.EditingDomainFactory;
+import it.rcpvision.emf.components.view.masterdetail.TreeActionBarContributor;
 import it.rcpvision.emf.components.views.EmfDetailsFactory;
 import it.rcpvision.emf.components.views.EmfViewerManager;
 
@@ -14,6 +17,11 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
+import org.eclipse.jface.action.IMenuListener;
+import org.eclipse.jface.action.IMenuManager;
+import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.ISaveablePart;
@@ -21,7 +29,7 @@ import org.eclipse.ui.part.ViewPart;
 
 import com.google.inject.Inject;
 
-public class SaveableResourceTreeFormView extends ViewPart implements ISaveablePart{
+public class SaveableResourceTreeFormView extends ViewPart implements ISaveablePart, IMenuListener{
 
 	@Inject
 	protected EmfViewerManager emfViewerManager;
@@ -31,15 +39,25 @@ public class SaveableResourceTreeFormView extends ViewPart implements ISaveableP
 
 	protected TreeFormComposite treeFormComposite;
 	
+	@Inject
+	protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;
+	
+	@Inject
+	protected TreeActionBarContributor actionBarContributor;
+	
+	@Inject
+	protected EditingDomainFactory editingDomainFactory;
+	
 	private boolean dirty;
 	
 	private Adapter changeAdapter=new Adapter(){
 
 		@Override
 		public void notifyChanged(Notification notification) {
-			// TODO Auto-generated method stub
-			dirty=true;
-			firePropertyChange(PROP_DIRTY);
+			if(notification.getEventType()!=Notification.REMOVING_ADAPTER){
+				dirty=true;
+				firePropertyChange(PROP_DIRTY);
+			}
 		}
 
 		@Override
@@ -62,9 +80,14 @@ public class SaveableResourceTreeFormView extends ViewPart implements ISaveableP
 	};
 
 	private Resource resource;
+
+	private AdapterFactoryEditingDomain editingDomain;
 	
 	@Override
 	public void createPartControl(Composite parent) {
+		//INIT
+		editingDomain=editingDomainFactory.create();
+		actionBarContributor.initialize(getViewSite().getPart(), editingDomain);
 		
 		treeFormComposite = new TreeFormComposite(parent, SWT.BORDER,
 				emfViewerManager, emfDetailsFactory, changeAdapter);
@@ -74,7 +97,21 @@ public class SaveableResourceTreeFormView extends ViewPart implements ISaveableP
 		resource = resourceSet.getResource(uri, true);
 		
 		treeFormComposite.update(resource);
+		
+		createContextMenuFor(treeFormComposite.getTreeViewer());
 	}
+	
+	public void createContextMenuFor(StructuredViewer viewer) {
+		MenuManager menuManager = structuredViewerContextMenuCreator.createContextMenuFor(viewer, this, editingDomain);
+		menuManager.addMenuListener(this);
+	}
+	
+	@Override
+	public void menuAboutToShow(IMenuManager menuManager)
+	  {
+		actionBarContributor.menuAboutToShow(menuManager);
+	    
+	  }
 
 	@Override
 	public void setFocus() {
