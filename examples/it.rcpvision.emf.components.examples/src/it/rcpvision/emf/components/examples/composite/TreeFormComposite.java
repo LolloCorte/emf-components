@@ -33,8 +33,8 @@ public class TreeFormComposite extends Composite {
 			ISelectionChangedListener {
 		@Override
 		public void selectionChanged(SelectionChangedEvent event) {
-			if(selectedObject!=null){
-				if(adapter!=null){
+			if (selectedObject != null) {
+				if (adapter != null) {
 					selectedObject.eAdapters().remove(adapter);
 				}
 			}
@@ -42,13 +42,12 @@ public class TreeFormComposite extends Composite {
 			if (selectedObject != null) {
 				if (detailForm != null)
 					detailForm.dispose();
-				
 
 				detailForm = emfDetailsFactory.createFormDetailComposite(
 						detail, SWT.BORDER);
 				detailForm.init(selectedObject);
 				detail.layout(true);
-				if(adapter!=null){
+				if (adapter != null) {
 					selectedObject.eAdapters().add(adapter);
 				}
 			}
@@ -74,16 +73,17 @@ public class TreeFormComposite extends Composite {
 	public TreeFormComposite(Composite parent, int style,
 			EmfViewerManager emfViewerManager,
 			EmfDetailsFactory emfDetailsFactory) {
-		this(parent,style,emfViewerManager,emfDetailsFactory,null);
+		this(parent, style, emfViewerManager, emfDetailsFactory, null);
 	}
+
 	public TreeFormComposite(Composite parent, int style,
 			EmfViewerManager emfViewerManager,
-			EmfDetailsFactory emfDetailsFactory,Adapter adapter) {
+			EmfDetailsFactory emfDetailsFactory, Adapter adapter) {
 		super(parent, style);
 		setLayout(new FillLayout());
 		this.emfViewerManager = emfViewerManager;
 		this.emfDetailsFactory = emfDetailsFactory;
-		this.adapter=adapter;
+		this.adapter = adapter;
 
 		SashForm sashForm = new SashForm(this, SWT.VERTICAL);
 		GridLayoutFactory.fillDefaults().applyTo(sashForm);
@@ -92,18 +92,18 @@ public class TreeFormComposite extends Composite {
 		pagebook = new PageBook(sashForm, SWT.BORDER);
 		detail = new Composite(sashForm, SWT.BORDER);
 		detail.setLayout(new FillLayout());
-		treeViewer = createViewer(pagebook);
-		treeViewer.addSelectionChangedListener(new SelectionChangedListener());
+		viewer = createViewer(pagebook);
+		viewer.addSelectionChangedListener(new SelectionChangedListener());
 	}
 
 	protected EmfViewerManager emfViewerManager;
 
 	protected EmfDetailsFactory emfDetailsFactory;
 
-	private StructuredViewer treeViewer;
+	private StructuredViewer viewer;
 
-	public StructuredViewer getTreeViewer() {
-		return treeViewer;
+	public StructuredViewer getViewer() {
+		return viewer;
 	}
 
 	private PageBook pagebook;
@@ -118,15 +118,15 @@ public class TreeFormComposite extends Composite {
 				IResource resource = (IResource) element;
 				URI uri = URI.createPlatformResourceURI(resource.getFullPath()
 						.toString(), true);
-				emfViewerManager.initialize(treeViewer, uri);
+				emfViewerManager.initialize(viewer, uri);
 			} else if (element instanceof Resource) {
 				Resource resource = (Resource) element;
-				emfViewerManager.initialize(treeViewer, resource);
+				emfViewerManager.initialize(viewer, resource);
 			} else if (element instanceof EObject) {
 				EObject eObject = (EObject) element;
-				emfViewerManager.initialize(treeViewer, eObject);
+				emfViewerManager.initialize(viewer, eObject);
 			}
-			pagebook.showPage(treeViewer.getControl());
+			pagebook.showPage(viewer.getControl());
 		}
 
 	}
