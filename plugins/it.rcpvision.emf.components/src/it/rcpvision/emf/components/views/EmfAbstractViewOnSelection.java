@@ -3,13 +3,16 @@
  */
 package it.rcpvision.emf.components.views;
 
+import it.rcpvision.emf.components.util.EmfSelectionHelper;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.part.ViewPart;
+
+import com.google.inject.Inject;
 
 /**
  * An abstract View that reacts on selection (it should show something related
@@ -19,6 +22,9 @@ import org.eclipse.ui.part.ViewPart;
  * 
  */
 public abstract class EmfAbstractViewOnSelection extends ViewPart {
+
+	@Inject
+	protected EmfSelectionHelper selectionHelper;
 
 	// the listener we register with the selection service
 	private ISelectionListener listener = new ISelectionListener() {
@@ -41,19 +47,11 @@ public abstract class EmfAbstractViewOnSelection extends ViewPart {
 	}
 
 	protected Object getFirstSelectedElement(ISelection selection) {
-		if (selection instanceof IStructuredSelection) {
-			IStructuredSelection ss = (IStructuredSelection) selection;
-			return ss.getFirstElement();
-		}
-		return null;
+		return selectionHelper.getFirstSelectedElement(selection);
 	}
 
 	protected EObject getFirstSelectedEObject(ISelection selection) {
-		Object selected = getFirstSelectedElement(selection);
-		if (selected instanceof EObject) {
-			return (EObject) selected;
-		}
-		return null;
+		return selectionHelper.getFirstSelectedEObject(selection);
 	}
 
 	public void dispose() {

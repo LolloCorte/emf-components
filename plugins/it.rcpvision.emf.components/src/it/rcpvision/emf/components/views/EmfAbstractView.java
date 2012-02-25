@@ -124,8 +124,6 @@ public abstract class EmfAbstractView extends EmfAbstractViewOnSelection {
 	 * Subclasses should implement this.
 	 * 
 	 * @param parent
-	 *            TODO
-	 * 
 	 * @return
 	 */
 	protected abstract StructuredViewer createViewer(Composite parent);

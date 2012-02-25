@@ -19,6 +19,7 @@ import it.rcpvision.emf.components.ui.provider.EStructuralFeatureColumnProvider;
 import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 import it.rcpvision.emf.components.ui.provider.JfaceProviderFactory;
+import it.rcpvision.emf.components.util.EmfSelectionHelper;
 import it.rcpvision.emf.components.view.masterdetail.TreeActionBarContributor;
 import it.rcpvision.emf.components.views.ComposedAdapterFactoryProvider;
 import it.rcpvision.emf.components.views.EObjectManager;
@@ -153,5 +154,9 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 
 	public Class<? extends EditingDomainFinder> bindEditingDomainFinder() {
 		return EditingDomainFinder.class;
+	}
+
+	public Class<? extends EmfSelectionHelper> bindEmfSelectionHelper() {
+		return EmfSelectionHelper.class;
 	}
 }
