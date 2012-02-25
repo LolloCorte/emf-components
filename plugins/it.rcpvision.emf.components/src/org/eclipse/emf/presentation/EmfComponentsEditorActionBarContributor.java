@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.presentation.EcoreActionBarContributor;
  * @author bettini
  *
  */
-public class EmfFormEditorActionBarContributor extends
+public class EmfComponentsEditorActionBarContributor extends
 		EcoreActionBarContributor {
 
 }
