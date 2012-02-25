@@ -16,6 +16,7 @@ import it.rcpvision.emf.components.resource.ResourceLoader;
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeatureColumnProvider;
+import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 import it.rcpvision.emf.components.ui.provider.JfaceProviderFactory;
@@ -154,6 +155,10 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 
 	public Class<? extends EditingDomainFinder> bindEditingDomainFinder() {
 		return EditingDomainFinder.class;
+	}
+
+	public Class<? extends EStructuralFeaturesProvider> bindEStructuralFeaturesProvider() {
+		return EStructuralFeaturesProvider.class;
 	}
 
 	public Class<? extends EmfSelectionHelper> bindEmfSelectionHelper() {
