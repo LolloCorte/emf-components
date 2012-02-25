@@ -3,10 +3,12 @@
  */
 package it.rcpvision.emf.components.views;
 
+import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 import it.rcpvision.emf.components.ui.provider.JfaceProviderFactory;
 
-import org.eclipse.emf.common.util.EList;
+import java.util.List;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -36,6 +38,9 @@ public class TableViewerColumnBuilder {
 	@Inject
 	protected FeatureLabelProvider featureLabelProvider;
 
+	@Inject
+	protected EStructuralFeaturesProvider featuresProvider;
+
 	public void buildTableViewer(TableViewer tableViewer,
 			EStructuralFeature feature) {
 		EClassifier type = feature.getEType();
@@ -64,8 +69,8 @@ public class TableViewerColumnBuilder {
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
 
-		EList<EStructuralFeature> typeFeatures = eClass
-				.getEAllStructuralFeatures();
+		List<EStructuralFeature> typeFeatures = featuresProvider
+				.getFeatures(eClass);
 		for (EStructuralFeature eStructuralFeature : typeFeatures) {
 			buildTableViewerColumn(tableViewer, layout, eStructuralFeature,
 					contentProvider);

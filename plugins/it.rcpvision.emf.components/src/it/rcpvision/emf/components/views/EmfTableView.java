@@ -3,7 +3,10 @@
  */
 package it.rcpvision.emf.components.views;
 
-import org.eclipse.emf.common.util.EList;
+import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
+
+import java.util.List;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
@@ -32,6 +35,9 @@ public class EmfTableView extends EmfAbstractViewOnSelection {
 
 	@Inject
 	protected EmfViewerFactory emfViewerFactory;
+
+	@Inject
+	protected EStructuralFeaturesProvider featuresProvider;
 
 	protected Composite parent;
 
@@ -79,8 +85,8 @@ public class EmfTableView extends EmfAbstractViewOnSelection {
 			Composite composite) {
 		EClass eObjectEClass = eObject.eClass();
 		buildTable(eObject, eObjectEClass, composite, eObjectEClass.getName());
-		EList<EStructuralFeature> features = eObjectEClass
-				.getEAllStructuralFeatures();
+		List<EStructuralFeature> features = featuresProvider
+				.getFeatures(eObjectEClass);
 		for (EStructuralFeature eStructuralFeature : features) {
 			if (eStructuralFeature.isMany()) {
 				EClassifier eType = eStructuralFeature.getEType();
