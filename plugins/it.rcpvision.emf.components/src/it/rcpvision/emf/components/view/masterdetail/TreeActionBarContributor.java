@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.presentation.EcoreEditorPlugin;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.ui.action.CreateChildAction;
+import org.eclipse.emf.edit.ui.action.CreateSiblingAction;
 import org.eclipse.emf.edit.ui.action.DeleteAction;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IAction;
@@ -36,9 +37,11 @@ public class TreeActionBarContributor implements IMenuListener,
 			EditingDomain editingDomain) {
 		this.editingDomain = editingDomain;
 		this.workbenchPart = workbenchPart;
-		
+
 		createChildMenuManager = new MenuManager(EcoreEditorPlugin.getPlugin()
 				.getString("_UI_CreateChild_menu_item"));
+		createSiblingMenuManager = new MenuManager(EcoreEditorPlugin
+				.getPlugin().getString("_UI_CreateSibling_menu_item"));
 	}
 
 	public void menuAboutToShow(IMenuManager menuManager) {
@@ -49,6 +52,12 @@ public class TreeActionBarContributor implements IMenuListener,
 				EcoreEditorPlugin.INSTANCE
 						.getString("_UI_CreateChild_menu_item"));
 		populateManager(submenuManager, createChildActions, null);
+		menuManager.add(submenuManager);
+
+		submenuManager = new MenuManager(
+				EcoreEditorPlugin.INSTANCE
+						.getString("_UI_CreateSibling_menu_item"));
+		populateManager(submenuManager, createSiblingActions, null);
 		menuManager.add(submenuManager);
 	}
 
@@ -66,8 +75,12 @@ public class TreeActionBarContributor implements IMenuListener,
 		if (createChildMenuManager != null) {
 			depopulateManager(createChildMenuManager, createChildActions);
 		}
+		if (createSiblingMenuManager != null) {
+			depopulateManager(createSiblingMenuManager, createSiblingActions);
+		}
 
 		Collection<?> newChildDescriptors = null;
+		Collection<?> newSiblingDescriptors = null;
 
 		ISelection selection = event.getSelection();
 		if (selection instanceof IStructuredSelection
@@ -77,22 +90,35 @@ public class TreeActionBarContributor implements IMenuListener,
 
 			newChildDescriptors = editingDomain.getNewChildDescriptors(object,
 					null);
+			newSiblingDescriptors = editingDomain.getNewChildDescriptors(null,
+					object);
 		}
 
 		// Generate actions for selection; populate and redraw the menus.
 		//
 		createChildActions = generateCreateChildActions(newChildDescriptors,
 				selection);
+		createSiblingActions = generateCreateSiblingActions(
+				newSiblingDescriptors, selection);
 
 		if (createChildMenuManager != null) {
 			populateManager(createChildMenuManager, createChildActions, null);
 			createChildMenuManager.update(true);
 		}
-
+		if (createSiblingMenuManager != null) {
+			populateManager(createSiblingMenuManager, createSiblingActions,
+					null);
+			createSiblingMenuManager.update(true);
+		}
 	}
 
-	protected IMenuManager createChildMenuManager;
 	protected Collection<IAction> createChildActions;
+
+	protected IMenuManager createChildMenuManager;
+
+	protected Collection<IAction> createSiblingActions;
+
+	protected IMenuManager createSiblingMenuManager;
 
 	protected void depopulateManager(IContributionManager manager,
 			Collection<? extends IAction> actions) {
@@ -164,6 +190,25 @@ public class TreeActionBarContributor implements IMenuListener,
 					}
 				}
 				actions.add(new CreateChildAction(workbenchPart, selection,
+						descriptor));
+			}
+		}
+		return actions;
+	}
+
+	protected Collection<IAction> generateCreateSiblingActions(
+			Collection<?> descriptors, ISelection selection) {
+		Collection<IAction> actions = new ArrayList<IAction>();
+		if (descriptors != null) {
+			for (Object descriptor : descriptors) {
+				if (descriptor instanceof CommandParameter) {
+					Object feature = ((CommandParameter) descriptor)
+							.getFeature();
+					if (isGenericFeature(feature)) {
+						continue;
+					}
+				}
+				actions.add(new CreateSiblingAction(workbenchPart, selection,
 						descriptor));
 			}
 		}
