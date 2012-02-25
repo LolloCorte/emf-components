@@ -5,6 +5,7 @@ import it.rcpvision.emf.components.views.EmfViewerManager;
 import it.rcpvision.emf.components.views.FormDetailComposite;
 
 import org.eclipse.core.resources.IResource;
+import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -24,19 +25,32 @@ import org.eclipse.ui.part.PageBook;
 
 public class TreeFormComposite extends Composite {
 
+	public Adapter adapter;
+
+	public EObject selectedObject;
+
 	protected class SelectionChangedListener implements
 			ISelectionChangedListener {
 		@Override
 		public void selectionChanged(SelectionChangedEvent event) {
-			EObject object = getFirstSelectedEObject(event.getSelection());
-			if (object != null) {
+			if(selectedObject!=null){
+				if(adapter!=null){
+					selectedObject.eAdapters().remove(adapter);
+				}
+			}
+			selectedObject = getFirstSelectedEObject(event.getSelection());
+			if (selectedObject != null) {
 				if (detailForm != null)
 					detailForm.dispose();
+				
 
 				detailForm = emfDetailsFactory.createFormDetailComposite(
 						detail, SWT.BORDER);
-				detailForm.init(object);
+				detailForm.init(selectedObject);
 				detail.layout(true);
+				if(adapter!=null){
+					selectedObject.eAdapters().add(adapter);
+				}
 			}
 		}
 
@@ -60,10 +74,16 @@ public class TreeFormComposite extends Composite {
 	public TreeFormComposite(Composite parent, int style,
 			EmfViewerManager emfViewerManager,
 			EmfDetailsFactory emfDetailsFactory) {
+		this(parent,style,emfViewerManager,emfDetailsFactory,null);
+	}
+	public TreeFormComposite(Composite parent, int style,
+			EmfViewerManager emfViewerManager,
+			EmfDetailsFactory emfDetailsFactory,Adapter adapter) {
 		super(parent, style);
 		setLayout(new FillLayout());
 		this.emfViewerManager = emfViewerManager;
 		this.emfDetailsFactory = emfDetailsFactory;
+		this.adapter=adapter;
 
 		SashForm sashForm = new SashForm(this, SWT.VERTICAL);
 		GridLayoutFactory.fillDefaults().applyTo(sashForm);
@@ -81,6 +101,10 @@ public class TreeFormComposite extends Composite {
 	protected EmfDetailsFactory emfDetailsFactory;
 
 	private StructuredViewer treeViewer;
+
+	public StructuredViewer getTreeViewer() {
+		return treeViewer;
+	}
 
 	private PageBook pagebook;
 

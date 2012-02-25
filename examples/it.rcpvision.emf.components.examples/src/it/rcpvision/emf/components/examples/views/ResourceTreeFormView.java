@@ -28,9 +28,11 @@ public class ResourceTreeFormView extends ViewPart {
 	public void createPartControl(Composite parent) {
 		treeFormComposite = new TreeFormComposite(parent, SWT.BORDER,
 				emfViewerManager, emfDetailsFactory);
-		URI uri = URI.createPlatformResourceURI("/library/My.extlibrary", true);
+		
+		URI uri = URI.createPlatformResourceURI("/library/Library.xmi", true);
 		ResourceSet resourceSet = new ResourceSetImpl();
 		Resource resource = resourceSet.getResource(uri, true);
+		
 		treeFormComposite.update(resource);
 	}
 
