@@ -45,7 +45,7 @@ public class TreeActionBarContributor implements IMenuListener,
 	}
 
 	public void menuAboutToShow(IMenuManager menuManager) {
-		addDeleteAcion(menuManager);
+		addDeleteAction(menuManager);
 		MenuManager submenuManager = null;
 
 		submenuManager = new MenuManager(
@@ -160,10 +160,9 @@ public class TreeActionBarContributor implements IMenuListener,
 	}
 
 	// EditingDomainActionBarContributor
-	private void addDeleteAcion(IMenuManager menuManager) {
+	private void addDeleteAction(IMenuManager menuManager) {
 		DeleteAction deleteAction = createDeleteAction();
 		menuManager.add(new ActionContributionItem(deleteAction));
-
 	}
 
 	protected DeleteAction createDeleteAction() {

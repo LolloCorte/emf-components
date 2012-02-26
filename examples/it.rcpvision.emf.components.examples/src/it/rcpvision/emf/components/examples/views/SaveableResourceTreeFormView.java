@@ -9,8 +9,10 @@ import it.rcpvision.emf.components.views.EmfDetailsFactory;
 import it.rcpvision.emf.components.views.EmfViewerManager;
 
 import java.io.IOException;
+import java.util.EventObject;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
@@ -47,7 +49,7 @@ public class SaveableResourceTreeFormView extends ViewPart implements
 
 	@Inject
 	protected EditingDomainFactory editingDomainFactory;
-	
+
 	@Inject
 	protected EditingDomainResourceLoader resourceLoader;
 
@@ -96,11 +98,11 @@ public class SaveableResourceTreeFormView extends ViewPart implements
 		// it will act as an item provider editing adapter
 		// and actions won't be created!!!
 		treeFormComposite = new TreeFormComposite(parent, SWT.BORDER,
-				emfViewerManager, emfDetailsFactory); //, changeAdapter);
+				emfViewerManager, emfDetailsFactory); // , changeAdapter);
 
 		URI uri = URI.createPlatformResourceURI("/library/Library.xmi", true);
-//		ResourceSet resourceSet = new ResourceSetImpl();
-//		resource = resourceSet.getResource(uri, true);
+		// ResourceSet resourceSet = new ResourceSetImpl();
+		// resource = resourceSet.getResource(uri, true);
 		resource = resourceLoader.getResource(editingDomain, uri).getResource();
 
 		treeFormComposite.update(resource);
@@ -109,6 +111,19 @@ public class SaveableResourceTreeFormView extends ViewPart implements
 
 		treeFormComposite.getViewer().addSelectionChangedListener(
 				actionBarContributor);
+
+		editingDomain.getCommandStack().addCommandStackListener(
+				new CommandStackListener() {
+					public void commandStackChanged(final EventObject event) {
+						treeFormComposite.getDisplay().asyncExec(
+								new Runnable() {
+									public void run() {
+										dirty = true;
+										firePropertyChange(PROP_DIRTY);
+									}
+								});
+					}
+				});
 	}
 
 	public void createContextMenuFor(StructuredViewer viewer) {
