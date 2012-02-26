@@ -9,9 +9,12 @@ import it.rcpvision.emf.components.views.EmfDetailsFactory;
 import it.rcpvision.emf.components.views.EmfViewerManager;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.EventObject;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -19,6 +22,7 @@ import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
@@ -88,6 +92,16 @@ public class SaveableResourceTreeFormView extends ViewPart implements
 									public void run() {
 										dirty = true;
 										firePropertyChange(PROP_DIRTY);
+
+										// Try to select the affected objects.
+										//
+										Command mostRecentCommand = ((CommandStack) event
+												.getSource())
+												.getMostRecentCommand();
+										if (mostRecentCommand != null) {
+											setSelectionToViewer(mostRecentCommand
+													.getAffectedObjects());
+										}
 									}
 								});
 					}
@@ -98,6 +112,28 @@ public class SaveableResourceTreeFormView extends ViewPart implements
 		MenuManager menuManager = structuredViewerContextMenuCreator
 				.createContextMenuFor(viewer, this, editingDomain);
 		menuManager.addMenuListener(this);
+	}
+
+	public void setSelectionToViewer(Collection<?> collection) {
+		final Collection<?> theSelection = collection;
+		// Make sure it's okay.
+		//
+		if (theSelection != null && !theSelection.isEmpty()) {
+			Runnable runnable = new Runnable() {
+				public void run() {
+					// Try to select the items in the current content viewer of
+					// the editor.
+					//
+					if (treeFormComposite.getViewer() != null) {
+						treeFormComposite.getViewer()
+								.setSelection(
+										new StructuredSelection(
+												theSelection.toArray()), true);
+					}
+				}
+			};
+			getSite().getShell().getDisplay().asyncExec(runnable);
+		}
 	}
 
 	@Override
@@ -116,7 +152,6 @@ public class SaveableResourceTreeFormView extends ViewPart implements
 		try {
 			resource.save(null);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		dirty = false;
