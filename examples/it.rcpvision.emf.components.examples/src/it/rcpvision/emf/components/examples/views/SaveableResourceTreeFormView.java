@@ -13,9 +13,6 @@ import java.util.EventObject;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.command.CommandStackListener;
-import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
@@ -54,35 +51,6 @@ public class SaveableResourceTreeFormView extends ViewPart implements
 	protected EditingDomainResourceLoader resourceLoader;
 
 	private boolean dirty;
-
-	private Adapter changeAdapter = new Adapter() {
-
-		@Override
-		public void notifyChanged(Notification notification) {
-			if (notification.getEventType() != Notification.REMOVING_ADAPTER) {
-				dirty = true;
-				firePropertyChange(PROP_DIRTY);
-			}
-		}
-
-		@Override
-		public Notifier getTarget() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public void setTarget(Notifier newTarget) {
-			// TODO Auto-generated method stub
-			System.out.println();
-		}
-
-		@Override
-		public boolean isAdapterForType(Object type) {
-			// TODO Auto-generated method stub
-			return true;
-		}
-	};
 
 	private Resource resource;
 
