@@ -42,6 +42,8 @@ public class TreeActionBarContributor implements IMenuListener,
 				.getString("_UI_CreateChild_menu_item"));
 		createSiblingMenuManager = new MenuManager(EcoreEditorPlugin
 				.getPlugin().getString("_UI_CreateSibling_menu_item"));
+		
+		createDeleteAction();
 	}
 
 	public void menuAboutToShow(IMenuManager menuManager) {
@@ -85,13 +87,16 @@ public class TreeActionBarContributor implements IMenuListener,
 		ISelection selection = event.getSelection();
 		if (selection instanceof IStructuredSelection
 				&& ((IStructuredSelection) selection).size() == 1) {
-			Object object = ((IStructuredSelection) selection)
+			IStructuredSelection structuredSelection = (IStructuredSelection) selection;
+			Object object = structuredSelection
 					.getFirstElement();
 
 			newChildDescriptors = editingDomain.getNewChildDescriptors(object,
 					null);
 			newSiblingDescriptors = editingDomain.getNewChildDescriptors(null,
 					object);
+			
+			deleteAction.updateSelection(structuredSelection);
 		}
 
 		// Generate actions for selection; populate and redraw the menus.
@@ -119,6 +124,8 @@ public class TreeActionBarContributor implements IMenuListener,
 	protected Collection<IAction> createSiblingActions;
 
 	protected IMenuManager createSiblingMenuManager;
+
+	protected DeleteAction deleteAction;
 
 	protected void depopulateManager(IContributionManager manager,
 			Collection<? extends IAction> actions) {
@@ -161,14 +168,13 @@ public class TreeActionBarContributor implements IMenuListener,
 
 	// EditingDomainActionBarContributor
 	private void addDeleteAction(IMenuManager menuManager) {
-		DeleteAction deleteAction = createDeleteAction();
 		menuManager.add(new ActionContributionItem(deleteAction));
 	}
 
 	protected DeleteAction createDeleteAction() {
 		ISharedImages sharedImages = PlatformUI.getWorkbench()
 				.getSharedImages();
-		DeleteAction deleteAction = new DeleteAction(false);
+		deleteAction = new DeleteAction(editingDomain, true);
 		deleteAction.setImageDescriptor(sharedImages
 				.getImageDescriptor(ISharedImages.IMG_TOOL_DELETE));
 		return deleteAction;
