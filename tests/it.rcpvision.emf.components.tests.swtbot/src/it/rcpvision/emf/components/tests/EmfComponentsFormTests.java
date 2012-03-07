@@ -21,7 +21,7 @@ public class EmfComponentsFormTests extends EmfComponentsAbstractTests {
 		SWTBotTreeItem rootOfEditorTree = getRootOfEditorTree(EMF_TREE_EDITOR,
 				MY_EXTLIBRARY, MY_EXT_LIBRARY_PLATFORM_URI);
 		getLibraryWriterNode(rootOfEditorTree).select();
-		SWTFormsBot formbot = new SWTFormsBot(detailView.getWidget());
+		SWTFormsBot formbot = formBotFromView(detailView);
 		formbot.label(ADDRESS_LABEL);
 		formbot.text(WRITER_S_ADDRESS_TEXT);
 		formbot.label(FIRSTNAME_LABEL);
@@ -40,6 +40,10 @@ public class EmfComponentsFormTests extends EmfComponentsAbstractTests {
 		// detailView.close();
 	}
 
+	protected SWTFormsBot formBotFromView(SWTBotView detailView) {
+		return new SWTFormsBot(detailView.getWidget());
+	}
+
 	@Test
 	public void detailViewShowsCustomDetailsOnSelection() throws Exception {
 		SWTBotView detailView = openTestView(LIBRARY_CUSTOM_DETAIL_VIEW);
@@ -47,7 +51,7 @@ public class EmfComponentsFormTests extends EmfComponentsAbstractTests {
 		SWTBotTreeItem rootOfEditorTree = getRootOfEditorTree(EMF_TREE_EDITOR,
 				MY_EXTLIBRARY, MY_EXT_LIBRARY_PLATFORM_URI);
 		getLibraryWriterNode(rootOfEditorTree).select();
-		SWTFormsBot formbot = new SWTFormsBot(detailView.getWidget());
+		SWTFormsBot formbot = formBotFromView(detailView);
 		formbot.label(ADDRESS_LABEL);
 		formbot.text(WRITER_S_ADDRESS_TEXT);
 		formbot.label(CUSTOM_FIRSTNAME_LABEL);
@@ -62,5 +66,21 @@ public class EmfComponentsFormTests extends EmfComponentsAbstractTests {
 		formbot.label(CUSTOM_PEOPLE_TEXT);
 	}
 
-
+	@Test
+	public void treeFormViewShowsOnSelection() throws Exception {
+		SWTBotView view = openTestView(EMF_TREE_FORM_DETAIL_VIEW);
+		// select on the editor's tree
+		SWTBotTreeItem rootOfEditorTree = getRootOfEditorTree(EMF_TREE_EDITOR,
+				MY_EXTLIBRARY, MY_EXT_LIBRARY_PLATFORM_URI);
+		// select on the editor
+		getLibraryNode(rootOfEditorTree).select();
+		
+		// now select on the tree inside the view
+		view.bot().tree().getTreeItem(WRITER_LABEL).select();
+		
+		SWTFormsBot formbot = formBotFromView(view);
+		formbot.label(ADDRESS_LABEL);
+		formbot.text(WRITER_S_ADDRESS_TEXT);
+		formbot.label(FIRSTNAME_LABEL);
+	}
 }

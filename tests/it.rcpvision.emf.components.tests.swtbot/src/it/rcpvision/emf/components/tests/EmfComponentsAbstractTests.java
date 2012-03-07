@@ -116,6 +116,8 @@ public class EmfComponentsAbstractTests {
 	protected static final String LIBRARY_EMF_VIEW_CUSTOM_LABEL = "LibraryEmfView Custom Label";
 
 	protected static final String EMF_DETAIL_VIEW = "Emf Detail View";
+	
+	protected static final String EMF_TREE_FORM_DETAIL_VIEW = "Emf Tree Form View";
 
 	protected static final String LIBRARY_CUSTOM_DETAIL_VIEW = "Library Emf Detail View";
 
