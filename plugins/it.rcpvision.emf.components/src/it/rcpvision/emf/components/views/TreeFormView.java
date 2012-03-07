@@ -1,6 +1,6 @@
 package it.rcpvision.emf.components.views;
 
-import it.rcpvision.emf.components.factories.EmfDetailsFactory;
+import it.rcpvision.emf.components.factories.EmfCompositeFactory;
 import it.rcpvision.emf.components.widgets.TreeFormComposite;
 
 import org.eclipse.jface.viewers.ISelection;
@@ -13,10 +13,7 @@ import com.google.inject.Inject;
 public class TreeFormView extends EmfAbstractViewOnSelection {
 
 	@Inject
-	protected EmfViewerManager emfViewerManager;
-
-	@Inject
-	protected EmfDetailsFactory emfDetailsFactory;
+	protected EmfCompositeFactory emfCompositeFactory;
 
 	protected TreeFormComposite treeFormComposite;
 
@@ -24,8 +21,8 @@ public class TreeFormView extends EmfAbstractViewOnSelection {
 	public void createPartControl(Composite parent) {
 		super.createPartControl(parent);
 
-		treeFormComposite = new TreeFormComposite(parent, SWT.BORDER,
-				emfViewerManager, emfDetailsFactory);
+		treeFormComposite = emfCompositeFactory.createTreeFormComposite(parent,
+				SWT.BORDER);
 	}
 
 	@Override

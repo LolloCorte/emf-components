@@ -1,6 +1,7 @@
 package it.rcpvision.emf.components.widgets;
 
 import it.rcpvision.emf.components.factories.EmfDetailsFactory;
+import it.rcpvision.emf.components.util.EmfSelectionHelper;
 import it.rcpvision.emf.components.views.EmfViewerManager;
 import it.rcpvision.emf.components.views.FormDetailComposite;
 
@@ -10,9 +11,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
-import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
-import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.TreeViewer;
@@ -23,11 +22,11 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.PageBook;
 
 /**
- * A generic composite with a Tree and a Form with details of the
- * selected object in the tree.
+ * A generic composite with a Tree and a Form with details of the selected
+ * object in the tree.
  * 
  * @author Lorenzo Bettini, Francesco Guidieri
- *
+ * 
  */
 public class TreeFormComposite extends Composite {
 
@@ -35,7 +34,8 @@ public class TreeFormComposite extends Composite {
 			ISelectionChangedListener {
 		@Override
 		public void selectionChanged(SelectionChangedEvent event) {
-			EObject selectedObject = getFirstSelectedEObject(event.getSelection());
+			EObject selectedObject = emfSelectionHelper
+					.getFirstSelectedEObject(event.getSelection());
 			if (selectedObject != null) {
 				if (detailForm != null)
 					detailForm.dispose();
@@ -47,30 +47,31 @@ public class TreeFormComposite extends Composite {
 			}
 		}
 
-		protected Object getFirstSelectedElement(ISelection selection) {
-			if (selection instanceof IStructuredSelection) {
-				IStructuredSelection ss = (IStructuredSelection) selection;
-				return ss.getFirstElement();
-			}
-			return null;
-		}
-
-		protected EObject getFirstSelectedEObject(ISelection selection) {
-			Object selected = getFirstSelectedElement(selection);
-			if (selected instanceof EObject) {
-				return (EObject) selected;
-			}
-			return null;
-		}
 	}
+
+	protected EmfViewerManager emfViewerManager;
+
+	protected EmfDetailsFactory emfDetailsFactory;
+
+	protected EmfSelectionHelper emfSelectionHelper;
+
+	private StructuredViewer viewer;
+
+	private PageBook pagebook;
+
+	private Composite detail;
+
+	protected FormDetailComposite detailForm;
 
 	public TreeFormComposite(Composite parent, int style,
 			EmfViewerManager emfViewerManager,
-			EmfDetailsFactory emfDetailsFactory) {
+			EmfDetailsFactory emfDetailsFactory,
+			EmfSelectionHelper emfSelectionHelper) {
 		super(parent, style);
 		setLayout(new FillLayout());
 		this.emfViewerManager = emfViewerManager;
 		this.emfDetailsFactory = emfDetailsFactory;
+		this.emfSelectionHelper = emfSelectionHelper;
 
 		SashForm sashForm = new SashForm(this, SWT.VERTICAL);
 		GridLayoutFactory.fillDefaults().applyTo(sashForm);
@@ -83,21 +84,9 @@ public class TreeFormComposite extends Composite {
 		viewer.addSelectionChangedListener(new SelectionChangedListener());
 	}
 
-	protected EmfViewerManager emfViewerManager;
-
-	protected EmfDetailsFactory emfDetailsFactory;
-
-	private StructuredViewer viewer;
-
 	public StructuredViewer getViewer() {
 		return viewer;
 	}
-
-	private PageBook pagebook;
-
-	private Composite detail;
-
-	protected FormDetailComposite detailForm;
 
 	public void update(Object element) {
 		if (element != null) {

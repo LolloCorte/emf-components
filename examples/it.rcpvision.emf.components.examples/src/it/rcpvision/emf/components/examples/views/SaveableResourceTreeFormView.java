@@ -1,11 +1,10 @@
 package it.rcpvision.emf.components.examples.views;
 
-import it.rcpvision.emf.components.factories.EmfDetailsFactory;
+import it.rcpvision.emf.components.factories.EmfCompositeFactory;
 import it.rcpvision.emf.components.menus.StructuredViewerContextMenuCreator;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
 import it.rcpvision.emf.components.view.masterdetail.TreeActionBarContributor;
-import it.rcpvision.emf.components.views.EmfViewerManager;
 import it.rcpvision.emf.components.widgets.TreeFormComposite;
 
 import java.io.IOException;
@@ -35,10 +34,7 @@ public class SaveableResourceTreeFormView extends ViewPart implements
 		ISaveablePart, IMenuListener {
 
 	@Inject
-	protected EmfViewerManager emfViewerManager;
-
-	@Inject
-	protected EmfDetailsFactory emfDetailsFactory;
+	protected EmfCompositeFactory emfCompositeFactory;
 
 	protected TreeFormComposite treeFormComposite;
 
@@ -69,8 +65,8 @@ public class SaveableResourceTreeFormView extends ViewPart implements
 		// DON'T USE THE changeAdapter!!!
 		// it will act as an item provider editing adapter
 		// and actions won't be created!!!
-		treeFormComposite = new TreeFormComposite(parent, SWT.BORDER,
-				emfViewerManager, emfDetailsFactory); // , changeAdapter);
+		treeFormComposite = emfCompositeFactory.createTreeFormComposite(parent,
+				SWT.BORDER);
 
 		URI uri = URI.createPlatformResourceURI("/library/Library.xmi", true);
 		// ResourceSet resourceSet = new ResourceSetImpl();
