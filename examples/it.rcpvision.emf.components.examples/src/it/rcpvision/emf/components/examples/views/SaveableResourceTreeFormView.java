@@ -17,6 +17,7 @@ import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.edit.command.CreateChildCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
@@ -94,7 +95,8 @@ public class SaveableResourceTreeFormView extends ViewPart implements
 										Command mostRecentCommand = ((CommandStack) event
 												.getSource())
 												.getMostRecentCommand();
-										if (mostRecentCommand != null) {
+										if (mostRecentCommand != null
+												&& mostRecentCommand instanceof CreateChildCommand) {
 											setSelectionToViewer(mostRecentCommand
 													.getAffectedObjects());
 										}
