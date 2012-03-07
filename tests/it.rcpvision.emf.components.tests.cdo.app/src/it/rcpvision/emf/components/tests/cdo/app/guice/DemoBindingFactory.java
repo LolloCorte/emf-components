@@ -1,12 +1,12 @@
 package it.rcpvision.emf.components.tests.cdo.app.guice;
 
+import it.rcpvision.emf.components.binding.ControlObservablePair;
+import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.DateTime;
-
-import it.rcpvision.emf.components.ui.binding.ControlObservablePair;
-import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
 
 public class DemoBindingFactory extends EmfSwtBindingFactory {
 
