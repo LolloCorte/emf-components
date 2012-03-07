@@ -1,8 +1,8 @@
 package it.rcpvision.emf.components.views;
 
+import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.factories.JfaceProviderFactory;
-import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 

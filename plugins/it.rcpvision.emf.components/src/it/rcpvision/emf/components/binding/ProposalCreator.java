@@ -13,7 +13,7 @@
  * </copyright>
  *
  */
-package it.rcpvision.emf.components.old.ui;
+package it.rcpvision.emf.components.binding;
 
 import java.util.ArrayList;
 import java.util.Iterator;

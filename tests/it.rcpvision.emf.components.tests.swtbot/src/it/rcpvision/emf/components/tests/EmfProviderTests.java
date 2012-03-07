@@ -3,12 +3,12 @@ package it.rcpvision.emf.components.tests;
 import static org.eclipse.emf.examples.extlibrary.EXTLibraryPackage.Literals.LIBRARY;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
+import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.tests.factories.CustomLibraryExecutableExtensionFactory;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryFormFeatureLabelProvider;
 import it.rcpvision.emf.components.tests.providers.LibraryEStructuralFeaturesProvider;
 import it.rcpvision.emf.components.tests.providers.OrderedEStructuralFeaturesProvider;
 import it.rcpvision.emf.components.tests.utils.EmfComponentsTestsUtils;
-import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 

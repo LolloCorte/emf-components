@@ -3,13 +3,13 @@
  */
 package it.rcpvision.emf.components.tests.factories;
 
+import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.service.EmfComponentsGenericModule;
 import it.rcpvision.emf.components.tests.EmfComponentsTestsActivator;
 import it.rcpvision.emf.components.tests.binding.CustomLibraryBindingFactory;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryFeatureLabelProvider;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryFormFeatureLabelProvider;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryLabelProvider;
-import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;

@@ -1,6 +1,6 @@
 package it.rcpvision.emf.components.views;
 
-import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
+import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 
 import java.util.Collections;

@@ -38,7 +38,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import it.rcpvision.emf.components.EmfComponentsActivator;
 import it.rcpvision.emf.components.old.ui.ProposalCreator;
-import it.rcpvision.emf.components.ui.binding.ControlObservablePair;
+import it.rcpvision.emf.components.binding.ControlObservablePair;
 import org.eclipse.jface.bindings.keys.KeyStroke;
 import org.eclipse.jface.bindings.keys.ParseException;
 import org.eclipse.jface.databinding.swt.SWTObservables;

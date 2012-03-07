@@ -1,7 +1,7 @@
 /**
  * 
  */
-package it.rcpvision.emf.components.ui.binding;
+package it.rcpvision.emf.components.binding;
 
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.swt.widgets.Control;

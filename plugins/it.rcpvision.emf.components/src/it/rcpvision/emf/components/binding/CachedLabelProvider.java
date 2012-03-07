@@ -5,7 +5,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package it.rcpvision.emf.components.old.ui;
+package it.rcpvision.emf.components.binding;
 
 import java.util.HashMap;
 import java.util.Map;

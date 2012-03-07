@@ -13,13 +13,10 @@
  * </copyright>
  *
  */
-package it.rcpvision.emf.components.ui.binding;
+package it.rcpvision.emf.components.binding;
 
 import it.rcpvision.emf.components.EmfComponentsActivator;
 import it.rcpvision.emf.components.factories.JfaceProviderFactory;
-import it.rcpvision.emf.components.old.ui.ProposalCreator;
-import it.rcpvision.emf.components.old.ui.binding.MultipleFeatureControl;
-import it.rcpvision.emf.components.old.ui.binding.MultipleFeatureControlObservable;
 
 import java.lang.reflect.Method;
 import java.util.Collections;
@@ -29,7 +26,6 @@ import org.eclipse.core.databinding.Binding;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.databinding.EMFDataBindingContext;
 import org.eclipse.emf.databinding.EMFObservables;
 import org.eclipse.emf.databinding.edit.EMFEditObservables;
@@ -41,7 +37,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EEnumImpl;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.bindings.keys.KeyStroke;
 import org.eclipse.jface.bindings.keys.ParseException;
 import org.eclipse.jface.databinding.swt.SWTObservables;

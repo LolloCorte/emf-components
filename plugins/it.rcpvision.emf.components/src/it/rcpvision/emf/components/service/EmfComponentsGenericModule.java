@@ -3,6 +3,7 @@
  */
 package it.rcpvision.emf.components.service;
 
+import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.edit.action.TreeActionBarContributor;
 import it.rcpvision.emf.components.factories.EmfCompositeFactory;
@@ -18,7 +19,6 @@ import it.rcpvision.emf.components.outline.EmfEditorContentOutlinePage;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
 import it.rcpvision.emf.components.resource.ResourceLoader;
-import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeatureColumnProvider;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;

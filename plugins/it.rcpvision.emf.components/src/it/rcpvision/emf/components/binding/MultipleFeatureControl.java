@@ -13,10 +13,7 @@
  * </copyright>
  *
  */
-package it.rcpvision.emf.components.old.ui.binding;
-
-import it.rcpvision.emf.components.old.ui.CachedLabelProvider;
-import it.rcpvision.emf.components.old.ui.ProposalCreator;
+package it.rcpvision.emf.components.binding;
 
 import java.util.ArrayList;
 import java.util.Iterator;
