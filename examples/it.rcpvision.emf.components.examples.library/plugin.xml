@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="it.rcpvision.emf.components.examples.library.ExecutableExtensionFactory:it.rcpvision.emf.components.editors.EmfTreeEditor"
+            contributorClass="org.eclipse.emf.presentation.EmfComponentsEditorActionBarContributor"
+            default="false"
+            id="it.rcpvision.emf.components.examples.library.treeEditor"
+            name="Custom Library Editor">
+         <contentTypeBinding
+               contentTypeId="org.eclipse.emf.ecore.xmi">
+         </contentTypeBinding>
+      </editor>
+   </extension>
+      <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="it.rcpvision.emf.components.examples.library.ExecutableExtensionFactory:it.rcpvision.emf.components.views.EmfFormView"
+            id="it.rcpvision.emf.components.examples.library.formview"
+            name="Custom Form View"
+            restorable="true">
+      </view>
+            <view
+            class="it.rcpvision.emf.components.examples.library.ExecutableExtensionFactory:it.rcpvision.emf.components.views.EmfTableView"
+            id="it.rcpvision.emf.components.examples.library.tableview"
+            name="Custom Table View"
+            restorable="true">
+      </view>
+      <view
+            class="it.rcpvision.emf.components.examples.library.ExecutableExtensionFactory:it.rcpvision.emf.components.examples.views.TreeFormView"
+            id="it.rcpvision.emf.components.examples.library.treeformview"
+            name="Custom Tree Form"
+            restorable="true">
+      </view>
+   </extension>
+
+</plugin>
