@@ -1,6 +1,6 @@
 package it.rcpvision.emf.components.widgets;
 
-import it.rcpvision.emf.components.factories.EmfDetailsFactory;
+import it.rcpvision.emf.components.factories.EmfFormCompositeFactory;
 import it.rcpvision.emf.components.util.EmfSelectionHelper;
 import it.rcpvision.emf.components.views.EmfViewerManager;
 import it.rcpvision.emf.components.views.FormDetailComposite;
@@ -40,7 +40,7 @@ public class TreeFormComposite extends Composite {
 				if (detailForm != null)
 					detailForm.dispose();
 
-				detailForm = emfDetailsFactory.createFormDetailComposite(
+				detailForm = emfFormCompositeFactory.createFormDetailComposite(
 						detail, SWT.BORDER);
 				detailForm.init(selectedObject);
 				detail.layout(true);
@@ -51,7 +51,7 @@ public class TreeFormComposite extends Composite {
 
 	protected EmfViewerManager emfViewerManager;
 
-	protected EmfDetailsFactory emfDetailsFactory;
+	protected EmfFormCompositeFactory emfFormCompositeFactory;
 
 	protected EmfSelectionHelper emfSelectionHelper;
 
@@ -65,12 +65,12 @@ public class TreeFormComposite extends Composite {
 
 	public TreeFormComposite(Composite parent, int style,
 			EmfViewerManager emfViewerManager,
-			EmfDetailsFactory emfDetailsFactory,
+			EmfFormCompositeFactory emfFormCompositeFactory,
 			EmfSelectionHelper emfSelectionHelper) {
 		super(parent, style);
 		setLayout(new FillLayout());
 		this.emfViewerManager = emfViewerManager;
-		this.emfDetailsFactory = emfDetailsFactory;
+		this.emfFormCompositeFactory = emfFormCompositeFactory;
 		this.emfSelectionHelper = emfSelectionHelper;
 
 		SashForm sashForm = new SashForm(this, SWT.VERTICAL);

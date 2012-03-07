@@ -1,6 +1,6 @@
 package it.rcpvision.emf.components.views;
 
-import it.rcpvision.emf.components.factories.EmfDetailsFactory;
+import it.rcpvision.emf.components.factories.EmfFormCompositeFactory;
 import it.rcpvision.emf.components.old.ui.ButtonsComposite;
 
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -37,7 +37,7 @@ public class GenericDetailViewPart extends ViewPart implements
 	private Resource modelResource;
 
 	@Inject
-	protected EmfDetailsFactory emfDetailsFactory;
+	protected EmfFormCompositeFactory emfFormCompositeFactory;
 
 	@Inject
 	protected EObjectManager objectManager;
@@ -95,7 +95,7 @@ public class GenericDetailViewPart extends ViewPart implements
 					genericComponent.dispose();
 				}
 
-				genericComponent = emfDetailsFactory.createFormDetailComposite(
+				genericComponent = emfFormCompositeFactory.createFormDetailComposite(
 						main, SWT.NONE);
 				formToolkit.adapt(genericComponent);
 				// make sure that the form takes all the space

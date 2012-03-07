@@ -1,6 +1,6 @@
 package it.rcpvision.emf.components.view.masterdetail;
 
-import it.rcpvision.emf.components.factories.EmfDetailsFactory;
+import it.rcpvision.emf.components.factories.EmfFormCompositeFactory;
 import it.rcpvision.emf.components.factories.EmfViewerFactory;
 import it.rcpvision.emf.components.listeners.EmfViewerMouseAdapter;
 import it.rcpvision.emf.components.menus.StructuredViewerContextMenuCreator;
@@ -111,7 +111,7 @@ public class TreeMasterDetailView extends ViewPart implements ISaveablePart, ISa
 	protected EObjectManager objectManager;
 	
 	@Inject
-	protected EmfDetailsFactory emfDetailsFactory;
+	protected EmfFormCompositeFactory emfFormCompositeFactory;
 	
 	private GenericDetailComposite genericComponent;
 	
@@ -269,7 +269,7 @@ public class TreeMasterDetailView extends ViewPart implements ISaveablePart, ISa
 		
 		model = objectManager.prepareModel(obj);
 
-		genericComponent = emfDetailsFactory.createDetailsComposite(detail, SWT.NONE);
+		genericComponent = emfFormCompositeFactory.createDetailsComposite(detail, SWT.NONE);
 		formToolkit.adapt(genericComponent);
 		genericComponent.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		model.eAdapters().add(modelAdapter=new Adapter() {

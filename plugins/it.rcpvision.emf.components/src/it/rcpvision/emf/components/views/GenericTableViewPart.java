@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import it.rcpvision.emf.components.factories.EmfDetailsFactory;
+import it.rcpvision.emf.components.factories.EmfFormCompositeFactory;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 
 import org.eclipse.emf.common.util.BasicEList;
@@ -34,7 +34,7 @@ public class GenericTableViewPart extends ViewPart implements ISelectionListener
 	private Composite main;
 	
 	@Inject
-	protected EmfDetailsFactory emfDetailsFactory;
+	protected EmfFormCompositeFactory emfFormCompositeFactory;
 
 	private List<GenericTableComposite> genericComponentList=new ArrayList<GenericTableComposite>();
 
@@ -83,7 +83,7 @@ public class GenericTableViewPart extends ViewPart implements ISelectionListener
 				for (final EStructuralFeature feature : allStructuralFeatures) {
 					if (feature.isChangeable() && !feature.isDerived() && (feature instanceof EReference && ((EReference) feature).isMany())) {
 						GenericTableComposite genericComponent;
-						//genericComponentList.add(genericComponent= emfDetailsFactory.createTableComposite(main, SWT.NONE));
+						//genericComponentList.add(genericComponent= emfFormCompositeFactory.createTableComposite(main, SWT.NONE));
 						//formToolkit.adapt(genericComponent);
 						//genericComponent.init((EList) model.eGet(feature));
 					}

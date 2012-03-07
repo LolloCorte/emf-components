@@ -25,7 +25,7 @@ public class EmfCompositeFactory {
 	protected EmfViewerManager emfViewerManager;
 
 	@Inject
-	protected EmfDetailsFactory emfDetailsFactory;
+	protected EmfFormCompositeFactory emfFormCompositeFactory;
 
 	@Inject
 	public EmfCompositeFactory() {
@@ -34,6 +34,6 @@ public class EmfCompositeFactory {
 
 	public TreeFormComposite createTreeFormComposite(Composite parent, int style) {
 		return new TreeFormComposite(parent, style, emfViewerManager,
-				emfDetailsFactory, emfSelectionHelperProvider.get());
+				emfFormCompositeFactory, emfSelectionHelperProvider.get());
 	}
 }

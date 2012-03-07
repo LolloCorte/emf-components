@@ -3,7 +3,7 @@
  */
 package it.rcpvision.emf.components.views;
 
-import it.rcpvision.emf.components.factories.EmfDetailsFactory;
+import it.rcpvision.emf.components.factories.EmfFormCompositeFactory;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ISelection;
@@ -23,7 +23,7 @@ import com.google.inject.Inject;
 public class EmfFormView extends EmfAbstractViewOnSelection {
 
 	@Inject
-	protected EmfDetailsFactory emfDetailsFactory;
+	protected EmfFormCompositeFactory emfFormCompositeFactory;
 
 	protected Composite parent;
 
@@ -48,7 +48,7 @@ public class EmfFormView extends EmfAbstractViewOnSelection {
 				formComposite.dispose();
 			}
 			
-			formComposite = emfDetailsFactory.createFormDetailComposite(
+			formComposite = emfFormCompositeFactory.createFormDetailComposite(
 					parent, SWT.NONE);
 			formComposite.init(eObject);
 			

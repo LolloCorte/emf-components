@@ -19,7 +19,7 @@ import com.google.inject.Provider;
  * @author bettini
  * 
  */
-public class EmfDetailsFactory {
+public class EmfFormCompositeFactory {
 
 	@Inject
 	protected Provider<FormFeatureLabelProvider> featureLabelProviderProvider;
@@ -37,7 +37,7 @@ public class EmfDetailsFactory {
 	protected Provider<EStructuralFeaturesProvider> eClassFeatureProviderProvider;
 
 	@Inject
-	public EmfDetailsFactory() {
+	public EmfFormCompositeFactory() {
 
 	}
 
