@@ -51,6 +51,13 @@
             name="Emf Form View"
             restorable="true">
       </view>
+      <view
+            class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.TreeFormView"
+            icon="icon/view.jpg"
+            id="it.rcpvision.emf.components.treeformview"
+            name="Emf Tree Form View"
+            restorable="true">
+      </view>
    </extension>
    <extension
          point="org.eclipse.pde.ui.pluginContent">
