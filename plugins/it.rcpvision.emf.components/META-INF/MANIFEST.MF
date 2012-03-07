@@ -29,4 +29,5 @@ Export-Package: it.rcpvision.emf.components,
  it.rcpvision.emf.components.ui.provider,
  it.rcpvision.emf.components.util,
  it.rcpvision.emf.components.view.masterdetail,
- it.rcpvision.emf.components.views
+ it.rcpvision.emf.components.views,
+ it.rcpvision.emf.components.widgets

@@ -1,8 +1,8 @@
 package it.rcpvision.emf.components.examples.views;
 
-import it.rcpvision.emf.components.examples.composite.TreeFormComposite;
 import it.rcpvision.emf.components.views.EmfDetailsFactory;
 import it.rcpvision.emf.components.views.EmfViewerManager;
+import it.rcpvision.emf.components.widgets.TreeFormComposite;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
