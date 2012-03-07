@@ -1,7 +1,11 @@
 /**
  * 
  */
-package it.rcpvision.emf.components.ui.provider;
+package it.rcpvision.emf.components.factories;
+
+import it.rcpvision.emf.components.ui.provider.AdapterMapCellLabelProvider;
+import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
+import it.rcpvision.emf.components.ui.provider.EStructuralFeatureColumnProvider;
 
 import java.util.Set;
 

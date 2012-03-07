@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import it.rcpvision.emf.components.factories.EmfDetailsFactory;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 
 import org.eclipse.emf.common.util.BasicEList;

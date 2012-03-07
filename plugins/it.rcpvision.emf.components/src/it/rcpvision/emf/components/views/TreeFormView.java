@@ -1,5 +1,6 @@
 package it.rcpvision.emf.components.views;
 
+import it.rcpvision.emf.components.factories.EmfDetailsFactory;
 import it.rcpvision.emf.components.widgets.TreeFormComposite;
 
 import org.eclipse.jface.viewers.ISelection;

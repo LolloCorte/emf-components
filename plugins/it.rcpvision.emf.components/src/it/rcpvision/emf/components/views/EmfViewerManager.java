@@ -3,9 +3,9 @@
  */
 package it.rcpvision.emf.components.views;
 
+import it.rcpvision.emf.components.factories.JfaceProviderFactory;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
-import it.rcpvision.emf.components.ui.provider.JfaceProviderFactory;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.URI;

@@ -16,10 +16,10 @@
 package it.rcpvision.emf.components.ui.binding;
 
 import it.rcpvision.emf.components.EmfComponentsActivator;
+import it.rcpvision.emf.components.factories.JfaceProviderFactory;
 import it.rcpvision.emf.components.old.ui.ProposalCreator;
 import it.rcpvision.emf.components.old.ui.binding.MultipleFeatureControl;
 import it.rcpvision.emf.components.old.ui.binding.MultipleFeatureControlObservable;
-import it.rcpvision.emf.components.ui.provider.JfaceProviderFactory;
 
 import java.lang.reflect.Method;
 import java.util.Collections;

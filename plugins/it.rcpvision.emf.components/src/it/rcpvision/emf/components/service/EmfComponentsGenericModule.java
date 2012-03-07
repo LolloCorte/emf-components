@@ -4,6 +4,8 @@
 package it.rcpvision.emf.components.service;
 
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
+import it.rcpvision.emf.components.factories.EmfViewerFactory;
+import it.rcpvision.emf.components.factories.JfaceProviderFactory;
 import it.rcpvision.emf.components.handlers.ContentOutlineSelectionHandler;
 import it.rcpvision.emf.components.listeners.EmfViewerMouseAdapter;
 import it.rcpvision.emf.components.listeners.ResourceDeltaVisitor;
@@ -19,12 +21,10 @@ import it.rcpvision.emf.components.ui.provider.EStructuralFeatureColumnProvider;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
-import it.rcpvision.emf.components.ui.provider.JfaceProviderFactory;
 import it.rcpvision.emf.components.util.EmfSelectionHelper;
 import it.rcpvision.emf.components.view.masterdetail.TreeActionBarContributor;
 import it.rcpvision.emf.components.views.ComposedAdapterFactoryProvider;
 import it.rcpvision.emf.components.views.EObjectManager;
-import it.rcpvision.emf.components.views.EmfViewerFactory;
 import it.rcpvision.emf.components.views.EmfViewerManager;
 import it.rcpvision.emf.components.views.TableViewerBuilder;
 import it.rcpvision.emf.components.views.TableViewerColumnBuilder;

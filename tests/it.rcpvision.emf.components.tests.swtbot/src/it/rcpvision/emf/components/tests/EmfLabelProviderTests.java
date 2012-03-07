@@ -1,8 +1,8 @@
 package it.rcpvision.emf.components.tests;
 
 import static org.junit.Assert.assertEquals;
+import it.rcpvision.emf.components.factories.JfaceProviderFactory;
 import it.rcpvision.emf.components.tests.factories.CustomLibraryExecutableExtensionFactory;
-import it.rcpvision.emf.components.ui.provider.JfaceProviderFactory;
 
 import org.eclipse.emf.ecore.util.FeatureMap.Entry;
 import org.eclipse.emf.examples.extlibrary.EXTLibraryFactory;

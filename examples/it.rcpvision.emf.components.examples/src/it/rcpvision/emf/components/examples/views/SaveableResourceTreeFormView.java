@@ -1,10 +1,10 @@
 package it.rcpvision.emf.components.examples.views;
 
+import it.rcpvision.emf.components.factories.EmfDetailsFactory;
 import it.rcpvision.emf.components.menus.StructuredViewerContextMenuCreator;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
 import it.rcpvision.emf.components.view.masterdetail.TreeActionBarContributor;
-import it.rcpvision.emf.components.views.EmfDetailsFactory;
 import it.rcpvision.emf.components.views.EmfViewerManager;
 import it.rcpvision.emf.components.widgets.TreeFormComposite;
 

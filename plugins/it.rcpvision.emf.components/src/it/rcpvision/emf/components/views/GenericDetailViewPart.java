@@ -1,5 +1,6 @@
 package it.rcpvision.emf.components.views;
 
+import it.rcpvision.emf.components.factories.EmfDetailsFactory;
 import it.rcpvision.emf.components.old.ui.ButtonsComposite;
 
 import org.eclipse.core.runtime.IProgressMonitor;

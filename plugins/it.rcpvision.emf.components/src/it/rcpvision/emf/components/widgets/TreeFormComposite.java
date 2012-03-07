@@ -1,6 +1,6 @@
 package it.rcpvision.emf.components.widgets;
 
-import it.rcpvision.emf.components.views.EmfDetailsFactory;
+import it.rcpvision.emf.components.factories.EmfDetailsFactory;
 import it.rcpvision.emf.components.views.EmfViewerManager;
 import it.rcpvision.emf.components.views.FormDetailComposite;
 

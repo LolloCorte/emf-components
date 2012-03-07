@@ -3,9 +3,9 @@
  */
 package it.rcpvision.emf.components.views;
 
+import it.rcpvision.emf.components.factories.JfaceProviderFactory;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
-import it.rcpvision.emf.components.ui.provider.JfaceProviderFactory;
 
 import java.util.List;
 

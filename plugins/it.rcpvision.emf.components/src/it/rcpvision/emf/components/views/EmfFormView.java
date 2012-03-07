@@ -3,6 +3,8 @@
  */
 package it.rcpvision.emf.components.views;
 
+import it.rcpvision.emf.components.factories.EmfDetailsFactory;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.SWT;

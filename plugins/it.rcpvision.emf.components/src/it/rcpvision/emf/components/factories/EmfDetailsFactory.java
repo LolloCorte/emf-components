@@ -1,13 +1,14 @@
 /**
  * 
  */
-package it.rcpvision.emf.components.views;
+package it.rcpvision.emf.components.factories;
 
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
-import it.rcpvision.emf.components.ui.provider.JfaceProviderFactory;
+import it.rcpvision.emf.components.views.FormDetailComposite;
+import it.rcpvision.emf.components.views.GenericDetailComposite;
 
 import org.eclipse.swt.widgets.Composite;
 

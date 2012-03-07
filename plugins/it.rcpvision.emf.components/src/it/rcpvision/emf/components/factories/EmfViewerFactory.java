@@ -1,7 +1,10 @@
 /**
  * 
  */
-package it.rcpvision.emf.components.views;
+package it.rcpvision.emf.components.factories;
+
+import it.rcpvision.emf.components.views.EmfViewerManager;
+import it.rcpvision.emf.components.views.TableViewerBuilder;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;

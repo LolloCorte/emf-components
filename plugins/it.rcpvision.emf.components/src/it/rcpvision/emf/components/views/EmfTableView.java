@@ -3,6 +3,7 @@
  */
 package it.rcpvision.emf.components.views;
 
+import it.rcpvision.emf.components.factories.EmfViewerFactory;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
 
 import java.util.List;
