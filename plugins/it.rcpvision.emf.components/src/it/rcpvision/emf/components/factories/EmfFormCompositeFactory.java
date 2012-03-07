@@ -8,7 +8,6 @@ import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 import it.rcpvision.emf.components.views.FormDetailComposite;
-import it.rcpvision.emf.components.views.GenericDetailComposite;
 
 import org.eclipse.swt.widgets.Composite;
 
@@ -39,12 +38,6 @@ public class EmfFormCompositeFactory {
 	@Inject
 	public EmfFormCompositeFactory() {
 
-	}
-
-	public GenericDetailComposite createDetailsComposite(Composite parent,
-			int style) {
-		return new GenericDetailComposite(parent, style,
-				featureLabelProviderProvider.get(), bindingFactoryProvider);
 	}
 
 	public FormDetailComposite createFormDetailComposite(Composite parent,

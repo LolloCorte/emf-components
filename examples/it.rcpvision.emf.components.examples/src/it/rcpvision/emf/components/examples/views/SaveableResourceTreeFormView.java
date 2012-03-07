@@ -1,10 +1,10 @@
 package it.rcpvision.emf.components.examples.views;
 
+import it.rcpvision.emf.components.edit.action.TreeActionBarContributor;
 import it.rcpvision.emf.components.factories.EmfCompositeFactory;
 import it.rcpvision.emf.components.menus.StructuredViewerContextMenuCreator;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
-import it.rcpvision.emf.components.view.masterdetail.TreeActionBarContributor;
 import it.rcpvision.emf.components.widgets.TreeFormComposite;
 
 import java.io.IOException;

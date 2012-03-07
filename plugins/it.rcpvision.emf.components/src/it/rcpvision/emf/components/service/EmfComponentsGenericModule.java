@@ -4,6 +4,7 @@
 package it.rcpvision.emf.components.service;
 
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
+import it.rcpvision.emf.components.edit.action.TreeActionBarContributor;
 import it.rcpvision.emf.components.factories.EmfCompositeFactory;
 import it.rcpvision.emf.components.factories.EmfFormCompositeFactory;
 import it.rcpvision.emf.components.factories.EmfViewerFactory;
@@ -24,7 +25,6 @@ import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 import it.rcpvision.emf.components.util.EmfSelectionHelper;
-import it.rcpvision.emf.components.view.masterdetail.TreeActionBarContributor;
 import it.rcpvision.emf.components.views.ComposedAdapterFactoryProvider;
 import it.rcpvision.emf.components.views.EObjectManager;
 import it.rcpvision.emf.components.views.EmfViewerManager;

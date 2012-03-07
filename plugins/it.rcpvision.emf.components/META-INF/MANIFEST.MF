@@ -19,6 +19,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: it.rcpvision.emf.components,
  it.rcpvision.emf.components.edit,
+ it.rcpvision.emf.components.edit.action,
  it.rcpvision.emf.components.editors,
  it.rcpvision.emf.components.factories,
  it.rcpvision.emf.components.handlers,
@@ -29,6 +30,5 @@ Export-Package: it.rcpvision.emf.components,
  it.rcpvision.emf.components.ui.binding,
  it.rcpvision.emf.components.ui.provider,
  it.rcpvision.emf.components.util,
- it.rcpvision.emf.components.view.masterdetail,
  it.rcpvision.emf.components.views,
  it.rcpvision.emf.components.widgets
