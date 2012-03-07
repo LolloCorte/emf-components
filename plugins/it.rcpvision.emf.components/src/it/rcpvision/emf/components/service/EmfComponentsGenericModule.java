@@ -4,6 +4,8 @@
 package it.rcpvision.emf.components.service;
 
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
+import it.rcpvision.emf.components.factories.EmfCompositeFactory;
+import it.rcpvision.emf.components.factories.EmfFormCompositeFactory;
 import it.rcpvision.emf.components.factories.EmfViewerFactory;
 import it.rcpvision.emf.components.factories.JfaceProviderFactory;
 import it.rcpvision.emf.components.handlers.ContentOutlineSelectionHandler;
@@ -103,6 +105,14 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 
 	public Class<? extends EmfViewerFactory> bindEmfViewerFactory() {
 		return EmfViewerFactory.class;
+	}
+
+	public Class<? extends EmfCompositeFactory> bindEmfCompositeFactory() {
+		return EmfCompositeFactory.class;
+	}
+
+	public Class<? extends EmfFormCompositeFactory> bindEmfFormCompositeFactory() {
+		return EmfFormCompositeFactory.class;
 	}
 
 	public Class<? extends EmfViewerManager> bindEmfViewerManager() {
