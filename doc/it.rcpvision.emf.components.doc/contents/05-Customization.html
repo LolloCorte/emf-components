@@ -1,0 +1,92 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" >
+<title>Customization</title>
+
+<link href="book.css" rel="stylesheet" type="text/css">
+<link href="code.css" rel="stylesheet" type="text/css">
+<link rel="home" href="xtext.html" title="">
+</head>
+<body>
+<a name="Customization"></a>
+<h1>Customization</h1>
+<a name="Providers"></a>
+<h2>Providers</h2>
+<a name="Providers_1"></a>
+<h3>EClass' EStructuralFeatures</h3>
+<p>
+When the framework builds components according to the
+<a class="jdoc" href="http://download.eclipse.org/modeling/emf/emf/javadoc/2.6.0/org/eclipse/emf/ecore/EStructuralFeature.html" title="View JavaDoc"><abbr title="org.eclipse.emf.ecore.EStructuralFeature" >EStructuralFeature</abbr></a>s of a given
+<a class="jdoc" href="http://download.eclipse.org/modeling/emf/emf/javadoc/2.6.0/org/eclipse/emf/ecore/EClass.html" title="View JavaDoc"><abbr title="org.eclipse.emf.ecore.EClass" >EClass</abbr></a> it relies on an injected
+<abbr title="it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider" >EStructuralFeaturesProvider</abbr>.
+The default behavior is to simply return all the features of the a given EClass,
+in the order they are defined in the EClass;
+you may want to provide a custom implementation by redefining
+the method <span class="inlinecode">List&lt;EStructuralFeature&gt;&nbsp;getFeatures(EClass)</span>, or
+<span class="inlinecode">List&lt;EStructuralFeature&gt;&nbsp;getFeatures(EObject)</span>,
+for instance by returning the features ordered according to their name
+(the following snippet uses an utility class from the framework)
+</p>
+<p>
+<div class="literallayout">
+<div class="incode">
+<p class="code">
+<span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;OrderedEStructuralFeaturesProvider&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">extends</span>&nbsp;EStructuralFeaturesProvider&nbsp;{<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;@Inject<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;EStructuralFeatureNameComparator&nbsp;comparator;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;@Override<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;List&lt;EStructuralFeature&gt;&nbsp;getFeatures(EClass&nbsp;eClass)&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List&lt;EStructuralFeature&gt;&nbsp;features&nbsp;=&nbsp;<span class="keyword">super</span>.getFeatures(eClass);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Collections.sort(features,&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">new</span>&nbsp;EStructuralFeatureNameComparator());<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;features;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+}<br/>
+</p>
+</div>
+</div>
+</p>
+<p>
+Alternatively, you can set the mappings, i.e., specify the structural
+features you want to be used given an EClass, by implementing
+the method <span class="inlinecode">buildMap</span>, which receives the
+<abbr title="it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider.EClassToEStructuralFeatureMap" >EStructuralFeaturesProvider.EClassToEStructuralFeatureMap</abbr>
+that can be filled with the method <span class="inlinecode">mapTo</span>; 
+for instance, using the EMF extended library
+example, this customization will return only the <em>name</em> and <em>address</em> features
+for <span class="inlinecode">Library</span>, the <em>firstName</em>, <em>lastName</em> and <em>address</em> for
+<span class="inlinecode">Person</span>, and the <em>firstName</em>, <em>lastName</em> and <em>books</em> (but
+not <em>address</em>) for <span class="inlinecode">Writer</span> (which inherits from <span class="inlinecode">Person</span>).
+</p>
+<p>
+<div class="literallayout">
+<div class="incode">
+<p class="code">
+<span class="keyword">import</span>&nbsp;<span class="keyword">static</span>&nbsp;org.eclipse.emf.examples.extlibrary.EXTLibraryPackage.Literals.*;<br/>
+<span class="keyword">import</span>&nbsp;it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;<br/>
+<br/>
+<span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;LibraryEStructuralFeaturesProvider&nbsp;<span class="keyword">extends</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EStructuralFeaturesProvider&nbsp;{<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;@Override<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;<span class="keyword">void</span>&nbsp;buildMap(EClassToEStructuralFeatureMap&nbsp;map)&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">super</span>.buildMap(map);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map.mapTo(LIBRARY,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LIBRARY__NAME,&nbsp;ADDRESSABLE__ADDRESS);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map.mapTo(PERSON,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERSON__FIRST_NAME,&nbsp;PERSON__LAST_NAME,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADDRESSABLE__ADDRESS);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map.mapTo(WRITER,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERSON__FIRST_NAME,&nbsp;PERSON__LAST_NAME,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WRITER__BOOKS);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+}<br/>
+</p>
+</div>
+</div>
+</p>
+</body>
+</html>
