@@ -5,7 +5,7 @@ bin/
 logs.zip
 *.orig
 .svn/
-xtend-gen/
+#xtend-gen/ we need it for building
 *.jpg
 *.jpeg
 target/
