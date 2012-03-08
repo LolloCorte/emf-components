@@ -8,3 +8,4 @@ logs.zip
 xtend-gen/
 *.jpg
 *.jpeg
+target/
