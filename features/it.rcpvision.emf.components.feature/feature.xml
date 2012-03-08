@@ -32,6 +32,15 @@
       <import plugin="org.eclipse.core.databinding.property" version="1.4.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.pde.ui" version="3.6.100" match="greaterOrEqual"/>
       <import plugin="org.eclipse.help"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.ui.ide" version="3.7.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.resources" version="3.7.100" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jdt.core" version="3.7.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jdt.launching" version="3.6.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jdt.ui" version="3.7.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.common" version="2.7.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.xtend2.lib" version="2.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.pde.core" version="3.7.1" match="greaterOrEqual"/>
    </requires>
 
    <plugin
@@ -43,6 +52,13 @@
 
    <plugin
          id="it.rcpvision.emf.components.doc"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="it.rcpvision.emf.components.wizards"
          download-size="0"
          install-size="0"
          version="0.0.0"
