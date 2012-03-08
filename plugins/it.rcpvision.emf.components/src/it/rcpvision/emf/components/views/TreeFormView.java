@@ -10,7 +10,7 @@ import org.eclipse.ui.IWorkbenchPart;
 
 import com.google.inject.Inject;
 
-public class TreeFormView extends EmfAbstractViewOnSelection {
+public class TreeFormView extends OnSelectionAbstractView {
 
 	@Inject
 	protected EmfCompositeFactory emfCompositeFactory;

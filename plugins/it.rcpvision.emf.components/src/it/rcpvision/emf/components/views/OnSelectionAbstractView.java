@@ -21,7 +21,7 @@ import com.google.inject.Inject;
  * @author Lorenzo Bettini
  * 
  */
-public abstract class EmfAbstractViewOnSelection extends ViewPart {
+public abstract class OnSelectionAbstractView extends ViewPart {
 
 	@Inject
 	protected EmfSelectionHelper selectionHelper;
@@ -31,7 +31,7 @@ public abstract class EmfAbstractViewOnSelection extends ViewPart {
 		public void selectionChanged(IWorkbenchPart sourcepart,
 				ISelection selection) {
 			// we ignore our own selections
-			if (sourcepart != EmfAbstractViewOnSelection.this) {
+			if (sourcepart != OnSelectionAbstractView.this) {
 				updateOnSelection(sourcepart, selection);
 			}
 		}

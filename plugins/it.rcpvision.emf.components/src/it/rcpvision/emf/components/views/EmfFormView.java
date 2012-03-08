@@ -20,7 +20,7 @@ import com.google.inject.Inject;
  * @author Lorenzo Bettini
  * 
  */
-public class EmfFormView extends EmfAbstractViewOnSelection {
+public class EmfFormView extends OnSelectionAbstractView {
 
 	@Inject
 	protected EmfFormCompositeFactory emfFormCompositeFactory;

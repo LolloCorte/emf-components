@@ -32,7 +32,7 @@ import com.google.inject.Inject;
  * @author Lorenzo Bettini
  * 
  */
-public class EmfTableView extends EmfAbstractViewOnSelection {
+public class EmfTableView extends OnSelectionAbstractView {
 
 	@Inject
 	protected EmfViewerFactory emfViewerFactory;

@@ -25,7 +25,7 @@ import com.google.inject.Inject;
  * @author Lorenzo Bettini
  * 
  */
-public abstract class EmfAbstractView extends EmfAbstractViewOnSelection {
+public abstract class StructuredViewerAbstractView extends OnSelectionAbstractView {
 
 	private PageBook pagebook;
 
@@ -36,7 +36,7 @@ public abstract class EmfAbstractView extends EmfAbstractViewOnSelection {
 	@Inject
 	protected EmfViewerManager emfViewerManager;
 
-	public EmfAbstractView() {
+	public StructuredViewerAbstractView() {
 	}
 
 	public StructuredViewer getViewer() {

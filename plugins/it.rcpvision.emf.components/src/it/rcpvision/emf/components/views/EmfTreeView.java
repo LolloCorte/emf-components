@@ -15,7 +15,7 @@ import org.eclipse.swt.widgets.Composite;
  * @author Lorenzo Bettini
  * 
  */
-public class EmfTreeView extends EmfAbstractView {
+public class EmfTreeView extends StructuredViewerAbstractView {
 
 	public EmfTreeView() {
 	}
