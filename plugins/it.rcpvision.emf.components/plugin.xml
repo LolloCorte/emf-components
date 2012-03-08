@@ -17,28 +17,28 @@
    <extension
          point="org.eclipse.ui.views">
       <view
-            class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.EmfTreeView"
+            class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.OnSelectionTreeView"
             icon="icon/view.jpg"
             id="it.rcpvision.emf.components.emftreeview"
             name="Emf Tree View"
             restorable="true">
       </view>
       <view
-            class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.EmfListView"
+            class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.OnSelectionListView"
             icon="icon/view.jpg"
             id="it.rcpvision.emf.components.emflistview"
             name="Emf List View"
             restorable="true">
       </view>
       <view
-            class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.EmfTableView"
+            class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.OnSelectionTableView"
             icon="icon/view.jpg"
             id="it.rcpvision.emf.components.tableview"
             name="Emf Table View"
             restorable="true">
       </view>
       <view
-            class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.EmfFormView"
+            class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.OnSelectionFormView"
             icon="icon/view.jpg"
             id="it.rcpvision.emf.components.formview"
             name="Emf Form View"

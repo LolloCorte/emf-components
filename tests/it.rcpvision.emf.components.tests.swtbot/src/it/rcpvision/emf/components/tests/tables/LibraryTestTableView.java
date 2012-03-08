@@ -28,7 +28,7 @@ import org.eclipse.xtext.EcoreUtil2;
 import com.google.inject.Inject;
 
 /**
- * EmfTreeView with hardcoded resource URI
+ * OnSelectionTreeView with hardcoded resource URI
  * 
  * @author bettini
  * 

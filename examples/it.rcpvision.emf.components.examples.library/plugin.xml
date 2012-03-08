@@ -17,13 +17,13 @@
       <extension
          point="org.eclipse.ui.views">
       <view
-            class="it.rcpvision.emf.components.examples.library.ExecutableExtensionFactory:it.rcpvision.emf.components.views.EmfFormView"
+            class="it.rcpvision.emf.components.examples.library.ExecutableExtensionFactory:it.rcpvision.emf.components.views.OnSelectionFormView"
             id="it.rcpvision.emf.components.examples.library.formview"
             name="Custom Form View"
             restorable="true">
       </view>
             <view
-            class="it.rcpvision.emf.components.examples.library.ExecutableExtensionFactory:it.rcpvision.emf.components.views.EmfTableView"
+            class="it.rcpvision.emf.components.examples.library.ExecutableExtensionFactory:it.rcpvision.emf.components.views.OnSelectionTableView"
             id="it.rcpvision.emf.components.examples.library.tableview"
             name="Custom Table View"
             restorable="true">

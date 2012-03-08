@@ -20,7 +20,7 @@ import com.google.inject.Inject;
  * @author Lorenzo Bettini
  * 
  */
-public class EmfFormView extends OnSelectionAbstractView {
+public class OnSelectionFormView extends OnSelectionAbstractView {
 
 	@Inject
 	protected EmfFormCompositeFactory emfFormCompositeFactory;
@@ -29,7 +29,7 @@ public class EmfFormView extends OnSelectionAbstractView {
 
 	protected FormDetailComposite formComposite;
 	
-	public EmfFormView() {
+	public OnSelectionFormView() {
 	}
 
 	@Override

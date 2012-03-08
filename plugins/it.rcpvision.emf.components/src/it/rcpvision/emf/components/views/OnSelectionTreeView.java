@@ -15,9 +15,9 @@ import org.eclipse.swt.widgets.Composite;
  * @author Lorenzo Bettini
  * 
  */
-public class EmfTreeView extends StructuredViewerAbstractView {
+public class OnSelectionTreeView extends OnSelectionStructuredViewerAbstractView {
 
-	public EmfTreeView() {
+	public OnSelectionTreeView() {
 	}
 
 	@Override
