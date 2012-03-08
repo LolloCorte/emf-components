@@ -1,4 +1,4 @@
-package it.rcpvision.emf.components.views;
+package it.rcpvision.emf.components.widgets;
 
 import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;

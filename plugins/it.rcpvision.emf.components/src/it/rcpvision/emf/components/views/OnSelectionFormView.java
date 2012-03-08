@@ -4,6 +4,7 @@
 package it.rcpvision.emf.components.views;
 
 import it.rcpvision.emf.components.factories.EmfFormCompositeFactory;
+import it.rcpvision.emf.components.widgets.FormDetailComposite;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ISelection;

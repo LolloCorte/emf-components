@@ -7,7 +7,7 @@ import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
-import it.rcpvision.emf.components.views.FormDetailComposite;
+import it.rcpvision.emf.components.widgets.FormDetailComposite;
 
 import org.eclipse.swt.widgets.Composite;
 
