@@ -1,7 +1,7 @@
 /**
  * 
  */
-package it.rcpvision.emf.components.views;
+package it.rcpvision.emf.components.guice;
 
 import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
