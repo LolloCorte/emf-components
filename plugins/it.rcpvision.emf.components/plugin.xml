@@ -45,7 +45,7 @@
             restorable="true">
       </view>
       <view
-            class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.TreeFormView"
+            class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.OnSelectionTreeFormView"
             icon="icon/view.jpg"
             id="it.rcpvision.emf.components.treeformview"
             name="Emf Tree Form View"
