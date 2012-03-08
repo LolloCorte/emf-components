@@ -43,5 +43,7 @@
 	</build>
 	<modules>
 		<module>../../plugins/it.rcpvision.emf.components</module>
+		<module>../../doc/it.rcpvision.emf.components.doc</module>
+		<module>../../features/it.rcpvision.emf.components.feature</module>
 	</modules>
 </project>
