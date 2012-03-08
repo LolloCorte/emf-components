@@ -1,7 +1,7 @@
 package it.rcpvision.emf.components.cdoexample.masterdetail.table;
 
-import it.rcpvision.emf.components.ui.binding.ControlObservablePair;
-import it.rcpvision.emf.components.ui.binding.EmfSwtBindingFactory;
+import it.rcpvision.emf.components.binding.ControlObservablePair;
+import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.databinding.swt.SWTObservables;

@@ -24,13 +24,6 @@
             restorable="true">
       </view>
       <view
-            class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.GenericDetailViewPart"
-            icon="icon/detail.jpg"
-            id="it.rcpvision.emf.components.detailView"
-            name="Emf Detail View"
-            restorable="true">
-      </view>
-      <view
             class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.EmfListView"
             icon="icon/view.jpg"
             id="it.rcpvision.emf.components.emflistview"
