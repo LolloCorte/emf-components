@@ -2,7 +2,7 @@ package it.rcpvision.emf.components.widgets;
 
 import it.rcpvision.emf.components.factories.EmfFormCompositeFactory;
 import it.rcpvision.emf.components.util.EmfSelectionHelper;
-import it.rcpvision.emf.components.views.EmfViewerManager;
+import it.rcpvision.emf.components.views.ViewerInitializer;
 import it.rcpvision.emf.components.views.FormDetailComposite;
 
 import org.eclipse.core.resources.IResource;
@@ -49,7 +49,7 @@ public class TreeFormComposite extends Composite {
 
 	}
 
-	protected EmfViewerManager emfViewerManager;
+	protected ViewerInitializer viewerInitializer;
 
 	protected EmfFormCompositeFactory emfFormCompositeFactory;
 
@@ -64,12 +64,12 @@ public class TreeFormComposite extends Composite {
 	protected FormDetailComposite detailForm;
 
 	public TreeFormComposite(Composite parent, int style,
-			EmfViewerManager emfViewerManager,
+			ViewerInitializer viewerInitializer,
 			EmfFormCompositeFactory emfFormCompositeFactory,
 			EmfSelectionHelper emfSelectionHelper) {
 		super(parent, style);
 		setLayout(new FillLayout());
-		this.emfViewerManager = emfViewerManager;
+		this.viewerInitializer = viewerInitializer;
 		this.emfFormCompositeFactory = emfFormCompositeFactory;
 		this.emfSelectionHelper = emfSelectionHelper;
 
@@ -94,13 +94,13 @@ public class TreeFormComposite extends Composite {
 				IResource resource = (IResource) element;
 				URI uri = URI.createPlatformResourceURI(resource.getFullPath()
 						.toString(), true);
-				emfViewerManager.initialize(viewer, uri);
+				viewerInitializer.initialize(viewer, uri);
 			} else if (element instanceof Resource) {
 				Resource resource = (Resource) element;
-				emfViewerManager.initialize(viewer, resource);
+				viewerInitializer.initialize(viewer, resource);
 			} else if (element instanceof EObject) {
 				EObject eObject = (EObject) element;
-				emfViewerManager.initialize(viewer, eObject);
+				viewerInitializer.initialize(viewer, eObject);
 			}
 			pagebook.showPage(viewer.getControl());
 		}

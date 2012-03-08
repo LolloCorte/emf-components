@@ -3,7 +3,7 @@
  */
 package it.rcpvision.emf.components.factories;
 
-import it.rcpvision.emf.components.views.EmfViewerManager;
+import it.rcpvision.emf.components.views.ViewerInitializer;
 import it.rcpvision.emf.components.views.TableViewerBuilder;
 
 import org.eclipse.emf.common.util.URI;
@@ -25,7 +25,7 @@ import com.google.inject.Inject;
 public class EmfViewerFactory {
 
 	@Inject
-	protected EmfViewerManager emfViewerManager;
+	protected ViewerInitializer viewerInitializer;
 	@Inject
 	protected TableViewerBuilder tableViewerBuilder;
 
@@ -65,11 +65,11 @@ public class EmfViewerFactory {
 
 	protected void update(TreeViewer treeViewer,
 			AdapterFactoryEditingDomain editingDomain) {
-		emfViewerManager.initialize(treeViewer, editingDomain);
+		viewerInitializer.initialize(treeViewer, editingDomain);
 	}
 
 	protected void update(TreeViewer treeViewer, URI resourceURI) {
-		emfViewerManager.initialize(treeViewer, resourceURI);
+		viewerInitializer.initialize(treeViewer, resourceURI);
 	}
 
 }

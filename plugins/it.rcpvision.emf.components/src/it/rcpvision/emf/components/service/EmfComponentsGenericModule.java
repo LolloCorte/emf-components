@@ -27,7 +27,7 @@ import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 import it.rcpvision.emf.components.util.EmfSelectionHelper;
 import it.rcpvision.emf.components.views.EObjectManager;
-import it.rcpvision.emf.components.views.EmfViewerManager;
+import it.rcpvision.emf.components.views.ViewerInitializer;
 import it.rcpvision.emf.components.views.TableViewerBuilder;
 import it.rcpvision.emf.components.views.TableViewerColumnBuilder;
 
@@ -115,8 +115,8 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 		return EmfFormCompositeFactory.class;
 	}
 
-	public Class<? extends EmfViewerManager> bindEmfViewerManager() {
-		return EmfViewerManager.class;
+	public Class<? extends ViewerInitializer> bindViewerInitializer() {
+		return ViewerInitializer.class;
 	}
 
 	public Class<? extends EmfSwtBindingFactory> bindEmfSwtBindingFactory() {

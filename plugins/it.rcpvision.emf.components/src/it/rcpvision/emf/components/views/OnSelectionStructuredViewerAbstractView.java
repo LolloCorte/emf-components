@@ -34,7 +34,7 @@ public abstract class OnSelectionStructuredViewerAbstractView extends OnSelectio
 	private StructuredViewer viewer;
 
 	@Inject
-	protected EmfViewerManager emfViewerManager;
+	protected ViewerInitializer viewerInitializer;
 
 	public OnSelectionStructuredViewerAbstractView() {
 	}
@@ -81,14 +81,14 @@ public abstract class OnSelectionStructuredViewerAbstractView extends OnSelectio
 	 * @param eObject
 	 */
 	protected void performUpdateOnSelection(EObject eObject) {
-		emfViewerManager.initialize(viewer, eObject);
+		viewerInitializer.initialize(viewer, eObject);
 	}
 
 	/**
 	 * @param resource
 	 */
 	protected void performUpdateOnSelection(Resource resource) {
-		emfViewerManager.initialize(viewer, resource);
+		viewerInitializer.initialize(viewer, resource);
 	}
 
 	/**
@@ -97,7 +97,7 @@ public abstract class OnSelectionStructuredViewerAbstractView extends OnSelectio
 	protected void performUpdateOnSelection(IResource resource) {
 		URI uri = URI.createPlatformResourceURI(resource.getFullPath()
 				.toString(), true);
-		emfViewerManager.initialize(viewer, uri);
+		viewerInitializer.initialize(viewer, uri);
 	}
 
 	@Override
@@ -142,6 +142,6 @@ public abstract class OnSelectionStructuredViewerAbstractView extends OnSelectio
 	}
 
 	public void init(URI resourceURI) {
-		emfViewerManager.initialize(viewer, resourceURI);
+		viewerInitializer.initialize(viewer, resourceURI);
 	}
 }

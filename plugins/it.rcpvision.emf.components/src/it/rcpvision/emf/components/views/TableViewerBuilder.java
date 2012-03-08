@@ -24,7 +24,7 @@ public class TableViewerBuilder {
 	protected TableViewerColumnBuilder columnBuilder;
 
 	@Inject
-	protected EmfViewerManager emfViewerManager;
+	protected ViewerInitializer viewerInitializer;
 
 	public void buildAndFill(TableViewer tableViewer, Object contents,
 			EClass eClass) {
@@ -40,7 +40,7 @@ public class TableViewerBuilder {
 			EClass eClass, IStructuredContentProvider contentProvider,
 			IBaseLabelProvider labelProvider) {
 		columnBuilder.buildTableViewer(tableViewer, eClass, contentProvider);
-		emfViewerManager.initialize(tableViewer, ensureCollection(contents),
+		viewerInitializer.initialize(tableViewer, ensureCollection(contents),
 				contentProvider, labelProvider);
 	}
 

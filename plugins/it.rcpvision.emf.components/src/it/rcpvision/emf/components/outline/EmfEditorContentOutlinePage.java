@@ -4,7 +4,7 @@
 package it.rcpvision.emf.components.outline;
 
 import it.rcpvision.emf.components.editors.EmfAbstractEditor;
-import it.rcpvision.emf.components.views.EmfViewerManager;
+import it.rcpvision.emf.components.views.ViewerInitializer;
 
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.widgets.Composite;
@@ -22,7 +22,7 @@ public class EmfEditorContentOutlinePage extends ContentOutlinePage {
 	protected EmfAbstractEditor editor;
 
 	@Inject
-	protected EmfViewerManager emfViewerManager;
+	protected ViewerInitializer viewerInitializer;
 
 	public void init(EmfAbstractEditor editor) {
 		this.editor = editor;
@@ -36,7 +36,7 @@ public class EmfEditorContentOutlinePage extends ContentOutlinePage {
 		editor.setContentOutlineViewer(contentOutlineViewer);
 
 		// Set up the tree viewer.
-		emfViewerManager.initialize(contentOutlineViewer,
+		viewerInitializer.initialize(contentOutlineViewer,
 				editor.getEditingDomain());
 		// Make sure our popups work.
 		editor.createContextMenuFor(contentOutlineViewer);

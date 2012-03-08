@@ -7,7 +7,7 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 
 import it.rcpvision.emf.components.editors.EmfAbstractEditor;
-import it.rcpvision.emf.components.views.EmfViewerManager;
+import it.rcpvision.emf.components.views.ViewerInitializer;
 
 /**
  * @author bettini
@@ -16,7 +16,7 @@ import it.rcpvision.emf.components.views.EmfViewerManager;
 public class EmfEditorContentOutlineFactory {
 
 	@Inject
-	protected Provider<EmfViewerManager> emfViewerManagerProvider;
+	protected Provider<ViewerInitializer> emfViewerManagerProvider;
 	
 	@Inject
 	protected Provider<EmfEditorContentOutlinePage> outlinePageProvider;

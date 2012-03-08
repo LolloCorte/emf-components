@@ -29,7 +29,7 @@ import com.google.inject.Provider;
  * @author Lorenzo Bettini
  * 
  */
-public class EmfViewerManager {
+public class ViewerInitializer {
 
 	@Inject
 	protected EditingDomainResourceLoader resourceLoader;
