@@ -64,7 +64,7 @@ public class EmfComponentsAbstractTests {
 	protected static final String WRITER_LABEL = "Writer Lorenzo Bettini";
 
 	protected static final String BORROWER_LABEL = "Borrower Bar";
-	
+
 	protected static final String CUSTOM_BORROWER_LABEL = "Borrower: Foo";
 
 	protected static final String BOOK_LABEL = "Book Lorenzo's Book";
@@ -116,7 +116,7 @@ public class EmfComponentsAbstractTests {
 	protected static final String LIBRARY_EMF_VIEW_CUSTOM_LABEL = "LibraryEmfView Custom Label";
 
 	protected static final String EMF_DETAIL_VIEW = "Emf Form View";
-	
+
 	protected static final String EMF_TREE_FORM_DETAIL_VIEW = "Emf Tree Form View";
 
 	protected static final String LIBRARY_CUSTOM_DETAIL_VIEW = "Library Emf Detail View";
@@ -138,10 +138,10 @@ public class EmfComponentsAbstractTests {
 	protected static final String LIBRARY_S_ADDRESS_TEXT = "Library's address";
 
 	protected static final String PEOPLE_LABEL = "people";
-	
+
 	protected static final String PEOPLE_TEXT = WRITER_LABEL + ", "
 			+ BORROWER_LABEL;
-	
+
 	protected static final String CUSTOM_PEOPLE_TEXT = WRITER_LABEL + ", "
 			+ CUSTOM_BORROWER_LABEL;
 
@@ -163,6 +163,18 @@ public class EmfComponentsAbstractTests {
 		}
 
 		bot.resetWorkbench();
+
+		// Change the perspective via the Open Perspective dialog
+		bot.menu("Window").menu("Open Perspective").menu("Other...").click();
+		SWTBotShell openPerspectiveShell = bot.shell("Open Perspective");
+		openPerspectiveShell.activate();
+
+		// select the dialog
+		bot.table().select("Plug-in Development");
+		bot.button("OK").click();
+
+		bot.viewByTitle("Error Log").close();
+		bot.viewByTitle("Problems").show();
 
 		editorNamesToId = new HashMap<String, String>();
 		editorNamesToId.put(EMF_TREE_EDITOR,
