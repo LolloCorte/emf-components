@@ -4,7 +4,7 @@
 package it.rcpvision.emf.components.cdo;
 
 import it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory;
-import it.rcpvision.emf.components.service.EmfComponentsGenericModule;
+import it.rcpvision.emf.components.EmfComponentsGenericModule;
 import it.rcpvision.emf.components.views.EObjectManager;
 
 /**

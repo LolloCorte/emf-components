@@ -2,7 +2,7 @@ package it.rcpvision.emf.components.examples.library;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
-import it.rcpvision.emf.components.service.EmfComponentsGenericModule;
+import it.rcpvision.emf.components.EmfComponentsGenericModule;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;

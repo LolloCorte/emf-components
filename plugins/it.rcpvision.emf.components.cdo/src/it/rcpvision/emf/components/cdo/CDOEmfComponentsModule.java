@@ -3,8 +3,8 @@
  */
 package it.rcpvision.emf.components.cdo;
 
+import it.rcpvision.emf.components.EmfComponentsGenericModule;
 import it.rcpvision.emf.components.resource.ResourceLoader;
-import it.rcpvision.emf.components.service.EmfComponentsGenericModule;
 import it.rcpvision.emf.components.views.EObjectManager;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;

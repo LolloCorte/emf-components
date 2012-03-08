@@ -1,7 +1,7 @@
 /**
  * 
  */
-package it.rcpvision.emf.components.service;
+package it.rcpvision.emf.components;
 
 import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;

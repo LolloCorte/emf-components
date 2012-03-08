@@ -3,7 +3,7 @@ package it.rcpvision.emf.components.examples.library;
 import org.osgi.framework.Bundle;
 
 import it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory;
-import it.rcpvision.emf.components.service.EmfComponentsGenericModule;
+import it.rcpvision.emf.components.EmfComponentsGenericModule;
 
 public class ExecutableExtensionFactory extends
 		EmfComponentsExecutableExtensionFactory {

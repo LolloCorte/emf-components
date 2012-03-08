@@ -3,7 +3,7 @@
  */
 package it.rcpvision.emf.components.tests.factories;
 
-import it.rcpvision.emf.components.service.EmfComponentsGenericModule;
+import it.rcpvision.emf.components.EmfComponentsGenericModule;
 import it.rcpvision.emf.components.tests.EmfComponentsTestsActivator;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 

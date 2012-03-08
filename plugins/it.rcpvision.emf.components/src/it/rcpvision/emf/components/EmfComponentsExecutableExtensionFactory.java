@@ -4,7 +4,6 @@
 package it.rcpvision.emf.components;
 
 import static com.google.inject.Guice.createInjector;
-import it.rcpvision.emf.components.service.EmfComponentsGenericModule;
 
 import org.eclipse.xtext.ui.guice.AbstractGuiceAwareExecutableExtensionFactory;
 import org.osgi.framework.Bundle;

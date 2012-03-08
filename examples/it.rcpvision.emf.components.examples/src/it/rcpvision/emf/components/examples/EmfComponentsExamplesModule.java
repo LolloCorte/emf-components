@@ -1,6 +1,6 @@
 package it.rcpvision.emf.components.examples;
 
-import it.rcpvision.emf.components.service.EmfComponentsGenericModule;
+import it.rcpvision.emf.components.EmfComponentsGenericModule;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 

@@ -2,7 +2,7 @@ package $packageName$.internal.guice;
 
 import $packageName$.Activator;
 import it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory;
-import it.rcpvision.emf.components.service.EmfComponentsGenericModule;
+import it.rcpvision.emf.components.EmfComponentsGenericModule;
 
 import org.osgi.framework.Bundle;
 

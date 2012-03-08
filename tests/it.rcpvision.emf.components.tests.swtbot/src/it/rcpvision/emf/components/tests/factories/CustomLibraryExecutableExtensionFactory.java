@@ -3,8 +3,8 @@
  */
 package it.rcpvision.emf.components.tests.factories;
 
+import it.rcpvision.emf.components.EmfComponentsGenericModule;
 import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
-import it.rcpvision.emf.components.service.EmfComponentsGenericModule;
 import it.rcpvision.emf.components.tests.EmfComponentsTestsActivator;
 import it.rcpvision.emf.components.tests.binding.CustomLibraryBindingFactory;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryFeatureLabelProvider;

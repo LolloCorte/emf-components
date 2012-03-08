@@ -3,9 +3,9 @@
  */
 package it.rcpvision.emf.components.tests.factories;
 
+import it.rcpvision.emf.components.EmfComponentsGenericModule;
 import it.rcpvision.emf.components.listeners.EmfViewerMouseAdapter;
 import it.rcpvision.emf.components.listeners.EmfViewerNoOpMouseAdapter;
-import it.rcpvision.emf.components.service.EmfComponentsGenericModule;
 import it.rcpvision.emf.components.tests.EmfComponentsTestsActivator;
 
 
