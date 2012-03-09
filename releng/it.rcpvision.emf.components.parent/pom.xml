@@ -57,7 +57,7 @@
 		<module>../../examples/org.eclipse.xtext.example.fowlerdsl</module>
 		<module>../../examples/org.eclipse.xtext.example.fowlerdsl.ui</module>
 		<module>../../features/it.rcpvision.emf.components.examples.feature</module>
-		<module>it.rcpvision.emf.components.repository</module>
+		<module>../it.rcpvision.emf.components.repository</module>
 		<module>../../tests/it.rcpvision.emf.components.tests.swtbot</module>
 	</modules>
 </project>
