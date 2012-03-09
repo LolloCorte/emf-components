@@ -7,7 +7,7 @@
 		<groupId>emf-components</groupId>
 		<artifactId>it.rcpvision.emf.components.parent</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
-		<relativePath>it.rcpvision.emf.components.parent/pom.xml</relativePath>
+		<relativePath>../it.rcpvision.emf.components.parent/pom.xml</relativePath>
 	</parent>
 	<groupId>emf-components</groupId>
 	<artifactId>it.rcpvision.emf.components.repository</artifactId>
