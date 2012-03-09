@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/it.rcpvision.emf.components.feature_1.0.0.qualifier.jar" id="it.rcpvision.emf.components.feature" version="1.0.0.qualifier">
+      <category name="emfcomponents.category"/>
+   </feature>
+   <feature url="features/it.rcpvision.emf.components.examples.feature_1.0.0.qualifier.jar" id="it.rcpvision.emf.components.examples.feature" version="1.0.0.qualifier">
+      <category name="emfcomponents.category"/>
+   </feature>
+   <category-def name="emfcomponents.category" label="Emf Components Category">
+      <description>
+         Emf Components Category
+      </description>
+   </category-def>
+</site>
