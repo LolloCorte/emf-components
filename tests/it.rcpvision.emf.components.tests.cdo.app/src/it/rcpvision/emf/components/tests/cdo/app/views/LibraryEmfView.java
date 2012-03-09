@@ -3,7 +3,7 @@
  */
 package it.rcpvision.emf.components.tests.cdo.app.views;
 
-import it.rcpvision.emf.components.views.EmfTreeView;
+import it.rcpvision.emf.components.views.OnSelectionTreeView;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.swt.widgets.Composite;
@@ -14,7 +14,7 @@ import org.eclipse.swt.widgets.Composite;
  * @author bettini
  * 
  */
-public class LibraryEmfView extends EmfTreeView {
+public class LibraryEmfView extends OnSelectionTreeView {
 
 	public static final String resourceUri = "platform:/plugin/it.rcpvision.emf.components.tests.swtbot/models/My.extlibrary";
 
