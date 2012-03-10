@@ -16,7 +16,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IWorkspaceRunnable;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.jface.action.StatusLineManager;
 import org.eclipse.jface.action.SubStatusLineManager;
@@ -344,6 +348,16 @@ public class EmfComponentsAbstractTests {
 		bot.waitUntil(shellCloses(shell), 50000);
 		assertTrue("Project doesn't exist", isProjectCreated(projectName));
 
+		// ensure that all queued workspace operations and locks are released
+		try {
+			ResourcesPlugin.getWorkspace().run(new IWorkspaceRunnable() {
+				public void run(IProgressMonitor monitor) throws CoreException {
+					// nothing to do!
+				}
+			}, new NullProgressMonitor());
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
 		waitForAutoBuild();
 	}
 
