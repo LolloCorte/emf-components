@@ -164,18 +164,6 @@ public class EmfComponentsAbstractTests {
 
 		bot.resetWorkbench();
 
-		// Change the perspective via the Open Perspective dialog
-		bot.menu("Window").menu("Open Perspective").menu("Other...").click();
-		SWTBotShell openPerspectiveShell = bot.shell("Open Perspective");
-		openPerspectiveShell.activate();
-
-		// select the dialog
-		bot.table().select("Plug-in Development");
-		bot.button("OK").click();
-
-		bot.viewByTitle("Error Log").close();
-		bot.viewByTitle("Problems").show();
-
 		editorNamesToId = new HashMap<String, String>();
 		editorNamesToId.put(EMF_TREE_EDITOR,
 				EmfComponentsTestsActivator.EMF_TREE_EDITOR);
