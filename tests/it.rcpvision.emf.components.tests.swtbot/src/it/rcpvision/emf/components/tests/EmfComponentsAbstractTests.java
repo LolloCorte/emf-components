@@ -7,6 +7,7 @@ import static org.eclipse.xtext.ui.junit.util.IResourcesSetupUtil.waitForAutoBui
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
+import it.rcpvision.emf.components.tests.utils.WaitForBuildCondition;
 import it.rcpvision.emf.components.tests.views.LibraryEmfView;
 
 import java.io.IOException;
@@ -358,7 +359,23 @@ public class EmfComponentsAbstractTests {
 		} catch (CoreException e) {
 			e.printStackTrace();
 		}
-		waitForAutoBuild();
+		// part of test that requires UI-thread
+		Display.getDefault().syncExec(new Runnable() {
+			public void run() {
+				try {
+					waitForAutoBuild();
+				} catch (Exception ex) {
+					ex.printStackTrace();
+				}
+			}
+		});
+		WaitForBuildCondition condition = new WaitForBuildCondition();
+		condition.addListener();
+		try {
+			bot.waitUntil(condition, 5000);
+		} finally {
+			condition.removeListener();
+		}
 	}
 
 	protected static SWTBotView getPackageExplorer() {
