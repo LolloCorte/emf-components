@@ -350,7 +350,7 @@ public class EmfComponentsAbstractTests {
 		assertTrue("Project doesn't exist", isProjectCreated(projectName));
 	}
 
-	protected void waitForBuild() {
+	protected void waitForBuild(WaitForBuildCondition condition) {
 		// ensure that all queued workspace operations and locks are released
 		try {
 			ResourcesPlugin.getWorkspace().run(new IWorkspaceRunnable() {
@@ -361,25 +361,19 @@ public class EmfComponentsAbstractTests {
 		} catch (CoreException e) {
 			e.printStackTrace();
 		}
-		// part of test that requires UI-thread
-		Display.getDefault().syncExec(new Runnable() {
-			public void run() {
-				try {
-					waitForAutoBuild();
-				} catch (Exception ex) {
-					ex.printStackTrace();
-				}
-			}
-		});
 		
-		WaitForBuildCondition condition = new WaitForBuildCondition();
-		condition.addListener();
 		try {
 			// build of a project might require some time
 			bot.waitUntil(condition, 50000);
 		} finally {
 			condition.removeListener();
 		}
+	}
+
+	protected WaitForBuildCondition createWaitForBuildCondition() {
+		WaitForBuildCondition condition = new WaitForBuildCondition();
+		condition.addListener();
+		return condition;
 	}
 
 	protected static SWTBotView getPackageExplorer() {
