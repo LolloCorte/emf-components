@@ -26,6 +26,7 @@ public class EmfComponentsWizardsTests extends EmfComponentsAbstractTests {
 		createProjectInWorkspace(EMF_COMPONENTS_CATEGORY,
 				NEW_EMF_COMPONENTS_PROJECT, EMF_COMPONENTS_PROJECT);
 		//bot.sleep(3000);
+		waitForBuild();
 		assertNoErrorsInProject();
 	}
 

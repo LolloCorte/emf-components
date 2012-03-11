@@ -17,11 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IWorkspaceRunnable;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.jface.action.StatusLineManager;
 import org.eclipse.jface.action.SubStatusLineManager;
@@ -348,31 +344,14 @@ public class EmfComponentsAbstractTests {
 		// creation of a project might require some time
 		bot.waitUntil(shellCloses(shell), 50000);
 		assertTrue("Project doesn't exist", isProjectCreated(projectName));
+	}
 
-		// ensure that all queued workspace operations and locks are released
-		try {
-			ResourcesPlugin.getWorkspace().run(new IWorkspaceRunnable() {
-				public void run(IProgressMonitor monitor) throws CoreException {
-					// nothing to do!
-				}
-			}, new NullProgressMonitor());
-		} catch (CoreException e) {
-			e.printStackTrace();
-		}
-		// part of test that requires UI-thread
-		Display.getDefault().syncExec(new Runnable() {
-			public void run() {
-				try {
-					waitForAutoBuild();
-				} catch (Exception ex) {
-					ex.printStackTrace();
-				}
-			}
-		});
+	protected void waitForBuild() {
 		WaitForBuildCondition condition = new WaitForBuildCondition();
 		condition.addListener();
 		try {
-			bot.waitUntil(condition, 5000);
+			// building of a project might require some time
+			bot.waitUntil(condition, 50000);
 		} finally {
 			condition.removeListener();
 		}
