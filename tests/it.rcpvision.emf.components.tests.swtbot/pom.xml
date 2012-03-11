@@ -33,7 +33,7 @@
         <version>${tycho-version}</version>
         <configuration>
           <testSuite>it.rcpvision.emf.components.tests.swtbot</testSuite>
-          <testClass>it.rcpvision.emf.components.tests.EmfComponentsTestsSuite</testClass>
+          <testClass>it.rcpvision.emf.components.tests.EmfComponentsMavenTestsSuite</testClass>
           <useUIHarness>true</useUIHarness>
           <useUIThread>false</useUIThread>
           <product>org.eclipse.sdk.ide</product>
