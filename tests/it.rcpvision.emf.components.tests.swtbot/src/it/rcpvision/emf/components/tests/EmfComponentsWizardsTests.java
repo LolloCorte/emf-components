@@ -2,7 +2,6 @@ package it.rcpvision.emf.components.tests;
 
 import static org.eclipse.xtext.ui.junit.util.IResourcesSetupUtil.root;
 import static org.junit.Assert.assertEquals;
-import it.rcpvision.emf.components.tests.utils.WaitForBuildCondition;
 
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
@@ -24,11 +23,10 @@ public class EmfComponentsWizardsTests extends EmfComponentsAbstractTests {
 
 	@Test
 	public void canCreateProjectWithWizard() throws Exception {
-		WaitForBuildCondition condition = createWaitForBuildCondition();
 		createProjectInWorkspace(EMF_COMPONENTS_CATEGORY,
 				NEW_EMF_COMPONENTS_PROJECT, EMF_COMPONENTS_PROJECT);
-		//bot.sleep(3000);
-		waitForBuild(condition);
+		//bot.sleep(300000);
+		waitForBuild();
 		assertNoErrorsInProject();
 	}
 
