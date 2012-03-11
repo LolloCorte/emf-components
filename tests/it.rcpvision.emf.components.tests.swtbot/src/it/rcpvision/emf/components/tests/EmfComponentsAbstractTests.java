@@ -3,11 +3,9 @@ package it.rcpvision.emf.components.tests;
 import static org.eclipse.swtbot.swt.finder.waits.Conditions.shellCloses;
 import static org.eclipse.xtext.ui.junit.util.IResourcesSetupUtil.cleanWorkspace;
 import static org.eclipse.xtext.ui.junit.util.IResourcesSetupUtil.createFile;
-import static org.eclipse.xtext.ui.junit.util.IResourcesSetupUtil.waitForAutoBuild;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-import it.rcpvision.emf.components.tests.utils.WaitForBuildCondition;
 import it.rcpvision.emf.components.tests.views.LibraryEmfView;
 
 import java.io.IOException;
@@ -54,6 +52,7 @@ import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.IWorkbenchPartSite;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.ui.junit.util.IResourcesSetupUtil;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -193,7 +192,7 @@ public class EmfComponentsAbstractTests {
 	public void runAfterEveryTest() throws CoreException {
 		// bot.sleep(2000);
 		cleanWorkspace();
-		waitForAutoBuild();
+		IResourcesSetupUtil.waitForAutoBuild();
 	}
 
 	protected void assertPropertyViewIsOpenedAndCloseIt() {
@@ -350,7 +349,7 @@ public class EmfComponentsAbstractTests {
 		assertTrue("Project doesn't exist", isProjectCreated(projectName));
 	}
 
-	protected void waitForBuild(WaitForBuildCondition condition) {
+	protected void waitForBuild() throws CoreException {
 		// ensure that all queued workspace operations and locks are released
 		try {
 			ResourcesPlugin.getWorkspace().run(new IWorkspaceRunnable() {
@@ -361,19 +360,17 @@ public class EmfComponentsAbstractTests {
 		} catch (CoreException e) {
 			e.printStackTrace();
 		}
-		
-		try {
-			// build of a project might require some time
-			bot.waitUntil(condition, 50000);
-		} finally {
-			condition.removeListener();
-		}
-	}
 
-	protected WaitForBuildCondition createWaitForBuildCondition() {
-		WaitForBuildCondition condition = new WaitForBuildCondition();
-		condition.addListener();
-		return condition;
+		Display.getDefault().syncExec(new Runnable() {
+			public void run() {
+				try {
+					IResourcesSetupUtil.cleanBuild();
+					IResourcesSetupUtil.fullBuild();
+				} catch (CoreException e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
 	protected static SWTBotView getPackageExplorer() {
