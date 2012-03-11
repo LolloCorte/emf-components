@@ -52,6 +52,11 @@
             </dependency>
             <dependency>
               <type>p2-installable-unit</type>
+              <artifactId>org.eclipse.platform.sdk</artifactId>
+              <version>0.0.0</version>
+            </dependency>
+            <dependency>
+              <type>p2-installable-unit</type>
               <artifactId>org.eclipse.osgi</artifactId>
               <version>0.0.0</version>
             </dependency>
