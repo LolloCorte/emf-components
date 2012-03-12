@@ -55,7 +55,7 @@ public interface EXTLibraryPackage extends EPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  String eNS_URI = "http:///org/eclipse/emf/examples/library/extlibrary.ecore/1.0.0"; //$NON-NLS-1$
+  String eNS_URI = "http:///it/rcpvision/emf/components/examples/library/extlibrary.ecore/1.0.0"; //$NON-NLS-1$
 
   /**
    * The package namespace name.

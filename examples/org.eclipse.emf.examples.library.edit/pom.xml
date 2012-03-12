@@ -10,7 +10,7 @@
 		<relativePath>../../releng/it.rcpvision.emf.components.parent/pom.xml</relativePath>
 	</parent>
 	<groupId>emf-components</groupId>
-	<artifactId>org.eclipse.emf.examples.library.edit</artifactId>
-	<version>2.5.0-SNAPSHOT</version>
+	<artifactId>it.rcpvision.emf.components.examples.library.edit</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 </project>
