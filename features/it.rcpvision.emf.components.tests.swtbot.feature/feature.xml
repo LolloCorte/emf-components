@@ -27,10 +27,10 @@
       <import plugin="it.rcpvision.emf.components" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.example.fowlerdsl" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.example.fowlerdsl.ui" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.examples.library.edit" version="2.5.0" match="greaterOrEqual"/>
+      <import plugin="it.rcpvision.emf.components.examples.library.edit" version="2.5.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.swtbot.forms.finder" version="2.0.4" match="greaterOrEqual"/>
       <import plugin="it.rcpvision.emf.components.wizards" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.examples.library.editor" version="2.5.0" match="greaterOrEqual"/>
+      <import plugin="it.rcpvision.emf.components.examples.library.editor" version="2.5.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.equinox.util"/>
       <import plugin="org.eclipse.osgi"/>
       <import plugin="org.eclipse.osgi.services"/>

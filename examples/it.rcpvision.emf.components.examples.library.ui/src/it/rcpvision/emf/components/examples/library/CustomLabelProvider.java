@@ -1,10 +1,10 @@
 package it.rcpvision.emf.components.examples.library;
 
+import it.rcpvision.emf.components.examples.library.Book;
+import it.rcpvision.emf.components.examples.library.Library;
+import it.rcpvision.emf.components.examples.library.Person;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 
-import org.eclipse.emf.examples.extlibrary.Book;
-import org.eclipse.emf.examples.extlibrary.Library;
-import org.eclipse.emf.examples.extlibrary.Person;
 
 public class CustomLabelProvider extends CompositeLabelProvider {
 

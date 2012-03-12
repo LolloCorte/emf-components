@@ -3,7 +3,7 @@
  */
 package it.rcpvision.emf.components.tests.providers;
 
-import static org.eclipse.emf.examples.extlibrary.EXTLibraryPackage.Literals.*;
+import static it.rcpvision.emf.components.examples.library.EXTLibraryPackage.Literals.*;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
 
 /**

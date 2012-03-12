@@ -3,10 +3,10 @@
  */
 package it.rcpvision.emf.components.tests.labeling;
 
+import it.rcpvision.emf.components.examples.library.Book;
+import it.rcpvision.emf.components.examples.library.Borrower;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 
-import org.eclipse.emf.examples.extlibrary.Book;
-import org.eclipse.emf.examples.extlibrary.Borrower;
 
 /**
  * @author bettini

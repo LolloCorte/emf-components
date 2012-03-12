@@ -3,6 +3,9 @@
  */
 package it.rcpvision.emf.components.tests.tables;
 
+import it.rcpvision.emf.components.examples.library.EXTLibraryPackage;
+import it.rcpvision.emf.components.examples.library.Library;
+import it.rcpvision.emf.components.examples.library.VideoCassette;
 import it.rcpvision.emf.components.resource.ResourceLoader;
 import it.rcpvision.emf.components.views.TableViewerBuilder;
 
@@ -11,9 +14,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.examples.extlibrary.EXTLibraryPackage;
-import org.eclipse.emf.examples.extlibrary.Library;
-import org.eclipse.emf.examples.extlibrary.VideoCassette;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;

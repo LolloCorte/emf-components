@@ -468,7 +468,7 @@ public class EmfComponentsAbstractTests {
 	protected ImageDescriptor getImageDescriptorFromLibraryEdit(
 			String imageFileName) {
 		return getImageDescriptorFromPlugin(
-				"org.eclipse.emf.examples.library.edit", "icons/full/obj16/"
+				"it.rcpvision.emf.components.examples.library.edit", "icons/full/obj16/"
 						+ imageFileName);
 	}
 

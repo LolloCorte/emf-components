@@ -1,9 +1,12 @@
 package it.rcpvision.emf.components.tests;
 
-import static org.eclipse.emf.examples.extlibrary.EXTLibraryPackage.Literals.LIBRARY;
+import static it.rcpvision.emf.components.examples.library.EXTLibraryPackage.Literals.LIBRARY;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
+import it.rcpvision.emf.components.examples.library.EXTLibraryFactory;
+import it.rcpvision.emf.components.examples.library.EXTLibraryPackage;
+import it.rcpvision.emf.components.examples.library.Writer;
 import it.rcpvision.emf.components.tests.factories.CustomLibraryExecutableExtensionFactory;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryFormFeatureLabelProvider;
 import it.rcpvision.emf.components.tests.providers.LibraryEStructuralFeaturesProvider;
@@ -18,9 +21,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.examples.extlibrary.EXTLibraryFactory;
-import org.eclipse.emf.examples.extlibrary.EXTLibraryPackage;
-import org.eclipse.emf.examples.extlibrary.Writer;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
