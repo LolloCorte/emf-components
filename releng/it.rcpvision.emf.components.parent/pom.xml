@@ -54,8 +54,8 @@
 		<module>../../examples/it.rcpvision.emf.components.examples.library</module>
 		<module>../../examples/it.rcpvision.emf.components.examples.library.edit</module>
 		<module>../../examples/it.rcpvision.emf.components.examples.library.editor</module>
-		<module>../../examples/org.eclipse.xtext.example.fowlerdsl</module>
-		<module>../../examples/org.eclipse.xtext.example.fowlerdsl.ui</module>
+		<module>../../examples/it.rcpvision.emf.components.examples.fowlerdsl</module>
+		<module>../../examples/it.rcpvision.emf.components.examples.fowlerdsl.ui</module>
 		<module>../../features/it.rcpvision.emf.components.examples.feature</module>
 		<module>../it.rcpvision.emf.components.repository</module>
 		<module>../../tests/it.rcpvision.emf.components.tests.swtbot</module>
