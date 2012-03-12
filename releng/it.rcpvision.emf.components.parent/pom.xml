@@ -51,6 +51,7 @@
 		<module>../../plugins/it.rcpvision.emf.components.wizards</module>
 		<module>../../doc/it.rcpvision.emf.components.doc</module>
 		<module>../../plugins/it.rcpvision.emf.components.cdo</module>
+		<module>../../tests/it.rcpvision.emf.components.cdo.tests</module>
 		<module>../../features/it.rcpvision.emf.components.feature</module>
 		<module>../../examples/it.rcpvision.emf.components.examples.library</module>
 		<module>../../examples/it.rcpvision.emf.components.examples.library.edit</module>
