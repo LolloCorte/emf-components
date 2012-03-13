@@ -1,11 +1,9 @@
 package it.rcpvision.emf.components.cdoexamples.treeform.views;
 
+import it.rcpvision.emf.components.cdoexamples.treeform.EmptyResourceInitializer;
 import it.rcpvision.emf.components.factories.EmfCompositeFactory;
 import it.rcpvision.emf.components.resource.ResourceLoader;
 import it.rcpvision.emf.components.widgets.TreeFormComposite;
-import library.Book;
-import library.Library;
-import library.LibraryFactory;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -23,6 +21,9 @@ public class ResourceCDOTreeFormView extends ViewPart {
 
 	@Inject
 	protected ResourceLoader resourceLoader;
+	
+	@Inject
+	protected EmptyResourceInitializer emptyResourceInitializer;
 
 	protected TreeFormComposite treeFormComposite;
 
@@ -35,20 +36,12 @@ public class ResourceCDOTreeFormView extends ViewPart {
 		URI uri = URI.createURI(uriStr);
 		
 		Resource resource = resourceLoader.getResource(new ResourceSetImpl(), uri);
-		initializeResource(resource);
+		emptyResourceInitializer.initializeResource(resource);
 
 		treeFormComposite.update(resource);
 	}
 
-	protected void initializeResource(Resource resource) {
-		if (!resource.getContents().isEmpty())
-			return;
 
-		Library library = LibraryFactory.eINSTANCE.createLibrary();
-		resource.getContents().add(library);
-		Book book = LibraryFactory.eINSTANCE.createBook();
-		library.getBooks().add(book);
-	}
 
 	@Override
 	public void setFocus() {
