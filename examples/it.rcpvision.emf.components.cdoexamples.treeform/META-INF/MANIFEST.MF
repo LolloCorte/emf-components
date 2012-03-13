@@ -9,7 +9,8 @@ Require-Bundle: org.eclipse.ui,
  it.rcpvision.emf.components;bundle-version="1.0.0",
  it.rcpvision.emf.components.cdo;bundle-version="1.0.0",
  it.rcpvision.emf.components.cdoexample.model.business;bundle-version="1.0.0",
- it.rcpvision.emf.components.cdoexample.model;bundle-version="1.0.0"
+ it.rcpvision.emf.components.cdoexample.model;bundle-version="1.0.0",
+ it.rcpvision.emf.components.examples;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: it.rcpvision.emf.components.cdoexamples.treeform.views
