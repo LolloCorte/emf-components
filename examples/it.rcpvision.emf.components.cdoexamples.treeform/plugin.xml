@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+       <view
+               class="it.rcpvision.emf.components.cdoexamples.treeform.EmfComponentsCDOExamplesExecutableExtensionFactory:it.rcpvision.emf.components.cdoexamples.treeform.views.ResourceCDOTreeFormView"
+               id="it.rcpvision.emf.components.cdoexamples.treeform.resourcetreeformview"
+               name="Resource CDO Tree Form View"
+               restorable="true">
+         </view> 
+       <view
+               class="it.rcpvision.emf.components.cdoexamples.treeform.EmfComponentsCDOExamplesExecutableExtensionFactory:it.rcpvision.emf.components.cdoexamples.treeform.views.SaveableResourceCDOTreeFormView"
+               id="it.rcpvision.emf.components.cdoexamples.treeform.saveableresourcetreeformview"
+               name="Saveable Resource CDO Tree Form View"
+               restorable="true">
+         </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="it.rcpvision.emf.components.cdoexample.rcp.perspective">
+         <view
+               id="it.rcpvision.emf.components.cdoexamples.treeform.resourcetreeformview"
+               minimized="false"
+               relationship="stack"
+               relative="org.eclipse.ui.editorss">
+         </view>
+      </perspectiveExtension>
+   </extension>
+
+</plugin>
