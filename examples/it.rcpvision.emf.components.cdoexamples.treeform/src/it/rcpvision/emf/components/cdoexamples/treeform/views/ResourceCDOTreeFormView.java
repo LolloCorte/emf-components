@@ -1,6 +1,5 @@
 package it.rcpvision.emf.components.cdoexamples.treeform.views;
 
-import it.rcpvision.emf.components.cdoexamples.treeform.EmptyResourceInitializer;
 import it.rcpvision.emf.components.factories.EmfCompositeFactory;
 import it.rcpvision.emf.components.resource.ResourceLoader;
 import it.rcpvision.emf.components.widgets.TreeFormComposite;
@@ -21,9 +20,6 @@ public class ResourceCDOTreeFormView extends ViewPart {
 
 	@Inject
 	protected ResourceLoader resourceLoader;
-	
-	@Inject
-	protected EmptyResourceInitializer emptyResourceInitializer;
 
 	protected TreeFormComposite treeFormComposite;
 
@@ -34,14 +30,12 @@ public class ResourceCDOTreeFormView extends ViewPart {
 
 		String uriStr = "cdo://localhost:2036/demo/myResource/";
 		URI uri = URI.createURI(uriStr);
-		
-		Resource resource = resourceLoader.getResource(new ResourceSetImpl(), uri);
-		emptyResourceInitializer.initializeResource(resource);
+
+		Resource resource = resourceLoader.getResource(new ResourceSetImpl(),
+				uri);
 
 		treeFormComposite.update(resource);
 	}
-
-
 
 	@Override
 	public void setFocus() {
