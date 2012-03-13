@@ -69,7 +69,7 @@ public class SaveableResourceTreeFormView extends ViewPart implements
 		treeFormComposite = emfCompositeFactory.createTreeFormComposite(parent,
 				SWT.BORDER);
 
-		URI uri = URI.createPlatformResourceURI("/library/Library.xmi", true);
+		URI uri = createResourceURI();
 		// ResourceSet resourceSet = new ResourceSetImpl();
 		// resource = resourceSet.getResource(uri, true);
 		resource = resourceLoader.getResource(editingDomain, uri).getResource();
@@ -104,6 +104,10 @@ public class SaveableResourceTreeFormView extends ViewPart implements
 								});
 					}
 				});
+	}
+
+	protected URI createResourceURI() {
+		return URI.createPlatformResourceURI("/library/Library.xmi", true);
 	}
 
 	public void createContextMenuFor(StructuredViewer viewer) {
