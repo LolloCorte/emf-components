@@ -1,15 +1,15 @@
 package it.rcpvision.emf.components.cdoexample.model.business;
 
+import library.Book;
 import library.Library;
 import library.LibraryFactory;
 
-import org.eclipse.emf.cdo.common.util.CDOException;
 import org.eclipse.emf.cdo.eresource.CDOResource;
 import org.eclipse.emf.cdo.transaction.CDOTransaction;
 import org.eclipse.emf.cdo.util.CommitException;
-import org.eclipse.emf.cdo.util.InvalidURIException;
 import org.eclipse.emf.cdo.view.CDOAdapterPolicy;
 import org.eclipse.emf.cdo.view.CDOView;
+import org.eclipse.emf.ecore.resource.Resource;
 
 public class ModelBusiness {
 	private static final String LIBRARY_RESOURCE_NAME = "/Library";
@@ -51,10 +51,17 @@ public class ModelBusiness {
 	private static Library create() throws CommitException {
 		CDOTransaction transaction=CommonBusiness.session.openTransaction();
 		CDOResource resource = transaction.getOrCreateResource(LIBRARY_RESOURCE_NAME);
-		Library model=LibraryFactory.eINSTANCE.createLibrary();
-		resource.getContents().add(model);
+		Library model = initializeResource(resource);
 		transaction.commit();
 		return model;
+	}
+
+	protected static Library initializeResource(Resource resource) {
+		Library library=LibraryFactory.eINSTANCE.createLibrary();
+		resource.getContents().add(library);
+		Book book = LibraryFactory.eINSTANCE.createBook();
+		library.getBooks().add(book);
+		return library;
 	}
 
 	

@@ -1,12 +1,12 @@
 package it.rcpvision.emf.components.cdoexamples.treeform;
 
-import it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory;
 import it.rcpvision.emf.components.EmfComponentsGenericModule;
+import it.rcpvision.emf.components.cdo.CDOEmfComponentsExecutableExtensionFactory;
 
 import org.osgi.framework.Bundle;
 
-public class EmfComponentsCDOExamplesExecutableExtensionFactory extends
-		EmfComponentsExecutableExtensionFactory {
+public class CDOExamplesExecutableExtensionFactory extends
+		CDOEmfComponentsExecutableExtensionFactory {
 
 	@Override
 	protected Bundle getBundle() {
@@ -15,7 +15,7 @@ public class EmfComponentsCDOExamplesExecutableExtensionFactory extends
 
 	@Override
 	protected EmfComponentsGenericModule getModule() {
-		return new EmfComponentsExamplesModule(Activator.getDefault());
+		return new CDOExamplesModule(Activator.getDefault());
 	}
 
 }
