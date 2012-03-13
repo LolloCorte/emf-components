@@ -47,11 +47,16 @@ public class CDOResourceLoader extends ResourceLoader {
 
 		CDOTransaction t = cdoSession.openTransaction();
 		t.options().addChangeSubscriptionPolicy(CDOAdapterPolicy.ALL);
-		CDOResource resource = t.getResource(resourceName);
+		CDOResource resource = getResourceFromTransaction(resourceName, t);
 
 		resourceSet.getResources().add(resource);
 
 		return resource;
+	}
+
+	protected CDOResource getResourceFromTransaction(String resourceName,
+			CDOTransaction t) {
+		return t.getResource(resourceName);
 	}
 
 	private static CDOSession openSession(String repoName, String host) {
