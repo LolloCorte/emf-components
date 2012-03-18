@@ -30,6 +30,7 @@ import org.eclipse.emf.databinding.EMFDataBindingContext;
 import org.eclipse.emf.databinding.EMFObservables;
 import org.eclipse.emf.databinding.edit.EMFEditObservables;
 import org.eclipse.emf.databinding.edit.EditingDomainEObjectObservableValue;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -87,8 +88,8 @@ public class EmfSwtBindingFactory {
 
 	private PolymorphicDispatcher.ErrorHandler<ControlObservablePair> control_errorHandler = new PolymorphicDispatcher.NullErrorHandler<ControlObservablePair>();
 	
-	private PolymorphicDispatcher.ErrorHandler<IObservableValue> observe_errorHandler = new PolymorphicDispatcher.NullErrorHandler<IObservableValue>();
 
+	private PolymorphicDispatcher.ErrorHandler<IObservableValue> observe_errorHandler = new PolymorphicDispatcher.NullErrorHandler<IObservableValue>();
 	public EmfSwtBindingFactory() {
 		
 	}
@@ -103,15 +104,20 @@ public class EmfSwtBindingFactory {
 		this.parent = parent;
 		this.toolkit = toolkit;
 	}
+	
+	public boolean isToHide(EStructuralFeature feature){
+		return polymorphicIsHideControl(feature);
+	}
 
 	public Control create(EStructuralFeature feature) {
-		Control control = null;
+		Control control = null;	
 		if (feature.isMany()) {
 			control = bindList(feature);
 		} else {
 			control = bindValue(feature);
 		}
 		setupControl(feature, control);
+		
 		return control;
 	}
 
@@ -129,14 +135,21 @@ public class EmfSwtBindingFactory {
 			source = EMFObservables.observeValue(owner, feature);
 
 		ControlObservablePair retValAndTargetPair = createControlForList(feature);
+		Control retVal = retValAndTargetPair.getControl();
+		IObservableValue target = retValAndTargetPair.getObservableValue();
 		
-		Binding binding = edbc.bindValue(retValAndTargetPair.getObservableValue(), source);
+		//TODO Controllare perchè il bindValue è diverso!
+		Binding binding = edbc.bindValue(target, source);
 		binding.updateModelToTarget();
-		return retValAndTargetPair.getControl();
+		return retVal;
 	}
 
 	protected ControlObservablePair createControlForList(
 			final EStructuralFeature feature) {
+		ControlObservablePair result = polymorphicGetObservableControl(feature);
+		if (result != null)
+			return result;
+		
 		MultipleFeatureControl mfc = new MultipleFeatureControl(parent,
 				toolkit, jfaceProviderFactory.createLabelProvider(),
 				owner, feature, proposalcreator);
@@ -152,12 +165,9 @@ public class EmfSwtBindingFactory {
 		else
 			source = EMFObservables.observeValue(owner, feature);
 
-		Control retVal = null;
-		IObservableValue target = null;
-
 		ControlObservablePair retValAndTargetPair = createControlAndObservableValue(feature);
-		retVal = retValAndTargetPair.getControl();
-		target = retValAndTargetPair.getObservableValue();
+		Control retVal = retValAndTargetPair.getControl();
+		IObservableValue target = retValAndTargetPair.getObservableValue();
 
 		if (retVal != null && target != null) {
 			edbc.bindValue(target, source, null, null);
@@ -298,6 +308,22 @@ public class EmfSwtBindingFactory {
 	public Composite getParent() {
 		return parent;
 	}
+	
+	private Boolean polymorphicIsHideControl(EStructuralFeature element) {
+		PolymorphicDispatcher<Boolean> dispatcher = new PolymorphicDispatcher<Boolean>(
+				Collections.singletonList(this), getHideControlPredicate(element),
+				new PolymorphicDispatcher.NullErrorHandler<Boolean>()) {
+			@Override
+			protected Boolean handleNoSuchMethod(Object... params) {
+				if (PolymorphicDispatcher.NullErrorHandler.class
+						.equals(control_errorHandler.getClass()))
+					return null;
+				return super.handleNoSuchMethod(params);
+			}
+		};
+		Boolean ret=dispatcher.invoke(element);
+		return ret!=null?ret:false;
+	}
 
 	private ControlObservablePair polymorphicGetObservableControl(EStructuralFeature element) {
 		PolymorphicDispatcher<ControlObservablePair> dispatcher = new PolymorphicDispatcher<ControlObservablePair>(
@@ -313,6 +339,12 @@ public class EmfSwtBindingFactory {
 		};
 
 		return dispatcher.invoke(element);
+	}
+	
+	protected Predicate<Method> getHideControlPredicate(EStructuralFeature feature) {
+		String methodName = "hide_" + feature.getEContainingClass().getName()
+				+ "_" + feature.getName();
+		return PolymorphicDispatcher.Predicates.forName(methodName, 1);
 	}
 
 	protected Predicate<Method> getObservableControlPredicate(EStructuralFeature feature) {
@@ -340,6 +372,27 @@ public class EmfSwtBindingFactory {
 	protected Predicate<Method> getLabelPredicate(EStructuralFeature feature) {
 		String methodName = "observe_" + feature.getEContainingClass().getName()
 				+ "_" + feature.getName();
+		return PolymorphicDispatcher.Predicates.forName(methodName, 1);
+	}
+
+	public List<EStructuralFeature> polimorphicGetOrderedFeatures(EObject model) {
+		PolymorphicDispatcher<List<EStructuralFeature>> dispatcher = new PolymorphicDispatcher<List<EStructuralFeature>>(
+				Collections.singletonList(this), getOrderedFeaturesPredicate(model.eClass()),
+				 new PolymorphicDispatcher.NullErrorHandler<List<EStructuralFeature>>()) {
+			@Override
+			protected List<EStructuralFeature> handleNoSuchMethod(Object... params) {
+				if (PolymorphicDispatcher.NullErrorHandler.class
+						.equals(observe_errorHandler.getClass()))
+					return null;
+				return super.handleNoSuchMethod(params);
+			}
+		};
+
+		return dispatcher.invoke(model);
+	}
+	
+	protected Predicate<Method> getOrderedFeaturesPredicate(EClass eClass) {
+		String methodName = "getOrderedFeatures_"+eClass.getName();
 		return PolymorphicDispatcher.Predicates.forName(methodName, 1);
 	}
 }

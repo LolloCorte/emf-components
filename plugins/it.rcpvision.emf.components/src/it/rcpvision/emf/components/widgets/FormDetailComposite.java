@@ -6,6 +6,7 @@ import it.rcpvision.emf.components.factories.JfaceProviderFactory;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
@@ -84,6 +85,26 @@ public class FormDetailComposite extends Composite {
 				editingDomainFinderProvider.get().getEditingDomainFor(model),
 				model, main, toolkit);
 
+		//Ordering features
+		List<EStructuralFeature> suggestedFeatures=factory.polimorphicGetOrderedFeatures(model);
+		if(suggestedFeatures!=null){
+			List<EStructuralFeature> orderedFeatures=new ArrayList<EStructuralFeature>();
+			for (EStructuralFeature orderedFeature : suggestedFeatures) {
+				if(features.contains(orderedFeature)){
+					orderedFeatures.add(orderedFeature);
+				}else{
+					//TODO Log
+					System.out.println("Error: feature " + orderedFeature.getContainerClass().getCanonicalName() + "." + orderedFeature.getName() + " does not belong to entity "+ model.eClass().getName());
+				}
+			}
+			for (EStructuralFeature entityFeature : features) {
+				if(!suggestedFeatures.contains(entityFeature)){
+					orderedFeatures.add(entityFeature);
+				}
+			}
+			features=orderedFeatures;
+		}
+		
 		for (final EStructuralFeature feature : features) {
 			// derived, unchangeable, container and containment features
 			// ignored
@@ -91,7 +112,9 @@ public class FormDetailComposite extends Composite {
 					&& !feature.isDerived()
 					&& !(feature instanceof EReference && (((EReference) feature)
 							.isContainment() || ((EReference) feature)
-							.isContainer()))) {
+							.isContainer()))
+					&& !factory.isToHide(feature)) {
+				
 				formFeatureLabelProvider.getLabel(main, feature);
 
 				factory.create(feature);
