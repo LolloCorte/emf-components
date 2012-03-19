@@ -15,13 +15,18 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.edit.command.CreateChildCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.dialogs.DialogMessageArea;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.swt.SWT;
@@ -152,12 +157,28 @@ public class SaveableResourceTreeFormView extends ViewPart implements
 	@Override
 	public void doSave(IProgressMonitor monitor) {
 		try {
-			resource.save(null);
+			if(validateModel()){
+				resource.save(null);	
+				dirty = false;
+				firePropertyChange(PROP_DIRTY);
+			}
 		} catch (IOException e) {
+			//TODO Serious log
 			e.printStackTrace();
 		}
-		dirty = false;
-		firePropertyChange(PROP_DIRTY);
+	}
+
+	private boolean validateModel() {
+		for (EObject eObject : resource.getContents()) {
+			Diagnostic diagnostic=Diagnostician.INSTANCE.validate(eObject);
+			if(diagnostic.getSeverity()==Diagnostic.ERROR){
+				MessageDialog.openError(null, "Validation Error", diagnostic.getMessage());
+				return false;
+			}else if(diagnostic.getSeverity()==Diagnostic.WARNING){
+				MessageDialog.openWarning(null, "Validation Warning", diagnostic.getMessage());
+			}
+		}
+		return true;
 	}
 
 	@Override
