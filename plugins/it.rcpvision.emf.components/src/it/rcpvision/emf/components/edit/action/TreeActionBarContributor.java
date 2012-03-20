@@ -67,11 +67,6 @@ public class TreeActionBarContributor implements IMenuListener,
 
 	public void selectionChanged(SelectionChangedEvent event) {
 		lastSelectionChangedEvent = event;
-		selectionChangedGen(event);
-	}
-
-	public void selectionChangedGen(SelectionChangedEvent event) {
-		lastSelectionChangedEvent = event;
 		// Remove any menu items for old selection.
 		//
 		if (createChildMenuManager != null) {

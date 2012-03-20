@@ -3,11 +3,11 @@
  */
 package it.rcpvision.emf.components.outline;
 
-import com.google.inject.Inject;
-import com.google.inject.Provider;
-
 import it.rcpvision.emf.components.editors.EmfAbstractEditor;
 import it.rcpvision.emf.components.views.ViewerInitializer;
+
+import com.google.inject.Inject;
+import com.google.inject.Provider;
 
 /**
  * @author bettini
