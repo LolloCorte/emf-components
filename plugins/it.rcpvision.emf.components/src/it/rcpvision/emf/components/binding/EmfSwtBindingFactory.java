@@ -104,10 +104,6 @@ public class EmfSwtBindingFactory {
 		this.parent = parent;
 		this.toolkit = toolkit;
 	}
-	
-	public boolean isToHide(EStructuralFeature feature){
-		return polymorphicIsHideControl(feature);
-	}
 
 	public Control create(EStructuralFeature feature) {
 		Control control = null;	
@@ -308,22 +304,6 @@ public class EmfSwtBindingFactory {
 	public Composite getParent() {
 		return parent;
 	}
-	
-	private Boolean polymorphicIsHideControl(EStructuralFeature element) {
-		PolymorphicDispatcher<Boolean> dispatcher = new PolymorphicDispatcher<Boolean>(
-				Collections.singletonList(this), getHideControlPredicate(element),
-				new PolymorphicDispatcher.NullErrorHandler<Boolean>()) {
-			@Override
-			protected Boolean handleNoSuchMethod(Object... params) {
-				if (PolymorphicDispatcher.NullErrorHandler.class
-						.equals(control_errorHandler.getClass()))
-					return null;
-				return super.handleNoSuchMethod(params);
-			}
-		};
-		Boolean ret=dispatcher.invoke(element);
-		return ret!=null?ret:false;
-	}
 
 	private ControlObservablePair polymorphicGetObservableControl(EStructuralFeature element) {
 		PolymorphicDispatcher<ControlObservablePair> dispatcher = new PolymorphicDispatcher<ControlObservablePair>(
@@ -341,11 +321,7 @@ public class EmfSwtBindingFactory {
 		return dispatcher.invoke(element);
 	}
 	
-	protected Predicate<Method> getHideControlPredicate(EStructuralFeature feature) {
-		String methodName = "hide_" + feature.getEContainingClass().getName()
-				+ "_" + feature.getName();
-		return PolymorphicDispatcher.Predicates.forName(methodName, 1);
-	}
+
 
 	protected Predicate<Method> getObservableControlPredicate(EStructuralFeature feature) {
 		String methodName = "control_" + feature.getEContainingClass().getName()
@@ -375,24 +351,4 @@ public class EmfSwtBindingFactory {
 		return PolymorphicDispatcher.Predicates.forName(methodName, 1);
 	}
 
-	public List<EStructuralFeature> polimorphicGetOrderedFeatures(EObject model) {
-		PolymorphicDispatcher<List<EStructuralFeature>> dispatcher = new PolymorphicDispatcher<List<EStructuralFeature>>(
-				Collections.singletonList(this), getOrderedFeaturesPredicate(model.eClass()),
-				 new PolymorphicDispatcher.NullErrorHandler<List<EStructuralFeature>>()) {
-			@Override
-			protected List<EStructuralFeature> handleNoSuchMethod(Object... params) {
-				if (PolymorphicDispatcher.NullErrorHandler.class
-						.equals(observe_errorHandler.getClass()))
-					return null;
-				return super.handleNoSuchMethod(params);
-			}
-		};
-
-		return dispatcher.invoke(model);
-	}
-	
-	protected Predicate<Method> getOrderedFeaturesPredicate(EClass eClass) {
-		String methodName = "getOrderedFeatures_"+eClass.getName();
-		return PolymorphicDispatcher.Predicates.forName(methodName, 1);
-	}
 }

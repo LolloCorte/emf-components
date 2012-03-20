@@ -84,26 +84,6 @@ public class FormDetailComposite extends Composite {
 		factory.init(
 				editingDomainFinderProvider.get().getEditingDomainFor(model),
 				model, main, toolkit);
-
-		//Ordering features
-		List<EStructuralFeature> suggestedFeatures=factory.polimorphicGetOrderedFeatures(model);
-		if(suggestedFeatures!=null){
-			List<EStructuralFeature> orderedFeatures=new ArrayList<EStructuralFeature>();
-			for (EStructuralFeature orderedFeature : suggestedFeatures) {
-				if(features.contains(orderedFeature)){
-					orderedFeatures.add(orderedFeature);
-				}else{
-					//TODO Log
-					System.out.println("Error: feature " + orderedFeature.getContainerClass().getCanonicalName() + "." + orderedFeature.getName() + " does not belong to entity "+ model.eClass().getName());
-				}
-			}
-			for (EStructuralFeature entityFeature : features) {
-				if(!suggestedFeatures.contains(entityFeature)){
-					orderedFeatures.add(entityFeature);
-				}
-			}
-			features=orderedFeatures;
-		}
 		
 		for (final EStructuralFeature feature : features) {
 			// derived, unchangeable, container and containment features
@@ -112,8 +92,7 @@ public class FormDetailComposite extends Composite {
 					&& !feature.isDerived()
 					&& !(feature instanceof EReference && (((EReference) feature)
 							.isContainment() || ((EReference) feature)
-							.isContainer()))
-					&& !factory.isToHide(feature)) {
+							.isContainer()))) {
 				
 				formFeatureLabelProvider.getLabel(main, feature);
 
