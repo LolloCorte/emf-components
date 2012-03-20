@@ -21,7 +21,7 @@
       <perspectiveExtension
             targetID="it.rcpvision.emf.components.cdoexample.rcp.perspective">
          <view
-               id="it.rcpvision.emf.components.cdoexamples.treeform.resourcetreeformview"
+               id="it.rcpvision.emf.components.cdoexamples.treeform.saveableresourcetreeformview"
                minimized="false"
                relationship="stack"
                relative="org.eclipse.ui.editorss">
