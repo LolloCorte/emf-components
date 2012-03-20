@@ -8,6 +8,7 @@ import org.eclipse.swtbot.swt.finder.exceptions.WidgetNotFoundException;
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotTable;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,10 +16,13 @@ import org.junit.runner.RunWith;
 @RunWith(SWTBotJunit4ClassRunner.class)
 public class SaveableTreeFormTest extends CdoExampleUiTable {
 
+	private static final String MODIFIED_NAME = "Ciccio Pasticcio";
 	private static final String LIBRARY = "Library";
 	private static final String SAVEABLE_TREEFORM_VIEW_TITLE = "Saveable Resource CDO Tree Form View";
 //	private static final String BOOK_CIAO = "Book Book Ciao";
 	private static final String BOOK_NOME_LIBRO = "Book";
+	SWTBotShell displayNameShell;
+	
 
 	
 	
@@ -40,8 +44,9 @@ public class SaveableTreeFormTest extends CdoExampleUiTable {
 	@Test
 	public void insertAndSaveDetailsBook() throws WidgetNotFoundException,
 			ParseException {
-		bot.textWithLabel("title").setText("Ciccio Pasticcio");
+		bot.textWithLabel("title").setText(MODIFIED_NAME);
 		openDisplayNameAuthorDialog();
+		modifyAuthorName();
 		bot.textWithLabel("pages").setText("458");
 		saveModifications();
 	}
@@ -66,13 +71,24 @@ public class SaveableTreeFormTest extends CdoExampleUiTable {
 
 	private void openDisplayNameAuthorDialog() {
 		bot.button("...").click();
-		SWTBotShell displayNameShell = bot.activeShell();
+		displayNameShell = bot.activeShell();
 		displayNameShell.bot().button("Cancel").click();
+		
 	}
 
-	private void getBook(SWTBotTreeItem root, String bookName) {
-		root.expand().getNode(bookName).select();
+
+	private void modifyAuthorName() {
+		bot.button("...").click();
+		SWTBotShell displayNameShell2 = bot.activeShell();
+		SWTBotTable choices = displayNameShell2.bot().tableWithLabel("Choices");
+		choices.setFocus();
+		choices.getTableItem(1).select();
+		bot.button("Add");
+		//TODO Aggiungere controllo per la tabella feature
+		bot.button("OK").click();
 	}
+
+
 
 	@Test
 	public void verifyContentTree(){
