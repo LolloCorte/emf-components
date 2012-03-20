@@ -37,6 +37,8 @@
       <import plugin="org.eclipse.emf.common" version="2.7.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.xtend2.lib" version="2.1.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.pde.core" version="3.7.1" match="greaterOrEqual"/>
+      <import plugin="com.google.guava"/>
+      <import plugin="com.google.inject"/>
    </requires>
 
    <plugin
@@ -55,20 +57,6 @@
 
    <plugin
          id="it.rcpvision.emf.components.wizards"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.google.guava"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.google.inject"
          download-size="0"
          install-size="0"
          version="0.0.0"
