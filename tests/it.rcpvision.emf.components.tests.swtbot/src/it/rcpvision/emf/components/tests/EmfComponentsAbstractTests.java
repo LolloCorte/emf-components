@@ -7,6 +7,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import it.rcpvision.emf.components.tests.views.LibraryEmfView;
+import it.rcpvision.emf.components.util.ActionBarsUtils;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -47,9 +48,7 @@ import org.eclipse.swtbot.swt.finder.widgets.SWTBotTable;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTree;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 import org.eclipse.ui.IActionBars;
-import org.eclipse.ui.IEditorSite;
-import org.eclipse.ui.IViewSite;
-import org.eclipse.ui.IWorkbenchPartSite;
+import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.ui.junit.util.IResourcesSetupUtil;
@@ -423,18 +422,16 @@ public class EmfComponentsAbstractTests {
 	protected void assertStatusLine(final String expectedStatusLineText) {
 		Display.getDefault().syncExec(new Runnable() {
 			public void run() {
-				IWorkbenchPartSite site = PlatformUI.getWorkbench()
+				IWorkbenchPart activePart = PlatformUI.getWorkbench()
 						.getActiveWorkbenchWindow().getActivePage()
-						.getActivePart().getSite();
+						.getActivePart();
+				IActionBars actionBars = ActionBarsUtils
+						.getActionBars(activePart);
 
-				if (site instanceof IViewSite) {
-					assertStatusLine(expectedStatusLineText,
-							((IViewSite) site).getActionBars());
-				} else if (site instanceof IEditorSite) {
-					assertStatusLine(expectedStatusLineText,
-							((IEditorSite) site).getActionBars());
+				if (actionBars == null) {
+					fail("cannot get action bars from: " + activePart);
 				} else {
-					fail("unknown site: " + site);
+					assertStatusLine(expectedStatusLineText, actionBars);
 				}
 			}
 
@@ -468,8 +465,8 @@ public class EmfComponentsAbstractTests {
 	protected ImageDescriptor getImageDescriptorFromLibraryEdit(
 			String imageFileName) {
 		return getImageDescriptorFromPlugin(
-				"it.rcpvision.emf.components.examples.library.edit", "icons/full/obj16/"
-						+ imageFileName);
+				"it.rcpvision.emf.components.examples.library.edit",
+				"icons/full/obj16/" + imageFileName);
 	}
 
 	protected ImageDescriptor getImageDescriptorFromTest(String imageFileName) {
