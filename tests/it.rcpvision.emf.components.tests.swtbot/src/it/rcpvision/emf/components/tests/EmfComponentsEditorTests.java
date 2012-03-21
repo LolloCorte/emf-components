@@ -54,6 +54,19 @@ public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 		assertTrue("editor should NOT be in dirty state", !editor.isDirty());
 		editor.saveAndClose();
 	}
+	
+	@Test
+	public void canAccessStandardEditingActions() throws Exception {
+		SWTBotTreeItem libraryNode = getLibraryNode(getRootOfEditorTree(
+				EMF_TREE_EDITOR, MY_EXTLIBRARY, MY_EXT_LIBRARY_PLATFORM_URI));
+		libraryNode.contextMenu(ACTION_UNDO);
+		libraryNode.contextMenu(ACTION_REDO);
+		libraryNode.contextMenu(ACTION_VALIDATE);
+		libraryNode.contextMenu(ACTION_COPY);
+		libraryNode.contextMenu(ACTION_CUT);
+		libraryNode.contextMenu(ACTION_PASTE);
+		
+	}
 
 	@Test
 	public void canAccessEditorTreeOfStatemachine() throws Exception {

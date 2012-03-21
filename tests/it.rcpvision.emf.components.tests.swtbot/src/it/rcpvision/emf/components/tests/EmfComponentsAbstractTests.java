@@ -147,6 +147,19 @@ public class EmfComponentsAbstractTests {
 
 	protected static final String CUSTOM_PEOPLE_TEXT = WRITER_LABEL + ", "
 			+ CUSTOM_BORROWER_LABEL;
+	
+	protected static final String ACTION_VALIDATE = "Validate";
+	
+	protected static final String ACTION_COPY = "Copy";
+	
+	protected static final String ACTION_CUT = "Cut";
+	
+	protected static final String ACTION_PASTE = "Paste";
+	
+	// they have mnemonic so use a space after the string
+	protected static final String ACTION_REDO = "Redo ";
+	
+	protected static final String ACTION_UNDO = "Undo ";
 
 	protected static SWTWorkbenchBot bot;
 
