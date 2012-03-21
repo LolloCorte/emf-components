@@ -2,7 +2,7 @@ package it.rcpvision.emf.components.views;
 
 import it.rcpvision.emf.components.edit.action.TreeActionBarContributor;
 import it.rcpvision.emf.components.factories.EmfCompositeFactory;
-import it.rcpvision.emf.components.menus.StructuredViewerContextMenuCreator;
+import it.rcpvision.emf.components.menus.StructuredViewerContextMenuManagerCreator;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
 import it.rcpvision.emf.components.widgets.TreeFormComposite;
@@ -44,7 +44,7 @@ public abstract class AbstractSaveableResourceTreeFormView extends ViewPart impl
 	protected TreeFormComposite treeFormComposite;
 
 	@Inject
-	protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;
+	protected StructuredViewerContextMenuManagerCreator structuredViewerContextMenuManagerCreator;
 
 	@Inject
 	protected TreeActionBarContributor actionBarContributor;
@@ -113,7 +113,7 @@ public abstract class AbstractSaveableResourceTreeFormView extends ViewPart impl
 	protected abstract URI createResourceURI() ;
 
 	public void createContextMenuFor(StructuredViewer viewer) {
-		MenuManager menuManager = structuredViewerContextMenuCreator
+		MenuManager menuManager = structuredViewerContextMenuManagerCreator
 				.createContextMenuFor(viewer, this, editingDomain);
 		menuManager.addMenuListener(this);
 	}
