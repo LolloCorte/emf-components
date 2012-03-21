@@ -14,7 +14,7 @@
 
   <properties>
   	<local-ec-site>file:/${basedir}/../../releng/it.rcpvision.emf.components.repository/target/repository</local-ec-site>
-    <ui.test.vmargs>-Xmx512m -XX:MaxPermSize=256m -Dorg.eclipse.swtbot.search.timeout=10000</ui.test.vmargs>
+    <ui.test.vmargs>-Xmx512m -XX:MaxPermSize=256m -Dorg.eclipse.swtbot.search.timeout=30000</ui.test.vmargs>
   </properties>
   
    <repositories>
