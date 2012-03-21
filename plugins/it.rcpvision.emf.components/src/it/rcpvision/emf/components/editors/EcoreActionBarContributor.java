@@ -73,6 +73,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
@@ -341,12 +342,12 @@ public class EcoreActionBarContributor
   }
 
   /**
-   * This keeps track of the active editor.
+   * This keeps track of the active part.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected IEditorPart activeEditorPart;
+  protected IWorkbenchPart activePart;
 
   /**
    * This keeps track of the current selection provider.
@@ -392,15 +393,15 @@ public class EcoreActionBarContributor
       @Override
       public boolean isEnabled()
       {
-        return activeEditorPart instanceof IViewerProvider;
+        return activePart instanceof IViewerProvider;
       }
 
       @Override
       public void run()
       {
-        if (activeEditorPart instanceof IViewerProvider)
+        if (activePart instanceof IViewerProvider)
         {
-          Viewer viewer = ((IViewerProvider)activeEditorPart).getViewer();
+          Viewer viewer = ((IViewerProvider)activePart).getViewer();
           if (viewer != null)
           {
             viewer.refresh();
@@ -452,7 +453,7 @@ public class EcoreActionBarContributor
       protected void refreshViewers()
       {
         super.refreshViewers();
-        if (lastSelectionChangedEvent != null && activeEditorPart instanceof EcoreEditor)
+        if (lastSelectionChangedEvent != null && activePart instanceof EcoreEditor)
         {
           selectionChanged(lastSelectionChangedEvent); 
         }
@@ -573,7 +574,7 @@ public class EcoreActionBarContributor
   public void setActiveEditorGen(IEditorPart part)
   {
     super.setActiveEditor(part);
-    activeEditorPart = part;
+    activePart = part;
 
     // Switch to the new selection provider.
     //
@@ -646,7 +647,7 @@ public class EcoreActionBarContributor
     {
       Object object = ((IStructuredSelection)selection).getFirstElement();
 
-      EditingDomain domain = ((IEditingDomainProvider)activeEditorPart).getEditingDomain();
+      EditingDomain domain = ((IEditingDomainProvider)activePart).getEditingDomain();
 
       newChildDescriptors = domain.getNewChildDescriptors(object, null);
       newSiblingDescriptors = domain.getNewChildDescriptors(null, object);
@@ -697,7 +698,7 @@ public class EcoreActionBarContributor
             continue;
           }
         }
-        actions.add(new CreateChildAction(activeEditorPart, selection, descriptor));
+        actions.add(new CreateChildAction(activePart, selection, descriptor));
       }
     }
     return actions;
@@ -725,7 +726,7 @@ public class EcoreActionBarContributor
             continue;
           }
         }
-        actions.add(new CreateSiblingAction(activeEditorPart, selection, descriptor));
+        actions.add(new CreateSiblingAction(activePart, selection, descriptor));
       }
     }
     return actions;

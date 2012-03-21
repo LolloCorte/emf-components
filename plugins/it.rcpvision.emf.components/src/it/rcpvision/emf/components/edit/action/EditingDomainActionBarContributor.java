@@ -25,6 +25,7 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IPropertyListener;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.IViewPart;
+import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.part.IPage;
@@ -55,9 +56,9 @@ public class EditingDomainActionBarContributor
     IPropertyListener
 {
   /**
-   * This keeps track of the current editor part.
+   * This keeps track of the current part.
    */
-  protected IEditorPart activeEditor;
+  protected IWorkbenchPart activePart;
 
   /**
    * This is the action used to implement delete.
@@ -287,7 +288,10 @@ public class EditingDomainActionBarContributor
 
   public IEditorPart getActiveEditor()
   {
-    return activeEditor;
+	  if (activePart instanceof IEditorPart) {
+		return (IEditorPart) activePart;
+	}
+    return null;
   }
 
   @Override
@@ -295,16 +299,16 @@ public class EditingDomainActionBarContributor
   {
     super.setActiveEditor(part);
 
-    if (part != activeEditor)
+    if (part != activePart)
     {
-      if (activeEditor != null)
+      if (activePart != null)
       {
         deactivate();
       }
 
       if (part instanceof IEditingDomainProvider)
       {
-        activeEditor = part;
+        activePart = part;
         activate();
 
       }
@@ -319,7 +323,7 @@ public class EditingDomainActionBarContributor
 
   public void deactivate()
   {
-    activeEditor.removePropertyListener(this);
+    activePart.removePropertyListener(this);
 
     deleteAction.setActiveWorkbenchPart(null);
     cutAction.setActiveWorkbenchPart(null);
@@ -344,9 +348,9 @@ public class EditingDomainActionBarContributor
     }
 
     ISelectionProvider selectionProvider = 
-      activeEditor instanceof ISelectionProvider ?
-        (ISelectionProvider)activeEditor :
-        activeEditor.getEditorSite().getSelectionProvider();
+      activePart instanceof ISelectionProvider ?
+        (ISelectionProvider)activePart :
+        activePart.getSite().getSelectionProvider();
 
     if (selectionProvider != null)
     {
@@ -369,34 +373,34 @@ public class EditingDomainActionBarContributor
 
   public void activate()
   {
-    activeEditor.addPropertyListener(this);
+    activePart.addPropertyListener(this);
 
-    deleteAction.setActiveWorkbenchPart(activeEditor);
-    cutAction.setActiveWorkbenchPart(activeEditor);
-    copyAction.setActiveWorkbenchPart(activeEditor);
-    pasteAction.setActiveWorkbenchPart(activeEditor);
-    undoAction.setActiveWorkbenchPart(activeEditor);
-    redoAction.setActiveWorkbenchPart(activeEditor);
+    deleteAction.setActiveWorkbenchPart(activePart);
+    cutAction.setActiveWorkbenchPart(activePart);
+    copyAction.setActiveWorkbenchPart(activePart);
+    pasteAction.setActiveWorkbenchPart(activePart);
+    undoAction.setActiveWorkbenchPart(activePart);
+    redoAction.setActiveWorkbenchPart(activePart);
 
     if (loadResourceAction != null)
     {
-      loadResourceAction.setActiveWorkbenchPart(activeEditor);
+      loadResourceAction.setActiveWorkbenchPart(activePart);
     }
 
     if (controlAction != null)
     {
-      controlAction.setActiveWorkbenchPart(activeEditor);
+      controlAction.setActiveWorkbenchPart(activePart);
     }
 
     if (validateAction != null)
     {
-      validateAction.setActiveWorkbenchPart(activeEditor);
+      validateAction.setActiveWorkbenchPart(activePart);
     }
 
     ISelectionProvider selectionProvider = 
-      activeEditor instanceof ISelectionProvider ?
-        (ISelectionProvider)activeEditor :
-        activeEditor.getEditorSite().getSelectionProvider();
+      activePart instanceof ISelectionProvider ?
+        (ISelectionProvider)activePart :
+        activePart.getSite().getSelectionProvider();
 
     if (selectionProvider != null)
     {
@@ -422,9 +426,9 @@ public class EditingDomainActionBarContributor
   public void update()
   {
     ISelectionProvider selectionProvider = 
-      activeEditor instanceof ISelectionProvider ?
-        (ISelectionProvider)activeEditor :
-        activeEditor.getEditorSite().getSelectionProvider();
+      activePart instanceof ISelectionProvider ?
+        (ISelectionProvider)activePart :
+        activePart.getSite().getSelectionProvider();
 
     if (selectionProvider != null)
     {
