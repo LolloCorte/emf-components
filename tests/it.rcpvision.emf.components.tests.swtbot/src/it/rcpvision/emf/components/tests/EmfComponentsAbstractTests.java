@@ -196,7 +196,7 @@ public class EmfComponentsAbstractTests {
 
 	protected void assertPropertyViewIsOpenedAndCloseIt() {
 		SWTBotView propertyView = bot.viewByTitle("Properties");
-		bot.sleep(2000);
+		//bot.sleep(2000);
 		propertyView.close();
 	}
 
