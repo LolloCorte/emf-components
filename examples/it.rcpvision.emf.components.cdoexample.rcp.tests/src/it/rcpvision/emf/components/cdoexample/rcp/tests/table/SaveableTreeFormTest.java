@@ -19,9 +19,8 @@ public class SaveableTreeFormTest extends CdoExampleUiTable {
 	private static final String MODIFIED_NAME = "Ciccio Pasticcio";
 	private static final String LIBRARY = "Library";
 	private static final String SAVEABLE_TREEFORM_VIEW_TITLE = "Saveable Resource CDO Tree Form View";
-//	private static final String BOOK_CIAO = "Book Book Ciao";
 	private static final String BOOK_NOME_LIBRO = "Book";
-	SWTBotShell displayNameShell;
+	private static SWTBotShell displayNameShell;
 	
 
 	
@@ -42,7 +41,7 @@ public class SaveableTreeFormTest extends CdoExampleUiTable {
 	}
 
 	@Test
-	public void insertAndSaveDetailsBook() throws WidgetNotFoundException,
+	public void testInsertAndSaveDetailsBook() throws WidgetNotFoundException,
 			ParseException {
 		bot.textWithLabel("title").setText(MODIFIED_NAME);
 		openDisplayNameAuthorDialog();
@@ -52,19 +51,32 @@ public class SaveableTreeFormTest extends CdoExampleUiTable {
 	}
 
 	@Test 
-	public void resetModifications() throws WidgetNotFoundException, ParseException{
+	public void testResetModifications() throws WidgetNotFoundException, ParseException{
 		bot.viewByTitle(SAVEABLE_TREEFORM_VIEW_TITLE).setFocus();
 		SWTBotTreeItem root = bot.tree().expandNode(LIBRARY);
 		root.expand();
 		root.getNode("Book Ciccio Pasticcio").select();
 		bot.textWithLabel("title").setText(BOOK_NOME_LIBRO);
+		bot.textWithLabel("pages").setText("");
+		
 		saveModifications();
+	}
+	
+//	@Test
+	public void verifyContentTree(){
+		bot.viewByTitle(SAVEABLE_TREEFORM_VIEW_TITLE).setFocus();
+		SWTBotTreeItem root = bot.tree().expandNode(LIBRARY);
+		root.select();
+		List<String> contentTree = root.getNodes();
+		for (String swtBotTreeItem : contentTree) {
+			System.out.println("Elementi dell'albero: " + swtBotTreeItem);
+		}
+		
 	}
 	
 	public void saveModifications() throws WidgetNotFoundException,
 			ParseException {
 		SWTBotPreferences.KEYBOARD_LAYOUT = "EN_US";
-		System.out.println("Nome activeShell:" + bot.activeShell().getText());
 		char s = 's';
 		bot.activeShell().pressShortcut(SWT.CTRL, s);
 	}
@@ -83,31 +95,21 @@ public class SaveableTreeFormTest extends CdoExampleUiTable {
 		SWTBotTable choices = displayNameShell2.bot().tableWithLabel("Choices");
 		choices.setFocus();
 		choices.getTableItem(1).select();
-		bot.button("Add");
-		//TODO Aggiungere controllo per la tabella feature
+		bot.button("Add").click();
+		SWTBotTable feature = displayNameShell2.bot().tableWithLabel("Feature");
+		feature.setFocus();
+		feature.getTableItem(0).select();
 		bot.button("OK").click();
 	}
 
 
-
-	@Test
-	public void verifyContentTree(){
-		bot.viewByTitle(SAVEABLE_TREEFORM_VIEW_TITLE).setFocus();
-		SWTBotTreeItem root = bot.tree().expandNode(LIBRARY);
-		root.select();
-		List<String> contentTree = root.getNodes();
-		for (String swtBotTreeItem : contentTree) {
-			System.out.println("Elementi dell'albero: " + swtBotTreeItem);
-		}
-		
-	}
-	
 //	@Test
 	public void testCreateBook() {
 		bot.viewByTitle(SAVEABLE_TREEFORM_VIEW_TITLE).setFocus();
 		SWTBotTreeItem root = bot.tree().expandNode(LIBRARY);
-		root.select();
-
+		SWTBotTreeItem book = root.getNode(0).select();
+		book.contextMenu("New Sibling").menu("Books Book").click();
+		
 	}
 
 }
