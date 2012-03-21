@@ -7,7 +7,7 @@ import org.eclipse.swt.widgets.Composite;
 
 import it.rcpvision.emf.components.views.AbstractSaveableResourceTreeFormView;
 
-public class SaveableResourceCDOTreeFormView extends
+public class CDOExampleSaveableResourceCDOTreeFormView extends
 		AbstractSaveableResourceTreeFormView {
 
 	@Override
@@ -24,7 +24,7 @@ public class SaveableResourceCDOTreeFormView extends
 			
 			@Override
 			public void doubleClick(DoubleClickEvent event) {
-				System.out.println();
+				System.out.println("doubleClickListener");
 			}
 		});
 	}

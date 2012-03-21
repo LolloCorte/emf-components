@@ -52,7 +52,7 @@ public class CDOExamplesTreeActionBarContributor extends
 			Collection<?> descriptors, ISelection selection) {
 		return new ArrayList<IAction>();
 	}
-	
+
 	
 	@Override
 	public void initialize(IWorkbenchPart workbenchPart,

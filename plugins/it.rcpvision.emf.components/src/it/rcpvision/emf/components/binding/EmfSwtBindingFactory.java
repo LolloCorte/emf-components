@@ -106,13 +106,16 @@ public class EmfSwtBindingFactory {
 
 	public Control create(EStructuralFeature feature) {
 		Control control = null;	
-		if (feature.isMany()) {
-			control = bindList(feature);
-		} else {
-			control = bindValue(feature);
-		}
-		setupControl(feature, control);
 		
+		control = polymorphicCreateControlAndBind(owner, feature);
+		if (control == null){	
+			if (feature.isMany()) {
+				control = bindList(feature);
+			} else {
+				control = bindValue(feature);
+			}
+			setupControl(feature, control);
+		}
 		return control;
 	}
 
@@ -159,7 +162,7 @@ public class EmfSwtBindingFactory {
 			source = EMFEditObservables.observeValue(domain, owner, feature);
 		else
 			source = EMFObservables.observeValue(owner, feature);
-
+		
 		ControlObservablePair retValAndTargetPair = createControlAndObservableValue(feature);
 		Control retVal = retValAndTargetPair.getControl();
 		IObservableValue target = retValAndTargetPair.getObservableValue();
@@ -319,7 +322,6 @@ public class EmfSwtBindingFactory {
 
 		return dispatcher.invoke(element);
 	}
-	
 
 
 	protected Predicate<Method> getObservableControlPredicate(EStructuralFeature feature) {
@@ -349,5 +351,26 @@ public class EmfSwtBindingFactory {
 				+ "_" + feature.getName();
 		return PolymorphicDispatcher.Predicates.forName(methodName, 1);
 	}
+	
+	private Control polymorphicCreateControlAndBind(EObject element,EStructuralFeature feature) {
+		PolymorphicDispatcher<Control> dispatcher = new PolymorphicDispatcher<Control>(
+				Collections.singletonList(this), getCreateControlPredicate(feature),
+				 new PolymorphicDispatcher.NullErrorHandler<Control>()) {
+			@Override
+			protected Control handleNoSuchMethod(Object... params) {
+				if (PolymorphicDispatcher.NullErrorHandler.class
+						.equals(control_errorHandler.getClass()))
+					return null;
+				return super.handleNoSuchMethod(params);
+			}
+		};
 
+		return dispatcher.invoke(element);
+	}
+
+	protected Predicate<Method> getCreateControlPredicate(EStructuralFeature feature) {
+		String methodName = "createAndBind_" + feature.getEContainingClass().getName()
+				+ "_" + feature.getName();
+		return PolymorphicDispatcher.Predicates.forName(methodName, 1);
+	}
 }

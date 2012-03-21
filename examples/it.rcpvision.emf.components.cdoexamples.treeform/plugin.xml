@@ -10,7 +10,7 @@
                restorable="true">
          </view> 
        <view
-               class="it.rcpvision.emf.components.cdoexamples.treeform.CDOExamplesExecutableExtensionFactory:it.rcpvision.emf.components.cdoexamples.treeform.views.SaveableResourceCDOTreeFormView"
+               class="it.rcpvision.emf.components.cdoexamples.treeform.CDOExamplesExecutableExtensionFactory:it.rcpvision.emf.components.cdoexamples.treeform.views.CDOExampleSaveableResourceCDOTreeFormView"
                id="it.rcpvision.emf.components.cdoexamples.treeform.saveableresourcetreeformview"
                name="Saveable Resource CDO Tree Form View"
                restorable="true">
