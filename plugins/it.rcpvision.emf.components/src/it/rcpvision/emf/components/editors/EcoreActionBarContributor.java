@@ -574,7 +574,11 @@ public class EcoreActionBarContributor
   public void setActiveEditorGen(IEditorPart part)
   {
     super.setActiveEditor(part);
-    activePart = part;
+    setActivePart(part);
+  }
+
+  public void setActivePart(IWorkbenchPart part) {
+	activePart = part;
 
     // Switch to the new selection provider.
     //
@@ -598,7 +602,7 @@ public class EcoreActionBarContributor
         selectionChanged(new SelectionChangedEvent(selectionProvider, selectionProvider.getSelection()));
       }
     }
-  }
+}
   
   @Override
   public void setActiveEditor(IEditorPart part)
