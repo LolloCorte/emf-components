@@ -6,13 +6,13 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: it.rcpvision.emf.components.cdoexample.rcp.tests.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.eclipse.swtbot.eclipse.core;bundle-version="2.0.4",
- org.eclipse.swtbot.eclipse.finder;bundle-version="2.0.4",
- org.eclipse.swtbot.eclipse.spy;bundle-version="2.0.4",
- org.eclipse.swtbot.eclipse.ui;bundle-version="2.0.4",
- org.eclipse.swtbot.forms.finder;bundle-version="2.0.4",
- org.eclipse.swtbot.go;bundle-version="2.0.4",
- org.eclipse.swtbot.junit4_x;bundle-version="2.0.4",
+ org.eclipse.swtbot.eclipse.core;bundle-version="2.0.5",
+ org.eclipse.swtbot.eclipse.finder;bundle-version="2.0.5",
+ org.eclipse.swtbot.eclipse.spy;bundle-version="2.0.5",
+ org.eclipse.swtbot.eclipse.ui;bundle-version="2.0.5",
+ org.eclipse.swtbot.forms.finder;bundle-version="2.0.5",
+ org.eclipse.swtbot.go;bundle-version="2.0.5",
+ org.eclipse.swtbot.junit4_x;bundle-version="2.0.5",
  org.eclipse.swtbot.swt.finder;bundle-version="2.0.5"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
