@@ -365,12 +365,12 @@ public class EmfSwtBindingFactory {
 			}
 		};
 
-		return dispatcher.invoke(element);
+		return dispatcher.invoke(feature, element);
 	}
 
 	protected Predicate<Method> getCreateControlPredicate(EStructuralFeature feature) {
 		String methodName = "createAndBind_" + feature.getEContainingClass().getName()
 				+ "_" + feature.getName();
-		return PolymorphicDispatcher.Predicates.forName(methodName, 1);
+		return PolymorphicDispatcher.Predicates.forName(methodName, 2);
 	}
 }
