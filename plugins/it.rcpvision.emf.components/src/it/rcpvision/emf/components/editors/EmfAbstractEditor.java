@@ -17,7 +17,7 @@
 package it.rcpvision.emf.components.editors;
 
 
-import it.rcpvision.emf.components.edit.action.EditingDomainActionBarContributor;
+import it.rcpvision.emf.components.edit.action.EditingActionBarContributor;
 import it.rcpvision.emf.components.factories.EmfViewerFactory;
 import it.rcpvision.emf.components.handlers.ContentOutlineSelectionHandler;
 import it.rcpvision.emf.components.listeners.EmfViewerMouseAdapter;
@@ -1387,9 +1387,9 @@ protected StructuredViewerContextMenuManagerCreator structuredViewerContextMenuM
    * <!-- end-user-doc -->
    * @generated
    */
-  public EditingDomainActionBarContributor getActionBarContributor()
+  public EditingActionBarContributor getActionBarContributor()
   {
-    return (EditingDomainActionBarContributor)getEditorSite().getActionBarContributor();
+    return (EditingActionBarContributor)getEditorSite().getActionBarContributor();
   }
 
   /**

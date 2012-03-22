@@ -8,6 +8,6 @@ package it.rcpvision.emf.components.editors;
  *
  */
 public class EmfComponentsEditorActionBarContributor extends
-		EcoreActionBarContributor {
+		EmfActionBarContributor {
 
 }

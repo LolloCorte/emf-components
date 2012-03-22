@@ -105,7 +105,7 @@ public class EmfTreeEditor extends EmfAbstractEditor {
 						|| eObject instanceof EGenericType
 						&& !((EGenericType) eObject).getETypeArguments()
 								.isEmpty()) {
-					((EcoreActionBarContributor) getActionBarContributor())
+					((EmfActionBarContributor) getActionBarContributor())
 							.showGenerics(true);
 					break;
 				}

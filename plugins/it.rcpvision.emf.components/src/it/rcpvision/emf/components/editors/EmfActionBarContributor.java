@@ -1,6 +1,6 @@
 package it.rcpvision.emf.components.editors;
 
-import it.rcpvision.emf.components.edit.action.EditingDomainActionBarContributor;
+import it.rcpvision.emf.components.edit.action.EditingActionBarContributor;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -80,16 +80,16 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
 
 /**
- * This is the action bar contributor for the Ecore model editor.
- * <!-- begin-user-doc -->
- * <!-- end-user-doc -->
- * @generated
+ * This is the action bar contributor for the Emf actions.
+ * 
+ * It comes from the original EcoreActionBarContributor with some modifications
+ * so that we can use a {@link IWorkbenchPart} instead of an {@link IEditorPart}.
  */
-public class EcoreActionBarContributor
-  extends EditingDomainActionBarContributor
+public class EmfActionBarContributor
+  extends EditingActionBarContributor
   implements ISelectionChangedListener
 {
-  public static class Reflective extends EcoreActionBarContributor
+  public static class Reflective extends EmfActionBarContributor
   {
     public Reflective()
     {
@@ -474,7 +474,7 @@ public class EcoreActionBarContributor
    * <!-- end-user-doc -->
    * @generated NOT
    */
-  public EcoreActionBarContributor()
+  public EmfActionBarContributor()
   {
     super(ADDITIONS_LAST_STYLE);
     loadResourceAction = new ExtendedLoadResourceAction();

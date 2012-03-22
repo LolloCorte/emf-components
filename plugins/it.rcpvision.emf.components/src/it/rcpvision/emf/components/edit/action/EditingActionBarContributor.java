@@ -48,7 +48,7 @@ import org.eclipse.ui.views.properties.PropertySheet;
  * </pre>
  * to contribute the Edit menu actions to a pop-up menu.
  */
-public class EditingDomainActionBarContributor 
+public class EditingActionBarContributor 
   extends 
     MultiPageEditorActionBarContributor 
   implements 
@@ -118,7 +118,7 @@ public class EditingDomainActionBarContributor
   /**
    * This creates an instance of the contributor.
    */
-  public EditingDomainActionBarContributor()
+  public EditingActionBarContributor()
   {
     super();
   }
@@ -126,7 +126,7 @@ public class EditingDomainActionBarContributor
   /**
    * This creates an instance of the contributor.
    */
-  public EditingDomainActionBarContributor(int style)
+  public EditingActionBarContributor(int style)
   {
     super();
     this.style = style;
