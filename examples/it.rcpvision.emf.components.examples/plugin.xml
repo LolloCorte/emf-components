@@ -10,7 +10,7 @@
                restorable="true">
          </view> 
        <view
-               class="it.rcpvision.emf.components.examples.EmfComponentsExamplesExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableResourceTreeFormView"
+               class="it.rcpvision.emf.components.examples.EmfComponentsExamplesExecutableExtensionFactory:it.rcpvision.emf.components.examples.views.SaveableResourceTreeFormView"
                id="it.rcpvision.emf.components.examples.saveableresourcetreeformview"
                name="Saveable Resource Tree Form View"
                restorable="true">
