@@ -1,6 +1,7 @@
 package it.rcpvision.emf.components.views;
 
 import it.rcpvision.emf.components.edit.action.TreeActionBarContributor;
+import it.rcpvision.emf.components.editors.EmfActionBarContributor;
 import it.rcpvision.emf.components.factories.EmfCompositeFactory;
 import it.rcpvision.emf.components.menus.StructuredViewerContextMenuManagerCreator;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
@@ -22,6 +23,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.edit.command.CreateChildCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
+import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
@@ -36,7 +39,7 @@ import org.eclipse.ui.part.ViewPart;
 import com.google.inject.Inject;
 
 public abstract class AbstractSaveableResourceTreeFormView extends ViewPart implements
-		ISaveablePart, IMenuListener {
+		ISaveablePart, IMenuListener, IEditingDomainProvider {
 
 	@Inject
 	protected EmfCompositeFactory emfCompositeFactory;
@@ -47,7 +50,7 @@ public abstract class AbstractSaveableResourceTreeFormView extends ViewPart impl
 	protected StructuredViewerContextMenuManagerCreator structuredViewerContextMenuManagerCreator;
 
 	@Inject
-	protected TreeActionBarContributor actionBarContributor;
+	protected EmfActionBarContributor actionBarContributor;
 
 	@Inject
 	protected EditingDomainFactory editingDomainFactory;
@@ -65,7 +68,7 @@ public abstract class AbstractSaveableResourceTreeFormView extends ViewPart impl
 	public void createPartControl(Composite parent) {
 		// INIT
 		editingDomain = editingDomainFactory.create();
-		actionBarContributor.initialize(getViewSite().getPart(), editingDomain);
+		actionBarContributor.setActivePart(this);
 
 		// DON'T USE THE changeAdapter!!!
 		// it will act as an item provider editing adapter
@@ -110,6 +113,11 @@ public abstract class AbstractSaveableResourceTreeFormView extends ViewPart impl
 				});
 	}
 
+	@Override
+	public EditingDomain getEditingDomain() {
+		return editingDomain;
+	}
+
 	protected abstract URI createResourceURI() ;
 
 	public void createContextMenuFor(StructuredViewer viewer) {
@@ -143,7 +151,6 @@ public abstract class AbstractSaveableResourceTreeFormView extends ViewPart impl
 	@Override
 	public void menuAboutToShow(IMenuManager menuManager) {
 		actionBarContributor.menuAboutToShow(menuManager);
-
 	}
 
 	@Override

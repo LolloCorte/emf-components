@@ -1,5 +1,7 @@
 package it.rcpvision.emf.components.edit.action;
 
+import it.rcpvision.emf.components.util.ActionBarsUtils;
+
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.ui.action.ControlAction;
 import org.eclipse.emf.edit.ui.action.CopyAction;
@@ -136,7 +138,11 @@ public class EditingActionBarContributor
   public void init(IActionBars actionBars)
   {
     super.init(actionBars);
-    ISharedImages sharedImages = PlatformUI.getWorkbench().getSharedImages();
+    initializeActions(actionBars);
+  }
+
+  protected void initializeActions(IActionBars actionBars) {
+	ISharedImages sharedImages = PlatformUI.getWorkbench().getSharedImages();
 
     deleteAction = createDeleteAction(); 
     deleteAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_DELETE));
@@ -232,7 +238,7 @@ public class EditingActionBarContributor
    */
   protected boolean removeAllReferencesOnDelete()
   {
-    return false;
+    return true;
   }
 
   @Override
@@ -299,7 +305,11 @@ public class EditingActionBarContributor
   {
     super.setActiveEditor(part);
 
-    if (part != activePart)
+    setActivePart(part);
+  }
+
+  protected void setActivePart(IWorkbenchPart part) {
+	if (part != activePart)
     {
       if (activePart != null)
       {
@@ -313,7 +323,7 @@ public class EditingActionBarContributor
 
       }
     }
-  }
+}
 
   @Override
   public void setActivePage(IEditorPart part) 
@@ -374,6 +384,8 @@ public class EditingActionBarContributor
   public void activate()
   {
     activePart.addPropertyListener(this);
+    
+    ensureActionsAreInitialized();
 
     deleteAction.setActiveWorkbenchPart(activePart);
     cutAction.setActiveWorkbenchPart(activePart);
@@ -473,6 +485,11 @@ public class EditingActionBarContributor
       menuManager.add(new Separator("additions"));
     }
     menuManager.add(new Separator("edit"));
+    
+    // make sure actions are initialized
+    // this can take at different times: during init for an editor part
+    // or now for a view part
+    ensureActionsAreInitialized();
 
     // Add the edit menu actions.
     //
@@ -498,7 +515,13 @@ public class EditingActionBarContributor
     addGlobalActions(menuManager);
   }
 
-  /**
+  protected void ensureActionsAreInitialized() {
+	if (undoAction != null)
+		return;
+	initializeActions(ActionBarsUtils.getActionBars(activePart));
+  }
+
+/**
    * This inserts global actions before the "additions-end" separator.
    */
   protected void addGlobalActions(IMenuManager menuManager)

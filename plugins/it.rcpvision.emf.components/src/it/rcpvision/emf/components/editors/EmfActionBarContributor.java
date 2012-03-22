@@ -453,7 +453,7 @@ public class EmfActionBarContributor
       protected void refreshViewers()
       {
         super.refreshViewers();
-        if (lastSelectionChangedEvent != null && activePart instanceof EcoreEditor)
+        if (lastSelectionChangedEvent != null && activePart instanceof IEditingDomainProvider)
         {
           selectionChanged(lastSelectionChangedEvent); 
         }
@@ -578,6 +578,7 @@ public class EmfActionBarContributor
   }
 
   public void setActivePart(IWorkbenchPart part) {
+	  super.setActivePart(part);
 	activePart = part;
 
     // Switch to the new selection provider.
@@ -592,6 +593,10 @@ public class EmfActionBarContributor
     }
     else
     {
+        selectionProvider = part.getSite().getSelectionProvider();
+    }
+    
+    if (selectionProvider != null) {
       selectionProvider = part.getSite().getSelectionProvider();
       selectionProvider.addSelectionChangedListener(this);
 
