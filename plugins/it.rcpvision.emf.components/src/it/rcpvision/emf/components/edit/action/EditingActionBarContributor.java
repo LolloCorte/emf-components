@@ -116,6 +116,12 @@ public class EditingActionBarContributor
    * This is used to encode the style bits.
    */
   protected int style;
+  
+	/**
+	 * If the active part does not implement {@link ISelectionProvider} we
+	 * can still set an explicit one. 
+	 */
+	protected ISelectionProvider explicitSelectionProvider = null;
 
   /**
    * This creates an instance of the contributor.
@@ -133,6 +139,11 @@ public class EditingActionBarContributor
     super();
     this.style = style;
   }
+  
+	public void setExplicitSelectionProvider(
+			ISelectionProvider explicitSelectionProvider) {
+		this.explicitSelectionProvider = explicitSelectionProvider;
+	}
 
   @Override
   public void init(IActionBars actionBars)
@@ -358,9 +369,7 @@ public class EditingActionBarContributor
     }
 
     ISelectionProvider selectionProvider = 
-      activePart instanceof ISelectionProvider ?
-        (ISelectionProvider)activePart :
-        activePart.getSite().getSelectionProvider();
+      retrieveSelectionProvider();
 
     if (selectionProvider != null)
     {
@@ -410,9 +419,7 @@ public class EditingActionBarContributor
     }
 
     ISelectionProvider selectionProvider = 
-      activePart instanceof ISelectionProvider ?
-        (ISelectionProvider)activePart :
-        activePart.getSite().getSelectionProvider();
+      retrieveSelectionProvider();
 
     if (selectionProvider != null)
     {
@@ -435,12 +442,18 @@ public class EditingActionBarContributor
     update();
   }
 
+	protected ISelectionProvider retrieveSelectionProvider() {
+		if (explicitSelectionProvider != null)
+			return explicitSelectionProvider;
+		
+		return activePart instanceof ISelectionProvider ? (ISelectionProvider) activePart
+				: activePart.getSite().getSelectionProvider();
+	}
+
   public void update()
   {
     ISelectionProvider selectionProvider = 
-      activePart instanceof ISelectionProvider ?
-        (ISelectionProvider)activePart :
-        activePart.getSite().getSelectionProvider();
+      retrieveSelectionProvider();
 
     if (selectionProvider != null)
     {
