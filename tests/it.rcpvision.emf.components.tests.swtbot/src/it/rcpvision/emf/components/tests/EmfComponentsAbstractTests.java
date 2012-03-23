@@ -163,6 +163,10 @@ public class EmfComponentsAbstractTests {
 	
 	protected static final String ACTION_UNDO = "Undo ";
 
+	protected static final String BOOK_ON_TAPE = "Book On Tape";
+
+	protected static final String NEW_CHILD = "New Child";
+
 	protected static SWTWorkbenchBot bot;
 
 	protected static Map<String, String> editorNamesToId;
@@ -569,7 +573,7 @@ public class EmfComponentsAbstractTests {
 	 * @return
 	 * @throws WidgetNotFoundException
 	 */
-	protected static SWTBotMenu getSubMenuItem(final SWTBotMenu parentMenu,
+	protected SWTBotMenu getSubMenuItem(final SWTBotMenu parentMenu,
 			final String itemText) throws WidgetNotFoundException {
 
 		MenuItem menuItem = UIThreadRunnable

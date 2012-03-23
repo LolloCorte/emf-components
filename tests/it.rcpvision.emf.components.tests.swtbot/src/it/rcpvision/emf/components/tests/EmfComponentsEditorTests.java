@@ -16,10 +16,6 @@ import org.junit.runner.RunWith;
 @RunWith(SWTBotJunit4ClassRunner.class)
 public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 
-	protected static final String BOOK_ON_TAPE = "Book On Tape";
-
-	protected static final String NEW_CHILD = "New Child";
-
 	public void canCreateProject() throws Exception {
 		createMyTestProject();
 	}
