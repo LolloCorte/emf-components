@@ -1,11 +1,11 @@
 package it.rcpvision.emf.components.views;
 
-import it.rcpvision.emf.components.edit.action.TreeActionBarContributor;
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
 import it.rcpvision.emf.components.factories.EmfCompositeFactory;
 import it.rcpvision.emf.components.menus.StructuredViewerContextMenuManagerCreator;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
+import it.rcpvision.emf.components.viewers.ViewerSelectionProvider;
 import it.rcpvision.emf.components.widgets.TreeFormComposite;
 
 import java.io.IOException;
@@ -38,8 +38,8 @@ import org.eclipse.ui.part.ViewPart;
 
 import com.google.inject.Inject;
 
-public abstract class AbstractSaveableResourceTreeFormView extends ViewPart implements
-		ISaveablePart, IMenuListener, IEditingDomainProvider {
+public abstract class AbstractSaveableResourceTreeFormView extends ViewPart
+		implements ISaveablePart, IMenuListener, IEditingDomainProvider {
 
 	@Inject
 	protected EmfCompositeFactory emfCompositeFactory;
@@ -68,7 +68,6 @@ public abstract class AbstractSaveableResourceTreeFormView extends ViewPart impl
 	public void createPartControl(Composite parent) {
 		// INIT
 		editingDomain = editingDomainFactory.create();
-		actionBarContributor.setActivePart(this);
 
 		// DON'T USE THE changeAdapter!!!
 		// it will act as an item provider editing adapter
@@ -85,8 +84,11 @@ public abstract class AbstractSaveableResourceTreeFormView extends ViewPart impl
 
 		createContextMenuFor(treeFormComposite.getViewer());
 
-		treeFormComposite.getViewer().addSelectionChangedListener(
-				actionBarContributor);
+		ViewerSelectionProvider viewerSelectionProvider = new ViewerSelectionProvider(treeFormComposite.getViewer());
+		actionBarContributor.setExplicitSelectionProvider(viewerSelectionProvider);
+		viewerSelectionProvider.addSelectionChangedListener(actionBarContributor);
+
+		actionBarContributor.setActivePart(this);
 
 		editingDomain.getCommandStack().addCommandStackListener(
 				new CommandStackListener() {
@@ -118,7 +120,7 @@ public abstract class AbstractSaveableResourceTreeFormView extends ViewPart impl
 		return editingDomain;
 	}
 
-	protected abstract URI createResourceURI() ;
+	protected abstract URI createResourceURI();
 
 	public void createContextMenuFor(StructuredViewer viewer) {
 		MenuManager menuManager = structuredViewerContextMenuManagerCreator
@@ -161,25 +163,27 @@ public abstract class AbstractSaveableResourceTreeFormView extends ViewPart impl
 	@Override
 	public void doSave(IProgressMonitor monitor) {
 		try {
-			if(validateModel()){
-				resource.save(null);	
+			if (validateModel()) {
+				resource.save(null);
 				dirty = false;
 				firePropertyChange(PROP_DIRTY);
 			}
 		} catch (IOException e) {
-			//TODO Serious log
+			// TODO Serious log
 			e.printStackTrace();
 		}
 	}
 
 	private boolean validateModel() {
 		for (EObject eObject : resource.getContents()) {
-			Diagnostic diagnostic=Diagnostician.INSTANCE.validate(eObject);
-			if(diagnostic.getSeverity()==Diagnostic.ERROR){
-				MessageDialog.openError(null, "Validation Error", diagnostic.getMessage());
+			Diagnostic diagnostic = Diagnostician.INSTANCE.validate(eObject);
+			if (diagnostic.getSeverity() == Diagnostic.ERROR) {
+				MessageDialog.openError(null, "Validation Error",
+						diagnostic.getMessage());
 				return false;
-			}else if(diagnostic.getSeverity()==Diagnostic.WARNING){
-				MessageDialog.openWarning(null, "Validation Warning", diagnostic.getMessage());
+			} else if (diagnostic.getSeverity() == Diagnostic.WARNING) {
+				MessageDialog.openWarning(null, "Validation Warning",
+						diagnostic.getMessage());
 			}
 		}
 		return true;
