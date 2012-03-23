@@ -150,6 +150,8 @@ public class EmfComponentsAbstractTests {
 	protected static final String CUSTOM_PEOPLE_TEXT = WRITER_LABEL + ", "
 			+ CUSTOM_BORROWER_LABEL;
 	
+	protected static final String ACTION_DELETE = "Delete";
+	
 	protected static final String ACTION_VALIDATE = "Validate";
 	
 	protected static final String ACTION_COPY = "Copy";
@@ -538,6 +540,7 @@ public class EmfComponentsAbstractTests {
 		libraryNode.contextMenu(ACTION_COPY);
 		libraryNode.contextMenu(ACTION_CUT);
 		libraryNode.contextMenu(ACTION_PASTE);
+		libraryNode.contextMenu(ACTION_DELETE);
 	}
 
 	protected static void assertImageDataIs(ImageData expectedImageData,

@@ -1,6 +1,6 @@
 package it.rcpvision.emf.components.tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -8,13 +8,11 @@ import java.lang.reflect.InvocationTargetException;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Widget;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 import org.eclipse.ui.ISaveablePart;
 import org.eclipse.ui.IViewPart;
-import org.eclipse.ui.part.ViewPart;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -45,6 +43,27 @@ public class EmfComponentsSaveableViewTests extends EmfComponentsAbstractTests {
 		SWTBotTreeItem libraryNode = prepareSaveableViewAndGetLibraryNode();
 		createNewChild(libraryNode, BOOK_ON_TAPE);
 		assertSaveableViewIsDirty(true);
+		saveViewAndAssertNotDirty();
+	}
+	
+	@Test
+	public void canPerformDeleteActionOnSaveableResourceTreeFormView()
+			throws Exception {
+		SWTBotTreeItem libraryNode = prepareSaveableViewAndGetLibraryNode();
+		getWriterNode(libraryNode).contextMenu(ACTION_DELETE).click();
+		assertSaveableViewIsDirty(true);
+		saveViewAndAssertNotDirty();
+	}
+	
+	@Test
+	public void canPerformUndoDeleteActionOnSaveableResourceTreeFormView()
+			throws Exception {
+		SWTBotTreeItem libraryNode = prepareSaveableViewAndGetLibraryNode();
+		getWriterNode(libraryNode).contextMenu(ACTION_DELETE).click();
+		assertSaveableViewIsDirty(true);
+		undo(ACTION_DELETE);
+		// make sure the writer is back
+		getWriterNode(libraryNode);
 		saveViewAndAssertNotDirty();
 	}
 
