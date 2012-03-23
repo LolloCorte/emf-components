@@ -10,6 +10,50 @@
 <body>
 <a name="Customization"></a>
 <h1>Customization</h1>
+<a name="ResourceManagers"></a>
+<h2>Managing Resources</h2>
+<a name="ResourceSaveValidation"></a>
+<h3>Resource saving and validation</h3>
+<p>
+Resource saving is delegated to <abbr title="it.rcpvision.emf.components.edit.ResourceSaveManager" >ResourceSaveManager</abbr>
+which, by defaults only saves the passed <a class="jdoc" href="http://download.eclipse.org/modeling/emf/emf/javadoc/2.6.0/org/eclipse/emf/ecore/resource/Resource.html" title="View JavaDoc"><abbr title="org.eclipse.emf.ecore.resource.Resource" >Resource</abbr></a>.
+You can inject your own save manager and implement the method <span class="inlinecode">precondition(Resource)</span>, for
+instance, you may want to validate the resource before saving, and in case the validation
+fails to return <span class="inlinecode">false</span>.  If the precondition is <span class="inlinecode">false</span> the default implementation
+will not save the resource (and in turn will return <span class="inlinecode">false</span>).
+</p>
+<p>
+We provide an example of custom resource save manager: <abbr title="it.rcpvision.emf.components.edit.ValidateResourceSaveManager" >ValidateResourceSaveManager</abbr>,
+we show here only relevant parts to give an example:
+</p>
+<p>
+<div class="literallayout">
+<div class="incode">
+<p class="code">
+<span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;ValidateResourceSaveManager&nbsp;<span class="keyword">extends</span>&nbsp;ResourceSaveManager&nbsp;{<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;@Override<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;<span class="keyword">boolean</span>&nbsp;precondition(Resource&nbsp;resource)&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;<span class="keyword">super</span>.precondition(resource)&nbsp;&amp;&amp;&nbsp;validateModel(resource);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;<span class="keyword">boolean</span>&nbsp;validateModel(Resource&nbsp;resource)&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span>&nbsp;(EObject&nbsp;eObject&nbsp;:&nbsp;resource.getContents())&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Diagnostic&nbsp;diagnostic&nbsp;=&nbsp;Diagnostician.INSTANCE.validate(eObject);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;(diagnostic.getSeverity()&nbsp;==&nbsp;Diagnostic.ERROR)&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;SKIPPED:&nbsp;present&nbsp;the&nbsp;errors<br/>
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;false;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span class="keyword">else</span>&nbsp;<span class="keyword">if</span>&nbsp;(diagnostic.getSeverity()&nbsp;==&nbsp;Diagnostic.WARNING)&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;SKIPPED:&nbsp;present&nbsp;the&nbsp;warnings<br/>
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;true;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+}<br/>
+</p>
+</div>
+</div>
+</p>
 <a name="Providers"></a>
 <h2>Providers</h2>
 <a name="Providers_1"></a>
