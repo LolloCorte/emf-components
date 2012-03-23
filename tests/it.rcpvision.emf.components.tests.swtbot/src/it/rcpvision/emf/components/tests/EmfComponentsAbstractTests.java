@@ -100,7 +100,7 @@ public class EmfComponentsAbstractTests {
 
 	protected static final String MY_TEST_PROJECT = "MyTestProject";
 
-	protected static final String MY_EXTLIBRARY_RELATIVE_PATH = MY_TEST_PROJECT
+	public static final String MY_EXTLIBRARY_RELATIVE_PATH = MY_TEST_PROJECT
 			+ "/" + MY_EXTLIBRARY;
 
 	protected static final String MY_STATEMACHINE_RELATIVE_PATH = MY_TEST_PROJECT
@@ -127,6 +127,8 @@ public class EmfComponentsAbstractTests {
 	protected static final String EMF_TABLE_VIEW = "Emf Table View";
 
 	protected static final String LIBRARY_TEST_EMF_TABLE_VIEW = "Library Test Table";
+	
+	protected static final String TEST_SAVEABLE_RESOURCE_TREE_FORM_VIEW = "Library Test Saveable Resource Tree Form View";
 
 	protected static final String WRITER_S_ADDRESS_TEXT = "writer's address";
 
@@ -282,10 +284,10 @@ public class EmfComponentsAbstractTests {
 	}
 
 	protected SWTBotTreeItem getRootOfEditorTree(
-			String emfFormEditorContextMenuString, String fileName,
+			String emfEditorContextMenuString, String fileName,
 			String treeRootLabel) throws CoreException,
 			InvocationTargetException, InterruptedException, IOException {
-		SWTBotTree tree = getEditorTree(emfFormEditorContextMenuString,
+		SWTBotTree tree = getEditorTree(emfEditorContextMenuString,
 				fileName);
 		SWTBotTreeItem treeItemRoot = tree.getTreeItem(treeRootLabel);
 		return treeItemRoot;
@@ -523,6 +525,15 @@ public class EmfComponentsAbstractTests {
 	protected void getTableHeader(String tableHeader) {
 		SWTBotTable table = bot.table();
 		table.header(tableHeader);
+	}
+
+	protected void canAccessStandardEditingActions(SWTBotTreeItem libraryNode) {
+		libraryNode.contextMenu(ACTION_UNDO);
+		libraryNode.contextMenu(ACTION_REDO);
+		libraryNode.contextMenu(ACTION_VALIDATE);
+		libraryNode.contextMenu(ACTION_COPY);
+		libraryNode.contextMenu(ACTION_CUT);
+		libraryNode.contextMenu(ACTION_PASTE);
 	}
 
 	protected static void assertImageDataIs(ImageData expectedImageData,

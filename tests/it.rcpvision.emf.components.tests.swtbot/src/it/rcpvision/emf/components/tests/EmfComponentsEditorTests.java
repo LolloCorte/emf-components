@@ -56,16 +56,10 @@ public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 	}
 	
 	@Test
-	public void canAccessStandardEditingActions() throws Exception {
+	public void canAccessStandardEditingActionsOnTreeEditor() throws Exception {
 		SWTBotTreeItem libraryNode = getLibraryNode(getRootOfEditorTree(
 				EMF_TREE_EDITOR, MY_EXTLIBRARY, MY_EXT_LIBRARY_PLATFORM_URI));
-		libraryNode.contextMenu(ACTION_UNDO);
-		libraryNode.contextMenu(ACTION_REDO);
-		libraryNode.contextMenu(ACTION_VALIDATE);
-		libraryNode.contextMenu(ACTION_COPY);
-		libraryNode.contextMenu(ACTION_CUT);
-		libraryNode.contextMenu(ACTION_PASTE);
-		
+		canAccessStandardEditingActions(libraryNode);
 	}
 
 	@Test
