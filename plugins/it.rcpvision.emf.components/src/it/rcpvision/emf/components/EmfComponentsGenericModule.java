@@ -5,6 +5,7 @@ package it.rcpvision.emf.components;
 
 import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
+import it.rcpvision.emf.components.edit.ResourceSaveManager;
 import it.rcpvision.emf.components.edit.action.TreeActionBarContributor;
 import it.rcpvision.emf.components.factories.EmfCompositeFactory;
 import it.rcpvision.emf.components.factories.EmfFormCompositeFactory;
@@ -173,5 +174,9 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 
 	public Class<? extends EmfSelectionHelper> bindEmfSelectionHelper() {
 		return EmfSelectionHelper.class;
+	}
+	
+	public Class<? extends ResourceSaveManager> bindResourceSaveManager() {
+		return ResourceSaveManager.class;
 	}
 }
