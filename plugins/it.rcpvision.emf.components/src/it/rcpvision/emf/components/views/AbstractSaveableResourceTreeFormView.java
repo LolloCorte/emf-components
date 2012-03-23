@@ -1,5 +1,6 @@
 package it.rcpvision.emf.components.views;
 
+import it.rcpvision.emf.components.edit.ResourceSaveManager;
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
 import it.rcpvision.emf.components.factories.EmfCompositeFactory;
 import it.rcpvision.emf.components.menus.StructuredViewerContextMenuManagerCreator;
@@ -16,11 +17,8 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
-import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.edit.command.CreateChildCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -28,7 +26,6 @@ import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.swt.SWT;
@@ -44,8 +41,6 @@ public abstract class AbstractSaveableResourceTreeFormView extends ViewPart
 	@Inject
 	protected EmfCompositeFactory emfCompositeFactory;
 
-	protected TreeFormComposite treeFormComposite;
-
 	@Inject
 	protected StructuredViewerContextMenuManagerCreator structuredViewerContextMenuManagerCreator;
 
@@ -57,6 +52,11 @@ public abstract class AbstractSaveableResourceTreeFormView extends ViewPart
 
 	@Inject
 	protected EditingDomainResourceLoader resourceLoader;
+
+	@Inject
+	protected ResourceSaveManager resourceSaveManager;
+
+	protected TreeFormComposite treeFormComposite;
 
 	private boolean dirty;
 
@@ -84,9 +84,12 @@ public abstract class AbstractSaveableResourceTreeFormView extends ViewPart
 
 		createContextMenuFor(treeFormComposite.getViewer());
 
-		ViewerSelectionProvider viewerSelectionProvider = new ViewerSelectionProvider(treeFormComposite.getViewer());
-		actionBarContributor.setExplicitSelectionProvider(viewerSelectionProvider);
-		viewerSelectionProvider.addSelectionChangedListener(actionBarContributor);
+		ViewerSelectionProvider viewerSelectionProvider = new ViewerSelectionProvider(
+				treeFormComposite.getViewer());
+		actionBarContributor
+				.setExplicitSelectionProvider(viewerSelectionProvider);
+		viewerSelectionProvider
+				.addSelectionChangedListener(actionBarContributor);
 
 		actionBarContributor.setActivePart(this);
 
@@ -163,8 +166,7 @@ public abstract class AbstractSaveableResourceTreeFormView extends ViewPart
 	@Override
 	public void doSave(IProgressMonitor monitor) {
 		try {
-			if (validateModel()) {
-				resource.save(null);
+			if (resourceSaveManager.save(resource)) {
 				dirty = false;
 				firePropertyChange(PROP_DIRTY);
 			}
@@ -172,21 +174,6 @@ public abstract class AbstractSaveableResourceTreeFormView extends ViewPart
 			// TODO Serious log
 			e.printStackTrace();
 		}
-	}
-
-	private boolean validateModel() {
-		for (EObject eObject : resource.getContents()) {
-			Diagnostic diagnostic = Diagnostician.INSTANCE.validate(eObject);
-			if (diagnostic.getSeverity() == Diagnostic.ERROR) {
-				MessageDialog.openError(null, "Validation Error",
-						diagnostic.getMessage());
-				return false;
-			} else if (diagnostic.getSeverity() == Diagnostic.WARNING) {
-				MessageDialog.openWarning(null, "Validation Warning",
-						diagnostic.getMessage());
-			}
-		}
-		return true;
 	}
 
 	@Override
