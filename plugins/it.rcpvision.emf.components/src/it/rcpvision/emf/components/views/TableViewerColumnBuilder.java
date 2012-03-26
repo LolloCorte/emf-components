@@ -77,7 +77,7 @@ public class TableViewerColumnBuilder {
 		}
 	}
 
-	private void buildTableViewerColumn(TableViewer tableViewer,
+	protected TableViewerColumn buildTableViewerColumn(TableViewer tableViewer,
 			TableLayout layout, EStructuralFeature eStructuralFeature,
 			IStructuredContentProvider contentProvider) {
 		TableViewerColumn viewerColumn = createTableViewerColumn(tableViewer,
@@ -86,6 +86,7 @@ public class TableViewerColumnBuilder {
 		layout.addColumnData(new ColumnWeightData(3, 100, true));
 		objectColumn.setText(featureLabelProvider.getText(eStructuralFeature));
 		objectColumn.setResizable(true);
+		return viewerColumn;
 	}
 
 	protected TableViewerColumn createTableViewerColumn(
