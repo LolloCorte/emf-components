@@ -77,8 +77,8 @@ public class EmfSwtBindingFactory {
 
 	private FormToolkit toolkit = null;
 	private EObject owner;
-	private EditingDomain domain;
-	private EMFDataBindingContext edbc;
+	protected EditingDomain domain;
+	protected EMFDataBindingContext edbc;
 	private ProposalCreator proposalcreator;
 	public static final String EOBJECT_KEY = EcorePackage.Literals.EOBJECT
 			.getName();

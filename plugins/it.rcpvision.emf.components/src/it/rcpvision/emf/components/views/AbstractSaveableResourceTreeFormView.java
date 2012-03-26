@@ -59,7 +59,7 @@ public abstract class AbstractSaveableResourceTreeFormView extends ViewPart impl
 
 	private Resource resource;
 
-	private AdapterFactoryEditingDomain editingDomain;
+	protected AdapterFactoryEditingDomain editingDomain;
 
 	@Override
 	public void createPartControl(Composite parent) {
