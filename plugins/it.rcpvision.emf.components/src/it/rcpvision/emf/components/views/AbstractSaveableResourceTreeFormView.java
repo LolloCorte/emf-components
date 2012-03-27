@@ -35,8 +35,7 @@ import org.eclipse.ui.part.ViewPart;
 
 import com.google.inject.Inject;
 
-public abstract class AbstractSaveableResourceTreeFormView extends ViewPart implements
-		ISaveablePart, IMenuListener {
+public abstract class AbstractSaveableResourceTreeFormView extends AbstractSaveableResourceView implements IMenuListener {
 
 	@Inject
 	protected EmfCompositeFactory emfCompositeFactory;
@@ -49,22 +48,23 @@ public abstract class AbstractSaveableResourceTreeFormView extends ViewPart impl
 	@Inject
 	protected TreeActionBarContributor actionBarContributor;
 
-	@Inject
-	protected EditingDomainFactory editingDomainFactory;
 
 	@Inject
 	protected EditingDomainResourceLoader resourceLoader;
 
-	private boolean dirty;
-
 	private Resource resource;
 
-	protected AdapterFactoryEditingDomain editingDomain;
+
+	public Resource getResource() {
+		return resource;
+	}
+
+
 
 	@Override
 	public void createPartControl(Composite parent) {
 		// INIT
-		editingDomain = editingDomainFactory.create();
+		initializeEditingDomain();
 		actionBarContributor.initialize(getViewSite().getPart(), editingDomain);
 
 		// DON'T USE THE changeAdapter!!!
@@ -85,29 +85,17 @@ public abstract class AbstractSaveableResourceTreeFormView extends ViewPart impl
 		treeFormComposite.getViewer().addSelectionChangedListener(
 				actionBarContributor);
 
-		editingDomain.getCommandStack().addCommandStackListener(
-				new CommandStackListener() {
-					public void commandStackChanged(final EventObject event) {
-						treeFormComposite.getDisplay().asyncExec(
-								new Runnable() {
-									public void run() {
-										dirty = true;
-										firePropertyChange(PROP_DIRTY);
+		
+	}
+	
+	
 
-										// Try to select the affected objects.
-										//
-										Command mostRecentCommand = ((CommandStack) event
-												.getSource())
-												.getMostRecentCommand();
-										if (mostRecentCommand != null
-												&& mostRecentCommand instanceof CreateChildCommand) {
-											setSelectionToViewer(mostRecentCommand
-													.getAffectedObjects());
-										}
-									}
-								});
-					}
-				});
+	protected void customizePostCommandStackChanged(Command mostRecentCommand) {
+		if (mostRecentCommand != null
+				&& mostRecentCommand instanceof CreateChildCommand) {
+			setSelectionToViewer(mostRecentCommand
+					.getAffectedObjects());
+		}
 	}
 
 	protected abstract URI createResourceURI() ;
@@ -151,42 +139,10 @@ public abstract class AbstractSaveableResourceTreeFormView extends ViewPart impl
 		treeFormComposite.setFocus();
 	}
 
-	@Override
-	public void doSave(IProgressMonitor monitor) {
-		try {
-			if(validateModel()){
-				resource.save(null);	
-				dirty = false;
-				firePropertyChange(PROP_DIRTY);
-			}
-		} catch (IOException e) {
-			//TODO Serious log
-			e.printStackTrace();
-		}
-	}
-
-	private boolean validateModel() {
-		for (EObject eObject : resource.getContents()) {
-			Diagnostic diagnostic=Diagnostician.INSTANCE.validate(eObject);
-			if(diagnostic.getSeverity()==Diagnostic.ERROR){
-				MessageDialog.openError(null, "Validation Error", diagnostic.getMessage());
-				return false;
-			}else if(diagnostic.getSeverity()==Diagnostic.WARNING){
-				MessageDialog.openWarning(null, "Validation Warning", diagnostic.getMessage());
-			}
-		}
-		return true;
-	}
 
 	@Override
 	public void doSaveAs() {
 
-	}
-
-	@Override
-	public boolean isDirty() {
-		// TODO Auto-generated method stub
-		return dirty;
 	}
 
 	@Override
