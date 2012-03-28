@@ -9,6 +9,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
+import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -101,7 +102,7 @@ public abstract class AbstractSaveableResourceView extends ViewPart implements I
 	protected String recoursiveAddMessage(String messages, Diagnostic diagnostic,
 			int level) {
 		if(diagnostic.getChildren().size()==0){
-			messages+="message "+diagnostic.getMessage();
+			messages+="ATTENTION \n"+diagnostic.getMessage() + "\n";
 		}else{
 			for (Diagnostic diagnosticChild : diagnostic.getChildren()) {
 				messages=recoursiveAddMessage(messages,diagnosticChild,level);

@@ -162,7 +162,7 @@ public class TreeActionBarContributor implements IMenuListener,
 	}
 
 	// EditingDomainActionBarContributor
-	private void addDeleteAction(IMenuManager menuManager) {
+	protected void addDeleteAction(IMenuManager menuManager) {
 		menuManager.add(new ActionContributionItem(deleteAction));
 	}
 
