@@ -17,11 +17,12 @@
 package it.rcpvision.emf.components.editors;
 
 
+import it.rcpvision.emf.components.edit.action.EditingActionBarContributor;
 import it.rcpvision.emf.components.factories.EmfViewerFactory;
 import it.rcpvision.emf.components.handlers.ContentOutlineSelectionHandler;
 import it.rcpvision.emf.components.listeners.EmfViewerMouseAdapter;
 import it.rcpvision.emf.components.listeners.ResourceDeltaVisitor;
-import it.rcpvision.emf.components.menus.StructuredViewerContextMenuCreator;
+import it.rcpvision.emf.components.menus.StructuredViewerContextMenuManagerCreator;
 import it.rcpvision.emf.components.outline.EmfEditorContentOutlineFactory;
 import it.rcpvision.emf.components.outline.EmfEditorContentOutlinePage;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
@@ -74,7 +75,6 @@ import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
@@ -457,7 +457,7 @@ protected EditingDomainFactory editingDomainFactory;
 protected EditingDomainResourceLoader resourceLoader;
 
 @Inject
-protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;
+protected StructuredViewerContextMenuManagerCreator structuredViewerContextMenuManagerCreator;
 
   /**
    * Handles activation of the editor or it's associated views.
@@ -809,7 +809,7 @@ protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;
 	}
 
 	public void createContextMenuFor(StructuredViewer viewer) {
-		MenuManager menuManager = structuredViewerContextMenuCreator.createContextMenuFor(viewer, this, getEditingDomain());
+		MenuManager menuManager = structuredViewerContextMenuManagerCreator.createContextMenuFor(viewer, this, getEditingDomain());
 		menuManager.addMenuListener(this);
 		
 		EmfViewerMouseAdapter listener = getEmfViewerMouseAdapter();
@@ -1387,9 +1387,9 @@ protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;
    * <!-- end-user-doc -->
    * @generated
    */
-  public EditingDomainActionBarContributor getActionBarContributor()
+  public EditingActionBarContributor getActionBarContributor()
   {
-    return (EditingDomainActionBarContributor)getEditorSite().getActionBarContributor();
+    return (EditingActionBarContributor)getEditorSite().getActionBarContributor();
   }
 
   /**

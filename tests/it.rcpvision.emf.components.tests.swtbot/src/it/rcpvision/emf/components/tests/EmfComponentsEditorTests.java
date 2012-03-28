@@ -16,10 +16,6 @@ import org.junit.runner.RunWith;
 @RunWith(SWTBotJunit4ClassRunner.class)
 public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 
-	protected static final String BOOK_ON_TAPE = "Book On Tape";
-
-	protected static final String NEW_CHILD = "New Child";
-
 	public void canCreateProject() throws Exception {
 		createMyTestProject();
 	}
@@ -53,6 +49,13 @@ public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 		undo("New " + BOOK_ON_TAPE);
 		assertTrue("editor should NOT be in dirty state", !editor.isDirty());
 		editor.saveAndClose();
+	}
+	
+	@Test
+	public void canAccessStandardEditingActionsOnTreeEditor() throws Exception {
+		SWTBotTreeItem libraryNode = getLibraryNode(getRootOfEditorTree(
+				EMF_TREE_EDITOR, MY_EXTLIBRARY, MY_EXT_LIBRARY_PLATFORM_URI));
+		canAccessStandardEditingActions(libraryNode);
 	}
 
 	@Test

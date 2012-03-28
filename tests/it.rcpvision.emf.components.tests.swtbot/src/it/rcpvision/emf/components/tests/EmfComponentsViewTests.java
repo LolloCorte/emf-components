@@ -43,11 +43,11 @@ public class EmfComponentsViewTests extends EmfComponentsAbstractTests {
 		SWTBotView view = openTestView(LIBRARY_EMF_VIEW);
 		createProjectAndTestFiles();
 		getFileItemFromTestProject(MY_EXTLIBRARY).select();
-		bot.sleep(2000);
+		//bot.sleep(2000);
 		getWriterNode(getLibraryNode(getRootOfTreeFromView(LIBRARY_EMF_VIEW)
 				.getTreeItem(MY_EXT_LIBRARY_PLATFORM_URI)));
 		getFileItemFromTestProject(MY_STATEMACHINE).select();
-		bot.sleep(2000);
+		//bot.sleep(2000);
 		SWTBotTreeItem root = getRootOfTreeFromView(LIBRARY_EMF_VIEW)
 				.getTreeItem(MY_STATEMACHINE_PLATFORM_URI);
 		accessStateMachineNodes(root);

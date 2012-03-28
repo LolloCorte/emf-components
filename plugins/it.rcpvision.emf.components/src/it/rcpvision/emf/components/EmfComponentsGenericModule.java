@@ -5,6 +5,7 @@ package it.rcpvision.emf.components;
 
 import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
+import it.rcpvision.emf.components.edit.ResourceSaveManager;
 import it.rcpvision.emf.components.edit.action.TreeActionBarContributor;
 import it.rcpvision.emf.components.factories.EmfCompositeFactory;
 import it.rcpvision.emf.components.factories.EmfFormCompositeFactory;
@@ -14,7 +15,7 @@ import it.rcpvision.emf.components.guice.ComposedAdapterFactoryProvider;
 import it.rcpvision.emf.components.handlers.ContentOutlineSelectionHandler;
 import it.rcpvision.emf.components.listeners.EmfViewerMouseAdapter;
 import it.rcpvision.emf.components.listeners.ResourceDeltaVisitor;
-import it.rcpvision.emf.components.menus.StructuredViewerContextMenuCreator;
+import it.rcpvision.emf.components.menus.StructuredViewerContextMenuManagerCreator;
 import it.rcpvision.emf.components.outline.EmfEditorContentOutlineFactory;
 import it.rcpvision.emf.components.outline.EmfEditorContentOutlinePage;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
@@ -127,8 +128,8 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 		return ComposedAdapterFactoryProvider.class;
 	}
 
-	public Class<? extends StructuredViewerContextMenuCreator> bindStructuredViewerContextMenuCreator() {
-		return StructuredViewerContextMenuCreator.class;
+	public Class<? extends StructuredViewerContextMenuManagerCreator> bindStructuredViewerContextMenuManagerCreator() {
+		return StructuredViewerContextMenuManagerCreator.class;
 	}
 
 	public Class<? extends EmfEditorContentOutlinePage> bindEmfEditorContentOutlinePage() {
@@ -173,5 +174,9 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 
 	public Class<? extends EmfSelectionHelper> bindEmfSelectionHelper() {
 		return EmfSelectionHelper.class;
+	}
+	
+	public Class<? extends ResourceSaveManager> bindResourceSaveManager() {
+		return ResourceSaveManager.class;
 	}
 }

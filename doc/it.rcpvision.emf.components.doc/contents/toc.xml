@@ -17,6 +17,10 @@
 	<topic href="contents/02-GettingStarted.html#GettingStarted" label="Getting Started" >
 	</topic>
 	<topic href="contents/05-Customization.html#Customization" label="Customization" >
+		<topic href="contents/05-Customization.html#ResourceManagers" label="Managing Resources" >
+			<topic href="contents/05-Customization.html#ResourceSaveValidation" label="Resource saving and validation" >
+			</topic>
+		</topic>
 		<topic href="contents/05-Customization.html#Providers" label="Providers" >
 			<topic href="contents/05-Customization.html#Providers_1" label="EClass' EStructuralFeatures" >
 			</topic>

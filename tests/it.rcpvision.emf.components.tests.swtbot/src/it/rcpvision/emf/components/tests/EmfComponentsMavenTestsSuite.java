@@ -12,6 +12,7 @@ import org.junit.runners.Suite;
 	EmfLabelProviderTests.class,
 	EmfProviderTests.class,
 	EmfComponentsViewTests.class,
+	EmfComponentsSaveableViewTests.class,
 	EmfComponentsEditorTests.class,
 	EmfComponentsFormTests.class
 	// for the moment wizard tests does not work
