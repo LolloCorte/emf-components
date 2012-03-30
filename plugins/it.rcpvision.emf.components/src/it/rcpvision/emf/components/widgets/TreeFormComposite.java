@@ -35,12 +35,14 @@ public class TreeFormComposite extends Composite {
 		public void selectionChanged(SelectionChangedEvent event) {
 			EObject selectedObject = emfSelectionHelper
 					.getFirstSelectedEObject(event.getSelection());
+			
+			if (detailForm != null)
+                detailForm.dispose();
+			
 			if (selectedObject != null) {
-				if (detailForm != null)
-					detailForm.dispose();
-
 				detailForm = emfFormCompositeFactory.createFormDetailComposite(
 						detail, SWT.BORDER);
+				detailForm.setViewerForSelection(getViewer());
 				detailForm.init(selectedObject);
 				detail.layout(true);
 			}

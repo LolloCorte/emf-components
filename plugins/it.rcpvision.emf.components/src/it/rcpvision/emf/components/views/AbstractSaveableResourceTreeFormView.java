@@ -72,7 +72,8 @@ public abstract class AbstractSaveableResourceTreeFormView extends AbstractSavea
 		// and actions won't be created!!!
 		treeFormComposite = emfCompositeFactory.createTreeFormComposite(parent,
 				SWT.BORDER);
-
+		
+		
 		URI uri = createResourceURI();
 		// ResourceSet resourceSet = new ResourceSetImpl();
 		// resource = resourceSet.getResource(uri, true);
@@ -81,14 +82,11 @@ public abstract class AbstractSaveableResourceTreeFormView extends AbstractSavea
 		treeFormComposite.update(resource);
 
 		createContextMenuFor(treeFormComposite.getViewer());
+		actionBarContributor.setViewerForSelection(treeFormComposite.getViewer());
 
 		treeFormComposite.getViewer().addSelectionChangedListener(
 				actionBarContributor);
-
-		
 	}
-	
-	
 
 	protected void customizePostCommandStackChanged(Command mostRecentCommand) {
 		if (mostRecentCommand != null

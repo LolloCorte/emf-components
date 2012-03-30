@@ -12,10 +12,12 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.viewers.ILabelProvider;
+import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 
@@ -38,6 +40,8 @@ public class FormDetailComposite extends Composite {
 	FormToolkit toolkit;
 
 	private ScrolledForm scrolledForm;
+	
+	private StructuredViewer viewer;
 
 	public FormDetailComposite(Composite parent, int style,
 			FormFeatureLabelProvider formFeatureLabelProvider,
@@ -95,7 +99,10 @@ public class FormDetailComposite extends Composite {
 				
 				formFeatureLabelProvider.getLabel(main, feature);
 
-				factory.create(feature);
+				Control control=factory.create(feature);
+				if (control instanceof ISelectionViewerAware) {
+                   ((ISelectionViewerAware) control).setViewer(viewer);
+                }
 
 			}
 		}
@@ -110,5 +117,9 @@ public class FormDetailComposite extends Composite {
 		super.dispose();
 		toolkit.dispose();
 	}
+
+    public void setViewerForSelection(StructuredViewer viewer) {
+        this.viewer=viewer;
+    }
 
 }

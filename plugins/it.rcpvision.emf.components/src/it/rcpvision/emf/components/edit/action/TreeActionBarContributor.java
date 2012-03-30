@@ -22,6 +22,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
@@ -121,6 +122,8 @@ public class TreeActionBarContributor implements IMenuListener,
 	protected IMenuManager createSiblingMenuManager;
 
 	protected DeleteAction deleteAction;
+
+	protected StructuredViewer viewer;
 
 	protected void depopulateManager(IContributionManager manager,
 			Collection<? extends IAction> actions) {
@@ -222,5 +225,9 @@ public class TreeActionBarContributor implements IMenuListener,
 				|| feature == EcorePackage.Literals.EOPERATION__ETYPE_PARAMETERS
 				|| feature == EcorePackage.Literals.ETYPED_ELEMENT__EGENERIC_TYPE;
 	}
+
+    public void setViewerForSelection(StructuredViewer viewer) {
+        this.viewer = viewer;
+    }
 
 }
