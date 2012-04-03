@@ -103,7 +103,7 @@ public abstract class AbstractSaveableResourceView extends ViewPart implements I
 	protected String recoursiveAddMessage(String messages, Diagnostic diagnostic,
 			int level) {
 		if(diagnostic.getChildren().size()==0){
-			messages+="ATTENTION \n"+diagnostic.getMessage() + "\n";
+			messages+="ATTENTION \n"+diagnostic.getMessage() + "\n\n";
 		}else{
 			for (Diagnostic diagnosticChild : diagnostic.getChildren()) {
 				messages=recoursiveAddMessage(messages,diagnosticChild,level);
