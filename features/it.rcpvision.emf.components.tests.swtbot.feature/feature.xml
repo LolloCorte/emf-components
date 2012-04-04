@@ -26,7 +26,7 @@
       <import plugin="org.eclipse.core.resources" version="3.7.100" match="greaterOrEqual"/>
       <import plugin="it.rcpvision.emf.components" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="it.rcpvision.emf.components.examples.library.edit" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.swtbot.forms.finder" version="2.0.4" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.swtbot.forms.finder" version="2.0.5" match="greaterOrEqual"/>
       <import plugin="it.rcpvision.emf.components.wizards" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="it.rcpvision.emf.components.examples.library.editor" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtend2.lib"/>

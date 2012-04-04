@@ -13,28 +13,6 @@
 		<tycho-version>0.13.0</tycho-version>
 	</properties>
 
-  <repositories>
-    <!-- configure p2 repository to resolve against -->
-    <repository>
-      <id>indigo</id>
-      <layout>p2</layout>
-      <url>http://download.eclipse.org/releases/indigo</url>
-            <!-- file URL for faster and offline builds -->
-      <!-- <url>file:/${basedir}/../../helios-rcp/</url> -->
-    </repository>
-    <repository>
-      <id>xtext</id>
-      <layout>p2</layout>
-      <url>http://download.itemis.de/updates</url>
-    </repository>
-    <!-- SWTbot is not part of the indigo update site -->
-    <repository>
-      <id>swtbot</id>
-      <layout>p2</layout>
-      <url>http://download.eclipse.org/technology/swtbot/helios/dev-build/update-site/</url>
-    </repository>
-  </repositories>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -44,9 +22,25 @@
 				<version>${tycho-version}</version>
 				<extensions>true</extensions>
 			</plugin>
+			<plugin>
+		      <groupId>org.eclipse.tycho</groupId>
+		      <artifactId>target-platform-configuration</artifactId>
+		      <version>${tycho-version}</version>
+		      <configuration>
+		         <target>
+		            <artifact>
+		               <groupId>emf-components</groupId>
+		               <artifactId>it.rcpvision.emf.components.target</artifactId>
+		               <version>1.0.0-SNAPSHOT</version>
+		               <classifier>indigo</classifier>
+		            </artifact>
+		         </target>
+		      </configuration>
+		   </plugin>
 		</plugins>
 	</build>
 	<modules>
+		<module>../../releng/it.rcpvision.emf.components.target</module>
 		<module>../../plugins/it.rcpvision.emf.components</module>
 		<module>../../plugins/it.rcpvision.emf.components.wizards</module>
 		<module>../../doc/it.rcpvision.emf.components.doc</module>

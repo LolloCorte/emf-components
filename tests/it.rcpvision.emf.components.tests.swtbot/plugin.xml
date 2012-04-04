@@ -96,4 +96,13 @@
              restorable="true">
        </view>
     </extension>
+        <extension
+          point="org.eclipse.ui.views">
+       <view
+             class="it.rcpvision.emf.components.tests.factories.CustomLibraryExecutableExtensionFactory:it.rcpvision.emf.components.tests.views.TestSaveableResourceTreeFormView"
+             id="it.rcpvision.emf.components.tests.views.testsaveableresourcetreeformview"
+             name="Library Test Saveable Resource Tree Form View"
+             restorable="true">
+       </view>
+    </extension>
 </plugin>

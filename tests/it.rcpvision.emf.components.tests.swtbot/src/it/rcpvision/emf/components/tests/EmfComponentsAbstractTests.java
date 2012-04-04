@@ -7,6 +7,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import it.rcpvision.emf.components.tests.views.LibraryEmfView;
+import it.rcpvision.emf.components.util.ActionBarsUtils;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -47,9 +48,7 @@ import org.eclipse.swtbot.swt.finder.widgets.SWTBotTable;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTree;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 import org.eclipse.ui.IActionBars;
-import org.eclipse.ui.IEditorSite;
-import org.eclipse.ui.IViewSite;
-import org.eclipse.ui.IWorkbenchPartSite;
+import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.ui.junit.util.IResourcesSetupUtil;
@@ -101,7 +100,7 @@ public class EmfComponentsAbstractTests {
 
 	protected static final String MY_TEST_PROJECT = "MyTestProject";
 
-	protected static final String MY_EXTLIBRARY_RELATIVE_PATH = MY_TEST_PROJECT
+	public static final String MY_EXTLIBRARY_RELATIVE_PATH = MY_TEST_PROJECT
 			+ "/" + MY_EXTLIBRARY;
 
 	protected static final String MY_STATEMACHINE_RELATIVE_PATH = MY_TEST_PROJECT
@@ -128,6 +127,8 @@ public class EmfComponentsAbstractTests {
 	protected static final String EMF_TABLE_VIEW = "Emf Table View";
 
 	protected static final String LIBRARY_TEST_EMF_TABLE_VIEW = "Library Test Table";
+	
+	protected static final String TEST_SAVEABLE_RESOURCE_TREE_FORM_VIEW = "Library Test Saveable Resource Tree Form View";
 
 	protected static final String WRITER_S_ADDRESS_TEXT = "writer's address";
 
@@ -148,6 +149,25 @@ public class EmfComponentsAbstractTests {
 
 	protected static final String CUSTOM_PEOPLE_TEXT = WRITER_LABEL + ", "
 			+ CUSTOM_BORROWER_LABEL;
+	
+	protected static final String ACTION_DELETE = "Delete";
+	
+	protected static final String ACTION_VALIDATE = "Validate";
+	
+	protected static final String ACTION_COPY = "Copy";
+	
+	protected static final String ACTION_CUT = "Cut";
+	
+	protected static final String ACTION_PASTE = "Paste";
+	
+	// they have mnemonic so use a space after the string
+	protected static final String ACTION_REDO = "Redo ";
+	
+	protected static final String ACTION_UNDO = "Undo ";
+
+	protected static final String BOOK_ON_TAPE = "Book On Tape";
+
+	protected static final String NEW_CHILD = "New Child";
 
 	protected static SWTWorkbenchBot bot;
 
@@ -197,7 +217,7 @@ public class EmfComponentsAbstractTests {
 
 	protected void assertPropertyViewIsOpenedAndCloseIt() {
 		SWTBotView propertyView = bot.viewByTitle("Properties");
-		bot.sleep(2000);
+		//bot.sleep(2000);
 		propertyView.close();
 	}
 
@@ -270,10 +290,10 @@ public class EmfComponentsAbstractTests {
 	}
 
 	protected SWTBotTreeItem getRootOfEditorTree(
-			String emfFormEditorContextMenuString, String fileName,
+			String emfEditorContextMenuString, String fileName,
 			String treeRootLabel) throws CoreException,
 			InvocationTargetException, InterruptedException, IOException {
-		SWTBotTree tree = getEditorTree(emfFormEditorContextMenuString,
+		SWTBotTree tree = getEditorTree(emfEditorContextMenuString,
 				fileName);
 		SWTBotTreeItem treeItemRoot = tree.getTreeItem(treeRootLabel);
 		return treeItemRoot;
@@ -423,18 +443,16 @@ public class EmfComponentsAbstractTests {
 	protected void assertStatusLine(final String expectedStatusLineText) {
 		Display.getDefault().syncExec(new Runnable() {
 			public void run() {
-				IWorkbenchPartSite site = PlatformUI.getWorkbench()
+				IWorkbenchPart activePart = PlatformUI.getWorkbench()
 						.getActiveWorkbenchWindow().getActivePage()
-						.getActivePart().getSite();
+						.getActivePart();
+				IActionBars actionBars = ActionBarsUtils
+						.getActionBars(activePart);
 
-				if (site instanceof IViewSite) {
-					assertStatusLine(expectedStatusLineText,
-							((IViewSite) site).getActionBars());
-				} else if (site instanceof IEditorSite) {
-					assertStatusLine(expectedStatusLineText,
-							((IEditorSite) site).getActionBars());
+				if (actionBars == null) {
+					fail("cannot get action bars from: " + activePart);
 				} else {
-					fail("unknown site: " + site);
+					assertStatusLine(expectedStatusLineText, actionBars);
 				}
 			}
 
@@ -468,8 +486,8 @@ public class EmfComponentsAbstractTests {
 	protected ImageDescriptor getImageDescriptorFromLibraryEdit(
 			String imageFileName) {
 		return getImageDescriptorFromPlugin(
-				"it.rcpvision.emf.components.examples.library.edit", "icons/full/obj16/"
-						+ imageFileName);
+				"it.rcpvision.emf.components.examples.library.edit",
+				"icons/full/obj16/" + imageFileName);
 	}
 
 	protected ImageDescriptor getImageDescriptorFromTest(String imageFileName) {
@@ -515,6 +533,16 @@ public class EmfComponentsAbstractTests {
 		table.header(tableHeader);
 	}
 
+	protected void canAccessStandardEditingActions(SWTBotTreeItem libraryNode) {
+		libraryNode.contextMenu(ACTION_UNDO);
+		libraryNode.contextMenu(ACTION_REDO);
+		libraryNode.contextMenu(ACTION_VALIDATE);
+		libraryNode.contextMenu(ACTION_COPY);
+		libraryNode.contextMenu(ACTION_CUT);
+		libraryNode.contextMenu(ACTION_PASTE);
+		libraryNode.contextMenu(ACTION_DELETE);
+	}
+
 	protected static void assertImageDataIs(ImageData expectedImageData,
 			ImageData actualImageData) {
 		if (expectedImageData.width != actualImageData.width
@@ -548,7 +576,7 @@ public class EmfComponentsAbstractTests {
 	 * @return
 	 * @throws WidgetNotFoundException
 	 */
-	protected static SWTBotMenu getSubMenuItem(final SWTBotMenu parentMenu,
+	protected SWTBotMenu getSubMenuItem(final SWTBotMenu parentMenu,
 			final String itemText) throws WidgetNotFoundException {
 
 		MenuItem menuItem = UIThreadRunnable
