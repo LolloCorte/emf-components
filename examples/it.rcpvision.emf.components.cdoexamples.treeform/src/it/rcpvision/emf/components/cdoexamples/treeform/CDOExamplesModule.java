@@ -3,7 +3,7 @@ package it.rcpvision.emf.components.cdoexamples.treeform;
 import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.cdo.CDOEmfComponentsModule;
 import it.rcpvision.emf.components.cdo.CDOSessionManager;
-import it.rcpvision.emf.components.edit.action.TreeActionBarContributor;
+import it.rcpvision.emf.components.editors.EmfActionBarContributor;
 import it.rcpvision.emf.components.resource.ResourceLoader;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
 
@@ -26,7 +26,7 @@ public class CDOExamplesModule extends CDOEmfComponentsModule {
 	}
 	
 	@Override
-	public Class<? extends TreeActionBarContributor> bindActionBarContributor() {
+	public Class<? extends EmfActionBarContributor> bindEmfActionBarContributor() {
 		return CDOExamplesTreeActionBarContributor.class;
 	}
 
