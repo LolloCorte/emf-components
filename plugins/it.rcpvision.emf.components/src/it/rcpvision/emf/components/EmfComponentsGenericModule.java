@@ -6,7 +6,7 @@ package it.rcpvision.emf.components;
 import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.edit.ResourceSaveManager;
-import it.rcpvision.emf.components.edit.action.TreeActionBarContributor;
+import it.rcpvision.emf.components.editors.EmfActionBarContributor;
 import it.rcpvision.emf.components.factories.EmfCompositeFactory;
 import it.rcpvision.emf.components.factories.EmfFormCompositeFactory;
 import it.rcpvision.emf.components.factories.EmfViewerFactory;
@@ -160,8 +160,8 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 		return TableViewerColumnBuilder.class;
 	}
 
-	public Class<? extends TreeActionBarContributor> bindActionBarContributor() {
-		return TreeActionBarContributor.class;
+	public Class<? extends EmfActionBarContributor> bindEmfActionBarContributor() {
+		return EmfActionBarContributor.class;
 	}
 
 	public Class<? extends EditingDomainFinder> bindEditingDomainFinder() {
