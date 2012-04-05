@@ -35,11 +35,11 @@ public class FormDetailComposite extends Composite {
 
 	protected Provider<EStructuralFeaturesProvider> eClassFeatureProviderProvider;
 
-	private Composite main;
+	private final Composite main;
 
 	FormToolkit toolkit;
 
-	private ScrolledForm scrolledForm;
+	private final ScrolledForm scrolledForm;
 	
 	private StructuredViewer viewer;
 
@@ -100,8 +100,8 @@ public class FormDetailComposite extends Composite {
 				formFeatureLabelProvider.getLabel(main, feature);
 
 				Control control=factory.create(feature);
-				if (control instanceof ISelectionViewerAware) {
-                   ((ISelectionViewerAware) control).setViewer(viewer);
+				if (control instanceof IStructuredViewerAware) {
+                   ((IStructuredViewerAware) control).setViewer(viewer);
                 }
 
 			}

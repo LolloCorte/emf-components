@@ -56,11 +56,11 @@ public class TreeFormComposite extends Composite {
 
 	protected EmfSelectionHelper emfSelectionHelper;
 
-	private StructuredViewer viewer;
+	private final StructuredViewer viewer;
 
-	private PageBook pagebook;
+	private final PageBook pagebook;
 
-	private Composite detail;
+	private final Composite detail;
 
 	protected FormDetailComposite detailForm;
 
