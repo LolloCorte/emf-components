@@ -513,7 +513,7 @@ public class EditingActionBarContributor
     menuManager.add(new ActionContributionItem(copyAction));
     menuManager.add(new ActionContributionItem(pasteAction));
     menuManager.add(new Separator());
-    menuManager.add(new ActionContributionItem(deleteAction));
+    addDeleteAction(menuManager);
     menuManager.add(new Separator());
 
     if ((style & ADDITIONS_LAST_STYLE) != 0)
@@ -527,6 +527,10 @@ public class EditingActionBarContributor
 
     addGlobalActions(menuManager);
   }
+
+    protected void addDeleteAction(IMenuManager menuManager) {
+        menuManager.add(new ActionContributionItem(deleteAction));
+    }
 
   protected void ensureActionsAreInitialized() {
 	if (undoAction != null)
