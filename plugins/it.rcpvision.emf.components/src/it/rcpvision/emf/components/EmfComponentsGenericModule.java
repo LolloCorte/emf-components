@@ -32,6 +32,7 @@ import it.rcpvision.emf.components.views.TableViewerBuilder;
 import it.rcpvision.emf.components.views.TableViewerColumnBuilder;
 import it.rcpvision.emf.components.views.ViewerInitializer;
 
+import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -178,5 +179,9 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 	
 	public Class<? extends ResourceSaveManager> bindResourceSaveManager() {
 		return ResourceSaveManager.class;
+	}
+	
+	public Diagnostician bindDiagnostician() {
+	    return Diagnostician.INSTANCE;
 	}
 }
