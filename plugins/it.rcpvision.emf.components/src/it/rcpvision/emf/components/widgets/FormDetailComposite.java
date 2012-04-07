@@ -22,7 +22,7 @@ public class FormDetailComposite extends Composite {
 
 	protected FormFeatureLabelProvider formFeatureLabelProvider;
 
-	protected EmfSwtBindingFactory bindingFactory;
+	protected EmfSwtBindingFactory emfSwtBindingFactory;
 
 	protected EditingDomainFinder editingDomainFinder;
 
@@ -38,13 +38,13 @@ public class FormDetailComposite extends Composite {
 
 	public FormDetailComposite(Composite parent, int style,
 			FormFeatureLabelProvider formFeatureLabelProvider,
-			EmfSwtBindingFactory bindingFactory,
+			EmfSwtBindingFactory emfSwtBindingFactory,
 			EditingDomainFinder editingDomainFinder,
 			ILabelProvider labelProvider,
 			EStructuralFeaturesProvider eClassFeatureProvider) {
 		super(parent, style);
 		this.formFeatureLabelProvider = formFeatureLabelProvider;
-		this.bindingFactory = bindingFactory;
+		this.emfSwtBindingFactory = emfSwtBindingFactory;
 		this.editingDomainFinder = editingDomainFinder;
 		this.labelProvider = labelProvider;
 		this.eClassFeatureProvider = eClassFeatureProvider;
@@ -74,8 +74,9 @@ public class FormDetailComposite extends Composite {
 		scrolledForm.setText(labelProvider.getText(model));
 		scrolledForm.setImage(labelProvider.getImage(model));
 
-		bindingFactory.init(editingDomainFinder.getEditingDomainFor(model),
-				model, main, toolkit);
+		emfSwtBindingFactory.init(
+				editingDomainFinder.getEditingDomainFor(model), model, main,
+				toolkit);
 
 		for (final EStructuralFeature feature : features) {
 			// derived, unchangeable, container and containment features
@@ -88,7 +89,7 @@ public class FormDetailComposite extends Composite {
 
 				formFeatureLabelProvider.getLabel(main, feature);
 
-				bindingFactory.create(feature);
+				emfSwtBindingFactory.create(feature);
 			}
 		}
 
@@ -101,6 +102,49 @@ public class FormDetailComposite extends Composite {
 	public void dispose() {
 		super.dispose();
 		toolkit.dispose();
+	}
+
+	public FormFeatureLabelProvider getFormFeatureLabelProvider() {
+		return formFeatureLabelProvider;
+	}
+
+	public void setFormFeatureLabelProvider(
+			FormFeatureLabelProvider formFeatureLabelProvider) {
+		this.formFeatureLabelProvider = formFeatureLabelProvider;
+	}
+
+	public EmfSwtBindingFactory getEmfSwtBindingFactory() {
+		return emfSwtBindingFactory;
+	}
+
+	public void setEmfSwtBindingFactory(
+			EmfSwtBindingFactory emfSwtBindingFactory) {
+		this.emfSwtBindingFactory = emfSwtBindingFactory;
+	}
+
+	public EditingDomainFinder getEditingDomainFinder() {
+		return editingDomainFinder;
+	}
+
+	public void setEditingDomainFinder(EditingDomainFinder editingDomainFinder) {
+		this.editingDomainFinder = editingDomainFinder;
+	}
+
+	public EStructuralFeaturesProvider geteClassFeatureProvider() {
+		return eClassFeatureProvider;
+	}
+
+	public void seteClassFeatureProvider(
+			EStructuralFeaturesProvider eClassFeatureProvider) {
+		this.eClassFeatureProvider = eClassFeatureProvider;
+	}
+
+	public ILabelProvider getLabelProvider() {
+		return labelProvider;
+	}
+
+	public void setLabelProvider(ILabelProvider labelProvider) {
+		this.labelProvider = labelProvider;
 	}
 
 }
