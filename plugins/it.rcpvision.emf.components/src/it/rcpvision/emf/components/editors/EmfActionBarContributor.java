@@ -36,11 +36,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
-import org.eclipse.emf.edit.ui.action.ControlAction;
 import org.eclipse.emf.edit.ui.action.CreateChildAction;
 import org.eclipse.emf.edit.ui.action.CreateSiblingAction;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction;
-import org.eclipse.emf.edit.ui.action.ValidateAction;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.ActionContributionItem;
@@ -72,6 +70,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
@@ -477,13 +476,23 @@ public class EmfActionBarContributor
   public EmfActionBarContributor()
   {
     super(ADDITIONS_LAST_STYLE);
-    loadResourceAction = new ExtendedLoadResourceAction();
-    validateAction = new ValidateAction();
-    controlAction = new ControlAction();
     
     showGenericsAction.setChecked
       (Boolean.parseBoolean(EcoreEditorPlugin.getPlugin().getDialogSettings().get("showGenericsAction")));    
   }
+
+	@Override
+	protected void initializeActions(IActionBars actionBars) {
+		super.initializeActions(actionBars);
+
+		loadResourceAction = createExtendedLoadResourceAction();
+		validateAction = emfActionFactory.createValidateAction();
+		controlAction = emfActionFactory.createControlAction();
+	}
+
+	protected ExtendedLoadResourceAction createExtendedLoadResourceAction() {
+		return new ExtendedLoadResourceAction();
+	}
   
   public void showGenerics(boolean isChecked)
   {

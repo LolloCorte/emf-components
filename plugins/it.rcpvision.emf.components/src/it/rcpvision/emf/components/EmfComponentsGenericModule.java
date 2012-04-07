@@ -7,6 +7,7 @@ import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.edit.ResourceSaveManager;
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
+import it.rcpvision.emf.components.factories.EmfActionFactory;
 import it.rcpvision.emf.components.factories.EmfCompositeFactory;
 import it.rcpvision.emf.components.factories.EmfFormCompositeFactory;
 import it.rcpvision.emf.components.factories.EmfViewerFactory;
@@ -176,12 +177,16 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 	public Class<? extends EmfSelectionHelper> bindEmfSelectionHelper() {
 		return EmfSelectionHelper.class;
 	}
-	
+
 	public Class<? extends ResourceSaveManager> bindResourceSaveManager() {
 		return ResourceSaveManager.class;
 	}
-	
+
 	public Diagnostician bindDiagnostician() {
-	    return Diagnostician.INSTANCE;
+		return Diagnostician.INSTANCE;
+	}
+
+	public Class<? extends EmfActionFactory> bindEmfActionFactory() {
+		return EmfActionFactory.class;
 	}
 }
