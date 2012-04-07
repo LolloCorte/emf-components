@@ -35,16 +35,8 @@ public class TreeFormComposite extends Composite {
 		public void selectionChanged(SelectionChangedEvent event) {
 			EObject selectedObject = emfSelectionHelper
 					.getFirstSelectedEObject(event.getSelection());
-			
-			if (detailForm != null)
-                detailForm.dispose();
-			
-			if (selectedObject != null) {
-				detailForm = emfFormCompositeFactory.createFormDetailComposite(
-						detail, SWT.BORDER);
-				detailForm.init(selectedObject);
-				detail.layout(true);
-			}
+
+			eObjectSelectionChanged(selectedObject);
 		}
 
 	}
@@ -109,6 +101,22 @@ public class TreeFormComposite extends Composite {
 
 	protected StructuredViewer createViewer(Composite parent) {
 		return new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
+	}
+
+	protected void eObjectSelectionChanged(EObject selectedObject) {
+		if (detailForm != null)
+			detailForm.dispose();
+
+		if (selectedObject != null) {
+			detailForm = createFormDetailComposite();
+			detailForm.init(selectedObject);
+			detail.layout(true);
+		}
+	}
+
+	protected FormDetailComposite createFormDetailComposite() {
+		return emfFormCompositeFactory.createFormDetailComposite(detail,
+				SWT.BORDER);
 	}
 
 }
