@@ -10,7 +10,6 @@ import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
@@ -40,15 +39,6 @@ public class TableViewerColumnBuilder {
 
 	@Inject
 	protected EStructuralFeaturesProvider featuresProvider;
-
-	public void buildTableViewer(TableViewer tableViewer,
-			EStructuralFeature feature) {
-		EClassifier type = feature.getEType();
-		if (type instanceof EClass) {
-			EClass eClass = (EClass) type;
-			buildTableViewer(tableViewer, eClass);
-		}
-	}
 
 	public void buildTableViewer(TableViewer tableViewer, EClass eClass) {
 		buildTableViewer(tableViewer, eClass, null);
