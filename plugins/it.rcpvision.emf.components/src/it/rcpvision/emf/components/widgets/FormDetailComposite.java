@@ -2,7 +2,6 @@ package it.rcpvision.emf.components.widgets;
 
 import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
-import it.rcpvision.emf.components.factories.JfaceProviderFactory;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 
@@ -18,8 +17,6 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
-
-import com.google.inject.Provider;
 
 public class FormDetailComposite extends Composite {
 
@@ -41,17 +38,16 @@ public class FormDetailComposite extends Composite {
 
 	public FormDetailComposite(Composite parent, int style,
 			FormFeatureLabelProvider formFeatureLabelProvider,
-			Provider<EmfSwtBindingFactory> bindingFactoryProvider,
-			Provider<EditingDomainFinder> editingDomainFinderProvider,
-			Provider<JfaceProviderFactory> jfaceProviderFactoryProvider,
-			Provider<EStructuralFeaturesProvider> eClassFeatureProviderProvider) {
+			EmfSwtBindingFactory bindingFactory,
+			EditingDomainFinder editingDomainFinder,
+			ILabelProvider labelProvider,
+			EStructuralFeaturesProvider eClassFeatureProvider) {
 		super(parent, style);
 		this.formFeatureLabelProvider = formFeatureLabelProvider;
-		this.bindingFactory = bindingFactoryProvider.get();
-		this.editingDomainFinder = editingDomainFinderProvider.get();
-		this.labelProvider = jfaceProviderFactoryProvider.get()
-				.createLabelProvider();
-		this.eClassFeatureProvider = eClassFeatureProviderProvider.get();
+		this.bindingFactory = bindingFactory;
+		this.editingDomainFinder = editingDomainFinder;
+		this.labelProvider = labelProvider;
+		this.eClassFeatureProvider = eClassFeatureProvider;
 
 		toolkit = new FormToolkit(parent.getDisplay());
 
