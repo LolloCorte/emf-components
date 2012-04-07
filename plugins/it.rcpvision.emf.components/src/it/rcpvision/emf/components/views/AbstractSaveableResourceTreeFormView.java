@@ -4,7 +4,7 @@ import it.rcpvision.emf.components.editors.EmfActionBarContributor;
 import it.rcpvision.emf.components.factories.EmfCompositeFactory;
 import it.rcpvision.emf.components.menus.StructuredViewerContextMenuManagerCreator;
 import it.rcpvision.emf.components.viewers.ViewerSelectionProvider;
-import it.rcpvision.emf.components.widgets.TreeFormComposite;
+import it.rcpvision.emf.components.widgets.TreeFormDetailComposite;
 
 import java.util.Collection;
 
@@ -33,7 +33,7 @@ public abstract class AbstractSaveableResourceTreeFormView extends AbstractSavea
 	@Inject
 	protected EmfActionBarContributor actionBarContributor;
 
-	protected TreeFormComposite treeFormComposite;
+	protected TreeFormDetailComposite treeFormDetailComposite;
 
 
 	@Override
@@ -43,16 +43,16 @@ public abstract class AbstractSaveableResourceTreeFormView extends AbstractSavea
 		// DON'T USE THE changeAdapter!!!
 		// it will act as an item provider editing adapter
 		// and actions won't be created!!!
-		treeFormComposite = emfCompositeFactory.createTreeFormComposite(parent,
+		treeFormDetailComposite = emfCompositeFactory.createTreeFormDetailComposite(parent,
 				SWT.BORDER);
 		
-		treeFormComposite.update(getResource());
+		treeFormDetailComposite.update(getResource());
 
-		createContextMenuFor(treeFormComposite.getViewer());
-//		actionBarContributor.setViewerForSelection(treeFormComposite.getViewer());
+		createContextMenuFor(treeFormDetailComposite.getViewer());
+//		actionBarContributor.setViewerForSelection(treeFormDetailComposite.getViewer());
 
 		ViewerSelectionProvider viewerSelectionProvider = new ViewerSelectionProvider(
-				treeFormComposite.getViewer());
+				treeFormDetailComposite.getViewer());
 		actionBarContributor
 				.setExplicitSelectionProvider(viewerSelectionProvider);
 		viewerSelectionProvider
@@ -87,8 +87,8 @@ public abstract class AbstractSaveableResourceTreeFormView extends AbstractSavea
 					// Try to select the items in the current content viewer of
 					// the editor.
 					//
-					if (treeFormComposite.getViewer() != null) {
-						treeFormComposite.getViewer()
+					if (treeFormDetailComposite.getViewer() != null) {
+						treeFormDetailComposite.getViewer()
 								.setSelection(
 										new StructuredSelection(
 												theSelection.toArray()), true);
@@ -106,7 +106,7 @@ public abstract class AbstractSaveableResourceTreeFormView extends AbstractSavea
 
 	@Override
 	public void setFocus() {
-		treeFormComposite.setFocus();
+		treeFormDetailComposite.setFocus();
 	}
 
 }

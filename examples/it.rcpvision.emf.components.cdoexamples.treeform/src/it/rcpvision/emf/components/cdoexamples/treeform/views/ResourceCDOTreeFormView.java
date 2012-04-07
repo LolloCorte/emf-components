@@ -2,7 +2,7 @@ package it.rcpvision.emf.components.cdoexamples.treeform.views;
 
 import it.rcpvision.emf.components.factories.EmfCompositeFactory;
 import it.rcpvision.emf.components.resource.ResourceLoader;
-import it.rcpvision.emf.components.widgets.TreeFormComposite;
+import it.rcpvision.emf.components.widgets.TreeFormDetailComposite;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -21,11 +21,11 @@ public class ResourceCDOTreeFormView extends ViewPart {
 	@Inject
 	protected ResourceLoader resourceLoader;
 
-	protected TreeFormComposite treeFormComposite;
+	protected TreeFormDetailComposite treeFormDetailComposite;
 
 	@Override
 	public void createPartControl(Composite parent) {
-		treeFormComposite = emfCompositeFactory.createTreeFormComposite(parent,
+		treeFormDetailComposite = emfCompositeFactory.createTreeFormDetailComposite(parent,
 				SWT.BORDER);
 
 		String uriStr = "cdo://localhost:2036/demo/myResource/";
@@ -34,12 +34,12 @@ public class ResourceCDOTreeFormView extends ViewPart {
 		Resource resource = resourceLoader.getResource(new ResourceSetImpl(),
 				uri);
 
-		treeFormComposite.update(resource);
+		treeFormDetailComposite.update(resource);
 	}
 
 	@Override
 	public void setFocus() {
-		treeFormComposite.setFocus();
+		treeFormDetailComposite.setFocus();
 	}
 
 }
