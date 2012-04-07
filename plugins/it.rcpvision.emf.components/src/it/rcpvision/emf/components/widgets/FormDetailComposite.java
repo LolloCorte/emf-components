@@ -25,20 +25,20 @@ public class FormDetailComposite extends Composite {
 
 	protected FormFeatureLabelProvider formFeatureLabelProvider;
 
-	protected Provider<EmfSwtBindingFactory> bindingFactoryProvider;
+	protected EmfSwtBindingFactory bindingFactory;
 
-	protected Provider<EditingDomainFinder> editingDomainFinderProvider;
+	protected EditingDomainFinder editingDomainFinder;
 
-	protected Provider<JfaceProviderFactory> jfaceProviderFactoryProvider;
+	protected EStructuralFeaturesProvider eClassFeatureProvider;
 
-	protected Provider<EStructuralFeaturesProvider> eClassFeatureProviderProvider;
+	protected ILabelProvider labelProvider;
 
 	private final Composite main;
 
 	FormToolkit toolkit;
 
 	private final ScrolledForm scrolledForm;
-	
+
 	public FormDetailComposite(Composite parent, int style,
 			FormFeatureLabelProvider formFeatureLabelProvider,
 			Provider<EmfSwtBindingFactory> bindingFactoryProvider,
@@ -47,10 +47,11 @@ public class FormDetailComposite extends Composite {
 			Provider<EStructuralFeaturesProvider> eClassFeatureProviderProvider) {
 		super(parent, style);
 		this.formFeatureLabelProvider = formFeatureLabelProvider;
-		this.bindingFactoryProvider = bindingFactoryProvider;
-		this.editingDomainFinderProvider = editingDomainFinderProvider;
-		this.jfaceProviderFactoryProvider = jfaceProviderFactoryProvider;
-		this.eClassFeatureProviderProvider = eClassFeatureProviderProvider;
+		this.bindingFactory = bindingFactoryProvider.get();
+		this.editingDomainFinder = editingDomainFinderProvider.get();
+		this.labelProvider = jfaceProviderFactoryProvider.get()
+				.createLabelProvider();
+		this.eClassFeatureProvider = eClassFeatureProviderProvider.get();
 
 		toolkit = new FormToolkit(parent.getDisplay());
 
@@ -71,19 +72,15 @@ public class FormDetailComposite extends Composite {
 	}
 
 	public void init(EObject model) {
-		List<EStructuralFeature> features = eClassFeatureProviderProvider.get()
+		List<EStructuralFeature> features = eClassFeatureProvider
 				.getFeatures(model);
 
-		ILabelProvider labelProvider = jfaceProviderFactoryProvider.get()
-				.createLabelProvider();
 		scrolledForm.setText(labelProvider.getText(model));
 		scrolledForm.setImage(labelProvider.getImage(model));
 
-		EmfSwtBindingFactory factory = bindingFactoryProvider.get();
-		factory.init(
-				editingDomainFinderProvider.get().getEditingDomainFor(model),
+		bindingFactory.init(editingDomainFinder.getEditingDomainFor(model),
 				model, main, toolkit);
-		
+
 		for (final EStructuralFeature feature : features) {
 			// derived, unchangeable, container and containment features
 			// ignored
@@ -92,10 +89,10 @@ public class FormDetailComposite extends Composite {
 					&& !(feature instanceof EReference && (((EReference) feature)
 							.isContainment() || ((EReference) feature)
 							.isContainer()))) {
-				
+
 				formFeatureLabelProvider.getLabel(main, feature);
 
-				factory.create(feature);
+				bindingFactory.create(feature);
 			}
 		}
 
