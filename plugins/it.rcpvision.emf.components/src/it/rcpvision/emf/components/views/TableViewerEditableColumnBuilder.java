@@ -48,7 +48,6 @@ public class TableViewerEditableColumnBuilder extends TableViewerColumnBuilder {
 
 		private ColumnViewer viewer;
 		private EStructuralFeature eStructuralFeature;
-		private boolean predefinedValues=false;
 
 		public TextEditingSupport(ColumnViewer viewer, EStructuralFeature eStructuralFeature) {
 			super(viewer);
