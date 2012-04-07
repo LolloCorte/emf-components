@@ -42,7 +42,6 @@ public class TreeFormComposite extends Composite {
 			if (selectedObject != null) {
 				detailForm = emfFormCompositeFactory.createFormDetailComposite(
 						detail, SWT.BORDER);
-				detailForm.setViewerForSelection(getViewer());
 				detailForm.init(selectedObject);
 				detail.layout(true);
 			}
