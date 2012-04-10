@@ -2,6 +2,7 @@ package it.rcpvision.emf.components.views;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.Date;
 import java.util.List;
 
 import org.eclipse.emf.common.command.Command;
@@ -41,19 +42,19 @@ public class TableViewerEditableColumnBuilder extends TableViewerColumnBuilder {
 			if(isPredefinedValueEditing((EAttribute)eStructuralFeature)){
 				viewerColumn.setEditingSupport(new ComboEditingSupport(tableViewer, eStructuralFeature));	
 			}else{
-				viewerColumn.setEditingSupport(new TextEditingSupport(tableViewer, eStructuralFeature));
+				viewerColumn.setEditingSupport(new TableEditingSupport(tableViewer, eStructuralFeature));
 			}
 		}
 		return viewerColumn;
 	}
 	
-	class TextEditingSupport extends EditingSupport {
+	class TableEditingSupport extends EditingSupport {
 
 		private ColumnViewer viewer;
 		private EStructuralFeature eStructuralFeature;
 		private boolean predefinedValues=false;
 
-		public TextEditingSupport(ColumnViewer viewer, EStructuralFeature eStructuralFeature) {
+		public TableEditingSupport(ColumnViewer viewer, EStructuralFeature eStructuralFeature) {
 			super(viewer);
 			this.viewer=viewer;
 			this.eStructuralFeature=eStructuralFeature;
@@ -156,6 +157,20 @@ public class TableViewerEditableColumnBuilder extends TableViewerColumnBuilder {
 					protected Object doGetValue() {
 						Boolean boolValue = (Boolean) super.doGetValue();
 						return boolValue;
+					}
+				};
+			}
+			if (Date.class.equals(eStructuralFeature.getEType().getInstanceClass())) {
+				return new TextCellEditor((Composite) getViewer().getControl()) {
+					@Override
+					protected void doSetValue(Object value) {
+						super.doSetValue(value);
+					}
+					
+					@Override
+					protected Object doGetValue() {
+						String date = (String) super.doGetValue();
+						return date;
 					}
 				};
 			}
