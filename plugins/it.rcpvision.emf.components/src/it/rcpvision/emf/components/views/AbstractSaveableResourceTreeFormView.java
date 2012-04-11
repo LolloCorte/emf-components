@@ -61,7 +61,8 @@ public abstract class AbstractSaveableResourceTreeFormView extends AbstractSavea
 		actionBarContributor.setActivePart(this);
 	}
 
-	protected void customizePostCommandStackChanged(Command mostRecentCommand) {
+	@Override
+    protected void customizePostCommandStackChanged(Command mostRecentCommand) {
 		if (mostRecentCommand != null
 				&& mostRecentCommand instanceof CreateChildCommand) {
 			setSelectionToViewer(mostRecentCommand
@@ -69,7 +70,8 @@ public abstract class AbstractSaveableResourceTreeFormView extends AbstractSavea
 		}
 	}
 
-	protected abstract URI createResourceURI();
+	@Override
+    protected abstract URI createResourceURI();
 
 	public void createContextMenuFor(StructuredViewer viewer) {
 		MenuManager menuManager = structuredViewerContextMenuManagerCreator
@@ -83,7 +85,8 @@ public abstract class AbstractSaveableResourceTreeFormView extends AbstractSavea
 		//
 		if (theSelection != null && !theSelection.isEmpty()) {
 			Runnable runnable = new Runnable() {
-				public void run() {
+				@Override
+                public void run() {
 					// Try to select the items in the current content viewer of
 					// the editor.
 					//
@@ -107,6 +110,10 @@ public abstract class AbstractSaveableResourceTreeFormView extends AbstractSavea
 	@Override
 	public void setFocus() {
 		treeFormDetailComposite.setFocus();
+	}
+	
+	public StructuredViewer getViewer() {
+	    return treeFormComposite.getViewer();
 	}
 
 }

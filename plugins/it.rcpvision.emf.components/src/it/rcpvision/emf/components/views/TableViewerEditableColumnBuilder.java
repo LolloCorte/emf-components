@@ -1,5 +1,8 @@
 package it.rcpvision.emf.components.views;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.Date;
 import java.util.List;
 
 import org.eclipse.emf.common.command.Command;
@@ -13,6 +16,7 @@ import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.viewers.CellEditor;
+import org.eclipse.jface.viewers.CheckboxCellEditor;
 import org.eclipse.jface.viewers.ColumnViewer;
 import org.eclipse.jface.viewers.ComboBoxCellEditor;
 import org.eclipse.jface.viewers.EditingSupport;
@@ -38,18 +42,18 @@ public class TableViewerEditableColumnBuilder extends TableViewerColumnBuilder {
 			if(isPredefinedValueEditing((EAttribute)eStructuralFeature)){
 				viewerColumn.setEditingSupport(new ComboEditingSupport(tableViewer, eStructuralFeature));	
 			}else{
-				viewerColumn.setEditingSupport(new TextEditingSupport(tableViewer, eStructuralFeature));
+				viewerColumn.setEditingSupport(new TableEditingSupport(tableViewer, eStructuralFeature));
 			}
 		}
 		return viewerColumn;
 	}
 	
-	class TextEditingSupport extends EditingSupport {
+	class TableEditingSupport extends EditingSupport {
 
 		private ColumnViewer viewer;
 		private EStructuralFeature eStructuralFeature;
 
-		public TextEditingSupport(ColumnViewer viewer, EStructuralFeature eStructuralFeature) {
+		public TableEditingSupport(ColumnViewer viewer, EStructuralFeature eStructuralFeature) {
 			super(viewer);
 			this.viewer=viewer;
 			this.eStructuralFeature=eStructuralFeature;
@@ -57,6 +61,118 @@ public class TableViewerEditableColumnBuilder extends TableViewerColumnBuilder {
 		
 		@Override
 		protected CellEditor getCellEditor(Object element) {
+			if (BigDecimal.class.equals(eStructuralFeature.getEType().getInstanceClass())) {
+				return new TextCellEditor((Composite) getViewer().getControl()) {
+					@Override
+					protected void doSetValue(Object value) {
+						super.doSetValue("" + value);
+					}
+					
+					@Override
+					protected Object doGetValue() {
+						String stringValue = (String) super.doGetValue();
+						return new BigDecimal(stringValue);
+					}
+				};
+			}
+			if (BigInteger.class.equals(eStructuralFeature.getEType().getInstanceClass())) {
+				return new TextCellEditor((Composite) getViewer().getControl()) {
+					@Override
+					protected void doSetValue(Object value) {
+						super.doSetValue("" + value);
+					}
+					
+					@Override
+					protected Object doGetValue() {
+						String stringValue = (String) super.doGetValue();
+						return new BigInteger(stringValue);
+					}
+				};
+			}
+			if (Double.class.equals(eStructuralFeature.getEType().getInstanceClass())) {
+				return new TextCellEditor((Composite) getViewer().getControl()) {
+					@Override
+					protected void doSetValue(Object value) {
+						super.doSetValue("" + value);
+					}
+					
+					@Override
+					protected Object doGetValue() {
+						String stringValue = (String) super.doGetValue();
+						return new Double(stringValue);
+					}
+				};
+			}
+			if (Integer.class.equals(eStructuralFeature.getEType().getInstanceClass())) {
+				return new TextCellEditor((Composite) getViewer().getControl()) {
+					@Override
+					protected void doSetValue(Object value) {
+						super.doSetValue("" + value);
+					}
+					
+					@Override
+					protected Object doGetValue() {
+						String stringValue = (String) super.doGetValue();
+						return new Integer(stringValue);
+					}
+				};
+			}
+			if (Float.class.equals(eStructuralFeature.getEType().getInstanceClass())) {
+				return new TextCellEditor((Composite) getViewer().getControl()) {
+					@Override
+					protected void doSetValue(Object value) {
+						super.doSetValue("" + value);
+					}
+					
+					@Override
+					protected Object doGetValue() {
+						String stringValue = (String) super.doGetValue();
+						return new Float(stringValue);
+					}
+				};
+			}
+			if (Byte.class.equals(eStructuralFeature.getEType().getInstanceClass())) {
+				return new TextCellEditor((Composite) getViewer().getControl()) {
+					@Override
+					protected void doSetValue(Object value) {
+						super.doSetValue("" + value);
+					}
+					
+					@Override
+					protected Object doGetValue() {
+						String stringValue = (String) super.doGetValue();
+						return new Byte(stringValue);
+					}
+				};
+			}
+			if (Boolean.class.equals(eStructuralFeature.getEType().getInstanceClass())) {
+				return new CheckboxCellEditor((Composite) getViewer().getControl()) {
+					@Override
+					protected void doSetValue(Object value) {
+						super.doSetValue(value);
+					}
+					
+					@Override
+					protected Object doGetValue() {
+						Boolean boolValue = (Boolean) super.doGetValue();
+						return boolValue;
+					}
+				};
+			}
+			if (Date.class.equals(eStructuralFeature.getEType().getInstanceClass())) {
+				return new TextCellEditor((Composite) getViewer().getControl()) {
+					@Override
+					protected void doSetValue(Object value) {
+						super.doSetValue(value);
+					}
+					
+					@Override
+					protected Object doGetValue() {
+						String date = (String) super.doGetValue();
+						return date;
+					}
+				};
+			}
 			return new TextCellEditor((Composite)getViewer().getControl());	
 		}
 
