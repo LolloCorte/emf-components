@@ -27,7 +27,7 @@ import org.eclipse.ui.part.PageBook;
  * @author Lorenzo Bettini, Francesco Guidieri
  * 
  */
-public class TreeFormDetailComposite extends Composite {
+public class TreeFormMasterDetailComposite extends Composite {
 
 	protected class SelectionChangedListener implements
 			ISelectionChangedListener {
@@ -55,7 +55,7 @@ public class TreeFormDetailComposite extends Composite {
 
 	protected FormDetailComposite detailForm;
 
-	public TreeFormDetailComposite(Composite parent, int style,
+	public TreeFormMasterDetailComposite(Composite parent, int style,
 			ViewerInitializer viewerInitializer,
 			EmfFormCompositeFactory emfFormCompositeFactory,
 			EmfSelectionHelper emfSelectionHelper) {

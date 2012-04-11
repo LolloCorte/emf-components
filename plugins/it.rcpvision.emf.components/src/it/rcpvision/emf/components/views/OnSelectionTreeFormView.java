@@ -1,7 +1,7 @@
 package it.rcpvision.emf.components.views;
 
 import it.rcpvision.emf.components.factories.EmfCompositeFactory;
-import it.rcpvision.emf.components.widgets.TreeFormDetailComposite;
+import it.rcpvision.emf.components.widgets.TreeFormMasterDetailComposite;
 
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.SWT;
@@ -15,7 +15,7 @@ public class OnSelectionTreeFormView extends OnSelectionAbstractView {
 	@Inject
 	protected EmfCompositeFactory emfCompositeFactory;
 
-	protected TreeFormDetailComposite treeFormDetailComposite;
+	protected TreeFormMasterDetailComposite treeFormDetailComposite;
 
 	@Override
 	public void createPartControl(Composite parent) {
