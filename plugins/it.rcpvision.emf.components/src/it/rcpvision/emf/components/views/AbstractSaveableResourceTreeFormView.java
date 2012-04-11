@@ -4,7 +4,7 @@ import it.rcpvision.emf.components.editors.EmfActionBarContributor;
 import it.rcpvision.emf.components.factories.EmfCompositeFactory;
 import it.rcpvision.emf.components.menus.StructuredViewerContextMenuManagerCreator;
 import it.rcpvision.emf.components.viewers.ViewerSelectionProvider;
-import it.rcpvision.emf.components.widgets.TreeFormComposite;
+import it.rcpvision.emf.components.widgets.TreeFormMasterDetailComposite;
 
 import java.util.Collection;
 
@@ -33,7 +33,7 @@ public abstract class AbstractSaveableResourceTreeFormView extends AbstractSavea
 	@Inject
 	protected EmfActionBarContributor actionBarContributor;
 
-	protected TreeFormComposite treeFormComposite;
+	protected TreeFormMasterDetailComposite treeFormMasterDetailComposite;
 
 
 	@Override
@@ -43,16 +43,16 @@ public abstract class AbstractSaveableResourceTreeFormView extends AbstractSavea
 		// DON'T USE THE changeAdapter!!!
 		// it will act as an item provider editing adapter
 		// and actions won't be created!!!
-		treeFormComposite = emfCompositeFactory.createTreeFormComposite(parent,
+		treeFormMasterDetailComposite = emfCompositeFactory.createTreeFormDetailComposite(parent,
 				SWT.BORDER);
 		
-		treeFormComposite.update(getResource());
+		treeFormMasterDetailComposite.update(getResource());
 
-		createContextMenuFor(treeFormComposite.getViewer());
-//		actionBarContributor.setViewerForSelection(treeFormComposite.getViewer());
+		createContextMenuFor(treeFormMasterDetailComposite.getViewer());
+//		actionBarContributor.setViewerForSelection(treeFormMasterDetailComposite.getViewer());
 
 		ViewerSelectionProvider viewerSelectionProvider = new ViewerSelectionProvider(
-				treeFormComposite.getViewer());
+				treeFormMasterDetailComposite.getViewer());
 		actionBarContributor
 				.setExplicitSelectionProvider(viewerSelectionProvider);
 		viewerSelectionProvider
@@ -61,7 +61,8 @@ public abstract class AbstractSaveableResourceTreeFormView extends AbstractSavea
 		actionBarContributor.setActivePart(this);
 	}
 
-	protected void customizePostCommandStackChanged(Command mostRecentCommand) {
+	@Override
+    protected void customizePostCommandStackChanged(Command mostRecentCommand) {
 		if (mostRecentCommand != null
 				&& mostRecentCommand instanceof CreateChildCommand) {
 			setSelectionToViewer(mostRecentCommand
@@ -69,7 +70,8 @@ public abstract class AbstractSaveableResourceTreeFormView extends AbstractSavea
 		}
 	}
 
-	protected abstract URI createResourceURI();
+	@Override
+    protected abstract URI createResourceURI();
 
 	public void createContextMenuFor(StructuredViewer viewer) {
 		MenuManager menuManager = structuredViewerContextMenuManagerCreator
@@ -83,12 +85,13 @@ public abstract class AbstractSaveableResourceTreeFormView extends AbstractSavea
 		//
 		if (theSelection != null && !theSelection.isEmpty()) {
 			Runnable runnable = new Runnable() {
-				public void run() {
+				@Override
+                public void run() {
 					// Try to select the items in the current content viewer of
 					// the editor.
 					//
-					if (treeFormComposite.getViewer() != null) {
-						treeFormComposite.getViewer()
+					if (treeFormMasterDetailComposite.getViewer() != null) {
+						treeFormMasterDetailComposite.getViewer()
 								.setSelection(
 										new StructuredSelection(
 												theSelection.toArray()), true);
@@ -106,7 +109,11 @@ public abstract class AbstractSaveableResourceTreeFormView extends AbstractSavea
 
 	@Override
 	public void setFocus() {
-		treeFormComposite.setFocus();
+		treeFormMasterDetailComposite.setFocus();
+	}
+	
+	public StructuredViewer getViewer() {
+	    return treeFormMasterDetailComposite.getViewer();
 	}
 
 }

@@ -72,7 +72,7 @@ import com.google.inject.Inject;
 public class EmfSwtBindingFactory {
 	@Inject
 	protected JfaceProviderFactory jfaceProviderFactory;
-	
+
 	private Composite parent = null;
 
 	private FormToolkit toolkit = null;
@@ -86,13 +86,13 @@ public class EmfSwtBindingFactory {
 			.getName();
 
 	private PolymorphicDispatcher.ErrorHandler<ControlObservablePair> control_errorHandler = new PolymorphicDispatcher.NullErrorHandler<ControlObservablePair>();
-	
 
-	private PolymorphicDispatcher.ErrorHandler<IObservableValue> observe_errorHandler = new PolymorphicDispatcher.NullErrorHandler<IObservableValue>();
+	private PolymorphicDispatcher.ErrorHandler<Control> createAndBind_errorHandler = new PolymorphicDispatcher.NullErrorHandler<Control>();
+
 	public EmfSwtBindingFactory() {
-		
+
 	}
-	
+
 	public void init(EditingDomain domain, EObject owner, Composite parent,
 			FormToolkit toolkit) {
 		this.edbc = new EMFDataBindingContext();
@@ -105,10 +105,10 @@ public class EmfSwtBindingFactory {
 	}
 
 	public Control create(EStructuralFeature feature) {
-		Control control = null;	
-		
+		Control control = null;
+
 		control = polymorphicCreateControlAndBind(owner, feature);
-		if (control == null){	
+		if (control == null) {
 			if (feature.isMany()) {
 				control = bindList(feature);
 			} else {
@@ -120,7 +120,8 @@ public class EmfSwtBindingFactory {
 	}
 
 	protected Predicate<Method> getControlPredicate(EStructuralFeature feature) {
-		String methodName = "control_" + owner.eClass().getName() + "_" + feature.getName();
+		String methodName = "control_" + owner.eClass().getName() + "_"
+				+ feature.getName();
 		return PolymorphicDispatcher.Predicates.forName(methodName, 1);
 	}
 
@@ -135,8 +136,8 @@ public class EmfSwtBindingFactory {
 		ControlObservablePair retValAndTargetPair = createControlForList(feature);
 		Control retVal = retValAndTargetPair.getControl();
 		IObservableValue target = retValAndTargetPair.getObservableValue();
-		
-		//TODO Controllare perchè il bindValue è diverso!
+
+		// TODO Controllare perchï¿½ il bindValue ï¿½ diverso!
 		Binding binding = edbc.bindValue(target, source);
 		binding.updateModelToTarget();
 		return retVal;
@@ -147,12 +148,13 @@ public class EmfSwtBindingFactory {
 		ControlObservablePair result = polymorphicGetObservableControl(feature);
 		if (result != null)
 			return result;
-		
+
 		MultipleFeatureControl mfc = new MultipleFeatureControl(parent,
-				toolkit, jfaceProviderFactory.createLabelProvider(),
-				owner, feature, proposalcreator);
+				toolkit, jfaceProviderFactory.createLabelProvider(), owner,
+				feature, proposalcreator);
 		IObservableValue target = new MultipleFeatureControlObservable(mfc);
-		ControlObservablePair retValAndTargetPair = new ControlObservablePair(mfc, target);
+		ControlObservablePair retValAndTargetPair = new ControlObservablePair(
+				mfc, target);
 		return retValAndTargetPair;
 	}
 
@@ -162,7 +164,7 @@ public class EmfSwtBindingFactory {
 			source = EMFEditObservables.observeValue(domain, owner, feature);
 		else
 			source = EMFObservables.observeValue(owner, feature);
-		
+
 		ControlObservablePair retValAndTargetPair = createControlAndObservableValue(feature);
 		Control retVal = retValAndTargetPair.getControl();
 		IObservableValue target = retValAndTargetPair.getObservableValue();
@@ -178,7 +180,7 @@ public class EmfSwtBindingFactory {
 		ControlObservablePair result = polymorphicGetObservableControl(feature);
 		if (result != null)
 			return result;
-		
+
 		if (isBooleanFeature(feature)) {
 			return createControlAndObservableValueForBoolean();
 		} else {
@@ -307,10 +309,11 @@ public class EmfSwtBindingFactory {
 		return parent;
 	}
 
-	private ControlObservablePair polymorphicGetObservableControl(EStructuralFeature element) {
+	private ControlObservablePair polymorphicGetObservableControl(
+			EStructuralFeature element) {
 		PolymorphicDispatcher<ControlObservablePair> dispatcher = new PolymorphicDispatcher<ControlObservablePair>(
-				Collections.singletonList(this), getObservableControlPredicate(element),
-				control_errorHandler) {
+				Collections.singletonList(this),
+				getObservableControlPredicate(element), control_errorHandler) {
 			@Override
 			protected ControlObservablePair handleNoSuchMethod(Object... params) {
 				if (PolymorphicDispatcher.NullErrorHandler.class
@@ -323,43 +326,24 @@ public class EmfSwtBindingFactory {
 		return dispatcher.invoke(element);
 	}
 
-
-	protected Predicate<Method> getObservableControlPredicate(EStructuralFeature feature) {
-		String methodName = "control_" + feature.getEContainingClass().getName()
-				+ "_" + feature.getName();
+	protected Predicate<Method> getObservableControlPredicate(
+			EStructuralFeature feature) {
+		String methodName = "control_"
+				+ feature.getEContainingClass().getName() + "_"
+				+ feature.getName();
 		return PolymorphicDispatcher.Predicates.forName(methodName, 1);
 	}
-	
-	private IObservableValue polymorphicGetObservable(EStructuralFeature element) {
-		PolymorphicDispatcher<IObservableValue> dispatcher = new PolymorphicDispatcher<IObservableValue>(
-				Collections.singletonList(this), getLabelPredicate(element),
-				observe_errorHandler) {
-			@Override
-			protected IObservableValue handleNoSuchMethod(Object... params) {
-				if (PolymorphicDispatcher.NullErrorHandler.class
-						.equals(observe_errorHandler.getClass()))
-					return null;
-				return super.handleNoSuchMethod(params);
-			}
-		};
 
-		return dispatcher.invoke(element);
-	}
-
-	protected Predicate<Method> getLabelPredicate(EStructuralFeature feature) {
-		String methodName = "observe_" + feature.getEContainingClass().getName()
-				+ "_" + feature.getName();
-		return PolymorphicDispatcher.Predicates.forName(methodName, 1);
-	}
-	
-	private Control polymorphicCreateControlAndBind(EObject element,EStructuralFeature feature) {
+	private Control polymorphicCreateControlAndBind(EObject element,
+			EStructuralFeature feature) {
 		PolymorphicDispatcher<Control> dispatcher = new PolymorphicDispatcher<Control>(
-				Collections.singletonList(this), getCreateControlPredicate(feature),
-				 new PolymorphicDispatcher.NullErrorHandler<Control>()) {
+				Collections.singletonList(this),
+				getCreateControlPredicate(feature),
+				new PolymorphicDispatcher.NullErrorHandler<Control>()) {
 			@Override
 			protected Control handleNoSuchMethod(Object... params) {
 				if (PolymorphicDispatcher.NullErrorHandler.class
-						.equals(control_errorHandler.getClass()))
+						.equals(createAndBind_errorHandler.getClass()))
 					return null;
 				return super.handleNoSuchMethod(params);
 			}
@@ -368,9 +352,11 @@ public class EmfSwtBindingFactory {
 		return dispatcher.invoke(feature, element);
 	}
 
-	protected Predicate<Method> getCreateControlPredicate(EStructuralFeature feature) {
-		String methodName = "createAndBind_" + feature.getEContainingClass().getName()
-				+ "_" + feature.getName();
+	protected Predicate<Method> getCreateControlPredicate(
+			EStructuralFeature feature) {
+		String methodName = "createAndBind_"
+				+ feature.getEContainingClass().getName() + "_"
+				+ feature.getName();
 		return PolymorphicDispatcher.Predicates.forName(methodName, 2);
 	}
 }

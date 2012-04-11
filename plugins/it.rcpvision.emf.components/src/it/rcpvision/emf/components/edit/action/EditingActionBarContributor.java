@@ -1,5 +1,6 @@
 package it.rcpvision.emf.components.edit.action;
 
+import it.rcpvision.emf.components.factories.EmfActionFactory;
 import it.rcpvision.emf.components.util.ActionBarsUtils;
 
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
@@ -35,6 +36,8 @@ import org.eclipse.ui.part.MultiPageEditorActionBarContributor;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 
+import com.google.inject.Inject;
+
 
 /**
  * This is a contributor for an editor, multi-page or otherwise,
@@ -57,6 +60,9 @@ public class EditingActionBarContributor
     IMenuListener,
     IPropertyListener
 {
+	@Inject
+	protected EmfActionFactory emfActionFactory;
+	
   /**
    * This keeps track of the current part.
    */
@@ -187,7 +193,7 @@ public class EditingActionBarContributor
    */
   protected DeleteAction createDeleteAction()
   {
-    return new DeleteAction(removeAllReferencesOnDelete());
+    return emfActionFactory.createDeleteAction();
   }
 
   /**
@@ -197,7 +203,7 @@ public class EditingActionBarContributor
    */
   protected CutAction createCutAction()
   {
-    return new CutAction();
+    return emfActionFactory.createCutAction();
   }
 
   /**
@@ -207,7 +213,7 @@ public class EditingActionBarContributor
    */
   protected CopyAction createCopyAction()
   {
-    return new CopyAction();
+    return emfActionFactory.createCopyAction();
   }
 
   /**
@@ -217,7 +223,7 @@ public class EditingActionBarContributor
    */
   protected PasteAction createPasteAction()
   {
-    return new PasteAction();
+    return emfActionFactory.createPasteAction();
   }
 
   /**
@@ -227,7 +233,7 @@ public class EditingActionBarContributor
    */
   protected UndoAction createUndoAction()
   {
-    return new UndoAction();
+    return emfActionFactory.createUndoAction();
   }
 
   /**
@@ -237,7 +243,7 @@ public class EditingActionBarContributor
    */
   protected RedoAction createRedoAction()
   {
-    return new RedoAction();
+    return emfActionFactory.createRedoAction();
   }
 
 

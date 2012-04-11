@@ -9,6 +9,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.jface.dialogs.MessageDialog;
 
+import com.google.inject.Inject;
+
 /**
  * Executes validation before saving.
  * 
@@ -16,6 +18,9 @@ import org.eclipse.jface.dialogs.MessageDialog;
  * 
  */
 public class ValidateResourceSaveManager extends ResourceSaveManager {
+    
+    @Inject
+    protected Diagnostician diagnostician;
 
 	@Override
 	protected boolean precondition(Resource resource) {
@@ -24,7 +29,7 @@ public class ValidateResourceSaveManager extends ResourceSaveManager {
 
 	protected boolean validateModel(Resource resource) {
 		for (EObject eObject : resource.getContents()) {
-			Diagnostic diagnostic = getCustomDiagnostician().validate(eObject);
+			Diagnostic diagnostic = diagnostician.validate(eObject);
 			if (diagnostic.getSeverity() == Diagnostic.ERROR) {
 				String errors = buildMessageString(diagnostic, Diagnostic.ERROR);
 				MessageDialog.openError(null, "Validation Error", errors);
@@ -37,10 +42,6 @@ public class ValidateResourceSaveManager extends ResourceSaveManager {
 		}
 		return true;
 	}
-
-	protected Diagnostician getCustomDiagnostician() {
-        return Diagnostician.INSTANCE;
-    }
 
     protected String buildMessageString(Diagnostic diagnosticParent, int level) {
 		String messages = "";

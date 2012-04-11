@@ -28,10 +28,10 @@ public class EmfFormCompositeFactory {
 
 	@Inject
 	protected Provider<EditingDomainFinder> editingDomainFinderProvider;
-	
+
 	@Inject
 	protected Provider<JfaceProviderFactory> jfaceProviderFactoryProvider;
-	
+
 	@Inject
 	protected Provider<EStructuralFeaturesProvider> eClassFeatureProviderProvider;
 
@@ -43,9 +43,11 @@ public class EmfFormCompositeFactory {
 	public FormDetailComposite createFormDetailComposite(Composite parent,
 			int style) {
 		return new FormDetailComposite(parent, style,
-				featureLabelProviderProvider.get(), bindingFactoryProvider,
-				editingDomainFinderProvider, jfaceProviderFactoryProvider,
-				eClassFeatureProviderProvider);
+				featureLabelProviderProvider.get(),
+				bindingFactoryProvider.get(),
+				editingDomainFinderProvider.get(), jfaceProviderFactoryProvider
+						.get().createLabelProvider(),
+				eClassFeatureProviderProvider.get());
 	}
 
 }

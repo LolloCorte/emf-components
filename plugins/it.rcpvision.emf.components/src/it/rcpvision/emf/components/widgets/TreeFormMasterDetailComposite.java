@@ -27,7 +27,7 @@ import org.eclipse.ui.part.PageBook;
  * @author Lorenzo Bettini, Francesco Guidieri
  * 
  */
-public class TreeFormComposite extends Composite {
+public class TreeFormMasterDetailComposite extends Composite {
 
 	protected class SelectionChangedListener implements
 			ISelectionChangedListener {
@@ -35,17 +35,8 @@ public class TreeFormComposite extends Composite {
 		public void selectionChanged(SelectionChangedEvent event) {
 			EObject selectedObject = emfSelectionHelper
 					.getFirstSelectedEObject(event.getSelection());
-			
-			if (detailForm != null)
-                detailForm.dispose();
-			
-			if (selectedObject != null) {
-				detailForm = emfFormCompositeFactory.createFormDetailComposite(
-						detail, SWT.BORDER);
-				detailForm.setViewerForSelection(getViewer());
-				detailForm.init(selectedObject);
-				detail.layout(true);
-			}
+
+			eObjectSelectionChanged(selectedObject);
 		}
 
 	}
@@ -56,15 +47,15 @@ public class TreeFormComposite extends Composite {
 
 	protected EmfSelectionHelper emfSelectionHelper;
 
-	private StructuredViewer viewer;
+	private final StructuredViewer viewer;
 
-	private PageBook pagebook;
+	private final PageBook pagebook;
 
-	private Composite detail;
+	private final Composite detail;
 
 	protected FormDetailComposite detailForm;
 
-	public TreeFormComposite(Composite parent, int style,
+	public TreeFormMasterDetailComposite(Composite parent, int style,
 			ViewerInitializer viewerInitializer,
 			EmfFormCompositeFactory emfFormCompositeFactory,
 			EmfSelectionHelper emfSelectionHelper) {
@@ -110,6 +101,22 @@ public class TreeFormComposite extends Composite {
 
 	protected StructuredViewer createViewer(Composite parent) {
 		return new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
+	}
+
+	protected void eObjectSelectionChanged(EObject selectedObject) {
+		if (detailForm != null)
+			detailForm.dispose();
+
+		if (selectedObject != null) {
+			detailForm = createFormDetailComposite();
+			detailForm.init(selectedObject);
+			detail.layout(true);
+		}
+	}
+
+	protected FormDetailComposite createFormDetailComposite() {
+		return emfFormCompositeFactory.createFormDetailComposite(detail,
+				SWT.BORDER);
 	}
 
 }

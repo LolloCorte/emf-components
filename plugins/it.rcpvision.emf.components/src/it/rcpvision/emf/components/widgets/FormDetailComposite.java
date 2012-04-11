@@ -2,7 +2,6 @@ package it.rcpvision.emf.components.widgets;
 
 import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
-import it.rcpvision.emf.components.factories.JfaceProviderFactory;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 
@@ -12,49 +11,43 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.viewers.ILabelProvider;
-import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
-
-import com.google.inject.Provider;
 
 public class FormDetailComposite extends Composite {
 
 	protected FormFeatureLabelProvider formFeatureLabelProvider;
 
-	protected Provider<EmfSwtBindingFactory> bindingFactoryProvider;
+	protected EmfSwtBindingFactory emfSwtBindingFactory;
 
-	protected Provider<EditingDomainFinder> editingDomainFinderProvider;
+	protected EditingDomainFinder editingDomainFinder;
 
-	protected Provider<JfaceProviderFactory> jfaceProviderFactoryProvider;
+	protected EStructuralFeaturesProvider eClassFeatureProvider;
 
-	protected Provider<EStructuralFeaturesProvider> eClassFeatureProviderProvider;
+	protected ILabelProvider labelProvider;
 
-	private Composite main;
+	private final Composite main;
 
 	FormToolkit toolkit;
 
-	private ScrolledForm scrolledForm;
-	
-	private StructuredViewer viewer;
+	private final ScrolledForm scrolledForm;
 
 	public FormDetailComposite(Composite parent, int style,
 			FormFeatureLabelProvider formFeatureLabelProvider,
-			Provider<EmfSwtBindingFactory> bindingFactoryProvider,
-			Provider<EditingDomainFinder> editingDomainFinderProvider,
-			Provider<JfaceProviderFactory> jfaceProviderFactoryProvider,
-			Provider<EStructuralFeaturesProvider> eClassFeatureProviderProvider) {
+			EmfSwtBindingFactory emfSwtBindingFactory,
+			EditingDomainFinder editingDomainFinder,
+			ILabelProvider labelProvider,
+			EStructuralFeaturesProvider eClassFeatureProvider) {
 		super(parent, style);
 		this.formFeatureLabelProvider = formFeatureLabelProvider;
-		this.bindingFactoryProvider = bindingFactoryProvider;
-		this.editingDomainFinderProvider = editingDomainFinderProvider;
-		this.jfaceProviderFactoryProvider = jfaceProviderFactoryProvider;
-		this.eClassFeatureProviderProvider = eClassFeatureProviderProvider;
+		this.emfSwtBindingFactory = emfSwtBindingFactory;
+		this.editingDomainFinder = editingDomainFinder;
+		this.labelProvider = labelProvider;
+		this.eClassFeatureProvider = eClassFeatureProvider;
 
 		toolkit = new FormToolkit(parent.getDisplay());
 
@@ -75,19 +68,16 @@ public class FormDetailComposite extends Composite {
 	}
 
 	public void init(EObject model) {
-		List<EStructuralFeature> features = eClassFeatureProviderProvider.get()
+		List<EStructuralFeature> features = eClassFeatureProvider
 				.getFeatures(model);
 
-		ILabelProvider labelProvider = jfaceProviderFactoryProvider.get()
-				.createLabelProvider();
 		scrolledForm.setText(labelProvider.getText(model));
 		scrolledForm.setImage(labelProvider.getImage(model));
 
-		EmfSwtBindingFactory factory = bindingFactoryProvider.get();
-		factory.init(
-				editingDomainFinderProvider.get().getEditingDomainFor(model),
-				model, main, toolkit);
-		
+		emfSwtBindingFactory.init(
+				editingDomainFinder.getEditingDomainFor(model), model, main,
+				toolkit);
+
 		for (final EStructuralFeature feature : features) {
 			// derived, unchangeable, container and containment features
 			// ignored
@@ -96,14 +86,10 @@ public class FormDetailComposite extends Composite {
 					&& !(feature instanceof EReference && (((EReference) feature)
 							.isContainment() || ((EReference) feature)
 							.isContainer()))) {
-				
+
 				formFeatureLabelProvider.getLabel(main, feature);
 
-				Control control=factory.create(feature);
-				if (control instanceof ISelectionViewerAware) {
-                   ((ISelectionViewerAware) control).setViewer(viewer);
-                }
-
+				emfSwtBindingFactory.create(feature);
 			}
 		}
 
@@ -118,8 +104,47 @@ public class FormDetailComposite extends Composite {
 		toolkit.dispose();
 	}
 
-    public void setViewerForSelection(StructuredViewer viewer) {
-        this.viewer=viewer;
-    }
+	public FormFeatureLabelProvider getFormFeatureLabelProvider() {
+		return formFeatureLabelProvider;
+	}
+
+	public void setFormFeatureLabelProvider(
+			FormFeatureLabelProvider formFeatureLabelProvider) {
+		this.formFeatureLabelProvider = formFeatureLabelProvider;
+	}
+
+	public EmfSwtBindingFactory getEmfSwtBindingFactory() {
+		return emfSwtBindingFactory;
+	}
+
+	public void setEmfSwtBindingFactory(
+			EmfSwtBindingFactory emfSwtBindingFactory) {
+		this.emfSwtBindingFactory = emfSwtBindingFactory;
+	}
+
+	public EditingDomainFinder getEditingDomainFinder() {
+		return editingDomainFinder;
+	}
+
+	public void setEditingDomainFinder(EditingDomainFinder editingDomainFinder) {
+		this.editingDomainFinder = editingDomainFinder;
+	}
+
+	public EStructuralFeaturesProvider geteClassFeatureProvider() {
+		return eClassFeatureProvider;
+	}
+
+	public void seteClassFeatureProvider(
+			EStructuralFeaturesProvider eClassFeatureProvider) {
+		this.eClassFeatureProvider = eClassFeatureProvider;
+	}
+
+	public ILabelProvider getLabelProvider() {
+		return labelProvider;
+	}
+
+	public void setLabelProvider(ILabelProvider labelProvider) {
+		this.labelProvider = labelProvider;
+	}
 
 }
