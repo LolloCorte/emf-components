@@ -21,6 +21,12 @@
                name="Saveable Resource Table View"
                restorable="true">
          </view>
+          <view
+               class="it.rcpvision.emf.components.examples.EmfComponentsExamplesExecutableExtensionFactory:it.rcpvision.emf.components.examples.views.ResourceQueryView"
+               id="it.rcpvision.emf.components.examples.views.resourcequeryview"
+               name="Resource Query View"
+               restorable="true">
+         </view>
    </extension>
 
 </plugin>
