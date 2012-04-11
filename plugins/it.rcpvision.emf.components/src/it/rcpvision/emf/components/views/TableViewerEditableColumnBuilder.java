@@ -89,7 +89,7 @@ public class TableViewerEditableColumnBuilder extends TableViewerColumnBuilder {
 					}
 				};
 			}
-			if (Double.class.equals(eStructuralFeature.getEType().getInstanceClass())) {
+			if (double.class.equals(eStructuralFeature.getEType().getInstanceClass()) || Double.class.equals(eStructuralFeature.getEType().getInstanceClass())) {
 				return new TextCellEditor((Composite) getViewer().getControl()) {
 					@Override
 					protected void doSetValue(Object value) {
@@ -103,7 +103,7 @@ public class TableViewerEditableColumnBuilder extends TableViewerColumnBuilder {
 					}
 				};
 			}
-			if (Integer.class.equals(eStructuralFeature.getEType().getInstanceClass())) {
+			if (int.class.equals(eStructuralFeature.getEType().getInstanceClass()) || Integer.class.equals(eStructuralFeature.getEType().getInstanceClass())) {
 				return new TextCellEditor((Composite) getViewer().getControl()) {
 					@Override
 					protected void doSetValue(Object value) {
@@ -117,7 +117,7 @@ public class TableViewerEditableColumnBuilder extends TableViewerColumnBuilder {
 					}
 				};
 			}
-			if (Float.class.equals(eStructuralFeature.getEType().getInstanceClass())) {
+			if (float.class.equals(eStructuralFeature.getEType().getInstanceClass()) || Float.class.equals(eStructuralFeature.getEType().getInstanceClass())) {
 				return new TextCellEditor((Composite) getViewer().getControl()) {
 					@Override
 					protected void doSetValue(Object value) {
@@ -131,7 +131,21 @@ public class TableViewerEditableColumnBuilder extends TableViewerColumnBuilder {
 					}
 				};
 			}
-			if (Byte.class.equals(eStructuralFeature.getEType().getInstanceClass())) {
+			if (short.class.equals(eStructuralFeature.getEType().getInstanceClass()) || Short.class.equals(eStructuralFeature.getEType().getInstanceClass())) {
+				return new TextCellEditor((Composite) getViewer().getControl()) {
+					@Override
+					protected void doSetValue(Object value) {
+						super.doSetValue("" + value);
+					}
+					
+					@Override
+					protected Object doGetValue() {
+						String stringValue = (String) super.doGetValue();
+						return new Short(stringValue);
+					}
+				};
+			}
+			if (byte.class.equals(eStructuralFeature.getEType().getInstanceClass()) || Byte.class.equals(eStructuralFeature.getEType().getInstanceClass())) {
 				return new TextCellEditor((Composite) getViewer().getControl()) {
 					@Override
 					protected void doSetValue(Object value) {
@@ -145,7 +159,7 @@ public class TableViewerEditableColumnBuilder extends TableViewerColumnBuilder {
 					}
 				};
 			}
-			if (Boolean.class.equals(eStructuralFeature.getEType().getInstanceClass())) {
+			if (boolean.class.equals(eStructuralFeature.getEType().getInstanceClass()) || Boolean.class.equals(eStructuralFeature.getEType().getInstanceClass())) {
 				return new CheckboxCellEditor((Composite) getViewer().getControl()) {
 					@Override
 					protected void doSetValue(Object value) {
