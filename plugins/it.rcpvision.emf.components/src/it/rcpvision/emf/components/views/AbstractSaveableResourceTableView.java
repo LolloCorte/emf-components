@@ -19,7 +19,7 @@ public abstract class AbstractSaveableResourceTableView extends
 	@Inject
 	protected EditingDomainResourceLoader resourceLoader;
 
-	private TableViewer tableViewer;
+	protected TableViewer tableViewer;
 
 	@Override
 	public void createPartControl(Composite parent) {
