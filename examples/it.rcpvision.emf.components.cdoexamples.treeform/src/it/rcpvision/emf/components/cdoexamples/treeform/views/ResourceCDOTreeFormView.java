@@ -25,7 +25,7 @@ public class ResourceCDOTreeFormView extends ViewPart {
 
 	@Override
 	public void createPartControl(Composite parent) {
-		treeFormMasterDetailComposite = emfCompositeFactory.createTreeFormDetailComposite(parent,
+		treeFormMasterDetailComposite = emfCompositeFactory.createTreeFormMasterDetailComposite(parent,
 				SWT.BORDER);
 
 		String uriStr = "cdo://localhost:2036/demo/myResource/";
