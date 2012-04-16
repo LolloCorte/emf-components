@@ -22,7 +22,7 @@ public class ResourceTreeFormView extends ViewPart {
 
 	@Override
 	public void createPartControl(Composite parent) {
-		treeFormMasterDetailComposite = emfCompositeFactory.createTreeFormDetailComposite(parent,
+		treeFormMasterDetailComposite = emfCompositeFactory.createTreeFormMasterDetailComposite(parent,
 				SWT.BORDER);
 
 		URI uri = URI.createPlatformResourceURI("/library/Library.xmi", true);

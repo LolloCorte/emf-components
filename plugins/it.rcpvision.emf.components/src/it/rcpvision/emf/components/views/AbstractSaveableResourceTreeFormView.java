@@ -43,7 +43,7 @@ public abstract class AbstractSaveableResourceTreeFormView extends AbstractSavea
 		// DON'T USE THE changeAdapter!!!
 		// it will act as an item provider editing adapter
 		// and actions won't be created!!!
-		treeFormMasterDetailComposite = emfCompositeFactory.createTreeFormDetailComposite(parent,
+		treeFormMasterDetailComposite = emfCompositeFactory.createTreeFormMasterDetailComposite(parent,
 				SWT.BORDER);
 		
 		treeFormMasterDetailComposite.update(getResource());

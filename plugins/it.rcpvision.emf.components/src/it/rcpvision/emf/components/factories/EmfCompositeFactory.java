@@ -32,7 +32,7 @@ public class EmfCompositeFactory {
 
 	}
 
-	public TreeFormMasterDetailComposite createTreeFormDetailComposite(Composite parent, int style) {
+	public TreeFormMasterDetailComposite createTreeFormMasterDetailComposite(Composite parent, int style) {
 		return new TreeFormMasterDetailComposite(parent, style, viewerInitializer,
 				emfFormCompositeFactory, emfSelectionHelperProvider.get());
 	}
