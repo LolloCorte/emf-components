@@ -26,48 +26,25 @@ package «projectName»;
 
 import it.rcpvision.emf.components.views.AbstractSaveableResourceTableView;
 
-import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.xtext.EcoreUtil2;
 
 public class «simpleName»TableView extends AbstractSaveableResourceTableView {
 
-	//TODO the EObject must be the implemented type container
-	private EObject container;
-
 	@Override
 	protected Object getContents(Resource resource) {
-		//TODO the EObject must be the implemented type container
-		container = (EObject) resource.getContents().get(0);
-		//TODO the EObject must be the implemented type contained
-		return EcoreUtil2.getAllContentsOfType(container, EObject.class);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	protected EClass getEClass() {
-		//TODO the implemented Literal
+		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	protected URI createResourceURI() {
 		return ContentsURILoader.getResourceUri();
-	}
-	
-	@Override
-	public void createPartControl(Composite parent) {
-		super.createPartControl(parent);
-		//TODO create implementation
-	}
-	
-	@Override
-	protected void customizePostCommandStackChanged(Command mostRecentCommand) {
-		//TODO the EObject must be the implemented type contained
-		tableViewer.setInput(EcoreUtil2.getAllContentsOfType(container, EObject.class));
-		tableViewer.refresh();
 	}
 }
 '''
@@ -88,4 +65,20 @@ public class ContentsURILoader {
 }
 '''
 
+	def generatePluginXml(String factoryClass, String qualifiedNameView)
+'''
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+           <view
+               class="«factoryClass»:«qualifiedNameView»"
+               id="«qualifiedNameView»"
+               name="Form View"
+               restorable="true"/>
+   </extension>
+</plugin>
+
+'''
 }

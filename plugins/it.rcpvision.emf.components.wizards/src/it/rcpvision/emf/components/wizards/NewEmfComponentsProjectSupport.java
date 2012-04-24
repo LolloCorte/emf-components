@@ -70,9 +70,10 @@ public class NewEmfComponentsProjectSupport {
             createProjectFile(project, projectPackagePath + "/Activator.java",
                     filesGenerator.generateActivator(projectName).toString(),
                     createSubProgressMonitor(progressMonitor));
+            String qualifiedNamePathFactory = projectPackagePath + "/ExecutableExtensionFactory.java";
             createProjectFile(
                     project,
-                    projectPackagePath + "/ExecutableExtensionFactory.java",
+                    qualifiedNamePathFactory,
                     filesGenerator.generateExecutableExtensionFactory(
                             projectName).toString(),
                     createSubProgressMonitor(progressMonitor));
@@ -89,15 +90,18 @@ public class NewEmfComponentsProjectSupport {
                     createSubProgressMonitor(progressMonitor));
             
             String simpleClassName = getSimpleNameProject(projectPackagePath);
+            String qualifiedNameView = null;
             createProjectFile(project, projectPackagePath + "/ContentsURILoader.java", viewGenerator.generateContentsURILoader(projectName).toString(),
                     createSubProgressMonitor(progressMonitor));
             switch (viewType) {
             case TREEFORM_VIEW_TYPE:
-                createProjectFile(project, projectPackagePath + "/" + simpleClassName + "TreeFormView.java", viewGenerator.generateTreeFormView(projectName, simpleClassName).toString(),
+                qualifiedNameView = simpleClassName + "TreeFormView";
+                createProjectFile(project, projectPackagePath + "/" + qualifiedNameView.concat(".java"), viewGenerator.generateTreeFormView(projectName, simpleClassName).toString(),
                         createSubProgressMonitor(progressMonitor));
                 break;
             case TABLE_VIEW_TYPE:
-                createProjectFile(project, projectPackagePath + "/" + simpleClassName + "TableView.java", viewGenerator.generateTableView(projectName, simpleClassName).toString(),
+                qualifiedNameView = simpleClassName + "TableView";
+                createProjectFile(project, projectPackagePath + "/" + qualifiedNameView.concat(".java"), viewGenerator.generateTableView(projectName, simpleClassName).toString(),
                         createSubProgressMonitor(progressMonitor));
                 break;
             default:
@@ -105,6 +109,9 @@ public class NewEmfComponentsProjectSupport {
                 throw new CoreException(null);
             }
             
+            createProjectFile(project, "/plugin.xml", viewGenerator.generatePluginXml(projectName.concat(".ExecutableExtensionFactory"), projectName.concat(".").concat(qualifiedNameView)).toString(),
+                    createSubProgressMonitor(progressMonitor));
+
             addNatures(project, createSubProgressMonitor(progressMonitor));
         } catch (CoreException e) {
             e.printStackTrace();
@@ -121,7 +128,7 @@ public class NewEmfComponentsProjectSupport {
         if (projectName.contains(".")) {
             simpleNameProject = projectName.substring(projectName.lastIndexOf(".") + 1);
         } else {
-            simpleNameProject = projectName;
+            simpleNameProject = projectName.substring(projectName.lastIndexOf("/") + 1);
         }
         simpleNameProject = simpleNameProject.substring(0, 1).toUpperCase().concat(simpleNameProject.substring(1));
         return simpleNameProject;
