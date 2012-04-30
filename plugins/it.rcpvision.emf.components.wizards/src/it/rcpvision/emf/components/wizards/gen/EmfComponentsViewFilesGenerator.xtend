@@ -14,7 +14,8 @@ public class «simpleName»TreeFormView extends AbstractSaveableResourceTreeForm
 
 	@Override
 	protected URI createResourceURI() {
-		return ContentsURILoader.getResourceUri();
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
@@ -65,7 +66,20 @@ public class «simpleName»TableView extends AbstractSaveableResourceTableView {
                name="Form View"
                restorable="true"/>
    </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="*">
+         <view
+               id="«qualifiedNameView»"
+               minimized="false"
+               ratio="100"
+               relationship="stack"
+               relative="org.eclipse.ui.editorss"
+               visible="true">
+         </view>
+      </perspectiveExtension>
+   </extension>
 </plugin>
-
 '''
 }
