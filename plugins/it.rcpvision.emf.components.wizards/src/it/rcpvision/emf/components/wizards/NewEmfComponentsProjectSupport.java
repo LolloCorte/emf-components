@@ -91,8 +91,6 @@ public class NewEmfComponentsProjectSupport {
             
             String simpleClassName = getSimpleNameProject(projectPackagePath);
             String qualifiedNameView = null;
-            createProjectFile(project, projectPackagePath + "/ContentsURILoader.java", viewGenerator.generateContentsURILoader(projectName).toString(),
-                    createSubProgressMonitor(progressMonitor));
             switch (viewType) {
             case TREEFORM_VIEW_TYPE:
                 qualifiedNameView = simpleClassName + "TreeFormView";

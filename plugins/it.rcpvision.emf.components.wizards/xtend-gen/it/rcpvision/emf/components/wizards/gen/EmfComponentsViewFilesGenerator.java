@@ -53,6 +53,10 @@ public class EmfComponentsViewFilesGenerator {
     _builder.newLine();
     _builder.append("import org.eclipse.emf.common.util.URI;");
     _builder.newLine();
+    _builder.append("import org.eclipse.emf.ecore.EClass;");
+    _builder.newLine();
+    _builder.append("import org.eclipse.emf.ecore.resource.Resource;");
+    _builder.newLine();
     _builder.newLine();
     _builder.append("public class ");
     _builder.append(simpleName, "");
@@ -98,43 +102,13 @@ public class EmfComponentsViewFilesGenerator {
     _builder.append("protected URI createResourceURI() {");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("return ContentsURILoader.getResourceUri();");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("}");
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
-    return _builder;
-  }
-  
-  public CharSequence generateContentsURILoader(final String projectName) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("package ");
-    _builder.append(projectName, "");
-    _builder.append(";");
-    _builder.newLineIfNotEmpty();
-    _builder.newLine();
-    _builder.append("import org.eclipse.emf.common.util.URI;");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("public class ContentsURILoader {");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("public static URI getResourceUri() {");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("//TODO needs to be implemented");
+    _builder.append("// TODO Auto-generated method stub");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("return null;");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("}");
-    _builder.newLine();
-    _builder.append("\t");
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();

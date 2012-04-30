@@ -27,6 +27,8 @@ package «projectName»;
 import it.rcpvision.emf.components.views.AbstractSaveableResourceTableView;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.resource.Resource;
 
 public class «simpleName»TableView extends AbstractSaveableResourceTableView {
 
@@ -44,24 +46,9 @@ public class «simpleName»TableView extends AbstractSaveableResourceTableView {
 
 	@Override
 	protected URI createResourceURI() {
-		return ContentsURILoader.getResourceUri();
-	}
-}
-'''
-
-	def generateContentsURILoader(String projectName)
-'''
-package «projectName»;
-
-import org.eclipse.emf.common.util.URI;
-
-public class ContentsURILoader {
-	
-	public static URI getResourceUri() {
-		//TODO needs to be implemented
+		// TODO Auto-generated method stub
 		return null;
 	}
-	
 }
 '''
 
