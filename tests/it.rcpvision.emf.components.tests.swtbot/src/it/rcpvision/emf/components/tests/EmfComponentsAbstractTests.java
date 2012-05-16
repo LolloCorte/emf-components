@@ -127,7 +127,7 @@ public class EmfComponentsAbstractTests {
 	protected static final String EMF_TABLE_VIEW = "Emf Table View";
 
 	protected static final String LIBRARY_TEST_EMF_TABLE_VIEW = "Library Test Table";
-	
+
 	protected static final String TEST_SAVEABLE_RESOURCE_TREE_FORM_VIEW = "Library Test Saveable Resource Tree Form View";
 
 	protected static final String WRITER_S_ADDRESS_TEXT = "writer's address";
@@ -149,20 +149,20 @@ public class EmfComponentsAbstractTests {
 
 	protected static final String CUSTOM_PEOPLE_TEXT = WRITER_LABEL + ", "
 			+ CUSTOM_BORROWER_LABEL;
-	
+
 	protected static final String ACTION_DELETE = "Delete";
-	
+
 	protected static final String ACTION_VALIDATE = "Validate";
-	
+
 	protected static final String ACTION_COPY = "Copy";
-	
+
 	protected static final String ACTION_CUT = "Cut";
-	
+
 	protected static final String ACTION_PASTE = "Paste";
-	
+
 	// they have mnemonic so use a space after the string
 	protected static final String ACTION_REDO = "Redo ";
-	
+
 	protected static final String ACTION_UNDO = "Undo ";
 
 	protected static final String BOOK_ON_TAPE = "Book On Tape";
@@ -217,7 +217,7 @@ public class EmfComponentsAbstractTests {
 
 	protected void assertPropertyViewIsOpenedAndCloseIt() {
 		SWTBotView propertyView = bot.viewByTitle("Properties");
-		//bot.sleep(2000);
+		// bot.sleep(2000);
 		propertyView.close();
 	}
 
@@ -293,8 +293,7 @@ public class EmfComponentsAbstractTests {
 			String emfEditorContextMenuString, String fileName,
 			String treeRootLabel) throws CoreException,
 			InvocationTargetException, InterruptedException, IOException {
-		SWTBotTree tree = getEditorTree(emfEditorContextMenuString,
-				fileName);
+		SWTBotTree tree = getEditorTree(emfEditorContextMenuString, fileName);
 		SWTBotTreeItem treeItemRoot = tree.getTreeItem(treeRootLabel);
 		return treeItemRoot;
 	}
@@ -354,6 +353,30 @@ public class EmfComponentsAbstractTests {
 
 	protected void createProjectInWorkspace(String category,
 			String projectType, String projectName) {
+		SWTBotShell shell = createNewProjectWizard(category, projectType,
+				projectName);
+
+		bot.button("Finish").click();
+		assertProjectIsCreated(projectName, shell);
+	}
+
+	protected void createProjectInWorkspaceWithView(String category,
+			String projectType, String projectName, String viewToSelect) {
+		SWTBotShell shell = createNewProjectWizard(category, projectType,
+				projectName);
+
+		// advance to the second page
+		bot.button("Next >").click();
+		if (viewToSelect != null) {
+			bot.radio(viewToSelect).click();
+		}
+
+		bot.button("Finish").click();
+		assertProjectIsCreated(projectName, shell);
+	}
+
+	protected SWTBotShell createNewProjectWizard(String category,
+			String projectType, String projectName) {
 		bot.menu("File").menu("New").menu("Project...").click();
 
 		SWTBotShell shell = bot.shell("New Project");
@@ -362,8 +385,10 @@ public class EmfComponentsAbstractTests {
 		bot.button("Next >").click();
 
 		bot.textWithLabel("Project name:").setText(projectName);
+		return shell;
+	}
 
-		bot.button("Finish").click();
+	protected void assertProjectIsCreated(String projectName, SWTBotShell shell) {
 		// creation of a project might require some time
 		bot.waitUntil(shellCloses(shell), 50000);
 		assertTrue("Project doesn't exist", isProjectCreated(projectName));
