@@ -71,17 +71,7 @@ public class TableColumnLabelProvider extends ColumnLabelProvider {
 	@Override
 	public Image getImage(Object element) {
 		Image ret=polymorphicGetImage(element, eStructuralFeature);
-		if(ret!=null) {
-			return ret;
-		}
-		try {
-			Object featureValue = getFeatureValue(element);
-			return featureValue != null ? labelProvider.getImage(featureValue)
-					: null;
-		} catch (Exception e) {
-			// avoid exceptions during rendering
-			return null;
-		}
+		return ret;
 	}
 	
 	protected String polymorphicGetText(Object element,	EStructuralFeature feature) {
