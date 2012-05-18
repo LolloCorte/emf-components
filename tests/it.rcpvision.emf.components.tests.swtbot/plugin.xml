@@ -104,5 +104,11 @@
              name="Library Test Saveable Resource Tree Form View"
              restorable="true">
        </view>
+       <view
+             class="it.rcpvision.emf.components.tests.factories.CustomLibraryExecutableExtensionFactory:it.rcpvision.emf.components.tests.views.TestSaveableResourceTableView"
+             id="it.rcpvision.emf.components.tests.views.testsaveableresourcetableview"
+             name="Library Test Saveable Resource Table View"
+             restorable="true">
+       </view>
     </extension>
 </plugin>
