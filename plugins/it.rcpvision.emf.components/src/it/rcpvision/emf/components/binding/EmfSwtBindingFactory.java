@@ -36,6 +36,8 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EEnumImpl;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.bindings.keys.KeyStroke;
 import org.eclipse.jface.bindings.keys.ParseException;
@@ -97,11 +99,18 @@ public class EmfSwtBindingFactory {
 			FormToolkit toolkit) {
 		this.edbc = new EMFDataBindingContext();
 		this.domain = domain;
-		this.proposalcreator = new ProposalCreator(domain == null ? owner
-				.eResource().getResourceSet() : domain.getResourceSet());
+		this.proposalcreator = new ProposalCreator(
+				getResourceSet(domain, owner));
 		this.owner = owner;
 		this.parent = parent;
 		this.toolkit = toolkit;
+	}
+
+	protected ResourceSet getResourceSet(EditingDomain domain, EObject owner) {
+		Resource resource = owner.eResource();
+		ResourceSet resourceSet = (resource == null ? null : resource
+				.getResourceSet());
+		return domain == null ? resourceSet : domain.getResourceSet();
 	}
 
 	public Control create(EStructuralFeature feature) {
