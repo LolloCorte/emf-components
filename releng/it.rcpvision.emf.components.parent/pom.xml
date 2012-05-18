@@ -37,6 +37,26 @@
 		         </target>
 		      </configuration>
 		   </plugin>
+		   <!-- enable source bundle generation -->
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-source-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<excludes>
+						<exclude>**/*.java._trace</exclude>
+						<exclude>**/*.smap</exclude>
+					</excludes>
+				</configuration>
+				<executions>
+					<execution>
+						<id>plugin-source</id>
+						<goals>
+							<goal>plugin-source</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 	<modules>
@@ -54,6 +74,7 @@
 		<module>../../examples/it.rcpvision.emf.components.examples.fowlerdsl</module>
 		<module>../../examples/it.rcpvision.emf.components.examples.fowlerdsl.ui</module>
 		<module>../../features/it.rcpvision.emf.components.examples.feature</module>
+		<module>../../features/it.rcpvision.emf.components.source.feature</module>
 		<module>../it.rcpvision.emf.components.repository</module>
 		<module>../../tests/it.rcpvision.emf.components.tests.swtbot</module>
 	</modules>
