@@ -38,7 +38,7 @@ public class EmfComponentsProjectFilesGenerator {
     return _builder;
   }
   
-  public CharSequence generateBuildProperties() {
+  public CharSequence generateBuildProperties(final boolean hasPluginXml) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("source.. = src/");
     _builder.newLine();
@@ -48,7 +48,15 @@ public class EmfComponentsProjectFilesGenerator {
     _builder.newLine();
     _builder.append("               ");
     _builder.append(".");
-    _builder.newLine();
+    {
+      if (hasPluginXml) {
+        _builder.append(",\\");
+        _builder.newLineIfNotEmpty();
+        _builder.append("               ");
+        _builder.append("plugin.xml");
+      }
+    }
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   

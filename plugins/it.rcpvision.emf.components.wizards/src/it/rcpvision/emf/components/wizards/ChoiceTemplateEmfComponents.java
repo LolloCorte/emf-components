@@ -14,7 +14,9 @@ import org.eclipse.ui.internal.ide.IIDEHelpContextIds;
 
 public class ChoiceTemplateEmfComponents extends NewElementWizardPage {
     
-    private int choice = 0;
+	public enum Choice { NONE, TREEFORM, TABLEFORM };
+	
+    private Choice choice = Choice.NONE;
 
     public ChoiceTemplateEmfComponents(String name) {
         super(name);
@@ -34,12 +36,12 @@ public class ChoiceTemplateEmfComponents extends NewElementWizardPage {
         
         Button choiceTree = new Button(composite, SWT.RADIO);
         choiceTree.setText("Create a TreeFormView");
-        choiceTree.setSelection(true);
+        choiceTree.setSelection(false);
         choiceTree.addSelectionListener(new SelectionAdapter() {
             
             @Override
             public void widgetSelected(SelectionEvent e) {
-                choice = 0;
+                choice = Choice.TREEFORM;
             }
         });
         
@@ -50,20 +52,10 @@ public class ChoiceTemplateEmfComponents extends NewElementWizardPage {
             
             @Override
             public void widgetSelected(SelectionEvent e) {
-                choice = 1;
+                choice = Choice.TABLEFORM;
             }
         });
 
-//        createProjectNameGroup(composite);
-//        locationArea = new ProjectContentsLocationArea(getErrorReporter(), composite);
-//        if(initialProjectFieldValue != null) {
-//            locationArea.updateProjectName(initialProjectFieldValue);
-//        }
-        
-//        // Scale the button based on the rest of the dialog
-//        setButtonLayoutData(locationArea.getBrowseButton());
-//        
-//        setPageComplete(validatePage());
         // Show description on opening
         setErrorMessage(null);
         setMessage(null);
@@ -71,7 +63,7 @@ public class ChoiceTemplateEmfComponents extends NewElementWizardPage {
         Dialog.applyDialogFont(composite);
     }
     
-    public int getChoice() {
+    public Choice getChoice() {
         return choice;
     }
     

@@ -25,7 +25,26 @@ public class EmfComponentsWizardsTests extends EmfComponentsAbstractTests {
 	public void canCreateProjectWithWizard() throws Exception {
 		createProjectInWorkspace(EMF_COMPONENTS_CATEGORY,
 				NEW_EMF_COMPONENTS_PROJECT, EMF_COMPONENTS_PROJECT);
-		//bot.sleep(300000);
+		// bot.sleep(300000);
+		waitForBuild();
+		assertNoErrorsInProject();
+	}
+
+	@Test
+	public void canCreateProjectWithWizardWithNoSelectedView() throws Exception {
+		createProjectInWorkspaceWithView(EMF_COMPONENTS_CATEGORY,
+				NEW_EMF_COMPONENTS_PROJECT, EMF_COMPONENTS_PROJECT, null);
+		// bot.sleep(300000);
+		waitForBuild();
+		assertNoErrorsInProject();
+	}
+
+	@Test
+	public void canCreateProjectWithWizardWithSelectedView() throws Exception {
+		createProjectInWorkspaceWithView(EMF_COMPONENTS_CATEGORY,
+				NEW_EMF_COMPONENTS_PROJECT, EMF_COMPONENTS_PROJECT,
+				"Create a TreeFormView");
+		// bot.sleep(300000);
 		waitForBuild();
 		assertNoErrorsInProject();
 	}
@@ -33,8 +52,7 @@ public class EmfComponentsWizardsTests extends EmfComponentsAbstractTests {
 	protected void assertNoErrorsInProject() throws CoreException {
 		IMarker[] markers = root().findMarkers(IMarker.PROBLEM, true,
 				IResource.DEPTH_INFINITE);
-		assertEquals("expected no markers: " + printMarkers(markers),
-				0,
+		assertEquals("expected no markers: " + printMarkers(markers), 0,
 				markers.length);
 	}
 

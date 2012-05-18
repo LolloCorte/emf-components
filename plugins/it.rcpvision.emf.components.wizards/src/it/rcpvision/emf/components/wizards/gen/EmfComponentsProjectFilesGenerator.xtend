@@ -17,12 +17,13 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 '''
 
-	def generateBuildProperties()
+	def generateBuildProperties(boolean hasPluginXml)
 '''
 source.. = src/
 output.. = bin/
 bin.includes = META-INF/,\
-               .
+               .«IF hasPluginXml»,\
+               plugin.xml«ENDIF»
 '''
 
 	def generateActivator(String projectName)
