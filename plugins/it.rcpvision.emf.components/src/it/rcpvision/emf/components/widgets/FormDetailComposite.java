@@ -83,9 +83,9 @@ public class FormDetailComposite extends Composite {
 			// ignored
 			if (feature.isChangeable()
 					&& !feature.isDerived()
-					&& !(feature instanceof EReference && (((EReference) feature)
-							.isContainment() || ((EReference) feature)
-							.isContainer()))) {
+					&& !(feature instanceof EReference && (((EReference) feature).isContainment() 
+//							|| ((EReference) feature).isContainer()
+							))) {
 
 				formFeatureLabelProvider.getLabel(main, feature);
 
