@@ -71,7 +71,7 @@ public abstract class AbstractSaveableResourceView extends ViewPart implements
 												.getMostRecentCommand();
 										
 										for (Object o :  mostRecentCommand.getAffectedObjects()) {
-											if(o instanceof EObject && getResource().equals(((EObject)o).eResource())){
+											if(o instanceof EObject && getResource().equals(((EObject)o).eResource()) || ((EObject)o).eResource()==null){
 												setDirty(true);
 												firePropertyChange(PROP_DIRTY);
 												break;

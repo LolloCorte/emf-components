@@ -10,6 +10,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.command.CreateChildCommand;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
@@ -35,7 +36,10 @@ public abstract class AbstractSaveableResourceTreeFormView extends AbstractSavea
 
 	protected TreeFormMasterDetailComposite treeFormMasterDetailComposite;
 
-
+	protected Object getContents(Resource resource){
+		return resource;
+	}
+	
 	@Override
 	public void createPartControl(Composite parent) {
 		super.createPartControl(parent);
@@ -46,7 +50,7 @@ public abstract class AbstractSaveableResourceTreeFormView extends AbstractSavea
 		treeFormMasterDetailComposite = emfCompositeFactory.createTreeFormMasterDetailComposite(parent,
 				SWT.BORDER);
 		
-		treeFormMasterDetailComposite.update(getResource());
+		treeFormMasterDetailComposite.update(getContents(getResource()));
 
 		createContextMenuFor(treeFormMasterDetailComposite.getViewer());
 //		actionBarContributor.setViewerForSelection(treeFormMasterDetailComposite.getViewer());

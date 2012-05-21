@@ -4,7 +4,7 @@
 package it.rcpvision.emf.components.views;
 
 import it.rcpvision.emf.components.factories.JfaceProviderFactory;
-import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
+import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesColumnProvider;
 import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 
 import java.util.List;
@@ -31,6 +31,8 @@ import com.google.inject.Inject;
  */
 public class TableViewerColumnBuilder {
 
+	private static final int DEFAULT_WEIGHT = 3;
+
 	@Inject
 	protected JfaceProviderFactory jfaceProviderFactory;
 
@@ -38,7 +40,7 @@ public class TableViewerColumnBuilder {
 	protected FeatureLabelProvider featureLabelProvider;
 
 	@Inject
-	protected EStructuralFeaturesProvider featuresProvider;
+	protected EStructuralFeaturesColumnProvider featuresProvider;
 
 	public void buildTableViewer(TableViewer tableViewer, EClass eClass) {
 		buildTableViewer(tableViewer, eClass, null);
@@ -61,19 +63,30 @@ public class TableViewerColumnBuilder {
 
 		List<EStructuralFeature> typeFeatures = featuresProvider
 				.getFeatures(eClass);
+		int i=0;
 		for (EStructuralFeature eStructuralFeature : typeFeatures) {
+			int weight=DEFAULT_WEIGHT;
+			if(featuresProvider.getWeights()!=null && featuresProvider.getWeights().size()>i){
+				weight=featuresProvider.getWeights().get(i++);
+			}
 			buildTableViewerColumn(tableViewer, layout, eStructuralFeature,
-					contentProvider);
+					contentProvider,weight);
 		}
+	}
+	
+	protected TableViewerColumn buildTableViewerColumn(TableViewer tableViewer,
+			TableLayout layout, EStructuralFeature eStructuralFeature,
+			IStructuredContentProvider contentProvider) {
+		return buildTableViewerColumn(tableViewer, layout, eStructuralFeature, contentProvider,DEFAULT_WEIGHT);
 	}
 
 	protected TableViewerColumn buildTableViewerColumn(TableViewer tableViewer,
 			TableLayout layout, EStructuralFeature eStructuralFeature,
-			IStructuredContentProvider contentProvider) {
+			IStructuredContentProvider contentProvider, int weight) {
 		TableViewerColumn viewerColumn = createTableViewerColumn(tableViewer,
 				eStructuralFeature, contentProvider);
 		TableColumn objectColumn = viewerColumn.getColumn();
-		layout.addColumnData(new ColumnWeightData(3, 100, true));
+		layout.addColumnData(new ColumnWeightData(weight, 30, true));
 		objectColumn.setText(featureLabelProvider.getText(eStructuralFeature));
 		objectColumn.setResizable(true);
 		return viewerColumn;
