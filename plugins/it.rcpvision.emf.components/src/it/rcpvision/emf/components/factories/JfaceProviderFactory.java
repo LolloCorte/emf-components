@@ -5,7 +5,7 @@ package it.rcpvision.emf.components.factories;
 
 import it.rcpvision.emf.components.ui.provider.AdapterMapCellLabelProvider;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
-import it.rcpvision.emf.components.ui.provider.EStructuralFeatureColumnProvider;
+import it.rcpvision.emf.components.ui.provider.TableColumnLabelProvider;
 
 import org.eclipse.core.databinding.observable.map.IObservableMap;
 import org.eclipse.emf.databinding.EMFProperties;
@@ -14,6 +14,7 @@ import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.databinding.viewers.ObservableListContentProvider;
 import org.eclipse.jface.viewers.CellLabelProvider;
+import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 
@@ -33,7 +34,7 @@ public class JfaceProviderFactory {
 	protected Provider<ComposedAdapterFactory> composedAdapterFactoryProvider;
 
 	@Inject
-	protected Provider<EStructuralFeatureColumnProvider> eStructuralFeatureColumnProviderProvider;
+	protected Provider<TableColumnLabelProvider> eStructuralFeatureColumnProviderProvider;
 
 	public ILabelProvider createLabelProvider(
 			ILabelProvider delegateLabelProvider) {
@@ -48,9 +49,9 @@ public class JfaceProviderFactory {
 				composedAdapterFactoryProvider.get()));
 	}
 
-	public CellLabelProvider createColumnLabelProvider(
+	public ColumnLabelProvider createColumnLabelProvider(
 			EStructuralFeature eStructuralFeature) {
-		EStructuralFeatureColumnProvider columnProvider = eStructuralFeatureColumnProviderProvider
+		TableColumnLabelProvider columnProvider = eStructuralFeatureColumnProviderProvider
 				.get();
 		columnProvider.seteStructuralFeature(eStructuralFeature);
 
@@ -72,7 +73,7 @@ public class JfaceProviderFactory {
 	public CellLabelProvider createColumnLabelProvider(
 			EStructuralFeature eStructuralFeature,
 			ObservableListContentProvider cp) {
-		EStructuralFeatureColumnProvider columnProvider = eStructuralFeatureColumnProviderProvider
+		TableColumnLabelProvider columnProvider = eStructuralFeatureColumnProviderProvider
 				.get();
 		columnProvider.seteStructuralFeature(eStructuralFeature);
 

@@ -5,13 +5,16 @@ import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.EventObject;
+import java.util.List;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -61,14 +64,20 @@ public abstract class AbstractSaveableResourceView extends ViewPart implements
 						getSite().getWorkbenchWindow().getShell().getDisplay()
 								.asyncExec(new Runnable() {
 									public void run() {
-										setDirty(true);
-										firePropertyChange(PROP_DIRTY);
-
 										// Try to select the affected objects.
 										//
 										Command mostRecentCommand = ((CommandStack) event
 												.getSource())
 												.getMostRecentCommand();
+										
+										for (Object o :  mostRecentCommand.getAffectedObjects()) {
+											if(o instanceof EObject && getResource().equals(((EObject)o).eResource())){
+												setDirty(true);
+												firePropertyChange(PROP_DIRTY);
+												break;
+											}
+										}
+										
 										customizePostCommandStackChanged(mostRecentCommand);
 									}
 

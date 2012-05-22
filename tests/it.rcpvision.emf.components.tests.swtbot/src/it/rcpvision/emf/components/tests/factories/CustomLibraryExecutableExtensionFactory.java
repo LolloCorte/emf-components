@@ -10,9 +10,11 @@ import it.rcpvision.emf.components.tests.binding.CustomLibraryBindingFactory;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryFeatureLabelProvider;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryFormFeatureLabelProvider;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryLabelProvider;
+import it.rcpvision.emf.components.tests.labeling.CustomLibraryTableColumnLabelProvider;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.TableColumnLabelProvider;
 
 
 /**
@@ -47,6 +49,11 @@ public class CustomLibraryExecutableExtensionFactory extends
 			@Override
 			public Class<? extends EmfSwtBindingFactory> bindEmfSwtBindingFactory() {
 				return CustomLibraryBindingFactory.class;
+			}
+			
+			@Override
+			public Class<? extends TableColumnLabelProvider> bindTableColumnLabelProvider() {
+				return CustomLibraryTableColumnLabelProvider.class;
 			}
 
 		};

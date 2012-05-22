@@ -71,6 +71,10 @@ public class ProposalCreator {
 
 	private List<Object> findAllInstances(EClassifier type) {
 		List<Object> objects = new ArrayList<Object>();
+		
+		if (resourceSet == null)
+			return objects;
+		
 		TreeIterator<Object> allContents = EcoreUtil.getAllContents(
 				resourceSet.getResources(), true);
 		while (allContents.hasNext()) {
