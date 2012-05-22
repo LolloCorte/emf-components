@@ -36,6 +36,13 @@
 		</provider>
 		<provider componentTypes="osgi.bundle" readerType="local"
 			mutable="false">
+			<uri format="{0}/examples/{1}">
+				<bc:propertyRef key="workspace.root" />
+				<bc:propertyRef key="buckminster.component" />
+			</uri>
+		</provider>
+		<provider componentTypes="osgi.bundle" readerType="local"
+			mutable="false">
 			<uri format="{0}/tests/{1}">
 				<bc:propertyRef key="workspace.root" />
 				<bc:propertyRef key="buckminster.component" />
