@@ -1,8 +1,8 @@
-importtargetdefinition -A '${WORKSPACE}/releng/it.rcpvision.emf.components.target/emf-components.target'
-import '${WORKSPACE}/releng/it.rcpvision.emf.components.site/site.cquery'
+importtargetdefinition -A releng/it.rcpvision.emf.components.target/emf-components.target
+import releng/it.rcpvision.emf.components.site/site.cquery
 clean
 build
 perform -D target.os=* -D target.ws=* -D target.arch=* it.rcpvision.emf.components.site#buckminster.clean
 perform -D target.os=* -D target.ws=* -D target.arch=* it.rcpvision.emf.components.site#site.p2.zip
-junit -l 'it.rcpvision.emf.components.cdo.tests/CDOUriTests.launch' --stderr -o '${WORKSPACE}/output/CDOUriTests_junit_result.xml'
-junit -l 'it.rcpvision.emf.components.tests.swtbot/EmfComponentsSwtBotAllTests.launch' --stderr -o '${WORKSPACE}/output/EmfComponentsSwtBotAllTests_junit_result.xml'
+junit -l 'it.rcpvision.emf.components.cdo.tests/CDOUriTests.launch' --stderr -o 'output/CDOUriTests_junit_result.xml'
+junit -l 'it.rcpvision.emf.components.tests.swtbot/EmfComponentsSwtBotAllTests.launch' --stderr -o 'output/EmfComponentsSwtBotAllTests_junit_result.xml'
