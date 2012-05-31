@@ -20,4 +20,12 @@
          id="it.rcpvision.emf.components.feature"
          version="0.0.0"/>
 
+   <includes
+         id="it.rcpvision.emf.components.cdo.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="it.rcpvision.emf.components.examples.feature"
+         version="0.0.0"/>
+
 </feature>
