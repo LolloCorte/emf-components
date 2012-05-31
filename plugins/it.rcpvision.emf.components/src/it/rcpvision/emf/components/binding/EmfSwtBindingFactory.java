@@ -91,6 +91,10 @@ public class EmfSwtBindingFactory {
 
 	private PolymorphicDispatcher.ErrorHandler<Control> createAndBind_errorHandler = new PolymorphicDispatcher.NullErrorHandler<Control>();
 
+	private PolymorphicDispatcher.ErrorHandler<IObservableValue> observeable_errorHandler = new PolymorphicDispatcher.NullErrorHandler<IObservableValue>();
+
+	private PolymorphicDispatcher.ErrorHandler<List> proposals_errorHandler = new PolymorphicDispatcher.NullErrorHandler<List>();
+	
 	public EmfSwtBindingFactory() {
 
 	}
@@ -135,12 +139,7 @@ public class EmfSwtBindingFactory {
 	}
 
 	protected Control bindList(final EStructuralFeature feature) {
-		IObservableValue source;
-		if (domain != null)
-			source = new EditingDomainEObjectObservableValue(domain, owner,
-					feature);
-		else
-			source = EMFObservables.observeValue(owner, feature);
+		IObservableValue source = createFeatureObserveable(feature);
 
 		ControlObservablePair retValAndTargetPair = createControlForList(feature);
 		Control retVal = retValAndTargetPair.getControl();
@@ -150,6 +149,18 @@ public class EmfSwtBindingFactory {
 		Binding binding = edbc.bindValue(target, source);
 		binding.updateModelToTarget();
 		return retVal;
+	}
+
+	private IObservableValue createFeatureObserveable(final EStructuralFeature feature) {
+		IObservableValue source=polymorphicCreateObserveable(domain, owner, feature);
+		if(source==null){	
+			if (domain != null){
+				source = new EditingDomainEObjectObservableValue(domain, owner, feature);
+			}else{
+				source = EMFObservables.observeValue(owner, feature);
+			}
+		}
+		return source;
 	}
 
 	protected ControlObservablePair createControlForList(
@@ -168,11 +179,7 @@ public class EmfSwtBindingFactory {
 	}
 
 	private Control bindValue(EStructuralFeature feature) {
-		IObservableValue source;
-		if (domain != null)
-			source = EMFEditObservables.observeValue(domain, owner, feature);
-		else
-			source = EMFObservables.observeValue(owner, feature);
+		IObservableValue source = createFeatureObserveable(feature);
 
 		ControlObservablePair retValAndTargetPair = createControlAndObservableValue(feature);
 		Control retVal = retValAndTargetPair.getControl();
@@ -231,7 +238,10 @@ public class EmfSwtBindingFactory {
 	}
 
 	protected List<?> createProposals(EStructuralFeature feature) {
-		List<?> proposals = proposalcreator.proposals(feature);
+		List<?> proposals  = polymorphicCreateProposals(owner, feature);
+		if(proposals==null){
+			proposals = proposalcreator.proposals(feature);
+		}
 		return proposals;
 	}
 
@@ -318,8 +328,7 @@ public class EmfSwtBindingFactory {
 		return parent;
 	}
 
-	private ControlObservablePair polymorphicGetObservableControl(
-			EStructuralFeature element) {
+	private ControlObservablePair polymorphicGetObservableControl(EStructuralFeature element) {
 		PolymorphicDispatcher<ControlObservablePair> dispatcher = new PolymorphicDispatcher<ControlObservablePair>(
 				Collections.singletonList(this),
 				getObservableControlPredicate(element), control_errorHandler) {
@@ -364,6 +373,59 @@ public class EmfSwtBindingFactory {
 	protected Predicate<Method> getCreateControlPredicate(
 			EStructuralFeature feature) {
 		String methodName = "createAndBind_"
+				+ feature.getEContainingClass().getName() + "_"
+				+ feature.getName();
+		return PolymorphicDispatcher.Predicates.forName(methodName, 2);
+	}
+	
+	
+	private IObservableValue polymorphicCreateObserveable(EditingDomain domain, EObject element,
+			EStructuralFeature feature) {
+		PolymorphicDispatcher<IObservableValue> dispatcher = new PolymorphicDispatcher<IObservableValue>(
+				Collections.singletonList(this),
+				getCreateObserveablePredicate(feature),
+				new PolymorphicDispatcher.NullErrorHandler<IObservableValue>()) {
+			@Override
+			protected IObservableValue handleNoSuchMethod(Object... params) {
+				if (PolymorphicDispatcher.NullErrorHandler.class
+						.equals(observeable_errorHandler.getClass()))
+					return null;
+				return super.handleNoSuchMethod(params);
+			}
+		};
+
+		return dispatcher.invoke(domain, element);
+	}
+
+	protected Predicate<Method> getCreateObserveablePredicate(
+			EStructuralFeature feature) {
+		String methodName = "observe_"
+				+ feature.getEContainingClass().getName() + "_"
+				+ feature.getName();
+		return PolymorphicDispatcher.Predicates.forName(methodName, 2);
+	}
+	
+	
+	private List polymorphicCreateProposals(EObject element,	EStructuralFeature feature) {
+		PolymorphicDispatcher<List> dispatcher = new PolymorphicDispatcher<List>(
+				Collections.singletonList(this),
+				getCreateProposalsPredicate(feature),
+				new PolymorphicDispatcher.NullErrorHandler<List>()) {
+			@Override
+			protected List handleNoSuchMethod(Object... params) {
+				if (PolymorphicDispatcher.NullErrorHandler.class
+						.equals(proposals_errorHandler.getClass()))
+					return null;
+				return super.handleNoSuchMethod(params);
+			}
+		};
+
+		return dispatcher.invoke(domain, element);
+	}
+
+	protected Predicate<Method> getCreateProposalsPredicate(
+			EStructuralFeature feature) {
+		String methodName = "proposals_"
 				+ feature.getEContainingClass().getName() + "_"
 				+ feature.getName();
 		return PolymorphicDispatcher.Predicates.forName(methodName, 2);
