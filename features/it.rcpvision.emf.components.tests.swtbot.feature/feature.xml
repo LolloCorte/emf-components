@@ -20,6 +20,14 @@
          id="it.rcpvision.emf.components.examples.feature"
          version="0.0.0"/>
 
+   <includes
+         id="org.eclipse.platform"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sdk"
+         version="0.0.0"/>
+
    <requires>
       <import plugin="org.eclipse.swtbot.go"/>
       <import plugin="org.eclipse.xtext.ui.junit" version="2.0.0" match="greaterOrEqual"/>
@@ -38,6 +46,8 @@
       <import plugin="org.eclipse.equinox.util"/>
       <import plugin="org.eclipse.osgi"/>
       <import plugin="org.eclipse.osgi.services"/>
+      <import plugin="org.eclipse.ui.intro" version="3.2.0" match="compatible"/>
+      <import plugin="org.eclipse.core.runtime" version="3.2.0" match="compatible"/>
    </requires>
 
    <plugin
@@ -53,5 +63,11 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+
+   <plugin
+         id="org.eclipse.platform"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
 
 </feature>
