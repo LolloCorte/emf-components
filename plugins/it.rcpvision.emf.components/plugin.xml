@@ -17,6 +17,7 @@
    <extension
          point="org.eclipse.ui.views">
       <view
+            category="it.rcpvision.emf.components"
             class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.OnSelectionTreeView"
             icon="icon/view.jpg"
             id="it.rcpvision.emf.components.emftreeview"
@@ -51,6 +52,10 @@
             name="Emf Tree Form View"
             restorable="true">
       </view>
+      <category
+            id="it.rcpvision.emf.components"
+            name="Emf Components">
+      </category>
    </extension>
    <extension
          point="org.eclipse.pde.ui.pluginContent">
