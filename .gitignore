@@ -7,3 +7,5 @@ logs.zip
 .svn/
 #xtend-gen/ we need it for building
 target/
+*.java._trace
+*.smap
