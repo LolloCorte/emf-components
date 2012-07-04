@@ -63,6 +63,8 @@ import org.junit.runner.RunWith;
  */
 @RunWith(SWTBotJunit4ClassRunner.class)
 public class EmfComponentsAbstractTests {
+	
+	protected static final String EMF_COMPONENTS_CATEGORY = "Emf Components";
 
 	protected static final String WRITER_LABEL = "Writer Lorenzo Bettini";
 
@@ -531,7 +533,7 @@ public class EmfComponentsAbstractTests {
 		bot.menu("Window").menu("Show View").menu("Other...").click();
 		SWTBotShell shell = bot.shell("Show View");
 		shell.activate();
-		bot.tree().expandNode("Other").select(libraryView);
+		bot.tree().expandNode(EMF_COMPONENTS_CATEGORY).select(libraryView);
 		bot.button("OK").click();
 		return getLibraryView(libraryView);
 	}

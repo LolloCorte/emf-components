@@ -25,6 +25,7 @@
             restorable="true">
       </view>
       <view
+            category="it.rcpvision.emf.components"
             class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.OnSelectionListView"
             icon="icon/view.jpg"
             id="it.rcpvision.emf.components.emflistview"
@@ -32,6 +33,7 @@
             restorable="true">
       </view>
       <view
+            category="it.rcpvision.emf.components"
             class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.OnSelectionTableView"
             icon="icon/view.jpg"
             id="it.rcpvision.emf.components.tableview"
@@ -39,6 +41,7 @@
             restorable="true">
       </view>
       <view
+            category="it.rcpvision.emf.components"
             class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.OnSelectionFormView"
             icon="icon/view.jpg"
             id="it.rcpvision.emf.components.formview"
@@ -46,6 +49,7 @@
             restorable="true">
       </view>
       <view
+            category="it.rcpvision.emf.components"
             class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.views.OnSelectionTreeFormView"
             icon="icon/view.jpg"
             id="it.rcpvision.emf.components.treeformview"

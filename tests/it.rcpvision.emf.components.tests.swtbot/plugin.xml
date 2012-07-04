@@ -31,12 +31,14 @@
     <extension
           point="org.eclipse.ui.views">
        <view
+             category="it.rcpvision.emf.components"
              class="it.rcpvision.emf.components.tests.factories.EmfComponentsTestsExecutableExtensionFactory:it.rcpvision.emf.components.tests.views.LibraryEmfView"
              id="it.rcpvision.emf.components.tests.views.libraryview"
              name="LibraryEmfView"
              restorable="true">
        </view>
        <view
+             category="it.rcpvision.emf.components"
              class="it.rcpvision.emf.components.tests.factories.CustomLabelExecutableExtensionFactory:it.rcpvision.emf.components.tests.views.LibraryEmfView"
              id="it.rcpvision.emf.components.tests.views.libraryviewcustom"
              name="LibraryEmfView Custom Label"
@@ -81,6 +83,7 @@
     <extension
           point="org.eclipse.ui.views">
        <view
+             category="it.rcpvision.emf.components"
              class="it.rcpvision.emf.components.tests.factories.CustomLibraryExecutableExtensionFactory:it.rcpvision.emf.components.views.OnSelectionFormView"
              id="it.rcpvision.emf.components.tests.views.librarydetailviewcustom"
              name="Library Emf Detail View"
@@ -90,6 +93,7 @@
     <extension
           point="org.eclipse.ui.views">
        <view
+             category="it.rcpvision.emf.components"
              class="it.rcpvision.emf.components.tests.factories.CustomLibraryExecutableExtensionFactory:it.rcpvision.emf.components.tests.tables.LibraryTestTableView"
              id="it.rcpvision.emf.components.tests.views.librarytabletest"
              name="Library Test Table"
@@ -99,12 +103,14 @@
         <extension
           point="org.eclipse.ui.views">
        <view
+             category="it.rcpvision.emf.components"
              class="it.rcpvision.emf.components.tests.factories.CustomLibraryExecutableExtensionFactory:it.rcpvision.emf.components.tests.views.TestSaveableResourceTreeFormView"
              id="it.rcpvision.emf.components.tests.views.testsaveableresourcetreeformview"
              name="Library Test Saveable Resource Tree Form View"
              restorable="true">
        </view>
        <view
+             category="it.rcpvision.emf.components"
              class="it.rcpvision.emf.components.tests.factories.CustomLibraryExecutableExtensionFactory:it.rcpvision.emf.components.tests.views.TestSaveableResourceTableView"
              id="it.rcpvision.emf.components.tests.views.testsaveableresourcetableview"
              name="Library Test Saveable Resource Table View"
