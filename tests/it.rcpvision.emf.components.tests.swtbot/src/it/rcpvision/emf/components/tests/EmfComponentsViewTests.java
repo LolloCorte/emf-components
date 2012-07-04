@@ -61,6 +61,16 @@ public class EmfComponentsViewTests extends EmfComponentsAbstractTests {
 		getFileItemFromTestProject(MY_EXTLIBRARY).select();
 		SWTBotTreeItem item = getLibraryBookNode(getRootOfTreeFromView(
 				LIBRARY_EMF_VIEW).getTreeItem(MY_EXT_LIBRARY_PLATFORM_URI));
+		
+		// if org.eclipse.swt.internal.gtk.cairoGraphics is not false
+		// then the test for equality of image will fail, since the image
+		// from the TreeItem will be preprocessed and then it will
+		// be different from the expected one
+		// then set the vm arg
+		// -Dorg.eclipse.swt.internal.gtk.cairoGraphics=false
+		// in the launch.
+		System.err.println(System.getProperty("org.eclipse.swt.internal.gtk.cairoGraphics"));
+		
 		assertTreeItemImage(item,
 				getImageDescriptorFromLibraryEdit("custom_book.png"));
 		view.close();
