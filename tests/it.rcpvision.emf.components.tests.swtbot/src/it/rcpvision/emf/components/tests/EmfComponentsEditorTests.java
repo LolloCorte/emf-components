@@ -40,8 +40,7 @@ public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 	public void canAccessContextMenuOfLibrary() throws Exception {
 		SWTBotTreeItem libraryNode = getLibraryNode(getRootOfEditorTree(
 				EMF_TREE_EDITOR, MY_EXTLIBRARY, MY_EXT_LIBRARY_PLATFORM_URI));
-		getSubMenuItem(libraryNode.contextMenu(NEW_CHILD), BOOK_ON_TAPE)
-				.click();
+		clickOnContextMenu(libraryNode, NEW_CHILD, BOOK_ON_TAPE);
 		// check that the new item was created
 		libraryNode.expand().getNode(BOOK_ON_TAPE);
 		SWTBotEditor editor = getEditor(EMF_TREE_EDITOR);

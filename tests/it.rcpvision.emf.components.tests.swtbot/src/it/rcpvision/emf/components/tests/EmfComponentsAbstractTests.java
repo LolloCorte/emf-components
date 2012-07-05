@@ -6,6 +6,7 @@ import static org.eclipse.xtext.ui.junit.util.IResourcesSetupUtil.createFile;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
+import it.rcpvision.emf.components.tests.utils.ContextMenuHelper;
 import it.rcpvision.emf.components.tests.views.LibraryEmfView;
 import it.rcpvision.emf.components.util.ActionBarsUtils;
 
@@ -34,6 +35,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
+import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotEditor;
@@ -63,7 +65,7 @@ import org.junit.runner.RunWith;
  */
 @RunWith(SWTBotJunit4ClassRunner.class)
 public class EmfComponentsAbstractTests {
-	
+
 	protected static final String EMF_COMPONENTS_CATEGORY = "Emf Components";
 
 	protected static final String WRITER_LABEL = "Writer Lorenzo Bettini";
@@ -314,11 +316,42 @@ public class EmfComponentsAbstractTests {
 			throws CoreException, InvocationTargetException,
 			InterruptedException, IOException {
 		createProjectAndTestFiles();
-		SWTBotMenu contextMenu = getFileItemFromTestProject(fileName)
-				.contextMenu("Open With");
-		getSubMenuItem(contextMenu, emfEditorContextMenuString).click();
+
+		clickOnContextMenu(getFileItemFromTestProject(fileName), "Open With",
+				emfEditorContextMenuString);
+		// ContextMenuHelper.clickContextMenu(projectTree, "Open With",
+		// emfEditorContextMenuString);
+
+		// SWTBotMenu contextMenu = getFileItemFromTestProject(fileName)
+		// .contextMenu("Open With");
+		// getSubMenuItem(contextMenu, emfEditorContextMenuString).click();
+
 		SWTBotEditor editor = getEditor(emfEditorContextMenuString);
 		return editor;
+	}
+
+	protected void clickOnContextMenu(SWTBotTreeItem treeItem,
+			final String... texts) {
+		new SWTBotMenu(contextMenu(treeItem, texts)).click();
+	}
+
+	protected MenuItem contextMenu(final SWTBotTreeItem treeItem,
+			final String... texts) {
+		treeItem.select();
+		return contextMenu(getSWTBotTree(treeItem), texts);
+	}
+
+	protected SWTBotTree getSWTBotTree(final SWTBotTreeItem treeItem) {
+		return new SWTBotTree(
+				UIThreadRunnable.syncExec(new WidgetResult<Tree>() {
+					public Tree run() {
+						return treeItem.widget.getParent();
+					}
+				}));
+	}
+
+	protected MenuItem contextMenu(SWTBotTree tree, final String... texts) {
+		return ContextMenuHelper.contextMenu(tree, texts);
 	}
 
 	protected SWTBotEditor getEditor(String emfEditorContextMenuString) {
@@ -561,13 +594,13 @@ public class EmfComponentsAbstractTests {
 	}
 
 	protected void canAccessStandardEditingActions(SWTBotTreeItem libraryNode) {
-		libraryNode.contextMenu(ACTION_UNDO);
-		libraryNode.contextMenu(ACTION_REDO);
-		libraryNode.contextMenu(ACTION_VALIDATE);
-		libraryNode.contextMenu(ACTION_COPY);
-		libraryNode.contextMenu(ACTION_CUT);
-		libraryNode.contextMenu(ACTION_PASTE);
-		libraryNode.contextMenu(ACTION_DELETE);
+		contextMenu(libraryNode, ACTION_UNDO);
+		contextMenu(libraryNode, ACTION_REDO);
+		contextMenu(libraryNode, ACTION_VALIDATE);
+		contextMenu(libraryNode, ACTION_COPY);
+		contextMenu(libraryNode, ACTION_CUT);
+		contextMenu(libraryNode, ACTION_PASTE);
+		contextMenu(libraryNode, ACTION_DELETE);
 	}
 
 	protected static void assertImageDataIs(ImageData expectedImageData,

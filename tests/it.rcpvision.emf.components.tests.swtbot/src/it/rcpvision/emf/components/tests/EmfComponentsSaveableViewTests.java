@@ -45,21 +45,22 @@ public class EmfComponentsSaveableViewTests extends EmfComponentsAbstractTests {
 		assertSaveableViewIsDirty(true);
 		saveViewAndAssertNotDirty();
 	}
-	
+
 	@Test
 	public void canPerformDeleteActionOnSaveableResourceTreeFormView()
 			throws Exception {
-		SWTBotTreeItem libraryNode = prepareSaveableViewAndGetLibraryNode();
-		getWriterNode(libraryNode).contextMenu(ACTION_DELETE).click();
+		clickOnContextMenu(
+				getWriterNode(prepareSaveableViewAndGetLibraryNode()),
+				ACTION_DELETE);
 		assertSaveableViewIsDirty(true);
 		saveViewAndAssertNotDirty();
 	}
-	
+
 	@Test
 	public void canPerformUndoDeleteActionOnSaveableResourceTreeFormView()
 			throws Exception {
 		SWTBotTreeItem libraryNode = prepareSaveableViewAndGetLibraryNode();
-		getWriterNode(libraryNode).contextMenu(ACTION_DELETE).click();
+		clickOnContextMenu(getWriterNode(libraryNode), ACTION_DELETE);
 		assertSaveableViewIsDirty(true);
 		undo(ACTION_DELETE);
 		// make sure the writer is back
@@ -68,7 +69,7 @@ public class EmfComponentsSaveableViewTests extends EmfComponentsAbstractTests {
 	}
 
 	protected void createNewChild(SWTBotTreeItem libraryNode, String childType) {
-		getSubMenuItem(libraryNode.contextMenu(NEW_CHILD), childType).click();
+		clickOnContextMenu(libraryNode, NEW_CHILD, childType);
 		// check that the new item was created
 		libraryNode.expand().getNode(childType);
 	}
