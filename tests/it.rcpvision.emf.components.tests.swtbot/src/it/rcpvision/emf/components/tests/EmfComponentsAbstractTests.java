@@ -184,11 +184,12 @@ public class EmfComponentsAbstractTests {
 		// increase timeout to 10 seconds
 		// SWTBotPreferences.TIMEOUT = 10000;
 
-		try {
-			bot.viewByTitle("Welcome").close();
-		} catch (WidgetNotFoundException e) {
-			// OK!
-		}
+		// in the launch configuration there will be no welcome view
+//		try {
+//			bot.viewByTitle("Welcome").close();
+//		} catch (WidgetNotFoundException e) {
+//			// OK!
+//		}
 
 		bot.resetWorkbench();
 
