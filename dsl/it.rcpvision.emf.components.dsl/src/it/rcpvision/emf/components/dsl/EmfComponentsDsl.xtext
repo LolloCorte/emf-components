@@ -1,0 +1,9 @@
+grammar it.rcpvision.emf.components.dsl.EmfComponentsDsl with org.eclipse.xtext.common.Terminals
+
+generate emfComponentsDsl "http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
