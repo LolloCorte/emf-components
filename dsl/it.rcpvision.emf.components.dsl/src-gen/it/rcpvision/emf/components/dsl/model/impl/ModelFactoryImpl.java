@@ -65,7 +65,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
     switch (eClass.getClassifierID())
     {
       case ModelPackage.MODEL: return createModel();
-      case ModelPackage.GREETING: return createGreeting();
+      case ModelPackage.IMPORT: return createImport();
+      case ModelPackage.MODULE: return createModule();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -87,10 +88,21 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Greeting createGreeting()
+  public Import createImport()
   {
-    GreetingImpl greeting = new GreetingImpl();
-    return greeting;
+    ImportImpl import_ = new ImportImpl();
+    return import_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Module createModule()
+  {
+    ModuleImpl module = new ModuleImpl();
+    return module;
   }
 
   /**

@@ -8,15 +8,11 @@ import org.junit.runner.RunWith
 
 @RunWith(typeof(XtextRunner))
 @InjectWith(typeof(EmfComponentsDslInjectorProvider))
-class ParserTest {
- 
-//    @Inject extension ParseHelper<Model>
-// 
-//    @Inject extension ValidationTestHelper
+class EmfComponentsParserTest extends EmfComponentsDslAbstractTests{
  
     @Test
-    def void testOperation() {
-        
+    def void testEmptyModule() {
+        inputs.emptyModule.parseAndAssertNoError
     }
  
 }

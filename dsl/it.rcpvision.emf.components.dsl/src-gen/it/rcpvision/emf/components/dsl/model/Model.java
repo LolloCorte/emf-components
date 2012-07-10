@@ -14,7 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link it.rcpvision.emf.components.dsl.model.Model#getGreetings <em>Greetings</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.Model#getImports <em>Imports</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.Model#getModule <em>Module</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,19 +26,45 @@ import org.eclipse.emf.ecore.EObject;
 public interface Model extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Greetings</b></em>' containment reference list.
-   * The list contents are of type {@link it.rcpvision.emf.components.dsl.model.Greeting}.
+   * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
+   * The list contents are of type {@link it.rcpvision.emf.components.dsl.model.Import}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Greetings</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Imports</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Greetings</em>' containment reference list.
-   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getModel_Greetings()
+   * @return the value of the '<em>Imports</em>' containment reference list.
+   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getModel_Imports()
    * @model containment="true"
    * @generated
    */
-  EList<Greeting> getGreetings();
+  EList<Import> getImports();
+
+  /**
+   * Returns the value of the '<em><b>Module</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Module</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Module</em>' containment reference.
+   * @see #setModule(Module)
+   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getModel_Module()
+   * @model containment="true"
+   * @generated
+   */
+  Module getModule();
+
+  /**
+   * Sets the value of the '{@link it.rcpvision.emf.components.dsl.model.Model#getModule <em>Module</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Module</em>' containment reference.
+   * @see #getModule()
+   * @generated
+   */
+  void setModule(Module value);
 
 } // Model

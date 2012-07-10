@@ -12,7 +12,7 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-	ParserTest.class
+	EmfComponentsParserTest.class
 })
 public class EmfComponentsDslAllTests {
 

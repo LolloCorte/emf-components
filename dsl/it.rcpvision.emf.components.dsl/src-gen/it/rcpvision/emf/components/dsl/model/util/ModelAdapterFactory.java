@@ -80,9 +80,14 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
-      public Adapter caseGreeting(Greeting object)
+      public Adapter caseImport(Import object)
       {
-        return createGreetingAdapter();
+        return createImportAdapter();
+      }
+      @Override
+      public Adapter caseModule(Module object)
+      {
+        return createModuleAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -122,16 +127,31 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.Greeting <em>Greeting</em>}'.
+   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.Import <em>Import</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see it.rcpvision.emf.components.dsl.model.Greeting
+   * @see it.rcpvision.emf.components.dsl.model.Import
    * @generated
    */
-  public Adapter createGreetingAdapter()
+  public Adapter createImportAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.Module <em>Module</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see it.rcpvision.emf.components.dsl.model.Module
+   * @generated
+   */
+  public Adapter createModuleAdapter()
   {
     return null;
   }

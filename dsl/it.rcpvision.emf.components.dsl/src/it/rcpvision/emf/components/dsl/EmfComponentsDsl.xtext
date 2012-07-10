@@ -4,7 +4,18 @@ grammar it.rcpvision.emf.components.dsl.EmfComponentsDsl with
 generate model "http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl"
 
 Model:
-	greetings+=Greeting*;
+	imports+=Import*
+	module = Module;
 	
-Greeting:
-	'Hello' name=ID '!';
+Import:
+  'import' importedNamespace = QualifiedNameWithWildcard
+;
+ 
+QualifiedNameWithWildcard:
+  QualifiedName '.*'?
+;
+
+Module:
+	'module' name=QualifiedName '{'
+	'}'
+;
