@@ -33,6 +33,11 @@ package «projectName»;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
+import it.rcpvision.emf.components.EmfComponentsGenericModule;
+
+import com.google.inject.Injector;
+import static com.google.inject.Guice.createInjector;
+
 /**
  * The activator class controls the plug-in life cycle
  */
@@ -43,6 +48,9 @@ public class Activator extends AbstractUIPlugin {
 
 	// The shared instance
 	private static Activator plugin;
+
+	// the singleton Injector instance for this plugin
+	private Injector injector;
 	
 	/**
 	 * The constructor
@@ -77,6 +85,25 @@ public class Activator extends AbstractUIPlugin {
 		return plugin;
 	}
 
+	/**
+	 * Returns the singleton Injector for this plugin
+	 *
+	 * @return the singleton Injector for this plugin
+	 */
+	public Injector getInjector() {
+		if (injector == null)
+			injector = createInjector(createModule());
+		return injector;
+	}
+
+	/**
+	 * Creates the EmfComponentsGenericModule for this this plugin
+	 *
+	 * @return the EmfComponentsGenericModule for this this plugin
+	 */
+	public EmfComponentsGenericModule createModule() {
+		return new EmfComponentsGuiceModule(getDefault());
+	}
 }
 '''
 	
@@ -89,6 +116,8 @@ import org.osgi.framework.Bundle;
 import it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory;
 import it.rcpvision.emf.components.EmfComponentsGenericModule;
 
+import com.google.inject.Injector;
+
 public class ExecutableExtensionFactory extends
 		EmfComponentsExecutableExtensionFactory {
 
@@ -99,9 +128,13 @@ public class ExecutableExtensionFactory extends
 
 	@Override
 	protected EmfComponentsGenericModule getModule() {
-		return new EmfComponentsGuiceModule(Activator.getDefault());
+		return Activator.getDefault().createModule();
 	}
 
+	@Override
+	protected Injector getInjector() {
+		return Activator.getDefault().getInjector();
+	}
 }
 '''
 

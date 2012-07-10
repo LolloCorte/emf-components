@@ -6,12 +6,10 @@ import it.rcpvision.emf.components.examples.library.EXTLibraryFactory;
 import it.rcpvision.emf.components.examples.library.Library;
 import it.rcpvision.emf.components.examples.library.Writer;
 import it.rcpvision.emf.components.factories.JfaceProviderFactory;
-import it.rcpvision.emf.components.tests.factories.CustomLibraryExecutableExtensionFactory;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -20,14 +18,8 @@ import org.junit.runner.RunWith;
  * 
  */
 @RunWith(SWTBotJunit4ClassRunner.class)
-public class EmfColumnLabelProviderTests extends EmfComponentsAbstractTests {
-
-	protected static CustomLibraryExecutableExtensionFactory factory;
-
-	@BeforeClass
-	public static void initializeFactory() {
-		factory = new CustomLibraryExecutableExtensionFactory();
-	}
+public class EmfColumnLabelProviderTests extends
+		EmfComponentsCustomLibraryAbstractTests {
 
 	@Test
 	public void testLabelProviderForAuthorName() {
@@ -39,8 +31,9 @@ public class EmfColumnLabelProviderTests extends EmfComponentsAbstractTests {
 		assertEquals("Writer My Writer", labelProvider.getText(writer));
 	}
 
-	protected ColumnLabelProvider createLabelProvider(EStructuralFeature eStructuralFeature) {
-		return factory.getInjector().getInstance(JfaceProviderFactory.class)
+	protected ColumnLabelProvider createLabelProvider(
+			EStructuralFeature eStructuralFeature) {
+		return getInjector().getInstance(JfaceProviderFactory.class)
 				.createColumnLabelProvider(eStructuralFeature);
 	}
 
