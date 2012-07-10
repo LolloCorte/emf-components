@@ -28,7 +28,7 @@ public class EmfComponentsDslStandaloneSetupGenerated implements ISetup {
 	
 	public void register(Injector injector) {
 	if (!EPackage.Registry.INSTANCE.containsKey("http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl")) {
-		EPackage.Registry.INSTANCE.put("http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl", it.rcpvision.emf.components.dsl.emfComponentsDsl.EmfComponentsDslPackage.eINSTANCE);
+		EPackage.Registry.INSTANCE.put("http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl", it.rcpvision.emf.components.dsl.model.ModelPackage.eINSTANCE);
 	}
 
 		org.eclipse.xtext.resource.IResourceFactory resourceFactory = injector.getInstance(org.eclipse.xtext.resource.IResourceFactory.class);

@@ -1,6 +1,6 @@
 /**
  */
-package it.rcpvision.emf.components.dsl.emfComponentsDsl;
+package it.rcpvision.emf.components.dsl.model;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -18,11 +18,11 @@ import org.eclipse.emf.ecore.EReference;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see it.rcpvision.emf.components.dsl.emfComponentsDsl.EmfComponentsDslFactory
+ * @see it.rcpvision.emf.components.dsl.model.ModelFactory
  * @model kind="package"
  * @generated
  */
-public interface EmfComponentsDslPackage extends EPackage
+public interface ModelPackage extends EPackage
 {
   /**
    * The package name.
@@ -30,7 +30,7 @@ public interface EmfComponentsDslPackage extends EPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  String eNAME = "emfComponentsDsl";
+  String eNAME = "model";
 
   /**
    * The package namespace URI.
@@ -46,7 +46,7 @@ public interface EmfComponentsDslPackage extends EPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  String eNS_PREFIX = "emfComponentsDsl";
+  String eNS_PREFIX = "model";
 
   /**
    * The singleton instance of the package.
@@ -54,14 +54,14 @@ public interface EmfComponentsDslPackage extends EPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  EmfComponentsDslPackage eINSTANCE = it.rcpvision.emf.components.dsl.emfComponentsDsl.impl.EmfComponentsDslPackageImpl.init();
+  ModelPackage eINSTANCE = it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl.init();
 
   /**
-   * The meta object id for the '{@link it.rcpvision.emf.components.dsl.emfComponentsDsl.impl.ModelImpl <em>Model</em>}' class.
+   * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.ModelImpl <em>Model</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see it.rcpvision.emf.components.dsl.emfComponentsDsl.impl.ModelImpl
-   * @see it.rcpvision.emf.components.dsl.emfComponentsDsl.impl.EmfComponentsDslPackageImpl#getModel()
+   * @see it.rcpvision.emf.components.dsl.model.impl.ModelImpl
+   * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getModel()
    * @generated
    */
   int MODEL = 0;
@@ -85,11 +85,11 @@ public interface EmfComponentsDslPackage extends EPackage
   int MODEL_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link it.rcpvision.emf.components.dsl.emfComponentsDsl.impl.GreetingImpl <em>Greeting</em>}' class.
+   * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.GreetingImpl <em>Greeting</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see it.rcpvision.emf.components.dsl.emfComponentsDsl.impl.GreetingImpl
-   * @see it.rcpvision.emf.components.dsl.emfComponentsDsl.impl.EmfComponentsDslPackageImpl#getGreeting()
+   * @see it.rcpvision.emf.components.dsl.model.impl.GreetingImpl
+   * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getGreeting()
    * @generated
    */
   int GREETING = 1;
@@ -114,42 +114,42 @@ public interface EmfComponentsDslPackage extends EPackage
 
 
   /**
-   * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.emfComponentsDsl.Model <em>Model</em>}'.
+   * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.Model <em>Model</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for class '<em>Model</em>'.
-   * @see it.rcpvision.emf.components.dsl.emfComponentsDsl.Model
+   * @see it.rcpvision.emf.components.dsl.model.Model
    * @generated
    */
   EClass getModel();
 
   /**
-   * Returns the meta object for the containment reference list '{@link it.rcpvision.emf.components.dsl.emfComponentsDsl.Model#getGreetings <em>Greetings</em>}'.
+   * Returns the meta object for the containment reference list '{@link it.rcpvision.emf.components.dsl.model.Model#getGreetings <em>Greetings</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Greetings</em>'.
-   * @see it.rcpvision.emf.components.dsl.emfComponentsDsl.Model#getGreetings()
+   * @see it.rcpvision.emf.components.dsl.model.Model#getGreetings()
    * @see #getModel()
    * @generated
    */
   EReference getModel_Greetings();
 
   /**
-   * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.emfComponentsDsl.Greeting <em>Greeting</em>}'.
+   * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.Greeting <em>Greeting</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for class '<em>Greeting</em>'.
-   * @see it.rcpvision.emf.components.dsl.emfComponentsDsl.Greeting
+   * @see it.rcpvision.emf.components.dsl.model.Greeting
    * @generated
    */
   EClass getGreeting();
 
   /**
-   * Returns the meta object for the attribute '{@link it.rcpvision.emf.components.dsl.emfComponentsDsl.Greeting#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link it.rcpvision.emf.components.dsl.model.Greeting#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see it.rcpvision.emf.components.dsl.emfComponentsDsl.Greeting#getName()
+   * @see it.rcpvision.emf.components.dsl.model.Greeting#getName()
    * @see #getGreeting()
    * @generated
    */
@@ -162,7 +162,7 @@ public interface EmfComponentsDslPackage extends EPackage
    * @return the factory that creates the instances of the model.
    * @generated
    */
-  EmfComponentsDslFactory getEmfComponentsDslFactory();
+  ModelFactory getModelFactory();
 
   /**
    * <!-- begin-user-doc -->
@@ -179,11 +179,11 @@ public interface EmfComponentsDslPackage extends EPackage
   interface Literals
   {
     /**
-     * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.emfComponentsDsl.impl.ModelImpl <em>Model</em>}' class.
+     * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.ModelImpl <em>Model</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see it.rcpvision.emf.components.dsl.emfComponentsDsl.impl.ModelImpl
-     * @see it.rcpvision.emf.components.dsl.emfComponentsDsl.impl.EmfComponentsDslPackageImpl#getModel()
+     * @see it.rcpvision.emf.components.dsl.model.impl.ModelImpl
+     * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getModel()
      * @generated
      */
     EClass MODEL = eINSTANCE.getModel();
@@ -197,11 +197,11 @@ public interface EmfComponentsDslPackage extends EPackage
     EReference MODEL__GREETINGS = eINSTANCE.getModel_Greetings();
 
     /**
-     * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.emfComponentsDsl.impl.GreetingImpl <em>Greeting</em>}' class.
+     * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.GreetingImpl <em>Greeting</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see it.rcpvision.emf.components.dsl.emfComponentsDsl.impl.GreetingImpl
-     * @see it.rcpvision.emf.components.dsl.emfComponentsDsl.impl.EmfComponentsDslPackageImpl#getGreeting()
+     * @see it.rcpvision.emf.components.dsl.model.impl.GreetingImpl
+     * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getGreeting()
      * @generated
      */
     EClass GREETING = eINSTANCE.getGreeting();
@@ -216,4 +216,4 @@ public interface EmfComponentsDslPackage extends EPackage
 
   }
 
-} //EmfComponentsDslPackage
+} //ModelPackage

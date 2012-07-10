@@ -1,8 +1,8 @@
 /**
  */
-package it.rcpvision.emf.components.dsl.emfComponentsDsl.impl;
+package it.rcpvision.emf.components.dsl.model.impl;
 
-import it.rcpvision.emf.components.dsl.emfComponentsDsl.*;
+import it.rcpvision.emf.components.dsl.model.*;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EmfComponentsDslFactoryImpl extends EFactoryImpl implements EmfComponentsDslFactory
+public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
 {
   /**
    * Creates the default factory implementation.
@@ -26,21 +26,21 @@ public class EmfComponentsDslFactoryImpl extends EFactoryImpl implements EmfComp
    * <!-- end-user-doc -->
    * @generated
    */
-  public static EmfComponentsDslFactory init()
+  public static ModelFactory init()
   {
     try
     {
-      EmfComponentsDslFactory theEmfComponentsDslFactory = (EmfComponentsDslFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl"); 
-      if (theEmfComponentsDslFactory != null)
+      ModelFactory theModelFactory = (ModelFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl"); 
+      if (theModelFactory != null)
       {
-        return theEmfComponentsDslFactory;
+        return theModelFactory;
       }
     }
     catch (Exception exception)
     {
       EcorePlugin.INSTANCE.log(exception);
     }
-    return new EmfComponentsDslFactoryImpl();
+    return new ModelFactoryImpl();
   }
 
   /**
@@ -49,7 +49,7 @@ public class EmfComponentsDslFactoryImpl extends EFactoryImpl implements EmfComp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EmfComponentsDslFactoryImpl()
+  public ModelFactoryImpl()
   {
     super();
   }
@@ -64,8 +64,8 @@ public class EmfComponentsDslFactoryImpl extends EFactoryImpl implements EmfComp
   {
     switch (eClass.getClassifierID())
     {
-      case EmfComponentsDslPackage.MODEL: return createModel();
-      case EmfComponentsDslPackage.GREETING: return createGreeting();
+      case ModelPackage.MODEL: return createModel();
+      case ModelPackage.GREETING: return createGreeting();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -98,9 +98,9 @@ public class EmfComponentsDslFactoryImpl extends EFactoryImpl implements EmfComp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EmfComponentsDslPackage getEmfComponentsDslPackage()
+  public ModelPackage getModelPackage()
   {
-    return (EmfComponentsDslPackage)getEPackage();
+    return (ModelPackage)getEPackage();
   }
 
   /**
@@ -110,9 +110,9 @@ public class EmfComponentsDslFactoryImpl extends EFactoryImpl implements EmfComp
    * @generated
    */
   @Deprecated
-  public static EmfComponentsDslPackage getPackage()
+  public static ModelPackage getPackage()
   {
-    return EmfComponentsDslPackage.eINSTANCE;
+    return ModelPackage.eINSTANCE;
   }
 
-} //EmfComponentsDslFactoryImpl
+} //ModelFactoryImpl

@@ -1,7 +1,7 @@
 package it.rcpvision.emf.components.dsl.jvmmodel;
 
 import com.google.inject.Inject;
-import it.rcpvision.emf.components.dsl.emfComponentsDsl.Model;
+import it.rcpvision.emf.components.dsl.model.Model;
 import java.util.Arrays;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer;

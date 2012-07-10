@@ -1,7 +1,7 @@
 grammar it.rcpvision.emf.components.dsl.EmfComponentsDsl with
     org.eclipse.xtext.xbase.Xbase
 
-generate emfComponentsDsl "http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl"
+generate model "http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl"
 
 Model:
 	greetings+=Greeting*;

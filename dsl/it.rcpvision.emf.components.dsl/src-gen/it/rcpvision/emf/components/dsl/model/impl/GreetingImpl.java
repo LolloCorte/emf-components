@@ -1,9 +1,9 @@
 /**
  */
-package it.rcpvision.emf.components.dsl.emfComponentsDsl.impl;
+package it.rcpvision.emf.components.dsl.model.impl;
 
-import it.rcpvision.emf.components.dsl.emfComponentsDsl.EmfComponentsDslPackage;
-import it.rcpvision.emf.components.dsl.emfComponentsDsl.Greeting;
+import it.rcpvision.emf.components.dsl.model.Greeting;
+import it.rcpvision.emf.components.dsl.model.ModelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link it.rcpvision.emf.components.dsl.emfComponentsDsl.impl.GreetingImpl#getName <em>Name</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.GreetingImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -65,7 +65,7 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
   @Override
   protected EClass eStaticClass()
   {
-    return EmfComponentsDslPackage.Literals.GREETING;
+    return ModelPackage.Literals.GREETING;
   }
 
   /**
@@ -88,7 +88,7 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EmfComponentsDslPackage.GREETING__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.GREETING__NAME, oldName, name));
   }
 
   /**
@@ -101,7 +101,7 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
   {
     switch (featureID)
     {
-      case EmfComponentsDslPackage.GREETING__NAME:
+      case ModelPackage.GREETING__NAME:
         return getName();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -117,7 +117,7 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
   {
     switch (featureID)
     {
-      case EmfComponentsDslPackage.GREETING__NAME:
+      case ModelPackage.GREETING__NAME:
         setName((String)newValue);
         return;
     }
@@ -134,7 +134,7 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
   {
     switch (featureID)
     {
-      case EmfComponentsDslPackage.GREETING__NAME:
+      case ModelPackage.GREETING__NAME:
         setName(NAME_EDEFAULT);
         return;
     }
@@ -151,7 +151,7 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
   {
     switch (featureID)
     {
-      case EmfComponentsDslPackage.GREETING__NAME:
+      case ModelPackage.GREETING__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);

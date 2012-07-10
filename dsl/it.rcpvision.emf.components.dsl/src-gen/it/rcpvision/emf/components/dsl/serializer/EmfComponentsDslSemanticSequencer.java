@@ -2,9 +2,9 @@ package it.rcpvision.emf.components.dsl.serializer;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
-import it.rcpvision.emf.components.dsl.emfComponentsDsl.EmfComponentsDslPackage;
-import it.rcpvision.emf.components.dsl.emfComponentsDsl.Greeting;
-import it.rcpvision.emf.components.dsl.emfComponentsDsl.Model;
+import it.rcpvision.emf.components.dsl.model.Greeting;
+import it.rcpvision.emf.components.dsl.model.Model;
+import it.rcpvision.emf.components.dsl.model.ModelPackage;
 import it.rcpvision.emf.components.dsl.services.EmfComponentsDslGrammarAccess;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.common.types.JvmFormalParameter;
@@ -62,14 +62,14 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	private EmfComponentsDslGrammarAccess grammarAccess;
 	
 	public void createSequence(EObject context, EObject semanticObject) {
-		if(semanticObject.eClass().getEPackage() == EmfComponentsDslPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
-			case EmfComponentsDslPackage.GREETING:
+		if(semanticObject.eClass().getEPackage() == ModelPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case ModelPackage.GREETING:
 				if(context == grammarAccess.getGreetingRule()) {
 					sequence_Greeting(context, (Greeting) semanticObject); 
 					return; 
 				}
 				else break;
-			case EmfComponentsDslPackage.MODEL:
+			case ModelPackage.MODEL:
 				if(context == grammarAccess.getModelRule()) {
 					sequence_Model(context, (Model) semanticObject); 
 					return; 
@@ -941,8 +941,8 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	 */
 	protected void sequence_Greeting(EObject context, Greeting semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, EmfComponentsDslPackage.Literals.GREETING__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EmfComponentsDslPackage.Literals.GREETING__NAME));
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.GREETING__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.GREETING__NAME));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);

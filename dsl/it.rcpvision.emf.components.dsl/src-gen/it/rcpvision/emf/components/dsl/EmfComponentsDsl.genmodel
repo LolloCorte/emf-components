@@ -5,8 +5,8 @@
     forceOverwrite="true" modelName="EmfComponentsDsl" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="5.0" copyrightFields="false" editPluginID="it.rcpvision.emf.components.dsl.edit"
     editorPluginID="it.rcpvision.emf.components.dsl.editor" runtimeVersion="2.8">
-  <genPackages prefix="EmfComponentsDsl" basePackage="it.rcpvision.emf.components.dsl"
-      disposableProviderFactory="true" ecorePackage="EmfComponentsDsl.ecore#/">
+  <genPackages prefix="Model" basePackage="it.rcpvision.emf.components.dsl" disposableProviderFactory="true"
+      ecorePackage="EmfComponentsDsl.ecore#/">
     <genClasses ecoreClass="EmfComponentsDsl.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Model/greetings"/>
     </genClasses>

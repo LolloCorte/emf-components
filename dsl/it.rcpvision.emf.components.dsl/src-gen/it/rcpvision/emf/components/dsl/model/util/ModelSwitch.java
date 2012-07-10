@@ -1,8 +1,8 @@
 /**
  */
-package it.rcpvision.emf.components.dsl.emfComponentsDsl.util;
+package it.rcpvision.emf.components.dsl.model.util;
 
-import it.rcpvision.emf.components.dsl.emfComponentsDsl.*;
+import it.rcpvision.emf.components.dsl.model.*;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -19,10 +19,10 @@ import org.eclipse.emf.ecore.util.Switch;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see it.rcpvision.emf.components.dsl.emfComponentsDsl.EmfComponentsDslPackage
+ * @see it.rcpvision.emf.components.dsl.model.ModelPackage
  * @generated
  */
-public class EmfComponentsDslSwitch<T> extends Switch<T>
+public class ModelSwitch<T> extends Switch<T>
 {
   /**
    * The cached model package
@@ -30,7 +30,7 @@ public class EmfComponentsDslSwitch<T> extends Switch<T>
    * <!-- end-user-doc -->
    * @generated
    */
-  protected static EmfComponentsDslPackage modelPackage;
+  protected static ModelPackage modelPackage;
 
   /**
    * Creates an instance of the switch.
@@ -38,11 +38,11 @@ public class EmfComponentsDslSwitch<T> extends Switch<T>
    * <!-- end-user-doc -->
    * @generated
    */
-  public EmfComponentsDslSwitch()
+  public ModelSwitch()
   {
     if (modelPackage == null)
     {
-      modelPackage = EmfComponentsDslPackage.eINSTANCE;
+      modelPackage = ModelPackage.eINSTANCE;
     }
   }
 
@@ -72,14 +72,14 @@ public class EmfComponentsDslSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case EmfComponentsDslPackage.MODEL:
+      case ModelPackage.MODEL:
       {
         Model model = (Model)theEObject;
         T result = caseModel(model);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EmfComponentsDslPackage.GREETING:
+      case ModelPackage.GREETING:
       {
         Greeting greeting = (Greeting)theEObject;
         T result = caseGreeting(greeting);
@@ -139,4 +139,4 @@ public class EmfComponentsDslSwitch<T> extends Switch<T>
     return null;
   }
 
-} //EmfComponentsDslSwitch
+} //ModelSwitch

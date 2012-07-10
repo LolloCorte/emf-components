@@ -1,8 +1,8 @@
 /**
  */
-package it.rcpvision.emf.components.dsl.emfComponentsDsl.util;
+package it.rcpvision.emf.components.dsl.model.util;
 
-import it.rcpvision.emf.components.dsl.emfComponentsDsl.*;
+import it.rcpvision.emf.components.dsl.model.*;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -16,10 +16,10 @@ import org.eclipse.emf.ecore.EObject;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see it.rcpvision.emf.components.dsl.emfComponentsDsl.EmfComponentsDslPackage
+ * @see it.rcpvision.emf.components.dsl.model.ModelPackage
  * @generated
  */
-public class EmfComponentsDslAdapterFactory extends AdapterFactoryImpl
+public class ModelAdapterFactory extends AdapterFactoryImpl
 {
   /**
    * The cached model package.
@@ -27,7 +27,7 @@ public class EmfComponentsDslAdapterFactory extends AdapterFactoryImpl
    * <!-- end-user-doc -->
    * @generated
    */
-  protected static EmfComponentsDslPackage modelPackage;
+  protected static ModelPackage modelPackage;
 
   /**
    * Creates an instance of the adapter factory.
@@ -35,11 +35,11 @@ public class EmfComponentsDslAdapterFactory extends AdapterFactoryImpl
    * <!-- end-user-doc -->
    * @generated
    */
-  public EmfComponentsDslAdapterFactory()
+  public ModelAdapterFactory()
   {
     if (modelPackage == null)
     {
-      modelPackage = EmfComponentsDslPackage.eINSTANCE;
+      modelPackage = ModelPackage.eINSTANCE;
     }
   }
 
@@ -71,8 +71,8 @@ public class EmfComponentsDslAdapterFactory extends AdapterFactoryImpl
    * <!-- end-user-doc -->
    * @generated
    */
-  protected EmfComponentsDslSwitch<Adapter> modelSwitch =
-    new EmfComponentsDslSwitch<Adapter>()
+  protected ModelSwitch<Adapter> modelSwitch =
+    new ModelSwitch<Adapter>()
     {
       @Override
       public Adapter caseModel(Model object)
@@ -107,13 +107,13 @@ public class EmfComponentsDslAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.emfComponentsDsl.Model <em>Model</em>}'.
+   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.Model <em>Model</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see it.rcpvision.emf.components.dsl.emfComponentsDsl.Model
+   * @see it.rcpvision.emf.components.dsl.model.Model
    * @generated
    */
   public Adapter createModelAdapter()
@@ -122,13 +122,13 @@ public class EmfComponentsDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.emfComponentsDsl.Greeting <em>Greeting</em>}'.
+   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.Greeting <em>Greeting</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see it.rcpvision.emf.components.dsl.emfComponentsDsl.Greeting
+   * @see it.rcpvision.emf.components.dsl.model.Greeting
    * @generated
    */
   public Adapter createGreetingAdapter()
@@ -149,4 +149,4 @@ public class EmfComponentsDslAdapterFactory extends AdapterFactoryImpl
     return null;
   }
 
-} //EmfComponentsDslAdapterFactory
+} //ModelAdapterFactory

@@ -1,6 +1,6 @@
 /**
  */
-package it.rcpvision.emf.components.dsl.emfComponentsDsl;
+package it.rcpvision.emf.components.dsl.model;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -14,11 +14,11 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link it.rcpvision.emf.components.dsl.emfComponentsDsl.Model#getGreetings <em>Greetings</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.Model#getGreetings <em>Greetings</em>}</li>
  * </ul>
  * </p>
  *
- * @see it.rcpvision.emf.components.dsl.emfComponentsDsl.EmfComponentsDslPackage#getModel()
+ * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getModel()
  * @model
  * @generated
  */
@@ -26,7 +26,7 @@ public interface Model extends EObject
 {
   /**
    * Returns the value of the '<em><b>Greetings</b></em>' containment reference list.
-   * The list contents are of type {@link it.rcpvision.emf.components.dsl.emfComponentsDsl.Greeting}.
+   * The list contents are of type {@link it.rcpvision.emf.components.dsl.model.Greeting}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Greetings</em>' containment reference list isn't clear,
@@ -34,7 +34,7 @@ public interface Model extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Greetings</em>' containment reference list.
-   * @see it.rcpvision.emf.components.dsl.emfComponentsDsl.EmfComponentsDslPackage#getModel_Greetings()
+   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getModel_Greetings()
    * @model containment="true"
    * @generated
    */

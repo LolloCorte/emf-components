@@ -1,11 +1,11 @@
 /**
  */
-package it.rcpvision.emf.components.dsl.emfComponentsDsl.impl;
+package it.rcpvision.emf.components.dsl.model.impl;
 
-import it.rcpvision.emf.components.dsl.emfComponentsDsl.EmfComponentsDslFactory;
-import it.rcpvision.emf.components.dsl.emfComponentsDsl.EmfComponentsDslPackage;
-import it.rcpvision.emf.components.dsl.emfComponentsDsl.Greeting;
-import it.rcpvision.emf.components.dsl.emfComponentsDsl.Model;
+import it.rcpvision.emf.components.dsl.model.Greeting;
+import it.rcpvision.emf.components.dsl.model.Model;
+import it.rcpvision.emf.components.dsl.model.ModelFactory;
+import it.rcpvision.emf.components.dsl.model.ModelPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EmfComponentsDslPackageImpl extends EPackageImpl implements EmfComponentsDslPackage
+public class ModelPackageImpl extends EPackageImpl implements ModelPackage
 {
   /**
    * <!-- begin-user-doc -->
@@ -47,13 +47,13 @@ public class EmfComponentsDslPackageImpl extends EPackageImpl implements EmfComp
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see org.eclipse.emf.ecore.EPackage.Registry
-   * @see it.rcpvision.emf.components.dsl.emfComponentsDsl.EmfComponentsDslPackage#eNS_URI
+   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#eNS_URI
    * @see #init()
    * @generated
    */
-  private EmfComponentsDslPackageImpl()
+  private ModelPackageImpl()
   {
-    super(eNS_URI, EmfComponentsDslFactory.eINSTANCE);
+    super(eNS_URI, ModelFactory.eINSTANCE);
   }
 
   /**
@@ -66,7 +66,7 @@ public class EmfComponentsDslPackageImpl extends EPackageImpl implements EmfComp
   /**
    * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
    * 
-   * <p>This method is used to initialize {@link EmfComponentsDslPackage#eINSTANCE} when that field is accessed.
+   * <p>This method is used to initialize {@link ModelPackage#eINSTANCE} when that field is accessed.
    * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -75,28 +75,28 @@ public class EmfComponentsDslPackageImpl extends EPackageImpl implements EmfComp
    * @see #initializePackageContents()
    * @generated
    */
-  public static EmfComponentsDslPackage init()
+  public static ModelPackage init()
   {
-    if (isInited) return (EmfComponentsDslPackage)EPackage.Registry.INSTANCE.getEPackage(EmfComponentsDslPackage.eNS_URI);
+    if (isInited) return (ModelPackage)EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI);
 
     // Obtain or create and register package
-    EmfComponentsDslPackageImpl theEmfComponentsDslPackage = (EmfComponentsDslPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof EmfComponentsDslPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new EmfComponentsDslPackageImpl());
+    ModelPackageImpl theModelPackage = (ModelPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ModelPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new ModelPackageImpl());
 
     isInited = true;
 
     // Create package meta-data objects
-    theEmfComponentsDslPackage.createPackageContents();
+    theModelPackage.createPackageContents();
 
     // Initialize created meta-data
-    theEmfComponentsDslPackage.initializePackageContents();
+    theModelPackage.initializePackageContents();
 
     // Mark meta-data to indicate it can't be changed
-    theEmfComponentsDslPackage.freeze();
+    theModelPackage.freeze();
 
   
     // Update the registry and return the package
-    EPackage.Registry.INSTANCE.put(EmfComponentsDslPackage.eNS_URI, theEmfComponentsDslPackage);
-    return theEmfComponentsDslPackage;
+    EPackage.Registry.INSTANCE.put(ModelPackage.eNS_URI, theModelPackage);
+    return theModelPackage;
   }
 
   /**
@@ -144,9 +144,9 @@ public class EmfComponentsDslPackageImpl extends EPackageImpl implements EmfComp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EmfComponentsDslFactory getEmfComponentsDslFactory()
+  public ModelFactory getModelFactory()
   {
-    return (EmfComponentsDslFactory)getEFactoryInstance();
+    return (ModelFactory)getEFactoryInstance();
   }
 
   /**
@@ -217,4 +217,4 @@ public class EmfComponentsDslPackageImpl extends EPackageImpl implements EmfComp
     createResource(eNS_URI);
   }
 
-} //EmfComponentsDslPackageImpl
+} //ModelPackageImpl

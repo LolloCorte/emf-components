@@ -4,7 +4,7 @@ import com.google.inject.Inject
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
-import it.rcpvision.emf.components.dsl.emfComponentsDsl.Model
+import it.rcpvision.emf.components.dsl.model.Model
 
 /**
  * <p>Infers a JVM model from the source model.</p> 

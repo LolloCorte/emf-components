@@ -1,10 +1,10 @@
 /**
  */
-package it.rcpvision.emf.components.dsl.emfComponentsDsl.impl;
+package it.rcpvision.emf.components.dsl.model.impl;
 
-import it.rcpvision.emf.components.dsl.emfComponentsDsl.EmfComponentsDslPackage;
-import it.rcpvision.emf.components.dsl.emfComponentsDsl.Greeting;
-import it.rcpvision.emf.components.dsl.emfComponentsDsl.Model;
+import it.rcpvision.emf.components.dsl.model.Greeting;
+import it.rcpvision.emf.components.dsl.model.Model;
+import it.rcpvision.emf.components.dsl.model.ModelPackage;
 
 import java.util.Collection;
 
@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link it.rcpvision.emf.components.dsl.emfComponentsDsl.impl.ModelImpl#getGreetings <em>Greetings</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModelImpl#getGreetings <em>Greetings</em>}</li>
  * </ul>
  * </p>
  *
@@ -63,7 +63,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   @Override
   protected EClass eStaticClass()
   {
-    return EmfComponentsDslPackage.Literals.MODEL;
+    return ModelPackage.Literals.MODEL;
   }
 
   /**
@@ -75,7 +75,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     if (greetings == null)
     {
-      greetings = new EObjectContainmentEList<Greeting>(Greeting.class, this, EmfComponentsDslPackage.MODEL__GREETINGS);
+      greetings = new EObjectContainmentEList<Greeting>(Greeting.class, this, ModelPackage.MODEL__GREETINGS);
     }
     return greetings;
   }
@@ -90,7 +90,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case EmfComponentsDslPackage.MODEL__GREETINGS:
+      case ModelPackage.MODEL__GREETINGS:
         return ((InternalEList<?>)getGreetings()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -106,7 +106,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case EmfComponentsDslPackage.MODEL__GREETINGS:
+      case ModelPackage.MODEL__GREETINGS:
         return getGreetings();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -123,7 +123,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case EmfComponentsDslPackage.MODEL__GREETINGS:
+      case ModelPackage.MODEL__GREETINGS:
         getGreetings().clear();
         getGreetings().addAll((Collection<? extends Greeting>)newValue);
         return;
@@ -141,7 +141,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case EmfComponentsDslPackage.MODEL__GREETINGS:
+      case ModelPackage.MODEL__GREETINGS:
         getGreetings().clear();
         return;
     }
@@ -158,7 +158,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case EmfComponentsDslPackage.MODEL__GREETINGS:
+      case ModelPackage.MODEL__GREETINGS:
         return greetings != null && !greetings.isEmpty();
     }
     return super.eIsSet(featureID);
