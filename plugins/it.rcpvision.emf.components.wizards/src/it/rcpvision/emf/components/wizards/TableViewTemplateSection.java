@@ -1,6 +1,5 @@
-package it.rcpvision.emf.components.wizard.masterdetail;
+package it.rcpvision.emf.components.wizards;
 
-import it.rcpvision.emf.components.EmfComponentsActivator;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -22,6 +21,7 @@ import org.eclipse.pde.internal.ui.IHelpContextIds;
 import org.eclipse.pde.ui.templates.OptionTemplateSection;
 import org.eclipse.pde.ui.templates.PluginReference;
 
+@SuppressWarnings("restriction")
 public class TableViewTemplateSection extends OptionTemplateSection {
 	
 	public TableViewTemplateSection() {
@@ -59,12 +59,12 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 	
 	@Override
 	protected URL getInstallURL() {
-		return EmfComponentsActivator.getDefault().getBundle().getEntry("/");
+		return Activator.getDefault().getBundle().getEntry("/");
 	}
 	
 	@Override
 	protected ResourceBundle getPluginResourceBundle() {
-		return Platform.getResourceBundle(EmfComponentsActivator.getDefault().getBundle());
+		return Platform.getResourceBundle(Activator.getDefault().getBundle());
 	}
 	
 	public void addPages(Wizard wizard) {

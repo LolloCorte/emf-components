@@ -12,6 +12,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.internal.ide.IIDEHelpContextIds;
 
+@SuppressWarnings("restriction")
 public class ChoiceTemplateEmfComponents extends NewElementWizardPage {
     
 	public enum Choice { NONE, TREEFORM, TABLEFORM };

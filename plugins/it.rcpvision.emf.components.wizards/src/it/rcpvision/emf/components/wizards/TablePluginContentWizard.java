@@ -1,4 +1,5 @@
-package it.rcpvision.emf.components.wizard.masterdetail;
+package it.rcpvision.emf.components.wizards;
+
 
 import org.eclipse.pde.ui.IFieldData;
 import org.eclipse.pde.ui.templates.ITemplateSection;
