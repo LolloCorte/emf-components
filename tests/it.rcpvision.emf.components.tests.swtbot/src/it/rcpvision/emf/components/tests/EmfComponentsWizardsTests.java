@@ -26,25 +26,35 @@ public class EmfComponentsWizardsTests extends EmfComponentsAbstractTests {
 		createProjectInWorkspace(EMF_COMPONENTS_CATEGORY,
 				NEW_EMF_COMPONENTS_PROJECT, EMF_COMPONENTS_PROJECT);
 		// bot.sleep(300000);
-		waitForBuild();
-		assertNoErrorsInProject();
+		assertNoErrorsInProjectAfterAutoBuild();
 	}
 
 	@Test
 	public void canCreateProjectWithWizardWithNoSelectedView() throws Exception {
 		createProjectInWorkspaceWithView(EMF_COMPONENTS_CATEGORY,
 				NEW_EMF_COMPONENTS_PROJECT, EMF_COMPONENTS_PROJECT, null);
-		// bot.sleep(300000);
-		waitForBuild();
-		assertNoErrorsInProject();
+		assertNoErrorsInProjectAfterAutoBuild();
 	}
 
 	@Test
-	public void canCreateProjectWithWizardWithSelectedView() throws Exception {
+	public void canCreateProjectWithWizardWithSelectedTreeFormView()
+			throws Exception {
 		createProjectInWorkspaceWithView(EMF_COMPONENTS_CATEGORY,
 				NEW_EMF_COMPONENTS_PROJECT, EMF_COMPONENTS_PROJECT,
 				"Create a TreeFormView");
-		// bot.sleep(300000);
+		assertNoErrorsInProjectAfterAutoBuild();
+	}
+
+	@Test
+	public void canCreateProjectWithWizardWithSelectedTableView()
+			throws Exception {
+		createProjectInWorkspaceWithView(EMF_COMPONENTS_CATEGORY,
+				NEW_EMF_COMPONENTS_PROJECT, EMF_COMPONENTS_PROJECT,
+				"Create a TableView");
+		assertNoErrorsInProjectAfterAutoBuild();
+	}
+
+	protected void assertNoErrorsInProjectAfterAutoBuild() throws CoreException {
 		waitForBuild();
 		assertNoErrorsInProject();
 	}
