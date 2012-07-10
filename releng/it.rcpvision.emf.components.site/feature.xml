@@ -28,4 +28,8 @@
          id="it.rcpvision.emf.components.examples.feature"
          version="0.0.0"/>
 
+   <includes
+         id="it.rcpvision.emf.components.dsl.feature"
+         version="0.0.0"/>
+
 </feature>
