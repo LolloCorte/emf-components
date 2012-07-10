@@ -14,6 +14,7 @@ import it.rcpvision.emf.components.factories.TreeFormFactory;
 import it.rcpvision.emf.components.factories.FormFactory;
 import it.rcpvision.emf.components.factories.EmfViewerFactory;
 import it.rcpvision.emf.components.factories.JfaceProviderFactory;
+import it.rcpvision.emf.components.guice.AbstractGenericModule;
 import it.rcpvision.emf.components.guice.ComposedAdapterFactoryProvider;
 import it.rcpvision.emf.components.handlers.ContentOutlineSelectionHandler;
 import it.rcpvision.emf.components.listeners.EmfViewerMouseAdapter;
@@ -35,9 +36,6 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.eclipse.xtext.service.AbstractGenericModule;
-import org.eclipse.xtext.ui.IImageHelper;
-import org.eclipse.xtext.ui.PluginImageHelper;
 
 import com.google.inject.Binder;
 import com.google.inject.Provider;
