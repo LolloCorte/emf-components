@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @RunWith(value = XtextRunner.class)
 @InjectWith(value = EmfComponentsDslInjectorProvider.class)
 @SuppressWarnings("all")
-public class HelloInferrerParserTest {
+public class ParserTest {
   @Test
   public void testOperation() {
   }

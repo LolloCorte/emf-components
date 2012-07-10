@@ -8,7 +8,7 @@ import org.junit.runner.RunWith
 
 @RunWith(typeof(XtextRunner))
 @InjectWith(typeof(EmfComponentsDslInjectorProvider))
-class HelloInferrerParserTest {
+class ParserTest {
  
 //    @Inject extension ParseHelper<Model>
 // 
