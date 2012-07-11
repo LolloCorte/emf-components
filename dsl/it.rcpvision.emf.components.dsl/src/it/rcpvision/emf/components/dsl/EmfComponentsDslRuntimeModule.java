@@ -3,9 +3,23 @@
  */
 package it.rcpvision.emf.components.dsl;
 
-/**
- * Use this class to register components to be used at runtime / without the Equinox extension registry.
- */
-public class EmfComponentsDslRuntimeModule extends it.rcpvision.emf.components.dsl.AbstractEmfComponentsDslRuntimeModule {
+import it.rcpvision.emf.components.dsl.generator.EmfComponentsOutputConfigurationProvider;
 
+import org.eclipse.xtext.generator.IOutputConfigurationProvider;
+import org.eclipse.xtext.generator.OutputConfigurationProvider;
+
+/**
+ * Use this class to register components to be used at runtime / without the
+ * Equinox extension registry.
+ */
+public class EmfComponentsDslRuntimeModule extends
+		it.rcpvision.emf.components.dsl.AbstractEmfComponentsDslRuntimeModule {
+
+	public Class<? extends IOutputConfigurationProvider> bindIOutputConfigurationProvider() {
+		return EmfComponentsOutputConfigurationProvider.class;
+	}
+
+	public Class<? extends OutputConfigurationProvider> bindOutputConfigurationProvider() {
+		return EmfComponentsOutputConfigurationProvider.class;
+	}
 }

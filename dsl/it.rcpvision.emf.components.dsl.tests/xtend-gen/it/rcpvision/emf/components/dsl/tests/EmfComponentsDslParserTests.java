@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 @RunWith(value = XtextRunner.class)
 @InjectWith(value = EmfComponentsDslInjectorProvider.class)
 @SuppressWarnings("all")
-public class EmfComponentsParserTest extends EmfComponentsDslAbstractTests {
+public class EmfComponentsDslParserTests extends EmfComponentsDslAbstractTests {
   @Test
   public void testEmptyModule() {
     CharSequence _emptyModule = this.inputs.emptyModule();

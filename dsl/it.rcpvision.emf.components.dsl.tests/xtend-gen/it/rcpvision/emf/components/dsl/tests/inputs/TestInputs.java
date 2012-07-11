@@ -9,7 +9,7 @@ public class TestInputs {
     _builder.append("import java.util.*");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("module my.empty.Module {");
+    _builder.append("module my.empty.Test {");
     _builder.newLine();
     _builder.append("\t");
     _builder.newLine();

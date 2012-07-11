@@ -1,10 +1,14 @@
 package it.rcpvision.emf.components.dsl.jvmmodel
 
 import com.google.inject.Inject
+import it.rcpvision.emf.components.dsl.model.Module
+import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
-import it.rcpvision.emf.components.dsl.model.Model
+import it.rcpvision.emf.components.EmfComponentsGenericModule
+import it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory
+import org.eclipse.ui.plugin.AbstractUIPlugin
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -18,6 +22,8 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
      * convenience API to build and initialize JVM types and their members.
      */
 	@Inject extension JvmTypesBuilder
+	
+	@Inject extension IQualifiedNameProvider
 
 	/**
 	 * The dispatch method {@code infer} is called for each instance of the
@@ -44,20 +50,34 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 	 *            rely on linking using the index if isPreIndexingPhase is
 	 *            <code>true</code>.
 	 */
-   	def dispatch void infer(Model element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
-   		// Here you explain how your model is mapped to Java elements, by writing the actual translation code.
+   	def dispatch void infer(Module element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
+   		if (element.name == null)
+   			return
    		
-   		// An implementation for the initial hello world example could look like this:
-//   		acceptor.accept(element.toClass("my.company.greeting.MyGreetings"))
-//   			.initializeLater([
-//   				for (greeting : element.greetings) {
-//   					members += greeting.toMethod("hello" + greeting.name, greeting.newTypeRef(typeof(String))) [
-//   						body = [
-//   							append('''return "Hello «greeting.name»";''')
-//   						]
-//   					]
-//   				}
-//   			])
+		val moduleClass = element.toClass(element.moduleQN)
+		val execExtFactoryClass = element.toClass(element.executableExtensionFactoryQN) 		
+		
+		acceptor.accept(moduleClass).initializeLater [
+			documentation = element.documentation
+			superTypes += element.newTypeRef(typeof(EmfComponentsGenericModule))
+			
+			members += element.toConstructor() [
+				parameters += element.toParameter("plugin", element.newTypeRef(typeof(AbstractUIPlugin)))
+				body = [it.append("super(plugin);")]
+			]
+		]
+		acceptor.accept(execExtFactoryClass).initializeLater [
+			documentation = element.documentation
+			superTypes += element.newTypeRef(typeof(EmfComponentsExecutableExtensionFactory))
+		]
+   	}
+   	
+   	def moduleQN(Module element) {
+   		element.fullyQualifiedName + "Module"
+   	}
+
+   	def executableExtensionFactoryQN(Module element) {
+   		element.fullyQualifiedName + "ExecutableExtensionFactory"
    	}
 }
 

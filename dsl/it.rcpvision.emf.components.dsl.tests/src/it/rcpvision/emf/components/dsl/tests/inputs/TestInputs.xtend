@@ -6,7 +6,7 @@ class TestInputs {
 '''
 import java.util.*
 
-module my.empty.Module {
+module my.empty.Test {
 	
 }
 '''
