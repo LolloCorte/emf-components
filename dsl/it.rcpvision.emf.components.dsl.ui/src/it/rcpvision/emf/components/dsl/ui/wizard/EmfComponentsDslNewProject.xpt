@@ -1,0 +1,28 @@
+«IMPORT it::rcpvision::emf::components::dsl::ui::wizard»
+
+«DEFINE main FOR EmfComponentsDslProjectInfo»
+«EXPAND model FOR this»
+«EXPAND workflow FOR this»
+«ENDDEFINE»
+
+«DEFINE model FOR EmfComponentsDslProjectInfo»
+«FILE "src/model/Model.emfcomponents"-»
+/*
+ * This is an example model
+ */
+Hello Xtext!
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE workflow FOR EmfComponentsDslProjectInfo»
+«FILE "src/Generator.mwe2"-»
+module Generator
+
+var targetDir = "src-gen"
+var modelPath = "src/model"
+
+Workflow {
+	component = @workflow.EmfComponentsDslGenerator auto-inject {}
+}
+«ENDFILE»
+«ENDDEFINE»
