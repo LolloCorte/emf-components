@@ -9,6 +9,12 @@ import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 import it.rcpvision.emf.components.EmfComponentsGenericModule
 import it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory
 import org.eclipse.ui.plugin.AbstractUIPlugin
+import it.rcpvision.emf.components.ui.EmfComponentsAbstractActivator
+import org.eclipse.xtext.common.types.JvmVisibility
+import org.eclipse.xtext.common.types.util.TypeReferences
+import org.osgi.framework.BundleContext
+import org.osgi.framework.Bundle
+import com.google.inject.Injector
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -24,6 +30,8 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 	@Inject extension JvmTypesBuilder
 	
 	@Inject extension IQualifiedNameProvider
+	
+	@Inject extension TypeReferences
 
 	/**
 	 * The dispatch method {@code infer} is called for each instance of the
@@ -55,7 +63,8 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
    			return
    		
 		val moduleClass = element.toClass(element.moduleQN)
-		val execExtFactoryClass = element.toClass(element.executableExtensionFactoryQN) 		
+		val execExtFactoryClass = element.toClass(element.executableExtensionFactoryQN)
+		val activatorClass = element.toClass(element.activatorQN)
 		
 		acceptor.accept(moduleClass).initializeLater [
 			documentation = element.documentation
@@ -66,10 +75,90 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 				body = [it.append("super(plugin);")]
 			]
 		]
+
 		acceptor.accept(execExtFactoryClass).initializeLater [
 			documentation = element.documentation
 			superTypes += element.newTypeRef(typeof(EmfComponentsExecutableExtensionFactory))
+			
+			members += element.toMethod("getBundle", element.newTypeRef(typeof(Bundle))) [
+				annotations += element.toAnnotation(typeof(Override))
+				visibility = JvmVisibility::PROTECTED
+				body = [ 
+					append("return " + element.activatorQN + ".getDefault().getBundle();")
+				]
+			]
+			
+			members += element.toMethod("getModule", element.newTypeRef(typeof(EmfComponentsGenericModule))) [
+				annotations += element.toAnnotation(typeof(Override))
+				visibility = JvmVisibility::PROTECTED
+				body = [ 
+					append("return " + element.activatorQN + ".getDefault().createModule();")
+				]
+			]
+			
+			members += element.toMethod("getInjector", element.newTypeRef(typeof(Injector))) [
+				annotations += element.toAnnotation(typeof(Override))
+				visibility = JvmVisibility::PROTECTED
+				body = [ 
+					append("return " + element.activatorQN + ".getDefault().getInjector();")
+				]
+			]
 		]
+
+		acceptor.accept(activatorClass).initializeLater [
+			documentation = element.documentation
+			superTypes += element.newTypeRef(typeof(EmfComponentsAbstractActivator))
+			
+			members += toField("PLUGIN_ID", element.newTypeRef(typeof(String))) [
+				visibility = JvmVisibility::PUBLIC
+				^static = true
+				final = true
+				setInitializer [ append('''"«element.fullyQualifiedName»"''') ]
+			]
+			
+			members += toField("plugin", activatorClass.createTypeRef) [
+				visibility = JvmVisibility::PRIVATE
+				^static = true
+			]
+			
+			members += toMethod("start", Void::TYPE.getTypeForName(element)) [
+				parameters += element.toParameter(
+					"context", element.newTypeRef(typeof(BundleContext)))
+				exceptions += element.newTypeRef(typeof(Exception))
+				body = [
+					append('''
+					super.start(context);
+					plugin = this;''')
+				]
+			]
+			
+			members += toMethod("stop", Void::TYPE.getTypeForName(element)) [
+				parameters += element.toParameter(
+					"context", element.newTypeRef(typeof(BundleContext)))
+				exceptions += element.newTypeRef(typeof(Exception))
+				body = [
+					append('''
+					plugin = null;
+					super.stop(context);''')
+				]
+			]
+			
+			members += toMethod("getDefault", activatorClass.createTypeRef) [
+				^static = true
+				body = [ append("return plugin;") ]
+			]
+			
+			members += element.toMethod("createModule", element.newTypeRef(typeof(EmfComponentsGenericModule))) [
+				visibility = JvmVisibility::PROTECTED
+				body = [
+					append("return new " + element.moduleQN + "(getDefault());")
+				]
+			]
+		]
+   	}
+   	
+   	def activatorQN(Module element) {
+   		element.fullyQualifiedName + "Activator"
    	}
    	
    	def moduleQN(Module element) {

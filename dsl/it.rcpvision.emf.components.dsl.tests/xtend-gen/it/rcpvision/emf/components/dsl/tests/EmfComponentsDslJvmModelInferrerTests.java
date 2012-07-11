@@ -40,4 +40,13 @@ public class EmfComponentsDslJvmModelInferrerTests extends EmfComponentsDslAbstr
     this.assertEqualsStrings(_executableExtensionFactoryQN, 
       "my.empty.TestExecutableExtensionFactory");
   }
+  
+  @Test
+  public void testActivatorName() {
+    CharSequence _emptyModule = this.inputs.emptyModule();
+    Module _module = this.module(_emptyModule);
+    String _activatorQN = this.inferrer.activatorQN(_module);
+    this.assertEqualsStrings(_activatorQN, 
+      "my.empty.TestActivator");
+  }
 }

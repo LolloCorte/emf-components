@@ -14,24 +14,31 @@ import com.google.inject.Inject
 @InjectWith(typeof(EmfComponentsDslInjectorProvider))
 class EmfComponentsDslJvmModelInferrerTests extends EmfComponentsDslAbstractTests {
  
- 	@Inject EmfComponentsDslJvmModelInferrer inferrer
+	@Inject EmfComponentsDslJvmModelInferrer inferrer
  
     @Test
-    def void testEmptyModule() {
+	def void testEmptyModule() {
         inputs.emptyModule.parseAndAssertNoError
     }
 
 	@Test
-    def void testModuleName() {
+	def void testModuleName() {
         inferrer.moduleQN(inputs.emptyModule.module).assertEqualsStrings(
         	"my.empty.TestModule"
         )
     }
 
 	@Test
-    def void testExecutableExtensionFactoryName() {
+	def void testExecutableExtensionFactoryName() {
         inferrer.executableExtensionFactoryQN(inputs.emptyModule.module).assertEqualsStrings(
         	"my.empty.TestExecutableExtensionFactory"
+        )
+    }
+
+	@Test
+	def void testActivatorName() {
+        inferrer.activatorQN(inputs.emptyModule.module).assertEqualsStrings(
+        	"my.empty.TestActivator"
         )
     }
 	 

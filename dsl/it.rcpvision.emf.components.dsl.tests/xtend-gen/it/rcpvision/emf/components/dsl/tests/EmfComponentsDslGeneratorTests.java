@@ -54,17 +54,136 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.append("package my.empty;");
     _builder_1.newLine();
     _builder_1.newLine();
+    _builder_1.append("import com.google.inject.Injector;");
+    _builder_1.newLine();
     _builder_1.append("import it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory;");
+    _builder_1.newLine();
+    _builder_1.append("import it.rcpvision.emf.components.EmfComponentsGenericModule;");
+    _builder_1.newLine();
+    _builder_1.append("import org.osgi.framework.Bundle;");
     _builder_1.newLine();
     _builder_1.newLine();
     _builder_1.append("public class TestExecutableExtensionFactory extends EmfComponentsExecutableExtensionFactory {");
     _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("@Override");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("protected Bundle getBundle() {");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("return my.empty.TestActivator.getDefault().getBundle();");
+    _builder_1.newLine();
+    _builder_1.append("  ");
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_emptyModule, _builder, _builder_1);
+    _builder_1.append("  ");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("@Override");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("protected EmfComponentsGenericModule getModule() {");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("return my.empty.TestActivator.getDefault().createModule();");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("@Override");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("protected Injector getInjector() {");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("return my.empty.TestActivator.getDefault().getInjector();");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("}");
+    _builder_1.newLine();
+    StringConcatenation _builder_2 = new StringConcatenation();
+    _builder_2.append("package my.empty;");
+    _builder_2.newLine();
+    _builder_2.newLine();
+    _builder_2.append("import it.rcpvision.emf.components.EmfComponentsGenericModule;");
+    _builder_2.newLine();
+    _builder_2.append("import it.rcpvision.emf.components.ui.EmfComponentsAbstractActivator;");
+    _builder_2.newLine();
+    _builder_2.append("import org.osgi.framework.BundleContext;");
+    _builder_2.newLine();
+    _builder_2.newLine();
+    _builder_2.append("public class TestActivator extends EmfComponentsAbstractActivator {");
+    _builder_2.newLine();
+    _builder_2.append("  ");
+    _builder_2.append("public final static String PLUGIN_ID = \"my.empty.Test\";");
+    _builder_2.newLine();
+    _builder_2.append("  ");
+    _builder_2.newLine();
+    _builder_2.append("  ");
+    _builder_2.append("private static TestActivator plugin;");
+    _builder_2.newLine();
+    _builder_2.append("  ");
+    _builder_2.newLine();
+    _builder_2.append("  ");
+    _builder_2.append("public void start(final BundleContext context) throws Exception {");
+    _builder_2.newLine();
+    _builder_2.append("    ");
+    _builder_2.append("super.start(context);");
+    _builder_2.newLine();
+    _builder_2.append("    ");
+    _builder_2.append("plugin = this;");
+    _builder_2.newLine();
+    _builder_2.append("  ");
+    _builder_2.append("}");
+    _builder_2.newLine();
+    _builder_2.append("  ");
+    _builder_2.newLine();
+    _builder_2.append("  ");
+    _builder_2.append("public void stop(final BundleContext context) throws Exception {");
+    _builder_2.newLine();
+    _builder_2.append("    ");
+    _builder_2.append("plugin = null;");
+    _builder_2.newLine();
+    _builder_2.append("    ");
+    _builder_2.append("super.stop(context);");
+    _builder_2.newLine();
+    _builder_2.append("  ");
+    _builder_2.append("}");
+    _builder_2.newLine();
+    _builder_2.append("  ");
+    _builder_2.newLine();
+    _builder_2.append("  ");
+    _builder_2.append("public static TestActivator getDefault() {");
+    _builder_2.newLine();
+    _builder_2.append("    ");
+    _builder_2.append("return plugin;");
+    _builder_2.newLine();
+    _builder_2.append("  ");
+    _builder_2.append("}");
+    _builder_2.newLine();
+    _builder_2.append("  ");
+    _builder_2.newLine();
+    _builder_2.append("  ");
+    _builder_2.append("protected EmfComponentsGenericModule createModule() {");
+    _builder_2.newLine();
+    _builder_2.append("    ");
+    _builder_2.append("return new my.empty.TestModule(getDefault());");
+    _builder_2.newLine();
+    _builder_2.append("  ");
+    _builder_2.append("}");
+    _builder_2.newLine();
+    _builder_2.append("}");
+    _builder_2.newLine();
+    this.assertCorrectJavaCodeGeneration(_emptyModule, _builder, _builder_1, _builder_2);
   }
   
-  private void assertCorrectJavaCodeGeneration(final CharSequence input, final CharSequence expectedModule, final CharSequence expectedFactory) {
+  private void assertCorrectJavaCodeGeneration(final CharSequence input, final CharSequence expectedModule, final CharSequence expectedFactory, final CharSequence expectedActivator) {
     final Procedure1<Result> _function = new Procedure1<Result>() {
         public void apply(final Result it) {
           Map<String,CharSequence> _allGeneratedResources = it.getAllGeneratedResources();
@@ -100,9 +219,25 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
                 String _string_3 = _value_1.toString();
                 Assert.assertEquals(_string_2, _string_3);
               } else {
-                CharSequence _value_2 = e.getValue();
-                String _plus = ("unexpected generated code: " + _value_2);
-                Assert.fail(_plus);
+                boolean _and_2 = false;
+                String _key_2 = e.getKey();
+                boolean _endsWith_2 = _key_2.endsWith("Activator.java");
+                if (!_endsWith_2) {
+                  _and_2 = false;
+                } else {
+                  boolean _notEquals_2 = (!Objects.equal(expectedActivator, null));
+                  _and_2 = (_endsWith_2 && _notEquals_2);
+                }
+                if (_and_2) {
+                  String _string_4 = expectedActivator.toString();
+                  CharSequence _value_2 = e.getValue();
+                  String _string_5 = _value_2.toString();
+                  Assert.assertEquals(_string_4, _string_5);
+                } else {
+                  CharSequence _value_3 = e.getValue();
+                  String _plus = ("unexpected generated code: " + _value_3);
+                  Assert.fail(_plus);
+                }
               }
             }
           }
