@@ -36,6 +36,14 @@
       <import plugin="org.eclipse.xtext.common.types.ui"/>
       <import plugin="org.eclipse.xtext.ui.codetemplates.ui"/>
       <import plugin="org.eclipse.compare"/>
+      <import plugin="it.rcpvision.emf.components" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.xtend"/>
+      <import plugin="org.eclipse.xpand"/>
+      <import plugin="it.rcpvision.emf.components.wizards" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtend.lib"/>
+      <import plugin="com.google.guava"/>
    </requires>
 
    <plugin

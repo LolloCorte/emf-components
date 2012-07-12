@@ -1,5 +1,6 @@
 package it.rcpvision.emf.components.wizards.gen;
 
+import com.google.common.base.Objects;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
 @SuppressWarnings("all")
@@ -290,8 +291,13 @@ public class EmfComponentsProjectFilesGenerator {
     _builder.append("import org.eclipse.ui.plugin.AbstractUIPlugin;");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("import it.rcpvision.emf.components.EmfComponentsGenericModule;");
-    _builder.newLine();
+    {
+      boolean _equals = Objects.equal(superClass, "EmfComponentsGenericModule");
+      if (_equals) {
+        _builder.append("import it.rcpvision.emf.components.EmfComponentsGenericModule;");
+        _builder.newLine();
+      }
+    }
     _builder.newLine();
     _builder.append("public class EmfComponentsGuiceModule extends ");
     _builder.append(superClass, "");

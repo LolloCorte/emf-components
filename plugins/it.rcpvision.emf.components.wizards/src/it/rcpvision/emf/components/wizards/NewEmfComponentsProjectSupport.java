@@ -171,7 +171,7 @@ public class NewEmfComponentsProjectSupport {
 	 * @param progressMonitor
 	 * @return
 	 */
-	protected static IProgressMonitor createSubProgressMonitor(
+	public static IProgressMonitor createSubProgressMonitor(
 			IProgressMonitor progressMonitor) {
 		return new SubProgressMonitor(progressMonitor, 1);
 	}

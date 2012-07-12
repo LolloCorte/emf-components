@@ -28,8 +28,7 @@ public class EmfComponentsDslJvmModelInferrerTests extends EmfComponentsDslAbstr
     CharSequence _emptyModule = this.inputs.emptyModule();
     Module _module = this.module(_emptyModule);
     String _moduleQN = this.inferrer.moduleQN(_module);
-    this.assertEqualsStrings(_moduleQN, 
-      "my.empty.TestModule");
+    this.assertEqualsStrings("my.empty.EmfComponentsGuiceModuleGen", _moduleQN);
   }
   
   @Test
@@ -37,8 +36,7 @@ public class EmfComponentsDslJvmModelInferrerTests extends EmfComponentsDslAbstr
     CharSequence _emptyModule = this.inputs.emptyModule();
     Module _module = this.module(_emptyModule);
     String _executableExtensionFactoryQN = this.inferrer.executableExtensionFactoryQN(_module);
-    this.assertEqualsStrings(_executableExtensionFactoryQN, 
-      "my.empty.TestExecutableExtensionFactory");
+    this.assertEqualsStrings("my.empty.ExecutableExtensionFactory", _executableExtensionFactoryQN);
   }
   
   @Test
@@ -46,7 +44,6 @@ public class EmfComponentsDslJvmModelInferrerTests extends EmfComponentsDslAbstr
     CharSequence _emptyModule = this.inputs.emptyModule();
     Module _module = this.module(_emptyModule);
     String _activatorQN = this.inferrer.activatorQN(_module);
-    this.assertEqualsStrings(_activatorQN, 
-      "my.empty.TestActivator");
+    this.assertEqualsStrings("my.empty.Activator", _activatorQN);
   }
 }

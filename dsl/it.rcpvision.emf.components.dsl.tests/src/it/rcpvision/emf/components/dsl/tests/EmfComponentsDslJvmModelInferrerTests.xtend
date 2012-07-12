@@ -23,22 +23,22 @@ class EmfComponentsDslJvmModelInferrerTests extends EmfComponentsDslAbstractTest
 
 	@Test
 	def void testModuleName() {
-        inferrer.moduleQN(inputs.emptyModule.module).assertEqualsStrings(
-        	"my.empty.TestModule"
+        "my.empty.EmfComponentsGuiceModuleGen".assertEqualsStrings(
+        	inferrer.moduleQN(inputs.emptyModule.module)
         )
     }
 
 	@Test
 	def void testExecutableExtensionFactoryName() {
-        inferrer.executableExtensionFactoryQN(inputs.emptyModule.module).assertEqualsStrings(
-        	"my.empty.TestExecutableExtensionFactory"
+        "my.empty.ExecutableExtensionFactory".assertEqualsStrings(
+        	inferrer.executableExtensionFactoryQN(inputs.emptyModule.module)
         )
     }
 
 	@Test
 	def void testActivatorName() {
-        inferrer.activatorQN(inputs.emptyModule.module).assertEqualsStrings(
-        	"my.empty.TestActivator"
+        "my.empty.Activator".assertEqualsStrings(
+        	inferrer.activatorQN(inputs.emptyModule.module)
         )
     }
 	 

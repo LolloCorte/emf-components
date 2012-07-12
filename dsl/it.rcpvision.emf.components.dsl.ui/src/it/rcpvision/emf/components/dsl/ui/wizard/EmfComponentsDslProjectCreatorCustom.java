@@ -5,7 +5,6 @@ package it.rcpvision.emf.components.dsl.ui.wizard;
 
 import it.rcpvision.emf.components.dsl.generator.EmfComponentsDslOutputConfigurationProvider;
 import it.rcpvision.emf.components.wizards.NewEmfComponentsProjectSupport;
-import it.rcpvision.emf.components.wizards.gen.EmfComponentsProjectFilesGenerator;
 
 import java.util.List;
 
@@ -23,23 +22,21 @@ import com.google.common.collect.Lists;
  */
 public class EmfComponentsDslProjectCreatorCustom extends
 		EmfComponentsDslProjectCreator {
-	static EmfComponentsProjectFilesGenerator filesGenerator = new EmfComponentsProjectFilesGenerator();
+	static EmfComponentsDslNewProjectFiles filesGenerator = new EmfComponentsDslNewProjectFiles();
 
 	@Override
 	protected List<String> getAllFolders() {
 		return ImmutableList.of(SRC_ROOT,
 				EmfComponentsDslOutputConfigurationProvider.EMFCOMPONENTS_GEN);
 	}
-	
-    /**
-     * @return the names of the bundles that a new project requires. May not be <code>null</code>
-     */
+
+	/**
+	 * @return the names of the bundles that a new project requires. May not be
+	 *         <code>null</code>
+	 */
 	protected List<String> getRequiredBundles() {
-		return Lists.newArrayList(
-			"com.ibm.icu",
-			"org.eclipse.xtext", 
-			"org.eclipse.xtext.generator",
-			DSL_GENERATOR_PROJECT_NAME);
+		return Lists.newArrayList("com.ibm.icu", "org.eclipse.xtext",
+				"org.eclipse.xtext.generator", DSL_GENERATOR_PROJECT_NAME);
 	}
 
 	@Override
@@ -60,7 +57,13 @@ public class EmfComponentsDslProjectCreatorCustom extends
 		NewEmfComponentsProjectSupport.createExecutableExtensionFactory(
 				project, projectName, projectPackagePath, monitor);
 		NewEmfComponentsProjectSupport.createModule(project, projectName,
-				projectPackagePath, "EmfComponentsGenericModule", monitor);
+				projectPackagePath, "EmfComponentsGuiceModuleGen", monitor);
+
+		NewEmfComponentsProjectSupport.createProjectFile(project,
+				projectPackagePath + "/module.emfcomponents", filesGenerator
+						.exampleDslFile(projectName).toString(),
+				NewEmfComponentsProjectSupport
+						.createSubProgressMonitor(monitor));
 
 		project.refreshLocal(IResource.DEPTH_INFINITE, monitor);
 	}

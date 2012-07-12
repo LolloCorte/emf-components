@@ -124,7 +124,9 @@ package «projectName»;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
+«IF superClass == "EmfComponentsGenericModule"»
 import it.rcpvision.emf.components.EmfComponentsGenericModule;
+«ENDIF»
 
 public class EmfComponentsGuiceModule extends «superClass» {
 
