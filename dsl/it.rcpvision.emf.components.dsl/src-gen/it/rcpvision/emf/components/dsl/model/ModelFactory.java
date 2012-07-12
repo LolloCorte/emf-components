@@ -50,6 +50,24 @@ public interface ModelFactory extends EFactory
   Module createModule();
 
   /**
+   * Returns a new object of class '<em>Label Provider</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Label Provider</em>'.
+   * @generated
+   */
+  LabelProvider createLabelProvider();
+
+  /**
+   * Returns a new object of class '<em>Label Specification</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Label Specification</em>'.
+   * @generated
+   */
+  LabelSpecification createLabelSpecification();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

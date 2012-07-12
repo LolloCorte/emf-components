@@ -99,13 +99,15 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cLabelProviderAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cLabelProviderLabelProviderParserRuleCall_3_0 = (RuleCall)cLabelProviderAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Module:
-		//	"module" name=QualifiedName "{" "}";
+		//	"module" name=QualifiedName "{" labelProvider=LabelProvider? "}";
 		public ParserRule getRule() { return rule; }
 
-		//"module" name=QualifiedName "{" "}"
+		//"module" name=QualifiedName "{" labelProvider=LabelProvider? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"module"
@@ -120,8 +122,137 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
+		//labelProvider=LabelProvider?
+		public Assignment getLabelProviderAssignment_3() { return cLabelProviderAssignment_3; }
+
+		//LabelProvider
+		public RuleCall getLabelProviderLabelProviderParserRuleCall_3_0() { return cLabelProviderLabelProviderParserRuleCall_3_0; }
+
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+
+	public class LabelProviderElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LabelProvider");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cLabelProviderAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cLabelProviderKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final UnorderedGroup cUnorderedGroup_3 = (UnorderedGroup)cGroup.eContents().get(3);
+		private final Group cGroup_3_0 = (Group)cUnorderedGroup_3.eContents().get(0);
+		private final Keyword cLabelsKeyword_3_0_0 = (Keyword)cGroup_3_0.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3_0_1 = (Keyword)cGroup_3_0.eContents().get(1);
+		private final Assignment cLabelSpecificationsAssignment_3_0_2 = (Assignment)cGroup_3_0.eContents().get(2);
+		private final RuleCall cLabelSpecificationsLabelSpecificationParserRuleCall_3_0_2_0 = (RuleCall)cLabelSpecificationsAssignment_3_0_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_0_3 = (Keyword)cGroup_3_0.eContents().get(3);
+		private final Group cGroup_3_1 = (Group)cUnorderedGroup_3.eContents().get(1);
+		private final Keyword cImagesKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3_1_1 = (Keyword)cGroup_3_1.eContents().get(1);
+		private final Assignment cImageSpecificationsAssignment_3_1_2 = (Assignment)cGroup_3_1.eContents().get(2);
+		private final RuleCall cImageSpecificationsLabelSpecificationParserRuleCall_3_1_2_0 = (RuleCall)cImageSpecificationsAssignment_3_1_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_1_3 = (Keyword)cGroup_3_1.eContents().get(3);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//LabelProvider:
+		//	{LabelProvider} "labelProvider" "{" (("labels" "{" labelSpecifications+=LabelSpecification* "}")? & ("images" "{"
+		//	imageSpecifications+=LabelSpecification* "}")?) "}";
+		public ParserRule getRule() { return rule; }
+
+		//{LabelProvider} "labelProvider" "{" (("labels" "{" labelSpecifications+=LabelSpecification* "}")? & ("images" "{"
+		//imageSpecifications+=LabelSpecification* "}")?) "}"
+		public Group getGroup() { return cGroup; }
+
+		//{LabelProvider}
+		public Action getLabelProviderAction_0() { return cLabelProviderAction_0; }
+
+		//"labelProvider"
+		public Keyword getLabelProviderKeyword_1() { return cLabelProviderKeyword_1; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
+		//("labels" "{" labelSpecifications+=LabelSpecification* "}")? & ("images" "{" imageSpecifications+=LabelSpecification*
+		//"}")?
+		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
+
+		//("labels" "{" labelSpecifications+=LabelSpecification* "}")?
+		public Group getGroup_3_0() { return cGroup_3_0; }
+
+		//"labels"
+		public Keyword getLabelsKeyword_3_0_0() { return cLabelsKeyword_3_0_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_3_0_1() { return cLeftCurlyBracketKeyword_3_0_1; }
+
+		//labelSpecifications+=LabelSpecification*
+		public Assignment getLabelSpecificationsAssignment_3_0_2() { return cLabelSpecificationsAssignment_3_0_2; }
+
+		//LabelSpecification
+		public RuleCall getLabelSpecificationsLabelSpecificationParserRuleCall_3_0_2_0() { return cLabelSpecificationsLabelSpecificationParserRuleCall_3_0_2_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_3_0_3() { return cRightCurlyBracketKeyword_3_0_3; }
+
+		//("images" "{" imageSpecifications+=LabelSpecification* "}")?
+		public Group getGroup_3_1() { return cGroup_3_1; }
+
+		//"images"
+		public Keyword getImagesKeyword_3_1_0() { return cImagesKeyword_3_1_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_3_1_1() { return cLeftCurlyBracketKeyword_3_1_1; }
+
+		//imageSpecifications+=LabelSpecification*
+		public Assignment getImageSpecificationsAssignment_3_1_2() { return cImageSpecificationsAssignment_3_1_2; }
+
+		//LabelSpecification
+		public RuleCall getImageSpecificationsLabelSpecificationParserRuleCall_3_1_2_0() { return cImageSpecificationsLabelSpecificationParserRuleCall_3_1_2_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_3_1_3() { return cRightCurlyBracketKeyword_3_1_3; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+
+	public class LabelSpecificationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LabelSpecification");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cParameterTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cParameterTypeJvmTypeReferenceParserRuleCall_0_0 = (RuleCall)cParameterTypeAssignment_0.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameValidIDParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cExpressionAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cExpressionXExpressionParserRuleCall_3_0 = (RuleCall)cExpressionAssignment_3.eContents().get(0);
+		
+		//LabelSpecification:
+		//	parameterType=JvmTypeReference name=ValidID? "->" expression=XExpression;
+		public ParserRule getRule() { return rule; }
+
+		//parameterType=JvmTypeReference name=ValidID? "->" expression=XExpression
+		public Group getGroup() { return cGroup; }
+
+		//parameterType=JvmTypeReference
+		public Assignment getParameterTypeAssignment_0() { return cParameterTypeAssignment_0; }
+
+		//JvmTypeReference
+		public RuleCall getParameterTypeJvmTypeReferenceParserRuleCall_0_0() { return cParameterTypeJvmTypeReferenceParserRuleCall_0_0; }
+
+		//name=ValidID?
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ValidID
+		public RuleCall getNameValidIDParserRuleCall_1_0() { return cNameValidIDParserRuleCall_1_0; }
+
+		//"->"
+		public Keyword getHyphenMinusGreaterThanSignKeyword_2() { return cHyphenMinusGreaterThanSignKeyword_2; }
+
+		//expression=XExpression
+		public Assignment getExpressionAssignment_3() { return cExpressionAssignment_3; }
+
+		//XExpression
+		public RuleCall getExpressionXExpressionParserRuleCall_3_0() { return cExpressionXExpressionParserRuleCall_3_0; }
 	}
 	
 	
@@ -129,6 +260,8 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 	private ImportElements pImport;
 	private QualifiedNameWithWildcardElements pQualifiedNameWithWildcard;
 	private ModuleElements pModule;
+	private LabelProviderElements pLabelProvider;
+	private LabelSpecificationElements pLabelSpecification;
 	
 	private final Grammar grammar;
 
@@ -199,13 +332,34 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 	}
 
 	//Module:
-	//	"module" name=QualifiedName "{" "}";
+	//	"module" name=QualifiedName "{" labelProvider=LabelProvider? "}";
 	public ModuleElements getModuleAccess() {
 		return (pModule != null) ? pModule : (pModule = new ModuleElements());
 	}
 	
 	public ParserRule getModuleRule() {
 		return getModuleAccess().getRule();
+	}
+
+	//LabelProvider:
+	//	{LabelProvider} "labelProvider" "{" (("labels" "{" labelSpecifications+=LabelSpecification* "}")? & ("images" "{"
+	//	imageSpecifications+=LabelSpecification* "}")?) "}";
+	public LabelProviderElements getLabelProviderAccess() {
+		return (pLabelProvider != null) ? pLabelProvider : (pLabelProvider = new LabelProviderElements());
+	}
+	
+	public ParserRule getLabelProviderRule() {
+		return getLabelProviderAccess().getRule();
+	}
+
+	//LabelSpecification:
+	//	parameterType=JvmTypeReference name=ValidID? "->" expression=XExpression;
+	public LabelSpecificationElements getLabelSpecificationAccess() {
+		return (pLabelSpecification != null) ? pLabelSpecification : (pLabelSpecification = new LabelSpecificationElements());
+	}
+	
+	public ParserRule getLabelSpecificationRule() {
+		return getLabelSpecificationAccess().getRule();
 	}
 
 	//XExpression:

@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getName <em>Name</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getLabelProvider <em>Label Provider</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,5 +48,31 @@ public interface Module extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Label Provider</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Label Provider</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Label Provider</em>' containment reference.
+   * @see #setLabelProvider(LabelProvider)
+   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getModule_LabelProvider()
+   * @model containment="true"
+   * @generated
+   */
+  LabelProvider getLabelProvider();
+
+  /**
+   * Sets the value of the '{@link it.rcpvision.emf.components.dsl.model.Module#getLabelProvider <em>Label Provider</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Label Provider</em>' containment reference.
+   * @see #getLabelProvider()
+   * @generated
+   */
+  void setLabelProvider(LabelProvider value);
 
 } // Module

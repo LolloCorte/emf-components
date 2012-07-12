@@ -8,8 +8,9 @@ import org.eclipse.xtext.junit4.InjectWith
 import org.eclipse.xtext.junit4.XtextRunner
 import org.eclipse.xtext.junit4.util.ParseHelper
 import org.eclipse.xtext.junit4.validation.ValidationTestHelper
-import org.junit.Assert
+import static extension org.junit.Assert.*
 import org.junit.runner.RunWith
+import it.rcpvision.emf.components.dsl.tests.inputs.TestInputsWithErrors
 
 @RunWith(typeof(XtextRunner))
 @InjectWith(typeof(EmfComponentsDslInjectorProvider))
@@ -17,6 +18,9 @@ class EmfComponentsDslAbstractTests {
 	
 	@Inject
 	protected TestInputs inputs
+	
+	@Inject
+	protected TestInputsWithErrors inputsWithErrors
 	
 	@Inject extension ParseHelper<Model>
  
@@ -28,11 +32,15 @@ class EmfComponentsDslAbstractTests {
 		ts
 	}
 	
+	def parseAndAssertErrors(CharSequence s) {
+		(s.parse.validate.size > 0).assertTrue
+	}
+	
 	def module(CharSequence s) {
 		s.parseAndAssertNoError.module
 	}
 	
 	def assertEqualsStrings(Object o1, Object o2) {
-		Assert::assertEquals("" + o1, "" + o2)
+		assertEquals("" + o1, "" + o2)
 	}
 }

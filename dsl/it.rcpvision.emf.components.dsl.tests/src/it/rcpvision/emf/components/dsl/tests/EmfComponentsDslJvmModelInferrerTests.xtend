@@ -41,5 +41,12 @@ class EmfComponentsDslJvmModelInferrerTests extends EmfComponentsDslAbstractTest
         	inferrer.activatorQN(inputs.emptyModule.module)
         )
     }
+    
+    @Test
+	def void testLabelProviderName() {
+        "my.empty.ui.provider.LabelProviderGen".assertEqualsStrings(
+        	inferrer.labelProviderQN(inputs.emptyModule.module)
+        )
+    }
 	 
 }

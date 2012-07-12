@@ -10,9 +10,28 @@ import org.junit.runner.RunWith
 @InjectWith(typeof(EmfComponentsDslInjectorProvider))
 class EmfComponentsDslParserTests extends EmfComponentsDslAbstractTests {
  
-    @Test
-    def void testEmptyModule() {
-        inputs.emptyModule.parseAndAssertNoError
-    }
- 
+	@Test
+	def void testEmptyModule() {
+		inputs.emptyModule.parseAndAssertNoError
+	}
+
+	@Test
+	def void testEmptyLabelProvider() {
+		inputs.emptyLabelProvider.parseAndAssertNoError
+	}
+
+	@Test
+	def void testEmptyLabelSpecifications() {
+		inputs.emptyLabelSpecifications.parseAndAssertNoError
+	}
+
+	@Test
+	def void testLabelSpecifications() {
+		inputs.labelSpecifications.parseAndAssertNoError
+	}
+	
+	@Test
+	def void testDuplicateLabelSpecifications() {
+		inputsWithErrors.duplicateLabelSpecifications.parseAndAssertErrors
+	}
 }

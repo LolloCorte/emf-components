@@ -17,5 +17,28 @@ QualifiedNameWithWildcard:
 
 Module:
 	'module' name=QualifiedName '{'
+		(labelProvider = LabelProvider)?
 	'}'
+;
+
+LabelProvider:
+	{LabelProvider} 'labelProvider' '{'
+		((
+		'labels' '{'
+			labelSpecifications+=LabelSpecification*
+		'}'
+		)?
+		&
+		(
+		'images' '{'
+			imageSpecifications+=LabelSpecification*
+		'}'
+		)?)
+	'}'
+;
+
+LabelSpecification:
+	parameterType=JvmTypeReference (name=ValidID)?
+	'->'
+	expression = XExpression
 ;

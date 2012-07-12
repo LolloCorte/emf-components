@@ -3,6 +3,8 @@ package it.rcpvision.emf.components.dsl.serializer;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import it.rcpvision.emf.components.dsl.model.Import;
+import it.rcpvision.emf.components.dsl.model.LabelProvider;
+import it.rcpvision.emf.components.dsl.model.LabelSpecification;
 import it.rcpvision.emf.components.dsl.model.Model;
 import it.rcpvision.emf.components.dsl.model.ModelPackage;
 import it.rcpvision.emf.components.dsl.model.Module;
@@ -67,6 +69,18 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 			case ModelPackage.IMPORT:
 				if(context == grammarAccess.getImportRule()) {
 					sequence_Import(context, (Import) semanticObject); 
+					return; 
+				}
+				else break;
+			case ModelPackage.LABEL_PROVIDER:
+				if(context == grammarAccess.getLabelProviderRule()) {
+					sequence_LabelProvider(context, (LabelProvider) semanticObject); 
+					return; 
+				}
+				else break;
+			case ModelPackage.LABEL_SPECIFICATION:
+				if(context == grammarAccess.getLabelSpecificationRule()) {
+					sequence_LabelSpecification(context, (LabelSpecification) semanticObject); 
 					return; 
 				}
 				else break;
@@ -960,6 +974,24 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (labelSpecifications+=LabelSpecification* imageSpecifications+=LabelSpecification*)
+	 */
+	protected void sequence_LabelProvider(EObject context, LabelProvider semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (parameterType=JvmTypeReference name=ValidID? expression=XExpression)
+	 */
+	protected void sequence_LabelSpecification(EObject context, LabelSpecification semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (imports+=Import* module=Module)
 	 */
 	protected void sequence_Model(EObject context, Model semanticObject) {
@@ -969,16 +1001,9 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     name=QualifiedName
+	 *     (name=QualifiedName labelProvider=LabelProvider?)
 	 */
 	protected void sequence_Module(EObject context, Module semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.MODULE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.MODULE__NAME));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getModuleAccess().getNameQualifiedNameParserRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 }

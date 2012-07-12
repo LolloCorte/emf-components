@@ -3,6 +3,8 @@
 package it.rcpvision.emf.components.dsl.model.impl;
 
 import it.rcpvision.emf.components.dsl.model.Import;
+import it.rcpvision.emf.components.dsl.model.LabelProvider;
+import it.rcpvision.emf.components.dsl.model.LabelSpecification;
 import it.rcpvision.emf.components.dsl.model.Model;
 import it.rcpvision.emf.components.dsl.model.ModelFactory;
 import it.rcpvision.emf.components.dsl.model.ModelPackage;
@@ -14,6 +16,10 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import org.eclipse.xtext.common.types.TypesPackage;
+
+import org.eclipse.xtext.xbase.XbasePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,6 +49,20 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * @generated
    */
   private EClass moduleEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass labelProviderEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass labelSpecificationEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -91,6 +111,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     ModelPackageImpl theModelPackage = (ModelPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ModelPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new ModelPackageImpl());
 
     isInited = true;
+
+    // Initialize simple dependencies
+    XbasePackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
     theModelPackage.createPackageContents();
@@ -182,6 +205,86 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getModule_LabelProvider()
+  {
+    return (EReference)moduleEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getLabelProvider()
+  {
+    return labelProviderEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLabelProvider_LabelSpecifications()
+  {
+    return (EReference)labelProviderEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLabelProvider_ImageSpecifications()
+  {
+    return (EReference)labelProviderEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getLabelSpecification()
+  {
+    return labelSpecificationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLabelSpecification_ParameterType()
+  {
+    return (EReference)labelSpecificationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getLabelSpecification_Name()
+  {
+    return (EAttribute)labelSpecificationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLabelSpecification_Expression()
+  {
+    return (EReference)labelSpecificationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ModelFactory getModelFactory()
   {
     return (ModelFactory)getEFactoryInstance();
@@ -216,6 +319,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
 
     moduleEClass = createEClass(MODULE);
     createEAttribute(moduleEClass, MODULE__NAME);
+    createEReference(moduleEClass, MODULE__LABEL_PROVIDER);
+
+    labelProviderEClass = createEClass(LABEL_PROVIDER);
+    createEReference(labelProviderEClass, LABEL_PROVIDER__LABEL_SPECIFICATIONS);
+    createEReference(labelProviderEClass, LABEL_PROVIDER__IMAGE_SPECIFICATIONS);
+
+    labelSpecificationEClass = createEClass(LABEL_SPECIFICATION);
+    createEReference(labelSpecificationEClass, LABEL_SPECIFICATION__PARAMETER_TYPE);
+    createEAttribute(labelSpecificationEClass, LABEL_SPECIFICATION__NAME);
+    createEReference(labelSpecificationEClass, LABEL_SPECIFICATION__EXPRESSION);
   }
 
   /**
@@ -242,6 +355,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     setNsPrefix(eNS_PREFIX);
     setNsURI(eNS_URI);
 
+    // Obtain other dependent packages
+    TypesPackage theTypesPackage = (TypesPackage)EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
+    XbasePackage theXbasePackage = (XbasePackage)EPackage.Registry.INSTANCE.getEPackage(XbasePackage.eNS_URI);
+
     // Create type parameters
 
     // Set bounds for type parameters
@@ -258,6 +375,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
 
     initEClass(moduleEClass, Module.class, "Module", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getModule_Name(), ecorePackage.getEString(), "name", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModule_LabelProvider(), this.getLabelProvider(), null, "labelProvider", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(labelProviderEClass, LabelProvider.class, "LabelProvider", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLabelProvider_LabelSpecifications(), this.getLabelSpecification(), null, "labelSpecifications", null, 0, -1, LabelProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLabelProvider_ImageSpecifications(), this.getLabelSpecification(), null, "imageSpecifications", null, 0, -1, LabelProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(labelSpecificationEClass, LabelSpecification.class, "LabelSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLabelSpecification_ParameterType(), theTypesPackage.getJvmTypeReference(), null, "parameterType", null, 0, 1, LabelSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLabelSpecification_Name(), ecorePackage.getEString(), "name", null, 0, 1, LabelSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLabelSpecification_Expression(), theXbasePackage.getXExpression(), null, "expression", null, 0, 1, LabelSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

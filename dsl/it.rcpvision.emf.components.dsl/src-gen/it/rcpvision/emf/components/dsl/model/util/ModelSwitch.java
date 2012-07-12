@@ -93,6 +93,20 @@ public class ModelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ModelPackage.LABEL_PROVIDER:
+      {
+        LabelProvider labelProvider = (LabelProvider)theEObject;
+        T result = caseLabelProvider(labelProvider);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ModelPackage.LABEL_SPECIFICATION:
+      {
+        LabelSpecification labelSpecification = (LabelSpecification)theEObject;
+        T result = caseLabelSpecification(labelSpecification);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -141,6 +155,38 @@ public class ModelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseModule(Module object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Label Provider</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Label Provider</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLabelProvider(LabelProvider object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Label Specification</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Label Specification</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLabelSpecification(LabelSpecification object)
   {
     return null;
   }

@@ -67,6 +67,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
       case ModelPackage.MODEL: return createModel();
       case ModelPackage.IMPORT: return createImport();
       case ModelPackage.MODULE: return createModule();
+      case ModelPackage.LABEL_PROVIDER: return createLabelProvider();
+      case ModelPackage.LABEL_SPECIFICATION: return createLabelSpecification();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -103,6 +105,28 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
   {
     ModuleImpl module = new ModuleImpl();
     return module;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LabelProvider createLabelProvider()
+  {
+    LabelProviderImpl labelProvider = new LabelProviderImpl();
+    return labelProvider;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LabelSpecification createLabelSpecification()
+  {
+    LabelSpecificationImpl labelSpecification = new LabelSpecificationImpl();
+    return labelSpecification;
   }
 
   /**

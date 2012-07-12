@@ -5,10 +5,13 @@ import it.rcpvision.emf.components.dsl.EmfComponentsDslInjectorProvider;
 import it.rcpvision.emf.components.dsl.model.Model;
 import it.rcpvision.emf.components.dsl.model.Module;
 import it.rcpvision.emf.components.dsl.tests.inputs.TestInputs;
+import it.rcpvision.emf.components.dsl.tests.inputs.TestInputsWithErrors;
+import java.util.List;
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
 import org.eclipse.xtext.junit4.util.ParseHelper;
 import org.eclipse.xtext.junit4.validation.ValidationTestHelper;
+import org.eclipse.xtext.validation.Issue;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.junit.Assert;
 import org.junit.runner.RunWith;
@@ -19,6 +22,9 @@ import org.junit.runner.RunWith;
 public class EmfComponentsDslAbstractTests {
   @Inject
   protected TestInputs inputs;
+  
+  @Inject
+  protected TestInputsWithErrors inputsWithErrors;
   
   @Inject
   private ParseHelper<Model> _parseHelper;
@@ -35,6 +41,18 @@ public class EmfComponentsDslAbstractTests {
         _xblockexpression = (ts);
       }
       return _xblockexpression;
+    } catch (Exception _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  public void parseAndAssertErrors(final CharSequence s) {
+    try {
+      Model _parse = this._parseHelper.parse(s);
+      List<Issue> _validate = this._validationTestHelper.validate(_parse);
+      int _size = _validate.size();
+      boolean _greaterThan = (_size > 0);
+      Assert.assertTrue(_greaterThan);
     } catch (Exception _e) {
       throw Exceptions.sneakyThrow(_e);
     }

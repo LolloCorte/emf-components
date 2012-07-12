@@ -3,11 +3,15 @@ package it.rcpvision.emf.components.dsl.jvmmodel
 import com.google.inject.Inject
 import it.rcpvision.emf.components.EmfComponentsGenericModule
 import it.rcpvision.emf.components.dsl.model.Module
+import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider
+import org.eclipse.emf.ecore.EObject
 import org.eclipse.ui.plugin.AbstractUIPlugin
+import org.eclipse.xtext.common.types.JvmGenericType
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
+import org.eclipse.xtext.common.types.TypesFactory
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -23,6 +27,8 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 	@Inject extension JvmTypesBuilder
 	
 	@Inject extension IQualifiedNameProvider
+	
+	@Inject extension TypesFactory
 
 	/**
 	 * The dispatch method {@code infer} is called for each instance of the
@@ -55,6 +61,8 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
    		
 		val moduleClass = element.toClass(element.moduleQN)
 		
+		val labelProviderClass = element.inferLabelProvider(acceptor)
+		
 		acceptor.accept(moduleClass).initializeLater [
 			documentation = element.documentation
 			superTypes += element.newTypeRef(typeof(EmfComponentsGenericModule))
@@ -63,6 +71,9 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 				parameters += element.toParameter("plugin", element.newTypeRef(typeof(AbstractUIPlugin)))
 				body = [it.append("super(plugin);")]
 			]
+			
+			if (labelProviderClass != null)
+				members += element.labelProvider.genBindMethod(labelProviderClass, typeof(CompositeLabelProvider))
 		]
    	}
    	
@@ -77,5 +88,64 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
    	def executableExtensionFactoryQN(Module element) {
    		element.fullyQualifiedName + ".ExecutableExtensionFactory"
    	}
+
+	def labelProviderQN(Module element) {
+		element.fullyQualifiedName + ".ui.provider.LabelProviderGen"
+	}
+	
+	def inferLabelProvider(Module element, IJvmDeclaredTypeAcceptor acceptor) {
+		if (element.labelProvider == null)
+			null
+		else {
+			val labelProviderClass = element.labelProvider.toClass(element.labelProviderQN)
+			acceptor.accept(labelProviderClass).initializeLater [
+				superTypes += element.newTypeRef(typeof(CompositeLabelProvider))
+				
+				element.labelProvider.labelSpecifications.forEach [
+					labelSpecification |
+					members += labelSpecification.toMethod("text", element.newTypeRef(typeof(String))) [
+						parameters += labelSpecification.toParameter(
+							if (labelSpecification.name != null)
+								labelSpecification.name
+							else
+								"it"
+							, labelSpecification.parameterType
+						)
+						body = labelSpecification.expression
+					]
+				]
+				
+				element.labelProvider.imageSpecifications.forEach [
+					imageSpecification |
+					members += imageSpecification.toMethod("image", element.newTypeRef(typeof(Object))) [
+						parameters += imageSpecification.toParameter(
+							if (imageSpecification.name != null)
+								imageSpecification.name
+							else
+								"it"
+							, imageSpecification.parameterType
+						)
+						body = imageSpecification.expression
+					]
+				]
+			]
+			labelProviderClass
+		}
+	}
+	
+	def genBindMethod(EObject element, JvmGenericType type, Class<?> clazz) {
+		val wildCard = createJvmWildcardTypeReference
+		val upperBound = createJvmUpperBound
+		upperBound.typeReference = element.newTypeRef(clazz)
+		wildCard.constraints += upperBound
+		element.toMethod("bind" + clazz.simpleName, 
+				element.newTypeRef(typeof(Class), wildCard) ) [
+			body = [
+				append("return ")
+				append(type)
+				append(".class;")
+			]
+		]
+	}
 }
 
