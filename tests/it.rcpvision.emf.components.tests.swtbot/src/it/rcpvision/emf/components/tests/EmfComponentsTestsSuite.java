@@ -16,7 +16,8 @@ import org.junit.runners.Suite;
 	EmfComponentsSaveableViewTests.class,
 	EmfComponentsEditorTests.class,
 	EmfComponentsFormTests.class,
-	EmfComponentsWizardsTests.class
+	EmfComponentsWizardsTests.class,
+	EmfComponentsDslWizardsTests.class
 })
 public class EmfComponentsTestsSuite {
 }

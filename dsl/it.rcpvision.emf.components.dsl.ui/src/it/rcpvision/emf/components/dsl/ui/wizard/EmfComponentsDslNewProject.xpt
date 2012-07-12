@@ -1,12 +1,12 @@
 «IMPORT it::rcpvision::emf::components::dsl::ui::wizard»
 
 «DEFINE main FOR EmfComponentsDslProjectInfo»
-«EXPAND model FOR this»
+«EXPAND activator FOR this»
 «EXPAND workflow FOR this»
 «ENDDEFINE»
 
-«DEFINE model FOR EmfComponentsDslProjectInfo»
-«FILE "src/model/Model.emfcomponents"-»
+«DEFINE activator FOR EmfComponentsDslProjectInfo»
+«FILE "src/" + this.projectName.replaceAll(".", "/") + "/Model.emfcomponents"-»
 /*
  * This is an example model
  */

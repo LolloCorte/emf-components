@@ -3,7 +3,7 @@
  */
 package it.rcpvision.emf.components.dsl;
 
-import it.rcpvision.emf.components.dsl.generator.EmfComponentsOutputConfigurationProvider;
+import it.rcpvision.emf.components.dsl.generator.EmfComponentsDslOutputConfigurationProvider;
 
 import org.eclipse.xtext.generator.IOutputConfigurationProvider;
 import org.eclipse.xtext.generator.OutputConfigurationProvider;
@@ -16,10 +16,10 @@ public class EmfComponentsDslRuntimeModule extends
 		it.rcpvision.emf.components.dsl.AbstractEmfComponentsDslRuntimeModule {
 
 	public Class<? extends IOutputConfigurationProvider> bindIOutputConfigurationProvider() {
-		return EmfComponentsOutputConfigurationProvider.class;
+		return EmfComponentsDslOutputConfigurationProvider.class;
 	}
 
 	public Class<? extends OutputConfigurationProvider> bindOutputConfigurationProvider() {
-		return EmfComponentsOutputConfigurationProvider.class;
+		return EmfComponentsDslOutputConfigurationProvider.class;
 	}
 }

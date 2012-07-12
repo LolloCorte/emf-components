@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.text.MessageFormat;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
@@ -180,6 +182,8 @@ public class EmfComponentsAbstractTests {
 
 	protected static final String NEW_EMF_COMPONENTS_PROJECT = "New Emf Components Project";
 
+	protected static final String NEW_EMF_COMPONENTS_DSL_PROJECT = "New Emf Components Dsl Based Project";
+
 	protected static SWTWorkbenchBot bot;
 
 	protected static Map<String, String> editorNamesToId;
@@ -192,11 +196,11 @@ public class EmfComponentsAbstractTests {
 		// SWTBotPreferences.TIMEOUT = 10000;
 
 		// in the launch configuration there will be no welcome view
-//		try {
-//			bot.viewByTitle("Welcome").close();
-//		} catch (WidgetNotFoundException e) {
-//			// OK!
-//		}
+		// try {
+		// bot.viewByTitle("Welcome").close();
+		// } catch (WidgetNotFoundException e) {
+		// // OK!
+		// }
 
 		bot.resetWorkbench();
 
@@ -670,24 +674,33 @@ public class EmfComponentsAbstractTests {
 		}
 	}
 
-	protected void assertNoErrorsInProjectAfterAutoBuild()
-			throws CoreException {
-				waitForBuild();
-				assertNoErrorsInProject();
-			}
+	protected void assertNoErrorsInProjectAfterAutoBuild() throws CoreException {
+		waitForBuild();
+		assertNoErrorsInProject();
+	}
 
 	protected void assertNoErrorsInProject() throws CoreException {
 		IMarker[] markers = root().findMarkers(IMarker.PROBLEM, true,
 				IResource.DEPTH_INFINITE);
-		assertEquals("expected no markers: " + printMarkers(markers), 0,
-				markers.length);
+		List<IMarker> errorMarkers = new LinkedList<IMarker>();
+		for (int i = 0; i < markers.length; i++) {
+			IMarker iMarker = markers[i];
+			if (iMarker.getAttribute(IMarker.SEVERITY).toString()
+					.equals("" + IMarker.SEVERITY_ERROR)) {
+				errorMarkers.add(iMarker);
+			}
+		}
+		assertEquals(
+				"expected no error markers: " + printMarkers(errorMarkers), 0,
+				errorMarkers.size());
 	}
 
-	protected String printMarkers(IMarker[] markers) {
+	private String printMarkers(List<IMarker> errorMarkers) {
 		StringBuffer buffer = new StringBuffer();
-		for (int i = 0; i < markers.length; i++) {
+		for (IMarker iMarker : errorMarkers) {
 			try {
-				buffer.append(markers[i].getAttribute(IMarker.MESSAGE) + "\n");
+				buffer.append(iMarker.getAttribute(IMarker.MESSAGE) + "\n");
+				buffer.append(iMarker.getAttribute(IMarker.SEVERITY) + "\n");
 			} catch (CoreException e) {
 			}
 		}

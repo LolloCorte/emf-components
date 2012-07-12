@@ -3,13 +3,22 @@
  */
 package it.rcpvision.emf.components.dsl.ui;
 
+import it.rcpvision.emf.components.dsl.ui.wizard.EmfComponentsDslProjectCreatorCustom;
+
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.ui.wizard.IProjectCreator;
 
 /**
  * Use this class to register components to be used within the IDE.
  */
-public class EmfComponentsDslUiModule extends it.rcpvision.emf.components.dsl.ui.AbstractEmfComponentsDslUiModule {
+public class EmfComponentsDslUiModule extends
+		it.rcpvision.emf.components.dsl.ui.AbstractEmfComponentsDslUiModule {
 	public EmfComponentsDslUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
+	}
+
+	@Override
+	public Class<? extends IProjectCreator> bindIProjectCreator() {
+		return EmfComponentsDslProjectCreatorCustom.class;
 	}
 }

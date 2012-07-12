@@ -5,7 +5,7 @@ import java.util.Set;
 import org.eclipse.xtext.generator.OutputConfiguration;
 import org.eclipse.xtext.generator.OutputConfigurationProvider;
 
-public class EmfComponentsOutputConfigurationProvider extends
+public class EmfComponentsDslOutputConfigurationProvider extends
 		OutputConfigurationProvider {
 
 	public static final String EMFCOMPONENTS_GEN = "./emfcomponents-gen";

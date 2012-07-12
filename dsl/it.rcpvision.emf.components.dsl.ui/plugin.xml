@@ -271,10 +271,11 @@
    <extension
          point="org.eclipse.ui.newWizards">
       <wizard
-            category="org.eclipse.xtext.projectwiz"
+            category="it.rcpvision.emf.components.wizards"
             class="it.rcpvision.emf.components.dsl.ui.EmfComponentsDslExecutableExtensionFactory:it.rcpvision.emf.components.dsl.ui.wizard.EmfComponentsDslNewProjectWizard"
+            icon="icons/sample.gif"
             id="it.rcpvision.emf.components.dsl.ui.wizard.EmfComponentsDslNewProjectWizard"
-            name="EmfComponentsDsl Project"
+            name="New Emf Components Dsl Based Project"
             project="true">
       </wizard>
    </extension>
