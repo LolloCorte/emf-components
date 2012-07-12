@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-   <extension
+	<extension
          point="org.eclipse.ui.newWizards">
       <category
             id="it.rcpvision.emf.components.wizards"
             name="Emf Components">
       </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
       <wizard
             category="it.rcpvision.emf.components.wizards"
             class="it.rcpvision.emf.components.wizards.NewEmfComponentsProjectWizard"
