@@ -118,7 +118,7 @@ public class ExecutableExtensionFactory extends
 }
 '''
 
-	def generateModule(String projectName)
+	def generateModule(String projectName, String superClass)
 '''
 package «projectName»;
 
@@ -126,7 +126,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 import it.rcpvision.emf.components.EmfComponentsGenericModule;
 
-public class EmfComponentsGuiceModule extends EmfComponentsGenericModule {
+public class EmfComponentsGuiceModule extends «superClass» {
 
 	public EmfComponentsGuiceModule(AbstractUIPlugin plugin) {
 		super(plugin);

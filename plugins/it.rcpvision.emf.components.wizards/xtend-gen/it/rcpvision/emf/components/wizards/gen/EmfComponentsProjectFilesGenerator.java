@@ -280,7 +280,7 @@ public class EmfComponentsProjectFilesGenerator {
     return _builder;
   }
   
-  public CharSequence generateModule(final String projectName) {
+  public CharSequence generateModule(final String projectName, final String superClass) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package ");
     _builder.append(projectName, "");
@@ -293,8 +293,10 @@ public class EmfComponentsProjectFilesGenerator {
     _builder.append("import it.rcpvision.emf.components.EmfComponentsGenericModule;");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("public class EmfComponentsGuiceModule extends EmfComponentsGenericModule {");
-    _builder.newLine();
+    _builder.append("public class EmfComponentsGuiceModule extends ");
+    _builder.append(superClass, "");
+    _builder.append(" {");
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("\t");
     _builder.append("public EmfComponentsGuiceModule(AbstractUIPlugin plugin) {");
