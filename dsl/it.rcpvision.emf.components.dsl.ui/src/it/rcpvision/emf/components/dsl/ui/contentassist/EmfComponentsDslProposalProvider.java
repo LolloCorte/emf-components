@@ -9,6 +9,7 @@ import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 
 import it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification;
+import it.rcpvision.emf.components.dsl.model.LabelSpecification;
 import it.rcpvision.emf.components.dsl.ui.contentassist.AbstractEmfComponentsDslProposalProvider;
 
 /**
@@ -26,6 +27,11 @@ public class EmfComponentsDslProposalProvider extends
 			ICompletionProposalAcceptor acceptor) {
 		if (model instanceof FeatureLabelSpecification) {
 			createLocalVariableAndImplicitProposals(model, context, acceptor);
+			return;
+		}
+		
+		if (model instanceof LabelSpecification) {
+			createLocalVariableAndImplicitProposals(context.getPreviousModel(), context, acceptor);
 			return;
 		}
 
