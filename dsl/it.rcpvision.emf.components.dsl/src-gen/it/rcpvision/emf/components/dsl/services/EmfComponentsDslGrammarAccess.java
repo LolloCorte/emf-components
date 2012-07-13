@@ -325,7 +325,8 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FeatureLabelSpecification");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cParameterTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cParameterTypeJvmTypeReferenceParserRuleCall_0_0 = (RuleCall)cParameterTypeAssignment_0.eContents().get(0);
+		private final CrossReference cParameterTypeJvmTypeCrossReference_0_0 = (CrossReference)cParameterTypeAssignment_0.eContents().get(0);
+		private final RuleCall cParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1 = (RuleCall)cParameterTypeJvmTypeCrossReference_0_0.eContents().get(1);
 		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cFeatureAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cFeatureXFeatureCallParserRuleCall_2_0 = (RuleCall)cFeatureAssignment_2.eContents().get(0);
@@ -334,17 +335,20 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		private final RuleCall cExpressionXExpressionParserRuleCall_4_0 = (RuleCall)cExpressionAssignment_4.eContents().get(0);
 		
 		//FeatureLabelSpecification:
-		//	parameterType=JvmTypeReference ":" feature=XFeatureCall "->" expression=XExpression;
+		//	parameterType=[types::JvmType|QualifiedName] ":" feature=XFeatureCall "->" expression=XExpression;
 		public ParserRule getRule() { return rule; }
 
-		//parameterType=JvmTypeReference ":" feature=XFeatureCall "->" expression=XExpression
+		//parameterType=[types::JvmType|QualifiedName] ":" feature=XFeatureCall "->" expression=XExpression
 		public Group getGroup() { return cGroup; }
 
-		//parameterType=JvmTypeReference
+		//parameterType=[types::JvmType|QualifiedName]
 		public Assignment getParameterTypeAssignment_0() { return cParameterTypeAssignment_0; }
 
-		//JvmTypeReference
-		public RuleCall getParameterTypeJvmTypeReferenceParserRuleCall_0_0() { return cParameterTypeJvmTypeReferenceParserRuleCall_0_0; }
+		//[types::JvmType|QualifiedName]
+		public CrossReference getParameterTypeJvmTypeCrossReference_0_0() { return cParameterTypeJvmTypeCrossReference_0_0; }
+
+		//QualifiedName
+		public RuleCall getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1() { return cParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1; }
 
 		//":"
 		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
@@ -486,7 +490,7 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 	}
 
 	//FeatureLabelSpecification:
-	//	parameterType=JvmTypeReference ":" feature=XFeatureCall "->" expression=XExpression;
+	//	parameterType=[types::JvmType|QualifiedName] ":" feature=XFeatureCall "->" expression=XExpression;
 	public FeatureLabelSpecificationElements getFeatureLabelSpecificationAccess() {
 		return (pFeatureLabelSpecification != null) ? pFeatureLabelSpecification : (pFeatureLabelSpecification = new FeatureLabelSpecificationElements());
 	}

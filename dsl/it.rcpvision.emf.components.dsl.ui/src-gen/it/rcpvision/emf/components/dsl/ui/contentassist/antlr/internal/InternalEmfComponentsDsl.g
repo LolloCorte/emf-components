@@ -15300,8 +15300,12 @@ rule__FeatureLabelSpecification__ParameterTypeAssignment_0
     }
 :
 (
-{ before(grammarAccess.getFeatureLabelSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); }
-	ruleJvmTypeReference{ after(grammarAccess.getFeatureLabelSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); }
+{ before(grammarAccess.getFeatureLabelSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); }
+(
+{ before(grammarAccess.getFeatureLabelSpecificationAccess().getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1()); }
+	ruleQualifiedName{ after(grammarAccess.getFeatureLabelSpecificationAccess().getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1()); }
+)
+{ after(grammarAccess.getFeatureLabelSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); }
 )
 
 ;

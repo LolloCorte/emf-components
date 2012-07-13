@@ -289,7 +289,7 @@ public interface ModelPackage extends EPackage
   int FEATURE_LABEL_SPECIFICATION = 6;
 
   /**
-   * The feature id for the '<em><b>Parameter Type</b></em>' containment reference.
+   * The feature id for the '<em><b>Parameter Type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -528,10 +528,10 @@ public interface ModelPackage extends EPackage
   EClass getFeatureLabelSpecification();
 
   /**
-   * Returns the meta object for the containment reference '{@link it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification#getParameterType <em>Parameter Type</em>}'.
+   * Returns the meta object for the reference '{@link it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification#getParameterType <em>Parameter Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Parameter Type</em>'.
+   * @return the meta object for the reference '<em>Parameter Type</em>'.
    * @see it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification#getParameterType()
    * @see #getFeatureLabelSpecification()
    * @generated
@@ -750,7 +750,7 @@ public interface ModelPackage extends EPackage
     EClass FEATURE_LABEL_SPECIFICATION = eINSTANCE.getFeatureLabelSpecification();
 
     /**
-     * The meta object literal for the '<em><b>Parameter Type</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Parameter Type</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated

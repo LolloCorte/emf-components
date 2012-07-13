@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.xtext.common.types.JvmTypeReference;
+import org.eclipse.xtext.common.types.JvmType;
 
 import org.eclipse.xtext.xbase.XExpression;
 
@@ -36,14 +36,14 @@ import org.eclipse.xtext.xbase.XExpression;
 public class FeatureLabelSpecificationImpl extends MinimalEObjectImpl.Container implements FeatureLabelSpecification
 {
   /**
-   * The cached value of the '{@link #getParameterType() <em>Parameter Type</em>}' containment reference.
+   * The cached value of the '{@link #getParameterType() <em>Parameter Type</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getParameterType()
    * @generated
    * @ordered
    */
-  protected JvmTypeReference parameterType;
+  protected JvmType parameterType;
 
   /**
    * The cached value of the '{@link #getFeature() <em>Feature</em>}' containment reference.
@@ -91,7 +91,27 @@ public class FeatureLabelSpecificationImpl extends MinimalEObjectImpl.Container 
    * <!-- end-user-doc -->
    * @generated
    */
-  public JvmTypeReference getParameterType()
+  public JvmType getParameterType()
+  {
+    if (parameterType != null && parameterType.eIsProxy())
+    {
+      InternalEObject oldParameterType = (InternalEObject)parameterType;
+      parameterType = (JvmType)eResolveProxy(oldParameterType);
+      if (parameterType != oldParameterType)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.FEATURE_LABEL_SPECIFICATION__PARAMETER_TYPE, oldParameterType, parameterType));
+      }
+    }
+    return parameterType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public JvmType basicGetParameterType()
   {
     return parameterType;
   }
@@ -101,37 +121,12 @@ public class FeatureLabelSpecificationImpl extends MinimalEObjectImpl.Container 
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetParameterType(JvmTypeReference newParameterType, NotificationChain msgs)
+  public void setParameterType(JvmType newParameterType)
   {
-    JvmTypeReference oldParameterType = parameterType;
+    JvmType oldParameterType = parameterType;
     parameterType = newParameterType;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.FEATURE_LABEL_SPECIFICATION__PARAMETER_TYPE, oldParameterType, newParameterType);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setParameterType(JvmTypeReference newParameterType)
-  {
-    if (newParameterType != parameterType)
-    {
-      NotificationChain msgs = null;
-      if (parameterType != null)
-        msgs = ((InternalEObject)parameterType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.FEATURE_LABEL_SPECIFICATION__PARAMETER_TYPE, null, msgs);
-      if (newParameterType != null)
-        msgs = ((InternalEObject)newParameterType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.FEATURE_LABEL_SPECIFICATION__PARAMETER_TYPE, null, msgs);
-      msgs = basicSetParameterType(newParameterType, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.FEATURE_LABEL_SPECIFICATION__PARAMETER_TYPE, newParameterType, newParameterType));
+      eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.FEATURE_LABEL_SPECIFICATION__PARAMETER_TYPE, oldParameterType, parameterType));
   }
 
   /**
@@ -240,8 +235,6 @@ public class FeatureLabelSpecificationImpl extends MinimalEObjectImpl.Container 
   {
     switch (featureID)
     {
-      case ModelPackage.FEATURE_LABEL_SPECIFICATION__PARAMETER_TYPE:
-        return basicSetParameterType(null, msgs);
       case ModelPackage.FEATURE_LABEL_SPECIFICATION__FEATURE:
         return basicSetFeature(null, msgs);
       case ModelPackage.FEATURE_LABEL_SPECIFICATION__EXPRESSION:
@@ -261,7 +254,8 @@ public class FeatureLabelSpecificationImpl extends MinimalEObjectImpl.Container 
     switch (featureID)
     {
       case ModelPackage.FEATURE_LABEL_SPECIFICATION__PARAMETER_TYPE:
-        return getParameterType();
+        if (resolve) return getParameterType();
+        return basicGetParameterType();
       case ModelPackage.FEATURE_LABEL_SPECIFICATION__FEATURE:
         return getFeature();
       case ModelPackage.FEATURE_LABEL_SPECIFICATION__EXPRESSION:
@@ -281,7 +275,7 @@ public class FeatureLabelSpecificationImpl extends MinimalEObjectImpl.Container 
     switch (featureID)
     {
       case ModelPackage.FEATURE_LABEL_SPECIFICATION__PARAMETER_TYPE:
-        setParameterType((JvmTypeReference)newValue);
+        setParameterType((JvmType)newValue);
         return;
       case ModelPackage.FEATURE_LABEL_SPECIFICATION__FEATURE:
         setFeature((XExpression)newValue);
@@ -304,7 +298,7 @@ public class FeatureLabelSpecificationImpl extends MinimalEObjectImpl.Container 
     switch (featureID)
     {
       case ModelPackage.FEATURE_LABEL_SPECIFICATION__PARAMETER_TYPE:
-        setParameterType((JvmTypeReference)null);
+        setParameterType((JvmType)null);
         return;
       case ModelPackage.FEATURE_LABEL_SPECIFICATION__FEATURE:
         setFeature((XExpression)null);

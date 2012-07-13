@@ -22,6 +22,17 @@ module my.empty {
 }
 '''
 
+	def emptyFeatureLabelProvider() 
+'''
+import java.util.*
+
+module my.empty {
+	featureLabelProvider {
+		
+	}
+}
+'''
+
 	def emptyLabelSpecifications() 
 '''
 import java.util.*
@@ -47,7 +58,7 @@ module my.empty {
 	labelProvider {
 		labels {
 			Library -> 'foo' // constant
-			Writer writer -> writer.name // explicit param
+			Writer writer -> writer.getName() // explicit param
 			Book -> title // implit 'it' param
 			Lendable -> 'copies: ' + copies
 			Borrower -> { // complex block
@@ -56,6 +67,7 @@ module my.empty {
 				]
 				buffer.toUpperCase
 			}
+			BookOnTape -> getTitle
 		}
 		
 		images {
@@ -78,7 +90,9 @@ import it.rcpvision.emf.components.examples.library.*
 module my.empty {
 	featureLabelProvider {
 		labels {
-			Library:name -> 'foo' // constant
+			Library:name -> 'Name' // constant
+			Library:books -> 'Books' // constant
+			Writer:lastName -> name.toFirstUpper // the implicit param is an EStructuralFeature
 		}
 	}
 }

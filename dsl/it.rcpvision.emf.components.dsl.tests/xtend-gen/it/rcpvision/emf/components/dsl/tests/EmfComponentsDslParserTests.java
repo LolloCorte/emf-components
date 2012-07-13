@@ -1,9 +1,15 @@
 package it.rcpvision.emf.components.dsl.tests;
 
+import com.google.inject.Inject;
 import it.rcpvision.emf.components.dsl.EmfComponentsDslInjectorProvider;
+import it.rcpvision.emf.components.dsl.model.Model;
 import it.rcpvision.emf.components.dsl.tests.EmfComponentsDslAbstractTests;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.xtext.diagnostics.Diagnostic;
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
+import org.eclipse.xtext.junit4.validation.ValidationTestHelper;
+import org.eclipse.xtext.xbase.XbasePackage;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -11,6 +17,9 @@ import org.junit.runner.RunWith;
 @InjectWith(value = EmfComponentsDslInjectorProvider.class)
 @SuppressWarnings("all")
 public class EmfComponentsDslParserTests extends EmfComponentsDslAbstractTests {
+  @Inject
+  private ValidationTestHelper _validationTestHelper;
+  
   @Test
   public void testEmptyModule() {
     CharSequence _emptyModule = this.inputs.emptyModule();
@@ -45,5 +54,19 @@ public class EmfComponentsDslParserTests extends EmfComponentsDslAbstractTests {
   public void testFeatureLabelSpecifications() {
     CharSequence _featureLabelSpecifications = this.inputs.featureLabelSpecifications();
     this.parseAndAssertNoError(_featureLabelSpecifications);
+  }
+  
+  @Test
+  public void testWrongFeatureLabelSpecifications() {
+    CharSequence _wrongFeatureLabelSpecifications = this.inputsWithErrors.wrongFeatureLabelSpecifications();
+    final Model model = this.parseModel(_wrongFeatureLabelSpecifications);
+    EClass _xFeatureCall = XbasePackage.eINSTANCE.getXFeatureCall();
+    this._validationTestHelper.assertError(model, _xFeatureCall, 
+      Diagnostic.LINKING_DIAGNOSTIC, 
+      "newArrayList");
+    EClass _xFeatureCall_1 = XbasePackage.eINSTANCE.getXFeatureCall();
+    this._validationTestHelper.assertError(model, _xFeatureCall_1, 
+      Diagnostic.LINKING_DIAGNOSTIC, 
+      "getBooks");
   }
 }

@@ -30,7 +30,7 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGenericModule {
     super(plugin);
   }
 }
-''', null
+''', null, null
 		)
 	}
 
@@ -62,7 +62,39 @@ import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 
 public class LabelProviderGen extends CompositeLabelProvider {
 }
+''', null
+		)
+	}
+
+	@Test
+	def testEmptyFeatureLabelProvider() {
+		inputs.emptyFeatureLabelProvider.assertCorrectJavaCodeGeneration(
 '''
+package my.empty;
+
+import it.rcpvision.emf.components.EmfComponentsGenericModule;
+import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
+import my.empty.ui.provider.FeatureLabelProviderGen;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
+
+public class EmfComponentsGuiceModuleGen extends EmfComponentsGenericModule {
+  public EmfComponentsGuiceModuleGen(final AbstractUIPlugin plugin) {
+    super(plugin);
+  }
+  
+  public Class<? extends FeatureLabelProvider> bindFeatureLabelProvider() {
+    return FeatureLabelProviderGen.class;
+  }
+}
+''',
+'''
+package my.empty.ui.provider;
+
+import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
+
+public class FeatureLabelProviderGen extends FeatureLabelProvider {
+}
+''', null
 		)
 	}
 
@@ -77,7 +109,7 @@ import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 
 public class LabelProviderGen extends CompositeLabelProvider {
 }
-'''
+''', null
 		)
 	}
 
@@ -89,6 +121,7 @@ null,
 package my.empty.ui.provider;
 
 import it.rcpvision.emf.components.examples.library.Book;
+import it.rcpvision.emf.components.examples.library.BookOnTape;
 import it.rcpvision.emf.components.examples.library.Borrower;
 import it.rcpvision.emf.components.examples.library.Lendable;
 import it.rcpvision.emf.components.examples.library.Library;
@@ -140,6 +173,11 @@ public class LabelProviderGen extends CompositeLabelProvider {
     return _xblockexpression;
   }
   
+  public String text(final BookOnTape it) {
+    String _title = it.getTitle();
+    return _title;
+  }
+  
   public Object image(final Library it) {
     return "library.jpeg";
   }
@@ -157,18 +195,53 @@ public class LabelProviderGen extends CompositeLabelProvider {
     return _xifexpression;
   }
 }
+''', null
+		)
+	}
+
+	@Test
+	def testFeatureLabelSpecifications() {
+		inputs.featureLabelSpecifications.assertCorrectJavaCodeGeneration(
+null, null,
+'''
+package my.empty.ui.provider;
+
+import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
+
+public class FeatureLabelProviderGen extends FeatureLabelProvider {
+  public String text_Library_name(final EStructuralFeature it) {
+    return "Name";
+  }
+  
+  public String text_Library_books(final EStructuralFeature it) {
+    return "Books";
+  }
+  
+  public String text_Writer_lastName(final EStructuralFeature it) {
+    String _name = it.getName();
+    String _firstUpper = StringExtensions.toFirstUpper(_name);
+    return _firstUpper;
+  }
+}
 '''
 		)
 	}
 
 	def private assertCorrectJavaCodeGeneration(CharSequence input,
-			CharSequence expectedModule, CharSequence expectedLabelProvider) {
+			CharSequence expectedModule, CharSequence expectedLabelProvider, 
+			CharSequence expectedFeatureLabelProvider) {
 		input.compileAll [
 			for (e : allGeneratedResources.entrySet) {
 				if (e.key.endsWith("ModuleGen.java")) {
 					// check the expected Java code for the module
 					if (expectedModule != null)
 						assertEqualsStrings(expectedModule, e.value)
+				} else if (e.key.endsWith("FeatureLabelProviderGen.java")) {
+					// check the expected Java code for the module
+					if (expectedFeatureLabelProvider != null)
+						assertEqualsStrings(expectedFeatureLabelProvider, e.value)
 				} else if (e.key.endsWith("LabelProviderGen.java")) {
 					// check the expected Java code for the module
 					if (expectedLabelProvider != null)

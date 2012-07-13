@@ -12,6 +12,9 @@ import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 import org.eclipse.xtext.common.types.TypesFactory
+import org.eclipse.emf.ecore.EStructuralFeature
+import org.eclipse.xtext.xbase.XFeatureCall
+import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -29,6 +32,8 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 	@Inject extension IQualifiedNameProvider
 	
 	@Inject extension TypesFactory
+	
+	@Inject extension GeneratorUtils
 
 	/**
 	 * The dispatch method {@code infer} is called for each instance of the
@@ -62,6 +67,7 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 		val moduleClass = element.toClass(element.moduleQN)
 		
 		val labelProviderClass = element.inferLabelProvider(acceptor)
+		val featureLabelProviderClass = element.inferFeatureLabelProvider(acceptor)
 		
 		acceptor.accept(moduleClass).initializeLater [
 			documentation = element.documentation
@@ -74,6 +80,8 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 			
 			if (labelProviderClass != null)
 				members += element.labelProvider.genBindMethod(labelProviderClass, typeof(CompositeLabelProvider))
+			if (featureLabelProviderClass != null)
+				members += element.featureLabelProvider.genBindMethod(featureLabelProviderClass, typeof(FeatureLabelProvider))
 		]
    	}
    	
@@ -93,6 +101,10 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 		element.fullyQualifiedName + ".ui.provider.LabelProviderGen"
 	}
 	
+	def featureLabelProviderQN(Module element) {
+		element.fullyQualifiedName + ".ui.provider.FeatureLabelProviderGen"
+	}
+
 	def inferLabelProvider(Module element, IJvmDeclaredTypeAcceptor acceptor) {
 		if (element.labelProvider == null)
 			null
@@ -130,6 +142,42 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 				]
 			]
 			labelProviderClass
+		}
+	}
+	
+	def inferFeatureLabelProvider(Module element, IJvmDeclaredTypeAcceptor acceptor) {
+		if (element.featureLabelProvider == null)
+			null
+		else {
+			val featureLabelProviderClass = element.featureLabelProvider.toClass(element.featureLabelProviderQN)
+			acceptor.accept(featureLabelProviderClass).initializeLater [
+				superTypes += element.newTypeRef(typeof(FeatureLabelProvider))
+				
+				element.featureLabelProvider.labelSpecifications.forEach [
+					labelSpecification |
+					if (labelSpecification.feature != null &&
+						(labelSpecification.feature as XFeatureCall).feature != null
+					) {
+						// associate the method to the expression, not to the whole
+						// labelSpecification, otherwise the 'feature' is logically
+						// contained in a method which should return a string
+						// and the validator would complain
+						members += labelSpecification.expression.toMethod
+						("text_" + 
+								labelSpecification.parameterType.simpleName + "_" +
+								(labelSpecification.feature as XFeatureCall).
+									feature.simpleName.propertyNameForGetterSetterMethod, 
+							element.newTypeRef(typeof(String))
+						) [
+							parameters += labelSpecification.toParameter(
+								"it", element.newTypeRef(typeof(EStructuralFeature))
+							)
+							body = labelSpecification.expression
+						]
+					}
+				]
+			]
+			featureLabelProviderClass
 		}
 	}
 	

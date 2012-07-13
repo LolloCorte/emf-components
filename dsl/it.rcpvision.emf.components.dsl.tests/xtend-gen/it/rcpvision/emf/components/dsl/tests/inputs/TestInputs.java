@@ -38,6 +38,26 @@ public class TestInputs {
     return _builder;
   }
   
+  public CharSequence emptyFeatureLabelProvider() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("import java.util.*");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("module my.empty {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("featureLabelProvider {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
   public CharSequence emptyLabelSpecifications() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("import java.util.*");
@@ -91,7 +111,7 @@ public class TestInputs {
     _builder.append("Library -> \'foo\' // constant");
     _builder.newLine();
     _builder.append("\t\t\t");
-    _builder.append("Writer writer -> writer.name // explicit param");
+    _builder.append("Writer writer -> writer.getName() // explicit param");
     _builder.newLine();
     _builder.append("\t\t\t");
     _builder.append("Book -> title // implit \'it\' param");
@@ -116,6 +136,9 @@ public class TestInputs {
     _builder.newLine();
     _builder.append("\t\t\t");
     _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("BookOnTape -> getTitle");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("}");
@@ -170,7 +193,13 @@ public class TestInputs {
     _builder.append("labels {");
     _builder.newLine();
     _builder.append("\t\t\t");
-    _builder.append("Library:name -> \'foo\' // constant");
+    _builder.append("Library:name -> \'Name\' // constant");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("Library:books -> \'Books\' // constant");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("Writer:lastName -> name.toFirstUpper // the implicit param is an EStructuralFeature");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("}");

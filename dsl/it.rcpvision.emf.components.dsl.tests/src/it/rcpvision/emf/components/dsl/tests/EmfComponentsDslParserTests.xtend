@@ -1,14 +1,20 @@
 package it.rcpvision.emf.components.dsl.tests
 
+import com.google.inject.Inject
 import it.rcpvision.emf.components.dsl.EmfComponentsDslInjectorProvider
+import org.eclipse.xtext.diagnostics.Diagnostic
 import org.eclipse.xtext.junit4.InjectWith
 import org.eclipse.xtext.junit4.XtextRunner
+import org.eclipse.xtext.junit4.validation.ValidationTestHelper
+import org.eclipse.xtext.xbase.XbasePackage
 import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(typeof(XtextRunner))
 @InjectWith(typeof(EmfComponentsDslInjectorProvider))
 class EmfComponentsDslParserTests extends EmfComponentsDslAbstractTests {
+
+ 	@Inject extension ValidationTestHelper
  
 	@Test
 	def void testEmptyModule() {
@@ -38,5 +44,20 @@ class EmfComponentsDslParserTests extends EmfComponentsDslAbstractTests {
 	@Test
 	def void testFeatureLabelSpecifications() {
 		inputs.featureLabelSpecifications.parseAndAssertNoError
+	}
+
+	@Test
+	def void testWrongFeatureLabelSpecifications() {
+		val model = inputsWithErrors.wrongFeatureLabelSpecifications.parseModel
+		model.assertError(
+			XbasePackage::eINSTANCE.XFeatureCall,
+			Diagnostic::LINKING_DIAGNOSTIC,
+			"newArrayList"
+		)
+		model.assertError(
+			XbasePackage::eINSTANCE.XFeatureCall,
+			Diagnostic::LINKING_DIAGNOSTIC,
+			"getBooks"
+		)
 	}
 }

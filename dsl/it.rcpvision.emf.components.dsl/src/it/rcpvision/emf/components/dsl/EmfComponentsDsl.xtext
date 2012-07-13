@@ -1,6 +1,8 @@
 grammar it.rcpvision.emf.components.dsl.EmfComponentsDsl with
     org.eclipse.xtext.xbase.Xbase
 
+import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
+
 generate model "http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl"
 
 Model:
@@ -58,7 +60,7 @@ FeatureLabelProvider:
 ;
 
 FeatureLabelSpecification:
-	parameterType=JvmTypeReference ':' feature=XFeatureCall
+	parameterType=[types::JvmType|QualifiedName] ':' feature=XFeatureCall
 	'->'
 	expression = XExpression
 ;

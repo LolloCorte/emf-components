@@ -981,7 +981,7 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (parameterType=JvmTypeReference feature=XFeatureCall expression=XExpression)
+	 *     (parameterType=[JvmType|QualifiedName] feature=XFeatureCall expression=XExpression)
 	 */
 	protected void sequence_FeatureLabelSpecification(EObject context, FeatureLabelSpecification semanticObject) {
 		if(errorAcceptor != null) {
@@ -994,7 +994,7 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getFeatureLabelSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0(), semanticObject.getParameterType());
+		feeder.accept(grammarAccess.getFeatureLabelSpecificationAccess().getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1(), semanticObject.getParameterType());
 		feeder.accept(grammarAccess.getFeatureLabelSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0(), semanticObject.getFeature());
 		feeder.accept(grammarAccess.getFeatureLabelSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0(), semanticObject.getExpression());
 		feeder.finish();

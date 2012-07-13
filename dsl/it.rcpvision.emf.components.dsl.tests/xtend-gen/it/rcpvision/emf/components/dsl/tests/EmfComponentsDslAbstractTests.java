@@ -7,6 +7,7 @@ import it.rcpvision.emf.components.dsl.model.Module;
 import it.rcpvision.emf.components.dsl.tests.inputs.TestInputs;
 import it.rcpvision.emf.components.dsl.tests.inputs.TestInputsWithErrors;
 import java.util.List;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
 import org.eclipse.xtext.junit4.util.ParseHelper;
@@ -41,6 +42,24 @@ public class EmfComponentsDslAbstractTests {
         _xblockexpression = (ts);
       }
       return _xblockexpression;
+    } catch (Exception _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  public void parseAndAssertError(final CharSequence s, final EClass objectType, final String code, final String messagePart) {
+    try {
+      Model _parse = this._parseHelper.parse(s);
+      this._validationTestHelper.assertError(_parse, objectType, code, messagePart);
+    } catch (Exception _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  public Model parseModel(final CharSequence s) {
+    try {
+      Model _parse = this._parseHelper.parse(s);
+      return _parse;
     } catch (Exception _e) {
       throw Exceptions.sneakyThrow(_e);
     }
