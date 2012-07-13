@@ -22,7 +22,11 @@ import java.util.Map;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspaceRunnable;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.jface.action.StatusLineManager;
 import org.eclipse.jface.action.SubStatusLineManager;
@@ -439,6 +443,28 @@ public class EmfComponentsAbstractTests {
 
 	protected void waitForBuild() throws CoreException {
 		IResourcesSetupUtil.waitForAutoBuild();
+		
+		// ensure that all queued workspace operations and locks are released
+		try {
+			ResourcesPlugin.getWorkspace().run(new IWorkspaceRunnable() {
+				public void run(IProgressMonitor monitor) throws CoreException {
+					// nothing to do!
+				}
+			}, new NullProgressMonitor());
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+
+		Display.getDefault().syncExec(new Runnable() {
+			public void run() {
+				try {
+					IResourcesSetupUtil.cleanBuild();
+					IResourcesSetupUtil.fullBuild();
+				} catch (CoreException e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
 	protected static SWTBotView getPackageExplorer() {

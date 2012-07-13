@@ -15,7 +15,7 @@ public class EmfComponentsDslWizardsTests extends EmfComponentsAbstractTests {
 	@Test
 	public void canCreateDslProjectWithWizard() throws Exception {
 		createProjectInWorkspace(EMF_COMPONENTS_CATEGORY,
-				NEW_EMF_COMPONENTS_DSL_PROJECT, EMF_COMPONENTS_PROJECT);
+				NEW_EMF_COMPONENTS_DSL_PROJECT, "my.emfcomponents.proj");
 		//bot.sleep(300000);
 		assertNoErrorsInProjectAfterAutoBuild();
 	}
