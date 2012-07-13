@@ -15,6 +15,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="labelProvider" eType="#//LabelProvider"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featureLabelProvider" eType="#//FeatureLabelProvider"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LabelProvider">
     <eStructuralFeatures xsi:type="ecore:EReference" name="labelSpecifications" upperBound="-1"
@@ -26,6 +28,18 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameterType" eType="ecore:EClass ../../../../../../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass ../../../../../../../org.eclipse.xtext.xbase/model/Xbase.ecore#//XExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FeatureLabelProvider">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="labelSpecifications" upperBound="-1"
+        eType="#//FeatureLabelSpecification" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FeatureLabelSpecification">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterType" eType="ecore:EClass ../../../../../../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" eType="ecore:EClass ../../../../../../../org.eclipse.xtext.xbase/model/Xbase.ecore#//XExpression"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass ../../../../../../../org.eclipse.xtext.xbase/model/Xbase.ecore#//XExpression"
         containment="true"/>
   </eClassifiers>

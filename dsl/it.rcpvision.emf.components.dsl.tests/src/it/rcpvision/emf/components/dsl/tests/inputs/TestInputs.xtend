@@ -69,4 +69,18 @@ module my.empty {
 	}
 }
 '''
+
+	def featureLabelSpecifications() 
+'''
+import java.util.*
+import it.rcpvision.emf.components.examples.library.*
+
+module my.empty {
+	featureLabelProvider {
+		labels {
+			Library:name -> 'foo' // constant
+		}
+	}
+}
+'''
 }

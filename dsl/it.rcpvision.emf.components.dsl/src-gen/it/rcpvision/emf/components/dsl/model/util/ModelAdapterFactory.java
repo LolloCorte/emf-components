@@ -100,6 +100,16 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
         return createLabelSpecificationAdapter();
       }
       @Override
+      public Adapter caseFeatureLabelProvider(FeatureLabelProvider object)
+      {
+        return createFeatureLabelProviderAdapter();
+      }
+      @Override
+      public Adapter caseFeatureLabelSpecification(FeatureLabelSpecification object)
+      {
+        return createFeatureLabelSpecificationAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -192,6 +202,36 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createLabelSpecificationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.FeatureLabelProvider <em>Feature Label Provider</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see it.rcpvision.emf.components.dsl.model.FeatureLabelProvider
+   * @generated
+   */
+  public Adapter createFeatureLabelProviderAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification <em>Feature Label Specification</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification
+   * @generated
+   */
+  public Adapter createFeatureLabelSpecificationAdapter()
   {
     return null;
   }

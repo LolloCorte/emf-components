@@ -19,6 +19,7 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class EmfComponentsDslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected EmfComponentsDslGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_FeatureLabelProvider___LabelsKeyword_3_0_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q;
 	protected AbstractElementAlias match_LabelProvider___ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1_RightCurlyBracketKeyword_3_1_3___LabelsKeyword_3_0_0_LeftCurlyBracketKeyword_3_0_1_RightCurlyBracketKeyword_3_0_3__a__a;
 	protected AbstractElementAlias match_LabelProvider___ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1_RightCurlyBracketKeyword_3_1_3__a;
 	protected AbstractElementAlias match_LabelProvider___ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1___RightCurlyBracketKeyword_3_1_3_ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1__a___or_____ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1___RightCurlyBracketKeyword_3_1_3_ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1__a_RightCurlyBracketKeyword_3_1_3__q___LabelsKeyword_3_0_0_LeftCurlyBracketKeyword_3_0_1_RightCurlyBracketKeyword_3_0_3__p_ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1___RightCurlyBracketKeyword_3_1_3_ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1__a___RightCurlyBracketKeyword_3_1_3___LabelsKeyword_3_0_0_LeftCurlyBracketKeyword_3_0_1_RightCurlyBracketKeyword_3_0_3__p_ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1___RightCurlyBracketKeyword_3_1_3_ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1__a__a__;
@@ -38,6 +39,7 @@ public class EmfComponentsDslSyntacticSequencer extends AbstractSyntacticSequenc
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (EmfComponentsDslGrammarAccess) access;
+		match_FeatureLabelProvider___LabelsKeyword_3_0_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getFeatureLabelProviderAccess().getLabelsKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getFeatureLabelProviderAccess().getLeftCurlyBracketKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getFeatureLabelProviderAccess().getRightCurlyBracketKeyword_3_3()));
 		match_LabelProvider___ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1_RightCurlyBracketKeyword_3_1_3___LabelsKeyword_3_0_0_LeftCurlyBracketKeyword_3_0_1_RightCurlyBracketKeyword_3_0_3__a__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getImagesKeyword_3_1_0()), new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getLeftCurlyBracketKeyword_3_1_1()), new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getRightCurlyBracketKeyword_3_1_3()), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getLabelsKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getLeftCurlyBracketKeyword_3_0_1()), new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getRightCurlyBracketKeyword_3_0_3())));
 		match_LabelProvider___ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1_RightCurlyBracketKeyword_3_1_3__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getImagesKeyword_3_1_0()), new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getLeftCurlyBracketKeyword_3_1_1()), new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getRightCurlyBracketKeyword_3_1_3()));
 		match_LabelProvider___ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1___RightCurlyBracketKeyword_3_1_3_ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1__a___or_____ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1___RightCurlyBracketKeyword_3_1_3_ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1__a_RightCurlyBracketKeyword_3_1_3__q___LabelsKeyword_3_0_0_LeftCurlyBracketKeyword_3_0_1_RightCurlyBracketKeyword_3_0_3__p_ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1___RightCurlyBracketKeyword_3_1_3_ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1__a___RightCurlyBracketKeyword_3_1_3___LabelsKeyword_3_0_0_LeftCurlyBracketKeyword_3_0_1_RightCurlyBracketKeyword_3_0_3__p_ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1___RightCurlyBracketKeyword_3_1_3_ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1__a__a__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getImagesKeyword_3_1_0()), new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getLeftCurlyBracketKeyword_3_1_1()), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getRightCurlyBracketKeyword_3_1_3()), new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getImagesKeyword_3_1_0()), new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getLeftCurlyBracketKeyword_3_1_1())), new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getRightCurlyBracketKeyword_3_1_3())), new GroupAlias(true, false, new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getLabelsKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getLeftCurlyBracketKeyword_3_0_1()), new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getRightCurlyBracketKeyword_3_0_3())), new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getImagesKeyword_3_1_0()), new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getLeftCurlyBracketKeyword_3_1_1()), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getRightCurlyBracketKeyword_3_1_3()), new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getImagesKeyword_3_1_0()), new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getLeftCurlyBracketKeyword_3_1_1())), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getRightCurlyBracketKeyword_3_1_3()), new GroupAlias(true, false, new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getLabelsKeyword_3_0_0()), new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getLeftCurlyBracketKeyword_3_0_1()), new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getRightCurlyBracketKeyword_3_0_3())), new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getImagesKeyword_3_1_0()), new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getLeftCurlyBracketKeyword_3_1_1()), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getRightCurlyBracketKeyword_3_1_3()), new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getImagesKeyword_3_1_0()), new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getLeftCurlyBracketKeyword_3_1_1())))), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getImagesKeyword_3_1_0()), new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getLeftCurlyBracketKeyword_3_1_1()), new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getRightCurlyBracketKeyword_3_1_3()), new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getImagesKeyword_3_1_0()), new TokenAlias(false, false, grammarAccess.getLabelProviderAccess().getLeftCurlyBracketKeyword_3_1_1()))));
@@ -79,7 +81,9 @@ public class EmfComponentsDslSyntacticSequencer extends AbstractSyntacticSequenc
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_LabelProvider___ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1_RightCurlyBracketKeyword_3_1_3___LabelsKeyword_3_0_0_LeftCurlyBracketKeyword_3_0_1_RightCurlyBracketKeyword_3_0_3__a__a.equals(syntax))
+			if(match_FeatureLabelProvider___LabelsKeyword_3_0_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q.equals(syntax))
+				emit_FeatureLabelProvider___LabelsKeyword_3_0_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_LabelProvider___ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1_RightCurlyBracketKeyword_3_1_3___LabelsKeyword_3_0_0_LeftCurlyBracketKeyword_3_0_1_RightCurlyBracketKeyword_3_0_3__a__a.equals(syntax))
 				emit_LabelProvider___ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1_RightCurlyBracketKeyword_3_1_3___LabelsKeyword_3_0_0_LeftCurlyBracketKeyword_3_0_1_RightCurlyBracketKeyword_3_0_3__a__a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_LabelProvider___ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1_RightCurlyBracketKeyword_3_1_3__a.equals(syntax))
 				emit_LabelProvider___ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1_RightCurlyBracketKeyword_3_1_3__a(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -115,6 +119,14 @@ public class EmfComponentsDslSyntacticSequencer extends AbstractSyntacticSequenc
 
 	/**
 	 * Syntax:
+	 *     ('labels' '{' '}')?
+	 */
+	protected void emit_FeatureLabelProvider___LabelsKeyword_3_0_LeftCurlyBracketKeyword_3_1_RightCurlyBracketKeyword_3_3__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
 	 *     ('images' '{' '}' ('labels' '{' '}')*)*
 	 */
 	protected void emit_LabelProvider___ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1_RightCurlyBracketKeyword_3_1_3___LabelsKeyword_3_0_0_LeftCurlyBracketKeyword_3_0_1_RightCurlyBracketKeyword_3_0_3__a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
@@ -132,7 +144,6 @@ public class EmfComponentsDslSyntacticSequencer extends AbstractSyntacticSequenc
 	/**
 	 * Syntax:
 	 *     (
-	     ('images' '{' ('}' 'images' '{')*) | 
 	     (
 	         ('images' '{' ('}' 'images' '{')* '}')? 
 	         ('labels' '{' '}')+ 
@@ -140,7 +151,8 @@ public class EmfComponentsDslSyntacticSequencer extends AbstractSyntacticSequenc
 	         '{' 
 	         ('}' 'images' '{')* 
 	         ('}' ('labels' '{' '}')+ 'images' '{' ('}' 'images' '{')*)*
-	     )
+	     ) | 
+	     ('images' '{' ('}' 'images' '{')*)
 	 )
 	 */
 	protected void emit_LabelProvider___ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1___RightCurlyBracketKeyword_3_1_3_ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1__a___or_____ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1___RightCurlyBracketKeyword_3_1_3_ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1__a_RightCurlyBracketKeyword_3_1_3__q___LabelsKeyword_3_0_0_LeftCurlyBracketKeyword_3_0_1_RightCurlyBracketKeyword_3_0_3__p_ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1___RightCurlyBracketKeyword_3_1_3_ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1__a___RightCurlyBracketKeyword_3_1_3___LabelsKeyword_3_0_0_LeftCurlyBracketKeyword_3_0_1_RightCurlyBracketKeyword_3_0_3__p_ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1___RightCurlyBracketKeyword_3_1_3_ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1__a__a__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {

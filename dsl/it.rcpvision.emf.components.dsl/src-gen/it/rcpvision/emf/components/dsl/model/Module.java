@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getName <em>Name</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getLabelProvider <em>Label Provider</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getFeatureLabelProvider <em>Feature Label Provider</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,5 +75,31 @@ public interface Module extends EObject
    * @generated
    */
   void setLabelProvider(LabelProvider value);
+
+  /**
+   * Returns the value of the '<em><b>Feature Label Provider</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Feature Label Provider</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Feature Label Provider</em>' containment reference.
+   * @see #setFeatureLabelProvider(FeatureLabelProvider)
+   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getModule_FeatureLabelProvider()
+   * @model containment="true"
+   * @generated
+   */
+  FeatureLabelProvider getFeatureLabelProvider();
+
+  /**
+   * Sets the value of the '{@link it.rcpvision.emf.components.dsl.model.Module#getFeatureLabelProvider <em>Feature Label Provider</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Feature Label Provider</em>' containment reference.
+   * @see #getFeatureLabelProvider()
+   * @generated
+   */
+  void setFeatureLabelProvider(FeatureLabelProvider value);
 
 } // Module

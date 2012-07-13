@@ -34,4 +34,9 @@ class EmfComponentsDslParserTests extends EmfComponentsDslAbstractTests {
 	def void testDuplicateLabelSpecifications() {
 		inputsWithErrors.duplicateLabelSpecifications.parseAndAssertErrors
 	}
+	
+	@Test
+	def void testFeatureLabelSpecifications() {
+		inputs.featureLabelSpecifications.parseAndAssertNoError
+	}
 }

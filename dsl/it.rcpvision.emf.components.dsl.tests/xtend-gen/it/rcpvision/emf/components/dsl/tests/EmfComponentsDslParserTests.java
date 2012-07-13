@@ -40,4 +40,10 @@ public class EmfComponentsDslParserTests extends EmfComponentsDslAbstractTests {
     CharSequence _duplicateLabelSpecifications = this.inputsWithErrors.duplicateLabelSpecifications();
     this.parseAndAssertErrors(_duplicateLabelSpecifications);
   }
+  
+  @Test
+  public void testFeatureLabelSpecifications() {
+    CharSequence _featureLabelSpecifications = this.inputs.featureLabelSpecifications();
+    this.parseAndAssertNoError(_featureLabelSpecifications);
+  }
 }

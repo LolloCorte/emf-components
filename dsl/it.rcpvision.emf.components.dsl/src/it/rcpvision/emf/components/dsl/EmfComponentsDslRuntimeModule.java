@@ -4,9 +4,11 @@
 package it.rcpvision.emf.components.dsl;
 
 import it.rcpvision.emf.components.dsl.generator.EmfComponentsDslOutputConfigurationProvider;
+import it.rcpvision.emf.components.dsl.scoping.EmfComponentsDslScopeProvider;
 
 import org.eclipse.xtext.generator.IOutputConfigurationProvider;
 import org.eclipse.xtext.generator.OutputConfigurationProvider;
+import org.eclipse.xtext.scoping.IScopeProvider;
 
 /**
  * Use this class to register components to be used at runtime / without the
@@ -21,5 +23,10 @@ public class EmfComponentsDslRuntimeModule extends
 
 	public Class<? extends OutputConfigurationProvider> bindOutputConfigurationProvider() {
 		return EmfComponentsDslOutputConfigurationProvider.class;
+	}
+	
+	@Override
+	public Class<? extends IScopeProvider> bindIScopeProvider() {
+		return EmfComponentsDslScopeProvider.class;
 	}
 }

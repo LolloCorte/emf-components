@@ -30,6 +30,7 @@ Export-Package: it.rcpvision.emf.components.dsl,
  it.rcpvision.emf.components.dsl.model.util,
  it.rcpvision.emf.components.dsl.parser.antlr,
  it.rcpvision.emf.components.dsl.parser.antlr.internal,
+ it.rcpvision.emf.components.dsl.scoping,
  it.rcpvision.emf.components.dsl.serializer,
  it.rcpvision.emf.components.dsl.services,
  it.rcpvision.emf.components.dsl.validation

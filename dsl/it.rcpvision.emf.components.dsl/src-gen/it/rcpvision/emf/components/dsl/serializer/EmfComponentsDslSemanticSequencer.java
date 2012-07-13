@@ -2,6 +2,8 @@ package it.rcpvision.emf.components.dsl.serializer;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import it.rcpvision.emf.components.dsl.model.FeatureLabelProvider;
+import it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification;
 import it.rcpvision.emf.components.dsl.model.Import;
 import it.rcpvision.emf.components.dsl.model.LabelProvider;
 import it.rcpvision.emf.components.dsl.model.LabelSpecification;
@@ -66,6 +68,18 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == ModelPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case ModelPackage.FEATURE_LABEL_PROVIDER:
+				if(context == grammarAccess.getFeatureLabelProviderRule()) {
+					sequence_FeatureLabelProvider(context, (FeatureLabelProvider) semanticObject); 
+					return; 
+				}
+				else break;
+			case ModelPackage.FEATURE_LABEL_SPECIFICATION:
+				if(context == grammarAccess.getFeatureLabelSpecificationRule()) {
+					sequence_FeatureLabelSpecification(context, (FeatureLabelSpecification) semanticObject); 
+					return; 
+				}
+				else break;
 			case ModelPackage.IMPORT:
 				if(context == grammarAccess.getImportRule()) {
 					sequence_Import(context, (Import) semanticObject); 
@@ -958,6 +972,37 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (labelSpecifications+=FeatureLabelSpecification*)
+	 */
+	protected void sequence_FeatureLabelProvider(EObject context, FeatureLabelProvider semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (parameterType=JvmTypeReference feature=XFeatureCall expression=XExpression)
+	 */
+	protected void sequence_FeatureLabelSpecification(EObject context, FeatureLabelSpecification semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.FEATURE_LABEL_SPECIFICATION__PARAMETER_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.FEATURE_LABEL_SPECIFICATION__PARAMETER_TYPE));
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.FEATURE_LABEL_SPECIFICATION__FEATURE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.FEATURE_LABEL_SPECIFICATION__FEATURE));
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.FEATURE_LABEL_SPECIFICATION__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.FEATURE_LABEL_SPECIFICATION__EXPRESSION));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getFeatureLabelSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0(), semanticObject.getParameterType());
+		feeder.accept(grammarAccess.getFeatureLabelSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0(), semanticObject.getFeature());
+		feeder.accept(grammarAccess.getFeatureLabelSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0(), semanticObject.getExpression());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     importedNamespace=QualifiedNameWithWildcard
 	 */
 	protected void sequence_Import(EObject context, Import semanticObject) {
@@ -1001,7 +1046,7 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=QualifiedName labelProvider=LabelProvider?)
+	 *     (name=QualifiedName labelProvider=LabelProvider? featureLabelProvider=FeatureLabelProvider?)
 	 */
 	protected void sequence_Module(EObject context, Module semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

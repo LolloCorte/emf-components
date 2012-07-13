@@ -107,6 +107,20 @@ public class ModelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ModelPackage.FEATURE_LABEL_PROVIDER:
+      {
+        FeatureLabelProvider featureLabelProvider = (FeatureLabelProvider)theEObject;
+        T result = caseFeatureLabelProvider(featureLabelProvider);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ModelPackage.FEATURE_LABEL_SPECIFICATION:
+      {
+        FeatureLabelSpecification featureLabelSpecification = (FeatureLabelSpecification)theEObject;
+        T result = caseFeatureLabelSpecification(featureLabelSpecification);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -187,6 +201,38 @@ public class ModelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseLabelSpecification(LabelSpecification object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Feature Label Provider</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Feature Label Provider</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFeatureLabelProvider(FeatureLabelProvider object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Feature Label Specification</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Feature Label Specification</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFeatureLabelSpecification(FeatureLabelSpecification object)
   {
     return null;
   }

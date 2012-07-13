@@ -17,6 +17,7 @@
     <genClasses ecoreClass="EmfComponentsDsl.ecore#//Module">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EmfComponentsDsl.ecore#//Module/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/labelProvider"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/featureLabelProvider"/>
     </genClasses>
     <genClasses ecoreClass="EmfComponentsDsl.ecore#//LabelProvider">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//LabelProvider/labelSpecifications"/>
@@ -26,6 +27,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//LabelSpecification/parameterType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EmfComponentsDsl.ecore#//LabelSpecification/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//LabelSpecification/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="EmfComponentsDsl.ecore#//FeatureLabelProvider">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FeatureLabelProvider/labelSpecifications"/>
+    </genClasses>
+    <genClasses ecoreClass="EmfComponentsDsl.ecore#//FeatureLabelSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FeatureLabelSpecification/parameterType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FeatureLabelSpecification/feature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FeatureLabelSpecification/expression"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

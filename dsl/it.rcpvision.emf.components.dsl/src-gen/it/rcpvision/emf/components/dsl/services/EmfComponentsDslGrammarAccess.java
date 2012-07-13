@@ -99,15 +99,18 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cLabelProviderAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cLabelProviderLabelProviderParserRuleCall_3_0 = (RuleCall)cLabelProviderAssignment_3.eContents().get(0);
+		private final UnorderedGroup cUnorderedGroup_3 = (UnorderedGroup)cGroup.eContents().get(3);
+		private final Assignment cLabelProviderAssignment_3_0 = (Assignment)cUnorderedGroup_3.eContents().get(0);
+		private final RuleCall cLabelProviderLabelProviderParserRuleCall_3_0_0 = (RuleCall)cLabelProviderAssignment_3_0.eContents().get(0);
+		private final Assignment cFeatureLabelProviderAssignment_3_1 = (Assignment)cUnorderedGroup_3.eContents().get(1);
+		private final RuleCall cFeatureLabelProviderFeatureLabelProviderParserRuleCall_3_1_0 = (RuleCall)cFeatureLabelProviderAssignment_3_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Module:
-		//	"module" name=QualifiedName "{" labelProvider=LabelProvider? "}";
+		//	"module" name=QualifiedName "{" (labelProvider=LabelProvider? & featureLabelProvider=FeatureLabelProvider?) "}";
 		public ParserRule getRule() { return rule; }
 
-		//"module" name=QualifiedName "{" labelProvider=LabelProvider? "}"
+		//"module" name=QualifiedName "{" (labelProvider=LabelProvider? & featureLabelProvider=FeatureLabelProvider?) "}"
 		public Group getGroup() { return cGroup; }
 
 		//"module"
@@ -122,11 +125,20 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
+		//labelProvider=LabelProvider? & featureLabelProvider=FeatureLabelProvider?
+		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
+
 		//labelProvider=LabelProvider?
-		public Assignment getLabelProviderAssignment_3() { return cLabelProviderAssignment_3; }
+		public Assignment getLabelProviderAssignment_3_0() { return cLabelProviderAssignment_3_0; }
 
 		//LabelProvider
-		public RuleCall getLabelProviderLabelProviderParserRuleCall_3_0() { return cLabelProviderLabelProviderParserRuleCall_3_0; }
+		public RuleCall getLabelProviderLabelProviderParserRuleCall_3_0_0() { return cLabelProviderLabelProviderParserRuleCall_3_0_0; }
+
+		//featureLabelProvider=FeatureLabelProvider?
+		public Assignment getFeatureLabelProviderAssignment_3_1() { return cFeatureLabelProviderAssignment_3_1; }
+
+		//FeatureLabelProvider
+		public RuleCall getFeatureLabelProviderFeatureLabelProviderParserRuleCall_3_1_0() { return cFeatureLabelProviderFeatureLabelProviderParserRuleCall_3_1_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
@@ -254,6 +266,104 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		//XExpression
 		public RuleCall getExpressionXExpressionParserRuleCall_3_0() { return cExpressionXExpressionParserRuleCall_3_0; }
 	}
+
+	public class FeatureLabelProviderElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FeatureLabelProvider");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cFeatureLabelProviderAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cFeatureLabelProviderKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cLabelsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cLabelSpecificationsAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cLabelSpecificationsFeatureLabelSpecificationParserRuleCall_3_2_0 = (RuleCall)cLabelSpecificationsAssignment_3_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//FeatureLabelProvider:
+		//	{FeatureLabelProvider} "featureLabelProvider" "{" ("labels" "{" labelSpecifications+=FeatureLabelSpecification* "}")?
+		//	"}";
+		public ParserRule getRule() { return rule; }
+
+		//{FeatureLabelProvider} "featureLabelProvider" "{" ("labels" "{" labelSpecifications+=FeatureLabelSpecification* "}")?
+		//"}"
+		public Group getGroup() { return cGroup; }
+
+		//{FeatureLabelProvider}
+		public Action getFeatureLabelProviderAction_0() { return cFeatureLabelProviderAction_0; }
+
+		//"featureLabelProvider"
+		public Keyword getFeatureLabelProviderKeyword_1() { return cFeatureLabelProviderKeyword_1; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
+		//("labels" "{" labelSpecifications+=FeatureLabelSpecification* "}")?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"labels"
+		public Keyword getLabelsKeyword_3_0() { return cLabelsKeyword_3_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_3_1() { return cLeftCurlyBracketKeyword_3_1; }
+
+		//labelSpecifications+=FeatureLabelSpecification*
+		public Assignment getLabelSpecificationsAssignment_3_2() { return cLabelSpecificationsAssignment_3_2; }
+
+		//FeatureLabelSpecification
+		public RuleCall getLabelSpecificationsFeatureLabelSpecificationParserRuleCall_3_2_0() { return cLabelSpecificationsFeatureLabelSpecificationParserRuleCall_3_2_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_3_3() { return cRightCurlyBracketKeyword_3_3; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+
+	public class FeatureLabelSpecificationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FeatureLabelSpecification");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cParameterTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cParameterTypeJvmTypeReferenceParserRuleCall_0_0 = (RuleCall)cParameterTypeAssignment_0.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cFeatureAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cFeatureXFeatureCallParserRuleCall_2_0 = (RuleCall)cFeatureAssignment_2.eContents().get(0);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cExpressionAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cExpressionXExpressionParserRuleCall_4_0 = (RuleCall)cExpressionAssignment_4.eContents().get(0);
+		
+		//FeatureLabelSpecification:
+		//	parameterType=JvmTypeReference ":" feature=XFeatureCall "->" expression=XExpression;
+		public ParserRule getRule() { return rule; }
+
+		//parameterType=JvmTypeReference ":" feature=XFeatureCall "->" expression=XExpression
+		public Group getGroup() { return cGroup; }
+
+		//parameterType=JvmTypeReference
+		public Assignment getParameterTypeAssignment_0() { return cParameterTypeAssignment_0; }
+
+		//JvmTypeReference
+		public RuleCall getParameterTypeJvmTypeReferenceParserRuleCall_0_0() { return cParameterTypeJvmTypeReferenceParserRuleCall_0_0; }
+
+		//":"
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+
+		//feature=XFeatureCall
+		public Assignment getFeatureAssignment_2() { return cFeatureAssignment_2; }
+
+		//XFeatureCall
+		public RuleCall getFeatureXFeatureCallParserRuleCall_2_0() { return cFeatureXFeatureCallParserRuleCall_2_0; }
+
+		//"->"
+		public Keyword getHyphenMinusGreaterThanSignKeyword_3() { return cHyphenMinusGreaterThanSignKeyword_3; }
+
+		//expression=XExpression
+		public Assignment getExpressionAssignment_4() { return cExpressionAssignment_4; }
+
+		//XExpression
+		public RuleCall getExpressionXExpressionParserRuleCall_4_0() { return cExpressionXExpressionParserRuleCall_4_0; }
+	}
 	
 	
 	private ModelElements pModel;
@@ -262,6 +372,8 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 	private ModuleElements pModule;
 	private LabelProviderElements pLabelProvider;
 	private LabelSpecificationElements pLabelSpecification;
+	private FeatureLabelProviderElements pFeatureLabelProvider;
+	private FeatureLabelSpecificationElements pFeatureLabelSpecification;
 	
 	private final Grammar grammar;
 
@@ -332,7 +444,7 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 	}
 
 	//Module:
-	//	"module" name=QualifiedName "{" labelProvider=LabelProvider? "}";
+	//	"module" name=QualifiedName "{" (labelProvider=LabelProvider? & featureLabelProvider=FeatureLabelProvider?) "}";
 	public ModuleElements getModuleAccess() {
 		return (pModule != null) ? pModule : (pModule = new ModuleElements());
 	}
@@ -360,6 +472,27 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 	
 	public ParserRule getLabelSpecificationRule() {
 		return getLabelSpecificationAccess().getRule();
+	}
+
+	//FeatureLabelProvider:
+	//	{FeatureLabelProvider} "featureLabelProvider" "{" ("labels" "{" labelSpecifications+=FeatureLabelSpecification* "}")?
+	//	"}";
+	public FeatureLabelProviderElements getFeatureLabelProviderAccess() {
+		return (pFeatureLabelProvider != null) ? pFeatureLabelProvider : (pFeatureLabelProvider = new FeatureLabelProviderElements());
+	}
+	
+	public ParserRule getFeatureLabelProviderRule() {
+		return getFeatureLabelProviderAccess().getRule();
+	}
+
+	//FeatureLabelSpecification:
+	//	parameterType=JvmTypeReference ":" feature=XFeatureCall "->" expression=XExpression;
+	public FeatureLabelSpecificationElements getFeatureLabelSpecificationAccess() {
+		return (pFeatureLabelSpecification != null) ? pFeatureLabelSpecification : (pFeatureLabelSpecification = new FeatureLabelSpecificationElements());
+	}
+	
+	public ParserRule getFeatureLabelSpecificationRule() {
+		return getFeatureLabelSpecificationAccess().getRule();
 	}
 
 	//XExpression:

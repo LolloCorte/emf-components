@@ -17,7 +17,11 @@ QualifiedNameWithWildcard:
 
 Module:
 	'module' name=QualifiedName '{'
-		(labelProvider = LabelProvider)?
+		(
+			(labelProvider = LabelProvider)?
+			&
+			(featureLabelProvider = FeatureLabelProvider)?
+		)
 	'}'
 ;
 
@@ -39,6 +43,22 @@ LabelProvider:
 
 LabelSpecification:
 	parameterType=JvmTypeReference (name=ValidID)?
+	'->'
+	expression = XExpression
+;
+
+FeatureLabelProvider:
+	{FeatureLabelProvider} 'featureLabelProvider' '{'
+		((
+		'labels' '{'
+			labelSpecifications+=FeatureLabelSpecification*
+		'}'
+		)?)
+	'}'
+;
+
+FeatureLabelSpecification:
+	parameterType=JvmTypeReference ':' feature=XFeatureCall
 	'->'
 	expression = XExpression
 ;

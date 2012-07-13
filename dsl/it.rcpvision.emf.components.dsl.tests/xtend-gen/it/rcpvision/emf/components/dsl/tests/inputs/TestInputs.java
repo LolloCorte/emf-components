@@ -153,4 +153,33 @@ public class TestInputs {
     _builder.newLine();
     return _builder;
   }
+  
+  public CharSequence featureLabelSpecifications() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("import java.util.*");
+    _builder.newLine();
+    _builder.append("import it.rcpvision.emf.components.examples.library.*");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("module my.empty {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("featureLabelProvider {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("labels {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("Library:name -> \'foo\' // constant");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
 }

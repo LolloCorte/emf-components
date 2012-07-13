@@ -2,6 +2,7 @@
  */
 package it.rcpvision.emf.components.dsl.model.impl;
 
+import it.rcpvision.emf.components.dsl.model.FeatureLabelProvider;
 import it.rcpvision.emf.components.dsl.model.LabelProvider;
 import it.rcpvision.emf.components.dsl.model.ModelPackage;
 import it.rcpvision.emf.components.dsl.model.Module;
@@ -24,6 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getName <em>Name</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getLabelProvider <em>Label Provider</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getFeatureLabelProvider <em>Feature Label Provider</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,6 +62,16 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
    * @ordered
    */
   protected LabelProvider labelProvider;
+
+  /**
+   * The cached value of the '{@link #getFeatureLabelProvider() <em>Feature Label Provider</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFeatureLabelProvider()
+   * @generated
+   * @ordered
+   */
+  protected FeatureLabelProvider featureLabelProvider;
 
   /**
    * <!-- begin-user-doc -->
@@ -158,6 +170,54 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
    * <!-- end-user-doc -->
    * @generated
    */
+  public FeatureLabelProvider getFeatureLabelProvider()
+  {
+    return featureLabelProvider;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFeatureLabelProvider(FeatureLabelProvider newFeatureLabelProvider, NotificationChain msgs)
+  {
+    FeatureLabelProvider oldFeatureLabelProvider = featureLabelProvider;
+    featureLabelProvider = newFeatureLabelProvider;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.MODULE__FEATURE_LABEL_PROVIDER, oldFeatureLabelProvider, newFeatureLabelProvider);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFeatureLabelProvider(FeatureLabelProvider newFeatureLabelProvider)
+  {
+    if (newFeatureLabelProvider != featureLabelProvider)
+    {
+      NotificationChain msgs = null;
+      if (featureLabelProvider != null)
+        msgs = ((InternalEObject)featureLabelProvider).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.MODULE__FEATURE_LABEL_PROVIDER, null, msgs);
+      if (newFeatureLabelProvider != null)
+        msgs = ((InternalEObject)newFeatureLabelProvider).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.MODULE__FEATURE_LABEL_PROVIDER, null, msgs);
+      msgs = basicSetFeatureLabelProvider(newFeatureLabelProvider, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MODULE__FEATURE_LABEL_PROVIDER, newFeatureLabelProvider, newFeatureLabelProvider));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -165,6 +225,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
     {
       case ModelPackage.MODULE__LABEL_PROVIDER:
         return basicSetLabelProvider(null, msgs);
+      case ModelPackage.MODULE__FEATURE_LABEL_PROVIDER:
+        return basicSetFeatureLabelProvider(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -183,6 +245,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
         return getName();
       case ModelPackage.MODULE__LABEL_PROVIDER:
         return getLabelProvider();
+      case ModelPackage.MODULE__FEATURE_LABEL_PROVIDER:
+        return getFeatureLabelProvider();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -202,6 +266,9 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
         return;
       case ModelPackage.MODULE__LABEL_PROVIDER:
         setLabelProvider((LabelProvider)newValue);
+        return;
+      case ModelPackage.MODULE__FEATURE_LABEL_PROVIDER:
+        setFeatureLabelProvider((FeatureLabelProvider)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -223,6 +290,9 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
       case ModelPackage.MODULE__LABEL_PROVIDER:
         setLabelProvider((LabelProvider)null);
         return;
+      case ModelPackage.MODULE__FEATURE_LABEL_PROVIDER:
+        setFeatureLabelProvider((FeatureLabelProvider)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -241,6 +311,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case ModelPackage.MODULE__LABEL_PROVIDER:
         return labelProvider != null;
+      case ModelPackage.MODULE__FEATURE_LABEL_PROVIDER:
+        return featureLabelProvider != null;
     }
     return super.eIsSet(featureID);
   }
