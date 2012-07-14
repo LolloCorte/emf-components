@@ -83,6 +83,9 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("  ");
     _builder.newLine();
     _builder.append("  ");
+    _builder.append("@Override");
+    _builder.newLine();
+    _builder.append("  ");
     _builder.append("public Class<? extends CompositeLabelProvider> bindCompositeLabelProvider() {");
     _builder.newLine();
     _builder.append("    ");
@@ -135,6 +138,9 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("}");
     _builder.newLine();
     _builder.append("  ");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("@Override");
     _builder.newLine();
     _builder.append("  ");
     _builder.append("public Class<? extends FeatureLabelProvider> bindFeatureLabelProvider() {");

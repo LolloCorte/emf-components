@@ -188,6 +188,7 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 		wildCard.constraints += upperBound
 		element.toMethod("bind" + clazz.simpleName, 
 				element.newTypeRef(typeof(Class), wildCard) ) [
+			annotations += element.toAnnotation(typeof(Override))
 			body = [
 				append("return ")
 				append(type)

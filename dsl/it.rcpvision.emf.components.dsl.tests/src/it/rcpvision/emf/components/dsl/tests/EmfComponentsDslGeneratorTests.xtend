@@ -50,6 +50,7 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGenericModule {
     super(plugin);
   }
   
+  @Override
   public Class<? extends CompositeLabelProvider> bindCompositeLabelProvider() {
     return LabelProviderGen.class;
   }
@@ -82,6 +83,7 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGenericModule {
     super(plugin);
   }
   
+  @Override
   public Class<? extends FeatureLabelProvider> bindFeatureLabelProvider() {
     return FeatureLabelProviderGen.class;
   }
