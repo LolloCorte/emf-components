@@ -13,7 +13,6 @@ public class EClassTests {
 	public void testEClass() {
 		EClass c = EXTLibraryPackage.Literals.LIBRARY;
 		assertEquals(Library.class, c.getInstanceClass());
-		System.out.println(c);
 	}
 
 }

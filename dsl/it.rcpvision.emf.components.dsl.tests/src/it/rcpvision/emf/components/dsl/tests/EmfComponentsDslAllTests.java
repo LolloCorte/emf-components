@@ -12,6 +12,7 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
+	EClassTests.class,
 	EmfComponentsDslParserTests.class,
 	EmfComponentsDslJvmModelInferrerTests.class,
 	EmfComponentsDslGeneratorTests.class
