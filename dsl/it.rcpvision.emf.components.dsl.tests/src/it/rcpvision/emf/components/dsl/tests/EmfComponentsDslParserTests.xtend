@@ -9,13 +9,19 @@ import org.eclipse.xtext.junit4.validation.ValidationTestHelper
 import org.eclipse.xtext.xbase.XbasePackage
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.junit.BeforeClass
 
 @RunWith(typeof(XtextRunner))
 @InjectWith(typeof(EmfComponentsDslInjectorProvider))
 class EmfComponentsDslParserTests extends EmfComponentsDslAbstractTests {
 
  	@Inject extension ValidationTestHelper
- 
+
+	@BeforeClass
+	def static void setCRLF() {
+		System::setProperty("line.separator", "\n")
+	}
+
 	@Test
 	def void testEmptyModule() {
 		inputs.emptyModule.parseAndAssertNoError
