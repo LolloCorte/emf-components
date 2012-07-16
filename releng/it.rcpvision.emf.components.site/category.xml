@@ -1,20 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/it.rcpvision.emf.components.feature_1.0.0.qualifier.jar" id="it.rcpvision.emf.components.feature" version="1.0.0.qualifier">
+   <feature id="it.rcpvision.emf.components.feature">
       <category name="emfcomponents.category"/>
    </feature>
-   <feature url="features/it.rcpvision.emf.components.examples.feature_1.0.0.qualifier.jar" id="it.rcpvision.emf.components.examples.feature" version="1.0.0.qualifier">
+   <feature id="it.rcpvision.emf.components.examples.feature">
       <category name="emfcomponents.category"/>
    </feature>
-   <feature url="features/it.rcpvision.emf.components.cdo.feature_1.0.0.qualifier.jar" id="it.rcpvision.emf.components.cdo.feature" version="1.0.0.qualifier">
+   <feature id="it.rcpvision.emf.components.cdo.feature">
       <category name="emfcomponents.category"/>
    </feature>
-   <feature url="features/it.rcpvision.emf.components.dsl.feature_1.0.0.qualifier.jar" id="it.rcpvision.emf.components.dsl.feature" version="1.0.0.qualifier">
+   <feature id="it.rcpvision.emf.components.dsl.feature">
       <category name="emfcomponents.category"/>
    </feature>
-   <category-def name="emfcomponents.category" label="Emf Components Category">
+
+   <feature id="it.rcpvision.emf.components.feature.source">
+      <category name="emfcomponents.category.source"/>
+   </feature>
+   <feature id="it.rcpvision.emf.components.examples.feature.source">
+      <category name="emfcomponents.category.source"/>
+   </feature>
+   <feature id="it.rcpvision.emf.components.cdo.feature.source">
+      <category name="emfcomponents.category.source"/>
+   </feature>
+   <feature id="it.rcpvision.emf.components.dsl.feature.source">
+      <category name="emfcomponents.category.source"/>
+   </feature>
+
+   <category-def name="emfcomponents.category" label="Emf Components">
       <description>
          Emf Components Category
+      </description>
+   </category-def>
+   <category-def name="emfcomponents.category.source" label="Emf Components Sources">
+      <description>
+         Emf Components Sources Category
       </description>
    </category-def>
 </site>
