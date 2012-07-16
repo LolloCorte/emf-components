@@ -75,4 +75,10 @@ public class EmfComponentsDslParserTests extends EmfComponentsDslAbstractTests {
       Diagnostic.LINKING_DIAGNOSTIC, 
       "getBooks");
   }
+  
+  @Test
+  public void testFeatureSpecifications() {
+    CharSequence _featureSpecifications = this.inputs.featureSpecifications();
+    this.parseAndAssertNoError(_featureSpecifications);
+  }
 }

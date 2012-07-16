@@ -18,6 +18,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EmfComponentsDsl.ecore#//Module/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/labelProvider"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/featureLabelProvider"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/featureProvider"/>
     </genClasses>
     <genClasses ecoreClass="EmfComponentsDsl.ecore#//LabelProvider">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//LabelProvider/labelSpecifications"/>
@@ -35,6 +36,13 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FeatureLabelSpecification/parameterType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FeatureLabelSpecification/feature"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FeatureLabelSpecification/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="EmfComponentsDsl.ecore#//FeatureProvider">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FeatureProvider/featureSpecifications"/>
+    </genClasses>
+    <genClasses ecoreClass="EmfComponentsDsl.ecore#//FeatureSpecification">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FeatureSpecification/parameterType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FeatureSpecification/features"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

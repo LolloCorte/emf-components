@@ -54,5 +54,12 @@ class EmfComponentsDslJvmModelInferrerTests extends EmfComponentsDslAbstractTest
         "my.empty.ui.provider.FeatureLabelProviderGen".assertEqualsStrings(
         	inferrer.featureLabelProviderQN(inputs.emptyModule.module)
         )
-    }	 
+    }
+
+    @Test
+	def void testFeatureProviderName() {
+        "my.empty.ui.provider.EStructuralFeaturesProviderGen".assertEqualsStrings(
+        	inferrer.featureProviderQN(inputs.emptyModule.module)
+        )
+    }
 }

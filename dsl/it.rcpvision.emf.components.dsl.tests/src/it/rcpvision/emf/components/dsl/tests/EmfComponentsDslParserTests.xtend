@@ -66,4 +66,9 @@ class EmfComponentsDslParserTests extends EmfComponentsDslAbstractTests {
 			"getBooks"
 		)
 	}
+	
+	@Test
+	def void testFeatureSpecifications() {
+		inputs.featureSpecifications.parseAndAssertNoError
+	}
 }

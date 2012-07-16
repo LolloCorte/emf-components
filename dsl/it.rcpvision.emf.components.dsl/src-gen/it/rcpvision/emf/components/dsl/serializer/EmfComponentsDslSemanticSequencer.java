@@ -4,6 +4,8 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 import it.rcpvision.emf.components.dsl.model.FeatureLabelProvider;
 import it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification;
+import it.rcpvision.emf.components.dsl.model.FeatureProvider;
+import it.rcpvision.emf.components.dsl.model.FeatureSpecification;
 import it.rcpvision.emf.components.dsl.model.Import;
 import it.rcpvision.emf.components.dsl.model.LabelProvider;
 import it.rcpvision.emf.components.dsl.model.LabelSpecification;
@@ -77,6 +79,18 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 			case ModelPackage.FEATURE_LABEL_SPECIFICATION:
 				if(context == grammarAccess.getFeatureLabelSpecificationRule()) {
 					sequence_FeatureLabelSpecification(context, (FeatureLabelSpecification) semanticObject); 
+					return; 
+				}
+				else break;
+			case ModelPackage.FEATURE_PROVIDER:
+				if(context == grammarAccess.getFeatureProviderRule()) {
+					sequence_FeatureProvider(context, (FeatureProvider) semanticObject); 
+					return; 
+				}
+				else break;
+			case ModelPackage.FEATURE_SPECIFICATION:
+				if(context == grammarAccess.getFeatureSpecificationRule()) {
+					sequence_FeatureSpecification(context, (FeatureSpecification) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1003,6 +1017,24 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (featureSpecifications+=FeatureSpecification*)
+	 */
+	protected void sequence_FeatureProvider(EObject context, FeatureProvider semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (parameterType=[JvmType|QualifiedName] features+=XFeatureCall features+=XFeatureCall*)
+	 */
+	protected void sequence_FeatureSpecification(EObject context, FeatureSpecification semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     importedNamespace=QualifiedNameWithWildcard
 	 */
 	protected void sequence_Import(EObject context, Import semanticObject) {
@@ -1046,7 +1078,7 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=QualifiedName labelProvider=LabelProvider? featureLabelProvider=FeatureLabelProvider?)
+	 *     (name=QualifiedName labelProvider=LabelProvider? featureLabelProvider=FeatureLabelProvider? featureProvider=FeatureProvider?)
 	 */
 	protected void sequence_Module(EObject context, Module semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

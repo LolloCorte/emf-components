@@ -23,6 +23,8 @@ Module:
 			(labelProvider = LabelProvider)?
 			&
 			(featureLabelProvider = FeatureLabelProvider)?
+			&
+			(featureProvider = FeatureProvider)?
 		)
 	'}'
 ;
@@ -63,4 +65,20 @@ FeatureLabelSpecification:
 	parameterType=[types::JvmType|QualifiedName] ':' feature=XFeatureCall
 	'->'
 	expression = XExpression
+;
+
+FeatureProvider:
+	{FeatureProvider} 'featureProvider' '{'
+		((
+		'features' '{'
+			featureSpecifications+=FeatureSpecification*
+		'}'
+		)?)
+	'}'
+;
+
+FeatureSpecification:
+	parameterType=[types::JvmType|QualifiedName] 
+	'->'
+	features += XFeatureCall (',' features += XFeatureCall)*
 ;

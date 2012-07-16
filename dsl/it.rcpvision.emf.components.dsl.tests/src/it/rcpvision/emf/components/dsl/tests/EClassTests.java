@@ -13,6 +13,8 @@ public class EClassTests {
 	public void testEClass() {
 		EClass c = EXTLibraryPackage.Literals.LIBRARY;
 		assertEquals(Library.class, c.getInstanceClass());
+		assertEquals("it.rcpvision.emf.components.examples.library.Library",
+				c.getInstanceClassName());
 	}
 
 }

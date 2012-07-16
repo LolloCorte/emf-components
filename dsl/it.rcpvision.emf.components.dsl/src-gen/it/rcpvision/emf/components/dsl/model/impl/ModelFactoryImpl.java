@@ -71,6 +71,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
       case ModelPackage.LABEL_SPECIFICATION: return createLabelSpecification();
       case ModelPackage.FEATURE_LABEL_PROVIDER: return createFeatureLabelProvider();
       case ModelPackage.FEATURE_LABEL_SPECIFICATION: return createFeatureLabelSpecification();
+      case ModelPackage.FEATURE_PROVIDER: return createFeatureProvider();
+      case ModelPackage.FEATURE_SPECIFICATION: return createFeatureSpecification();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -151,6 +153,28 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
   {
     FeatureLabelSpecificationImpl featureLabelSpecification = new FeatureLabelSpecificationImpl();
     return featureLabelSpecification;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FeatureProvider createFeatureProvider()
+  {
+    FeatureProviderImpl featureProvider = new FeatureProviderImpl();
+    return featureProvider;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FeatureSpecification createFeatureSpecification()
+  {
+    FeatureSpecificationImpl featureSpecification = new FeatureSpecificationImpl();
+    return featureSpecification;
   }
 
   /**

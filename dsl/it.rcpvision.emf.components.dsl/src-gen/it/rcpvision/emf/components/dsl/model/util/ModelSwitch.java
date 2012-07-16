@@ -121,6 +121,20 @@ public class ModelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ModelPackage.FEATURE_PROVIDER:
+      {
+        FeatureProvider featureProvider = (FeatureProvider)theEObject;
+        T result = caseFeatureProvider(featureProvider);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ModelPackage.FEATURE_SPECIFICATION:
+      {
+        FeatureSpecification featureSpecification = (FeatureSpecification)theEObject;
+        T result = caseFeatureSpecification(featureSpecification);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -233,6 +247,38 @@ public class ModelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFeatureLabelSpecification(FeatureLabelSpecification object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Feature Provider</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Feature Provider</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFeatureProvider(FeatureProvider object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Feature Specification</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Feature Specification</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFeatureSpecification(FeatureSpecification object)
   {
     return null;
   }

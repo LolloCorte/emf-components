@@ -50,7 +50,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
-    this.assertCorrectJavaCodeGeneration(_emptyModule, _builder, null, null);
+    this.assertCorrectJavaCodeGeneration(_emptyModule, _builder, null, null, null);
   }
   
   @Test
@@ -107,7 +107,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_emptyLabelProvider, _builder, _builder_1, null);
+    this.assertCorrectJavaCodeGeneration(_emptyLabelProvider, _builder, _builder_1, null, null);
   }
   
   @Test
@@ -164,7 +164,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_emptyFeatureLabelProvider, _builder, _builder_1, null);
+    this.assertCorrectJavaCodeGeneration(_emptyFeatureLabelProvider, _builder, _builder_1, null, null);
   }
   
   @Test
@@ -182,7 +182,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("}");
     _builder.newLine();
     this.assertCorrectJavaCodeGeneration(_emptyLabelSpecifications, 
-      null, _builder, null);
+      null, _builder, null, null);
   }
   
   @Test
@@ -394,30 +394,32 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("}");
     _builder.newLine();
     this.assertCorrectJavaCodeGeneration(_labelSpecifications, 
-      null, _builder, null);
+      null, _builder, null, null);
   }
   
   @Test
   public void testFeatureLabelSpecifications() {
     CharSequence _featureLabelSpecifications = this.inputs.featureLabelSpecifications();
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("package my.empty.ui.provider;");
+    _builder.append("package my.empty;");
     _builder.newLine();
+    _builder.newLine();
+    _builder.append("import it.rcpvision.emf.components.EmfComponentsGenericModule;");
     _builder.newLine();
     _builder.append("import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;");
     _builder.newLine();
-    _builder.append("import org.eclipse.emf.ecore.EStructuralFeature;");
+    _builder.append("import my.empty.ui.provider.FeatureLabelProviderGen;");
     _builder.newLine();
-    _builder.append("import org.eclipse.xtext.xbase.lib.StringExtensions;");
+    _builder.append("import org.eclipse.ui.plugin.AbstractUIPlugin;");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("public class FeatureLabelProviderGen extends FeatureLabelProvider {");
+    _builder.append("public class EmfComponentsGuiceModuleGen extends EmfComponentsGenericModule {");
     _builder.newLine();
     _builder.append("  ");
-    _builder.append("public String text_Library_name(final EStructuralFeature it) {");
+    _builder.append("public EmfComponentsGuiceModuleGen(final AbstractUIPlugin plugin) {");
     _builder.newLine();
     _builder.append("    ");
-    _builder.append("return \"Name\";");
+    _builder.append("super(plugin);");
     _builder.newLine();
     _builder.append("  ");
     _builder.append("}");
@@ -425,38 +427,160 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("  ");
     _builder.newLine();
     _builder.append("  ");
-    _builder.append("public String text_Library_books(final EStructuralFeature it) {");
-    _builder.newLine();
-    _builder.append("    ");
-    _builder.append("return \"Books\";");
+    _builder.append("@Override");
     _builder.newLine();
     _builder.append("  ");
-    _builder.append("}");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("public String text_Writer_lastName(final EStructuralFeature it) {");
+    _builder.append("public Class<? extends FeatureLabelProvider> bindFeatureLabelProvider() {");
     _builder.newLine();
     _builder.append("    ");
-    _builder.append("String _name = it.getName();");
-    _builder.newLine();
-    _builder.append("    ");
-    _builder.append("String _firstUpper = StringExtensions.toFirstUpper(_name);");
-    _builder.newLine();
-    _builder.append("    ");
-    _builder.append("return _firstUpper;");
+    _builder.append("return FeatureLabelProviderGen.class;");
     _builder.newLine();
     _builder.append("  ");
     _builder.append("}");
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
-    this.assertCorrectJavaCodeGeneration(_featureLabelSpecifications, 
-      null, null, _builder);
+    StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.append("package my.empty.ui.provider;");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;");
+    _builder_1.newLine();
+    _builder_1.append("import org.eclipse.emf.ecore.EStructuralFeature;");
+    _builder_1.newLine();
+    _builder_1.append("import org.eclipse.xtext.xbase.lib.StringExtensions;");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("public class FeatureLabelProviderGen extends FeatureLabelProvider {");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("public String text_Library_name(final EStructuralFeature it) {");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("return \"Name\";");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("public String text_Library_books(final EStructuralFeature it) {");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("return \"Books\";");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("public String text_Writer_lastName(final EStructuralFeature it) {");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("String _name = it.getName();");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("String _firstUpper = StringExtensions.toFirstUpper(_name);");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("return _firstUpper;");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("}");
+    _builder_1.newLine();
+    this.assertCorrectJavaCodeGeneration(_featureLabelSpecifications, _builder, null, _builder_1, null);
   }
   
-  private void assertCorrectJavaCodeGeneration(final CharSequence input, final CharSequence expectedModule, final CharSequence expectedLabelProvider, final CharSequence expectedFeatureLabelProvider) {
+  @Test
+  public void testFeatureSpecifications() {
+    CharSequence _featureSpecifications = this.inputs.featureSpecifications();
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package my.empty;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("import it.rcpvision.emf.components.EmfComponentsGenericModule;");
+    _builder.newLine();
+    _builder.append("import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;");
+    _builder.newLine();
+    _builder.append("import my.empty.ui.provider.EStructuralFeaturesProviderGen;");
+    _builder.newLine();
+    _builder.append("import org.eclipse.ui.plugin.AbstractUIPlugin;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public class EmfComponentsGuiceModuleGen extends EmfComponentsGenericModule {");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("public EmfComponentsGuiceModuleGen(final AbstractUIPlugin plugin) {");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("super(plugin);");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("@Override");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("public Class<? extends EStructuralFeaturesProvider> bindEStructuralFeaturesProvider() {");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("return EStructuralFeaturesProviderGen.class;");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.append("package my.empty.ui.provider;");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;");
+    _builder_1.newLine();
+    _builder_1.append("import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider.EClassToEStructuralFeatureAsStringsMap;");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("public class EStructuralFeaturesProviderGen extends EStructuralFeaturesProvider {");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("@Override");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("public void buildStringMap(final EClassToEStructuralFeatureAsStringsMap stringMap) {");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("super.buildStringMap(stringMap);");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("stringMap.mapTo(\"it.rcpvision.emf.components.examples.library.Library\",");
+    _builder_1.newLine();
+    _builder_1.append("      ");
+    _builder_1.append("\"name\");");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("stringMap.mapTo(\"it.rcpvision.emf.components.examples.library.Writer\",");
+    _builder_1.newLine();
+    _builder_1.append("      ");
+    _builder_1.append("\"firstName\", \"lastName\", \"books\");");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("}");
+    _builder_1.newLine();
+    this.assertCorrectJavaCodeGeneration(_featureSpecifications, _builder, null, null, _builder_1);
+  }
+  
+  private void assertCorrectJavaCodeGeneration(final CharSequence input, final CharSequence expectedModule, final CharSequence expectedLabelProvider, final CharSequence expectedFeatureLabelProvider, final CharSequence expectedFeatureProvider) {
     final Procedure1<Result> _function = new Procedure1<Result>() {
         public void apply(final Result it) {
           Map<String,CharSequence> _allGeneratedResources = it.getAllGeneratedResources();
@@ -481,17 +605,27 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
                 }
               } else {
                 String _key_2 = e.getKey();
-                boolean _endsWith_2 = _key_2.endsWith("LabelProviderGen.java");
+                boolean _endsWith_2 = _key_2.endsWith("EStructuralFeaturesProviderGen.java");
                 if (_endsWith_2) {
-                  boolean _notEquals_2 = (!Objects.equal(expectedLabelProvider, null));
+                  boolean _notEquals_2 = (!Objects.equal(expectedFeatureProvider, null));
                   if (_notEquals_2) {
                     CharSequence _value_2 = e.getValue();
-                    EmfComponentsDslGeneratorTests.this.assertEqualsStrings(expectedLabelProvider, _value_2);
+                    EmfComponentsDslGeneratorTests.this.assertEqualsStrings(expectedFeatureProvider, _value_2);
                   }
                 } else {
-                  CharSequence _value_3 = e.getValue();
-                  String _plus = ("unexpected generated code: " + _value_3);
-                  Assert.fail(_plus);
+                  String _key_3 = e.getKey();
+                  boolean _endsWith_3 = _key_3.endsWith("LabelProviderGen.java");
+                  if (_endsWith_3) {
+                    boolean _notEquals_3 = (!Objects.equal(expectedLabelProvider, null));
+                    if (_notEquals_3) {
+                      CharSequence _value_3 = e.getValue();
+                      EmfComponentsDslGeneratorTests.this.assertEqualsStrings(expectedLabelProvider, _value_3);
+                    }
+                  } else {
+                    CharSequence _value_4 = e.getValue();
+                    String _plus = ("unexpected generated code: " + _value_4);
+                    Assert.fail(_plus);
+                  }
                 }
               }
             }

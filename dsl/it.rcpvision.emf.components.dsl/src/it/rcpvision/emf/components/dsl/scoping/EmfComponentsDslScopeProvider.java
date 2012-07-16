@@ -4,6 +4,7 @@
 package it.rcpvision.emf.components.dsl.scoping;
 
 import it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification;
+import it.rcpvision.emf.components.dsl.model.FeatureSpecification;
 
 import java.util.Collections;
 
@@ -29,30 +30,32 @@ import com.google.common.collect.Iterables;
 @SuppressWarnings("restriction")
 public class EmfComponentsDslScopeProvider extends XbaseScopeProvider {
 
-//	public IScope __getScope(EObject context, EReference reference) {
-//		if (context instanceof FeatureLabelSpecification
-//				&& TypesPackage.Literals.JVM_IDENTIFIABLE_ELEMENT
-//						.isSuperTypeOf(reference.getEReferenceType())) {
-//			IScope parent = super.getScope(context, reference);
-//
-//			FeatureLabelSpecification featureLabelSpecification = (FeatureLabelSpecification) context;
-////			JvmTypeReference parameterType = featureLabelSpecification
-////					.getParameterType();
-//			JvmFeatureScopeAcceptor featureScopeDescriptions = new JvmFeatureScopeAcceptor();
-//			JvmDeclaredType type = (JvmDeclaredType) parameterType.getType();
-//			addFeatureScopes(parameterType, context, type, null, null,
-//					getDefaultPriority(), featureScopeDescriptions);
-//			IScope result = featureScopeDescriptions.createScope(parent);
-//			// IScope featureScopeForTypeRef = createFeatureScopeForTypeRef(
-//			// parameterType, parameterType, null, IScope.NULLSCOPE);
-//			// IScope result = createFeatureScopeForTypeRef(parameterType,
-//			// featureLabelSpecification, null, IScope.NULLSCOPE);
-//			return result;
-//			// System.out.println(reference);
-//		}
-//
-//		return super.getScope(context, reference);
-//	}
+	// public IScope __getScope(EObject context, EReference reference) {
+	// if (context instanceof FeatureLabelSpecification
+	// && TypesPackage.Literals.JVM_IDENTIFIABLE_ELEMENT
+	// .isSuperTypeOf(reference.getEReferenceType())) {
+	// IScope parent = super.getScope(context, reference);
+	//
+	// FeatureLabelSpecification featureLabelSpecification =
+	// (FeatureLabelSpecification) context;
+	// // JvmTypeReference parameterType = featureLabelSpecification
+	// // .getParameterType();
+	// JvmFeatureScopeAcceptor featureScopeDescriptions = new
+	// JvmFeatureScopeAcceptor();
+	// JvmDeclaredType type = (JvmDeclaredType) parameterType.getType();
+	// addFeatureScopes(parameterType, context, type, null, null,
+	// getDefaultPriority(), featureScopeDescriptions);
+	// IScope result = featureScopeDescriptions.createScope(parent);
+	// // IScope featureScopeForTypeRef = createFeatureScopeForTypeRef(
+	// // parameterType, parameterType, null, IScope.NULLSCOPE);
+	// // IScope result = createFeatureScopeForTypeRef(parameterType,
+	// // featureLabelSpecification, null, IScope.NULLSCOPE);
+	// return result;
+	// // System.out.println(reference);
+	// }
+	//
+	// return super.getScope(context, reference);
+	// }
 
 	@Override
 	protected JvmDeclaredType getContextType(EObject obj) {
@@ -60,6 +63,13 @@ public class EmfComponentsDslScopeProvider extends XbaseScopeProvider {
 			FeatureLabelSpecification featureLabelSpecification = (FeatureLabelSpecification) obj;
 			JvmType parameterType = featureLabelSpecification
 					.getParameterType();
+			if (parameterType instanceof JvmDeclaredType) {
+				return (JvmDeclaredType) parameterType;
+			}
+		}
+		if (obj instanceof FeatureSpecification) {
+			FeatureSpecification featureSpecification = (FeatureSpecification) obj;
+			JvmType parameterType = featureSpecification.getParameterType();
 			if (parameterType instanceof JvmDeclaredType) {
 				return (JvmDeclaredType) parameterType;
 			}
@@ -81,23 +91,39 @@ public class EmfComponentsDslScopeProvider extends XbaseScopeProvider {
 						Collections.singleton(EObjectDescription.create(THIS,
 								featureLabelSpecification.getParameterType())));
 			}
+			if (context instanceof FeatureSpecification) {
+				FeatureSpecification featureSpecification = (FeatureSpecification) context;
+				return new SimpleScope(parentScope,
+						Collections.singleton(EObjectDescription.create(THIS,
+								featureSpecification.getParameterType())));
+			}
 		}
 
 		return parentScope;
 	}
-	
+
 	@Override
 	protected IScope createImplicitFeatureCallScope(EObject call,
 			Resource resource, IScope parent, IScope localVariableScope) {
 		IScope superScope = super.createImplicitFeatureCallScope(call,
 				resource, parent, localVariableScope);
 
+		return filterScope(call, superScope);
+	}
+
+	protected IScope filterScope(EObject call, IScope superScope) {
 		boolean shouldFilter = false;
 		EObject container = call.eContainer();
 		if (container instanceof FeatureLabelSpecification) {
 			FeatureLabelSpecification featureLabelSpecification = (FeatureLabelSpecification) container;
 			if (featureLabelSpecification.getFeature() == call)
 				shouldFilter = true;
+		}
+		if (container instanceof FeatureSpecification) {
+			FeatureSpecification featureSpecification = (FeatureSpecification) container;
+			if (featureSpecification.getFeatures().contains(call))
+				shouldFilter = true;
+
 		}
 
 		if (!shouldFilter)
@@ -130,7 +156,7 @@ public class EmfComponentsDslScopeProvider extends XbaseScopeProvider {
 
 		return new SimpleScope(filtered);
 	}
-	
+
 	protected boolean isPropertyNameForGetterSetterMethod(String opName) {
 		if ((opName.startsWith("get") || opName.startsWith("set"))
 				&& opName.length() > 3

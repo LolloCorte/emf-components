@@ -97,4 +97,20 @@ module my.empty {
 	}
 }
 '''
+
+	def featureSpecifications() 
+'''
+import java.util.*
+import it.rcpvision.emf.components.examples.library.*
+
+module my.empty {
+	featureProvider {
+		features {
+			Library -> name
+			Writer -> firstName, lastName, books
+		}
+	}
+}
+'''
+
 }

@@ -15,6 +15,8 @@ import org.eclipse.xtext.common.types.TypesFactory
 import org.eclipse.emf.ecore.EStructuralFeature
 import org.eclipse.xtext.xbase.XFeatureCall
 import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider
+import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider
+import org.eclipse.xtext.common.types.util.TypeReferences
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -30,6 +32,8 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 	@Inject extension JvmTypesBuilder
 	
 	@Inject extension IQualifiedNameProvider
+	
+	@Inject extension TypeReferences
 	
 	@Inject extension TypesFactory
 	
@@ -68,6 +72,7 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 		
 		val labelProviderClass = element.inferLabelProvider(acceptor)
 		val featureLabelProviderClass = element.inferFeatureLabelProvider(acceptor)
+		val featureProviderClass = element.inferFeatureProvider(acceptor)
 		
 		acceptor.accept(moduleClass).initializeLater [
 			documentation = element.documentation
@@ -82,6 +87,8 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 				members += element.labelProvider.genBindMethod(labelProviderClass, typeof(CompositeLabelProvider))
 			if (featureLabelProviderClass != null)
 				members += element.featureLabelProvider.genBindMethod(featureLabelProviderClass, typeof(FeatureLabelProvider))
+			if (featureProviderClass != null)
+				members += element.featureProvider.genBindMethod(featureProviderClass, typeof(EStructuralFeaturesProvider))
 		]
    	}
    	
@@ -103,6 +110,10 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 	
 	def featureLabelProviderQN(Module element) {
 		element.fullyQualifiedName + ".ui.provider.FeatureLabelProviderGen"
+	}
+
+	def featureProviderQN(Module element) {
+		element.fullyQualifiedName + ".ui.provider.EStructuralFeaturesProviderGen"
 	}
 
 	def inferLabelProvider(Module element, IJvmDeclaredTypeAcceptor acceptor) {
@@ -178,6 +189,45 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 				]
 			]
 			featureLabelProviderClass
+		}
+	}
+
+	def inferFeatureProvider(Module element, IJvmDeclaredTypeAcceptor acceptor) {
+		if (element.featureProvider == null)
+			null
+		else {
+			val featureProviderClass = element.featureProvider.toClass(element.featureProviderQN)
+			acceptor.accept(featureProviderClass).initializeLater [
+				superTypes += element.newTypeRef(typeof(EStructuralFeaturesProvider))
+				
+				members += element.featureProvider.
+						toMethod("buildStringMap", Void::TYPE.getTypeForName(element)) [
+					annotations += element.toAnnotation(typeof(Override))
+					parameters += element.featureProvider.toParameter("stringMap",
+							element.newTypeRef(
+								typeof(EStructuralFeaturesProvider$EClassToEStructuralFeatureAsStringsMap)
+							)
+					)
+					body = [
+						append("super.buildStringMap(stringMap);").newLine
+						element.featureProvider.featureSpecifications.forEach [
+							featureSpecification |
+							newLine.
+								append('''stringMap.mapTo("«featureSpecification.parameterType.identifier»",''').
+									increaseIndentation.newLine
+							val fs = featureSpecification.features.map [
+								feature |
+								'"' + (feature as XFeatureCall).
+									feature.simpleName.propertyNameForGetterSetterMethod
+								+ '"'
+							]
+							append(fs.join(", "))
+							append(");").decreaseIndentation
+						]
+					]
+				]
+			]
+			featureProviderClass
 		}
 	}
 	
