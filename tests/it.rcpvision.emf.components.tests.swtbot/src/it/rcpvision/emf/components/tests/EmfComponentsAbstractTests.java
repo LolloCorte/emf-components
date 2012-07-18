@@ -3,6 +3,7 @@ package it.rcpvision.emf.components.tests;
 import static org.eclipse.swtbot.swt.finder.waits.Conditions.shellCloses;
 import static org.eclipse.xtext.ui.junit.util.IResourcesSetupUtil.cleanWorkspace;
 import static org.eclipse.xtext.ui.junit.util.IResourcesSetupUtil.createFile;
+import static org.eclipse.xtext.ui.junit.util.IResourcesSetupUtil.root;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -17,6 +18,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRunnable;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -172,6 +175,10 @@ public class EmfComponentsAbstractTests {
 	protected static final String BOOK_ON_TAPE = "Book On Tape";
 
 	protected static final String NEW_CHILD = "New Child";
+
+	protected static final String EMF_COMPONENTS_PROJECT = "EmfComponentsProject";
+
+	protected static final String NEW_EMF_COMPONENTS_PROJECT = "New Emf Components Project";
 
 	protected static SWTWorkbenchBot bot;
 
@@ -661,5 +668,29 @@ public class EmfComponentsAbstractTests {
 		} else {
 			return new SWTBotMenu(menuItem);
 		}
+	}
+
+	protected void assertNoErrorsInProjectAfterAutoBuild()
+			throws CoreException {
+				waitForBuild();
+				assertNoErrorsInProject();
+			}
+
+	protected void assertNoErrorsInProject() throws CoreException {
+		IMarker[] markers = root().findMarkers(IMarker.PROBLEM, true,
+				IResource.DEPTH_INFINITE);
+		assertEquals("expected no markers: " + printMarkers(markers), 0,
+				markers.length);
+	}
+
+	protected String printMarkers(IMarker[] markers) {
+		StringBuffer buffer = new StringBuffer();
+		for (int i = 0; i < markers.length; i++) {
+			try {
+				buffer.append(markers[i].getAttribute(IMarker.MESSAGE) + "\n");
+			} catch (CoreException e) {
+			}
+		}
+		return buffer.toString();
 	}
 }
