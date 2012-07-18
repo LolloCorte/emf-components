@@ -3,8 +3,11 @@
  */
 package it.rcpvision.emf.components.ui.provider;
 
+import it.rcpvision.emf.components.EmfComponentsActivator;
+
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.emf.common.util.BasicEList;
@@ -30,14 +33,27 @@ public class EStructuralFeaturesProvider {
 			HashMap<EClass, List<EStructuralFeature>> {
 
 		private static final long serialVersionUID = 670116975392207101L;
-		
-		public void mapTo(EClass eClass, EStructuralFeature...features) {
+
+		public void mapTo(EClass eClass, EStructuralFeature... features) {
+			put(eClass, Lists.newArrayList(features));
+		}
+
+	}
+
+	public static class EClassToEStructuralFeatureAsStringsMap extends
+			HashMap<String, List<String>> {
+
+		private static final long serialVersionUID = -5838485782229839444L;
+
+		public void mapTo(String eClass, String... features) {
 			put(eClass, Lists.newArrayList(features));
 		}
 
 	}
 
 	protected EClassToEStructuralFeatureMap map = null;
+
+	protected EClassToEStructuralFeatureAsStringsMap stringMap = null;
 
 	public List<EStructuralFeature> getFeatures(EObject eObject) {
 		if (eObject == null)
@@ -53,6 +69,11 @@ public class EStructuralFeaturesProvider {
 		List<EStructuralFeature> fromMap = getFromMap(eClass);
 		if (fromMap != null)
 			return fromMap;
+		else {
+			fromMap = getFromStringMap(eClass);
+			if (fromMap != null)
+				return fromMap;
+		}
 
 		return new BasicEList<EStructuralFeature>(
 				eClass.getEAllStructuralFeatures());
@@ -65,12 +86,59 @@ public class EStructuralFeaturesProvider {
 		return map.get(eClass);
 	}
 
+	protected List<EStructuralFeature> getFromStringMap(EClass eClass) {
+		if (stringMap == null)
+			buildStringMapInternal();
+
+		List<String> list = stringMap.get(eClass.getInstanceClassName());
+		if (list == null)
+			return null;
+
+		LinkedList<EStructuralFeature> result = new LinkedList<EStructuralFeature>();
+
+		for (String featureName : list) {
+			EStructuralFeature feature = eClass
+					.getEStructuralFeature(featureName);
+			if (feature != null)
+				result.add(feature);
+			else
+				EmfComponentsActivator.logError("cannot find feature '"
+						+ featureName + "' in EClass '" + eClass.getName()
+						+ "'");
+		}
+
+		return result;
+	}
+
 	private void buildMapInternal() {
 		map = new EClassToEStructuralFeatureMap();
 		buildMap(map);
 	}
-	
+
+	private void buildStringMapInternal() {
+		stringMap = new EClassToEStructuralFeatureAsStringsMap();
+		buildStringMap(stringMap);
+	}
+
+	/**
+	 * Derived classes should redefine this method to map an {@link EClass} to
+	 * {@link EStructuralFeature}s.
+	 * 
+	 * @param map
+	 */
 	protected void buildMap(EClassToEStructuralFeatureMap map) {
+		// default implementation is empty
+	}
+
+	/**
+	 * Derived classes should redefine this method to map an {@link EClass}'s
+	 * name to {@link EStructuralFeature}s' names; the {@link EClass}'s name
+	 * should be obtained using getInstanceClassName().
+	 * 
+	 * @param stringMap
+	 */
+	protected void buildStringMap(
+			EClassToEStructuralFeatureAsStringsMap stringMap) {
 		// default implementation is empty
 	}
 

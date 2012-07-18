@@ -8,6 +8,7 @@ import it.rcpvision.emf.components.examples.library.EXTLibraryFactory;
 import it.rcpvision.emf.components.examples.library.EXTLibraryPackage;
 import it.rcpvision.emf.components.examples.library.Writer;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryFormFeatureLabelProvider;
+import it.rcpvision.emf.components.tests.providers.LibraryEStructuralFeaturesAsStringsProvider;
 import it.rcpvision.emf.components.tests.providers.LibraryEStructuralFeaturesProvider;
 import it.rcpvision.emf.components.tests.providers.OrderedEStructuralFeaturesProvider;
 import it.rcpvision.emf.components.tests.utils.EmfComponentsTestsUtils;
@@ -32,7 +33,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 /**
- * @author bettini
+ * @author Lorenzo Bettini
  * 
  */
 @RunWith(SWTBotJunit4ClassRunner.class)
@@ -129,8 +130,19 @@ public class EmfProviderTests extends EmfComponentsCustomLibraryAbstractTests {
 
 	@Test
 	public void testEClassFeatureProviderPolymorphic() {
-		LibraryEStructuralFeaturesProvider provider = getInjector()
-				.getInstance(LibraryEStructuralFeaturesProvider.class);
+		EStructuralFeaturesProvider provider = getInjector().getInstance(
+				LibraryEStructuralFeaturesProvider.class);
+		assertFeatureNames("name, address", provider.getFeatures(LIBRARY));
+		assertFeatureNames("firstName, lastName, address",
+				provider.getFeatures(EXTLibraryPackage.Literals.PERSON));
+		assertFeatureNames("firstName, lastName, books",
+				provider.getFeatures(EXTLibraryPackage.Literals.WRITER));
+	}
+
+	@Test
+	public void testEClassFeatureProviderAsStringsPolymorphic() {
+		EStructuralFeaturesProvider provider = getInjector().getInstance(
+				LibraryEStructuralFeaturesAsStringsProvider.class);
 		assertFeatureNames("name, address", provider.getFeatures(LIBRARY));
 		assertFeatureNames("firstName, lastName, address",
 				provider.getFeatures(EXTLibraryPackage.Literals.PERSON));
