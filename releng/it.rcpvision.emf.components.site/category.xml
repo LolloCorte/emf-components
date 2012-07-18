@@ -13,27 +13,27 @@
       <category name="emfcomponents.category"/>
    </feature>
 
-   <feature id="it.rcpvision.emf.components.feature.source">
+   <feature id="it.rcpvision.emf.components.source.feature">
       <category name="emfcomponents.category.source"/>
    </feature>
-   <feature id="it.rcpvision.emf.components.examples.feature.source">
+   <feature id="it.rcpvision.emf.components.examples.source.feature">
       <category name="emfcomponents.category.source"/>
    </feature>
-   <feature id="it.rcpvision.emf.components.cdo.feature.source">
+   <feature id="it.rcpvision.emf.components.cdo.source.feature">
       <category name="emfcomponents.category.source"/>
    </feature>
-   <feature id="it.rcpvision.emf.components.dsl.feature.source">
+   <feature id="it.rcpvision.emf.components.dsl.source.feature">
       <category name="emfcomponents.category.source"/>
    </feature>
 
    <category-def name="emfcomponents.category" label="Emf Components">
       <description>
-         Emf Components Category
+         Emf Components
       </description>
    </category-def>
    <category-def name="emfcomponents.category.source" label="Emf Components Sources">
       <description>
-         Emf Components Sources Category
+         Emf Components (Sources)
       </description>
    </category-def>
 </site>
