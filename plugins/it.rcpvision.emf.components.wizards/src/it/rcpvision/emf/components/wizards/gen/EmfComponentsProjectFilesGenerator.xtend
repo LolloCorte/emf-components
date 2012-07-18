@@ -30,18 +30,15 @@ bin.includes = META-INF/,\
 '''
 package «projectName»;
 
-import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 import it.rcpvision.emf.components.EmfComponentsGenericModule;
-
-import com.google.inject.Injector;
-import static com.google.inject.Guice.createInjector;
+import it.rcpvision.emf.components.ui.EmfComponentsAbstractActivator;
 
 /**
  * The activator class controls the plug-in life cycle
  */
-public class Activator extends AbstractUIPlugin {
+public class Activator extends EmfComponentsAbstractActivator {
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "«projectName»"; //$NON-NLS-1$
@@ -49,12 +46,6 @@ public class Activator extends AbstractUIPlugin {
 	// The shared instance
 	private static Activator plugin;
 
-	// the singleton Injector instance for this plugin
-	private Injector injector;
-	
-	/**
-	 * The constructor
-	 */
 	public Activator() {
 	}
 
@@ -83,17 +74,6 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public static Activator getDefault() {
 		return plugin;
-	}
-
-	/**
-	 * Returns the singleton Injector for this plugin
-	 *
-	 * @return the singleton Injector for this plugin
-	 */
-	public Injector getInjector() {
-		if (injector == null)
-			injector = createInjector(createModule());
-		return injector;
 	}
 
 	/**
