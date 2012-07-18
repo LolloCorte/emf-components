@@ -34,7 +34,7 @@ import org.eclipse.pde.core.project.IBundleProjectDescription;
 public class NewEmfComponentsProjectSupport {
 
 	static EmfComponentsProjectFilesGenerator filesGenerator = new EmfComponentsProjectFilesGenerator();
-	
+
 	static EmfComponentsViewFilesGenerator viewGenerator = new EmfComponentsViewFilesGenerator();
 
 	/**
@@ -43,12 +43,12 @@ public class NewEmfComponentsProjectSupport {
 	 * 
 	 * @param projectName
 	 * @param location
-	 * @param progressMonitor 
+	 * @param progressMonitor
 	 * @param natureId
 	 * @return
 	 */
-	public static IProject createProject(String projectName, URI location, Choice viewType,
-			IProgressMonitor progressMonitor) {
+	public static IProject createProject(String projectName, URI location,
+			Choice viewType, IProgressMonitor progressMonitor) {
 		Assert.isNotNull(projectName);
 		Assert.isTrue(projectName.trim().length() > 0);
 
@@ -63,51 +63,54 @@ public class NewEmfComponentsProjectSupport {
 				createSubProgressMonitor(progressMonitor));
 		try {
 			String[] paths = { srcFolder, projectPackagePath, metaInfPath };
-			addToProjectStructure(project, paths,
-					createSubProgressMonitor(progressMonitor));
+			addToProjectStructure(project, paths, progressMonitor);
 
-			createProjectFile(project, projectPackagePath + "/Activator.java",
-					filesGenerator.generateActivator(projectName).toString(),
-					createSubProgressMonitor(progressMonitor));
-			createProjectFile(
-					project,
-					projectPackagePath + "/ExecutableExtensionFactory.java",
-					filesGenerator.generateExecutableExtensionFactory(
-							projectName).toString(),
-					createSubProgressMonitor(progressMonitor));
-			createProjectFile(project, projectPackagePath
-					+ "/EmfComponentsGuiceModule.java", filesGenerator
-					.generateModule(projectName).toString(),
-					createSubProgressMonitor(progressMonitor));
+			createActivator(project, projectName, projectPackagePath,
+					progressMonitor);
+			createExecutableExtensionFactory(project, projectName,
+					projectPackagePath, progressMonitor);
+			createModule(project, projectName, projectPackagePath,
+					"EmfComponentsGenericModule", progressMonitor);
 
 			createProjectFile(project, metaInfPath + "/MANIFEST.MF",
 					filesGenerator.generateManifest(projectName).toString(),
 					createSubProgressMonitor(progressMonitor));
 			createProjectFile(project, "/build.properties", filesGenerator
-					.generateBuildProperties(shouldGeneratePluginXml(viewType)).toString(),
-					createSubProgressMonitor(progressMonitor));
-			
+					.generateBuildProperties(shouldGeneratePluginXml(viewType))
+					.toString(), createSubProgressMonitor(progressMonitor));
+
 			String simpleClassName = getSimpleNameProject(projectPackagePath);
-            String qualifiedNameView = null;
-            switch (viewType) {
-            case TREEFORM:
-                qualifiedNameView = simpleClassName + "TreeFormView";
-                createProjectFile(project, projectPackagePath + "/" + qualifiedNameView.concat(".java"), viewGenerator.generateTreeFormView(projectName, simpleClassName).toString(),
-                        createSubProgressMonitor(progressMonitor));
-                break;
-            case TABLEFORM:
-                qualifiedNameView = simpleClassName + "TableView";
-                createProjectFile(project, projectPackagePath + "/" + qualifiedNameView.concat(".java"), viewGenerator.generateTableView(projectName, simpleClassName).toString(),
-                        createSubProgressMonitor(progressMonitor));
-                break;
-            default:
-                // OK, no additional views to create
-            }
-            
-            if (qualifiedNameView != null) {
-            	createProjectFile(project, "/plugin.xml", viewGenerator.generatePluginXml(projectName.concat(".ExecutableExtensionFactory"), projectName.concat(".").concat(qualifiedNameView)).toString(),
-                        createSubProgressMonitor(progressMonitor));
-            }
+			String qualifiedNameView = null;
+			switch (viewType) {
+			case TREEFORM:
+				qualifiedNameView = simpleClassName + "TreeFormView";
+				createProjectFile(project, projectPackagePath + "/"
+						+ qualifiedNameView.concat(".java"), viewGenerator
+						.generateTreeFormView(projectName, simpleClassName)
+						.toString(), createSubProgressMonitor(progressMonitor));
+				break;
+			case TABLEFORM:
+				qualifiedNameView = simpleClassName + "TableView";
+				createProjectFile(project, projectPackagePath + "/"
+						+ qualifiedNameView.concat(".java"), viewGenerator
+						.generateTableView(projectName, simpleClassName)
+						.toString(), createSubProgressMonitor(progressMonitor));
+				break;
+			default:
+				// OK, no additional views to create
+			}
+
+			if (qualifiedNameView != null) {
+				createProjectFile(
+						project,
+						"/plugin.xml",
+						viewGenerator.generatePluginXml(
+								projectName
+										.concat(".ExecutableExtensionFactory"),
+								projectName.concat(".").concat(
+										qualifiedNameView)).toString(),
+						createSubProgressMonitor(progressMonitor));
+			}
 
 			addNatures(project, createSubProgressMonitor(progressMonitor));
 		} catch (CoreException e) {
@@ -119,21 +122,50 @@ public class NewEmfComponentsProjectSupport {
 
 		return project;
 	}
-	
+
+	public static void createActivator(IProject project, String projectName,
+			String projectPackagePath, IProgressMonitor progressMonitor)
+			throws CoreException {
+		createProjectFile(project, projectPackagePath + "/Activator.java",
+				filesGenerator.generateActivator(projectName).toString(),
+				createSubProgressMonitor(progressMonitor));
+	}
+
+	public static void createExecutableExtensionFactory(IProject project,
+			String projectName, String projectPackagePath,
+			IProgressMonitor progressMonitor) throws CoreException {
+		createProjectFile(project, projectPackagePath
+				+ "/ExecutableExtensionFactory.java", filesGenerator
+				.generateExecutableExtensionFactory(projectName).toString(),
+				createSubProgressMonitor(progressMonitor));
+	}
+
+	public static void createModule(IProject project, String projectName,
+			String projectPackagePath, String superClass,
+			IProgressMonitor progressMonitor) throws CoreException {
+		createProjectFile(project, projectPackagePath
+				+ "/EmfComponentsGuiceModule.java", filesGenerator
+				.generateModule(projectName, superClass).toString(),
+				createSubProgressMonitor(progressMonitor));
+	}
+
 	private static boolean shouldGeneratePluginXml(Choice viewType) {
 		return viewType != Choice.NONE;
 	}
-	
-    private static String getSimpleNameProject(String projectName) {
-        String simpleNameProject = null;
-        if (projectName.contains(".")) {
-            simpleNameProject = projectName.substring(projectName.lastIndexOf(".") + 1);
-        } else {
-            simpleNameProject = projectName.substring(projectName.lastIndexOf("/") + 1);
-        }
-        simpleNameProject = simpleNameProject.substring(0, 1).toUpperCase().concat(simpleNameProject.substring(1));
-        return simpleNameProject;
-    }
+
+	private static String getSimpleNameProject(String projectName) {
+		String simpleNameProject = null;
+		if (projectName.contains(".")) {
+			simpleNameProject = projectName.substring(projectName
+					.lastIndexOf(".") + 1);
+		} else {
+			simpleNameProject = projectName.substring(projectName
+					.lastIndexOf("/") + 1);
+		}
+		simpleNameProject = simpleNameProject.substring(0, 1).toUpperCase()
+				.concat(simpleNameProject.substring(1));
+		return simpleNameProject;
+	}
 
 	/**
 	 * @param progressMonitor
@@ -149,11 +181,12 @@ public class NewEmfComponentsProjectSupport {
 	 * 
 	 * @param location
 	 * @param projectName
-	 * @param progressMonitor 
+	 * @param progressMonitor
 	 */
-	private static IProject createBaseProject(String projectName, URI location, IProgressMonitor progressMonitor) {
+	private static IProject createBaseProject(String projectName, URI location,
+			IProgressMonitor progressMonitor) {
 		progressMonitor.subTask("Creating project resource");
-		
+
 		// it is acceptable to use the ResourcesPlugin class
 		IProject newProject = ResourcesPlugin.getWorkspace().getRoot()
 				.getProject(projectName);
@@ -170,7 +203,8 @@ public class NewEmfComponentsProjectSupport {
 
 			desc.setLocationURI(projectLocation);
 			try {
-				newProject.create(desc, createSubProgressMonitor(progressMonitor));
+				newProject.create(desc,
+						createSubProgressMonitor(progressMonitor));
 				if (!newProject.isOpen()) {
 					newProject.open(createSubProgressMonitor(progressMonitor));
 				}
@@ -178,12 +212,12 @@ public class NewEmfComponentsProjectSupport {
 				e.printStackTrace();
 			}
 		}
-		
+
 		progressMonitor.done();
 
 		return newProject;
 	}
-	
+
 	/**
 	 * Create a folder structure with a parent root, overlay, and a few child
 	 * folders.
@@ -194,9 +228,9 @@ public class NewEmfComponentsProjectSupport {
 	 *            TODO
 	 * @throws CoreException
 	 */
-	private static void addToProjectStructure(IProject newProject,
-			String[] paths, IProgressMonitor progressMonitor)
-			throws CoreException {
+	public static void addToProjectStructure(IProject newProject,
+			String[] paths, IProgressMonitor monitor) throws CoreException {
+		IProgressMonitor progressMonitor = createSubProgressMonitor(monitor);
 		progressMonitor.subTask("Creating project folders");
 		for (String path : paths) {
 			IFolder etcFolders = newProject.getFolder(path);
@@ -219,90 +253,89 @@ public class NewEmfComponentsProjectSupport {
 	 * @param project
 	 * @param fileName
 	 * @param contents
-	 * @param progressMonitor TODO
+	 * @param progressMonitor
+	 *            TODO
 	 * @throws CoreException
 	 */
 	public static void createProjectFile(IProject project, String fileName,
-			String contents, IProgressMonitor progressMonitor) throws CoreException {
+			String contents, IProgressMonitor progressMonitor)
+			throws CoreException {
 		progressMonitor.subTask("Creating file " + fileName);
 		IFile iFile = project.getFile(fileName);
-		iFile.create(new ByteArrayInputStream(contents.getBytes()),
-				true, null);
+		iFile.create(new ByteArrayInputStream(contents.getBytes()), true, null);
 		progressMonitor.done();
 	}
 
-	private static void addNatures(IProject project, IProgressMonitor progressMonitor) throws CoreException {
+	private static void addNatures(IProject project,
+			IProgressMonitor progressMonitor) throws CoreException {
 		progressMonitor.subTask("Adding natures");
 		List<IClasspathEntry> classpathEntries = new UniqueEList<IClasspathEntry>();
-		
+
 		IJavaProject javaProject = JavaCore.create(project);
-        IProjectDescription projectDescription = project.getDescription();
-        
+		IProjectDescription projectDescription = project.getDescription();
+
 		projectDescription.setNatureIds(new String[] { JavaCore.NATURE_ID,
 				IBundleProjectDescription.PLUGIN_NATURE });
 
 		IProgressMonitor monitor = null;
 		project.setDescription(projectDescription, monitor);
-		
+
 		IPath projectPath = project.getFullPath();
 		IPath javaSource = projectPath.append("src");
-		
-    	IClasspathEntry sourceClasspathEntry = JavaCore.newSourceEntry(javaSource);
-        for (Iterator<IClasspathEntry> i = classpathEntries.iterator(); i.hasNext(); )
-        {
-          IClasspathEntry classpathEntry = i.next();
-          if (classpathEntry.getPath().isPrefixOf(javaSource))
-          {
-            i.remove();
-          }
-        }
-        classpathEntries.add(0, sourceClasspathEntry);
+
+		IClasspathEntry sourceClasspathEntry = JavaCore
+				.newSourceEntry(javaSource);
+		for (Iterator<IClasspathEntry> i = classpathEntries.iterator(); i
+				.hasNext();) {
+			IClasspathEntry classpathEntry = i.next();
+			if (classpathEntry.getPath().isPrefixOf(javaSource)) {
+				i.remove();
+			}
+		}
+		classpathEntries.add(0, sourceClasspathEntry);
 
 		classpathEntries.add(JavaRuntime.getDefaultJREContainerEntry());
 
 		classpathEntries.add(JavaCore.newContainerEntry(new Path(
 				"org.eclipse.pde.core.requiredPlugins")));
 
-		javaProject
-				.setRawClasspath(classpathEntries
-						.toArray(new IClasspathEntry[classpathEntries.size()]),
-						createSubProgressMonitor(progressMonitor));
-		
+		javaProject.setRawClasspath(classpathEntries
+				.toArray(new IClasspathEntry[classpathEntries.size()]),
+				createSubProgressMonitor(progressMonitor));
+
 		progressMonitor.done();
 
-        /*
-        String[] prevNatures = description.getNatureIds();
-		String[] newNatures = new String[prevNatures.length + 1];
-		System.arraycopy(prevNatures, 0, newNatures, 0, prevNatures.length);
-		newNatures[prevNatures.length] = JavaCore.NATURE_ID;
-		description.setNatureIds(newNatures);
-
-		IProgressMonitor monitor = null;
-		project.setDescription(description, monitor);
-
-		IJavaProject javaProject = JavaCore.create(project);
-		Set<IClasspathEntry> classPathEntries = new HashSet<IClasspathEntry>();
-		IClasspathEntry[] rawClasspath = javaProject.getRawClasspath();
-		classPathEntries.addAll(Arrays.asList(rawClasspath));
-		
-		classPathEntries.add(JavaRuntime.getDefaultJREContainerEntry());
-
 		/*
-		IResource srcFolder;
-		IPreferenceStore store= PreferenceConstants.getPreferenceStore();
-		String sourceFolderName= store.getString(PreferenceConstants.SRCBIN_SRCNAME);
-		if (store.getBoolean(PreferenceConstants.SRCBIN_FOLDERS_IN_NEWPROJ) && sourceFolderName.length() > 0) {
-			srcFolder= javaProject.getProject().getFolder(sourceFolderName);
-		} else {
-			srcFolder= javaProject.getProject();
-		}
-		classPathEntries.add(JavaCore.newSourceEntry(srcFolder.getLocation()));
-		
-		javaProject
-				.setRawClasspath(classPathEntries
-						.toArray(new IClasspathEntry[classPathEntries.size()]),
-						monitor);
-				*/
+		 * String[] prevNatures = description.getNatureIds(); String[]
+		 * newNatures = new String[prevNatures.length + 1];
+		 * System.arraycopy(prevNatures, 0, newNatures, 0, prevNatures.length);
+		 * newNatures[prevNatures.length] = JavaCore.NATURE_ID;
+		 * description.setNatureIds(newNatures);
+		 * 
+		 * IProgressMonitor monitor = null; project.setDescription(description,
+		 * monitor);
+		 * 
+		 * IJavaProject javaProject = JavaCore.create(project);
+		 * Set<IClasspathEntry> classPathEntries = new
+		 * HashSet<IClasspathEntry>(); IClasspathEntry[] rawClasspath =
+		 * javaProject.getRawClasspath();
+		 * classPathEntries.addAll(Arrays.asList(rawClasspath));
+		 * 
+		 * classPathEntries.add(JavaRuntime.getDefaultJREContainerEntry());
+		 * 
+		 * /* IResource srcFolder; IPreferenceStore store=
+		 * PreferenceConstants.getPreferenceStore(); String sourceFolderName=
+		 * store.getString(PreferenceConstants.SRCBIN_SRCNAME); if
+		 * (store.getBoolean(PreferenceConstants.SRCBIN_FOLDERS_IN_NEWPROJ) &&
+		 * sourceFolderName.length() > 0) { srcFolder=
+		 * javaProject.getProject().getFolder(sourceFolderName); } else {
+		 * srcFolder= javaProject.getProject(); }
+		 * classPathEntries.add(JavaCore.newSourceEntry
+		 * (srcFolder.getLocation()));
+		 * 
+		 * javaProject .setRawClasspath(classPathEntries .toArray(new
+		 * IClasspathEntry[classPathEntries.size()]), monitor);
+		 */
 
 	}
 
