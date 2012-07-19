@@ -3,10 +3,10 @@
  */
 package it.rcpvision.emf.components.factories;
 
-import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
+import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
-import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.FormFeatureLabelFactory;
 import it.rcpvision.emf.components.widgets.FormDetailComposite;
 
 import org.eclipse.swt.widgets.Composite;
@@ -18,13 +18,13 @@ import com.google.inject.Provider;
  * @author bettini
  * 
  */
-public class EmfFormCompositeFactory {
+public class FormFactory {
 
 	@Inject
-	protected Provider<FormFeatureLabelProvider> featureLabelProviderProvider;
+	protected Provider<FormFeatureLabelFactory> featureLabelProviderProvider;
 
 	@Inject
-	protected Provider<EmfSwtBindingFactory> bindingFactoryProvider;
+	protected Provider<FormFeatureControlFactory> bindingFactoryProvider;
 
 	@Inject
 	protected Provider<EditingDomainFinder> editingDomainFinderProvider;
@@ -36,7 +36,7 @@ public class EmfFormCompositeFactory {
 	protected Provider<EStructuralFeaturesProvider> eClassFeatureProviderProvider;
 
 	@Inject
-	public EmfFormCompositeFactory() {
+	public FormFactory() {
 
 	}
 

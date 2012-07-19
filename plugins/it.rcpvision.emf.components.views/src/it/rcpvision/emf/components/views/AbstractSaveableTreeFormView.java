@@ -1,10 +1,10 @@
 package it.rcpvision.emf.components.views;
 
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
-import it.rcpvision.emf.components.factories.EmfCompositeFactory;
+import it.rcpvision.emf.components.factories.TreeFormFactory;
 import it.rcpvision.emf.components.menus.StructuredViewerContextMenuManagerCreator;
 import it.rcpvision.emf.components.viewers.ViewerSelectionProvider;
-import it.rcpvision.emf.components.widgets.TreeFormMasterDetailComposite;
+import it.rcpvision.emf.components.widgets.TreeFormComposite;
 
 import java.util.Collection;
 
@@ -26,7 +26,7 @@ public abstract class AbstractSaveableTreeFormView extends AbstractSaveableView
 		implements IMenuListener{
 
 	@Inject
-	protected EmfCompositeFactory emfCompositeFactory;
+	protected TreeFormFactory treeFormFactory;
 
 	@Inject
 	protected StructuredViewerContextMenuManagerCreator structuredViewerContextMenuManagerCreator;
@@ -34,7 +34,7 @@ public abstract class AbstractSaveableTreeFormView extends AbstractSaveableView
 	@Inject
 	protected EmfActionBarContributor actionBarContributor;
 
-	protected TreeFormMasterDetailComposite treeFormMasterDetailComposite;
+	protected TreeFormComposite treeFormComposite;
 
 	protected Object getContents(Resource resource){
 		return resource;
@@ -47,16 +47,16 @@ public abstract class AbstractSaveableTreeFormView extends AbstractSaveableView
 		// DON'T USE THE changeAdapter!!!
 		// it will act as an item provider editing adapter
 		// and actions won't be created!!!
-		treeFormMasterDetailComposite = emfCompositeFactory.createTreeFormMasterDetailComposite(parent,
+		treeFormComposite = treeFormFactory.createTreeFormMasterDetailComposite(parent,
 				SWT.BORDER);
 		
-		treeFormMasterDetailComposite.update(getContents(getResource()));
+		treeFormComposite.update(getContents(getResource()));
 
-		createContextMenuFor(treeFormMasterDetailComposite.getViewer());
-//		actionBarContributor.setViewerForSelection(treeFormMasterDetailComposite.getViewer());
+		createContextMenuFor(treeFormComposite.getViewer());
+//		actionBarContributor.setViewerForSelection(treeFormComposite.getViewer());
 
 		ViewerSelectionProvider viewerSelectionProvider = new ViewerSelectionProvider(
-				treeFormMasterDetailComposite.getViewer());
+				treeFormComposite.getViewer());
 		actionBarContributor
 				.setExplicitSelectionProvider(viewerSelectionProvider);
 		viewerSelectionProvider
@@ -94,8 +94,8 @@ public abstract class AbstractSaveableTreeFormView extends AbstractSaveableView
 					// Try to select the items in the current content viewer of
 					// the editor.
 					//
-					if (treeFormMasterDetailComposite.getViewer() != null) {
-						treeFormMasterDetailComposite.getViewer()
+					if (treeFormComposite.getViewer() != null) {
+						treeFormComposite.getViewer()
 								.setSelection(
 										new StructuredSelection(
 												theSelection.toArray()), true);
@@ -113,11 +113,11 @@ public abstract class AbstractSaveableTreeFormView extends AbstractSaveableView
 
 	@Override
 	public void setFocus() {
-		treeFormMasterDetailComposite.setFocus();
+		treeFormComposite.setFocus();
 	}
 	
 	public StructuredViewer getViewer() {
-	    return treeFormMasterDetailComposite.getViewer();
+	    return treeFormComposite.getViewer();
 	}
 
 }

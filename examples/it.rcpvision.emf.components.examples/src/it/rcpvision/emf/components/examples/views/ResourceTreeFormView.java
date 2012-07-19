@@ -1,7 +1,7 @@
 package it.rcpvision.emf.components.examples.views;
 
-import it.rcpvision.emf.components.factories.EmfCompositeFactory;
-import it.rcpvision.emf.components.widgets.TreeFormMasterDetailComposite;
+import it.rcpvision.emf.components.factories.TreeFormFactory;
+import it.rcpvision.emf.components.widgets.TreeFormComposite;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -16,25 +16,25 @@ import com.google.inject.Inject;
 public class ResourceTreeFormView extends ViewPart {
 
 	@Inject
-	protected EmfCompositeFactory emfCompositeFactory;
+	protected TreeFormFactory treeFormFactory;
 
-	protected TreeFormMasterDetailComposite treeFormMasterDetailComposite;
+	protected TreeFormComposite treeFormComposite;
 
 	@Override
 	public void createPartControl(Composite parent) {
-		treeFormMasterDetailComposite = emfCompositeFactory.createTreeFormMasterDetailComposite(parent,
+		treeFormComposite = treeFormFactory.createTreeFormMasterDetailComposite(parent,
 				SWT.BORDER);
 
 		URI uri = URI.createPlatformResourceURI("/library/Library.xmi", true);
 		ResourceSet resourceSet = new ResourceSetImpl();
 		Resource resource = resourceSet.getResource(uri, true);
 
-		treeFormMasterDetailComposite.update(resource);
+		treeFormComposite.update(resource);
 	}
 
 	@Override
 	public void setFocus() {
-		treeFormMasterDetailComposite.setFocus();
+		treeFormComposite.setFocus();
 	}
 
 }

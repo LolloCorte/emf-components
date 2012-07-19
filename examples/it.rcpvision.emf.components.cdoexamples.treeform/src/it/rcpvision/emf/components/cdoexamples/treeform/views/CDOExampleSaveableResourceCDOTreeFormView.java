@@ -20,7 +20,7 @@ public class CDOExampleSaveableResourceCDOTreeFormView extends
 	@Override
 	public void createPartControl(Composite parent) {
 		super.createPartControl(parent);
-		treeFormMasterDetailComposite.getViewer().addDoubleClickListener(new IDoubleClickListener() {
+		treeFormComposite.getViewer().addDoubleClickListener(new IDoubleClickListener() {
 			
 			@Override
 			public void doubleClick(DoubleClickEvent event) {

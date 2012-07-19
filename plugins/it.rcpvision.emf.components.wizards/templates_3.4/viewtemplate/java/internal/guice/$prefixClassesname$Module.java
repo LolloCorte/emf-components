@@ -6,8 +6,8 @@ import $packageName$.$prefixClassesname$CDOSessionManager;
 import it.rcpvision.emf.components.cdo.CDOEmfComponentsModule;
 import it.rcpvision.emf.components.cdo.CDOSessionManager;
 import it.rcpvision.emf.components.view.masterdetail.ViewConfigurator;
-import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
-import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
+import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
+import it.rcpvision.emf.components.ui.provider.FormFeatureLabelFactory;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 

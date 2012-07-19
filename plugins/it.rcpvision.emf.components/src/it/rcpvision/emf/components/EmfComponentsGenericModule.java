@@ -3,15 +3,15 @@
  */
 package it.rcpvision.emf.components;
 
-import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
+import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
 import it.rcpvision.emf.components.builders.TableViewerBuilder;
 import it.rcpvision.emf.components.builders.TableViewerColumnBuilder;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.edit.ResourceSaveManager;
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
 import it.rcpvision.emf.components.factories.EmfActionFactory;
-import it.rcpvision.emf.components.factories.EmfCompositeFactory;
-import it.rcpvision.emf.components.factories.EmfFormCompositeFactory;
+import it.rcpvision.emf.components.factories.TreeFormFactory;
+import it.rcpvision.emf.components.factories.FormFactory;
 import it.rcpvision.emf.components.factories.EmfViewerFactory;
 import it.rcpvision.emf.components.factories.JfaceProviderFactory;
 import it.rcpvision.emf.components.guice.ComposedAdapterFactoryProvider;
@@ -25,8 +25,8 @@ import it.rcpvision.emf.components.resource.ResourceLoader;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesColumnProvider;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
-import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
-import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
+import it.rcpvision.emf.components.ui.provider.FormFeatureLabelFactory;
 import it.rcpvision.emf.components.ui.provider.TableColumnLabelProvider;
 import it.rcpvision.emf.components.util.EmfSelectionHelper;
 import it.rcpvision.emf.components.viewers.ViewerInitializer;
@@ -84,12 +84,12 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 		return CompositeLabelProvider.class;
 	}
 
-	public Class<? extends FeatureLabelProvider> bindFeatureLabelProvider() {
-		return FeatureLabelProvider.class;
+	public Class<? extends PropertyDescriptionProvider> bindPropertyDescriptionProvider() {
+		return PropertyDescriptionProvider.class;
 	}
 
-	public Class<? extends FormFeatureLabelProvider> bindFormFeatureLabelProvider() {
-		return FormFeatureLabelProvider.class;
+	public Class<? extends FormFeatureLabelFactory> bindFormFeatureLabelFactory() {
+		return FormFeatureLabelFactory.class;
 	}
 
 	public Class<? extends ContentOutlineSelectionHandler> bindContentOutlineSelectionHandler() {
@@ -108,20 +108,20 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 		return EmfViewerFactory.class;
 	}
 
-	public Class<? extends EmfCompositeFactory> bindEmfCompositeFactory() {
-		return EmfCompositeFactory.class;
+	public Class<? extends TreeFormFactory> bindTreeFormFactory() {
+		return TreeFormFactory.class;
 	}
 
-	public Class<? extends EmfFormCompositeFactory> bindEmfFormCompositeFactory() {
-		return EmfFormCompositeFactory.class;
+	public Class<? extends FormFactory> bindFormFactory() {
+		return FormFactory.class;
 	}
 
 	public Class<? extends ViewerInitializer> bindViewerInitializer() {
 		return ViewerInitializer.class;
 	}
 
-	public Class<? extends EmfSwtBindingFactory> bindEmfSwtBindingFactory() {
-		return EmfSwtBindingFactory.class;
+	public Class<? extends FormFeatureControlFactory> bindFormFeatureControlFactory() {
+		return FormFeatureControlFactory.class;
 	}
 
 	public Class<? extends Provider<ComposedAdapterFactory>> provideComposedAdapterFactory() {

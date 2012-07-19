@@ -17,7 +17,7 @@ import com.google.common.base.Predicate;
  * @author Lorenzo Bettini
  * 
  */
-public class FeatureLabelProvider {
+public class PropertyDescriptionProvider {
 
 	private PolymorphicDispatcher.ErrorHandler<String> errorHandler = new PolymorphicDispatcher.NullErrorHandler<String>();
 

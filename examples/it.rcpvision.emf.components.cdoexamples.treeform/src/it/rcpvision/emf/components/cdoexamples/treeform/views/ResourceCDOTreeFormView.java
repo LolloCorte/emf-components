@@ -1,8 +1,8 @@
 package it.rcpvision.emf.components.cdoexamples.treeform.views;
 
-import it.rcpvision.emf.components.factories.EmfCompositeFactory;
+import it.rcpvision.emf.components.factories.TreeFormFactory;
 import it.rcpvision.emf.components.resource.ResourceLoader;
-import it.rcpvision.emf.components.widgets.TreeFormMasterDetailComposite;
+import it.rcpvision.emf.components.widgets.TreeFormComposite;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -16,16 +16,16 @@ import com.google.inject.Inject;
 public class ResourceCDOTreeFormView extends ViewPart {
 
 	@Inject
-	protected EmfCompositeFactory emfCompositeFactory;
+	protected TreeFormFactory treeFormFactory;
 
 	@Inject
 	protected ResourceLoader resourceLoader;
 
-	protected TreeFormMasterDetailComposite treeFormMasterDetailComposite;
+	protected TreeFormComposite treeFormComposite;
 
 	@Override
 	public void createPartControl(Composite parent) {
-		treeFormMasterDetailComposite = emfCompositeFactory.createTreeFormMasterDetailComposite(parent,
+		treeFormComposite = treeFormFactory.createTreeFormMasterDetailComposite(parent,
 				SWT.BORDER);
 
 		String uriStr = "cdo://localhost:2036/demo/myResource/";
@@ -34,12 +34,12 @@ public class ResourceCDOTreeFormView extends ViewPart {
 		Resource resource = resourceLoader.getResource(new ResourceSetImpl(),
 				uri);
 
-		treeFormMasterDetailComposite.update(resource);
+		treeFormComposite.update(resource);
 	}
 
 	@Override
 	public void setFocus() {
-		treeFormMasterDetailComposite.setFocus();
+		treeFormComposite.setFocus();
 	}
 
 }

@@ -1,6 +1,6 @@
 package it.rcpvision.emf.components.widgets;
 
-import it.rcpvision.emf.components.factories.EmfFormCompositeFactory;
+import it.rcpvision.emf.components.factories.FormFactory;
 import it.rcpvision.emf.components.util.EmfSelectionHelper;
 import it.rcpvision.emf.components.viewers.ViewerInitializer;
 
@@ -27,7 +27,7 @@ import org.eclipse.ui.part.PageBook;
  * @author Lorenzo Bettini, Francesco Guidieri
  * 
  */
-public class TreeFormMasterDetailComposite extends Composite {
+public class TreeFormComposite extends Composite {
 
 	protected class SelectionChangedListener implements
 			ISelectionChangedListener {
@@ -43,7 +43,7 @@ public class TreeFormMasterDetailComposite extends Composite {
 
 	protected ViewerInitializer viewerInitializer;
 
-	protected EmfFormCompositeFactory emfFormCompositeFactory;
+	protected FormFactory formFactory;
 
 	protected EmfSelectionHelper emfSelectionHelper;
 
@@ -55,14 +55,14 @@ public class TreeFormMasterDetailComposite extends Composite {
 
 	protected FormDetailComposite detailForm;
 
-	public TreeFormMasterDetailComposite(Composite parent, int style,
+	public TreeFormComposite(Composite parent, int style,
 			ViewerInitializer viewerInitializer,
-			EmfFormCompositeFactory emfFormCompositeFactory,
+			FormFactory formFactory,
 			EmfSelectionHelper emfSelectionHelper) {
 		super(parent, style);
 		setLayout(new FillLayout());
 		this.viewerInitializer = viewerInitializer;
-		this.emfFormCompositeFactory = emfFormCompositeFactory;
+		this.formFactory = formFactory;
 		this.emfSelectionHelper = emfSelectionHelper;
 
 		SashForm sashForm = new SashForm(this, SWT.VERTICAL);
@@ -115,7 +115,7 @@ public class TreeFormMasterDetailComposite extends Composite {
 	}
 
 	protected FormDetailComposite createFormDetailComposite() {
-		return emfFormCompositeFactory.createFormDetailComposite(detail,
+		return formFactory.createFormDetailComposite(detail,
 				SWT.BORDER);
 	}
 

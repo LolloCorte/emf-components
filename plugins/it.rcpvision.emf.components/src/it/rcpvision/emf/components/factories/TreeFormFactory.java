@@ -5,7 +5,7 @@ package it.rcpvision.emf.components.factories;
 
 import it.rcpvision.emf.components.util.EmfSelectionHelper;
 import it.rcpvision.emf.components.viewers.ViewerInitializer;
-import it.rcpvision.emf.components.widgets.TreeFormMasterDetailComposite;
+import it.rcpvision.emf.components.widgets.TreeFormComposite;
 
 import org.eclipse.swt.widgets.Composite;
 
@@ -16,7 +16,7 @@ import com.google.inject.Provider;
  * @author bettini
  * 
  */
-public class EmfCompositeFactory {
+public class TreeFormFactory {
 
 	@Inject
 	protected Provider<EmfSelectionHelper> emfSelectionHelperProvider;
@@ -25,15 +25,15 @@ public class EmfCompositeFactory {
 	protected ViewerInitializer viewerInitializer;
 
 	@Inject
-	protected EmfFormCompositeFactory emfFormCompositeFactory;
+	protected FormFactory formFactory;
 
 	@Inject
-	public EmfCompositeFactory() {
+	public TreeFormFactory() {
 
 	}
 
-	public TreeFormMasterDetailComposite createTreeFormMasterDetailComposite(Composite parent, int style) {
-		return new TreeFormMasterDetailComposite(parent, style, viewerInitializer,
-				emfFormCompositeFactory, emfSelectionHelperProvider.get());
+	public TreeFormComposite createTreeFormMasterDetailComposite(Composite parent, int style) {
+		return new TreeFormComposite(parent, style, viewerInitializer,
+				formFactory, emfSelectionHelperProvider.get());
 	}
 }

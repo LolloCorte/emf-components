@@ -18,18 +18,18 @@ import com.google.inject.Inject;
 
 /**
  * Provides labels for EStructuralFeatures for FormToolkit. With respect to the
- * superclass {@link FeatureLabelProvider} you can also specify the Label,
- * besides its text.  If a custom FeatureLabelProvider is provided (through
+ * superclass {@link PropertyDescriptionProvider} you can also specify the Label,
+ * besides its text.  If a custom PropertyDescriptionProvider is provided (through
  * injection) then it tries to get the text also from that one, before
  * using the default text.
  * 
  * @author Lorenzo Bettini
  * 
  */
-public class FormFeatureLabelProvider extends FeatureLabelProvider {
+public class FormFeatureLabelFactory extends PropertyDescriptionProvider {
 
 	@Inject
-	protected FeatureLabelProvider delegate;
+	protected PropertyDescriptionProvider delegate;
 	
 	protected FormToolkit formToolkit;
 

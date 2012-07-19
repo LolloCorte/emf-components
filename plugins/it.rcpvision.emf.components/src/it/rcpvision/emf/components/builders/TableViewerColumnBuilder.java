@@ -5,7 +5,7 @@ package it.rcpvision.emf.components.builders;
 
 import it.rcpvision.emf.components.factories.JfaceProviderFactory;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesColumnProvider;
-import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
 
 import java.util.List;
 
@@ -37,7 +37,7 @@ public class TableViewerColumnBuilder {
 	protected JfaceProviderFactory jfaceProviderFactory;
 
 	@Inject
-	protected FeatureLabelProvider featureLabelProvider;
+	protected PropertyDescriptionProvider propertyDescriptionProvider;
 
 	@Inject
 	protected EStructuralFeaturesColumnProvider featuresProvider;
@@ -87,7 +87,7 @@ public class TableViewerColumnBuilder {
 				eStructuralFeature, contentProvider);
 		TableColumn objectColumn = viewerColumn.getColumn();
 		layout.addColumnData(new ColumnWeightData(weight, 30, true));
-		objectColumn.setText(featureLabelProvider.getText(eStructuralFeature));
+		objectColumn.setText(propertyDescriptionProvider.getText(eStructuralFeature));
 		objectColumn.setResizable(true);
 		return viewerColumn;
 	}

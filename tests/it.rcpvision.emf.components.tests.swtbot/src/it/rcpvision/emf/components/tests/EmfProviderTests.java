@@ -3,7 +3,7 @@ package it.rcpvision.emf.components.tests;
 import static it.rcpvision.emf.components.examples.library.EXTLibraryPackage.Literals.LIBRARY;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
-import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
+import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
 import it.rcpvision.emf.components.examples.library.EXTLibraryFactory;
 import it.rcpvision.emf.components.examples.library.EXTLibraryPackage;
 import it.rcpvision.emf.components.examples.library.Writer;
@@ -13,7 +13,7 @@ import it.rcpvision.emf.components.tests.providers.LibraryEStructuralFeaturesPro
 import it.rcpvision.emf.components.tests.providers.OrderedEStructuralFeaturesProvider;
 import it.rcpvision.emf.components.tests.utils.EmfComponentsTestsUtils;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
-import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.FormFeatureLabelFactory;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
@@ -45,17 +45,17 @@ public class EmfProviderTests extends EmfComponentsCustomLibraryAbstractTests {
 
 	@Test
 	public void testLibraryFeatureLabelProvider() {
-		FormFeatureLabelProvider formFeatureLabelProvider = getInjector()
+		FormFeatureLabelFactory formFeatureLabelFactory = getInjector()
 				.getInstance(CustomLibraryFormFeatureLabelProvider.class);
-		assertLabelForFeature(formFeatureLabelProvider, "First name",
+		assertLabelForFeature(formFeatureLabelFactory, "First name",
 				EXTLibraryPackage.Literals.PERSON__FIRST_NAME);
-		assertLabelForFeature(formFeatureLabelProvider, "Last name",
+		assertLabelForFeature(formFeatureLabelFactory, "Last name",
 				EXTLibraryPackage.Literals.PERSON__LAST_NAME);
 	}
 
 	@Test
 	public void testLibraryFeatureLabelProviderForLabelWidget() {
-		final FormFeatureLabelProvider formFeatureLabelProvider = getInjector()
+		final FormFeatureLabelFactory formFeatureLabelFactory = getInjector()
 				.getInstance(CustomLibraryFormFeatureLabelProvider.class);
 		final SWTBotView view = openTestView(LIBRARY_EMF_VIEW);
 		Display.getDefault().syncExec(new Runnable() {
@@ -64,8 +64,8 @@ public class EmfProviderTests extends EmfComponentsCustomLibraryAbstractTests {
 					// we need a non-null display and parent so we use
 					// those in the view and in the tree
 					FormToolkit formToolkit = createFormToolkit(view);
-					formFeatureLabelProvider.setFormToolkit(formToolkit);
-					Label label = formFeatureLabelProvider.getLabel(
+					formFeatureLabelFactory.setFormToolkit(formToolkit);
+					Label label = formFeatureLabelFactory.getLabel(
 							createCompositeParent(view),
 							EXTLibraryPackage.Literals.WRITER__NAME);
 					assertEquals(
@@ -81,8 +81,8 @@ public class EmfProviderTests extends EmfComponentsCustomLibraryAbstractTests {
 
 	@Test
 	public void testLibraryBinding() {
-		final EmfSwtBindingFactory bindingFactory = getInjector().getInstance(
-				EmfSwtBindingFactory.class);
+		final FormFeatureControlFactory bindingFactory = getInjector().getInstance(
+				FormFeatureControlFactory.class);
 		ResourceSet resourceSet = new ResourceSetImpl();
 		Resource resource = resourceSet.createResource(URI
 				.createURI("http:///My.extlibrary"));
@@ -162,9 +162,9 @@ public class EmfProviderTests extends EmfComponentsCustomLibraryAbstractTests {
 	}
 
 	protected void assertLabelForFeature(
-			FormFeatureLabelProvider formFeatureLabelProvider, String expected,
+			FormFeatureLabelFactory formFeatureLabelFactory, String expected,
 			EStructuralFeature feature) {
-		String labelText = formFeatureLabelProvider.getText(feature);
+		String labelText = formFeatureLabelFactory.getText(feature);
 		assertEquals(expected, labelText);
 	}
 
