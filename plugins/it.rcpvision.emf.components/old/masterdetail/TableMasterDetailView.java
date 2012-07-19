@@ -4,9 +4,9 @@ import it.rcpvision.emf.components.factories.EmfFormCompositeFactory;
 import it.rcpvision.emf.components.factories.EmfViewerFactory;
 import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
-import it.rcpvision.emf.components.views.EObjectManager;
-import it.rcpvision.emf.components.views.GenericDetailComposite;
-import it.rcpvision.emf.components.views.GenericTableComposite;
+import it.rcpvision.emf.components.builders.EObjectManager;
+import it.rcpvision.emf.components.builders.GenericDetailComposite;
+import it.rcpvision.emf.components.builders.GenericTableComposite;
 
 import java.util.ArrayList;
 import java.util.List;

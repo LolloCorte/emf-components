@@ -1,5 +1,6 @@
 package it.rcpvision.emf.components.views;
 
+import it.rcpvision.emf.components.builders.TableViewerBuilder;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
 
 import org.eclipse.emf.ecore.EClass;

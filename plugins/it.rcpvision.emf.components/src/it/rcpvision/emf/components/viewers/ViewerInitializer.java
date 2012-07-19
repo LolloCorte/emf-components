@@ -1,7 +1,7 @@
 /**
  * 
  */
-package it.rcpvision.emf.components.views;
+package it.rcpvision.emf.components.viewers;
 
 import it.rcpvision.emf.components.factories.JfaceProviderFactory;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;

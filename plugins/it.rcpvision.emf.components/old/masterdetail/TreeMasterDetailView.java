@@ -6,11 +6,11 @@ import it.rcpvision.emf.components.listeners.EmfViewerMouseAdapter;
 import it.rcpvision.emf.components.menus.StructuredViewerContextMenuManagerCreator;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
-import it.rcpvision.emf.components.views.EObjectManager;
-import it.rcpvision.emf.components.views.ViewerInitializer;
-import it.rcpvision.emf.components.views.GenericDetailComposite;
-import it.rcpvision.emf.components.views.GenericMapTreeCellLabelProvider;
-import it.rcpvision.emf.components.views.GenericTableComposite;
+import it.rcpvision.emf.components.builders.EObjectManager;
+import it.rcpvision.emf.components.viewers.ViewerInitializer;
+import it.rcpvision.emf.components.builders.GenericDetailComposite;
+import it.rcpvision.emf.components.builders.GenericMapTreeCellLabelProvider;
+import it.rcpvision.emf.components.builders.GenericTableComposite;
 
 import java.util.ArrayList;
 import java.util.Collection;

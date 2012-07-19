@@ -4,7 +4,7 @@
 package it.rcpvision.emf.components.factories;
 
 import it.rcpvision.emf.components.util.EmfSelectionHelper;
-import it.rcpvision.emf.components.views.ViewerInitializer;
+import it.rcpvision.emf.components.viewers.ViewerInitializer;
 import it.rcpvision.emf.components.widgets.TreeFormMasterDetailComposite;
 
 import org.eclipse.swt.widgets.Composite;

@@ -1,4 +1,4 @@
-package it.rcpvision.emf.components.views;
+package it.rcpvision.emf.components.builders;
 
 import it.rcpvision.emf.components.factories.EmfViewerFactory;
 import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;

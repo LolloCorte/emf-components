@@ -1,6 +1,6 @@
 package it.rcpvision.emf.components.view.masterdetail;
 
-import it.rcpvision.emf.components.views.GenericMapCellLabelProvider;
+import it.rcpvision.emf.components.builders.GenericMapCellLabelProvider;
 
 import java.util.List;
 import java.util.Map;

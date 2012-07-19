@@ -2,7 +2,7 @@ package it.rcpvision.emf.components.widgets;
 
 import it.rcpvision.emf.components.factories.EmfFormCompositeFactory;
 import it.rcpvision.emf.components.util.EmfSelectionHelper;
-import it.rcpvision.emf.components.views.ViewerInitializer;
+import it.rcpvision.emf.components.viewers.ViewerInitializer;
 
 import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.common.util.URI;

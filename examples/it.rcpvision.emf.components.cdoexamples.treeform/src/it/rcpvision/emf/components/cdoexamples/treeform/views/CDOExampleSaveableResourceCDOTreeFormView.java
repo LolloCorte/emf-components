@@ -1,11 +1,11 @@
 package it.rcpvision.emf.components.cdoexamples.treeform.views;
 
+import it.rcpvision.emf.components.views.AbstractSaveableTreeFormView;
+
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.swt.widgets.Composite;
-
-import it.rcpvision.emf.components.views.AbstractSaveableTreeFormView;
 
 public class CDOExampleSaveableResourceCDOTreeFormView extends
 		AbstractSaveableTreeFormView {

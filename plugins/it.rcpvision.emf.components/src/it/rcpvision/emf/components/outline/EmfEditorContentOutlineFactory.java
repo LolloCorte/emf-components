@@ -4,7 +4,7 @@
 package it.rcpvision.emf.components.outline;
 
 import it.rcpvision.emf.components.editors.EmfAbstractEditor;
-import it.rcpvision.emf.components.views.ViewerInitializer;
+import it.rcpvision.emf.components.viewers.ViewerInitializer;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;

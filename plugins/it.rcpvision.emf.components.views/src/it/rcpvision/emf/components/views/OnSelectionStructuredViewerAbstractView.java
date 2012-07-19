@@ -3,6 +3,8 @@
  */
 package it.rcpvision.emf.components.views;
 
+import it.rcpvision.emf.components.viewers.ViewerInitializer;
+
 import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;

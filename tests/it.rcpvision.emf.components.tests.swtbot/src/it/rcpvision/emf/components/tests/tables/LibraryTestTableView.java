@@ -3,11 +3,11 @@
  */
 package it.rcpvision.emf.components.tests.tables;
 
+import it.rcpvision.emf.components.builders.TableViewerBuilder;
 import it.rcpvision.emf.components.examples.library.EXTLibraryPackage;
 import it.rcpvision.emf.components.examples.library.Library;
 import it.rcpvision.emf.components.examples.library.VideoCassette;
 import it.rcpvision.emf.components.resource.ResourceLoader;
-import it.rcpvision.emf.components.views.TableViewerBuilder;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;

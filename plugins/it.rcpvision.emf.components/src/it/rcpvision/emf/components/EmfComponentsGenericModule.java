@@ -4,6 +4,8 @@
 package it.rcpvision.emf.components;
 
 import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
+import it.rcpvision.emf.components.builders.TableViewerBuilder;
+import it.rcpvision.emf.components.builders.TableViewerColumnBuilder;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.edit.ResourceSaveManager;
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
@@ -29,9 +31,7 @@ import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
 import it.rcpvision.emf.components.ui.provider.TableColumnLabelProvider;
 import it.rcpvision.emf.components.util.EmfSelectionHelper;
-import it.rcpvision.emf.components.views.TableViewerBuilder;
-import it.rcpvision.emf.components.views.TableViewerColumnBuilder;
-import it.rcpvision.emf.components.views.ViewerInitializer;
+import it.rcpvision.emf.components.viewers.ViewerInitializer;
 
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
