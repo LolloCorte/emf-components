@@ -2,9 +2,9 @@ package it.rcpvision.emf.components.examples.views;
 
 import org.eclipse.emf.common.util.URI;
 
-import it.rcpvision.emf.components.views.AbstractSaveableResourceTreeFormView;
+import it.rcpvision.emf.components.views.AbstractSaveableTreeFormView;
 
-public class SaveableResourceTreeFormView extends AbstractSaveableResourceTreeFormView{
+public class SaveableResourceTreeFormView extends AbstractSaveableTreeFormView{
 
 	@Override
 	protected URI createResourceURI() {

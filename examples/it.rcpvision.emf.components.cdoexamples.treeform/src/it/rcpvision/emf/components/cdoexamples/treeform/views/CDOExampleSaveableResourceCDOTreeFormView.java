@@ -5,10 +5,10 @@ import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.swt.widgets.Composite;
 
-import it.rcpvision.emf.components.views.AbstractSaveableResourceTreeFormView;
+import it.rcpvision.emf.components.views.AbstractSaveableTreeFormView;
 
 public class CDOExampleSaveableResourceCDOTreeFormView extends
-		AbstractSaveableResourceTreeFormView {
+		AbstractSaveableTreeFormView {
 
 	@Override
 	protected URI createResourceURI() {

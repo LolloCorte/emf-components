@@ -22,7 +22,7 @@ import org.eclipse.swt.widgets.Composite;
 
 import com.google.inject.Inject;
 
-public abstract class AbstractSaveableResourceTreeFormView extends AbstractSaveableResourceView
+public abstract class AbstractSaveableTreeFormView extends AbstractSaveableView
 		implements IMenuListener{
 
 	@Inject

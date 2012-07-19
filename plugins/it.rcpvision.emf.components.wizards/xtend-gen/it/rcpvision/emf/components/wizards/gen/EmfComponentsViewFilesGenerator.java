@@ -11,7 +11,7 @@ public class EmfComponentsViewFilesGenerator {
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
-    _builder.append("import it.rcpvision.emf.components.views.AbstractSaveableResourceTreeFormView;");
+    _builder.append("import it.rcpvision.emf.components.views.AbstractSaveableTreeFormView;");
     _builder.newLine();
     _builder.newLine();
     _builder.append("import org.eclipse.emf.common.util.URI;");
@@ -19,7 +19,7 @@ public class EmfComponentsViewFilesGenerator {
     _builder.newLine();
     _builder.append("public class ");
     _builder.append(simpleName, "");
-    _builder.append("TreeFormView extends AbstractSaveableResourceTreeFormView {");
+    _builder.append("TreeFormView extends AbstractSaveableTreeFormView {");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("\t");
@@ -51,7 +51,7 @@ public class EmfComponentsViewFilesGenerator {
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
-    _builder.append("import it.rcpvision.emf.components.views.AbstractSaveableResourceTableView;");
+    _builder.append("import it.rcpvision.emf.components.views.AbstractSaveableTableView;");
     _builder.newLine();
     _builder.newLine();
     _builder.append("import org.eclipse.emf.common.util.URI;");
@@ -63,7 +63,7 @@ public class EmfComponentsViewFilesGenerator {
     _builder.newLine();
     _builder.append("public class ");
     _builder.append(simpleName, "");
-    _builder.append("TableView extends AbstractSaveableResourceTableView {");
+    _builder.append("TableView extends AbstractSaveableTableView {");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("\t");

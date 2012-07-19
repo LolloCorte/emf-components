@@ -25,7 +25,7 @@ import org.eclipse.ui.part.ViewPart;
 
 import com.google.inject.Inject;
 
-public abstract class AbstractSaveableResourceView extends ViewPart implements
+public abstract class AbstractSaveableView extends ViewPart implements
 		ISaveablePart, IEditingDomainProvider {
 	@Inject
 	protected EditingDomainFactory editingDomainFactory;

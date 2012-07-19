@@ -6,11 +6,11 @@ class EmfComponentsViewFilesGenerator {
 '''
 package «projectName»;
 
-import it.rcpvision.emf.components.views.AbstractSaveableResourceTreeFormView;
+import it.rcpvision.emf.components.views.AbstractSaveableTreeFormView;
 
 import org.eclipse.emf.common.util.URI;
 
-public class «simpleName»TreeFormView extends AbstractSaveableResourceTreeFormView {
+public class «simpleName»TreeFormView extends AbstractSaveableTreeFormView {
 
 	@Override
 	protected URI createResourceURI() {
@@ -25,13 +25,13 @@ public class «simpleName»TreeFormView extends AbstractSaveableResourceTreeForm
 '''
 package «projectName»;
 
-import it.rcpvision.emf.components.views.AbstractSaveableResourceTableView;
+import it.rcpvision.emf.components.views.AbstractSaveableTableView;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.resource.Resource;
 
-public class «simpleName»TableView extends AbstractSaveableResourceTableView {
+public class «simpleName»TableView extends AbstractSaveableTableView {
 
 	@Override
 	protected Object getContents(Resource resource) {
