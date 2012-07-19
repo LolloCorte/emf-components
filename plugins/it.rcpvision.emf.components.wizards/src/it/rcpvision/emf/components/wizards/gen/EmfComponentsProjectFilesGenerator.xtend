@@ -12,7 +12,8 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: «projectName».Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- it.rcpvision.emf.components
+ it.rcpvision.emf.components,
+ it.rcpvision.emf.components.views
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 '''

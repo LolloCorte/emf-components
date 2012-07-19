@@ -24,12 +24,11 @@ import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
 import it.rcpvision.emf.components.resource.ResourceLoader;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesColumnProvider;
-import it.rcpvision.emf.components.ui.provider.TableColumnLabelProvider;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.TableColumnLabelProvider;
 import it.rcpvision.emf.components.util.EmfSelectionHelper;
-import it.rcpvision.emf.components.views.EObjectManager;
 import it.rcpvision.emf.components.views.TableViewerBuilder;
 import it.rcpvision.emf.components.views.TableViewerColumnBuilder;
 import it.rcpvision.emf.components.views.ViewerInitializer;
@@ -141,10 +140,6 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 
 	public Class<? extends EmfEditorContentOutlineFactory> bindEmfEditorContentOutlineFactory() {
 		return EmfEditorContentOutlineFactory.class;
-	}
-
-	public Class<? extends EObjectManager> bindEObjectManager() {
-		return EObjectManager.class;
 	}
 
 	public Class<? extends JfaceProviderFactory> bindJfaceProviderFactory() {
