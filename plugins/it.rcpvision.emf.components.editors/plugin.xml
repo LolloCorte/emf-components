@@ -4,8 +4,8 @@
    <extension
          point="org.eclipse.ui.editors">
       <editor
-            class="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.editors.EmfTreeEditor"
-            contributorClass="it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory:it.rcpvision.emf.components.editors.EmfComponentsEditorActionBarContributor"
+            class="it.rcpvision.emf.components.editors.EmfComponentsEditorsExecutableExtensionFactory:it.rcpvision.emf.components.editors.EmfTreeEditor"
+            contributorClass="it.rcpvision.emf.components.editors.EmfComponentsEditorsExecutableExtensionFactory:it.rcpvision.emf.components.editors.EmfComponentsEditorActionBarContributor"
             default="false"
             id="it.rcpvision.emf.components.editors.treeEditor"
             name="EMF Tree Editor">
@@ -14,4 +14,5 @@
          </contentTypeBinding>
       </editor>
    </extension>
+
 </plugin>

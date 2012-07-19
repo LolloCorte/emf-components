@@ -22,7 +22,6 @@ It aims at providing a set of Components like Trees, Tables and Detail Forms tha
    </license>
 
    <requires>
-      <import plugin="org.eclipse.emf.ecore.editor"/>
       <import plugin="org.eclipse.ui.forms"/>
       <import plugin="org.eclipse.jface.databinding" version="1.2.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.databinding.edit"/>
@@ -37,6 +36,9 @@ It aims at providing a set of Components like Trees, Tables and Detail Forms tha
       <import plugin="it.rcpvision.emf.components" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.ecore.edit" version="2.7.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore.editor" version="2.7.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide" version="3.7.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
@@ -62,6 +64,13 @@ It aims at providing a set of Components like Trees, Tables and Detail Forms tha
 
    <plugin
          id="it.rcpvision.emf.components.views"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="it.rcpvision.emf.components.editors"
          download-size="0"
          install-size="0"
          version="0.0.0"

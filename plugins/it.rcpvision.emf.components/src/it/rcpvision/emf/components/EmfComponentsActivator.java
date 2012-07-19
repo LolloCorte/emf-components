@@ -64,4 +64,10 @@ public class EmfComponentsActivator extends AbstractUIPlugin {
 				errorMessage));
 	}
 
+	public static void log(Throwable exception) {
+		log(new Status(IStatus.ERROR, EmfComponentsActivator.PLUGIN_ID,
+				exception.getMessage(),
+				exception));
+	}
+
 }

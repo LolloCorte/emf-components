@@ -18,13 +18,13 @@ package it.rcpvision.emf.components.editors;
 
 
 import it.rcpvision.emf.components.edit.action.EditingActionBarContributor;
+import it.rcpvision.emf.components.editors.outline.EmfEditorContentOutlineFactory;
+import it.rcpvision.emf.components.editors.outline.EmfEditorContentOutlinePage;
 import it.rcpvision.emf.components.factories.EmfViewerFactory;
 import it.rcpvision.emf.components.handlers.ContentOutlineSelectionHandler;
 import it.rcpvision.emf.components.listeners.EmfViewerMouseAdapter;
 import it.rcpvision.emf.components.listeners.ResourceDeltaVisitor;
 import it.rcpvision.emf.components.menus.StructuredViewerContextMenuManagerCreator;
-import it.rcpvision.emf.components.outline.EmfEditorContentOutlineFactory;
-import it.rcpvision.emf.components.outline.EmfEditorContentOutlinePage;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
 import it.rcpvision.emf.components.util.EmfComponentsUtil;

@@ -19,8 +19,6 @@ import it.rcpvision.emf.components.handlers.ContentOutlineSelectionHandler;
 import it.rcpvision.emf.components.listeners.EmfViewerMouseAdapter;
 import it.rcpvision.emf.components.listeners.ResourceDeltaVisitor;
 import it.rcpvision.emf.components.menus.StructuredViewerContextMenuManagerCreator;
-import it.rcpvision.emf.components.outline.EmfEditorContentOutlineFactory;
-import it.rcpvision.emf.components.outline.EmfEditorContentOutlinePage;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
 import it.rcpvision.emf.components.resource.ResourceLoader;
@@ -132,14 +130,6 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 
 	public Class<? extends StructuredViewerContextMenuManagerCreator> bindStructuredViewerContextMenuManagerCreator() {
 		return StructuredViewerContextMenuManagerCreator.class;
-	}
-
-	public Class<? extends EmfEditorContentOutlinePage> bindEmfEditorContentOutlinePage() {
-		return EmfEditorContentOutlinePage.class;
-	}
-
-	public Class<? extends EmfEditorContentOutlineFactory> bindEmfEditorContentOutlineFactory() {
-		return EmfEditorContentOutlineFactory.class;
 	}
 
 	public Class<? extends JfaceProviderFactory> bindJfaceProviderFactory() {

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package it.rcpvision.emf.components.outline;
+package it.rcpvision.emf.components.editors.outline;
 
 import it.rcpvision.emf.components.editors.EmfAbstractEditor;
 import it.rcpvision.emf.components.viewers.ViewerInitializer;
