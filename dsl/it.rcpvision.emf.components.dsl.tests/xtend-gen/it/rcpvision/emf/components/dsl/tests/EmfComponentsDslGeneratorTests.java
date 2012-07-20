@@ -119,7 +119,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.newLine();
     _builder.append("import it.rcpvision.emf.components.EmfComponentsGenericModule;");
     _builder.newLine();
-    _builder.append("import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;");
+    _builder.append("import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;");
     _builder.newLine();
     _builder.append("import my.empty.ui.provider.FeatureLabelProviderGen;");
     _builder.newLine();
@@ -143,7 +143,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("@Override");
     _builder.newLine();
     _builder.append("  ");
-    _builder.append("public Class<? extends FeatureLabelProvider> bindFeatureLabelProvider() {");
+    _builder.append("public Class<? extends PropertyDescriptionProvider> bindPropertyDescriptionProvider() {");
     _builder.newLine();
     _builder.append("    ");
     _builder.append("return FeatureLabelProviderGen.class;");
@@ -406,7 +406,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.newLine();
     _builder.append("import it.rcpvision.emf.components.EmfComponentsGenericModule;");
     _builder.newLine();
-    _builder.append("import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;");
+    _builder.append("import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;");
     _builder.newLine();
     _builder.append("import my.empty.ui.provider.FeatureLabelProviderGen;");
     _builder.newLine();
@@ -430,7 +430,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("@Override");
     _builder.newLine();
     _builder.append("  ");
-    _builder.append("public Class<? extends FeatureLabelProvider> bindFeatureLabelProvider() {");
+    _builder.append("public Class<? extends PropertyDescriptionProvider> bindPropertyDescriptionProvider() {");
     _builder.newLine();
     _builder.append("    ");
     _builder.append("return FeatureLabelProviderGen.class;");
@@ -444,14 +444,14 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.append("package my.empty.ui.provider;");
     _builder_1.newLine();
     _builder_1.newLine();
-    _builder_1.append("import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;");
+    _builder_1.append("import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;");
     _builder_1.newLine();
     _builder_1.append("import org.eclipse.emf.ecore.EStructuralFeature;");
     _builder_1.newLine();
     _builder_1.append("import org.eclipse.xtext.xbase.lib.StringExtensions;");
     _builder_1.newLine();
     _builder_1.newLine();
-    _builder_1.append("public class FeatureLabelProviderGen extends FeatureLabelProvider {");
+    _builder_1.append("public class FeatureLabelProviderGen extends PropertyDescriptionProvider {");
     _builder_1.newLine();
     _builder_1.append("  ");
     _builder_1.append("public String text_Library_name(final EStructuralFeature it) {");

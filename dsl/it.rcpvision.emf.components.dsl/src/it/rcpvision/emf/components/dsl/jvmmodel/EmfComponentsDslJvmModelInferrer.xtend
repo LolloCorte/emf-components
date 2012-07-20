@@ -4,19 +4,20 @@ import com.google.inject.Inject
 import it.rcpvision.emf.components.EmfComponentsGenericModule
 import it.rcpvision.emf.components.dsl.model.Module
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider
+import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider
+import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider$EClassToEStructuralFeatureAsStringsMap
+import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider
 import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.EStructuralFeature
 import org.eclipse.ui.plugin.AbstractUIPlugin
 import org.eclipse.xtext.common.types.JvmGenericType
+import org.eclipse.xtext.common.types.TypesFactory
+import org.eclipse.xtext.common.types.util.TypeReferences
 import org.eclipse.xtext.naming.IQualifiedNameProvider
+import org.eclipse.xtext.xbase.XFeatureCall
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
-import org.eclipse.xtext.common.types.TypesFactory
-import org.eclipse.emf.ecore.EStructuralFeature
-import org.eclipse.xtext.xbase.XFeatureCall
-import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider
-import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider
-import org.eclipse.xtext.common.types.util.TypeReferences
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -86,7 +87,7 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 			if (labelProviderClass != null)
 				members += element.labelProvider.genBindMethod(labelProviderClass, typeof(CompositeLabelProvider))
 			if (featureLabelProviderClass != null)
-				members += element.featureLabelProvider.genBindMethod(featureLabelProviderClass, typeof(FeatureLabelProvider))
+				members += element.featureLabelProvider.genBindMethod(featureLabelProviderClass, typeof(PropertyDescriptionProvider))
 			if (featureProviderClass != null)
 				members += element.featureProvider.genBindMethod(featureProviderClass, typeof(EStructuralFeaturesProvider))
 		]
@@ -162,7 +163,7 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 		else {
 			val featureLabelProviderClass = element.featureLabelProvider.toClass(element.featureLabelProviderQN)
 			acceptor.accept(featureLabelProviderClass).initializeLater [
-				superTypes += element.newTypeRef(typeof(FeatureLabelProvider))
+				superTypes += element.newTypeRef(typeof(PropertyDescriptionProvider))
 				
 				element.featureLabelProvider.labelSpecifications.forEach [
 					labelSpecification |

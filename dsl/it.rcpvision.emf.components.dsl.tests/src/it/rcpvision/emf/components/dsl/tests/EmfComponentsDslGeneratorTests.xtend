@@ -74,7 +74,7 @@ public class LabelProviderGen extends CompositeLabelProvider {
 package my.empty;
 
 import it.rcpvision.emf.components.EmfComponentsGenericModule;
-import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
 import my.empty.ui.provider.FeatureLabelProviderGen;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
@@ -84,7 +84,7 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGenericModule {
   }
   
   @Override
-  public Class<? extends FeatureLabelProvider> bindFeatureLabelProvider() {
+  public Class<? extends PropertyDescriptionProvider> bindPropertyDescriptionProvider() {
     return FeatureLabelProviderGen.class;
   }
 }
@@ -208,7 +208,7 @@ public class LabelProviderGen extends CompositeLabelProvider {
 package my.empty;
 
 import it.rcpvision.emf.components.EmfComponentsGenericModule;
-import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
 import my.empty.ui.provider.FeatureLabelProviderGen;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
@@ -218,7 +218,7 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGenericModule {
   }
   
   @Override
-  public Class<? extends FeatureLabelProvider> bindFeatureLabelProvider() {
+  public Class<? extends PropertyDescriptionProvider> bindPropertyDescriptionProvider() {
     return FeatureLabelProviderGen.class;
   }
 }
@@ -226,11 +226,11 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGenericModule {
 '''
 package my.empty.ui.provider;
 
-import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 
-public class FeatureLabelProviderGen extends FeatureLabelProvider {
+public class FeatureLabelProviderGen extends PropertyDescriptionProvider {
   public String text_Library_name(final EStructuralFeature it) {
     return "Name";
   }
