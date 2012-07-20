@@ -48,6 +48,7 @@
       <import plugin="it.rcpvision.emf.components.examples.fowlerdsl" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="it.rcpvision.emf.components.examples.fowlerdsl.ui" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="it.rcpvision.emf.components.dsl.ui" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="it.rcpvision.emf.components.views" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.equinox.util"/>
       <import plugin="org.eclipse.osgi"/>
       <import plugin="org.eclipse.osgi.services"/>
@@ -63,6 +64,9 @@
       <import plugin="org.eclipse.emf.ecore" version="2.8.0" match="compatible"/>
       <import plugin="org.eclipse.emf.codegen" version="2.8.0" match="compatible"/>
       <import plugin="org.eclipse.emf.ecore.xmi" version="2.8.0" match="compatible"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="it.rcpvision.emf.components.examples.library" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="it.rcpvision.emf.components.editors" version="1.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
@@ -94,6 +98,13 @@
 
    <plugin
          id="org.eclipse.emf.codegen.ecore"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="it.rcpvision.emf.components.examples"
          download-size="0"
          install-size="0"
          version="0.0.0"

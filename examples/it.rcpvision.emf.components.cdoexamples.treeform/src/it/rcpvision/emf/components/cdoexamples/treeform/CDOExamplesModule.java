@@ -1,6 +1,6 @@
 package it.rcpvision.emf.components.cdoexamples.treeform;
 
-import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
+import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
 import it.rcpvision.emf.components.cdo.CDOEmfComponentsModule;
 import it.rcpvision.emf.components.cdo.CDOSessionManager;
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
@@ -36,7 +36,7 @@ public class CDOExamplesModule extends CDOEmfComponentsModule {
 	}
 	
 	@Override
-	public Class<? extends EmfSwtBindingFactory> bindEmfSwtBindingFactory() {
+	public Class<? extends FormFeatureControlFactory> bindFormFeatureControlFactory() {
 		return CDOExampleEmfSwtBindingFactory.class;
 	}
 	

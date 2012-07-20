@@ -22,20 +22,23 @@ It aims at providing a set of Components like Trees, Tables and Detail Forms tha
    </license>
 
    <requires>
-      <import plugin="org.eclipse.emf.ecore.editor"/>
       <import plugin="org.eclipse.ui.forms"/>
       <import plugin="org.eclipse.jface.databinding" version="1.2.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.databinding.edit"/>
       <import plugin="org.eclipse.xtext.ui"/>
       <import plugin="org.eclipse.core.databinding.property" version="1.4.100" match="greaterOrEqual"/>
       <import plugin="org.apache.log4j" version="1.2.15" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.help"/>
       <import plugin="org.eclipse.jdt.core" version="3.7.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.jdt.launching" version="3.6.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.jdt.ui" version="3.7.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtend2.lib" version="2.3.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.pde.ui" version="3.7.0" match="greaterOrEqual"/>
       <import plugin="it.rcpvision.emf.components" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.ecore.edit" version="2.7.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore.editor" version="2.7.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide" version="3.7.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
@@ -54,6 +57,20 @@ It aims at providing a set of Components like Trees, Tables and Detail Forms tha
 
    <plugin
          id="it.rcpvision.emf.components.wizards"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="it.rcpvision.emf.components.views"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="it.rcpvision.emf.components.editors"
          download-size="0"
          install-size="0"
          version="0.0.0"

@@ -3,13 +3,13 @@ package it.rcpvision.emf.components.tests.views;
 import it.rcpvision.emf.components.examples.library.EXTLibraryPackage;
 import it.rcpvision.emf.components.examples.library.Library;
 import it.rcpvision.emf.components.tests.EmfComponentsAbstractTests;
-import it.rcpvision.emf.components.views.AbstractSaveableResourceTableView;
+import it.rcpvision.emf.components.views.AbstractSaveableTableView;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.resource.Resource;
 
-public class TestSaveableResourceTableView extends AbstractSaveableResourceTableView{
+public class TestSaveableResourceTableView extends AbstractSaveableTableView{
 
 	@Override
 	protected Object getContents(Resource resource) {

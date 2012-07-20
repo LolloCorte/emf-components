@@ -3,7 +3,7 @@
  */
 package it.rcpvision.emf.components.tests.labeling;
 
-import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.FormFeatureLabelFactory;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.swt.widgets.Composite;
@@ -18,7 +18,7 @@ import org.eclipse.ui.forms.IFormColors;
  * 
  */
 public class CustomLibraryFormFeatureLabelProvider extends
-		FormFeatureLabelProvider {
+		FormFeatureLabelFactory {
 
 	/**
 	 * This will have the precedence over the one in

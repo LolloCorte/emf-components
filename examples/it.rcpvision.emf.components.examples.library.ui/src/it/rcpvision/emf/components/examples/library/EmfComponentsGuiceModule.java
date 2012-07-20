@@ -5,7 +5,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import it.rcpvision.emf.components.EmfComponentsGenericModule;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
-import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
 
 public class EmfComponentsGuiceModule extends EmfComponentsGenericModule {
 
@@ -19,7 +19,7 @@ public class EmfComponentsGuiceModule extends EmfComponentsGenericModule {
 	}
 
 	@Override
-	public Class<? extends FeatureLabelProvider> bindFeatureLabelProvider() {
+	public Class<? extends PropertyDescriptionProvider> bindPropertyDescriptionProvider() {
 		return CustomFeatureLabelProvider.class;
 	}
 

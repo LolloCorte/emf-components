@@ -3,8 +3,8 @@
  */
 package it.rcpvision.emf.components.factories;
 
-import it.rcpvision.emf.components.views.TableViewerBuilder;
-import it.rcpvision.emf.components.views.ViewerInitializer;
+import it.rcpvision.emf.components.builders.TableViewerBuilder;
+import it.rcpvision.emf.components.viewers.ViewerInitializer;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;

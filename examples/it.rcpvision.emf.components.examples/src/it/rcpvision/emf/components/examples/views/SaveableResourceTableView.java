@@ -2,14 +2,14 @@ package it.rcpvision.emf.components.examples.views;
 
 import it.rcpvision.emf.components.examples.library.EXTLibraryPackage;
 import it.rcpvision.emf.components.examples.library.Library;
-import it.rcpvision.emf.components.views.AbstractSaveableResourceTableView;
+import it.rcpvision.emf.components.views.AbstractSaveableTableView;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.resource.Resource;
 
 public class SaveableResourceTableView extends
-		AbstractSaveableResourceTableView {
+		AbstractSaveableTableView {
 
 	@Override
 	protected Object getContents(Resource resource) {

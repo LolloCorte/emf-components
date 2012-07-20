@@ -28,5 +28,53 @@
                restorable="true">
          </view>
    </extension>
+   
+    <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="it.rcpvision.emf.components"
+            class="it.rcpvision.emf.components.examples.EmfComponentsExamplesExecutableExtensionFactory:it.rcpvision.emf.components.views.OnSelectionTreeView"
+            icon="icons/view.jpg"
+            id="it.rcpvision.emf.components.emftreeview"
+            name="Emf Tree View"
+            restorable="true">
+      </view>
+      <view
+            category="it.rcpvision.emf.components"
+            class="it.rcpvision.emf.components.examples.EmfComponentsExamplesExecutableExtensionFactory:it.rcpvision.emf.components.views.OnSelectionListView"
+            icon="icons/view.jpg"
+            id="it.rcpvision.emf.components.emflistview"
+            name="Emf List View"
+            restorable="true">
+      </view>
+      <view
+            category="it.rcpvision.emf.components"
+            class="it.rcpvision.emf.components.examples.EmfComponentsExamplesExecutableExtensionFactory:it.rcpvision.emf.components.views.OnSelectionTableView"
+            icon="icons/view.jpg"
+            id="it.rcpvision.emf.components.tableview"
+            name="Emf Table View"
+            restorable="true">
+      </view>
+      <view
+            category="it.rcpvision.emf.components"
+            class="it.rcpvision.emf.components.examples.EmfComponentsExamplesExecutableExtensionFactory:it.rcpvision.emf.components.views.OnSelectionFormView"
+            icon="icons/view.jpg"
+            id="it.rcpvision.emf.components.formview"
+            name="Emf Form View"
+            restorable="true">
+      </view>
+      <view
+            category="it.rcpvision.emf.components"
+            class="it.rcpvision.emf.components.examples.EmfComponentsExamplesExecutableExtensionFactory:it.rcpvision.emf.components.views.OnSelectionTreeFormView"
+            icon="icons/view.jpg"
+            id="it.rcpvision.emf.components.treeformview"
+            name="Emf Tree Form View"
+            restorable="true">
+      </view>
+      <category
+            id="it.rcpvision.emf.components"
+            name="Emf Components">
+      </category>
+   </extension>
 
 </plugin>

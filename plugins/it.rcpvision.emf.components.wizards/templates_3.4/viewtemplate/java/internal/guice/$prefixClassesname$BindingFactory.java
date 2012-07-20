@@ -1,7 +1,7 @@
 package $packageName$.internal.guice;
 
 import it.rcpvision.emf.components.binding.ControlObservablePair;
-import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
+import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
 
 //import org.eclipse.emf.ecore.EStructuralFeature;
 //import org.eclipse.jface.databinding.swt.SWTObservables;

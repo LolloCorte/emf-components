@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="it.rcpvision.emf.components.editors.EmfComponentsEditorsExecutableExtensionFactory:it.rcpvision.emf.components.editors.EmfTreeEditor"
+            contributorClass="it.rcpvision.emf.components.editors.EmfComponentsEditorsExecutableExtensionFactory:it.rcpvision.emf.components.editors.EmfComponentsEditorActionBarContributor"
+            default="false"
+            id="it.rcpvision.emf.components.editors.treeEditor"
+            name="EMF Tree Editor">
+         <contentTypeBinding
+               contentTypeId="org.eclipse.emf.ecore.xmi">
+         </contentTypeBinding>
+      </editor>
+   </extension>
+
+</plugin>

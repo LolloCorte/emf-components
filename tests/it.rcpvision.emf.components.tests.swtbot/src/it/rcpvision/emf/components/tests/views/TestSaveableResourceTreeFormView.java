@@ -3,10 +3,10 @@ package it.rcpvision.emf.components.tests.views;
 import org.eclipse.emf.common.util.URI;
 
 import it.rcpvision.emf.components.tests.EmfComponentsAbstractTests;
-import it.rcpvision.emf.components.views.AbstractSaveableResourceTreeFormView;
+import it.rcpvision.emf.components.views.AbstractSaveableTreeFormView;
 
 public class TestSaveableResourceTreeFormView extends
-		AbstractSaveableResourceTreeFormView {
+		AbstractSaveableTreeFormView {
 
 	@Override
 	protected URI createResourceURI() {

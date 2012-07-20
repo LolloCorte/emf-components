@@ -1,8 +1,8 @@
-package it.rcpvision.emf.components.views;
+package it.rcpvision.emf.components.builders;
 
 import it.rcpvision.emf.components.factories.EmfViewerFactory;
-import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
-import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
+import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
+import it.rcpvision.emf.components.ui.provider.FormFeatureLabelFactory;
 
 import java.util.Collections;
 import java.util.Comparator;

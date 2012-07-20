@@ -1,8 +1,8 @@
 package it.rcpvision.emf.components.examples;
 
 import it.rcpvision.emf.components.EmfComponentsGenericModule;
-import it.rcpvision.emf.components.views.TableViewerColumnBuilder;
-import it.rcpvision.emf.components.views.TableViewerEditableColumnBuilder;
+import it.rcpvision.emf.components.builders.TableViewerColumnBuilder;
+import it.rcpvision.emf.components.builders.TableViewerEditableColumnBuilder;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 

@@ -30,7 +30,10 @@ public class EmfComponentsProjectFilesGenerator {
     _builder.append("org.eclipse.core.runtime,");
     _builder.newLine();
     _builder.append(" ");
-    _builder.append("it.rcpvision.emf.components");
+    _builder.append("it.rcpvision.emf.components,");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("it.rcpvision.emf.components.views");
     _builder.newLine();
     _builder.append("Bundle-ActivationPolicy: lazy");
     _builder.newLine();

@@ -8,4 +8,5 @@ junit -l 'it.rcpvision.emf.components.cdo.tests/CDOUriTests.launch' --stderr -o 
 junit -l 'it.rcpvision.emf.components.dsl.tests/EmfComponentsDslAllTests.launch' --stderr -o 'output/EmfComponentsDslAllTests_junit_result.xml'
 # TODO renable it
 # junit -l 'it.rcpvision.emf.components.tests.swtbot/EmfComponentsSwtBotAllTests.launch' --stderr -o 'output/EmfComponentsSwtBotAllTests_junit_result.xml'
-junit -l 'it.rcpvision.emf.components.tests.swtbot/EmfComponentsDslWizardsTests.launch' --stderr -o 'output/EmfComponentsSwtBotAllTests_junit_result.xml'
+# junit -l 'it.rcpvision.emf.components.tests.swtbot/EmfComponentsDslWizardsTests.launch' --stderr -o 'output/EmfComponentsSwtBotAllTests_junit_result.xml'
+junit -l 'it.rcpvision.emf.components.tests.swtbot/EmfComponentsSwtBotAllTests.launch' --stderr -o 'output/EmfComponentsSwtBotAllTests_junit_result.xml'

@@ -1,6 +1,7 @@
 package it.rcpvision.emf.components.listeners;
 
-import org.eclipse.emf.ecore.presentation.EcoreEditorPlugin;
+import it.rcpvision.emf.components.EmfComponentsActivator;
+
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.ui.PartInitException;
@@ -21,7 +22,7 @@ public class EmfViewerMouseAdapter extends MouseAdapter {
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
 						.showView("org.eclipse.ui.views.PropertySheet");
 			} catch (PartInitException exception) {
-				EcoreEditorPlugin.INSTANCE.log(exception);
+				EmfComponentsActivator.log(exception);
 			}
 		}
 	}

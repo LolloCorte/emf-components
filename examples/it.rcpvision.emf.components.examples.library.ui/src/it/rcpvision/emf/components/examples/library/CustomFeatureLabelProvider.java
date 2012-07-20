@@ -3,7 +3,7 @@
  */
 package it.rcpvision.emf.components.examples.library;
 
-import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  * @author bettini
  * 
  */
-public class CustomFeatureLabelProvider extends FeatureLabelProvider {
+public class CustomFeatureLabelProvider extends PropertyDescriptionProvider {
 
 	public String text_Person_firstName(EStructuralFeature f) {
 		return "First name";

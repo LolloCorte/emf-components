@@ -1,9 +1,9 @@
 package it.rcpvision.emf.components.widgets;
 
-import it.rcpvision.emf.components.binding.EmfSwtBindingFactory;
+import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
-import it.rcpvision.emf.components.ui.provider.FormFeatureLabelProvider;
+import it.rcpvision.emf.components.ui.provider.FormFeatureLabelFactory;
 
 import java.util.List;
 
@@ -20,9 +20,9 @@ import org.eclipse.ui.forms.widgets.ScrolledForm;
 
 public class FormDetailComposite extends Composite {
 
-	protected FormFeatureLabelProvider formFeatureLabelProvider;
+	protected FormFeatureLabelFactory formFeatureLabelFactory;
 
-	protected EmfSwtBindingFactory emfSwtBindingFactory;
+	protected FormFeatureControlFactory formFeatureControlFactory;
 
 	protected EditingDomainFinder editingDomainFinder;
 
@@ -37,14 +37,14 @@ public class FormDetailComposite extends Composite {
 	private final ScrolledForm scrolledForm;
 
 	public FormDetailComposite(Composite parent, int style,
-			FormFeatureLabelProvider formFeatureLabelProvider,
-			EmfSwtBindingFactory emfSwtBindingFactory,
+			FormFeatureLabelFactory formFeatureLabelFactory,
+			FormFeatureControlFactory formFeatureControlFactory,
 			EditingDomainFinder editingDomainFinder,
 			ILabelProvider labelProvider,
 			EStructuralFeaturesProvider eClassFeatureProvider) {
 		super(parent, style);
-		this.formFeatureLabelProvider = formFeatureLabelProvider;
-		this.emfSwtBindingFactory = emfSwtBindingFactory;
+		this.formFeatureLabelFactory = formFeatureLabelFactory;
+		this.formFeatureControlFactory = formFeatureControlFactory;
 		this.editingDomainFinder = editingDomainFinder;
 		this.labelProvider = labelProvider;
 		this.eClassFeatureProvider = eClassFeatureProvider;
@@ -62,7 +62,7 @@ public class FormDetailComposite extends Composite {
 		toolkit.paintBordersFor(scrolledForm);
 		scrolledForm.getBody().setLayout(new GridLayout(2, false));
 
-		formFeatureLabelProvider.setFormToolkit(toolkit);
+		formFeatureLabelFactory.setFormToolkit(toolkit);
 
 		main = scrolledForm.getBody();
 	}
@@ -74,7 +74,7 @@ public class FormDetailComposite extends Composite {
 		scrolledForm.setText(labelProvider.getText(model));
 		scrolledForm.setImage(labelProvider.getImage(model));
 
-		emfSwtBindingFactory.init(
+		formFeatureControlFactory.init(
 				editingDomainFinder.getEditingDomainFor(model), model, main,
 				toolkit);
 
@@ -87,9 +87,9 @@ public class FormDetailComposite extends Composite {
 //							|| ((EReference) feature).isContainer()
 							))) {
 
-				formFeatureLabelProvider.getLabel(main, feature);
+				formFeatureLabelFactory.getLabel(main, feature);
 
-				emfSwtBindingFactory.create(feature);
+				formFeatureControlFactory.create(feature);
 			}
 		}
 
@@ -104,22 +104,22 @@ public class FormDetailComposite extends Composite {
 		toolkit.dispose();
 	}
 
-	public FormFeatureLabelProvider getFormFeatureLabelProvider() {
-		return formFeatureLabelProvider;
+	public FormFeatureLabelFactory getFormFeatureLabelProvider() {
+		return formFeatureLabelFactory;
 	}
 
 	public void setFormFeatureLabelProvider(
-			FormFeatureLabelProvider formFeatureLabelProvider) {
-		this.formFeatureLabelProvider = formFeatureLabelProvider;
+			FormFeatureLabelFactory formFeatureLabelFactory) {
+		this.formFeatureLabelFactory = formFeatureLabelFactory;
 	}
 
-	public EmfSwtBindingFactory getEmfSwtBindingFactory() {
-		return emfSwtBindingFactory;
+	public FormFeatureControlFactory getEmfSwtBindingFactory() {
+		return formFeatureControlFactory;
 	}
 
 	public void setEmfSwtBindingFactory(
-			EmfSwtBindingFactory emfSwtBindingFactory) {
-		this.emfSwtBindingFactory = emfSwtBindingFactory;
+			FormFeatureControlFactory formFeatureControlFactory) {
+		this.formFeatureControlFactory = formFeatureControlFactory;
 	}
 
 	public EditingDomainFinder getEditingDomainFinder() {

@@ -2,7 +2,7 @@
 <feature
       id="it.rcpvision.emf.components.examples.feature"
       label="EMF Components Examples"
-      version="1.0.0.qualifier"      
+      version="1.0.0.qualifier"
       provider-name="RCP Vision">
 
    <description url="http://code.google.com/a/eclipselabs.org/p/emf-components/">
@@ -50,6 +50,9 @@ It aims at providing a set of Components like Trees, Tables and Detail Forms tha
       <import plugin="org.eclipse.xtext.common.types.ui"/>
       <import plugin="org.eclipse.xtext.ui.codetemplates.ui"/>
       <import plugin="org.eclipse.compare"/>
+      <import plugin="it.rcpvision.emf.components" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="it.rcpvision.emf.components.examples.library" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="it.rcpvision.emf.components.views" version="1.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
@@ -79,6 +82,13 @@ It aims at providing a set of Components like Trees, Tables and Detail Forms tha
 
    <plugin
          id="it.rcpvision.emf.components.examples.fowlerdsl.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="it.rcpvision.emf.components.examples"
          download-size="0"
          install-size="0"
          version="0.0.0"

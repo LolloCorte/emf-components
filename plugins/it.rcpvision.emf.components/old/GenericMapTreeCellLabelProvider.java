@@ -1,4 +1,4 @@
-package it.rcpvision.emf.components.views;
+package it.rcpvision.emf.components.builders;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;

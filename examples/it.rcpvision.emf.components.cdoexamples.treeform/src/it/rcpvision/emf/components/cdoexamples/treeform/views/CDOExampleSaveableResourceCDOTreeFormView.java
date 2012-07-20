@@ -1,14 +1,14 @@
 package it.rcpvision.emf.components.cdoexamples.treeform.views;
 
+import it.rcpvision.emf.components.views.AbstractSaveableTreeFormView;
+
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.swt.widgets.Composite;
 
-import it.rcpvision.emf.components.views.AbstractSaveableResourceTreeFormView;
-
 public class CDOExampleSaveableResourceCDOTreeFormView extends
-		AbstractSaveableResourceTreeFormView {
+		AbstractSaveableTreeFormView {
 
 	@Override
 	protected URI createResourceURI() {
@@ -20,7 +20,7 @@ public class CDOExampleSaveableResourceCDOTreeFormView extends
 	@Override
 	public void createPartControl(Composite parent) {
 		super.createPartControl(parent);
-		treeFormMasterDetailComposite.getViewer().addDoubleClickListener(new IDoubleClickListener() {
+		treeFormComposite.getViewer().addDoubleClickListener(new IDoubleClickListener() {
 			
 			@Override
 			public void doubleClick(DoubleClickEvent event) {
