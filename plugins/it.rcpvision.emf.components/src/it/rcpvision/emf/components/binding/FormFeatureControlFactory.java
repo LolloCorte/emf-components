@@ -17,6 +17,7 @@ package it.rcpvision.emf.components.binding;
 
 import it.rcpvision.emf.components.EmfComponentsActivator;
 import it.rcpvision.emf.components.factories.JfaceProviderFactory;
+import it.rcpvision.emf.components.xtext.util.PolymorphicDispatcher;
 
 import java.lang.reflect.Method;
 import java.util.Collections;
@@ -28,7 +29,6 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.databinding.EMFDataBindingContext;
 import org.eclipse.emf.databinding.EMFObservables;
-import org.eclipse.emf.databinding.edit.EMFEditObservables;
 import org.eclipse.emf.databinding.edit.EditingDomainEObjectObservableValue;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -58,7 +58,6 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.forms.widgets.FormToolkit;
-import org.eclipse.xtext.util.PolymorphicDispatcher;
 
 import com.google.common.base.Predicate;
 import com.google.inject.Inject;

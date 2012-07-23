@@ -67,6 +67,7 @@
       <import plugin="org.eclipse.ui"/>
       <import plugin="it.rcpvision.emf.components.examples.library" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="it.rcpvision.emf.components.editors" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jface.text"/>
    </requires>
 
    <plugin

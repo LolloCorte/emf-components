@@ -1,5 +1,7 @@
 package it.rcpvision.emf.components.ui.provider;
 
+import it.rcpvision.emf.components.xtext.util.PolymorphicDispatcher;
+
 import java.lang.reflect.Method;
 import java.util.Collections;
 
@@ -8,7 +10,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.xtext.util.PolymorphicDispatcher;
 
 import com.google.common.base.Predicate;
 

@@ -35,8 +35,9 @@ public class EmfComponentsDslProjectCreatorCustom extends
 	 *         <code>null</code>
 	 */
 	protected List<String> getRequiredBundles() {
-		return Lists.newArrayList("com.ibm.icu", "org.eclipse.xtext",
-				"org.eclipse.xtext.generator", DSL_GENERATOR_PROJECT_NAME);
+		return Lists.newArrayList("com.ibm.icu", "org.eclipse.core.runtime",
+				"org.eclipse.xtext", "org.eclipse.xtext.generator",
+				DSL_GENERATOR_PROJECT_NAME);
 	}
 
 	@Override

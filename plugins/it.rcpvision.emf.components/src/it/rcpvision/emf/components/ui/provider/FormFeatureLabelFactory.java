@@ -3,6 +3,8 @@
  */
 package it.rcpvision.emf.components.ui.provider;
 
+import it.rcpvision.emf.components.xtext.util.PolymorphicDispatcher;
+
 import java.lang.reflect.Method;
 import java.util.Collections;
 
@@ -11,7 +13,6 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.forms.widgets.FormToolkit;
-import org.eclipse.xtext.util.PolymorphicDispatcher;
 
 import com.google.common.base.Predicate;
 import com.google.inject.Inject;
