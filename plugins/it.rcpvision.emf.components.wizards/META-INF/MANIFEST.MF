@@ -11,7 +11,9 @@ Require-Bundle: org.eclipse.jdt.core;bundle-version="3.7.1",
  org.eclipse.xtend2.lib;bundle-version="2.3.0",
  org.eclipse.pde.ui;bundle-version="3.7.0",
  it.rcpvision.emf.components;bundle-version="1.0.0",
- org.eclipse.ui.ide;bundle-version="3.7.0"
+ org.eclipse.ui.ide;bundle-version="3.7.0",
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: it.rcpvision.emf.components.wizards,

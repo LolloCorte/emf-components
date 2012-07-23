@@ -3,13 +3,14 @@
  */
 package it.rcpvision.emf.components.ui.provider;
 
+import it.rcpvision.emf.components.ui.IImageHelper;
+import it.rcpvision.emf.components.util.PolymorphicDispatcher;
+
 import org.eclipse.emf.ecore.util.FeatureMap.Entry;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.xtext.ui.IImageHelper;
-import org.eclipse.xtext.util.PolymorphicDispatcher;
 
 import com.google.inject.Inject;
 
