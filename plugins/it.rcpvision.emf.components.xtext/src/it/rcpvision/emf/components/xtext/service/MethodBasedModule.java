@@ -5,7 +5,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package it.rcpvision.emf.components.guice;
+package it.rcpvision.emf.components.xtext.service;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;

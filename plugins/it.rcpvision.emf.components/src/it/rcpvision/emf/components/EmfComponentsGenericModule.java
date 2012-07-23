@@ -14,7 +14,6 @@ import it.rcpvision.emf.components.factories.EmfViewerFactory;
 import it.rcpvision.emf.components.factories.FormFactory;
 import it.rcpvision.emf.components.factories.JfaceProviderFactory;
 import it.rcpvision.emf.components.factories.TreeFormFactory;
-import it.rcpvision.emf.components.guice.AbstractGenericModule;
 import it.rcpvision.emf.components.guice.ComposedAdapterFactoryProvider;
 import it.rcpvision.emf.components.handlers.ContentOutlineSelectionHandler;
 import it.rcpvision.emf.components.listeners.EmfViewerMouseAdapter;
@@ -23,8 +22,6 @@ import it.rcpvision.emf.components.menus.StructuredViewerContextMenuManagerCreat
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
 import it.rcpvision.emf.components.resource.ResourceLoader;
-import it.rcpvision.emf.components.ui.IImageHelper;
-import it.rcpvision.emf.components.ui.PluginImageHelper;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesColumnProvider;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
@@ -33,6 +30,9 @@ import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
 import it.rcpvision.emf.components.ui.provider.TableColumnLabelProvider;
 import it.rcpvision.emf.components.util.EmfSelectionHelper;
 import it.rcpvision.emf.components.viewers.ViewerInitializer;
+import it.rcpvision.emf.components.xtext.service.AbstractGenericModule;
+import it.rcpvision.emf.components.xtext.ui.IImageHelper;
+import it.rcpvision.emf.components.xtext.ui.PluginImageHelper;
 
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;

@@ -1,6 +1,5 @@
 package it.rcpvision.emf.components.ui.provider;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;

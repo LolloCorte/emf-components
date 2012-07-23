@@ -3,13 +3,12 @@
  */
 package it.rcpvision.emf.components;
 
-import it.rcpvision.emf.components.guice.AbstractGuiceAwareExecutableExtensionFactory;
+import static com.google.inject.Guice.createInjector;
+import it.rcpvision.emf.components.xtext.ui.AbstractGuiceAwareExecutableExtensionFactory;
 
 import org.osgi.framework.Bundle;
 
 import com.google.inject.Injector;
-
-import static com.google.inject.Guice.createInjector;
 
 /**
  * @author bettini

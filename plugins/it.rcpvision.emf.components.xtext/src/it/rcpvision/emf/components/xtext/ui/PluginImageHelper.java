@@ -5,7 +5,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package it.rcpvision.emf.components.ui;
+package it.rcpvision.emf.components.xtext.ui;
 
 import java.net.URL;
 import java.util.Iterator;

@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Emf Components Xtext Minimal Parts
+Bundle-SymbolicName: it.rcpvision.emf.components.xtext
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: RCP-VISION
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: com.google.inject;bundle-version="3.0.0";visibility:=reexport,
+ javax.inject;bundle-version="1.0.0";visibility:=reexport,
+ com.google.guava;bundle-version="10.0.1";visibility:=reexport,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.common,
+ org.eclipse.ui
+Import-Package: org.apache.log4j;version="1.2.13"
+Export-Package: it.rcpvision.emf.components.xtext.service,
+ it.rcpvision.emf.components.xtext.ui,
+ it.rcpvision.emf.components.xtext.util

@@ -6,9 +6,9 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  *******************************************************************************/
-package it.rcpvision.emf.components.util;
+package it.rcpvision.emf.components.xtext.util;
 
-import static it.rcpvision.emf.components.util.ReflectionUtil.*;
+import static it.rcpvision.emf.components.xtext.util.ReflectionUtil.*;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

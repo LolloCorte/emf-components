@@ -1,4 +1,4 @@
-package it.rcpvision.emf.components.guice;
+package it.rcpvision.emf.components.xtext.ui;
 
 /*******************************************************************************
  * Copyright (c) 2009 itemis AG (http://www.itemis.eu) and others.

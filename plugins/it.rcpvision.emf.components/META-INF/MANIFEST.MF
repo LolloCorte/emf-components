@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: EMF Tree Editor
+Bundle-Name: Emf Components
 Bundle-SymbolicName: it.rcpvision.emf.components;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: it.rcpvision.emf.components.EmfComponentsActivator
@@ -11,11 +11,9 @@ Require-Bundle: org.eclipse.ui.forms;visibility:=reexport,
  org.eclipse.core.databinding.property;bundle-version="1.4.100",
  org.eclipse.emf.ecore.edit;bundle-version="2.7.0";visibility:=reexport,
  org.eclipse.emf.ecore.editor;bundle-version="2.7.0";visibility:=reexport,
- com.google.inject;bundle-version="3.0.0";visibility:=reexport,
  org.eclipse.core.resources,
  org.eclipse.core.runtime,
- javax.inject;bundle-version="1.0.0",
- com.google.guava;bundle-version="10.0.1"
+ it.rcpvision.emf.components.xtext;bundle-version="1.0.0";visibility:=reexport
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: it.rcpvision.emf.components,

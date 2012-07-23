@@ -3,7 +3,7 @@
  */
 package it.rcpvision.emf.components.ui.provider;
 
-import it.rcpvision.emf.components.util.PolymorphicDispatcher;
+import it.rcpvision.emf.components.xtext.util.PolymorphicDispatcher;
 
 import java.lang.reflect.Method;
 import java.util.Collections;

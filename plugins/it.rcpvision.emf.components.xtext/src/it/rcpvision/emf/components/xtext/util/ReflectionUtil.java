@@ -5,7 +5,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package it.rcpvision.emf.components.util;
+package it.rcpvision.emf.components.xtext.util;
 
 /**
  * @author Jan Koehnlein - Initial contribution and API

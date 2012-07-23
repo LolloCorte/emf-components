@@ -5,14 +5,21 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package it.rcpvision.emf.components.guice;
+package it.rcpvision.emf.components.xtext.service;
 
 import java.lang.reflect.Method;
 
-public class BindModule extends MethodBasedModule {
+import com.google.inject.Binder;
 
-	public BindModule(Method method, Object owner) {
+public class FreeModule extends MethodBasedModule {
+
+	public FreeModule(Method method, Object owner) {
 		super(method, owner);
+	}
+
+	@Override
+	public void configure(Binder binder) {
+		invokeMethod(binder);
 	}
 	
 }
