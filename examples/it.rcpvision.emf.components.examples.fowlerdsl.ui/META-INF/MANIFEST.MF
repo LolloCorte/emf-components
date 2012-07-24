@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: it.rcpvision.emf.components.examples.fowlerdsl.ui
 Bundle-Vendor: My Company
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: it.rcpvision.emf.components.examples.fowlerdsl.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: it.rcpvision.emf.components.examples.fowlerdsl;visibility:=reexport,

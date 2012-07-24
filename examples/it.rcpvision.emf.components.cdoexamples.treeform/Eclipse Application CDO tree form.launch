@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.pde.ui.RuntimeWorkbench">
 <setAttribute key="additional_plugins">
-<setEntry value="it.rcpvision.emf.components.examples:1.0.0.qualifier:default:true"/>
-<setEntry value="org.eclipse.emf.generic.editor:1.0.0.v201108020519:default:true"/>
+<setEntry value="it.rcpvision.emf.components.examples:0.1.0.qualifier:default:true"/>
+<setEntry value="org.eclipse.emf.generic.editor:0.1.0.v201108020519:default:true"/>
 </setAttribute>
 <booleanAttribute key="append.args" value="true"/>
 <booleanAttribute key="askclear" value="true"/>

@@ -2,7 +2,7 @@
 <feature
       id="it.rcpvision.emf.components.cdoexample"
       label="CDO Example "
-      version="1.0.0.qualifier"
+      version="0.1.0.qualifier"
       provider-name="RCP Vision">
 
    <description url="http://www.example.com/description">
@@ -18,8 +18,8 @@
    </license>
 
    <requires>
-      <import feature="it.rcpvision.emf.components.cdo.feature" version="1.0.0.qualifier"/>
-      <import feature="it.rcpvision.emf.components.feature" version="1.0.0.qualifier"/>
+      <import feature="it.rcpvision.emf.components.cdo.feature" version="0.1.0.qualifier"/>
+      <import feature="it.rcpvision.emf.components.feature" version="0.1.0.qualifier"/>
       <import feature="org.eclipse.rcp" version="3.7.1.r37x_v20110729-9DB5FmNFnFLSFCtLxnRfMqt15A4A"/>
    </requires>
 

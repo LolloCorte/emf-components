@@ -2,12 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: it.rcpvision.emf.components.examples.library
 Bundle-SymbolicName: it.rcpvision.emf.components.examples.library.ui;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: it.rcpvision.emf.components.examples.library.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  it.rcpvision.emf.components,
- it.rcpvision.emf.components.examples.library;bundle-version="1.0.0",
- it.rcpvision.emf.components.examples;bundle-version="1.0.0"
+ it.rcpvision.emf.components.examples.library;bundle-version="0.1.0",
+ it.rcpvision.emf.components.examples;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

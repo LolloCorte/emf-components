@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: it.rcpvision.emf.components.dsl.tests
 Bundle-Vendor: My Company
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: it.rcpvision.emf.components.dsl.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: it.rcpvision.emf.components.dsl,
@@ -15,7 +15,7 @@ Require-Bundle: it.rcpvision.emf.components.dsl,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtext.xbase.junit;bundle-version="2.3.0",
  org.eclipse.jdt.core;bundle-version="3.8.1",
- it.rcpvision.emf.components.examples.library;bundle-version="1.0.0"
+ it.rcpvision.emf.components.examples.library;bundle-version="0.1.0"
 Import-Package: org.apache.log4j,
  org.junit;version="4.5.0",
  org.junit.runner;version="4.5.0",

@@ -49,7 +49,7 @@ public class EXTLibraryFactoryImpl extends EFactoryImpl implements EXTLibraryFac
   {
     try
     {
-      EXTLibraryFactory theEXTLibraryFactory = (EXTLibraryFactory)EPackage.Registry.INSTANCE.getEFactory("http:///it/rcpvision/emf/components/examples/library/extlibrary.ecore/1.0.0"); //$NON-NLS-1$ 
+      EXTLibraryFactory theEXTLibraryFactory = (EXTLibraryFactory)EPackage.Registry.INSTANCE.getEFactory("http:///it/rcpvision/emf/components/examples/library/extlibrary.ecore/0.1.0"); //$NON-NLS-1$ 
       if (theEXTLibraryFactory != null)
       {
         return theEXTLibraryFactory;

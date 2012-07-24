@@ -5,7 +5,7 @@
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
-            uri="http:///it/rcpvision/emf/components/examples/library/extlibrary.ecore/1.0.0"
+            uri="http:///it/rcpvision/emf/components/examples/library/extlibrary.ecore/0.1.0"
             class="it.rcpvision.emf.components.examples.library.provider.EXTLibraryItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider

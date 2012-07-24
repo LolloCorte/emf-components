@@ -2,7 +2,7 @@
 <feature
       id="it.rcpvision.emf.components.feature"
       label="EMF Components"
-      version="1.0.0.qualifier"
+      version="0.1.0.qualifier"
       provider-name="RCP Vision">
 
    <description url="http://code.google.com/a/eclipselabs.org/p/emf-components/">
@@ -37,15 +37,15 @@ It aims at providing a set of Components like Trees, Tables and Detail Forms tha
       <import plugin="org.eclipse.jdt.ui" version="3.7.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtend2.lib" version="2.3.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.pde.ui" version="3.7.0" match="greaterOrEqual"/>
-      <import plugin="it.rcpvision.emf.components" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="it.rcpvision.emf.components" version="0.1.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.ide" version="3.7.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.jface.text"/>
       <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="com.google.inject" version="3.0.0" match="greaterOrEqual"/>
-      <import plugin="javax.inject" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="javax.inject" version="0.1.0" match="greaterOrEqual"/>
       <import plugin="com.google.guava" version="10.0.1" match="greaterOrEqual"/>
-      <import plugin="it.rcpvision.emf.components.xtext" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="it.rcpvision.emf.components.xtext" version="0.1.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.common"/>
    </requires>
 

@@ -4,7 +4,7 @@
 <plugin>
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http:///it/rcpvision/emf/components/examples/library/extlibrary.ecore/1.0.0"
+            uri="http:///it/rcpvision/emf/components/examples/library/extlibrary.ecore/0.1.0"
             class="it.rcpvision.emf.components.examples.library.EXTLibraryPackage"
             genModel="model/extlibrary.genmodel"/>
    </extension>
@@ -24,7 +24,7 @@
             name="%_UI_EXTLibrary_content_type"
             priority="normal">
          <describer class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
-            <parameter name="namespace" value="http:///it/rcpvision/emf/components/examples/library/extlibrary.ecore/1.0.0"/>
+            <parameter name="namespace" value="http:///it/rcpvision/emf/components/examples/library/extlibrary.ecore/0.1.0"/>
             <parameter name="kind" value="xmi"/>
          </describer>
       </content-type>

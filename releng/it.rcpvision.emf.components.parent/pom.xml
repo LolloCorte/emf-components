@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>emf-components</groupId>
 	<artifactId>it.rcpvision.emf.components.parent</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>0.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<!-- this is the parent POM from which all modules inherit common settings -->
@@ -31,7 +31,7 @@
 		            <artifact>
 		               <groupId>emf-components</groupId>
 		               <artifactId>it.rcpvision.emf.components.target</artifactId>
-		               <version>1.0.0-SNAPSHOT</version>
+		               <version>0.1.0-SNAPSHOT</version>
 		               <classifier>indigo</classifier>
 		            </artifact>
 		         </target>

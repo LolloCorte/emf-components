@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Emf Components Xtext Minimal Parts
 Bundle-SymbolicName: it.rcpvision.emf.components.xtext
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: RCP-VISION
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: com.google.inject;bundle-version="3.0.0";visibility:=reexport,

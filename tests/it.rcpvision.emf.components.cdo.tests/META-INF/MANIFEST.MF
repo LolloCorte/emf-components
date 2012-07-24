@@ -2,11 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: EMF Tree Editor CDO Tests
 Bundle-SymbolicName: it.rcpvision.emf.components.cdo.tests
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: it.rcpvision.emf.components.cdo.tests.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.junit4;bundle-version="4.8.1",
- it.rcpvision.emf.components.cdo;bundle-version="1.0.0"
+ it.rcpvision.emf.components.cdo;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

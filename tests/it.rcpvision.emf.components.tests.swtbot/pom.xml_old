@@ -6,7 +6,7 @@
    <parent>
 		<groupId>emf-components</groupId>
 		<artifactId>it.rcpvision.emf.components.parent</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<version>0.1.0-SNAPSHOT</version>
 		<relativePath>../../releng/it.rcpvision.emf.components.parent/pom.xml</relativePath>
 	</parent>
   <artifactId>it.rcpvision.emf.components.tests.swtbot</artifactId>
@@ -29,7 +29,7 @@
     <dependency>
       <groupId>emf-components</groupId>
       <artifactId>it.rcpvision.emf.components</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
+      <version>0.1.0-SNAPSHOT</version>
     </dependency>
   </dependencies>
   
@@ -56,12 +56,12 @@
             <dependency>
               <type>p2-installable-unit</type>
               <artifactId>it.rcpvision.emf.components.feature.group</artifactId>
-              <version>1.0.0</version>
+              <version>0.1.0</version>
             </dependency>
             <dependency>
               <type>p2-installable-unit</type>
               <artifactId>it.rcpvision.emf.components.examples.feature.group</artifactId>
-              <version>1.0.0</version>
+              <version>0.1.0</version>
             </dependency>
             <dependency>
               <!-- explicit dependency is only needed because SWTbot brings 

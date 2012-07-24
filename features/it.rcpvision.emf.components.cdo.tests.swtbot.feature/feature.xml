@@ -2,7 +2,7 @@
 <feature
       id="it.rcpvision.emf.components.cdo.tests.swtbot"
       label="CDO Swtbot tests"
-      version="1.0.0.qualifier"
+      version="0.1.0.qualifier"
       provider-name="RCP Vision">
 
    <description url="http://www.example.com/description">
@@ -18,10 +18,10 @@
    </license>
 
    <requires>
-      <import feature="it.rcpvision.emf.components.cdo.feature" version="1.0.0.qualifier"/>
-      <import feature="it.rcpvision.emf.components.cdoexample" version="1.0.0.qualifier"/>
-      <import feature="it.rcpvision.emf.components.examples.feature" version="1.0.0.qualifier"/>
-      <import feature="it.rcpvision.emf.components.feature" version="1.0.0.qualifier"/>
+      <import feature="it.rcpvision.emf.components.cdo.feature" version="0.1.0.qualifier"/>
+      <import feature="it.rcpvision.emf.components.cdoexample" version="0.1.0.qualifier"/>
+      <import feature="it.rcpvision.emf.components.examples.feature" version="0.1.0.qualifier"/>
+      <import feature="it.rcpvision.emf.components.feature" version="0.1.0.qualifier"/>
    </requires>
 
    <plugin
