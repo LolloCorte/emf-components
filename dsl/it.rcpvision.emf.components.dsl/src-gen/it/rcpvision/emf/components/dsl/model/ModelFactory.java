@@ -68,22 +68,22 @@ public interface ModelFactory extends EFactory
   LabelSpecification createLabelSpecification();
 
   /**
-   * Returns a new object of class '<em>Feature Label Provider</em>'.
+   * Returns a new object of class '<em>Property Description Provider</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Feature Label Provider</em>'.
+   * @return a new object of class '<em>Property Description Provider</em>'.
    * @generated
    */
-  FeatureLabelProvider createFeatureLabelProvider();
+  PropertyDescriptionProvider createPropertyDescriptionProvider();
 
   /**
-   * Returns a new object of class '<em>Feature Label Specification</em>'.
+   * Returns a new object of class '<em>Property Description Specification</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Feature Label Specification</em>'.
+   * @return a new object of class '<em>Property Description Specification</em>'.
    * @generated
    */
-  FeatureLabelSpecification createFeatureLabelSpecification();
+  PropertyDescriptionSpecification createPropertyDescriptionSpecification();
 
   /**
    * Returns a new object of class '<em>Feature Provider</em>'.

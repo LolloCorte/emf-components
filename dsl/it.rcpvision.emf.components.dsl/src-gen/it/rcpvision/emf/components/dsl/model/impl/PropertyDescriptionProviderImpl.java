@@ -2,9 +2,9 @@
  */
 package it.rcpvision.emf.components.dsl.model.impl;
 
-import it.rcpvision.emf.components.dsl.model.FeatureLabelProvider;
-import it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification;
 import it.rcpvision.emf.components.dsl.model.ModelPackage;
+import it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider;
+import it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification;
 
 import java.util.Collection;
 
@@ -22,18 +22,18 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Feature Label Provider</b></em>'.
+ * An implementation of the model object '<em><b>Property Description Provider</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.FeatureLabelProviderImpl#getLabelSpecifications <em>Label Specifications</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.PropertyDescriptionProviderImpl#getLabelSpecifications <em>Label Specifications</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class FeatureLabelProviderImpl extends MinimalEObjectImpl.Container implements FeatureLabelProvider
+public class PropertyDescriptionProviderImpl extends MinimalEObjectImpl.Container implements PropertyDescriptionProvider
 {
   /**
    * The cached value of the '{@link #getLabelSpecifications() <em>Label Specifications</em>}' containment reference list.
@@ -43,14 +43,14 @@ public class FeatureLabelProviderImpl extends MinimalEObjectImpl.Container imple
    * @generated
    * @ordered
    */
-  protected EList<FeatureLabelSpecification> labelSpecifications;
+  protected EList<PropertyDescriptionSpecification> labelSpecifications;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected FeatureLabelProviderImpl()
+  protected PropertyDescriptionProviderImpl()
   {
     super();
   }
@@ -63,7 +63,7 @@ public class FeatureLabelProviderImpl extends MinimalEObjectImpl.Container imple
   @Override
   protected EClass eStaticClass()
   {
-    return ModelPackage.Literals.FEATURE_LABEL_PROVIDER;
+    return ModelPackage.Literals.PROPERTY_DESCRIPTION_PROVIDER;
   }
 
   /**
@@ -71,11 +71,11 @@ public class FeatureLabelProviderImpl extends MinimalEObjectImpl.Container imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<FeatureLabelSpecification> getLabelSpecifications()
+  public EList<PropertyDescriptionSpecification> getLabelSpecifications()
   {
     if (labelSpecifications == null)
     {
-      labelSpecifications = new EObjectContainmentEList<FeatureLabelSpecification>(FeatureLabelSpecification.class, this, ModelPackage.FEATURE_LABEL_PROVIDER__LABEL_SPECIFICATIONS);
+      labelSpecifications = new EObjectContainmentEList<PropertyDescriptionSpecification>(PropertyDescriptionSpecification.class, this, ModelPackage.PROPERTY_DESCRIPTION_PROVIDER__LABEL_SPECIFICATIONS);
     }
     return labelSpecifications;
   }
@@ -90,7 +90,7 @@ public class FeatureLabelProviderImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case ModelPackage.FEATURE_LABEL_PROVIDER__LABEL_SPECIFICATIONS:
+      case ModelPackage.PROPERTY_DESCRIPTION_PROVIDER__LABEL_SPECIFICATIONS:
         return ((InternalEList<?>)getLabelSpecifications()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -106,7 +106,7 @@ public class FeatureLabelProviderImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case ModelPackage.FEATURE_LABEL_PROVIDER__LABEL_SPECIFICATIONS:
+      case ModelPackage.PROPERTY_DESCRIPTION_PROVIDER__LABEL_SPECIFICATIONS:
         return getLabelSpecifications();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -123,9 +123,9 @@ public class FeatureLabelProviderImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case ModelPackage.FEATURE_LABEL_PROVIDER__LABEL_SPECIFICATIONS:
+      case ModelPackage.PROPERTY_DESCRIPTION_PROVIDER__LABEL_SPECIFICATIONS:
         getLabelSpecifications().clear();
-        getLabelSpecifications().addAll((Collection<? extends FeatureLabelSpecification>)newValue);
+        getLabelSpecifications().addAll((Collection<? extends PropertyDescriptionSpecification>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -141,7 +141,7 @@ public class FeatureLabelProviderImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case ModelPackage.FEATURE_LABEL_PROVIDER__LABEL_SPECIFICATIONS:
+      case ModelPackage.PROPERTY_DESCRIPTION_PROVIDER__LABEL_SPECIFICATIONS:
         getLabelSpecifications().clear();
         return;
     }
@@ -158,10 +158,10 @@ public class FeatureLabelProviderImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case ModelPackage.FEATURE_LABEL_PROVIDER__LABEL_SPECIFICATIONS:
+      case ModelPackage.PROPERTY_DESCRIPTION_PROVIDER__LABEL_SPECIFICATIONS:
         return labelSpecifications != null && !labelSpecifications.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //FeatureLabelProviderImpl
+} //PropertyDescriptionProviderImpl

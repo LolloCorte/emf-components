@@ -8,25 +8,25 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Feature Label Provider</b></em>'.
+ * A representation of the model object '<em><b>Property Description Provider</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link it.rcpvision.emf.components.dsl.model.FeatureLabelProvider#getLabelSpecifications <em>Label Specifications</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider#getLabelSpecifications <em>Label Specifications</em>}</li>
  * </ul>
  * </p>
  *
- * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getFeatureLabelProvider()
+ * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getPropertyDescriptionProvider()
  * @model
  * @generated
  */
-public interface FeatureLabelProvider extends EObject
+public interface PropertyDescriptionProvider extends EObject
 {
   /**
    * Returns the value of the '<em><b>Label Specifications</b></em>' containment reference list.
-   * The list contents are of type {@link it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification}.
+   * The list contents are of type {@link it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Label Specifications</em>' containment reference list isn't clear,
@@ -34,10 +34,10 @@ public interface FeatureLabelProvider extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Label Specifications</em>' containment reference list.
-   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getFeatureLabelProvider_LabelSpecifications()
+   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getPropertyDescriptionProvider_LabelSpecifications()
    * @model containment="true"
    * @generated
    */
-  EList<FeatureLabelSpecification> getLabelSpecifications();
+  EList<PropertyDescriptionSpecification> getLabelSpecifications();
 
-} // FeatureLabelProvider
+} // PropertyDescriptionProvider

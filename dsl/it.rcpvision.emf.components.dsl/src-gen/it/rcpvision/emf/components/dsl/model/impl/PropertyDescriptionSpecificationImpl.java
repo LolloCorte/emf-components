@@ -2,8 +2,8 @@
  */
 package it.rcpvision.emf.components.dsl.model.impl;
 
-import it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification;
 import it.rcpvision.emf.components.dsl.model.ModelPackage;
+import it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -20,20 +20,20 @@ import org.eclipse.xtext.xbase.XExpression;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Feature Label Specification</b></em>'.
+ * An implementation of the model object '<em><b>Property Description Specification</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.FeatureLabelSpecificationImpl#getParameterType <em>Parameter Type</em>}</li>
- *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.FeatureLabelSpecificationImpl#getFeature <em>Feature</em>}</li>
- *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.FeatureLabelSpecificationImpl#getExpression <em>Expression</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.PropertyDescriptionSpecificationImpl#getParameterType <em>Parameter Type</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.PropertyDescriptionSpecificationImpl#getFeature <em>Feature</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.PropertyDescriptionSpecificationImpl#getExpression <em>Expression</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class FeatureLabelSpecificationImpl extends MinimalEObjectImpl.Container implements FeatureLabelSpecification
+public class PropertyDescriptionSpecificationImpl extends MinimalEObjectImpl.Container implements PropertyDescriptionSpecification
 {
   /**
    * The cached value of the '{@link #getParameterType() <em>Parameter Type</em>}' reference.
@@ -70,7 +70,7 @@ public class FeatureLabelSpecificationImpl extends MinimalEObjectImpl.Container 
    * <!-- end-user-doc -->
    * @generated
    */
-  protected FeatureLabelSpecificationImpl()
+  protected PropertyDescriptionSpecificationImpl()
   {
     super();
   }
@@ -83,7 +83,7 @@ public class FeatureLabelSpecificationImpl extends MinimalEObjectImpl.Container 
   @Override
   protected EClass eStaticClass()
   {
-    return ModelPackage.Literals.FEATURE_LABEL_SPECIFICATION;
+    return ModelPackage.Literals.PROPERTY_DESCRIPTION_SPECIFICATION;
   }
 
   /**
@@ -100,7 +100,7 @@ public class FeatureLabelSpecificationImpl extends MinimalEObjectImpl.Container 
       if (parameterType != oldParameterType)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.FEATURE_LABEL_SPECIFICATION__PARAMETER_TYPE, oldParameterType, parameterType));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__PARAMETER_TYPE, oldParameterType, parameterType));
       }
     }
     return parameterType;
@@ -126,7 +126,7 @@ public class FeatureLabelSpecificationImpl extends MinimalEObjectImpl.Container 
     JvmType oldParameterType = parameterType;
     parameterType = newParameterType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.FEATURE_LABEL_SPECIFICATION__PARAMETER_TYPE, oldParameterType, parameterType));
+      eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__PARAMETER_TYPE, oldParameterType, parameterType));
   }
 
   /**
@@ -150,7 +150,7 @@ public class FeatureLabelSpecificationImpl extends MinimalEObjectImpl.Container 
     feature = newFeature;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.FEATURE_LABEL_SPECIFICATION__FEATURE, oldFeature, newFeature);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__FEATURE, oldFeature, newFeature);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -167,14 +167,14 @@ public class FeatureLabelSpecificationImpl extends MinimalEObjectImpl.Container 
     {
       NotificationChain msgs = null;
       if (feature != null)
-        msgs = ((InternalEObject)feature).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.FEATURE_LABEL_SPECIFICATION__FEATURE, null, msgs);
+        msgs = ((InternalEObject)feature).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__FEATURE, null, msgs);
       if (newFeature != null)
-        msgs = ((InternalEObject)newFeature).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.FEATURE_LABEL_SPECIFICATION__FEATURE, null, msgs);
+        msgs = ((InternalEObject)newFeature).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__FEATURE, null, msgs);
       msgs = basicSetFeature(newFeature, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.FEATURE_LABEL_SPECIFICATION__FEATURE, newFeature, newFeature));
+      eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__FEATURE, newFeature, newFeature));
   }
 
   /**
@@ -198,7 +198,7 @@ public class FeatureLabelSpecificationImpl extends MinimalEObjectImpl.Container 
     expression = newExpression;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.FEATURE_LABEL_SPECIFICATION__EXPRESSION, oldExpression, newExpression);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__EXPRESSION, oldExpression, newExpression);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -215,14 +215,14 @@ public class FeatureLabelSpecificationImpl extends MinimalEObjectImpl.Container 
     {
       NotificationChain msgs = null;
       if (expression != null)
-        msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.FEATURE_LABEL_SPECIFICATION__EXPRESSION, null, msgs);
+        msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__EXPRESSION, null, msgs);
       if (newExpression != null)
-        msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.FEATURE_LABEL_SPECIFICATION__EXPRESSION, null, msgs);
+        msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__EXPRESSION, null, msgs);
       msgs = basicSetExpression(newExpression, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.FEATURE_LABEL_SPECIFICATION__EXPRESSION, newExpression, newExpression));
+      eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__EXPRESSION, newExpression, newExpression));
   }
 
   /**
@@ -235,9 +235,9 @@ public class FeatureLabelSpecificationImpl extends MinimalEObjectImpl.Container 
   {
     switch (featureID)
     {
-      case ModelPackage.FEATURE_LABEL_SPECIFICATION__FEATURE:
+      case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__FEATURE:
         return basicSetFeature(null, msgs);
-      case ModelPackage.FEATURE_LABEL_SPECIFICATION__EXPRESSION:
+      case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__EXPRESSION:
         return basicSetExpression(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -253,12 +253,12 @@ public class FeatureLabelSpecificationImpl extends MinimalEObjectImpl.Container 
   {
     switch (featureID)
     {
-      case ModelPackage.FEATURE_LABEL_SPECIFICATION__PARAMETER_TYPE:
+      case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__PARAMETER_TYPE:
         if (resolve) return getParameterType();
         return basicGetParameterType();
-      case ModelPackage.FEATURE_LABEL_SPECIFICATION__FEATURE:
+      case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__FEATURE:
         return getFeature();
-      case ModelPackage.FEATURE_LABEL_SPECIFICATION__EXPRESSION:
+      case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__EXPRESSION:
         return getExpression();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -274,13 +274,13 @@ public class FeatureLabelSpecificationImpl extends MinimalEObjectImpl.Container 
   {
     switch (featureID)
     {
-      case ModelPackage.FEATURE_LABEL_SPECIFICATION__PARAMETER_TYPE:
+      case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__PARAMETER_TYPE:
         setParameterType((JvmType)newValue);
         return;
-      case ModelPackage.FEATURE_LABEL_SPECIFICATION__FEATURE:
+      case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__FEATURE:
         setFeature((XExpression)newValue);
         return;
-      case ModelPackage.FEATURE_LABEL_SPECIFICATION__EXPRESSION:
+      case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__EXPRESSION:
         setExpression((XExpression)newValue);
         return;
     }
@@ -297,13 +297,13 @@ public class FeatureLabelSpecificationImpl extends MinimalEObjectImpl.Container 
   {
     switch (featureID)
     {
-      case ModelPackage.FEATURE_LABEL_SPECIFICATION__PARAMETER_TYPE:
+      case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__PARAMETER_TYPE:
         setParameterType((JvmType)null);
         return;
-      case ModelPackage.FEATURE_LABEL_SPECIFICATION__FEATURE:
+      case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__FEATURE:
         setFeature((XExpression)null);
         return;
-      case ModelPackage.FEATURE_LABEL_SPECIFICATION__EXPRESSION:
+      case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__EXPRESSION:
         setExpression((XExpression)null);
         return;
     }
@@ -320,14 +320,14 @@ public class FeatureLabelSpecificationImpl extends MinimalEObjectImpl.Container 
   {
     switch (featureID)
     {
-      case ModelPackage.FEATURE_LABEL_SPECIFICATION__PARAMETER_TYPE:
+      case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__PARAMETER_TYPE:
         return parameterType != null;
-      case ModelPackage.FEATURE_LABEL_SPECIFICATION__FEATURE:
+      case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__FEATURE:
         return feature != null;
-      case ModelPackage.FEATURE_LABEL_SPECIFICATION__EXPRESSION:
+      case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__EXPRESSION:
         return expression != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //FeatureLabelSpecificationImpl
+} //PropertyDescriptionSpecificationImpl

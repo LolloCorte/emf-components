@@ -2,11 +2,11 @@
  */
 package it.rcpvision.emf.components.dsl.model.impl;
 
-import it.rcpvision.emf.components.dsl.model.FeatureLabelProvider;
 import it.rcpvision.emf.components.dsl.model.FeatureProvider;
 import it.rcpvision.emf.components.dsl.model.LabelProvider;
 import it.rcpvision.emf.components.dsl.model.ModelPackage;
 import it.rcpvision.emf.components.dsl.model.Module;
+import it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getName <em>Name</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getLabelProvider <em>Label Provider</em>}</li>
- *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getFeatureLabelProvider <em>Feature Label Provider</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getPropertyDescriptionProvider <em>Property Description Provider</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getFeatureProvider <em>Feature Provider</em>}</li>
  * </ul>
  * </p>
@@ -66,14 +66,14 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
   protected LabelProvider labelProvider;
 
   /**
-   * The cached value of the '{@link #getFeatureLabelProvider() <em>Feature Label Provider</em>}' containment reference.
+   * The cached value of the '{@link #getPropertyDescriptionProvider() <em>Property Description Provider</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFeatureLabelProvider()
+   * @see #getPropertyDescriptionProvider()
    * @generated
    * @ordered
    */
-  protected FeatureLabelProvider featureLabelProvider;
+  protected PropertyDescriptionProvider propertyDescriptionProvider;
 
   /**
    * The cached value of the '{@link #getFeatureProvider() <em>Feature Provider</em>}' containment reference.
@@ -182,9 +182,9 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
    * <!-- end-user-doc -->
    * @generated
    */
-  public FeatureLabelProvider getFeatureLabelProvider()
+  public PropertyDescriptionProvider getPropertyDescriptionProvider()
   {
-    return featureLabelProvider;
+    return propertyDescriptionProvider;
   }
 
   /**
@@ -192,13 +192,13 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetFeatureLabelProvider(FeatureLabelProvider newFeatureLabelProvider, NotificationChain msgs)
+  public NotificationChain basicSetPropertyDescriptionProvider(PropertyDescriptionProvider newPropertyDescriptionProvider, NotificationChain msgs)
   {
-    FeatureLabelProvider oldFeatureLabelProvider = featureLabelProvider;
-    featureLabelProvider = newFeatureLabelProvider;
+    PropertyDescriptionProvider oldPropertyDescriptionProvider = propertyDescriptionProvider;
+    propertyDescriptionProvider = newPropertyDescriptionProvider;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.MODULE__FEATURE_LABEL_PROVIDER, oldFeatureLabelProvider, newFeatureLabelProvider);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.MODULE__PROPERTY_DESCRIPTION_PROVIDER, oldPropertyDescriptionProvider, newPropertyDescriptionProvider);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -209,20 +209,20 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFeatureLabelProvider(FeatureLabelProvider newFeatureLabelProvider)
+  public void setPropertyDescriptionProvider(PropertyDescriptionProvider newPropertyDescriptionProvider)
   {
-    if (newFeatureLabelProvider != featureLabelProvider)
+    if (newPropertyDescriptionProvider != propertyDescriptionProvider)
     {
       NotificationChain msgs = null;
-      if (featureLabelProvider != null)
-        msgs = ((InternalEObject)featureLabelProvider).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.MODULE__FEATURE_LABEL_PROVIDER, null, msgs);
-      if (newFeatureLabelProvider != null)
-        msgs = ((InternalEObject)newFeatureLabelProvider).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.MODULE__FEATURE_LABEL_PROVIDER, null, msgs);
-      msgs = basicSetFeatureLabelProvider(newFeatureLabelProvider, msgs);
+      if (propertyDescriptionProvider != null)
+        msgs = ((InternalEObject)propertyDescriptionProvider).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.MODULE__PROPERTY_DESCRIPTION_PROVIDER, null, msgs);
+      if (newPropertyDescriptionProvider != null)
+        msgs = ((InternalEObject)newPropertyDescriptionProvider).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.MODULE__PROPERTY_DESCRIPTION_PROVIDER, null, msgs);
+      msgs = basicSetPropertyDescriptionProvider(newPropertyDescriptionProvider, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MODULE__FEATURE_LABEL_PROVIDER, newFeatureLabelProvider, newFeatureLabelProvider));
+      eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MODULE__PROPERTY_DESCRIPTION_PROVIDER, newPropertyDescriptionProvider, newPropertyDescriptionProvider));
   }
 
   /**
@@ -285,8 +285,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
     {
       case ModelPackage.MODULE__LABEL_PROVIDER:
         return basicSetLabelProvider(null, msgs);
-      case ModelPackage.MODULE__FEATURE_LABEL_PROVIDER:
-        return basicSetFeatureLabelProvider(null, msgs);
+      case ModelPackage.MODULE__PROPERTY_DESCRIPTION_PROVIDER:
+        return basicSetPropertyDescriptionProvider(null, msgs);
       case ModelPackage.MODULE__FEATURE_PROVIDER:
         return basicSetFeatureProvider(null, msgs);
     }
@@ -307,8 +307,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
         return getName();
       case ModelPackage.MODULE__LABEL_PROVIDER:
         return getLabelProvider();
-      case ModelPackage.MODULE__FEATURE_LABEL_PROVIDER:
-        return getFeatureLabelProvider();
+      case ModelPackage.MODULE__PROPERTY_DESCRIPTION_PROVIDER:
+        return getPropertyDescriptionProvider();
       case ModelPackage.MODULE__FEATURE_PROVIDER:
         return getFeatureProvider();
     }
@@ -331,8 +331,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
       case ModelPackage.MODULE__LABEL_PROVIDER:
         setLabelProvider((LabelProvider)newValue);
         return;
-      case ModelPackage.MODULE__FEATURE_LABEL_PROVIDER:
-        setFeatureLabelProvider((FeatureLabelProvider)newValue);
+      case ModelPackage.MODULE__PROPERTY_DESCRIPTION_PROVIDER:
+        setPropertyDescriptionProvider((PropertyDescriptionProvider)newValue);
         return;
       case ModelPackage.MODULE__FEATURE_PROVIDER:
         setFeatureProvider((FeatureProvider)newValue);
@@ -357,8 +357,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
       case ModelPackage.MODULE__LABEL_PROVIDER:
         setLabelProvider((LabelProvider)null);
         return;
-      case ModelPackage.MODULE__FEATURE_LABEL_PROVIDER:
-        setFeatureLabelProvider((FeatureLabelProvider)null);
+      case ModelPackage.MODULE__PROPERTY_DESCRIPTION_PROVIDER:
+        setPropertyDescriptionProvider((PropertyDescriptionProvider)null);
         return;
       case ModelPackage.MODULE__FEATURE_PROVIDER:
         setFeatureProvider((FeatureProvider)null);
@@ -381,8 +381,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case ModelPackage.MODULE__LABEL_PROVIDER:
         return labelProvider != null;
-      case ModelPackage.MODULE__FEATURE_LABEL_PROVIDER:
-        return featureLabelProvider != null;
+      case ModelPackage.MODULE__PROPERTY_DESCRIPTION_PROVIDER:
+        return propertyDescriptionProvider != null;
       case ModelPackage.MODULE__FEATURE_PROVIDER:
         return featureProvider != null;
     }

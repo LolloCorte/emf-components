@@ -100,14 +100,14 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
         return createLabelSpecificationAdapter();
       }
       @Override
-      public Adapter caseFeatureLabelProvider(FeatureLabelProvider object)
+      public Adapter casePropertyDescriptionProvider(PropertyDescriptionProvider object)
       {
-        return createFeatureLabelProviderAdapter();
+        return createPropertyDescriptionProviderAdapter();
       }
       @Override
-      public Adapter caseFeatureLabelSpecification(FeatureLabelSpecification object)
+      public Adapter casePropertyDescriptionSpecification(PropertyDescriptionSpecification object)
       {
-        return createFeatureLabelSpecificationAdapter();
+        return createPropertyDescriptionSpecificationAdapter();
       }
       @Override
       public Adapter caseFeatureProvider(FeatureProvider object)
@@ -217,31 +217,31 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.FeatureLabelProvider <em>Feature Label Provider</em>}'.
+   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider <em>Property Description Provider</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see it.rcpvision.emf.components.dsl.model.FeatureLabelProvider
+   * @see it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider
    * @generated
    */
-  public Adapter createFeatureLabelProviderAdapter()
+  public Adapter createPropertyDescriptionProviderAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification <em>Feature Label Specification</em>}'.
+   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification <em>Property Description Specification</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification
+   * @see it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification
    * @generated
    */
-  public Adapter createFeatureLabelSpecificationAdapter()
+  public Adapter createPropertyDescriptionSpecificationAdapter()
   {
     return null;
   }

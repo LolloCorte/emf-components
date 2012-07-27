@@ -56,11 +56,11 @@ public class EmfComponentsDslJvmModelInferrerTests extends EmfComponentsDslAbstr
   }
   
   @Test
-  public void testFeatureLabelProviderName() {
+  public void testPropertyDescriptionProviderName() {
     CharSequence _emptyModule = this.inputs.emptyModule();
     Module _module = this.module(_emptyModule);
-    String _featureLabelProviderQN = this.inferrer.featureLabelProviderQN(_module);
-    this.assertEqualsStrings("my.empty.ui.provider.FeatureLabelProviderGen", _featureLabelProviderQN);
+    String _propertyDescriptionProviderQN = this.inferrer.propertyDescriptionProviderQN(_module);
+    this.assertEqualsStrings("my.empty.ui.provider.PropertyDescriptionProviderGen", _propertyDescriptionProviderQN);
   }
   
   @Test

@@ -22,7 +22,7 @@ Module:
 		(
 			(labelProvider = LabelProvider)?
 			&
-			(featureLabelProvider = FeatureLabelProvider)?
+			(propertyDescriptionProvider = PropertyDescriptionProvider)?
 			&
 			(featureProvider = FeatureProvider)?
 		)
@@ -51,17 +51,17 @@ LabelSpecification:
 	expression = XExpression
 ;
 
-FeatureLabelProvider:
-	{FeatureLabelProvider} 'featureLabelProvider' '{'
+PropertyDescriptionProvider:
+	{PropertyDescriptionProvider} 'featureLabelProvider' '{'
 		((
 		'labels' '{'
-			labelSpecifications+=FeatureLabelSpecification*
+			labelSpecifications+=PropertyDescriptionSpecification*
 		'}'
 		)?)
 	'}'
 ;
 
-FeatureLabelSpecification:
+PropertyDescriptionSpecification:
 	parameterType=[types::JvmType|QualifiedName] ':' feature=XFeatureCall
 	'->'
 	expression = XExpression

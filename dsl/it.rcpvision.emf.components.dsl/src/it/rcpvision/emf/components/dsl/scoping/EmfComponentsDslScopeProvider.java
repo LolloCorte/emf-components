@@ -3,8 +3,8 @@
  */
 package it.rcpvision.emf.components.dsl.scoping;
 
-import it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification;
 import it.rcpvision.emf.components.dsl.model.FeatureSpecification;
+import it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification;
 
 import java.util.Collections;
 
@@ -59,8 +59,8 @@ public class EmfComponentsDslScopeProvider extends XbaseScopeProvider {
 
 	@Override
 	protected JvmDeclaredType getContextType(EObject obj) {
-		if (obj instanceof FeatureLabelSpecification) {
-			FeatureLabelSpecification featureLabelSpecification = (FeatureLabelSpecification) obj;
+		if (obj instanceof PropertyDescriptionSpecification) {
+			PropertyDescriptionSpecification featureLabelSpecification = (PropertyDescriptionSpecification) obj;
 			JvmType parameterType = featureLabelSpecification
 					.getParameterType();
 			if (parameterType instanceof JvmDeclaredType) {
@@ -85,8 +85,8 @@ public class EmfComponentsDslScopeProvider extends XbaseScopeProvider {
 
 		if (scopeContext != null && scopeContext.getContext() != null) {
 			EObject context = scopeContext.getContext();
-			if (context instanceof FeatureLabelSpecification) {
-				FeatureLabelSpecification featureLabelSpecification = (FeatureLabelSpecification) context;
+			if (context instanceof PropertyDescriptionSpecification) {
+				PropertyDescriptionSpecification featureLabelSpecification = (PropertyDescriptionSpecification) context;
 				return new SimpleScope(parentScope,
 						Collections.singleton(EObjectDescription.create(THIS,
 								featureLabelSpecification.getParameterType())));
@@ -114,8 +114,8 @@ public class EmfComponentsDslScopeProvider extends XbaseScopeProvider {
 	protected IScope filterScope(EObject call, IScope superScope) {
 		boolean shouldFilter = false;
 		EObject container = call.eContainer();
-		if (container instanceof FeatureLabelSpecification) {
-			FeatureLabelSpecification featureLabelSpecification = (FeatureLabelSpecification) container;
+		if (container instanceof PropertyDescriptionSpecification) {
+			PropertyDescriptionSpecification featureLabelSpecification = (PropertyDescriptionSpecification) container;
 			if (featureLabelSpecification.getFeature() == call)
 				shouldFilter = true;
 		}

@@ -54,7 +54,7 @@
           <elements xsi:type="xtext:Assignment" cardinality="?" feature="labelProvider" operator="=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.4"/>
           </elements>
-          <elements xsi:type="xtext:Assignment" cardinality="?" feature="featureLabelProvider" operator="=">
+          <elements xsi:type="xtext:Assignment" cardinality="?" feature="propertyDescriptionProvider" operator="=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
           </elements>
           <elements xsi:type="xtext:Assignment" cardinality="?" feature="featureProvider" operator="=">
@@ -114,14 +114,14 @@
         </elements>
       </alternatives>
     </rules>
-    <rules xsi:type="xtext:ParserRule" name="FeatureLabelProvider">
+    <rules xsi:type="xtext:ParserRule" name="PropertyDescriptionProvider">
       <type metamodel="/0/@metamodelDeclarations.1">
-        <classifier xsi:type="ecore:EClass" href="http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl#//FeatureLabelProvider"/>
+        <classifier xsi:type="ecore:EClass" href="http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl#//PropertyDescriptionProvider"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Action">
           <type metamodel="/0/@metamodelDeclarations.1">
-            <classifier xsi:type="ecore:EClass" href="http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl#//FeatureLabelProvider"/>
+            <classifier xsi:type="ecore:EClass" href="http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl#//PropertyDescriptionProvider"/>
           </type>
         </elements>
         <elements xsi:type="xtext:Keyword" value="featureLabelProvider"/>
@@ -137,9 +137,9 @@
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
     </rules>
-    <rules xsi:type="xtext:ParserRule" name="FeatureLabelSpecification">
+    <rules xsi:type="xtext:ParserRule" name="PropertyDescriptionSpecification">
       <type metamodel="/0/@metamodelDeclarations.1">
-        <classifier xsi:type="ecore:EClass" href="http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl#//FeatureLabelSpecification"/>
+        <classifier xsi:type="ecore:EClass" href="http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl#//PropertyDescriptionSpecification"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Assignment" feature="parameterType" operator="=">

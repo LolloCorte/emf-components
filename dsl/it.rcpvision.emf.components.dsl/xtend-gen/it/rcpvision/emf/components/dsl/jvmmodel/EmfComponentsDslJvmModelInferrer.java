@@ -4,17 +4,16 @@ import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import it.rcpvision.emf.components.EmfComponentsGenericModule;
 import it.rcpvision.emf.components.dsl.jvmmodel.GeneratorUtils;
-import it.rcpvision.emf.components.dsl.model.FeatureLabelProvider;
-import it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification;
 import it.rcpvision.emf.components.dsl.model.FeatureProvider;
 import it.rcpvision.emf.components.dsl.model.FeatureSpecification;
 import it.rcpvision.emf.components.dsl.model.LabelProvider;
 import it.rcpvision.emf.components.dsl.model.LabelSpecification;
 import it.rcpvision.emf.components.dsl.model.Module;
+import it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider;
+import it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider.EClassToEStructuralFeatureAsStringsMap;
-import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
 import java.util.Arrays;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
@@ -110,7 +109,7 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
     String _moduleQN = this.moduleQN(element);
     final JvmGenericType moduleClass = this._jvmTypesBuilder.toClass(element, _moduleQN);
     final JvmGenericType labelProviderClass = this.inferLabelProvider(element, acceptor);
-    final JvmGenericType featureLabelProviderClass = this.inferFeatureLabelProvider(element, acceptor);
+    final JvmGenericType propertyDescriptionProviderClass = this.inferPropertyDescriptionProvider(element, acceptor);
     final JvmGenericType featureProviderClass = this.inferFeatureProvider(element, acceptor);
     IPostIndexingInitializing<JvmGenericType> _accept = acceptor.<JvmGenericType>accept(moduleClass);
     final Procedure1<JvmGenericType> _function = new Procedure1<JvmGenericType>() {
@@ -144,11 +143,11 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
             JvmOperation _genBindMethod = EmfComponentsDslJvmModelInferrer.this.genBindMethod(_labelProvider, labelProviderClass, CompositeLabelProvider.class);
             EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_1, _genBindMethod);
           }
-          boolean _notEquals_1 = (!Objects.equal(featureLabelProviderClass, null));
+          boolean _notEquals_1 = (!Objects.equal(propertyDescriptionProviderClass, null));
           if (_notEquals_1) {
             EList<JvmMember> _members_2 = it.getMembers();
-            FeatureLabelProvider _featureLabelProvider = element.getFeatureLabelProvider();
-            JvmOperation _genBindMethod_1 = EmfComponentsDslJvmModelInferrer.this.genBindMethod(_featureLabelProvider, featureLabelProviderClass, PropertyDescriptionProvider.class);
+            PropertyDescriptionProvider _propertyDescriptionProvider = element.getPropertyDescriptionProvider();
+            JvmOperation _genBindMethod_1 = EmfComponentsDslJvmModelInferrer.this.genBindMethod(_propertyDescriptionProvider, propertyDescriptionProviderClass, it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider.class);
             EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_2, _genBindMethod_1);
           }
           boolean _notEquals_2 = (!Objects.equal(featureProviderClass, null));
@@ -187,9 +186,9 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
     return _plus;
   }
   
-  public String featureLabelProviderQN(final Module element) {
+  public String propertyDescriptionProviderQN(final Module element) {
     QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(element);
-    String _plus = (_fullyQualifiedName + ".ui.provider.FeatureLabelProviderGen");
+    String _plus = (_fullyQualifiedName + ".ui.provider.PropertyDescriptionProviderGen");
     return _plus;
   }
   
@@ -287,28 +286,28 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
     return _xifexpression;
   }
   
-  public JvmGenericType inferFeatureLabelProvider(final Module element, final IJvmDeclaredTypeAcceptor acceptor) {
+  public JvmGenericType inferPropertyDescriptionProvider(final Module element, final IJvmDeclaredTypeAcceptor acceptor) {
     JvmGenericType _xifexpression = null;
-    FeatureLabelProvider _featureLabelProvider = element.getFeatureLabelProvider();
-    boolean _equals = Objects.equal(_featureLabelProvider, null);
+    PropertyDescriptionProvider _propertyDescriptionProvider = element.getPropertyDescriptionProvider();
+    boolean _equals = Objects.equal(_propertyDescriptionProvider, null);
     if (_equals) {
       _xifexpression = null;
     } else {
       JvmGenericType _xblockexpression = null;
       {
-        FeatureLabelProvider _featureLabelProvider_1 = element.getFeatureLabelProvider();
-        String _featureLabelProviderQN = this.featureLabelProviderQN(element);
-        final JvmGenericType featureLabelProviderClass = this._jvmTypesBuilder.toClass(_featureLabelProvider_1, _featureLabelProviderQN);
-        IPostIndexingInitializing<JvmGenericType> _accept = acceptor.<JvmGenericType>accept(featureLabelProviderClass);
+        PropertyDescriptionProvider _propertyDescriptionProvider_1 = element.getPropertyDescriptionProvider();
+        String _propertyDescriptionProviderQN = this.propertyDescriptionProviderQN(element);
+        final JvmGenericType propertyDescriptionProviderClass = this._jvmTypesBuilder.toClass(_propertyDescriptionProvider_1, _propertyDescriptionProviderQN);
+        IPostIndexingInitializing<JvmGenericType> _accept = acceptor.<JvmGenericType>accept(propertyDescriptionProviderClass);
         final Procedure1<JvmGenericType> _function = new Procedure1<JvmGenericType>() {
             public void apply(final JvmGenericType it) {
               EList<JvmTypeReference> _superTypes = it.getSuperTypes();
-              JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, PropertyDescriptionProvider.class);
+              JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider.class);
               EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _newTypeRef);
-              FeatureLabelProvider _featureLabelProvider = element.getFeatureLabelProvider();
-              EList<FeatureLabelSpecification> _labelSpecifications = _featureLabelProvider.getLabelSpecifications();
-              final Procedure1<FeatureLabelSpecification> _function = new Procedure1<FeatureLabelSpecification>() {
-                  public void apply(final FeatureLabelSpecification labelSpecification) {
+              PropertyDescriptionProvider _propertyDescriptionProvider = element.getPropertyDescriptionProvider();
+              EList<PropertyDescriptionSpecification> _labelSpecifications = _propertyDescriptionProvider.getLabelSpecifications();
+              final Procedure1<PropertyDescriptionSpecification> _function = new Procedure1<PropertyDescriptionSpecification>() {
+                  public void apply(final PropertyDescriptionSpecification labelSpecification) {
                     boolean _and = false;
                     XExpression _feature = labelSpecification.getFeature();
                     boolean _notEquals = (!Objects.equal(_feature, null));
@@ -349,11 +348,11 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
                     }
                   }
                 };
-              IterableExtensions.<FeatureLabelSpecification>forEach(_labelSpecifications, _function);
+              IterableExtensions.<PropertyDescriptionSpecification>forEach(_labelSpecifications, _function);
             }
           };
         _accept.initializeLater(_function);
-        _xblockexpression = (featureLabelProviderClass);
+        _xblockexpression = (propertyDescriptionProviderClass);
       }
       _xifexpression = _xblockexpression;
     }

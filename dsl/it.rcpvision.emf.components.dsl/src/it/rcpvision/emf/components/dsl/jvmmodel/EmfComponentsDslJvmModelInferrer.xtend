@@ -72,7 +72,7 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 		val moduleClass = element.toClass(element.moduleQN)
 		
 		val labelProviderClass = element.inferLabelProvider(acceptor)
-		val featureLabelProviderClass = element.inferFeatureLabelProvider(acceptor)
+		val propertyDescriptionProviderClass = element.inferPropertyDescriptionProvider(acceptor)
 		val featureProviderClass = element.inferFeatureProvider(acceptor)
 		
 		acceptor.accept(moduleClass).initializeLater [
@@ -86,8 +86,8 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 			
 			if (labelProviderClass != null)
 				members += element.labelProvider.genBindMethod(labelProviderClass, typeof(CompositeLabelProvider))
-			if (featureLabelProviderClass != null)
-				members += element.featureLabelProvider.genBindMethod(featureLabelProviderClass, typeof(PropertyDescriptionProvider))
+			if (propertyDescriptionProviderClass != null)
+				members += element.propertyDescriptionProvider.genBindMethod(propertyDescriptionProviderClass, typeof(PropertyDescriptionProvider))
 			if (featureProviderClass != null)
 				members += element.featureProvider.genBindMethod(featureProviderClass, typeof(EStructuralFeaturesProvider))
 		]
@@ -109,8 +109,8 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 		element.fullyQualifiedName + ".ui.provider.LabelProviderGen"
 	}
 	
-	def featureLabelProviderQN(Module element) {
-		element.fullyQualifiedName + ".ui.provider.FeatureLabelProviderGen"
+	def propertyDescriptionProviderQN(Module element) {
+		element.fullyQualifiedName + ".ui.provider.PropertyDescriptionProviderGen"
 	}
 
 	def featureProviderQN(Module element) {
@@ -157,15 +157,15 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 		}
 	}
 	
-	def inferFeatureLabelProvider(Module element, IJvmDeclaredTypeAcceptor acceptor) {
-		if (element.featureLabelProvider == null)
+	def inferPropertyDescriptionProvider(Module element, IJvmDeclaredTypeAcceptor acceptor) {
+		if (element.propertyDescriptionProvider == null)
 			null
 		else {
-			val featureLabelProviderClass = element.featureLabelProvider.toClass(element.featureLabelProviderQN)
-			acceptor.accept(featureLabelProviderClass).initializeLater [
+			val propertyDescriptionProviderClass = element.propertyDescriptionProvider.toClass(element.propertyDescriptionProviderQN)
+			acceptor.accept(propertyDescriptionProviderClass).initializeLater [
 				superTypes += element.newTypeRef(typeof(PropertyDescriptionProvider))
 				
-				element.featureLabelProvider.labelSpecifications.forEach [
+				element.propertyDescriptionProvider.labelSpecifications.forEach [
 					labelSpecification |
 					if (labelSpecification.feature != null &&
 						(labelSpecification.feature as XFeatureCall).feature != null
@@ -189,7 +189,7 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 					}
 				]
 			]
-			featureLabelProviderClass
+			propertyDescriptionProviderClass
 		}
 	}
 

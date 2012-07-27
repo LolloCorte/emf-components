@@ -288,17 +288,17 @@ ruleModule returns [EObject current=null]
 					({true}?=>(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModuleAccess().getFeatureLabelProviderFeatureLabelProviderParserRuleCall_3_1_0()); 
+	        newCompositeNode(grammarAccess.getModuleAccess().getPropertyDescriptionProviderPropertyDescriptionProviderParserRuleCall_3_1_0()); 
 	    }
-		lv_featureLabelProvider_5_0=ruleFeatureLabelProvider		{
+		lv_propertyDescriptionProvider_5_0=rulePropertyDescriptionProvider		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getModuleRule());
 	        }
        		set(
        			$current, 
-       			"featureLabelProvider",
-        		lv_featureLabelProvider_5_0, 
-        		"FeatureLabelProvider");
+       			"propertyDescriptionProvider",
+        		lv_propertyDescriptionProvider_5_0, 
+        		"PropertyDescriptionProvider");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -576,67 +576,67 @@ ruleLabelSpecification returns [EObject current=null]
 
 
 
-// Entry rule entryRuleFeatureLabelProvider
-entryRuleFeatureLabelProvider returns [EObject current=null] 
+// Entry rule entryRulePropertyDescriptionProvider
+entryRulePropertyDescriptionProvider returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getFeatureLabelProviderRule()); }
-	 iv_ruleFeatureLabelProvider=ruleFeatureLabelProvider 
-	 { $current=$iv_ruleFeatureLabelProvider.current; } 
+	{ newCompositeNode(grammarAccess.getPropertyDescriptionProviderRule()); }
+	 iv_rulePropertyDescriptionProvider=rulePropertyDescriptionProvider 
+	 { $current=$iv_rulePropertyDescriptionProvider.current; } 
 	 EOF 
 ;
 
-// Rule FeatureLabelProvider
-ruleFeatureLabelProvider returns [EObject current=null] 
+// Rule PropertyDescriptionProvider
+rulePropertyDescriptionProvider returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
 ((
     {
         $current = forceCreateModelElement(
-            grammarAccess.getFeatureLabelProviderAccess().getFeatureLabelProviderAction_0(),
+            grammarAccess.getPropertyDescriptionProviderAccess().getPropertyDescriptionProviderAction_0(),
             $current);
     }
 )	otherlv_1='featureLabelProvider' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getFeatureLabelProviderAccess().getFeatureLabelProviderKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getPropertyDescriptionProviderAccess().getFeatureLabelProviderKeyword_1());
     }
 	otherlv_2='{' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getFeatureLabelProviderAccess().getLeftCurlyBracketKeyword_2());
+    	newLeafNode(otherlv_2, grammarAccess.getPropertyDescriptionProviderAccess().getLeftCurlyBracketKeyword_2());
     }
 (	otherlv_3='labels' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getFeatureLabelProviderAccess().getLabelsKeyword_3_0());
+    	newLeafNode(otherlv_3, grammarAccess.getPropertyDescriptionProviderAccess().getLabelsKeyword_3_0());
     }
 	otherlv_4='{' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getFeatureLabelProviderAccess().getLeftCurlyBracketKeyword_3_1());
+    	newLeafNode(otherlv_4, grammarAccess.getPropertyDescriptionProviderAccess().getLeftCurlyBracketKeyword_3_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFeatureLabelProviderAccess().getLabelSpecificationsFeatureLabelSpecificationParserRuleCall_3_2_0()); 
+	        newCompositeNode(grammarAccess.getPropertyDescriptionProviderAccess().getLabelSpecificationsPropertyDescriptionSpecificationParserRuleCall_3_2_0()); 
 	    }
-		lv_labelSpecifications_5_0=ruleFeatureLabelSpecification		{
+		lv_labelSpecifications_5_0=rulePropertyDescriptionSpecification		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getFeatureLabelProviderRule());
+	            $current = createModelElementForParent(grammarAccess.getPropertyDescriptionProviderRule());
 	        }
        		add(
        			$current, 
        			"labelSpecifications",
         		lv_labelSpecifications_5_0, 
-        		"FeatureLabelSpecification");
+        		"PropertyDescriptionSpecification");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
 )*	otherlv_6='}' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getFeatureLabelProviderAccess().getRightCurlyBracketKeyword_3_3());
+    	newLeafNode(otherlv_6, grammarAccess.getPropertyDescriptionProviderAccess().getRightCurlyBracketKeyword_3_3());
     }
 )?	otherlv_7='}' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getFeatureLabelProviderAccess().getRightCurlyBracketKeyword_4());
+    	newLeafNode(otherlv_7, grammarAccess.getPropertyDescriptionProviderAccess().getRightCurlyBracketKeyword_4());
     }
 )
 ;
@@ -645,17 +645,17 @@ ruleFeatureLabelProvider returns [EObject current=null]
 
 
 
-// Entry rule entryRuleFeatureLabelSpecification
-entryRuleFeatureLabelSpecification returns [EObject current=null] 
+// Entry rule entryRulePropertyDescriptionSpecification
+entryRulePropertyDescriptionSpecification returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getFeatureLabelSpecificationRule()); }
-	 iv_ruleFeatureLabelSpecification=ruleFeatureLabelSpecification 
-	 { $current=$iv_ruleFeatureLabelSpecification.current; } 
+	{ newCompositeNode(grammarAccess.getPropertyDescriptionSpecificationRule()); }
+	 iv_rulePropertyDescriptionSpecification=rulePropertyDescriptionSpecification 
+	 { $current=$iv_rulePropertyDescriptionSpecification.current; } 
 	 EOF 
 ;
 
-// Rule FeatureLabelSpecification
-ruleFeatureLabelSpecification returns [EObject current=null] 
+// Rule PropertyDescriptionSpecification
+rulePropertyDescriptionSpecification returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
@@ -663,11 +663,11 @@ ruleFeatureLabelSpecification returns [EObject current=null]
 (
 		{
 			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getFeatureLabelSpecificationRule());
+	            $current = createModelElement(grammarAccess.getPropertyDescriptionSpecificationRule());
 	        }
         }
 		{ 
-	        newCompositeNode(grammarAccess.getFeatureLabelSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); 
+	        newCompositeNode(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); 
 	    }
 		ruleQualifiedName		{ 
 	        afterParserOrEnumRuleCall();
@@ -676,16 +676,16 @@ ruleFeatureLabelSpecification returns [EObject current=null]
 )
 )	otherlv_1=':' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getFeatureLabelSpecificationAccess().getColonKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getPropertyDescriptionSpecificationAccess().getColonKeyword_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFeatureLabelSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getPropertyDescriptionSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0()); 
 	    }
 		lv_feature_2_0=ruleXFeatureCall		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getFeatureLabelSpecificationRule());
+	            $current = createModelElementForParent(grammarAccess.getPropertyDescriptionSpecificationRule());
 	        }
        		set(
        			$current, 
@@ -698,16 +698,16 @@ ruleFeatureLabelSpecification returns [EObject current=null]
 )
 )	otherlv_3='->' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getFeatureLabelSpecificationAccess().getHyphenMinusGreaterThanSignKeyword_3());
+    	newLeafNode(otherlv_3, grammarAccess.getPropertyDescriptionSpecificationAccess().getHyphenMinusGreaterThanSignKeyword_3());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFeatureLabelSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0()); 
+	        newCompositeNode(grammarAccess.getPropertyDescriptionSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0()); 
 	    }
 		lv_expression_4_0=ruleXExpression		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getFeatureLabelSpecificationRule());
+	            $current = createModelElementForParent(grammarAccess.getPropertyDescriptionSpecificationRule());
 	        }
        		set(
        			$current, 

@@ -121,7 +121,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.newLine();
     _builder.append("import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;");
     _builder.newLine();
-    _builder.append("import my.empty.ui.provider.FeatureLabelProviderGen;");
+    _builder.append("import my.empty.ui.provider.PropertyDescriptionProviderGen;");
     _builder.newLine();
     _builder.append("import org.eclipse.ui.plugin.AbstractUIPlugin;");
     _builder.newLine();
@@ -146,7 +146,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("public Class<? extends PropertyDescriptionProvider> bindPropertyDescriptionProvider() {");
     _builder.newLine();
     _builder.append("    ");
-    _builder.append("return FeatureLabelProviderGen.class;");
+    _builder.append("return PropertyDescriptionProviderGen.class;");
     _builder.newLine();
     _builder.append("  ");
     _builder.append("}");
@@ -160,7 +160,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.append("import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;");
     _builder_1.newLine();
     _builder_1.newLine();
-    _builder_1.append("public class FeatureLabelProviderGen extends FeatureLabelProvider {");
+    _builder_1.append("public class PropertyDescriptionProviderGen extends PropertyDescriptionProvider {");
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
@@ -408,7 +408,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.newLine();
     _builder.append("import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;");
     _builder.newLine();
-    _builder.append("import my.empty.ui.provider.FeatureLabelProviderGen;");
+    _builder.append("import my.empty.ui.provider.PropertyDescriptionProviderGen;");
     _builder.newLine();
     _builder.append("import org.eclipse.ui.plugin.AbstractUIPlugin;");
     _builder.newLine();
@@ -433,7 +433,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("public Class<? extends PropertyDescriptionProvider> bindPropertyDescriptionProvider() {");
     _builder.newLine();
     _builder.append("    ");
-    _builder.append("return FeatureLabelProviderGen.class;");
+    _builder.append("return PropertyDescriptionProviderGen.class;");
     _builder.newLine();
     _builder.append("  ");
     _builder.append("}");
@@ -451,7 +451,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.append("import org.eclipse.xtext.xbase.lib.StringExtensions;");
     _builder_1.newLine();
     _builder_1.newLine();
-    _builder_1.append("public class FeatureLabelProviderGen extends PropertyDescriptionProvider {");
+    _builder_1.append("public class PropertyDescriptionProviderGen extends PropertyDescriptionProvider {");
     _builder_1.newLine();
     _builder_1.append("  ");
     _builder_1.append("public String text_Library_name(final EStructuralFeature it) {");
@@ -580,7 +580,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     this.assertCorrectJavaCodeGeneration(_featureSpecifications, _builder, null, null, _builder_1);
   }
   
-  private void assertCorrectJavaCodeGeneration(final CharSequence input, final CharSequence expectedModule, final CharSequence expectedLabelProvider, final CharSequence expectedFeatureLabelProvider, final CharSequence expectedFeatureProvider) {
+  private void assertCorrectJavaCodeGeneration(final CharSequence input, final CharSequence expectedModule, final CharSequence expectedLabelProvider, final CharSequence expectedPropertyDescriptionProvider, final CharSequence expectedFeatureProvider) {
     final Procedure1<Result> _function = new Procedure1<Result>() {
         public void apply(final Result it) {
           Map<String,CharSequence> _allGeneratedResources = it.getAllGeneratedResources();
@@ -596,12 +596,12 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
               }
             } else {
               String _key_1 = e.getKey();
-              boolean _endsWith_1 = _key_1.endsWith("FeatureLabelProviderGen.java");
+              boolean _endsWith_1 = _key_1.endsWith("PropertyDescriptionProviderGen.java");
               if (_endsWith_1) {
-                boolean _notEquals_1 = (!Objects.equal(expectedFeatureLabelProvider, null));
+                boolean _notEquals_1 = (!Objects.equal(expectedPropertyDescriptionProvider, null));
                 if (_notEquals_1) {
                   CharSequence _value_1 = e.getValue();
-                  EmfComponentsDslGeneratorTests.this.assertEqualsStrings(expectedFeatureLabelProvider, _value_1);
+                  EmfComponentsDslGeneratorTests.this.assertEqualsStrings(expectedPropertyDescriptionProvider, _value_1);
                 }
               } else {
                 String _key_2 = e.getKey();

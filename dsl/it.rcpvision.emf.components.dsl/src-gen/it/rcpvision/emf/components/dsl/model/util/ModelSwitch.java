@@ -107,17 +107,17 @@ public class ModelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ModelPackage.FEATURE_LABEL_PROVIDER:
+      case ModelPackage.PROPERTY_DESCRIPTION_PROVIDER:
       {
-        FeatureLabelProvider featureLabelProvider = (FeatureLabelProvider)theEObject;
-        T result = caseFeatureLabelProvider(featureLabelProvider);
+        PropertyDescriptionProvider propertyDescriptionProvider = (PropertyDescriptionProvider)theEObject;
+        T result = casePropertyDescriptionProvider(propertyDescriptionProvider);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ModelPackage.FEATURE_LABEL_SPECIFICATION:
+      case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION:
       {
-        FeatureLabelSpecification featureLabelSpecification = (FeatureLabelSpecification)theEObject;
-        T result = caseFeatureLabelSpecification(featureLabelSpecification);
+        PropertyDescriptionSpecification propertyDescriptionSpecification = (PropertyDescriptionSpecification)theEObject;
+        T result = casePropertyDescriptionSpecification(propertyDescriptionSpecification);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -220,33 +220,33 @@ public class ModelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Feature Label Provider</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Property Description Provider</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Feature Label Provider</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Property Description Provider</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseFeatureLabelProvider(FeatureLabelProvider object)
+  public T casePropertyDescriptionProvider(PropertyDescriptionProvider object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Feature Label Specification</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Property Description Specification</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Feature Label Specification</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Property Description Specification</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseFeatureLabelSpecification(FeatureLabelSpecification object)
+  public T casePropertyDescriptionSpecification(PropertyDescriptionSpecification object)
   {
     return null;
   }

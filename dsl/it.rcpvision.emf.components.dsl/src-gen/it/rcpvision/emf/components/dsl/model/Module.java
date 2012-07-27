@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getName <em>Name</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getLabelProvider <em>Label Provider</em>}</li>
- *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getFeatureLabelProvider <em>Feature Label Provider</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getPropertyDescriptionProvider <em>Property Description Provider</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getFeatureProvider <em>Feature Provider</em>}</li>
  * </ul>
  * </p>
@@ -78,30 +78,30 @@ public interface Module extends EObject
   void setLabelProvider(LabelProvider value);
 
   /**
-   * Returns the value of the '<em><b>Feature Label Provider</b></em>' containment reference.
+   * Returns the value of the '<em><b>Property Description Provider</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Feature Label Provider</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Property Description Provider</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Feature Label Provider</em>' containment reference.
-   * @see #setFeatureLabelProvider(FeatureLabelProvider)
-   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getModule_FeatureLabelProvider()
+   * @return the value of the '<em>Property Description Provider</em>' containment reference.
+   * @see #setPropertyDescriptionProvider(PropertyDescriptionProvider)
+   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getModule_PropertyDescriptionProvider()
    * @model containment="true"
    * @generated
    */
-  FeatureLabelProvider getFeatureLabelProvider();
+  PropertyDescriptionProvider getPropertyDescriptionProvider();
 
   /**
-   * Sets the value of the '{@link it.rcpvision.emf.components.dsl.model.Module#getFeatureLabelProvider <em>Feature Label Provider</em>}' containment reference.
+   * Sets the value of the '{@link it.rcpvision.emf.components.dsl.model.Module#getPropertyDescriptionProvider <em>Property Description Provider</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Feature Label Provider</em>' containment reference.
-   * @see #getFeatureLabelProvider()
+   * @param value the new value of the '<em>Property Description Provider</em>' containment reference.
+   * @see #getPropertyDescriptionProvider()
    * @generated
    */
-  void setFeatureLabelProvider(FeatureLabelProvider value);
+  void setPropertyDescriptionProvider(PropertyDescriptionProvider value);
 
   /**
    * Returns the value of the '<em><b>Feature Provider</b></em>' containment reference.

@@ -75,7 +75,7 @@ package my.empty;
 
 import it.rcpvision.emf.components.EmfComponentsGenericModule;
 import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
-import my.empty.ui.provider.FeatureLabelProviderGen;
+import my.empty.ui.provider.PropertyDescriptionProviderGen;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 public class EmfComponentsGuiceModuleGen extends EmfComponentsGenericModule {
@@ -85,7 +85,7 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGenericModule {
   
   @Override
   public Class<? extends PropertyDescriptionProvider> bindPropertyDescriptionProvider() {
-    return FeatureLabelProviderGen.class;
+    return PropertyDescriptionProviderGen.class;
   }
 }
 ''',
@@ -94,7 +94,7 @@ package my.empty.ui.provider;
 
 import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 
-public class FeatureLabelProviderGen extends FeatureLabelProvider {
+public class PropertyDescriptionProviderGen extends PropertyDescriptionProvider {
 }
 ''', null, null
 		)
@@ -209,7 +209,7 @@ package my.empty;
 
 import it.rcpvision.emf.components.EmfComponentsGenericModule;
 import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
-import my.empty.ui.provider.FeatureLabelProviderGen;
+import my.empty.ui.provider.PropertyDescriptionProviderGen;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 public class EmfComponentsGuiceModuleGen extends EmfComponentsGenericModule {
@@ -219,7 +219,7 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGenericModule {
   
   @Override
   public Class<? extends PropertyDescriptionProvider> bindPropertyDescriptionProvider() {
-    return FeatureLabelProviderGen.class;
+    return PropertyDescriptionProviderGen.class;
   }
 }
 ''', null,
@@ -230,7 +230,7 @@ import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 
-public class FeatureLabelProviderGen extends PropertyDescriptionProvider {
+public class PropertyDescriptionProviderGen extends PropertyDescriptionProvider {
   public String text_Library_name(final EStructuralFeature it) {
     return "Name";
   }
@@ -294,7 +294,7 @@ public class EStructuralFeaturesProviderGen extends EStructuralFeaturesProvider 
 
 	def private assertCorrectJavaCodeGeneration(CharSequence input,
 			CharSequence expectedModule, CharSequence expectedLabelProvider, 
-			CharSequence expectedFeatureLabelProvider,
+			CharSequence expectedPropertyDescriptionProvider,
 			CharSequence expectedFeatureProvider) {
 		input.compileAll [
 			for (e : allGeneratedResources.entrySet) {
@@ -302,10 +302,10 @@ public class EStructuralFeaturesProviderGen extends EStructuralFeaturesProvider 
 					// check the expected Java code for the module
 					if (expectedModule != null)
 						assertEqualsStrings(expectedModule, e.value)
-				} else if (e.key.endsWith("FeatureLabelProviderGen.java")) {
+				} else if (e.key.endsWith("PropertyDescriptionProviderGen.java")) {
 					// check the expected Java code for the module
-					if (expectedFeatureLabelProvider != null)
-						assertEqualsStrings(expectedFeatureLabelProvider, e.value)
+					if (expectedPropertyDescriptionProvider != null)
+						assertEqualsStrings(expectedPropertyDescriptionProvider, e.value)
 				} else if (e.key.endsWith("EStructuralFeaturesProviderGen.java")) {
 					// check the expected Java code for the module
 					if (expectedFeatureProvider != null)

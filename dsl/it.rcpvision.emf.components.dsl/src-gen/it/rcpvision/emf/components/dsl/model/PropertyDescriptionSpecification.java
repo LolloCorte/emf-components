@@ -10,23 +10,23 @@ import org.eclipse.xtext.xbase.XExpression;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Feature Label Specification</b></em>'.
+ * A representation of the model object '<em><b>Property Description Specification</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification#getParameterType <em>Parameter Type</em>}</li>
- *   <li>{@link it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification#getFeature <em>Feature</em>}</li>
- *   <li>{@link it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification#getExpression <em>Expression</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification#getParameterType <em>Parameter Type</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification#getFeature <em>Feature</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification#getExpression <em>Expression</em>}</li>
  * </ul>
  * </p>
  *
- * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getFeatureLabelSpecification()
+ * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getPropertyDescriptionSpecification()
  * @model
  * @generated
  */
-public interface FeatureLabelSpecification extends EObject
+public interface PropertyDescriptionSpecification extends EObject
 {
   /**
    * Returns the value of the '<em><b>Parameter Type</b></em>' reference.
@@ -38,14 +38,14 @@ public interface FeatureLabelSpecification extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Parameter Type</em>' reference.
    * @see #setParameterType(JvmType)
-   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getFeatureLabelSpecification_ParameterType()
+   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getPropertyDescriptionSpecification_ParameterType()
    * @model
    * @generated
    */
   JvmType getParameterType();
 
   /**
-   * Sets the value of the '{@link it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification#getParameterType <em>Parameter Type</em>}' reference.
+   * Sets the value of the '{@link it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification#getParameterType <em>Parameter Type</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Parameter Type</em>' reference.
@@ -64,14 +64,14 @@ public interface FeatureLabelSpecification extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Feature</em>' containment reference.
    * @see #setFeature(XExpression)
-   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getFeatureLabelSpecification_Feature()
+   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getPropertyDescriptionSpecification_Feature()
    * @model containment="true"
    * @generated
    */
   XExpression getFeature();
 
   /**
-   * Sets the value of the '{@link it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification#getFeature <em>Feature</em>}' containment reference.
+   * Sets the value of the '{@link it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification#getFeature <em>Feature</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Feature</em>' containment reference.
@@ -90,14 +90,14 @@ public interface FeatureLabelSpecification extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expression</em>' containment reference.
    * @see #setExpression(XExpression)
-   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getFeatureLabelSpecification_Expression()
+   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getPropertyDescriptionSpecification_Expression()
    * @model containment="true"
    * @generated
    */
   XExpression getExpression();
 
   /**
-   * Sets the value of the '{@link it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification#getExpression <em>Expression</em>}' containment reference.
+   * Sets the value of the '{@link it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification#getExpression <em>Expression</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Expression</em>' containment reference.
@@ -106,4 +106,4 @@ public interface FeatureLabelSpecification extends EObject
    */
   void setExpression(XExpression value);
 
-} // FeatureLabelSpecification
+} // PropertyDescriptionSpecification

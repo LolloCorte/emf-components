@@ -2,8 +2,6 @@ package it.rcpvision.emf.components.dsl.serializer;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
-import it.rcpvision.emf.components.dsl.model.FeatureLabelProvider;
-import it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification;
 import it.rcpvision.emf.components.dsl.model.FeatureProvider;
 import it.rcpvision.emf.components.dsl.model.FeatureSpecification;
 import it.rcpvision.emf.components.dsl.model.Import;
@@ -12,6 +10,8 @@ import it.rcpvision.emf.components.dsl.model.LabelSpecification;
 import it.rcpvision.emf.components.dsl.model.Model;
 import it.rcpvision.emf.components.dsl.model.ModelPackage;
 import it.rcpvision.emf.components.dsl.model.Module;
+import it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider;
+import it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification;
 import it.rcpvision.emf.components.dsl.services.EmfComponentsDslGrammarAccess;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.common.types.JvmFormalParameter;
@@ -70,18 +70,6 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == ModelPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
-			case ModelPackage.FEATURE_LABEL_PROVIDER:
-				if(context == grammarAccess.getFeatureLabelProviderRule()) {
-					sequence_FeatureLabelProvider(context, (FeatureLabelProvider) semanticObject); 
-					return; 
-				}
-				else break;
-			case ModelPackage.FEATURE_LABEL_SPECIFICATION:
-				if(context == grammarAccess.getFeatureLabelSpecificationRule()) {
-					sequence_FeatureLabelSpecification(context, (FeatureLabelSpecification) semanticObject); 
-					return; 
-				}
-				else break;
 			case ModelPackage.FEATURE_PROVIDER:
 				if(context == grammarAccess.getFeatureProviderRule()) {
 					sequence_FeatureProvider(context, (FeatureProvider) semanticObject); 
@@ -121,6 +109,18 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 			case ModelPackage.MODULE:
 				if(context == grammarAccess.getModuleRule()) {
 					sequence_Module(context, (Module) semanticObject); 
+					return; 
+				}
+				else break;
+			case ModelPackage.PROPERTY_DESCRIPTION_PROVIDER:
+				if(context == grammarAccess.getPropertyDescriptionProviderRule()) {
+					sequence_PropertyDescriptionProvider(context, (PropertyDescriptionProvider) semanticObject); 
+					return; 
+				}
+				else break;
+			case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION:
+				if(context == grammarAccess.getPropertyDescriptionSpecificationRule()) {
+					sequence_PropertyDescriptionSpecification(context, (PropertyDescriptionSpecification) semanticObject); 
 					return; 
 				}
 				else break;
@@ -986,37 +986,6 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (labelSpecifications+=FeatureLabelSpecification*)
-	 */
-	protected void sequence_FeatureLabelProvider(EObject context, FeatureLabelProvider semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (parameterType=[JvmType|QualifiedName] feature=XFeatureCall expression=XExpression)
-	 */
-	protected void sequence_FeatureLabelSpecification(EObject context, FeatureLabelSpecification semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.FEATURE_LABEL_SPECIFICATION__PARAMETER_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.FEATURE_LABEL_SPECIFICATION__PARAMETER_TYPE));
-			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.FEATURE_LABEL_SPECIFICATION__FEATURE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.FEATURE_LABEL_SPECIFICATION__FEATURE));
-			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.FEATURE_LABEL_SPECIFICATION__EXPRESSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.FEATURE_LABEL_SPECIFICATION__EXPRESSION));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getFeatureLabelSpecificationAccess().getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1(), semanticObject.getParameterType());
-		feeder.accept(grammarAccess.getFeatureLabelSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0(), semanticObject.getFeature());
-		feeder.accept(grammarAccess.getFeatureLabelSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0(), semanticObject.getExpression());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (featureSpecifications+=FeatureSpecification*)
 	 */
 	protected void sequence_FeatureProvider(EObject context, FeatureProvider semanticObject) {
@@ -1078,9 +1047,40 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=QualifiedName labelProvider=LabelProvider? featureLabelProvider=FeatureLabelProvider? featureProvider=FeatureProvider?)
+	 *     (name=QualifiedName labelProvider=LabelProvider? propertyDescriptionProvider=PropertyDescriptionProvider? featureProvider=FeatureProvider?)
 	 */
 	protected void sequence_Module(EObject context, Module semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (labelSpecifications+=PropertyDescriptionSpecification*)
+	 */
+	protected void sequence_PropertyDescriptionProvider(EObject context, PropertyDescriptionProvider semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (parameterType=[JvmType|QualifiedName] feature=XFeatureCall expression=XExpression)
+	 */
+	protected void sequence_PropertyDescriptionSpecification(EObject context, PropertyDescriptionSpecification semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.PROPERTY_DESCRIPTION_SPECIFICATION__PARAMETER_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.PROPERTY_DESCRIPTION_SPECIFICATION__PARAMETER_TYPE));
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.PROPERTY_DESCRIPTION_SPECIFICATION__FEATURE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.PROPERTY_DESCRIPTION_SPECIFICATION__FEATURE));
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.PROPERTY_DESCRIPTION_SPECIFICATION__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.PROPERTY_DESCRIPTION_SPECIFICATION__EXPRESSION));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1(), semanticObject.getParameterType());
+		feeder.accept(grammarAccess.getPropertyDescriptionSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0(), semanticObject.getFeature());
+		feeder.accept(grammarAccess.getPropertyDescriptionSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0(), semanticObject.getExpression());
+		feeder.finish();
 	}
 }

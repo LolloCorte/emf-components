@@ -3,15 +3,14 @@
  */
 package it.rcpvision.emf.components.dsl.ui.contentassist;
 
+import it.rcpvision.emf.components.dsl.model.FeatureSpecification;
+import it.rcpvision.emf.components.dsl.model.LabelSpecification;
+import it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
-
-import it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification;
-import it.rcpvision.emf.components.dsl.model.FeatureSpecification;
-import it.rcpvision.emf.components.dsl.model.LabelSpecification;
-import it.rcpvision.emf.components.dsl.ui.contentassist.AbstractEmfComponentsDslProposalProvider;
 
 /**
  * see
@@ -26,7 +25,7 @@ public class EmfComponentsDslProposalProvider extends
 	public void completeXFeatureCall_Feature(EObject model,
 			Assignment assignment, ContentAssistContext context,
 			ICompletionProposalAcceptor acceptor) {
-		if (model instanceof FeatureLabelSpecification
+		if (model instanceof PropertyDescriptionSpecification
 				|| model instanceof FeatureSpecification) {
 			createLocalVariableAndImplicitProposals(model, context, acceptor);
 			return;

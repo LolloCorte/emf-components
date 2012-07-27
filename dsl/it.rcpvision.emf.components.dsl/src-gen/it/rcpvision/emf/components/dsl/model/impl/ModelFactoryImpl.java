@@ -69,8 +69,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
       case ModelPackage.MODULE: return createModule();
       case ModelPackage.LABEL_PROVIDER: return createLabelProvider();
       case ModelPackage.LABEL_SPECIFICATION: return createLabelSpecification();
-      case ModelPackage.FEATURE_LABEL_PROVIDER: return createFeatureLabelProvider();
-      case ModelPackage.FEATURE_LABEL_SPECIFICATION: return createFeatureLabelSpecification();
+      case ModelPackage.PROPERTY_DESCRIPTION_PROVIDER: return createPropertyDescriptionProvider();
+      case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION: return createPropertyDescriptionSpecification();
       case ModelPackage.FEATURE_PROVIDER: return createFeatureProvider();
       case ModelPackage.FEATURE_SPECIFICATION: return createFeatureSpecification();
       default:
@@ -138,10 +138,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public FeatureLabelProvider createFeatureLabelProvider()
+  public PropertyDescriptionProvider createPropertyDescriptionProvider()
   {
-    FeatureLabelProviderImpl featureLabelProvider = new FeatureLabelProviderImpl();
-    return featureLabelProvider;
+    PropertyDescriptionProviderImpl propertyDescriptionProvider = new PropertyDescriptionProviderImpl();
+    return propertyDescriptionProvider;
   }
 
   /**
@@ -149,10 +149,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public FeatureLabelSpecification createFeatureLabelSpecification()
+  public PropertyDescriptionSpecification createPropertyDescriptionSpecification()
   {
-    FeatureLabelSpecificationImpl featureLabelSpecification = new FeatureLabelSpecificationImpl();
-    return featureLabelSpecification;
+    PropertyDescriptionSpecificationImpl propertyDescriptionSpecification = new PropertyDescriptionSpecificationImpl();
+    return propertyDescriptionSpecification;
   }
 
   /**

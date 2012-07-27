@@ -600,7 +600,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
 
 
     // $ANTLR start "ruleModule"
-    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:214:1: ruleModule returns [EObject current=null] : (otherlv_0= 'module' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureLabelProvider_5_0= ruleFeatureLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureProvider_6_0= ruleFeatureProvider ) ) ) ) ) )* ) ) ) otherlv_7= '}' ) ;
+    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:214:1: ruleModule returns [EObject current=null] : (otherlv_0= 'module' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureProvider_6_0= ruleFeatureProvider ) ) ) ) ) )* ) ) ) otherlv_7= '}' ) ;
     public final EObject ruleModule() throws RecognitionException {
         EObject current = null;
 
@@ -611,7 +611,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
 
         EObject lv_labelProvider_4_0 = null;
 
-        EObject lv_featureLabelProvider_5_0 = null;
+        EObject lv_propertyDescriptionProvider_5_0 = null;
 
         EObject lv_featureProvider_6_0 = null;
 
@@ -619,11 +619,11 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
          enterRule(); 
             
         try {
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:217:28: ( (otherlv_0= 'module' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureLabelProvider_5_0= ruleFeatureLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureProvider_6_0= ruleFeatureProvider ) ) ) ) ) )* ) ) ) otherlv_7= '}' ) )
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:218:1: (otherlv_0= 'module' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureLabelProvider_5_0= ruleFeatureLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureProvider_6_0= ruleFeatureProvider ) ) ) ) ) )* ) ) ) otherlv_7= '}' )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:217:28: ( (otherlv_0= 'module' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureProvider_6_0= ruleFeatureProvider ) ) ) ) ) )* ) ) ) otherlv_7= '}' ) )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:218:1: (otherlv_0= 'module' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureProvider_6_0= ruleFeatureProvider ) ) ) ) ) )* ) ) ) otherlv_7= '}' )
             {
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:218:1: (otherlv_0= 'module' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureLabelProvider_5_0= ruleFeatureLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureProvider_6_0= ruleFeatureProvider ) ) ) ) ) )* ) ) ) otherlv_7= '}' )
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:218:3: otherlv_0= 'module' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureLabelProvider_5_0= ruleFeatureLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureProvider_6_0= ruleFeatureProvider ) ) ) ) ) )* ) ) ) otherlv_7= '}'
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:218:1: (otherlv_0= 'module' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureProvider_6_0= ruleFeatureProvider ) ) ) ) ) )* ) ) ) otherlv_7= '}' )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:218:3: otherlv_0= 'module' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureProvider_6_0= ruleFeatureProvider ) ) ) ) ) )* ) ) ) otherlv_7= '}'
             {
             otherlv_0=(Token)match(input,15,FOLLOW_15_in_ruleModule460); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -672,17 +672,17 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
                   	newLeafNode(otherlv_2, grammarAccess.getModuleAccess().getLeftCurlyBracketKeyword_2());
                   
             }
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:244:1: ( ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureLabelProvider_5_0= ruleFeatureLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureProvider_6_0= ruleFeatureProvider ) ) ) ) ) )* ) ) )
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:246:1: ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureLabelProvider_5_0= ruleFeatureLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureProvider_6_0= ruleFeatureProvider ) ) ) ) ) )* ) )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:244:1: ( ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureProvider_6_0= ruleFeatureProvider ) ) ) ) ) )* ) ) )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:246:1: ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureProvider_6_0= ruleFeatureProvider ) ) ) ) ) )* ) )
             {
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:246:1: ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureLabelProvider_5_0= ruleFeatureLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureProvider_6_0= ruleFeatureProvider ) ) ) ) ) )* ) )
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:247:2: ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureLabelProvider_5_0= ruleFeatureLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureProvider_6_0= ruleFeatureProvider ) ) ) ) ) )* )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:246:1: ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureProvider_6_0= ruleFeatureProvider ) ) ) ) ) )* ) )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:247:2: ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureProvider_6_0= ruleFeatureProvider ) ) ) ) ) )* )
             {
             getUnorderedGroupHelper().enter(grammarAccess.getModuleAccess().getUnorderedGroup_3());
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:250:2: ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureLabelProvider_5_0= ruleFeatureLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureProvider_6_0= ruleFeatureProvider ) ) ) ) ) )* )
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:251:3: ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureLabelProvider_5_0= ruleFeatureLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureProvider_6_0= ruleFeatureProvider ) ) ) ) ) )*
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:250:2: ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureProvider_6_0= ruleFeatureProvider ) ) ) ) ) )* )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:251:3: ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureProvider_6_0= ruleFeatureProvider ) ) ) ) ) )*
             {
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:251:3: ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureLabelProvider_5_0= ruleFeatureLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureProvider_6_0= ruleFeatureProvider ) ) ) ) ) )*
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:251:3: ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featureProvider_6_0= ruleFeatureProvider ) ) ) ) ) )*
             loop3:
             do {
                 int alt3=4;
@@ -770,39 +770,39 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
             	    }
             	    break;
             	case 2 :
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:283:4: ({...}? => ( ({...}? => ( (lv_featureLabelProvider_5_0= ruleFeatureLabelProvider ) ) ) ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:283:4: ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) )
             	    {
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:283:4: ({...}? => ( ({...}? => ( (lv_featureLabelProvider_5_0= ruleFeatureLabelProvider ) ) ) ) )
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:284:5: {...}? => ( ({...}? => ( (lv_featureLabelProvider_5_0= ruleFeatureLabelProvider ) ) ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:283:4: ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:284:5: {...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 1) ) {
             	        if (state.backtracking>0) {state.failed=true; return current;}
             	        throw new FailedPredicateException(input, "ruleModule", "getUnorderedGroupHelper().canSelect(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 1)");
             	    }
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:284:103: ( ({...}? => ( (lv_featureLabelProvider_5_0= ruleFeatureLabelProvider ) ) ) )
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:285:6: ({...}? => ( (lv_featureLabelProvider_5_0= ruleFeatureLabelProvider ) ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:284:103: ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:285:6: ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) )
             	    {
             	    getUnorderedGroupHelper().select(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 1);
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:288:6: ({...}? => ( (lv_featureLabelProvider_5_0= ruleFeatureLabelProvider ) ) )
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:288:7: {...}? => ( (lv_featureLabelProvider_5_0= ruleFeatureLabelProvider ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:288:6: ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:288:7: {...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) )
             	    {
             	    if ( !((true)) ) {
             	        if (state.backtracking>0) {state.failed=true; return current;}
             	        throw new FailedPredicateException(input, "ruleModule", "true");
             	    }
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:288:16: ( (lv_featureLabelProvider_5_0= ruleFeatureLabelProvider ) )
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:289:1: (lv_featureLabelProvider_5_0= ruleFeatureLabelProvider )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:288:16: ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:289:1: (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider )
             	    {
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:289:1: (lv_featureLabelProvider_5_0= ruleFeatureLabelProvider )
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:290:3: lv_featureLabelProvider_5_0= ruleFeatureLabelProvider
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:289:1: (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:290:3: lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider
             	    {
             	    if ( state.backtracking==0 ) {
             	       
-            	      	        newCompositeNode(grammarAccess.getModuleAccess().getFeatureLabelProviderFeatureLabelProviderParserRuleCall_3_1_0()); 
+            	      	        newCompositeNode(grammarAccess.getModuleAccess().getPropertyDescriptionProviderPropertyDescriptionProviderParserRuleCall_3_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleFeatureLabelProvider_in_ruleModule634);
-            	    lv_featureLabelProvider_5_0=ruleFeatureLabelProvider();
+            	    pushFollow(FOLLOW_rulePropertyDescriptionProvider_in_ruleModule634);
+            	    lv_propertyDescriptionProvider_5_0=rulePropertyDescriptionProvider();
 
             	    state._fsp--;
             	    if (state.failed) return current;
@@ -813,9 +813,9 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
             	      	        }
             	             		set(
             	             			current, 
-            	             			"featureLabelProvider",
-            	              		lv_featureLabelProvider_5_0, 
-            	              		"FeatureLabelProvider");
+            	             			"propertyDescriptionProvider",
+            	              		lv_propertyDescriptionProvider_5_0, 
+            	              		"PropertyDescriptionProvider");
             	      	        afterParserOrEnumRuleCall();
             	      	    
             	    }
@@ -1541,30 +1541,30 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
     // $ANTLR end "ruleLabelSpecification"
 
 
-    // $ANTLR start "entryRuleFeatureLabelProvider"
-    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:580:1: entryRuleFeatureLabelProvider returns [EObject current=null] : iv_ruleFeatureLabelProvider= ruleFeatureLabelProvider EOF ;
-    public final EObject entryRuleFeatureLabelProvider() throws RecognitionException {
+    // $ANTLR start "entryRulePropertyDescriptionProvider"
+    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:580:1: entryRulePropertyDescriptionProvider returns [EObject current=null] : iv_rulePropertyDescriptionProvider= rulePropertyDescriptionProvider EOF ;
+    public final EObject entryRulePropertyDescriptionProvider() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleFeatureLabelProvider = null;
+        EObject iv_rulePropertyDescriptionProvider = null;
 
 
         try {
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:581:2: (iv_ruleFeatureLabelProvider= ruleFeatureLabelProvider EOF )
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:582:2: iv_ruleFeatureLabelProvider= ruleFeatureLabelProvider EOF
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:581:2: (iv_rulePropertyDescriptionProvider= rulePropertyDescriptionProvider EOF )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:582:2: iv_rulePropertyDescriptionProvider= rulePropertyDescriptionProvider EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getFeatureLabelProviderRule()); 
+               newCompositeNode(grammarAccess.getPropertyDescriptionProviderRule()); 
             }
-            pushFollow(FOLLOW_ruleFeatureLabelProvider_in_entryRuleFeatureLabelProvider1319);
-            iv_ruleFeatureLabelProvider=ruleFeatureLabelProvider();
+            pushFollow(FOLLOW_rulePropertyDescriptionProvider_in_entryRulePropertyDescriptionProvider1319);
+            iv_rulePropertyDescriptionProvider=rulePropertyDescriptionProvider();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleFeatureLabelProvider; 
+               current =iv_rulePropertyDescriptionProvider; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFeatureLabelProvider1329); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRulePropertyDescriptionProvider1329); if (state.failed) return current;
 
             }
 
@@ -1578,12 +1578,12 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
         }
         return current;
     }
-    // $ANTLR end "entryRuleFeatureLabelProvider"
+    // $ANTLR end "entryRulePropertyDescriptionProvider"
 
 
-    // $ANTLR start "ruleFeatureLabelProvider"
-    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:589:1: ruleFeatureLabelProvider returns [EObject current=null] : ( () otherlv_1= 'featureLabelProvider' otherlv_2= '{' (otherlv_3= 'labels' otherlv_4= '{' ( (lv_labelSpecifications_5_0= ruleFeatureLabelSpecification ) )* otherlv_6= '}' )? otherlv_7= '}' ) ;
-    public final EObject ruleFeatureLabelProvider() throws RecognitionException {
+    // $ANTLR start "rulePropertyDescriptionProvider"
+    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:589:1: rulePropertyDescriptionProvider returns [EObject current=null] : ( () otherlv_1= 'featureLabelProvider' otherlv_2= '{' (otherlv_3= 'labels' otherlv_4= '{' ( (lv_labelSpecifications_5_0= rulePropertyDescriptionSpecification ) )* otherlv_6= '}' )? otherlv_7= '}' ) ;
+    public final EObject rulePropertyDescriptionProvider() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
@@ -1598,11 +1598,11 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
          enterRule(); 
             
         try {
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:592:28: ( ( () otherlv_1= 'featureLabelProvider' otherlv_2= '{' (otherlv_3= 'labels' otherlv_4= '{' ( (lv_labelSpecifications_5_0= ruleFeatureLabelSpecification ) )* otherlv_6= '}' )? otherlv_7= '}' ) )
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:593:1: ( () otherlv_1= 'featureLabelProvider' otherlv_2= '{' (otherlv_3= 'labels' otherlv_4= '{' ( (lv_labelSpecifications_5_0= ruleFeatureLabelSpecification ) )* otherlv_6= '}' )? otherlv_7= '}' )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:592:28: ( ( () otherlv_1= 'featureLabelProvider' otherlv_2= '{' (otherlv_3= 'labels' otherlv_4= '{' ( (lv_labelSpecifications_5_0= rulePropertyDescriptionSpecification ) )* otherlv_6= '}' )? otherlv_7= '}' ) )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:593:1: ( () otherlv_1= 'featureLabelProvider' otherlv_2= '{' (otherlv_3= 'labels' otherlv_4= '{' ( (lv_labelSpecifications_5_0= rulePropertyDescriptionSpecification ) )* otherlv_6= '}' )? otherlv_7= '}' )
             {
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:593:1: ( () otherlv_1= 'featureLabelProvider' otherlv_2= '{' (otherlv_3= 'labels' otherlv_4= '{' ( (lv_labelSpecifications_5_0= ruleFeatureLabelSpecification ) )* otherlv_6= '}' )? otherlv_7= '}' )
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:593:2: () otherlv_1= 'featureLabelProvider' otherlv_2= '{' (otherlv_3= 'labels' otherlv_4= '{' ( (lv_labelSpecifications_5_0= ruleFeatureLabelSpecification ) )* otherlv_6= '}' )? otherlv_7= '}'
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:593:1: ( () otherlv_1= 'featureLabelProvider' otherlv_2= '{' (otherlv_3= 'labels' otherlv_4= '{' ( (lv_labelSpecifications_5_0= rulePropertyDescriptionSpecification ) )* otherlv_6= '}' )? otherlv_7= '}' )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:593:2: () otherlv_1= 'featureLabelProvider' otherlv_2= '{' (otherlv_3= 'labels' otherlv_4= '{' ( (lv_labelSpecifications_5_0= rulePropertyDescriptionSpecification ) )* otherlv_6= '}' )? otherlv_7= '}'
             {
             // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:593:2: ()
             // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:594:5: 
@@ -1610,26 +1610,26 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
             if ( state.backtracking==0 ) {
 
                       current = forceCreateModelElement(
-                          grammarAccess.getFeatureLabelProviderAccess().getFeatureLabelProviderAction_0(),
+                          grammarAccess.getPropertyDescriptionProviderAccess().getPropertyDescriptionProviderAction_0(),
                           current);
                   
             }
 
             }
 
-            otherlv_1=(Token)match(input,22,FOLLOW_22_in_ruleFeatureLabelProvider1375); if (state.failed) return current;
+            otherlv_1=(Token)match(input,22,FOLLOW_22_in_rulePropertyDescriptionProvider1375); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-                  	newLeafNode(otherlv_1, grammarAccess.getFeatureLabelProviderAccess().getFeatureLabelProviderKeyword_1());
+                  	newLeafNode(otherlv_1, grammarAccess.getPropertyDescriptionProviderAccess().getFeatureLabelProviderKeyword_1());
                   
             }
-            otherlv_2=(Token)match(input,16,FOLLOW_16_in_ruleFeatureLabelProvider1387); if (state.failed) return current;
+            otherlv_2=(Token)match(input,16,FOLLOW_16_in_rulePropertyDescriptionProvider1387); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-                  	newLeafNode(otherlv_2, grammarAccess.getFeatureLabelProviderAccess().getLeftCurlyBracketKeyword_2());
+                  	newLeafNode(otherlv_2, grammarAccess.getPropertyDescriptionProviderAccess().getLeftCurlyBracketKeyword_2());
                   
             }
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:607:1: (otherlv_3= 'labels' otherlv_4= '{' ( (lv_labelSpecifications_5_0= ruleFeatureLabelSpecification ) )* otherlv_6= '}' )?
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:607:1: (otherlv_3= 'labels' otherlv_4= '{' ( (lv_labelSpecifications_5_0= rulePropertyDescriptionSpecification ) )* otherlv_6= '}' )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -1638,21 +1638,21 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
             }
             switch (alt9) {
                 case 1 :
-                    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:607:3: otherlv_3= 'labels' otherlv_4= '{' ( (lv_labelSpecifications_5_0= ruleFeatureLabelSpecification ) )* otherlv_6= '}'
+                    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:607:3: otherlv_3= 'labels' otherlv_4= '{' ( (lv_labelSpecifications_5_0= rulePropertyDescriptionSpecification ) )* otherlv_6= '}'
                     {
-                    otherlv_3=(Token)match(input,19,FOLLOW_19_in_ruleFeatureLabelProvider1400); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,19,FOLLOW_19_in_rulePropertyDescriptionProvider1400); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                          	newLeafNode(otherlv_3, grammarAccess.getFeatureLabelProviderAccess().getLabelsKeyword_3_0());
+                          	newLeafNode(otherlv_3, grammarAccess.getPropertyDescriptionProviderAccess().getLabelsKeyword_3_0());
                           
                     }
-                    otherlv_4=(Token)match(input,16,FOLLOW_16_in_ruleFeatureLabelProvider1412); if (state.failed) return current;
+                    otherlv_4=(Token)match(input,16,FOLLOW_16_in_rulePropertyDescriptionProvider1412); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                          	newLeafNode(otherlv_4, grammarAccess.getFeatureLabelProviderAccess().getLeftCurlyBracketKeyword_3_1());
+                          	newLeafNode(otherlv_4, grammarAccess.getPropertyDescriptionProviderAccess().getLeftCurlyBracketKeyword_3_1());
                           
                     }
-                    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:615:1: ( (lv_labelSpecifications_5_0= ruleFeatureLabelSpecification ) )*
+                    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:615:1: ( (lv_labelSpecifications_5_0= rulePropertyDescriptionSpecification ) )*
                     loop8:
                     do {
                         int alt8=2;
@@ -1665,31 +1665,31 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
 
                         switch (alt8) {
                     	case 1 :
-                    	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:616:1: (lv_labelSpecifications_5_0= ruleFeatureLabelSpecification )
+                    	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:616:1: (lv_labelSpecifications_5_0= rulePropertyDescriptionSpecification )
                     	    {
-                    	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:616:1: (lv_labelSpecifications_5_0= ruleFeatureLabelSpecification )
-                    	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:617:3: lv_labelSpecifications_5_0= ruleFeatureLabelSpecification
+                    	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:616:1: (lv_labelSpecifications_5_0= rulePropertyDescriptionSpecification )
+                    	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:617:3: lv_labelSpecifications_5_0= rulePropertyDescriptionSpecification
                     	    {
                     	    if ( state.backtracking==0 ) {
                     	       
-                    	      	        newCompositeNode(grammarAccess.getFeatureLabelProviderAccess().getLabelSpecificationsFeatureLabelSpecificationParserRuleCall_3_2_0()); 
+                    	      	        newCompositeNode(grammarAccess.getPropertyDescriptionProviderAccess().getLabelSpecificationsPropertyDescriptionSpecificationParserRuleCall_3_2_0()); 
                     	      	    
                     	    }
-                    	    pushFollow(FOLLOW_ruleFeatureLabelSpecification_in_ruleFeatureLabelProvider1433);
-                    	    lv_labelSpecifications_5_0=ruleFeatureLabelSpecification();
+                    	    pushFollow(FOLLOW_rulePropertyDescriptionSpecification_in_rulePropertyDescriptionProvider1433);
+                    	    lv_labelSpecifications_5_0=rulePropertyDescriptionSpecification();
 
                     	    state._fsp--;
                     	    if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	      	        if (current==null) {
-                    	      	            current = createModelElementForParent(grammarAccess.getFeatureLabelProviderRule());
+                    	      	            current = createModelElementForParent(grammarAccess.getPropertyDescriptionProviderRule());
                     	      	        }
                     	             		add(
                     	             			current, 
                     	             			"labelSpecifications",
                     	              		lv_labelSpecifications_5_0, 
-                    	              		"FeatureLabelSpecification");
+                    	              		"PropertyDescriptionSpecification");
                     	      	        afterParserOrEnumRuleCall();
                     	      	    
                     	    }
@@ -1705,10 +1705,10 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
                         }
                     } while (true);
 
-                    otherlv_6=(Token)match(input,17,FOLLOW_17_in_ruleFeatureLabelProvider1446); if (state.failed) return current;
+                    otherlv_6=(Token)match(input,17,FOLLOW_17_in_rulePropertyDescriptionProvider1446); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                          	newLeafNode(otherlv_6, grammarAccess.getFeatureLabelProviderAccess().getRightCurlyBracketKeyword_3_3());
+                          	newLeafNode(otherlv_6, grammarAccess.getPropertyDescriptionProviderAccess().getRightCurlyBracketKeyword_3_3());
                           
                     }
 
@@ -1717,10 +1717,10 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
 
             }
 
-            otherlv_7=(Token)match(input,17,FOLLOW_17_in_ruleFeatureLabelProvider1460); if (state.failed) return current;
+            otherlv_7=(Token)match(input,17,FOLLOW_17_in_rulePropertyDescriptionProvider1460); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-                  	newLeafNode(otherlv_7, grammarAccess.getFeatureLabelProviderAccess().getRightCurlyBracketKeyword_4());
+                  	newLeafNode(otherlv_7, grammarAccess.getPropertyDescriptionProviderAccess().getRightCurlyBracketKeyword_4());
                   
             }
 
@@ -1742,33 +1742,33 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
         }
         return current;
     }
-    // $ANTLR end "ruleFeatureLabelProvider"
+    // $ANTLR end "rulePropertyDescriptionProvider"
 
 
-    // $ANTLR start "entryRuleFeatureLabelSpecification"
-    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:649:1: entryRuleFeatureLabelSpecification returns [EObject current=null] : iv_ruleFeatureLabelSpecification= ruleFeatureLabelSpecification EOF ;
-    public final EObject entryRuleFeatureLabelSpecification() throws RecognitionException {
+    // $ANTLR start "entryRulePropertyDescriptionSpecification"
+    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:649:1: entryRulePropertyDescriptionSpecification returns [EObject current=null] : iv_rulePropertyDescriptionSpecification= rulePropertyDescriptionSpecification EOF ;
+    public final EObject entryRulePropertyDescriptionSpecification() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleFeatureLabelSpecification = null;
+        EObject iv_rulePropertyDescriptionSpecification = null;
 
 
         try {
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:650:2: (iv_ruleFeatureLabelSpecification= ruleFeatureLabelSpecification EOF )
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:651:2: iv_ruleFeatureLabelSpecification= ruleFeatureLabelSpecification EOF
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:650:2: (iv_rulePropertyDescriptionSpecification= rulePropertyDescriptionSpecification EOF )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:651:2: iv_rulePropertyDescriptionSpecification= rulePropertyDescriptionSpecification EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getFeatureLabelSpecificationRule()); 
+               newCompositeNode(grammarAccess.getPropertyDescriptionSpecificationRule()); 
             }
-            pushFollow(FOLLOW_ruleFeatureLabelSpecification_in_entryRuleFeatureLabelSpecification1496);
-            iv_ruleFeatureLabelSpecification=ruleFeatureLabelSpecification();
+            pushFollow(FOLLOW_rulePropertyDescriptionSpecification_in_entryRulePropertyDescriptionSpecification1496);
+            iv_rulePropertyDescriptionSpecification=rulePropertyDescriptionSpecification();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleFeatureLabelSpecification; 
+               current =iv_rulePropertyDescriptionSpecification; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFeatureLabelSpecification1506); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRulePropertyDescriptionSpecification1506); if (state.failed) return current;
 
             }
 
@@ -1782,12 +1782,12 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
         }
         return current;
     }
-    // $ANTLR end "entryRuleFeatureLabelSpecification"
+    // $ANTLR end "entryRulePropertyDescriptionSpecification"
 
 
-    // $ANTLR start "ruleFeatureLabelSpecification"
-    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:658:1: ruleFeatureLabelSpecification returns [EObject current=null] : ( ( ( ruleQualifiedName ) ) otherlv_1= ':' ( (lv_feature_2_0= ruleXFeatureCall ) ) otherlv_3= '->' ( (lv_expression_4_0= ruleXExpression ) ) ) ;
-    public final EObject ruleFeatureLabelSpecification() throws RecognitionException {
+    // $ANTLR start "rulePropertyDescriptionSpecification"
+    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:658:1: rulePropertyDescriptionSpecification returns [EObject current=null] : ( ( ( ruleQualifiedName ) ) otherlv_1= ':' ( (lv_feature_2_0= ruleXFeatureCall ) ) otherlv_3= '->' ( (lv_expression_4_0= ruleXExpression ) ) ) ;
+    public final EObject rulePropertyDescriptionSpecification() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
@@ -1815,16 +1815,16 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
             if ( state.backtracking==0 ) {
 
               			if (current==null) {
-              	            current = createModelElement(grammarAccess.getFeatureLabelSpecificationRule());
+              	            current = createModelElement(grammarAccess.getPropertyDescriptionSpecificationRule());
               	        }
                       
             }
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getFeatureLabelSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); 
+              	        newCompositeNode(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_ruleFeatureLabelSpecification1554);
+            pushFollow(FOLLOW_ruleQualifiedName_in_rulePropertyDescriptionSpecification1554);
             ruleQualifiedName();
 
             state._fsp--;
@@ -1840,10 +1840,10 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
 
             }
 
-            otherlv_1=(Token)match(input,23,FOLLOW_23_in_ruleFeatureLabelSpecification1566); if (state.failed) return current;
+            otherlv_1=(Token)match(input,23,FOLLOW_23_in_rulePropertyDescriptionSpecification1566); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-                  	newLeafNode(otherlv_1, grammarAccess.getFeatureLabelSpecificationAccess().getColonKeyword_1());
+                  	newLeafNode(otherlv_1, grammarAccess.getPropertyDescriptionSpecificationAccess().getColonKeyword_1());
                   
             }
             // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:681:1: ( (lv_feature_2_0= ruleXFeatureCall ) )
@@ -1854,10 +1854,10 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getFeatureLabelSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0()); 
+              	        newCompositeNode(grammarAccess.getPropertyDescriptionSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleXFeatureCall_in_ruleFeatureLabelSpecification1587);
+            pushFollow(FOLLOW_ruleXFeatureCall_in_rulePropertyDescriptionSpecification1587);
             lv_feature_2_0=ruleXFeatureCall();
 
             state._fsp--;
@@ -1865,7 +1865,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
             if ( state.backtracking==0 ) {
 
               	        if (current==null) {
-              	            current = createModelElementForParent(grammarAccess.getFeatureLabelSpecificationRule());
+              	            current = createModelElementForParent(grammarAccess.getPropertyDescriptionSpecificationRule());
               	        }
                      		set(
                      			current, 
@@ -1881,10 +1881,10 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
 
             }
 
-            otherlv_3=(Token)match(input,21,FOLLOW_21_in_ruleFeatureLabelSpecification1599); if (state.failed) return current;
+            otherlv_3=(Token)match(input,21,FOLLOW_21_in_rulePropertyDescriptionSpecification1599); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-                  	newLeafNode(otherlv_3, grammarAccess.getFeatureLabelSpecificationAccess().getHyphenMinusGreaterThanSignKeyword_3());
+                  	newLeafNode(otherlv_3, grammarAccess.getPropertyDescriptionSpecificationAccess().getHyphenMinusGreaterThanSignKeyword_3());
                   
             }
             // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:703:1: ( (lv_expression_4_0= ruleXExpression ) )
@@ -1895,10 +1895,10 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getFeatureLabelSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0()); 
+              	        newCompositeNode(grammarAccess.getPropertyDescriptionSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleXExpression_in_ruleFeatureLabelSpecification1620);
+            pushFollow(FOLLOW_ruleXExpression_in_rulePropertyDescriptionSpecification1620);
             lv_expression_4_0=ruleXExpression();
 
             state._fsp--;
@@ -1906,7 +1906,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
             if ( state.backtracking==0 ) {
 
               	        if (current==null) {
-              	            current = createModelElementForParent(grammarAccess.getFeatureLabelSpecificationRule());
+              	            current = createModelElementForParent(grammarAccess.getPropertyDescriptionSpecificationRule());
               	        }
                      		set(
                      			current, 
@@ -1941,7 +1941,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
         }
         return current;
     }
-    // $ANTLR end "ruleFeatureLabelSpecification"
+    // $ANTLR end "rulePropertyDescriptionSpecification"
 
 
     // $ANTLR start "entryRuleFeatureProvider"
@@ -20523,7 +20523,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
     public static final BitSet FOLLOW_ruleQualifiedName_in_ruleModule481 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_16_in_ruleModule493 = new BitSet(new long[]{0x0000000001460000L});
     public static final BitSet FOLLOW_ruleLabelProvider_in_ruleModule559 = new BitSet(new long[]{0x0000000001460000L});
-    public static final BitSet FOLLOW_ruleFeatureLabelProvider_in_ruleModule634 = new BitSet(new long[]{0x0000000001460000L});
+    public static final BitSet FOLLOW_rulePropertyDescriptionProvider_in_ruleModule634 = new BitSet(new long[]{0x0000000001460000L});
     public static final BitSet FOLLOW_ruleFeatureProvider_in_ruleModule709 = new BitSet(new long[]{0x0000000001460000L});
     public static final BitSet FOLLOW_17_in_ruleModule761 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleLabelProvider_in_entryRuleLabelProvider797 = new BitSet(new long[]{0x0000000000000000L});
@@ -20545,22 +20545,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
     public static final BitSet FOLLOW_ruleValidID_in_ruleLabelSpecification1249 = new BitSet(new long[]{0x0000000000200000L});
     public static final BitSet FOLLOW_21_in_ruleLabelSpecification1262 = new BitSet(new long[]{0x51421820000101F0L,0x000000000000FF4EL});
     public static final BitSet FOLLOW_ruleXExpression_in_ruleLabelSpecification1283 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFeatureLabelProvider_in_entryRuleFeatureLabelProvider1319 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFeatureLabelProvider1329 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_ruleFeatureLabelProvider1375 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleFeatureLabelProvider1387 = new BitSet(new long[]{0x00000000000A0000L});
-    public static final BitSet FOLLOW_19_in_ruleFeatureLabelProvider1400 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleFeatureLabelProvider1412 = new BitSet(new long[]{0x0000000000020100L});
-    public static final BitSet FOLLOW_ruleFeatureLabelSpecification_in_ruleFeatureLabelProvider1433 = new BitSet(new long[]{0x0000000000020100L});
-    public static final BitSet FOLLOW_17_in_ruleFeatureLabelProvider1446 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleFeatureLabelProvider1460 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFeatureLabelSpecification_in_entryRuleFeatureLabelSpecification1496 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFeatureLabelSpecification1506 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleFeatureLabelSpecification1554 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_23_in_ruleFeatureLabelSpecification1566 = new BitSet(new long[]{0x0000002000000100L,0x0000000000000040L});
-    public static final BitSet FOLLOW_ruleXFeatureCall_in_ruleFeatureLabelSpecification1587 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_ruleFeatureLabelSpecification1599 = new BitSet(new long[]{0x51421820000101F0L,0x000000000000FF4EL});
-    public static final BitSet FOLLOW_ruleXExpression_in_ruleFeatureLabelSpecification1620 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePropertyDescriptionProvider_in_entryRulePropertyDescriptionProvider1319 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRulePropertyDescriptionProvider1329 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_rulePropertyDescriptionProvider1375 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_rulePropertyDescriptionProvider1387 = new BitSet(new long[]{0x00000000000A0000L});
+    public static final BitSet FOLLOW_19_in_rulePropertyDescriptionProvider1400 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_rulePropertyDescriptionProvider1412 = new BitSet(new long[]{0x0000000000020100L});
+    public static final BitSet FOLLOW_rulePropertyDescriptionSpecification_in_rulePropertyDescriptionProvider1433 = new BitSet(new long[]{0x0000000000020100L});
+    public static final BitSet FOLLOW_17_in_rulePropertyDescriptionProvider1446 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_rulePropertyDescriptionProvider1460 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePropertyDescriptionSpecification_in_entryRulePropertyDescriptionSpecification1496 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRulePropertyDescriptionSpecification1506 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_rulePropertyDescriptionSpecification1554 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_23_in_rulePropertyDescriptionSpecification1566 = new BitSet(new long[]{0x0000002000000100L,0x0000000000000040L});
+    public static final BitSet FOLLOW_ruleXFeatureCall_in_rulePropertyDescriptionSpecification1587 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_rulePropertyDescriptionSpecification1599 = new BitSet(new long[]{0x51421820000101F0L,0x000000000000FF4EL});
+    public static final BitSet FOLLOW_ruleXExpression_in_rulePropertyDescriptionSpecification1620 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleFeatureProvider_in_entryRuleFeatureProvider1656 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleFeatureProvider1666 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_24_in_ruleFeatureProvider1712 = new BitSet(new long[]{0x0000000000010000L});

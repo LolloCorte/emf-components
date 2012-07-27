@@ -225,25 +225,25 @@ finally {
 
 
 
-// Entry rule entryRuleFeatureLabelProvider
-entryRuleFeatureLabelProvider 
+// Entry rule entryRulePropertyDescriptionProvider
+entryRulePropertyDescriptionProvider 
 :
-{ before(grammarAccess.getFeatureLabelProviderRule()); }
-	 ruleFeatureLabelProvider
-{ after(grammarAccess.getFeatureLabelProviderRule()); } 
+{ before(grammarAccess.getPropertyDescriptionProviderRule()); }
+	 rulePropertyDescriptionProvider
+{ after(grammarAccess.getPropertyDescriptionProviderRule()); } 
 	 EOF 
 ;
 
-// Rule FeatureLabelProvider
-ruleFeatureLabelProvider
+// Rule PropertyDescriptionProvider
+rulePropertyDescriptionProvider
     @init {
 		int stackSize = keepStackSize();
     }
 	:
 (
-{ before(grammarAccess.getFeatureLabelProviderAccess().getGroup()); }
-(rule__FeatureLabelProvider__Group__0)
-{ after(grammarAccess.getFeatureLabelProviderAccess().getGroup()); }
+{ before(grammarAccess.getPropertyDescriptionProviderAccess().getGroup()); }
+(rule__PropertyDescriptionProvider__Group__0)
+{ after(grammarAccess.getPropertyDescriptionProviderAccess().getGroup()); }
 )
 
 ;
@@ -253,25 +253,25 @@ finally {
 
 
 
-// Entry rule entryRuleFeatureLabelSpecification
-entryRuleFeatureLabelSpecification 
+// Entry rule entryRulePropertyDescriptionSpecification
+entryRulePropertyDescriptionSpecification 
 :
-{ before(grammarAccess.getFeatureLabelSpecificationRule()); }
-	 ruleFeatureLabelSpecification
-{ after(grammarAccess.getFeatureLabelSpecificationRule()); } 
+{ before(grammarAccess.getPropertyDescriptionSpecificationRule()); }
+	 rulePropertyDescriptionSpecification
+{ after(grammarAccess.getPropertyDescriptionSpecificationRule()); } 
 	 EOF 
 ;
 
-// Rule FeatureLabelSpecification
-ruleFeatureLabelSpecification
+// Rule PropertyDescriptionSpecification
+rulePropertyDescriptionSpecification
     @init {
 		int stackSize = keepStackSize();
     }
 	:
 (
-{ before(grammarAccess.getFeatureLabelSpecificationAccess().getGroup()); }
-(rule__FeatureLabelSpecification__Group__0)
-{ after(grammarAccess.getFeatureLabelSpecificationAccess().getGroup()); }
+{ before(grammarAccess.getPropertyDescriptionSpecificationAccess().getGroup()); }
+(rule__PropertyDescriptionSpecification__Group__0)
+{ after(grammarAccess.getPropertyDescriptionSpecificationAccess().getGroup()); }
 )
 
 ;
@@ -3920,29 +3920,29 @@ finally {
 
 
 
-rule__FeatureLabelProvider__Group__0
+rule__PropertyDescriptionProvider__Group__0
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__FeatureLabelProvider__Group__0__Impl
-	rule__FeatureLabelProvider__Group__1
+	rule__PropertyDescriptionProvider__Group__0__Impl
+	rule__PropertyDescriptionProvider__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__FeatureLabelProvider__Group__0__Impl
+rule__PropertyDescriptionProvider__Group__0__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFeatureLabelProviderAccess().getFeatureLabelProviderAction_0()); }
+{ before(grammarAccess.getPropertyDescriptionProviderAccess().getPropertyDescriptionProviderAction_0()); }
 (
 
 )
-{ after(grammarAccess.getFeatureLabelProviderAccess().getFeatureLabelProviderAction_0()); }
+{ after(grammarAccess.getPropertyDescriptionProviderAccess().getPropertyDescriptionProviderAction_0()); }
 )
 
 ;
@@ -3951,29 +3951,29 @@ finally {
 }
 
 
-rule__FeatureLabelProvider__Group__1
+rule__PropertyDescriptionProvider__Group__1
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__FeatureLabelProvider__Group__1__Impl
-	rule__FeatureLabelProvider__Group__2
+	rule__PropertyDescriptionProvider__Group__1__Impl
+	rule__PropertyDescriptionProvider__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__FeatureLabelProvider__Group__1__Impl
+rule__PropertyDescriptionProvider__Group__1__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFeatureLabelProviderAccess().getFeatureLabelProviderKeyword_1()); }
+{ before(grammarAccess.getPropertyDescriptionProviderAccess().getFeatureLabelProviderKeyword_1()); }
 
 	'featureLabelProvider' 
 
-{ after(grammarAccess.getFeatureLabelProviderAccess().getFeatureLabelProviderKeyword_1()); }
+{ after(grammarAccess.getPropertyDescriptionProviderAccess().getFeatureLabelProviderKeyword_1()); }
 )
 
 ;
@@ -3982,29 +3982,29 @@ finally {
 }
 
 
-rule__FeatureLabelProvider__Group__2
+rule__PropertyDescriptionProvider__Group__2
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__FeatureLabelProvider__Group__2__Impl
-	rule__FeatureLabelProvider__Group__3
+	rule__PropertyDescriptionProvider__Group__2__Impl
+	rule__PropertyDescriptionProvider__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__FeatureLabelProvider__Group__2__Impl
+rule__PropertyDescriptionProvider__Group__2__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFeatureLabelProviderAccess().getLeftCurlyBracketKeyword_2()); }
+{ before(grammarAccess.getPropertyDescriptionProviderAccess().getLeftCurlyBracketKeyword_2()); }
 
 	'{' 
 
-{ after(grammarAccess.getFeatureLabelProviderAccess().getLeftCurlyBracketKeyword_2()); }
+{ after(grammarAccess.getPropertyDescriptionProviderAccess().getLeftCurlyBracketKeyword_2()); }
 )
 
 ;
@@ -4013,27 +4013,27 @@ finally {
 }
 
 
-rule__FeatureLabelProvider__Group__3
+rule__PropertyDescriptionProvider__Group__3
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__FeatureLabelProvider__Group__3__Impl
-	rule__FeatureLabelProvider__Group__4
+	rule__PropertyDescriptionProvider__Group__3__Impl
+	rule__PropertyDescriptionProvider__Group__4
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__FeatureLabelProvider__Group__3__Impl
+rule__PropertyDescriptionProvider__Group__3__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFeatureLabelProviderAccess().getGroup_3()); }
-(rule__FeatureLabelProvider__Group_3__0)?
-{ after(grammarAccess.getFeatureLabelProviderAccess().getGroup_3()); }
+{ before(grammarAccess.getPropertyDescriptionProviderAccess().getGroup_3()); }
+(rule__PropertyDescriptionProvider__Group_3__0)?
+{ after(grammarAccess.getPropertyDescriptionProviderAccess().getGroup_3()); }
 )
 
 ;
@@ -4042,28 +4042,28 @@ finally {
 }
 
 
-rule__FeatureLabelProvider__Group__4
+rule__PropertyDescriptionProvider__Group__4
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__FeatureLabelProvider__Group__4__Impl
+	rule__PropertyDescriptionProvider__Group__4__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__FeatureLabelProvider__Group__4__Impl
+rule__PropertyDescriptionProvider__Group__4__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFeatureLabelProviderAccess().getRightCurlyBracketKeyword_4()); }
+{ before(grammarAccess.getPropertyDescriptionProviderAccess().getRightCurlyBracketKeyword_4()); }
 
 	'}' 
 
-{ after(grammarAccess.getFeatureLabelProviderAccess().getRightCurlyBracketKeyword_4()); }
+{ after(grammarAccess.getPropertyDescriptionProviderAccess().getRightCurlyBracketKeyword_4()); }
 )
 
 ;
@@ -4082,29 +4082,29 @@ finally {
 
 
 
-rule__FeatureLabelProvider__Group_3__0
+rule__PropertyDescriptionProvider__Group_3__0
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__FeatureLabelProvider__Group_3__0__Impl
-	rule__FeatureLabelProvider__Group_3__1
+	rule__PropertyDescriptionProvider__Group_3__0__Impl
+	rule__PropertyDescriptionProvider__Group_3__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__FeatureLabelProvider__Group_3__0__Impl
+rule__PropertyDescriptionProvider__Group_3__0__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFeatureLabelProviderAccess().getLabelsKeyword_3_0()); }
+{ before(grammarAccess.getPropertyDescriptionProviderAccess().getLabelsKeyword_3_0()); }
 
 	'labels' 
 
-{ after(grammarAccess.getFeatureLabelProviderAccess().getLabelsKeyword_3_0()); }
+{ after(grammarAccess.getPropertyDescriptionProviderAccess().getLabelsKeyword_3_0()); }
 )
 
 ;
@@ -4113,29 +4113,29 @@ finally {
 }
 
 
-rule__FeatureLabelProvider__Group_3__1
+rule__PropertyDescriptionProvider__Group_3__1
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__FeatureLabelProvider__Group_3__1__Impl
-	rule__FeatureLabelProvider__Group_3__2
+	rule__PropertyDescriptionProvider__Group_3__1__Impl
+	rule__PropertyDescriptionProvider__Group_3__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__FeatureLabelProvider__Group_3__1__Impl
+rule__PropertyDescriptionProvider__Group_3__1__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFeatureLabelProviderAccess().getLeftCurlyBracketKeyword_3_1()); }
+{ before(grammarAccess.getPropertyDescriptionProviderAccess().getLeftCurlyBracketKeyword_3_1()); }
 
 	'{' 
 
-{ after(grammarAccess.getFeatureLabelProviderAccess().getLeftCurlyBracketKeyword_3_1()); }
+{ after(grammarAccess.getPropertyDescriptionProviderAccess().getLeftCurlyBracketKeyword_3_1()); }
 )
 
 ;
@@ -4144,27 +4144,27 @@ finally {
 }
 
 
-rule__FeatureLabelProvider__Group_3__2
+rule__PropertyDescriptionProvider__Group_3__2
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__FeatureLabelProvider__Group_3__2__Impl
-	rule__FeatureLabelProvider__Group_3__3
+	rule__PropertyDescriptionProvider__Group_3__2__Impl
+	rule__PropertyDescriptionProvider__Group_3__3
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__FeatureLabelProvider__Group_3__2__Impl
+rule__PropertyDescriptionProvider__Group_3__2__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFeatureLabelProviderAccess().getLabelSpecificationsAssignment_3_2()); }
-(rule__FeatureLabelProvider__LabelSpecificationsAssignment_3_2)*
-{ after(grammarAccess.getFeatureLabelProviderAccess().getLabelSpecificationsAssignment_3_2()); }
+{ before(grammarAccess.getPropertyDescriptionProviderAccess().getLabelSpecificationsAssignment_3_2()); }
+(rule__PropertyDescriptionProvider__LabelSpecificationsAssignment_3_2)*
+{ after(grammarAccess.getPropertyDescriptionProviderAccess().getLabelSpecificationsAssignment_3_2()); }
 )
 
 ;
@@ -4173,28 +4173,28 @@ finally {
 }
 
 
-rule__FeatureLabelProvider__Group_3__3
+rule__PropertyDescriptionProvider__Group_3__3
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__FeatureLabelProvider__Group_3__3__Impl
+	rule__PropertyDescriptionProvider__Group_3__3__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__FeatureLabelProvider__Group_3__3__Impl
+rule__PropertyDescriptionProvider__Group_3__3__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFeatureLabelProviderAccess().getRightCurlyBracketKeyword_3_3()); }
+{ before(grammarAccess.getPropertyDescriptionProviderAccess().getRightCurlyBracketKeyword_3_3()); }
 
 	'}' 
 
-{ after(grammarAccess.getFeatureLabelProviderAccess().getRightCurlyBracketKeyword_3_3()); }
+{ after(grammarAccess.getPropertyDescriptionProviderAccess().getRightCurlyBracketKeyword_3_3()); }
 )
 
 ;
@@ -4211,27 +4211,27 @@ finally {
 
 
 
-rule__FeatureLabelSpecification__Group__0
+rule__PropertyDescriptionSpecification__Group__0
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__FeatureLabelSpecification__Group__0__Impl
-	rule__FeatureLabelSpecification__Group__1
+	rule__PropertyDescriptionSpecification__Group__0__Impl
+	rule__PropertyDescriptionSpecification__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__FeatureLabelSpecification__Group__0__Impl
+rule__PropertyDescriptionSpecification__Group__0__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFeatureLabelSpecificationAccess().getParameterTypeAssignment_0()); }
-(rule__FeatureLabelSpecification__ParameterTypeAssignment_0)
-{ after(grammarAccess.getFeatureLabelSpecificationAccess().getParameterTypeAssignment_0()); }
+{ before(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeAssignment_0()); }
+(rule__PropertyDescriptionSpecification__ParameterTypeAssignment_0)
+{ after(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeAssignment_0()); }
 )
 
 ;
@@ -4240,29 +4240,29 @@ finally {
 }
 
 
-rule__FeatureLabelSpecification__Group__1
+rule__PropertyDescriptionSpecification__Group__1
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__FeatureLabelSpecification__Group__1__Impl
-	rule__FeatureLabelSpecification__Group__2
+	rule__PropertyDescriptionSpecification__Group__1__Impl
+	rule__PropertyDescriptionSpecification__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__FeatureLabelSpecification__Group__1__Impl
+rule__PropertyDescriptionSpecification__Group__1__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFeatureLabelSpecificationAccess().getColonKeyword_1()); }
+{ before(grammarAccess.getPropertyDescriptionSpecificationAccess().getColonKeyword_1()); }
 
 	':' 
 
-{ after(grammarAccess.getFeatureLabelSpecificationAccess().getColonKeyword_1()); }
+{ after(grammarAccess.getPropertyDescriptionSpecificationAccess().getColonKeyword_1()); }
 )
 
 ;
@@ -4271,27 +4271,27 @@ finally {
 }
 
 
-rule__FeatureLabelSpecification__Group__2
+rule__PropertyDescriptionSpecification__Group__2
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__FeatureLabelSpecification__Group__2__Impl
-	rule__FeatureLabelSpecification__Group__3
+	rule__PropertyDescriptionSpecification__Group__2__Impl
+	rule__PropertyDescriptionSpecification__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__FeatureLabelSpecification__Group__2__Impl
+rule__PropertyDescriptionSpecification__Group__2__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFeatureLabelSpecificationAccess().getFeatureAssignment_2()); }
-(rule__FeatureLabelSpecification__FeatureAssignment_2)
-{ after(grammarAccess.getFeatureLabelSpecificationAccess().getFeatureAssignment_2()); }
+{ before(grammarAccess.getPropertyDescriptionSpecificationAccess().getFeatureAssignment_2()); }
+(rule__PropertyDescriptionSpecification__FeatureAssignment_2)
+{ after(grammarAccess.getPropertyDescriptionSpecificationAccess().getFeatureAssignment_2()); }
 )
 
 ;
@@ -4300,29 +4300,29 @@ finally {
 }
 
 
-rule__FeatureLabelSpecification__Group__3
+rule__PropertyDescriptionSpecification__Group__3
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__FeatureLabelSpecification__Group__3__Impl
-	rule__FeatureLabelSpecification__Group__4
+	rule__PropertyDescriptionSpecification__Group__3__Impl
+	rule__PropertyDescriptionSpecification__Group__4
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__FeatureLabelSpecification__Group__3__Impl
+rule__PropertyDescriptionSpecification__Group__3__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFeatureLabelSpecificationAccess().getHyphenMinusGreaterThanSignKeyword_3()); }
+{ before(grammarAccess.getPropertyDescriptionSpecificationAccess().getHyphenMinusGreaterThanSignKeyword_3()); }
 
 	'->' 
 
-{ after(grammarAccess.getFeatureLabelSpecificationAccess().getHyphenMinusGreaterThanSignKeyword_3()); }
+{ after(grammarAccess.getPropertyDescriptionSpecificationAccess().getHyphenMinusGreaterThanSignKeyword_3()); }
 )
 
 ;
@@ -4331,26 +4331,26 @@ finally {
 }
 
 
-rule__FeatureLabelSpecification__Group__4
+rule__PropertyDescriptionSpecification__Group__4
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__FeatureLabelSpecification__Group__4__Impl
+	rule__PropertyDescriptionSpecification__Group__4__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__FeatureLabelSpecification__Group__4__Impl
+rule__PropertyDescriptionSpecification__Group__4__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFeatureLabelSpecificationAccess().getExpressionAssignment_4()); }
-(rule__FeatureLabelSpecification__ExpressionAssignment_4)
-{ after(grammarAccess.getFeatureLabelSpecificationAccess().getExpressionAssignment_4()); }
+{ before(grammarAccess.getPropertyDescriptionSpecificationAccess().getExpressionAssignment_4()); }
+(rule__PropertyDescriptionSpecification__ExpressionAssignment_4)
+{ after(grammarAccess.getPropertyDescriptionSpecificationAccess().getExpressionAssignment_4()); }
 )
 
 ;
@@ -15508,9 +15508,9 @@ rule__Module__UnorderedGroup_3__Impl
 	 				}
 					(
 					
-						{ before(grammarAccess.getModuleAccess().getFeatureLabelProviderAssignment_3_1()); }
-						(rule__Module__FeatureLabelProviderAssignment_3_1)
-						{ after(grammarAccess.getModuleAccess().getFeatureLabelProviderAssignment_3_1()); }
+						{ before(grammarAccess.getModuleAccess().getPropertyDescriptionProviderAssignment_3_1()); }
+						(rule__Module__PropertyDescriptionProviderAssignment_3_1)
+						{ after(grammarAccess.getModuleAccess().getPropertyDescriptionProviderAssignment_3_1()); }
 					)
  				)
 			)  |
@@ -15756,14 +15756,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Module__FeatureLabelProviderAssignment_3_1
+rule__Module__PropertyDescriptionProviderAssignment_3_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getModuleAccess().getFeatureLabelProviderFeatureLabelProviderParserRuleCall_3_1_0()); }
-	ruleFeatureLabelProvider{ after(grammarAccess.getModuleAccess().getFeatureLabelProviderFeatureLabelProviderParserRuleCall_3_1_0()); }
+{ before(grammarAccess.getModuleAccess().getPropertyDescriptionProviderPropertyDescriptionProviderParserRuleCall_3_1_0()); }
+	rulePropertyDescriptionProvider{ after(grammarAccess.getModuleAccess().getPropertyDescriptionProviderPropertyDescriptionProviderParserRuleCall_3_1_0()); }
 )
 
 ;
@@ -15861,14 +15861,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__FeatureLabelProvider__LabelSpecificationsAssignment_3_2
+rule__PropertyDescriptionProvider__LabelSpecificationsAssignment_3_2
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFeatureLabelProviderAccess().getLabelSpecificationsFeatureLabelSpecificationParserRuleCall_3_2_0()); }
-	ruleFeatureLabelSpecification{ after(grammarAccess.getFeatureLabelProviderAccess().getLabelSpecificationsFeatureLabelSpecificationParserRuleCall_3_2_0()); }
+{ before(grammarAccess.getPropertyDescriptionProviderAccess().getLabelSpecificationsPropertyDescriptionSpecificationParserRuleCall_3_2_0()); }
+	rulePropertyDescriptionSpecification{ after(grammarAccess.getPropertyDescriptionProviderAccess().getLabelSpecificationsPropertyDescriptionSpecificationParserRuleCall_3_2_0()); }
 )
 
 ;
@@ -15876,33 +15876,18 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__FeatureLabelSpecification__ParameterTypeAssignment_0
+rule__PropertyDescriptionSpecification__ParameterTypeAssignment_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFeatureLabelSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); }
+{ before(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); }
 (
-{ before(grammarAccess.getFeatureLabelSpecificationAccess().getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1()); }
-	ruleQualifiedName{ after(grammarAccess.getFeatureLabelSpecificationAccess().getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1()); }
+{ before(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1()); }
+	ruleQualifiedName{ after(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1()); }
 )
-{ after(grammarAccess.getFeatureLabelSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__FeatureLabelSpecification__FeatureAssignment_2
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getFeatureLabelSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0()); }
-	ruleXFeatureCall{ after(grammarAccess.getFeatureLabelSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0()); }
+{ after(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); }
 )
 
 ;
@@ -15910,14 +15895,29 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__FeatureLabelSpecification__ExpressionAssignment_4
+rule__PropertyDescriptionSpecification__FeatureAssignment_2
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getFeatureLabelSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0()); }
-	ruleXExpression{ after(grammarAccess.getFeatureLabelSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0()); }
+{ before(grammarAccess.getPropertyDescriptionSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0()); }
+	ruleXFeatureCall{ after(grammarAccess.getPropertyDescriptionSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PropertyDescriptionSpecification__ExpressionAssignment_4
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getPropertyDescriptionSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0()); }
+	ruleXExpression{ after(grammarAccess.getPropertyDescriptionSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0()); }
 )
 
 ;

@@ -150,13 +150,13 @@ public interface ModelPackage extends EPackage
   int MODULE__LABEL_PROVIDER = 1;
 
   /**
-   * The feature id for the '<em><b>Feature Label Provider</b></em>' containment reference.
+   * The feature id for the '<em><b>Property Description Provider</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODULE__FEATURE_LABEL_PROVIDER = 2;
+  int MODULE__PROPERTY_DESCRIPTION_PROVIDER = 2;
 
   /**
    * The feature id for the '<em><b>Feature Provider</b></em>' containment reference.
@@ -260,14 +260,14 @@ public interface ModelPackage extends EPackage
   int LABEL_SPECIFICATION_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.FeatureLabelProviderImpl <em>Feature Label Provider</em>}' class.
+   * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.PropertyDescriptionProviderImpl <em>Property Description Provider</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see it.rcpvision.emf.components.dsl.model.impl.FeatureLabelProviderImpl
-   * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getFeatureLabelProvider()
+   * @see it.rcpvision.emf.components.dsl.model.impl.PropertyDescriptionProviderImpl
+   * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getPropertyDescriptionProvider()
    * @generated
    */
-  int FEATURE_LABEL_PROVIDER = 5;
+  int PROPERTY_DESCRIPTION_PROVIDER = 5;
 
   /**
    * The feature id for the '<em><b>Label Specifications</b></em>' containment reference list.
@@ -276,26 +276,26 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE_LABEL_PROVIDER__LABEL_SPECIFICATIONS = 0;
+  int PROPERTY_DESCRIPTION_PROVIDER__LABEL_SPECIFICATIONS = 0;
 
   /**
-   * The number of structural features of the '<em>Feature Label Provider</em>' class.
+   * The number of structural features of the '<em>Property Description Provider</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FEATURE_LABEL_PROVIDER_FEATURE_COUNT = 1;
+  int PROPERTY_DESCRIPTION_PROVIDER_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.FeatureLabelSpecificationImpl <em>Feature Label Specification</em>}' class.
+   * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.PropertyDescriptionSpecificationImpl <em>Property Description Specification</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see it.rcpvision.emf.components.dsl.model.impl.FeatureLabelSpecificationImpl
-   * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getFeatureLabelSpecification()
+   * @see it.rcpvision.emf.components.dsl.model.impl.PropertyDescriptionSpecificationImpl
+   * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getPropertyDescriptionSpecification()
    * @generated
    */
-  int FEATURE_LABEL_SPECIFICATION = 6;
+  int PROPERTY_DESCRIPTION_SPECIFICATION = 6;
 
   /**
    * The feature id for the '<em><b>Parameter Type</b></em>' reference.
@@ -304,7 +304,7 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE_LABEL_SPECIFICATION__PARAMETER_TYPE = 0;
+  int PROPERTY_DESCRIPTION_SPECIFICATION__PARAMETER_TYPE = 0;
 
   /**
    * The feature id for the '<em><b>Feature</b></em>' containment reference.
@@ -313,7 +313,7 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE_LABEL_SPECIFICATION__FEATURE = 1;
+  int PROPERTY_DESCRIPTION_SPECIFICATION__FEATURE = 1;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -322,16 +322,16 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE_LABEL_SPECIFICATION__EXPRESSION = 2;
+  int PROPERTY_DESCRIPTION_SPECIFICATION__EXPRESSION = 2;
 
   /**
-   * The number of structural features of the '<em>Feature Label Specification</em>' class.
+   * The number of structural features of the '<em>Property Description Specification</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FEATURE_LABEL_SPECIFICATION_FEATURE_COUNT = 3;
+  int PROPERTY_DESCRIPTION_SPECIFICATION_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.FeatureProviderImpl <em>Feature Provider</em>}' class.
@@ -485,15 +485,15 @@ public interface ModelPackage extends EPackage
   EReference getModule_LabelProvider();
 
   /**
-   * Returns the meta object for the containment reference '{@link it.rcpvision.emf.components.dsl.model.Module#getFeatureLabelProvider <em>Feature Label Provider</em>}'.
+   * Returns the meta object for the containment reference '{@link it.rcpvision.emf.components.dsl.model.Module#getPropertyDescriptionProvider <em>Property Description Provider</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Feature Label Provider</em>'.
-   * @see it.rcpvision.emf.components.dsl.model.Module#getFeatureLabelProvider()
+   * @return the meta object for the containment reference '<em>Property Description Provider</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.Module#getPropertyDescriptionProvider()
    * @see #getModule()
    * @generated
    */
-  EReference getModule_FeatureLabelProvider();
+  EReference getModule_PropertyDescriptionProvider();
 
   /**
    * Returns the meta object for the containment reference '{@link it.rcpvision.emf.components.dsl.model.Module#getFeatureProvider <em>Feature Provider</em>}'.
@@ -582,68 +582,68 @@ public interface ModelPackage extends EPackage
   EReference getLabelSpecification_Expression();
 
   /**
-   * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.FeatureLabelProvider <em>Feature Label Provider</em>}'.
+   * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider <em>Property Description Provider</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Feature Label Provider</em>'.
-   * @see it.rcpvision.emf.components.dsl.model.FeatureLabelProvider
+   * @return the meta object for class '<em>Property Description Provider</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider
    * @generated
    */
-  EClass getFeatureLabelProvider();
+  EClass getPropertyDescriptionProvider();
 
   /**
-   * Returns the meta object for the containment reference list '{@link it.rcpvision.emf.components.dsl.model.FeatureLabelProvider#getLabelSpecifications <em>Label Specifications</em>}'.
+   * Returns the meta object for the containment reference list '{@link it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider#getLabelSpecifications <em>Label Specifications</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Label Specifications</em>'.
-   * @see it.rcpvision.emf.components.dsl.model.FeatureLabelProvider#getLabelSpecifications()
-   * @see #getFeatureLabelProvider()
+   * @see it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider#getLabelSpecifications()
+   * @see #getPropertyDescriptionProvider()
    * @generated
    */
-  EReference getFeatureLabelProvider_LabelSpecifications();
+  EReference getPropertyDescriptionProvider_LabelSpecifications();
 
   /**
-   * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification <em>Feature Label Specification</em>}'.
+   * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification <em>Property Description Specification</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Feature Label Specification</em>'.
-   * @see it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification
+   * @return the meta object for class '<em>Property Description Specification</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification
    * @generated
    */
-  EClass getFeatureLabelSpecification();
+  EClass getPropertyDescriptionSpecification();
 
   /**
-   * Returns the meta object for the reference '{@link it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification#getParameterType <em>Parameter Type</em>}'.
+   * Returns the meta object for the reference '{@link it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification#getParameterType <em>Parameter Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Parameter Type</em>'.
-   * @see it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification#getParameterType()
-   * @see #getFeatureLabelSpecification()
+   * @see it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification#getParameterType()
+   * @see #getPropertyDescriptionSpecification()
    * @generated
    */
-  EReference getFeatureLabelSpecification_ParameterType();
+  EReference getPropertyDescriptionSpecification_ParameterType();
 
   /**
-   * Returns the meta object for the containment reference '{@link it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification#getFeature <em>Feature</em>}'.
+   * Returns the meta object for the containment reference '{@link it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification#getFeature <em>Feature</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Feature</em>'.
-   * @see it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification#getFeature()
-   * @see #getFeatureLabelSpecification()
+   * @see it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification#getFeature()
+   * @see #getPropertyDescriptionSpecification()
    * @generated
    */
-  EReference getFeatureLabelSpecification_Feature();
+  EReference getPropertyDescriptionSpecification_Feature();
 
   /**
-   * Returns the meta object for the containment reference '{@link it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification#getExpression <em>Expression</em>}'.
+   * Returns the meta object for the containment reference '{@link it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification#getExpression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see it.rcpvision.emf.components.dsl.model.FeatureLabelSpecification#getExpression()
-   * @see #getFeatureLabelSpecification()
+   * @see it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification#getExpression()
+   * @see #getPropertyDescriptionSpecification()
    * @generated
    */
-  EReference getFeatureLabelSpecification_Expression();
+  EReference getPropertyDescriptionSpecification_Expression();
 
   /**
    * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.FeatureProvider <em>Feature Provider</em>}'.
@@ -792,12 +792,12 @@ public interface ModelPackage extends EPackage
     EReference MODULE__LABEL_PROVIDER = eINSTANCE.getModule_LabelProvider();
 
     /**
-     * The meta object literal for the '<em><b>Feature Label Provider</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Property Description Provider</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODULE__FEATURE_LABEL_PROVIDER = eINSTANCE.getModule_FeatureLabelProvider();
+    EReference MODULE__PROPERTY_DESCRIPTION_PROVIDER = eINSTANCE.getModule_PropertyDescriptionProvider();
 
     /**
      * The meta object literal for the '<em><b>Feature Provider</b></em>' containment reference feature.
@@ -868,14 +868,14 @@ public interface ModelPackage extends EPackage
     EReference LABEL_SPECIFICATION__EXPRESSION = eINSTANCE.getLabelSpecification_Expression();
 
     /**
-     * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.FeatureLabelProviderImpl <em>Feature Label Provider</em>}' class.
+     * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.PropertyDescriptionProviderImpl <em>Property Description Provider</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see it.rcpvision.emf.components.dsl.model.impl.FeatureLabelProviderImpl
-     * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getFeatureLabelProvider()
+     * @see it.rcpvision.emf.components.dsl.model.impl.PropertyDescriptionProviderImpl
+     * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getPropertyDescriptionProvider()
      * @generated
      */
-    EClass FEATURE_LABEL_PROVIDER = eINSTANCE.getFeatureLabelProvider();
+    EClass PROPERTY_DESCRIPTION_PROVIDER = eINSTANCE.getPropertyDescriptionProvider();
 
     /**
      * The meta object literal for the '<em><b>Label Specifications</b></em>' containment reference list feature.
@@ -883,17 +883,17 @@ public interface ModelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FEATURE_LABEL_PROVIDER__LABEL_SPECIFICATIONS = eINSTANCE.getFeatureLabelProvider_LabelSpecifications();
+    EReference PROPERTY_DESCRIPTION_PROVIDER__LABEL_SPECIFICATIONS = eINSTANCE.getPropertyDescriptionProvider_LabelSpecifications();
 
     /**
-     * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.FeatureLabelSpecificationImpl <em>Feature Label Specification</em>}' class.
+     * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.PropertyDescriptionSpecificationImpl <em>Property Description Specification</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see it.rcpvision.emf.components.dsl.model.impl.FeatureLabelSpecificationImpl
-     * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getFeatureLabelSpecification()
+     * @see it.rcpvision.emf.components.dsl.model.impl.PropertyDescriptionSpecificationImpl
+     * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getPropertyDescriptionSpecification()
      * @generated
      */
-    EClass FEATURE_LABEL_SPECIFICATION = eINSTANCE.getFeatureLabelSpecification();
+    EClass PROPERTY_DESCRIPTION_SPECIFICATION = eINSTANCE.getPropertyDescriptionSpecification();
 
     /**
      * The meta object literal for the '<em><b>Parameter Type</b></em>' reference feature.
@@ -901,7 +901,7 @@ public interface ModelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FEATURE_LABEL_SPECIFICATION__PARAMETER_TYPE = eINSTANCE.getFeatureLabelSpecification_ParameterType();
+    EReference PROPERTY_DESCRIPTION_SPECIFICATION__PARAMETER_TYPE = eINSTANCE.getPropertyDescriptionSpecification_ParameterType();
 
     /**
      * The meta object literal for the '<em><b>Feature</b></em>' containment reference feature.
@@ -909,7 +909,7 @@ public interface ModelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FEATURE_LABEL_SPECIFICATION__FEATURE = eINSTANCE.getFeatureLabelSpecification_Feature();
+    EReference PROPERTY_DESCRIPTION_SPECIFICATION__FEATURE = eINSTANCE.getPropertyDescriptionSpecification_Feature();
 
     /**
      * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
@@ -917,7 +917,7 @@ public interface ModelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FEATURE_LABEL_SPECIFICATION__EXPRESSION = eINSTANCE.getFeatureLabelSpecification_Expression();
+    EReference PROPERTY_DESCRIPTION_SPECIFICATION__EXPRESSION = eINSTANCE.getPropertyDescriptionSpecification_Expression();
 
     /**
      * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.FeatureProviderImpl <em>Feature Provider</em>}' class.
