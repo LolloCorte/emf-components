@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.emf.ecore.presentation.EcoreEditorPlugin;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.ui.action.CreateChildAction;
@@ -39,10 +38,8 @@ public class TreeActionBarContributor implements IMenuListener,
 		this.editingDomain = editingDomain;
 		this.workbenchPart = workbenchPart;
 
-		createChildMenuManager = new MenuManager(EcoreEditorPlugin.getPlugin()
-				.getString("_UI_CreateChild_menu_item"));
-		createSiblingMenuManager = new MenuManager(EcoreEditorPlugin
-				.getPlugin().getString("_UI_CreateSibling_menu_item"));
+		createChildMenuManager = new MenuManager("&New Child");
+		createSiblingMenuManager = new MenuManager("N&ew Sibling");
 		
 		createDeleteAction();
 	}
@@ -52,14 +49,12 @@ public class TreeActionBarContributor implements IMenuListener,
 		MenuManager submenuManager = null;
 
 		submenuManager = new MenuManager(
-				EcoreEditorPlugin.INSTANCE
-						.getString("_UI_CreateChild_menu_item"));
+				"&New Child");
 		populateManager(submenuManager, createChildActions, null);
 		menuManager.add(submenuManager);
 
 		submenuManager = new MenuManager(
-				EcoreEditorPlugin.INSTANCE
-						.getString("_UI_CreateSibling_menu_item"));
+				"N&ew Sibling");
 		populateManager(submenuManager, createSiblingActions, null);
 		menuManager.add(submenuManager);
 	}

@@ -8,7 +8,6 @@ import org.eclipse.emf.edit.ui.action.ControlAction;
 import org.eclipse.emf.edit.ui.action.CopyAction;
 import org.eclipse.emf.edit.ui.action.CutAction;
 import org.eclipse.emf.edit.ui.action.DeleteAction;
-import org.eclipse.emf.edit.ui.action.LoadResourceAction;
 import org.eclipse.emf.edit.ui.action.PasteAction;
 import org.eclipse.emf.edit.ui.action.RedoAction;
 import org.eclipse.emf.edit.ui.action.UndoAction;
@@ -97,11 +96,6 @@ public class EditingActionBarContributor
    * This is the action used to implement redo.
    */
   protected RedoAction redoAction;
-
-  /**
-   * This is the action used to load a resource.
-   */
-  protected LoadResourceAction loadResourceAction;
 
   /**
    * This is the action used to control or uncontrol a contained object.
@@ -359,11 +353,6 @@ public class EditingActionBarContributor
     undoAction.setActiveWorkbenchPart(null);
     redoAction.setActiveWorkbenchPart(null);
 
-    if (loadResourceAction != null)
-    {
-      loadResourceAction.setActiveWorkbenchPart(null);
-    }
-
     if (controlAction != null)
     {
       controlAction.setActiveWorkbenchPart(null);
@@ -408,11 +397,6 @@ public class EditingActionBarContributor
     pasteAction.setActiveWorkbenchPart(activePart);
     undoAction.setActiveWorkbenchPart(activePart);
     redoAction.setActiveWorkbenchPart(activePart);
-
-    if (loadResourceAction != null)
-    {
-      loadResourceAction.setActiveWorkbenchPart(activePart);
-    }
 
     if (controlAction != null)
     {
@@ -485,11 +469,6 @@ public class EditingActionBarContributor
 
     undoAction.update();
     redoAction.update();
-
-    if (loadResourceAction != null)
-    {
-      loadResourceAction.update();
-    }
   }
 
   /**
@@ -565,11 +544,6 @@ public class EditingActionBarContributor
       menuManager.insertBefore(key, new Separator());
     }
 
-    if (loadResourceAction != null)
-    {
-      menuManager.insertBefore("additions-end", new ActionContributionItem(loadResourceAction));
-      menuManager.insertBefore("additions-end", new Separator());
-    }
   }
 
   public void propertyChanged(Object source, int id)

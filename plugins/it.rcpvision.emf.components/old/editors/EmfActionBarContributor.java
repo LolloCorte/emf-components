@@ -1,21 +1,45 @@
 package it.rcpvision.emf.components.editors;
 
-import it.rcpvision.emf.components.EmfComponentsActivator;
 import it.rcpvision.emf.components.edit.action.EditingActionBarContributor;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.emf.common.ui.action.ViewerFilterAction;
+import org.eclipse.emf.common.ui.dialogs.DiagnosticDialog;
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EPackage.Registry;
 import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecore.presentation.EcoreEditor;
+import org.eclipse.emf.ecore.presentation.EcoreEditorPlugin;
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.ui.action.CreateChildAction;
 import org.eclipse.emf.edit.ui.action.CreateSiblingAction;
+import org.eclipse.emf.edit.ui.action.LoadResourceAction;
+import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IAction;
@@ -31,12 +55,27 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.window.Window;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.layout.FormAttachment;
+import org.eclipse.swt.layout.FormData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
 
 /**
@@ -49,6 +88,244 @@ public class EmfActionBarContributor
   extends EditingActionBarContributor
   implements ISelectionChangedListener
 {
+  public static class ExtendedLoadResourceAction extends LoadResourceAction
+  {
+    @Override
+    public void run()
+    {
+      Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+      ExtendedLoadResourceDialog loadResourceDialog =
+        new ExtendedLoadResourceDialog
+          (shell, domain);
+    
+      if (loadResourceDialog.open() == Window.OK && !loadResourceDialog.getRegisteredPackages().isEmpty())
+      {
+        String source = EcoreEditorPlugin.INSTANCE.getSymbolicName();
+        BasicDiagnostic diagnosic = 
+          new BasicDiagnostic(Diagnostic.INFO, source, 0, EcoreEditorPlugin.INSTANCE.getString("_UI_RuntimePackageDetail_message"), null);
+        for (EPackage ePackage : loadResourceDialog.getRegisteredPackages())
+        {
+          diagnosic.add(new BasicDiagnostic(Diagnostic.INFO, source, 0, ePackage.getNsURI(), null));
+        }
+        new DiagnosticDialog
+         (shell, 
+          EcoreEditorPlugin.INSTANCE.getString("_UI_Information_title"), 
+          EcoreEditorPlugin.INSTANCE.getString("_UI_RuntimePackageHeader_message"),
+          diagnosic,
+          Diagnostic.INFO).open();
+      }
+    }
+
+    public static class ExtendedLoadResourceDialog extends LoadResourceDialog
+    {
+      protected Set<EPackage> registeredPackages = new LinkedHashSet<EPackage>();
+
+      public ExtendedLoadResourceDialog(Shell parent, EditingDomain domain)
+      {
+        super(parent, domain);
+      }
+      
+      @Override
+      protected boolean processResource(Resource resource)
+      {
+        // Put all static package in the package registry.
+        //
+        ResourceSet resourceSet = domain.getResourceSet();
+        if (!resourceSet.getResources().contains(resource))
+        {
+          Registry packageRegistry = resourceSet.getPackageRegistry();
+          for (EPackage ePackage : getAllPackages(resource))
+          {
+            packageRegistry.put(ePackage.getNsURI(), ePackage);
+            registeredPackages.add(ePackage);
+          }
+        }
+        return true;
+      }
+
+      public Set<EPackage> getRegisteredPackages()
+      {
+        return registeredPackages;
+      }
+
+      protected Collection<EPackage> getAllPackages(Resource resource)
+      {
+        List<EPackage> result = new ArrayList<EPackage>();
+        for (TreeIterator<?> j = 
+               new EcoreUtil.ContentTreeIterator<Object>(resource.getContents())
+               {
+                 private static final long serialVersionUID = 1L;
+  
+                 @Override
+                 protected Iterator<? extends EObject> getEObjectChildren(EObject eObject)
+                 {
+                   return 
+                     eObject instanceof EPackage ? 
+                       ((EPackage)eObject).getESubpackages().iterator() : 
+                         Collections.<EObject>emptyList().iterator();
+                 }
+               };
+             j.hasNext(); )
+        {
+          Object content = j.next();
+          if (content instanceof EPackage)
+          {
+            result.add((EPackage)content);
+          }
+        }
+        return result;
+      }
+
+      @Override
+      protected Control createDialogArea(Composite parent)
+      {
+        Composite composite = (Composite)super.createDialogArea(parent);
+        Composite buttonComposite = (Composite)composite.getChildren()[0];
+        Button browseRegisteredPackagesButton = new Button(buttonComposite, SWT.PUSH);
+        browseRegisteredPackagesButton.setText(EcoreEditorPlugin.INSTANCE.getString("_UI_BrowseRegisteredPackages_label"));
+        prepareBrowseRegisteredPackagesButton(browseRegisteredPackagesButton);
+        {
+          FormData data = new FormData();
+          Control [] children = buttonComposite.getChildren();
+          data.left = new FormAttachment(0, 0);
+          data.right = new FormAttachment(children[0], -CONTROL_OFFSET);
+          browseRegisteredPackagesButton.setLayoutData(data);
+        }
+        return composite;
+      }
+
+      protected void prepareBrowseRegisteredPackagesButton(Button browseRegisteredPackagesButton)
+      {
+        browseRegisteredPackagesButton.addSelectionListener
+          (new SelectionAdapter()
+           {
+             @Override
+             public void widgetSelected(SelectionEvent event)
+             {
+               RegisteredPackageDialog registeredPackageDialog = new RegisteredPackageDialog(getShell());
+               registeredPackageDialog.open();
+               Object [] result = registeredPackageDialog.getResult();
+               if (result != null)
+               {
+                 List<?> nsURIs = Arrays.asList(result);
+                 if (registeredPackageDialog.isDevelopmentTimeVersion())
+                 {
+                   ResourceSet resourceSet = new ResourceSetImpl();
+                   resourceSet.getURIConverter().getURIMap().putAll(EcorePlugin.computePlatformURIMap());
+                   StringBuffer uris = new StringBuffer();
+                   Map<String, URI> ePackageNsURItoGenModelLocationMap = EcorePlugin.getEPackageNsURIToGenModelLocationMap();
+                   for (int i = 0, length = result.length; i < length; i++)
+                   {
+                     URI location = ePackageNsURItoGenModelLocationMap.get(result[i]);
+                     Resource resource = resourceSet.getResource(location, true);
+                     EcoreUtil.resolveAll(resource);
+                   }
+                   for (Resource resource : resourceSet.getResources())
+                   {
+                     for (EPackage ePackage : getAllPackages(resource))
+                     {
+                       if (nsURIs.contains(ePackage.getNsURI()))
+                       {
+                         uris.append(resource.getURI());
+                         uris.append("  ");
+                         break;
+                       }
+                     }
+                   }
+                   uriField.setText((uriField.getText() + "  " + uris.toString()).trim());
+                 }
+                 else
+                 {
+                   StringBuffer uris = new StringBuffer();
+                   for (int i = 0, length = result.length; i < length; i++)
+                   {
+                     uris.append(result[i]);
+                     uris.append("  ");
+                   }
+                   uriField.setText((uriField.getText() + "  " + uris.toString()).trim());
+                 }
+               }
+             }
+           });      
+      }
+    }
+    
+    public static class RegisteredPackageDialog extends ElementListSelectionDialog
+    {
+      protected boolean isDevelopmentTimeVersion = true;
+
+      public RegisteredPackageDialog(Shell parent)
+      {
+        super
+          (parent, 
+           new LabelProvider()
+           {
+             @Override
+            public Image getImage(Object element)
+             {
+               return ExtendedImageRegistry.getInstance().getImage(EcoreEditPlugin.INSTANCE.getImage("full/obj16/EPackage"));
+             }
+           });
+        
+        setMultipleSelection(true);
+        setMessage(EcoreEditorPlugin.INSTANCE.getString("_UI_SelectRegisteredPackageURI"));
+        setFilter("*");
+        setTitle(EcoreEditorPlugin.INSTANCE.getString("_UI_PackageSelection_label"));
+      }
+      
+      public boolean isDevelopmentTimeVersion()
+      {
+        return isDevelopmentTimeVersion;
+      }
+      
+      protected void updateElements()
+      {
+        if (isDevelopmentTimeVersion)
+        {
+          Map<String, URI> ePackageNsURItoGenModelLocationMap = EcorePlugin.getEPackageNsURIToGenModelLocationMap();
+          Object [] result = ePackageNsURItoGenModelLocationMap.keySet().toArray(new Object[ePackageNsURItoGenModelLocationMap.size()]);
+          Arrays.sort(result);
+          setListElements(result);
+        }
+        else
+        {
+          Object [] result = EPackage.Registry.INSTANCE.keySet().toArray(new Object[EPackage.Registry.INSTANCE.size()]);
+          Arrays.sort(result);
+          setListElements(result);
+        }
+      }
+
+      @Override
+      protected Control createDialogArea(Composite parent)
+      {
+        Composite result = (Composite)super.createDialogArea(parent);
+        Composite buttonGroup = new Composite(result, SWT.NONE);
+        GridLayout layout = new GridLayout();
+        layout.numColumns = 2;
+        buttonGroup.setLayout(layout);
+        final Button developmentTimeVersionButton = new Button(buttonGroup, SWT.RADIO);
+        developmentTimeVersionButton.addSelectionListener
+          (new SelectionAdapter() 
+           {
+             @Override
+             public void widgetSelected(SelectionEvent event)
+             {
+               isDevelopmentTimeVersion = developmentTimeVersionButton.getSelection();
+               updateElements();
+             }
+           });
+        developmentTimeVersionButton.setText(EcoreEditorPlugin.INSTANCE.getString("_UI_DevelopmentTimeVersion_label"));
+        Button runtimeTimeVersionButton = new Button(buttonGroup, SWT.RADIO);
+        runtimeTimeVersionButton.setText(EcoreEditorPlugin.INSTANCE.getString("_UI_RuntimeVersion_label"));
+        developmentTimeVersionButton.setSelection(true);
+
+        updateElements();
+
+        return result;
+      }
+    }
+  }
+
   /**
    * This keeps track of the active part.
    * <!-- begin-user-doc -->
@@ -72,7 +349,7 @@ public class EmfActionBarContributor
    * @generated
    */
   protected IAction showPropertiesViewAction =
-    new Action("Show &Properties View")
+    new Action(EcoreEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item"))
     {
       @Override
       public void run()
@@ -83,7 +360,7 @@ public class EmfActionBarContributor
         }
         catch (PartInitException exception)
         {
-          EmfComponentsActivator.log(exception);
+          EcoreEditorPlugin.INSTANCE.log(exception);
         }
       }
     };
@@ -96,7 +373,7 @@ public class EmfActionBarContributor
    * @generated
    */
   protected IAction refreshViewerAction =
-    new Action("&Refresh")
+    new Action(EcoreEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item"))
     {
       @Override
       public boolean isEnabled()
@@ -155,7 +432,7 @@ public class EmfActionBarContributor
   protected SelectionChangedEvent lastSelectionChangedEvent;
   
   protected ViewerFilterAction showGenericsAction = 
-    new ViewerFilterAction("Show &Generics", IAction.AS_CHECK_BOX)
+    new ViewerFilterAction(EcoreEditorPlugin.INSTANCE.getString("_UI_ShowGenerics_menu_item"), IAction.AS_CHECK_BOX)
     {
       @Override
       protected void refreshViewers()
@@ -187,15 +464,20 @@ public class EmfActionBarContributor
     super(ADDITIONS_LAST_STYLE);
     
     showGenericsAction.setChecked
-      (Boolean.parseBoolean(EmfComponentsActivator.getDefault().getDialogSettings().get("showGenericsAction")));    
+      (Boolean.parseBoolean(EcoreEditorPlugin.getPlugin().getDialogSettings().get("showGenericsAction")));    
   }
 
 	@Override
 	protected void initializeActions(IActionBars actionBars) {
 		super.initializeActions(actionBars);
 
+		loadResourceAction = createExtendedLoadResourceAction();
 		validateAction = emfActionFactory.createValidateAction();
 		controlAction = emfActionFactory.createControlAction();
+	}
+
+	protected ExtendedLoadResourceAction createExtendedLoadResourceAction() {
+		return new ExtendedLoadResourceAction();
 	}
   
   public void showGenerics(boolean isChecked)
@@ -209,7 +491,7 @@ public class EmfActionBarContributor
   @Override
   public void dispose()
   {
-    EmfComponentsActivator.getDefault().getDialogSettings().put(
+    EcoreEditorPlugin.getPlugin().getDialogSettings().put(
       "showGenericsAction", Boolean.toString(showGenericsAction.isChecked()));
     
     super.dispose();
@@ -250,12 +532,12 @@ public class EmfActionBarContributor
 
     // Prepare for CreateChild item addition or removal.
     //
-    createChildMenuManager = new MenuManager("&New Child");
+    createChildMenuManager = new MenuManager(EcoreEditorPlugin.getPlugin().getString("_UI_CreateChild_menu_item"));
     submenuManager.insertBefore("additions", createChildMenuManager);
 
     // Prepare for CreateSibling item addition or removal.
     //
-    createSiblingMenuManager = new MenuManager("N&ew Sibling");
+    createSiblingMenuManager = new MenuManager(EcoreEditorPlugin.getPlugin().getString("_UI_CreateSibling_menu_item"));
     submenuManager.insertBefore("additions", createSiblingMenuManager);
     
     // Force an update because Eclipse hides empty menus now.
@@ -275,7 +557,7 @@ public class EmfActionBarContributor
 
   protected IMenuManager createSubmenuManager()
   {
-    return new MenuManager("Emf Components", "it.rcpvision.emf.components.MenuID");
+    return new MenuManager(EcoreEditorPlugin.getPlugin().getString("_UI_EcoreEditor_menu"), "org.eclipse.emf.ecoreMenuID");
   }
 
   /**
@@ -327,15 +609,15 @@ public class EmfActionBarContributor
   {
     setActiveEditorGen(part);
     
-//    if (part instanceof EcoreEditor)
-//    {
-//      showGenericsAction.addViewer(((EcoreEditor)part).getViewer());
-//      showGenericsAction.setEnabled(true);
-//    }
-//    else
-//    {
+    if (part instanceof EcoreEditor)
+    {
+      showGenericsAction.addViewer(((EcoreEditor)part).getViewer());
+      showGenericsAction.setEnabled(true);
+    }
+    else
+    {
       showGenericsAction.setEnabled(false);
-//    }    
+    }    
   }
 
   /**
@@ -538,11 +820,11 @@ public class EmfActionBarContributor
     super.menuAboutToShow(menuManager);
     MenuManager submenuManager = null;
 
-    submenuManager = new MenuManager("&New Child");
+    submenuManager = new MenuManager(EcoreEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
     populateManager(submenuManager, createChildActions, null);
     menuManager.insertBefore("edit", submenuManager);
 
-    submenuManager = new MenuManager("N&ew Sibling");
+    submenuManager = new MenuManager(EcoreEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
     populateManager(submenuManager, createSiblingActions, null);
     menuManager.insertBefore("edit", submenuManager);
   }
