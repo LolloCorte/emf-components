@@ -9,6 +9,9 @@
    <feature id="it.rcpvision.emf.components.cdo.feature">
       <category name="emfcomponents.category"/>
    </feature>
+   <feature id="it.rcpvision.emf.components.dsl.feature">
+      <category name="emfcomponents.category"/>
+   </feature>
 
    <feature id="it.rcpvision.emf.components.source.feature">
       <category name="emfcomponents.category.source"/>
@@ -17,6 +20,9 @@
       <category name="emfcomponents.category.source"/>
    </feature>
    <feature id="it.rcpvision.emf.components.cdo.source.feature">
+      <category name="emfcomponents.category.source"/>
+   </feature>
+   <feature id="it.rcpvision.emf.components.dsl.source.feature">
       <category name="emfcomponents.category.source"/>
    </feature>
 
