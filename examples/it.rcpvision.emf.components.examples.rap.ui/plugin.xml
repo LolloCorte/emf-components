@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="viewapp"
+         point="org.eclipse.core.runtime.applications">
+      <application
+            thread="main"
+            cardinality="singleton-global"
+            visible="true">
+         <run
+               class="it.rcpvision.emf.components.examples.rap.ui.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="RAP Perspective"
+            class="it.rcpvision.emf.components.examples.rap.ui.Perspective"
+            id="it.rcpvision.emf.components.examples.rap.ui.perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            name="View"
+            class="it.rcpvision.emf.components.examples.rap.ui.View"
+            id="it.rcpvision.emf.components.examples.rap.ui.view">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.rap.ui.branding">
+      <branding
+            servletName="view"
+            themeId="org.eclipse.rap.design.example.fancy.theme"
+            defaultEntrypointId="it.rcpvision.emf.components.examples.rap.ui.viewapp"
+            title="RAP Single View"
+            id="it.rcpvision.emf.components.examples.rap.ui.branding">
+      </branding>
+   </extension>
+
+</plugin>

@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Emf Components RAP Example Ui
+Bundle-SymbolicName: it.rcpvision.emf.components.examples.rap.ui; singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: it.rcpvision.emf.components.examples.rap.ui.Activator
+Bundle-Vendor: RCP-VISION
+Require-Bundle: org.eclipse.rap.ui
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Import-Package: javax.servlet;version="2.4.0",
+ javax.servlet.http;version="2.4.0"
