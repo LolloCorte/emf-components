@@ -7,7 +7,6 @@ import it.rcpvision.emf.components.dsl.model.ModelPackage;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -15,13 +14,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.eclipse.xtext.common.types.JvmType;
 
 import org.eclipse.xtext.xbase.XExpression;
 
@@ -32,25 +26,14 @@ import org.eclipse.xtext.xbase.XExpression;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.FeatureSpecificationImpl#getParameterType <em>Parameter Type</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.FeatureSpecificationImpl#getFeatures <em>Features</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class FeatureSpecificationImpl extends MinimalEObjectImpl.Container implements FeatureSpecification
+public class FeatureSpecificationImpl extends EmfFeatureAccessImpl implements FeatureSpecification
 {
-  /**
-   * The cached value of the '{@link #getParameterType() <em>Parameter Type</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getParameterType()
-   * @generated
-   * @ordered
-   */
-  protected JvmType parameterType;
-
   /**
    * The cached value of the '{@link #getFeatures() <em>Features</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -80,49 +63,6 @@ public class FeatureSpecificationImpl extends MinimalEObjectImpl.Container imple
   protected EClass eStaticClass()
   {
     return ModelPackage.Literals.FEATURE_SPECIFICATION;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public JvmType getParameterType()
-  {
-    if (parameterType != null && parameterType.eIsProxy())
-    {
-      InternalEObject oldParameterType = (InternalEObject)parameterType;
-      parameterType = (JvmType)eResolveProxy(oldParameterType);
-      if (parameterType != oldParameterType)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.FEATURE_SPECIFICATION__PARAMETER_TYPE, oldParameterType, parameterType));
-      }
-    }
-    return parameterType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public JvmType basicGetParameterType()
-  {
-    return parameterType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setParameterType(JvmType newParameterType)
-  {
-    JvmType oldParameterType = parameterType;
-    parameterType = newParameterType;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.FEATURE_SPECIFICATION__PARAMETER_TYPE, oldParameterType, parameterType));
   }
 
   /**
@@ -165,9 +105,6 @@ public class FeatureSpecificationImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case ModelPackage.FEATURE_SPECIFICATION__PARAMETER_TYPE:
-        if (resolve) return getParameterType();
-        return basicGetParameterType();
       case ModelPackage.FEATURE_SPECIFICATION__FEATURES:
         return getFeatures();
     }
@@ -185,9 +122,6 @@ public class FeatureSpecificationImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case ModelPackage.FEATURE_SPECIFICATION__PARAMETER_TYPE:
-        setParameterType((JvmType)newValue);
-        return;
       case ModelPackage.FEATURE_SPECIFICATION__FEATURES:
         getFeatures().clear();
         getFeatures().addAll((Collection<? extends XExpression>)newValue);
@@ -206,9 +140,6 @@ public class FeatureSpecificationImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case ModelPackage.FEATURE_SPECIFICATION__PARAMETER_TYPE:
-        setParameterType((JvmType)null);
-        return;
       case ModelPackage.FEATURE_SPECIFICATION__FEATURES:
         getFeatures().clear();
         return;
@@ -226,8 +157,6 @@ public class FeatureSpecificationImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case ModelPackage.FEATURE_SPECIFICATION__PARAMETER_TYPE:
-        return parameterType != null;
       case ModelPackage.FEATURE_SPECIFICATION__FEATURES:
         return features != null && !features.isEmpty();
     }

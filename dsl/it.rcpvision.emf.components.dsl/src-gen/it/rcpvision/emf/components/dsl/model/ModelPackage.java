@@ -288,6 +288,34 @@ public interface ModelPackage extends EPackage
   int PROPERTY_DESCRIPTION_PROVIDER_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.EmfFeatureAccessImpl <em>Emf Feature Access</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see it.rcpvision.emf.components.dsl.model.impl.EmfFeatureAccessImpl
+   * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getEmfFeatureAccess()
+   * @generated
+   */
+  int EMF_FEATURE_ACCESS = 9;
+
+  /**
+   * The feature id for the '<em><b>Parameter Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EMF_FEATURE_ACCESS__PARAMETER_TYPE = 0;
+
+  /**
+   * The number of structural features of the '<em>Emf Feature Access</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EMF_FEATURE_ACCESS_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.PropertyDescriptionSpecificationImpl <em>Property Description Specification</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -304,7 +332,7 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROPERTY_DESCRIPTION_SPECIFICATION__PARAMETER_TYPE = 0;
+  int PROPERTY_DESCRIPTION_SPECIFICATION__PARAMETER_TYPE = EMF_FEATURE_ACCESS__PARAMETER_TYPE;
 
   /**
    * The feature id for the '<em><b>Feature</b></em>' containment reference.
@@ -313,7 +341,7 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROPERTY_DESCRIPTION_SPECIFICATION__FEATURE = 1;
+  int PROPERTY_DESCRIPTION_SPECIFICATION__FEATURE = EMF_FEATURE_ACCESS_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -322,7 +350,7 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROPERTY_DESCRIPTION_SPECIFICATION__EXPRESSION = 2;
+  int PROPERTY_DESCRIPTION_SPECIFICATION__EXPRESSION = EMF_FEATURE_ACCESS_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Property Description Specification</em>' class.
@@ -331,7 +359,7 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROPERTY_DESCRIPTION_SPECIFICATION_FEATURE_COUNT = 3;
+  int PROPERTY_DESCRIPTION_SPECIFICATION_FEATURE_COUNT = EMF_FEATURE_ACCESS_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.FeatureProviderImpl <em>Feature Provider</em>}' class.
@@ -378,7 +406,7 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE_SPECIFICATION__PARAMETER_TYPE = 0;
+  int FEATURE_SPECIFICATION__PARAMETER_TYPE = EMF_FEATURE_ACCESS__PARAMETER_TYPE;
 
   /**
    * The feature id for the '<em><b>Features</b></em>' containment reference list.
@@ -387,7 +415,7 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE_SPECIFICATION__FEATURES = 1;
+  int FEATURE_SPECIFICATION__FEATURES = EMF_FEATURE_ACCESS_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Feature Specification</em>' class.
@@ -396,7 +424,7 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE_SPECIFICATION_FEATURE_COUNT = 2;
+  int FEATURE_SPECIFICATION_FEATURE_COUNT = EMF_FEATURE_ACCESS_FEATURE_COUNT + 1;
 
 
   /**
@@ -613,17 +641,6 @@ public interface ModelPackage extends EPackage
   EClass getPropertyDescriptionSpecification();
 
   /**
-   * Returns the meta object for the reference '{@link it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification#getParameterType <em>Parameter Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Parameter Type</em>'.
-   * @see it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification#getParameterType()
-   * @see #getPropertyDescriptionSpecification()
-   * @generated
-   */
-  EReference getPropertyDescriptionSpecification_ParameterType();
-
-  /**
    * Returns the meta object for the containment reference '{@link it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification#getFeature <em>Feature</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -677,17 +694,6 @@ public interface ModelPackage extends EPackage
   EClass getFeatureSpecification();
 
   /**
-   * Returns the meta object for the reference '{@link it.rcpvision.emf.components.dsl.model.FeatureSpecification#getParameterType <em>Parameter Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Parameter Type</em>'.
-   * @see it.rcpvision.emf.components.dsl.model.FeatureSpecification#getParameterType()
-   * @see #getFeatureSpecification()
-   * @generated
-   */
-  EReference getFeatureSpecification_ParameterType();
-
-  /**
    * Returns the meta object for the containment reference list '{@link it.rcpvision.emf.components.dsl.model.FeatureSpecification#getFeatures <em>Features</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -697,6 +703,27 @@ public interface ModelPackage extends EPackage
    * @generated
    */
   EReference getFeatureSpecification_Features();
+
+  /**
+   * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.EmfFeatureAccess <em>Emf Feature Access</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Emf Feature Access</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.EmfFeatureAccess
+   * @generated
+   */
+  EClass getEmfFeatureAccess();
+
+  /**
+   * Returns the meta object for the reference '{@link it.rcpvision.emf.components.dsl.model.EmfFeatureAccess#getParameterType <em>Parameter Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Parameter Type</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.EmfFeatureAccess#getParameterType()
+   * @see #getEmfFeatureAccess()
+   * @generated
+   */
+  EReference getEmfFeatureAccess_ParameterType();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -896,14 +923,6 @@ public interface ModelPackage extends EPackage
     EClass PROPERTY_DESCRIPTION_SPECIFICATION = eINSTANCE.getPropertyDescriptionSpecification();
 
     /**
-     * The meta object literal for the '<em><b>Parameter Type</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PROPERTY_DESCRIPTION_SPECIFICATION__PARAMETER_TYPE = eINSTANCE.getPropertyDescriptionSpecification_ParameterType();
-
-    /**
      * The meta object literal for the '<em><b>Feature</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -948,20 +967,30 @@ public interface ModelPackage extends EPackage
     EClass FEATURE_SPECIFICATION = eINSTANCE.getFeatureSpecification();
 
     /**
-     * The meta object literal for the '<em><b>Parameter Type</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FEATURE_SPECIFICATION__PARAMETER_TYPE = eINSTANCE.getFeatureSpecification_ParameterType();
-
-    /**
      * The meta object literal for the '<em><b>Features</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference FEATURE_SPECIFICATION__FEATURES = eINSTANCE.getFeatureSpecification_Features();
+
+    /**
+     * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.EmfFeatureAccessImpl <em>Emf Feature Access</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see it.rcpvision.emf.components.dsl.model.impl.EmfFeatureAccessImpl
+     * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getEmfFeatureAccess()
+     * @generated
+     */
+    EClass EMF_FEATURE_ACCESS = eINSTANCE.getEmfFeatureAccess();
+
+    /**
+     * The meta object literal for the '<em><b>Parameter Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EMF_FEATURE_ACCESS__PARAMETER_TYPE = eINSTANCE.getEmfFeatureAccess_ParameterType();
 
   }
 

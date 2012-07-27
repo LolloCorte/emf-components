@@ -77,7 +77,8 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 				}
 				else break;
 			case ModelPackage.FEATURE_SPECIFICATION:
-				if(context == grammarAccess.getFeatureSpecificationRule()) {
+				if(context == grammarAccess.getEmfFeatureAccessRule() ||
+				   context == grammarAccess.getFeatureSpecificationRule()) {
 					sequence_FeatureSpecification(context, (FeatureSpecification) semanticObject); 
 					return; 
 				}
@@ -119,7 +120,8 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 				}
 				else break;
 			case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION:
-				if(context == grammarAccess.getPropertyDescriptionSpecificationRule()) {
+				if(context == grammarAccess.getEmfFeatureAccessRule() ||
+				   context == grammarAccess.getPropertyDescriptionSpecificationRule()) {
 					sequence_PropertyDescriptionSpecification(context, (PropertyDescriptionSpecification) semanticObject); 
 					return; 
 				}
@@ -1069,8 +1071,8 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	 */
 	protected void sequence_PropertyDescriptionSpecification(EObject context, PropertyDescriptionSpecification semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.PROPERTY_DESCRIPTION_SPECIFICATION__PARAMETER_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.PROPERTY_DESCRIPTION_SPECIFICATION__PARAMETER_TYPE));
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.EMF_FEATURE_ACCESS__PARAMETER_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.EMF_FEATURE_ACCESS__PARAMETER_TYPE));
 			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.PROPERTY_DESCRIPTION_SPECIFICATION__FEATURE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.PROPERTY_DESCRIPTION_SPECIFICATION__FEATURE));
 			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.PROPERTY_DESCRIPTION_SPECIFICATION__EXPRESSION) == ValueTransient.YES)

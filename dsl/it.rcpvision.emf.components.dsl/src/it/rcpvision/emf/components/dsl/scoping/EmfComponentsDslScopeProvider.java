@@ -3,6 +3,7 @@
  */
 package it.rcpvision.emf.components.dsl.scoping;
 
+import it.rcpvision.emf.components.dsl.model.EmfFeatureAccess;
 import it.rcpvision.emf.components.dsl.model.FeatureSpecification;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification;
 
@@ -59,17 +60,9 @@ public class EmfComponentsDslScopeProvider extends XbaseScopeProvider {
 
 	@Override
 	protected JvmDeclaredType getContextType(EObject obj) {
-		if (obj instanceof PropertyDescriptionSpecification) {
-			PropertyDescriptionSpecification featureLabelSpecification = (PropertyDescriptionSpecification) obj;
-			JvmType parameterType = featureLabelSpecification
-					.getParameterType();
-			if (parameterType instanceof JvmDeclaredType) {
-				return (JvmDeclaredType) parameterType;
-			}
-		}
-		if (obj instanceof FeatureSpecification) {
-			FeatureSpecification featureSpecification = (FeatureSpecification) obj;
-			JvmType parameterType = featureSpecification.getParameterType();
+		if (obj instanceof EmfFeatureAccess) {
+			EmfFeatureAccess featureAccess = (EmfFeatureAccess) obj;
+			JvmType parameterType = featureAccess.getParameterType();
 			if (parameterType instanceof JvmDeclaredType) {
 				return (JvmDeclaredType) parameterType;
 			}
@@ -85,17 +78,11 @@ public class EmfComponentsDslScopeProvider extends XbaseScopeProvider {
 
 		if (scopeContext != null && scopeContext.getContext() != null) {
 			EObject context = scopeContext.getContext();
-			if (context instanceof PropertyDescriptionSpecification) {
-				PropertyDescriptionSpecification featureLabelSpecification = (PropertyDescriptionSpecification) context;
+			if (context instanceof EmfFeatureAccess) {
+				EmfFeatureAccess featureAccess = (EmfFeatureAccess) context;
 				return new SimpleScope(parentScope,
 						Collections.singleton(EObjectDescription.create(THIS,
-								featureLabelSpecification.getParameterType())));
-			}
-			if (context instanceof FeatureSpecification) {
-				FeatureSpecification featureSpecification = (FeatureSpecification) context;
-				return new SimpleScope(parentScope,
-						Collections.singleton(EObjectDescription.create(THIS,
-								featureSpecification.getParameterType())));
+								featureAccess.getParameterType())));
 			}
 		}
 
@@ -123,7 +110,6 @@ public class EmfComponentsDslScopeProvider extends XbaseScopeProvider {
 			FeatureSpecification featureSpecification = (FeatureSpecification) container;
 			if (featureSpecification.getFeatures().contains(call))
 				shouldFilter = true;
-
 		}
 
 		if (!shouldFilter)

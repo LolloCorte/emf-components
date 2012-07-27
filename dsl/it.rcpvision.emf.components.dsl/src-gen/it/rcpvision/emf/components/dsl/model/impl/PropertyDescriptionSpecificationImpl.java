@@ -12,9 +12,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.xtext.common.types.JvmType;
 
 import org.eclipse.xtext.xbase.XExpression;
 
@@ -25,7 +22,6 @@ import org.eclipse.xtext.xbase.XExpression;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.PropertyDescriptionSpecificationImpl#getParameterType <em>Parameter Type</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.PropertyDescriptionSpecificationImpl#getFeature <em>Feature</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.PropertyDescriptionSpecificationImpl#getExpression <em>Expression</em>}</li>
  * </ul>
@@ -33,18 +29,8 @@ import org.eclipse.xtext.xbase.XExpression;
  *
  * @generated
  */
-public class PropertyDescriptionSpecificationImpl extends MinimalEObjectImpl.Container implements PropertyDescriptionSpecification
+public class PropertyDescriptionSpecificationImpl extends EmfFeatureAccessImpl implements PropertyDescriptionSpecification
 {
-  /**
-   * The cached value of the '{@link #getParameterType() <em>Parameter Type</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getParameterType()
-   * @generated
-   * @ordered
-   */
-  protected JvmType parameterType;
-
   /**
    * The cached value of the '{@link #getFeature() <em>Feature</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -84,49 +70,6 @@ public class PropertyDescriptionSpecificationImpl extends MinimalEObjectImpl.Con
   protected EClass eStaticClass()
   {
     return ModelPackage.Literals.PROPERTY_DESCRIPTION_SPECIFICATION;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public JvmType getParameterType()
-  {
-    if (parameterType != null && parameterType.eIsProxy())
-    {
-      InternalEObject oldParameterType = (InternalEObject)parameterType;
-      parameterType = (JvmType)eResolveProxy(oldParameterType);
-      if (parameterType != oldParameterType)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__PARAMETER_TYPE, oldParameterType, parameterType));
-      }
-    }
-    return parameterType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public JvmType basicGetParameterType()
-  {
-    return parameterType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setParameterType(JvmType newParameterType)
-  {
-    JvmType oldParameterType = parameterType;
-    parameterType = newParameterType;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__PARAMETER_TYPE, oldParameterType, parameterType));
   }
 
   /**
@@ -253,9 +196,6 @@ public class PropertyDescriptionSpecificationImpl extends MinimalEObjectImpl.Con
   {
     switch (featureID)
     {
-      case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__PARAMETER_TYPE:
-        if (resolve) return getParameterType();
-        return basicGetParameterType();
       case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__FEATURE:
         return getFeature();
       case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__EXPRESSION:
@@ -274,9 +214,6 @@ public class PropertyDescriptionSpecificationImpl extends MinimalEObjectImpl.Con
   {
     switch (featureID)
     {
-      case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__PARAMETER_TYPE:
-        setParameterType((JvmType)newValue);
-        return;
       case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__FEATURE:
         setFeature((XExpression)newValue);
         return;
@@ -297,9 +234,6 @@ public class PropertyDescriptionSpecificationImpl extends MinimalEObjectImpl.Con
   {
     switch (featureID)
     {
-      case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__PARAMETER_TYPE:
-        setParameterType((JvmType)null);
-        return;
       case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__FEATURE:
         setFeature((XExpression)null);
         return;
@@ -320,8 +254,6 @@ public class PropertyDescriptionSpecificationImpl extends MinimalEObjectImpl.Con
   {
     switch (featureID)
     {
-      case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__PARAMETER_TYPE:
-        return parameterType != null;
       case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__FEATURE:
         return feature != null;
       case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION__EXPRESSION:

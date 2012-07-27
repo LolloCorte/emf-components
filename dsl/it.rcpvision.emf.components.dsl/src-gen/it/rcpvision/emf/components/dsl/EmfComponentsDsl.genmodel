@@ -33,7 +33,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//PropertyDescriptionProvider/labelSpecifications"/>
     </genClasses>
     <genClasses ecoreClass="EmfComponentsDsl.ecore#//PropertyDescriptionSpecification">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//PropertyDescriptionSpecification/parameterType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//PropertyDescriptionSpecification/feature"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//PropertyDescriptionSpecification/expression"/>
     </genClasses>
@@ -41,8 +40,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FeatureProvider/featureSpecifications"/>
     </genClasses>
     <genClasses ecoreClass="EmfComponentsDsl.ecore#//FeatureSpecification">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FeatureSpecification/parameterType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FeatureSpecification/features"/>
+    </genClasses>
+    <genClasses ecoreClass="EmfComponentsDsl.ecore#//EmfFeatureAccess">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//EmfFeatureAccess/parameterType"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

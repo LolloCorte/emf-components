@@ -73,6 +73,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
       case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION: return createPropertyDescriptionSpecification();
       case ModelPackage.FEATURE_PROVIDER: return createFeatureProvider();
       case ModelPackage.FEATURE_SPECIFICATION: return createFeatureSpecification();
+      case ModelPackage.EMF_FEATURE_ACCESS: return createEmfFeatureAccess();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -175,6 +176,17 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
   {
     FeatureSpecificationImpl featureSpecification = new FeatureSpecificationImpl();
     return featureSpecification;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EmfFeatureAccess createEmfFeatureAccess()
+  {
+    EmfFeatureAccessImpl emfFeatureAccess = new EmfFeatureAccessImpl();
+    return emfFeatureAccess;
   }
 
   /**

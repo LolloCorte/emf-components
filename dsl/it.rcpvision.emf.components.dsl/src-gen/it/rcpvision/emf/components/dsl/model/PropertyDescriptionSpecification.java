@@ -2,10 +2,6 @@
  */
 package it.rcpvision.emf.components.dsl.model;
 
-import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.xtext.common.types.JvmType;
-
 import org.eclipse.xtext.xbase.XExpression;
 
 /**
@@ -16,7 +12,6 @@ import org.eclipse.xtext.xbase.XExpression;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification#getParameterType <em>Parameter Type</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification#getFeature <em>Feature</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification#getExpression <em>Expression</em>}</li>
  * </ul>
@@ -26,34 +21,8 @@ import org.eclipse.xtext.xbase.XExpression;
  * @model
  * @generated
  */
-public interface PropertyDescriptionSpecification extends EObject
+public interface PropertyDescriptionSpecification extends EmfFeatureAccess
 {
-  /**
-   * Returns the value of the '<em><b>Parameter Type</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Parameter Type</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Parameter Type</em>' reference.
-   * @see #setParameterType(JvmType)
-   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getPropertyDescriptionSpecification_ParameterType()
-   * @model
-   * @generated
-   */
-  JvmType getParameterType();
-
-  /**
-   * Sets the value of the '{@link it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification#getParameterType <em>Parameter Type</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Parameter Type</em>' reference.
-   * @see #getParameterType()
-   * @generated
-   */
-  void setParameterType(JvmType value);
-
   /**
    * Returns the value of the '<em><b>Feature</b></em>' containment reference.
    * <!-- begin-user-doc -->

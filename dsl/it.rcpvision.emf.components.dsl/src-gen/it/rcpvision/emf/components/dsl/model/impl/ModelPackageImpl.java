@@ -2,6 +2,7 @@
  */
 package it.rcpvision.emf.components.dsl.model.impl;
 
+import it.rcpvision.emf.components.dsl.model.EmfFeatureAccess;
 import it.rcpvision.emf.components.dsl.model.FeatureProvider;
 import it.rcpvision.emf.components.dsl.model.FeatureSpecification;
 import it.rcpvision.emf.components.dsl.model.Import;
@@ -95,6 +96,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * @generated
    */
   private EClass featureSpecificationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass emfFeatureAccessEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -367,7 +375,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPropertyDescriptionSpecification_ParameterType()
+  public EReference getPropertyDescriptionSpecification_Feature()
   {
     return (EReference)propertyDescriptionSpecificationEClass.getEStructuralFeatures().get(0);
   }
@@ -377,19 +385,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPropertyDescriptionSpecification_Feature()
-  {
-    return (EReference)propertyDescriptionSpecificationEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getPropertyDescriptionSpecification_Expression()
   {
-    return (EReference)propertyDescriptionSpecificationEClass.getEStructuralFeatures().get(2);
+    return (EReference)propertyDescriptionSpecificationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -427,7 +425,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFeatureSpecification_ParameterType()
+  public EReference getFeatureSpecification_Features()
   {
     return (EReference)featureSpecificationEClass.getEStructuralFeatures().get(0);
   }
@@ -437,9 +435,19 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFeatureSpecification_Features()
+  public EClass getEmfFeatureAccess()
   {
-    return (EReference)featureSpecificationEClass.getEStructuralFeatures().get(1);
+    return emfFeatureAccessEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getEmfFeatureAccess_ParameterType()
+  {
+    return (EReference)emfFeatureAccessEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -498,7 +506,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     createEReference(propertyDescriptionProviderEClass, PROPERTY_DESCRIPTION_PROVIDER__LABEL_SPECIFICATIONS);
 
     propertyDescriptionSpecificationEClass = createEClass(PROPERTY_DESCRIPTION_SPECIFICATION);
-    createEReference(propertyDescriptionSpecificationEClass, PROPERTY_DESCRIPTION_SPECIFICATION__PARAMETER_TYPE);
     createEReference(propertyDescriptionSpecificationEClass, PROPERTY_DESCRIPTION_SPECIFICATION__FEATURE);
     createEReference(propertyDescriptionSpecificationEClass, PROPERTY_DESCRIPTION_SPECIFICATION__EXPRESSION);
 
@@ -506,8 +513,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     createEReference(featureProviderEClass, FEATURE_PROVIDER__FEATURE_SPECIFICATIONS);
 
     featureSpecificationEClass = createEClass(FEATURE_SPECIFICATION);
-    createEReference(featureSpecificationEClass, FEATURE_SPECIFICATION__PARAMETER_TYPE);
     createEReference(featureSpecificationEClass, FEATURE_SPECIFICATION__FEATURES);
+
+    emfFeatureAccessEClass = createEClass(EMF_FEATURE_ACCESS);
+    createEReference(emfFeatureAccessEClass, EMF_FEATURE_ACCESS__PARAMETER_TYPE);
   }
 
   /**
@@ -543,6 +552,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    propertyDescriptionSpecificationEClass.getESuperTypes().add(this.getEmfFeatureAccess());
+    featureSpecificationEClass.getESuperTypes().add(this.getEmfFeatureAccess());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -571,7 +582,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     initEReference(getPropertyDescriptionProvider_LabelSpecifications(), this.getPropertyDescriptionSpecification(), null, "labelSpecifications", null, 0, -1, PropertyDescriptionProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(propertyDescriptionSpecificationEClass, PropertyDescriptionSpecification.class, "PropertyDescriptionSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPropertyDescriptionSpecification_ParameterType(), theTypesPackage.getJvmType(), null, "parameterType", null, 0, 1, PropertyDescriptionSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPropertyDescriptionSpecification_Feature(), theXbasePackage.getXExpression(), null, "feature", null, 0, 1, PropertyDescriptionSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPropertyDescriptionSpecification_Expression(), theXbasePackage.getXExpression(), null, "expression", null, 0, 1, PropertyDescriptionSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -579,8 +589,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     initEReference(getFeatureProvider_FeatureSpecifications(), this.getFeatureSpecification(), null, "featureSpecifications", null, 0, -1, FeatureProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(featureSpecificationEClass, FeatureSpecification.class, "FeatureSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFeatureSpecification_ParameterType(), theTypesPackage.getJvmType(), null, "parameterType", null, 0, 1, FeatureSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFeatureSpecification_Features(), theXbasePackage.getXExpression(), null, "features", null, 0, -1, FeatureSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(emfFeatureAccessEClass, EmfFeatureAccess.class, "EmfFeatureAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEmfFeatureAccess_ParameterType(), theTypesPackage.getJvmType(), null, "parameterType", null, 0, 1, EmfFeatureAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

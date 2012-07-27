@@ -483,6 +483,27 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		//XFeatureCall
 		public RuleCall getFeaturesXFeatureCallParserRuleCall_3_1_0() { return cFeaturesXFeatureCallParserRuleCall_3_1_0; }
 	}
+
+	public class EmfFeatureAccessElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "EmfFeatureAccess");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cPropertyDescriptionSpecificationParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cFeatureSpecificationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//// a utility base class for rules which access features of an EClass
+		//EmfFeatureAccess:
+		//	PropertyDescriptionSpecification | FeatureSpecification;
+		public ParserRule getRule() { return rule; }
+
+		//PropertyDescriptionSpecification | FeatureSpecification
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//PropertyDescriptionSpecification
+		public RuleCall getPropertyDescriptionSpecificationParserRuleCall_0() { return cPropertyDescriptionSpecificationParserRuleCall_0; }
+
+		//FeatureSpecification
+		public RuleCall getFeatureSpecificationParserRuleCall_1() { return cFeatureSpecificationParserRuleCall_1; }
+	}
 	
 	
 	private ModelElements pModel;
@@ -495,6 +516,7 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 	private PropertyDescriptionSpecificationElements pPropertyDescriptionSpecification;
 	private FeatureProviderElements pFeatureProvider;
 	private FeatureSpecificationElements pFeatureSpecification;
+	private EmfFeatureAccessElements pEmfFeatureAccess;
 	
 	private final Grammar grammar;
 
@@ -635,6 +657,17 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 	
 	public ParserRule getFeatureSpecificationRule() {
 		return getFeatureSpecificationAccess().getRule();
+	}
+
+	//// a utility base class for rules which access features of an EClass
+	//EmfFeatureAccess:
+	//	PropertyDescriptionSpecification | FeatureSpecification;
+	public EmfFeatureAccessElements getEmfFeatureAccessAccess() {
+		return (pEmfFeatureAccess != null) ? pEmfFeatureAccess : (pEmfFeatureAccess = new EmfFeatureAccessElements());
+	}
+	
+	public ParserRule getEmfFeatureAccessRule() {
+		return getEmfFeatureAccessAccess().getRule();
 	}
 
 	//XExpression:

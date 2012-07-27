@@ -118,6 +118,7 @@ public class ModelSwitch<T> extends Switch<T>
       {
         PropertyDescriptionSpecification propertyDescriptionSpecification = (PropertyDescriptionSpecification)theEObject;
         T result = casePropertyDescriptionSpecification(propertyDescriptionSpecification);
+        if (result == null) result = caseEmfFeatureAccess(propertyDescriptionSpecification);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -132,6 +133,14 @@ public class ModelSwitch<T> extends Switch<T>
       {
         FeatureSpecification featureSpecification = (FeatureSpecification)theEObject;
         T result = caseFeatureSpecification(featureSpecification);
+        if (result == null) result = caseEmfFeatureAccess(featureSpecification);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ModelPackage.EMF_FEATURE_ACCESS:
+      {
+        EmfFeatureAccess emfFeatureAccess = (EmfFeatureAccess)theEObject;
+        T result = caseEmfFeatureAccess(emfFeatureAccess);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -279,6 +288,22 @@ public class ModelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFeatureSpecification(FeatureSpecification object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Emf Feature Access</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Emf Feature Access</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEmfFeatureAccess(EmfFeatureAccess object)
   {
     return null;
   }

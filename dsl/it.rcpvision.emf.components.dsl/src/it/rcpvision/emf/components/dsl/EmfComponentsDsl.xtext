@@ -82,3 +82,6 @@ FeatureSpecification:
 	'->'
 	features += XFeatureCall (',' features += XFeatureCall)*
 ;
+
+// a utility base class for rules which access features of an EClass
+EmfFeatureAccess: PropertyDescriptionSpecification | FeatureSpecification;

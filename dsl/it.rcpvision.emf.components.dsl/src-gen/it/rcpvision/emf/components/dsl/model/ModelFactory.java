@@ -104,6 +104,15 @@ public interface ModelFactory extends EFactory
   FeatureSpecification createFeatureSpecification();
 
   /**
+   * Returns a new object of class '<em>Emf Feature Access</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Emf Feature Access</em>'.
+   * @generated
+   */
+  EmfFeatureAccess createEmfFeatureAccess();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
