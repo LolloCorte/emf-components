@@ -1,5 +1,7 @@
 package it.rcpvision.emf.components.examples.rap.ui;
 
+import it.rcpvision.emf.components.EmfComponentsGenericModule;
+
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
@@ -57,5 +59,14 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public static ImageDescriptor getImageDescriptor(String path) {
 		return imageDescriptorFromPlugin(PLUGIN_ID, path);
+	}
+	
+	/**
+	 * Creates the EmfComponentsGenericModule for this this plugin
+	 *
+	 * @return the EmfComponentsGenericModule for this this plugin
+	 */
+	public EmfComponentsGenericModule createModule() {
+		return new EmfComponentsGuiceModule(getDefault());
 	}
 }
