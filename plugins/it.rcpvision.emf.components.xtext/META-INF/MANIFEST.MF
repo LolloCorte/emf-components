@@ -10,8 +10,13 @@ Require-Bundle: com.google.inject;bundle-version="3.0.0";visibility:=reexport,
  com.google.guava;bundle-version="10.0.1";visibility:=reexport,
  org.eclipse.core.runtime,
  org.eclipse.emf.common,
- org.eclipse.ui
-Import-Package: org.apache.log4j;version="1.2.13"
+ org.eclipse.ui;resolution:=optional,
+ org.eclipse.rap.ui;bundle-version="1.5.0";resolution:=optional
+Import-Package: org.apache.log4j;version="1.2.13",
+ org.eclipse.ui;ui.workbench="split",
+ org.eclipse.ui.actions;ui.workbench="split",
+ org.eclipse.ui.application,
+ org.eclipse.ui.part;ui.workbench="split"
 Export-Package: it.rcpvision.emf.components.xtext.service,
  it.rcpvision.emf.components.xtext.ui,
  it.rcpvision.emf.components.xtext.util
