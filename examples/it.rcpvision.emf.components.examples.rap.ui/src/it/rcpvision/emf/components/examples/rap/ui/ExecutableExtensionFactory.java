@@ -1,12 +1,11 @@
 package it.rcpvision.emf.components.examples.rap.ui;
 
-import it.rcpvision.emf.components.xtext.service.MinimalModule;
-import it.rcpvision.emf.components.xtext.ui.MinimalExecutableExtensionFactory;
+import it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory;
 
 import org.osgi.framework.Bundle;
 
 public class ExecutableExtensionFactory extends
-		MinimalExecutableExtensionFactory {
+		EmfComponentsExecutableExtensionFactory {
 
 	@Override
 	protected Bundle getBundle() {
@@ -14,7 +13,7 @@ public class ExecutableExtensionFactory extends
 	}
 
 	@Override
-	protected MinimalModule getModule() {
+	protected EmfComponentsGuiceModule getModule() {
 		return new EmfComponentsGuiceModule(Activator.getDefault());
 	}
 
