@@ -16,5 +16,9 @@ public class Perspective implements IPerspectiveFactory {
 
 		layout.addStandaloneView(View.ID, false, IPageLayout.LEFT, 1.0f,
 				editorArea);
+		
+//		IFolderLayout left =
+//                layout.createFolder("bottom", IPageLayout.BOTTOM, (float) 0.26, editorArea);
+//        left.addView(IPageLayout.ID_PROP_SHEET);
 	}
 }

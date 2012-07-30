@@ -1,17 +1,15 @@
 package it.rcpvision.emf.components.examples.rap.ui;
 
+import it.rcpvision.emf.components.resource.EmptyResourceInitializer;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
+import it.rcpvision.emf.components.viewers.ViewerInitializer;
 
-import org.eclipse.jface.viewers.IStructuredContentProvider;
-import org.eclipse.jface.viewers.ITableLabelProvider;
-import org.eclipse.jface.viewers.LabelProvider;
-import org.eclipse.jface.viewers.TableViewer;
-import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
+import org.eclipse.jface.viewers.StructuredViewer;
+import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.ui.ISharedImages;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 
 import com.google.inject.Inject;
@@ -19,44 +17,13 @@ import com.google.inject.Inject;
 public class View extends ViewPart {
 	public static final String ID = "it.rcpvision.emf.components.examples.rap.ui.view";
 
-	private TableViewer viewer;
+	private StructuredViewer viewer;
 	
 	@Inject protected CompositeLabelProvider labelProvider;
-
-	/**
-	 * The content provider class is responsible for providing objects to the
-	 * view. It can wrap existing objects in adapters or simply return objects
-	 * as-is. These objects may be sensitive to the current input of the view,
-	 * or ignore it and always show the same content (like Task List, for
-	 * example).
-	 */
-	class ViewContentProvider implements IStructuredContentProvider {
-		public void inputChanged(Viewer v, Object oldInput, Object newInput) {
-		}
-
-		public void dispose() {
-		}
-
-		public Object[] getElements(Object parent) {
-			return new String[] { "One", "Two", "Three" };
-		}
-	}
-
-	class ViewLabelProvider extends LabelProvider implements
-			ITableLabelProvider {
-		public String getColumnText(Object obj, int index) {
-			return getText(obj);
-		}
-
-		public Image getColumnImage(Object obj, int index) {
-			return getImage(obj);
-		}
-
-		public Image getImage(Object obj) {
-			return PlatformUI.getWorkbench().getSharedImages().getImage(
-					ISharedImages.IMG_OBJ_ELEMENT);
-		}
-	}
+	
+	@Inject protected ViewerInitializer viewerInitializer;
+	
+	@Inject protected EmptyResourceInitializer emptyResourceInitializer;
 
 	/**
 	 * This is a callback that will allow us to create the viewer and initialize
@@ -64,11 +31,17 @@ public class View extends ViewPart {
 	 */
 	public void createPartControl(Composite parent) {
 		int style = SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL;
-		viewer = new TableViewer(parent, style);
-		viewer.setContentProvider(new ViewContentProvider());
-		labelProvider.setDelegateLabelProvider(new ViewLabelProvider());
-		viewer.setLabelProvider(labelProvider);
-		viewer.setInput(getViewSite());
+		viewer = new TreeViewer(parent, style);
+		
+		Resource resource = new ResourceImpl();
+		emptyResourceInitializer.initialize(resource);
+		
+		viewerInitializer.initialize(viewer, resource);
+		
+//		viewer.setContentProvider(new ViewContentProvider());
+//		labelProvider.setDelegateLabelProvider(new ViewLabelProvider());
+//		viewer.setLabelProvider(labelProvider);
+//		viewer.setInput(getViewSite());
 	}
 
 	/**
