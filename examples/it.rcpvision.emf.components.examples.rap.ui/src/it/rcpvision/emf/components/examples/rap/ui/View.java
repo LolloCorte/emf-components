@@ -1,5 +1,7 @@
 package it.rcpvision.emf.components.examples.rap.ui;
 
+import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
+
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
@@ -12,10 +14,14 @@ import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 
+import com.google.inject.Inject;
+
 public class View extends ViewPart {
 	public static final String ID = "it.rcpvision.emf.components.examples.rap.ui.view";
 
 	private TableViewer viewer;
+	
+	@Inject protected CompositeLabelProvider labelProvider;
 
 	/**
 	 * The content provider class is responsible for providing objects to the
@@ -60,7 +66,8 @@ public class View extends ViewPart {
 		int style = SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL;
 		viewer = new TableViewer(parent, style);
 		viewer.setContentProvider(new ViewContentProvider());
-		viewer.setLabelProvider(new ViewLabelProvider());
+		labelProvider.setDelegateLabelProvider(new ViewLabelProvider());
+		viewer.setLabelProvider(labelProvider);
 		viewer.setInput(getViewSite());
 	}
 
