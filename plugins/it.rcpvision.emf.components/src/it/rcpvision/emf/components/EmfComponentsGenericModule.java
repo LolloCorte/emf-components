@@ -21,6 +21,7 @@ import it.rcpvision.emf.components.listeners.ResourceDeltaVisitor;
 import it.rcpvision.emf.components.menus.StructuredViewerContextMenuManagerCreator;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
+import it.rcpvision.emf.components.resource.EmptyResourceInitializer;
 import it.rcpvision.emf.components.resource.ResourceLoader;
 import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesColumnProvider;
@@ -178,5 +179,9 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 
 	public Class<? extends EmfActionFactory> bindEmfActionFactory() {
 		return EmfActionFactory.class;
+	}
+
+	public Class<? extends EmptyResourceInitializer> bindEmptyResourceInitializer() {
+		return EmptyResourceInitializer.class;
 	}
 }
