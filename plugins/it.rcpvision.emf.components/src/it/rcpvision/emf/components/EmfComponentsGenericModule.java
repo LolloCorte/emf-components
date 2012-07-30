@@ -17,7 +17,6 @@ import it.rcpvision.emf.components.factories.TreeFormFactory;
 import it.rcpvision.emf.components.guice.ComposedAdapterFactoryProvider;
 import it.rcpvision.emf.components.handlers.ContentOutlineSelectionHandler;
 import it.rcpvision.emf.components.listeners.EmfViewerMouseAdapter;
-import it.rcpvision.emf.components.listeners.ResourceDeltaVisitor;
 import it.rcpvision.emf.components.menus.StructuredViewerContextMenuManagerCreator;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
@@ -99,10 +98,6 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 
 	public Class<? extends EditingDomainFactory> bindEditingDomainFactory() {
 		return EditingDomainFactory.class;
-	}
-
-	public Class<? extends ResourceDeltaVisitor> bindResourceDeltaVisitor() {
-		return ResourceDeltaVisitor.class;
 	}
 
 	public Class<? extends EmfViewerFactory> bindEmfViewerFactory() {

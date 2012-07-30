@@ -4,8 +4,6 @@ import it.rcpvision.emf.components.factories.FormFactory;
 import it.rcpvision.emf.components.util.EmfSelectionHelper;
 import it.rcpvision.emf.components.viewers.ViewerInitializer;
 
-import org.eclipse.core.resources.IResource;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -80,12 +78,13 @@ public class TreeFormComposite extends Composite {
 
 	public void update(Object element) {
 		if (element != null) {
-			if (element instanceof IResource) {
-				IResource resource = (IResource) element;
-				URI uri = URI.createPlatformResourceURI(resource.getFullPath()
-						.toString(), true);
-				viewerInitializer.initialize(viewer, uri);
-			} else if (element instanceof Resource) {
+//			if (element instanceof IResource) {
+//				IResource resource = (IResource) element;
+//				URI uri = URI.createPlatformResourceURI(resource.getFullPath()
+//						.toString(), true);
+//				viewerInitializer.initialize(viewer, uri);
+//			} else 
+			if (element instanceof Resource) {
 				Resource resource = (Resource) element;
 				viewerInitializer.initialize(viewer, resource);
 			} else if (element instanceof EObject) {

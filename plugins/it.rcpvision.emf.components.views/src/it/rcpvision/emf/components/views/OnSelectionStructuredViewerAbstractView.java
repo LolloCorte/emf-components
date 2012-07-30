@@ -5,12 +5,12 @@ package it.rcpvision.emf.components.views;
 
 import it.rcpvision.emf.components.viewers.ViewerInitializer;
 
-import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredViewer;
+import org.eclipse.rwt.resources.IResource;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
@@ -57,13 +57,14 @@ public abstract class OnSelectionStructuredViewerAbstractView extends OnSelectio
 	protected void updateOnSelection(IWorkbenchPart sourcepart,
 			ISelection selection) {
 		Object element = getFirstSelectedElement(selection);
-		if (element instanceof IResource) {
-			IResource resource = (IResource) element;
-			performUpdateOnSelection(resource);
-			// viewer.expandAll();
-			showEmfViewer();
-			return;
-		} else if (element instanceof Resource) {
+//		if (element instanceof IResource) {
+//			IResource resource = (IResource) element;
+//			performUpdateOnSelection(resource);
+//			// viewer.expandAll();
+//			showEmfViewer();
+//			return;
+//		} else 
+		if (element instanceof Resource) {
 			Resource resource = (Resource) element;
 			performUpdateOnSelection(resource);
 			showEmfViewer();
@@ -92,14 +93,14 @@ public abstract class OnSelectionStructuredViewerAbstractView extends OnSelectio
 		viewerInitializer.initialize(viewer, resource);
 	}
 
-	/**
-	 * @param resource
-	 */
-	protected void performUpdateOnSelection(IResource resource) {
-		URI uri = URI.createPlatformResourceURI(resource.getFullPath()
-				.toString(), true);
-		viewerInitializer.initialize(viewer, uri);
-	}
+//	/**
+//	 * @param resource
+//	 */
+//	protected void performUpdateOnSelection(IResource resource) {
+//		URI uri = URI.createPlatformResourceURI(resource.getFullPath()
+//				.toString(), true);
+//		viewerInitializer.initialize(viewer, uri);
+//	}
 
 	@Override
 	public void createPartControl(Composite parent) {
