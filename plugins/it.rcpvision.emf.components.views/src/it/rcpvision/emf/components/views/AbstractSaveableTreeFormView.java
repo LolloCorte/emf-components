@@ -9,7 +9,6 @@ import it.rcpvision.emf.components.widgets.TreeFormComposite;
 import java.util.Collection;
 
 import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.command.CreateChildCommand;
 import org.eclipse.jface.action.IMenuListener;
@@ -73,9 +72,6 @@ public abstract class AbstractSaveableTreeFormView extends AbstractSaveableView
 					.getAffectedObjects());
 		}
 	}
-
-	@Override
-    protected abstract URI createResourceURI();
 
 	public void createContextMenuFor(StructuredViewer viewer) {
 		MenuManager menuManager = structuredViewerContextMenuManagerCreator
