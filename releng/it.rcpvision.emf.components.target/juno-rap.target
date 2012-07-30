@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.8"?>
 
-<target name="juno-rap" sequenceNumber="19">
+<target name="juno-rap" sequenceNumber="20">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.rap.runtime.feature.group" version="1.5.0.20120612-1510"/>
@@ -17,6 +17,7 @@
 <repository location="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.jdt.feature.group" version="3.8.0.v20120525-1249-8-8nFqlFNOfwKDRGz-pXLdGxEM83"/>
 <unit id="org.eclipse.platform.sdk" version="4.2.0.I20120608-1400"/>
 <unit id="org.eclipse.emf.databinding.feature.group" version="1.2.0.v20120608-0554"/>
 <unit id="org.eclipse.emf.databinding.edit.feature.group" version="1.2.0.v20120608-0554"/>
