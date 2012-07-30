@@ -8,8 +8,6 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.jface.layout.GridDataFactory;
-import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredViewer;
@@ -66,8 +64,8 @@ public class TreeFormComposite extends Composite {
 		this.emfSelectionHelper = emfSelectionHelper;
 
 		SashForm sashForm = new SashForm(this, SWT.VERTICAL);
-		GridLayoutFactory.fillDefaults().applyTo(sashForm);
-		GridDataFactory.fillDefaults().grab(true, true).applyTo(sashForm);
+		//GridLayoutFactory.fillDefaults().applyTo(sashForm);
+		//GridDataFactory.fillDefaults().grab(true, true).applyTo(sashForm);
 
 		pagebook = new PageBook(sashForm, SWT.BORDER);
 		detail = new Composite(sashForm, SWT.BORDER);

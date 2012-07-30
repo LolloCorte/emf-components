@@ -52,14 +52,14 @@ public class FormDetailComposite extends Composite {
 		toolkit = new FormToolkit(parent.getDisplay());
 
 		toolkit.adapt(this);
-		toolkit.paintBordersFor(this);
+		//toolkit.paintBordersFor(this);
 		setLayout(new GridLayout(1, false));
 
 		scrolledForm = toolkit.createScrolledForm(this);
 		// make sure that the form takes all the space
 		scrolledForm.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true,
 				1, 1));
-		toolkit.paintBordersFor(scrolledForm);
+		//toolkit.paintBordersFor(scrolledForm);
 		scrolledForm.getBody().setLayout(new GridLayout(2, false));
 
 		formFeatureLabelFactory.setFormToolkit(toolkit);
@@ -93,7 +93,7 @@ public class FormDetailComposite extends Composite {
 			}
 		}
 
-		toolkit.paintBordersFor(main);
+		//toolkit.paintBordersFor(main);
 
 		this.layout();
 	}
