@@ -5,8 +5,7 @@ Bundle-SymbolicName: it.rcpvision.emf.components;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: it.rcpvision.emf.components.EmfComponentsActivator
 Bundle-Vendor: RCP-VISION
-Require-Bundle: org.eclipse.ui.forms;visibility:=reexport,
- org.eclipse.jface.databinding;bundle-version="1.2.0";visibility:=reexport,
+Require-Bundle: org.eclipse.jface.databinding;bundle-version="1.2.0";visibility:=reexport,
  org.eclipse.emf.databinding.edit;visibility:=reexport,
  org.eclipse.core.databinding.property;bundle-version="1.4.100",
  org.eclipse.emf.ecore.edit;bundle-version="2.7.0";visibility:=reexport,
@@ -17,7 +16,9 @@ Require-Bundle: org.eclipse.ui.forms;visibility:=reexport,
  org.eclipse.ui;resolution:=optional;visibility:=reexport,
  org.eclipse.emf.rap.edit.ui;resolution:=optional,
  org.eclipse.emf.edit.ui;resolution:=optional;visibility:=reexport,
- org.eclipse.rap.ui.views;resolution:=optional
+ org.eclipse.rap.ui.views;resolution:=optional,
+ org.eclipse.ui.forms;resolution:=optional;visibility:=reexport,
+ org.eclipse.rap.ui.forms;resolution:=optional
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: it.rcpvision.emf.components,
