@@ -3,37 +3,30 @@
 package it.rcpvision.emf.components.examples.rap.model.impl;
 
 import it.rcpvision.emf.components.examples.rap.model.Element;
-import it.rcpvision.emf.components.examples.rap.model.Model;
 import it.rcpvision.emf.components.examples.rap.model.ModelPackage;
 
-import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Model</b></em>'.
+ * An implementation of the model object '<em><b>Element</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link it.rcpvision.emf.components.examples.rap.model.impl.ModelImpl#getName <em>Name</em>}</li>
- *   <li>{@link it.rcpvision.emf.components.examples.rap.model.impl.ModelImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.examples.rap.model.impl.ElementImpl#getName <em>Name</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.examples.rap.model.impl.ElementImpl#getAge <em>Age</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ModelImpl extends EObjectImpl implements Model {
+public class ElementImpl extends EObjectImpl implements Element {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -42,7 +35,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -55,21 +48,31 @@ public class ModelImpl extends EObjectImpl implements Model {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+	 * The default value of the '{@link #getAge() <em>Age</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getElements()
+	 * @see #getAge()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Element> elements;
+	protected static final int AGE_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getAge() <em>Age</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAge()
+	 * @generated
+	 * @ordered
+	 */
+	protected int age = AGE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ModelImpl() {
+	protected ElementImpl() {
 		super();
 	}
 
@@ -80,7 +83,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ModelPackage.Literals.MODEL;
+		return ModelPackage.Literals.ELEMENT;
 	}
 
 	/**
@@ -101,7 +104,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MODEL__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ELEMENT__NAME, oldName, name));
 	}
 
 	/**
@@ -109,11 +112,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Element> getElements() {
-		if (elements == null) {
-			elements = new EObjectContainmentEList<Element>(Element.class, this, ModelPackage.MODEL__ELEMENTS);
-		}
-		return elements;
+	public int getAge() {
+		return age;
 	}
 
 	/**
@@ -121,13 +121,11 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ModelPackage.MODEL__ELEMENTS:
-				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+	public void setAge(int newAge) {
+		int oldAge = age;
+		age = newAge;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ELEMENT__AGE, oldAge, age));
 	}
 
 	/**
@@ -138,10 +136,10 @@ public class ModelImpl extends EObjectImpl implements Model {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.MODEL__NAME:
+			case ModelPackage.ELEMENT__NAME:
 				return getName();
-			case ModelPackage.MODEL__ELEMENTS:
-				return getElements();
+			case ModelPackage.ELEMENT__AGE:
+				return getAge();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -151,16 +149,14 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.MODEL__NAME:
+			case ModelPackage.ELEMENT__NAME:
 				setName((String)newValue);
 				return;
-			case ModelPackage.MODEL__ELEMENTS:
-				getElements().clear();
-				getElements().addAll((Collection<? extends Element>)newValue);
+			case ModelPackage.ELEMENT__AGE:
+				setAge((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -174,11 +170,11 @@ public class ModelImpl extends EObjectImpl implements Model {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.MODEL__NAME:
+			case ModelPackage.ELEMENT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case ModelPackage.MODEL__ELEMENTS:
-				getElements().clear();
+			case ModelPackage.ELEMENT__AGE:
+				setAge(AGE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -192,10 +188,10 @@ public class ModelImpl extends EObjectImpl implements Model {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.MODEL__NAME:
+			case ModelPackage.ELEMENT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ModelPackage.MODEL__ELEMENTS:
-				return elements != null && !elements.isEmpty();
+			case ModelPackage.ELEMENT__AGE:
+				return age != AGE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -212,8 +208,10 @@ public class ModelImpl extends EObjectImpl implements Model {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", age: ");
+		result.append(age);
 		result.append(')');
 		return result.toString();
 	}
 
-} //ModelImpl
+} //ElementImpl

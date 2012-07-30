@@ -57,6 +57,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ModelPackage.MODEL: return createModel();
+			case ModelPackage.ELEMENT: return createElement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -70,6 +71,16 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	public Model createModel() {
 		ModelImpl model = new ModelImpl();
 		return model;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Element createElement() {
+		ElementImpl element = new ElementImpl();
+		return element;
 	}
 
 	/**

@@ -2,6 +2,7 @@
  */
 package it.rcpvision.emf.components.examples.rap.model.impl;
 
+import it.rcpvision.emf.components.examples.rap.model.Element;
 import it.rcpvision.emf.components.examples.rap.model.Model;
 import it.rcpvision.emf.components.examples.rap.model.ModelFactory;
 import it.rcpvision.emf.components.examples.rap.model.ModelPackage;
@@ -10,6 +11,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -25,6 +27,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	private EClass modelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass elementEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -110,6 +119,42 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getModel_Elements() {
+		return (EReference)modelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getElement() {
+		return elementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getElement_Name() {
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getElement_Age() {
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ModelFactory getModelFactory() {
 		return (ModelFactory)getEFactoryInstance();
 	}
@@ -135,6 +180,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		// Create classes and their features
 		modelEClass = createEClass(MODEL);
 		createEAttribute(modelEClass, MODEL__NAME);
+		createEReference(modelEClass, MODEL__ELEMENTS);
+
+		elementEClass = createEClass(ELEMENT);
+		createEAttribute(elementEClass, ELEMENT__NAME);
+		createEAttribute(elementEClass, ELEMENT__AGE);
 	}
 
 	/**
@@ -169,6 +219,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		// Initialize classes and features; add operations and parameters
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_Elements(), this.getElement(), null, "elements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getElement_Name(), ecorePackage.getEString(), "name", "", 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElement_Age(), ecorePackage.getEInt(), "age", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -5,6 +5,7 @@ package it.rcpvision.emf.components.examples.rap.model;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -74,13 +75,60 @@ public interface ModelPackage extends EPackage {
 	int MODEL__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__ELEMENTS = 1;
+
+	/**
 	 * The number of structural features of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = 1;
+	int MODEL_FEATURE_COUNT = 2;
+
+
+	/**
+	 * The meta object id for the '{@link it.rcpvision.emf.components.examples.rap.model.impl.ElementImpl <em>Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see it.rcpvision.emf.components.examples.rap.model.impl.ElementImpl
+	 * @see it.rcpvision.emf.components.examples.rap.model.impl.ModelPackageImpl#getElement()
+	 * @generated
+	 */
+	int ELEMENT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Age</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT__AGE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_FEATURE_COUNT = 2;
 
 
 	/**
@@ -103,6 +151,49 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getModel_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link it.rcpvision.emf.components.examples.rap.model.Model#getElements <em>Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Elements</em>'.
+	 * @see it.rcpvision.emf.components.examples.rap.model.Model#getElements()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_Elements();
+
+	/**
+	 * Returns the meta object for class '{@link it.rcpvision.emf.components.examples.rap.model.Element <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Element</em>'.
+	 * @see it.rcpvision.emf.components.examples.rap.model.Element
+	 * @generated
+	 */
+	EClass getElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link it.rcpvision.emf.components.examples.rap.model.Element#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see it.rcpvision.emf.components.examples.rap.model.Element#getName()
+	 * @see #getElement()
+	 * @generated
+	 */
+	EAttribute getElement_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link it.rcpvision.emf.components.examples.rap.model.Element#getAge <em>Age</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Age</em>'.
+	 * @see it.rcpvision.emf.components.examples.rap.model.Element#getAge()
+	 * @see #getElement()
+	 * @generated
+	 */
+	EAttribute getElement_Age();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -143,6 +234,40 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MODEL__NAME = eINSTANCE.getModel_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__ELEMENTS = eINSTANCE.getModel_Elements();
+
+		/**
+		 * The meta object literal for the '{@link it.rcpvision.emf.components.examples.rap.model.impl.ElementImpl <em>Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see it.rcpvision.emf.components.examples.rap.model.impl.ElementImpl
+		 * @see it.rcpvision.emf.components.examples.rap.model.impl.ModelPackageImpl#getElement()
+		 * @generated
+		 */
+		EClass ELEMENT = eINSTANCE.getElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ELEMENT__NAME = eINSTANCE.getElement_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Age</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ELEMENT__AGE = eINSTANCE.getElement_Age();
 
 	}
 
