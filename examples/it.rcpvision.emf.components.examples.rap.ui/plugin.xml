@@ -29,6 +29,11 @@
             class="it.rcpvision.emf.components.examples.rap.ui.ExecutableExtensionFactory:it.rcpvision.emf.components.examples.rap.ui.View"
             id="it.rcpvision.emf.components.examples.rap.ui.view">
       </view>
+      <view
+            class="it.rcpvision.emf.components.examples.rap.ui.ExecutableExtensionFactory:it.rcpvision.emf.components.examples.rap.ui.SaveableView"
+            id="it.rcpvision.emf.components.examples.rap.ui.saveableview"
+            name="Saveable View">
+      </view>
    </extension>
    <extension
          point="org.eclipse.rap.ui.branding">
