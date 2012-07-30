@@ -9,12 +9,11 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.jface.text.Document;
-import org.eclipse.jface.text.TextViewer;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.part.PageBook;
 
@@ -31,7 +30,7 @@ public abstract class OnSelectionStructuredViewerAbstractView extends OnSelectio
 
 	private PageBook pagebook;
 
-	private TextViewer textviewer;
+	private Label label;
 
 	private StructuredViewer viewer;
 
@@ -109,11 +108,10 @@ public abstract class OnSelectionStructuredViewerAbstractView extends OnSelectio
 		// the PageBook allows simple switching between two viewers
 		pagebook = new PageBook(parent, SWT.NONE);
 
-		textviewer = new TextViewer(pagebook, SWT.H_SCROLL | SWT.V_SCROLL);
-		textviewer.setEditable(false);
-		textviewer
-				.setDocument(new Document(
-						"Select one XMI resource in the explorer or any EObject in a view"));
+		label = new Label(pagebook, SWT.H_SCROLL | SWT.V_SCROLL);
+		label
+				.setText(
+						"Select one XMI resource in the explorer or any EObject in a view");
 
 		viewer = createViewer(pagebook);
 
@@ -131,7 +129,7 @@ public abstract class OnSelectionStructuredViewerAbstractView extends OnSelectio
 	protected abstract StructuredViewer createViewer(Composite parent);
 
 	protected void showText() {
-		pagebook.showPage(textviewer.getControl());
+		pagebook.showPage(label);
 	}
 
 	protected void showEmfViewer() {
