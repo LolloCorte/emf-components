@@ -13,8 +13,11 @@ Require-Bundle: org.eclipse.ui.forms;visibility:=reexport,
  org.eclipse.core.resources,
  org.eclipse.core.runtime;visibility:=reexport,
  it.rcpvision.emf.components.xtext;bundle-version="0.1.0";visibility:=reexport,
- org.eclipse.ui;visibility:=reexport,
- org.eclipse.emf.edit.ui;visibility:=reexport
+ org.eclipse.rap.ui;resolution:=optional,
+ org.eclipse.ui;resolution:=optional;visibility:=reexport,
+ org.eclipse.emf.rap.edit.ui;resolution:=optional,
+ org.eclipse.emf.edit.ui;resolution:=optional;visibility:=reexport,
+ org.eclipse.rap.ui.views;resolution:=optional
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: it.rcpvision.emf.components,
