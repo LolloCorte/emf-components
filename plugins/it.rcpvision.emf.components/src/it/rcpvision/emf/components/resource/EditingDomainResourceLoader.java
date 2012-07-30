@@ -21,6 +21,8 @@ public class EditingDomainResourceLoader {
 
 	@Inject
 	protected ResourceLoader resourceLoader;
+	
+	@Inject private EmptyResourceInitializer emptyResourceInitializer;
 
 	public LoadResourceResponse getResource(AdapterFactoryEditingDomain editingDomain,
 			URI resourceURI) {
@@ -34,6 +36,8 @@ public class EditingDomainResourceLoader {
 			exception = e;
 			resource = editingDomain.getResourceSet().getResource(resourceURI,
 					false);
+			if (resource.getContents().isEmpty())
+				emptyResourceInitializer.initialize(resource);
 		}
 
 		return new LoadResourceResponse(resource, exception);
