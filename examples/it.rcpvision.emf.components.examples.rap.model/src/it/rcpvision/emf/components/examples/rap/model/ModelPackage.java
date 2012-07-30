@@ -84,13 +84,22 @@ public interface ModelPackage extends EPackage {
 	int MODEL__ELEMENTS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__ITEMS = 2;
+
+	/**
 	 * The number of structural features of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = 2;
+	int MODEL_FEATURE_COUNT = 3;
 
 
 	/**
@@ -122,13 +131,51 @@ public interface ModelPackage extends EPackage {
 	int ELEMENT__AGE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Items</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT__ITEMS = 2;
+
+	/**
 	 * The number of structural features of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_FEATURE_COUNT = 2;
+	int ELEMENT_FEATURE_COUNT = 3;
+
+
+	/**
+	 * The meta object id for the '{@link it.rcpvision.emf.components.examples.rap.model.impl.ItemImpl <em>Item</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see it.rcpvision.emf.components.examples.rap.model.impl.ItemImpl
+	 * @see it.rcpvision.emf.components.examples.rap.model.impl.ModelPackageImpl#getItem()
+	 * @generated
+	 */
+	int ITEM = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEM__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEM_FEATURE_COUNT = 1;
 
 
 	/**
@@ -164,6 +211,17 @@ public interface ModelPackage extends EPackage {
 	EReference getModel_Elements();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link it.rcpvision.emf.components.examples.rap.model.Model#getItems <em>Items</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Items</em>'.
+	 * @see it.rcpvision.emf.components.examples.rap.model.Model#getItems()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_Items();
+
+	/**
 	 * Returns the meta object for class '{@link it.rcpvision.emf.components.examples.rap.model.Element <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -194,6 +252,38 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getElement_Age();
+
+	/**
+	 * Returns the meta object for the reference list '{@link it.rcpvision.emf.components.examples.rap.model.Element#getItems <em>Items</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Items</em>'.
+	 * @see it.rcpvision.emf.components.examples.rap.model.Element#getItems()
+	 * @see #getElement()
+	 * @generated
+	 */
+	EReference getElement_Items();
+
+	/**
+	 * Returns the meta object for class '{@link it.rcpvision.emf.components.examples.rap.model.Item <em>Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Item</em>'.
+	 * @see it.rcpvision.emf.components.examples.rap.model.Item
+	 * @generated
+	 */
+	EClass getItem();
+
+	/**
+	 * Returns the meta object for the attribute '{@link it.rcpvision.emf.components.examples.rap.model.Item#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see it.rcpvision.emf.components.examples.rap.model.Item#getName()
+	 * @see #getItem()
+	 * @generated
+	 */
+	EAttribute getItem_Name();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -244,6 +334,14 @@ public interface ModelPackage extends EPackage {
 		EReference MODEL__ELEMENTS = eINSTANCE.getModel_Elements();
 
 		/**
+		 * The meta object literal for the '<em><b>Items</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__ITEMS = eINSTANCE.getModel_Items();
+
+		/**
 		 * The meta object literal for the '{@link it.rcpvision.emf.components.examples.rap.model.impl.ElementImpl <em>Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -268,6 +366,32 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ELEMENT__AGE = eINSTANCE.getElement_Age();
+
+		/**
+		 * The meta object literal for the '<em><b>Items</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT__ITEMS = eINSTANCE.getElement_Items();
+
+		/**
+		 * The meta object literal for the '{@link it.rcpvision.emf.components.examples.rap.model.impl.ItemImpl <em>Item</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see it.rcpvision.emf.components.examples.rap.model.impl.ItemImpl
+		 * @see it.rcpvision.emf.components.examples.rap.model.impl.ModelPackageImpl#getItem()
+		 * @generated
+		 */
+		EClass ITEM = eINSTANCE.getItem();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ITEM__NAME = eINSTANCE.getItem_Name();
 
 	}
 

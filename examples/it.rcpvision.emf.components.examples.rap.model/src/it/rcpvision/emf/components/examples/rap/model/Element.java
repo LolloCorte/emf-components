@@ -2,6 +2,7 @@
  */
 package it.rcpvision.emf.components.examples.rap.model;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link it.rcpvision.emf.components.examples.rap.model.Element#getName <em>Name</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.examples.rap.model.Element#getAge <em>Age</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.examples.rap.model.Element#getItems <em>Items</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,5 +76,21 @@ public interface Element extends EObject {
 	 * @generated
 	 */
 	void setAge(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Items</b></em>' reference list.
+	 * The list contents are of type {@link it.rcpvision.emf.components.examples.rap.model.Item}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Items</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Items</em>' reference list.
+	 * @see it.rcpvision.emf.components.examples.rap.model.ModelPackage#getElement_Items()
+	 * @model
+	 * @generated
+	 */
+	EList<Item> getItems();
 
 } // Element

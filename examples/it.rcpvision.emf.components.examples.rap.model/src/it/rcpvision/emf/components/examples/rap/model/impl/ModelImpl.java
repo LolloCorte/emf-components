@@ -3,6 +3,7 @@
 package it.rcpvision.emf.components.examples.rap.model.impl;
 
 import it.rcpvision.emf.components.examples.rap.model.Element;
+import it.rcpvision.emf.components.examples.rap.model.Item;
 import it.rcpvision.emf.components.examples.rap.model.Model;
 import it.rcpvision.emf.components.examples.rap.model.ModelPackage;
 
@@ -28,6 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link it.rcpvision.emf.components.examples.rap.model.impl.ModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.examples.rap.model.impl.ModelImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.examples.rap.model.impl.ModelImpl#getItems <em>Items</em>}</li>
  * </ul>
  * </p>
  *
@@ -63,6 +65,16 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * @ordered
 	 */
 	protected EList<Element> elements;
+
+	/**
+	 * The cached value of the '{@link #getItems() <em>Items</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getItems()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Item> items;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -121,11 +133,25 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Item> getItems() {
+		if (items == null) {
+			items = new EObjectContainmentEList<Item>(Item.class, this, ModelPackage.MODEL__ITEMS);
+		}
+		return items;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ModelPackage.MODEL__ELEMENTS:
 				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+			case ModelPackage.MODEL__ITEMS:
+				return ((InternalEList<?>)getItems()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -142,6 +168,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 				return getName();
 			case ModelPackage.MODEL__ELEMENTS:
 				return getElements();
+			case ModelPackage.MODEL__ITEMS:
+				return getItems();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -162,6 +190,10 @@ public class ModelImpl extends EObjectImpl implements Model {
 				getElements().clear();
 				getElements().addAll((Collection<? extends Element>)newValue);
 				return;
+			case ModelPackage.MODEL__ITEMS:
+				getItems().clear();
+				getItems().addAll((Collection<? extends Item>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -180,6 +212,9 @@ public class ModelImpl extends EObjectImpl implements Model {
 			case ModelPackage.MODEL__ELEMENTS:
 				getElements().clear();
 				return;
+			case ModelPackage.MODEL__ITEMS:
+				getItems().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -196,6 +231,8 @@ public class ModelImpl extends EObjectImpl implements Model {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ModelPackage.MODEL__ELEMENTS:
 				return elements != null && !elements.isEmpty();
+			case ModelPackage.MODEL__ITEMS:
+				return items != null && !items.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

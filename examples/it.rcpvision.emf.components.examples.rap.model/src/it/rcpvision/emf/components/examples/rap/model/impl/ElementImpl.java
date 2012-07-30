@@ -3,14 +3,18 @@
 package it.rcpvision.emf.components.examples.rap.model.impl;
 
 import it.rcpvision.emf.components.examples.rap.model.Element;
+import it.rcpvision.emf.components.examples.rap.model.Item;
 import it.rcpvision.emf.components.examples.rap.model.ModelPackage;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,6 +25,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link it.rcpvision.emf.components.examples.rap.model.impl.ElementImpl#getName <em>Name</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.examples.rap.model.impl.ElementImpl#getAge <em>Age</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.examples.rap.model.impl.ElementImpl#getItems <em>Items</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,6 +71,16 @@ public class ElementImpl extends EObjectImpl implements Element {
 	 * @ordered
 	 */
 	protected int age = AGE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getItems() <em>Items</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getItems()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Item> items;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,6 +148,18 @@ public class ElementImpl extends EObjectImpl implements Element {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Item> getItems() {
+		if (items == null) {
+			items = new EObjectResolvingEList<Item>(Item.class, this, ModelPackage.ELEMENT__ITEMS);
+		}
+		return items;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -140,6 +167,8 @@ public class ElementImpl extends EObjectImpl implements Element {
 				return getName();
 			case ModelPackage.ELEMENT__AGE:
 				return getAge();
+			case ModelPackage.ELEMENT__ITEMS:
+				return getItems();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -149,6 +178,7 @@ public class ElementImpl extends EObjectImpl implements Element {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -157,6 +187,10 @@ public class ElementImpl extends EObjectImpl implements Element {
 				return;
 			case ModelPackage.ELEMENT__AGE:
 				setAge((Integer)newValue);
+				return;
+			case ModelPackage.ELEMENT__ITEMS:
+				getItems().clear();
+				getItems().addAll((Collection<? extends Item>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -176,6 +210,9 @@ public class ElementImpl extends EObjectImpl implements Element {
 			case ModelPackage.ELEMENT__AGE:
 				setAge(AGE_EDEFAULT);
 				return;
+			case ModelPackage.ELEMENT__ITEMS:
+				getItems().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -192,6 +229,8 @@ public class ElementImpl extends EObjectImpl implements Element {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ModelPackage.ELEMENT__AGE:
 				return age != AGE_EDEFAULT;
+			case ModelPackage.ELEMENT__ITEMS:
+				return items != null && !items.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link it.rcpvision.emf.components.examples.rap.model.Model#getName <em>Name</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.examples.rap.model.Model#getElements <em>Elements</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.examples.rap.model.Model#getItems <em>Items</em>}</li>
  * </ul>
  * </p>
  *
@@ -64,5 +65,21 @@ public interface Model extends EObject {
 	 * @generated
 	 */
 	EList<Element> getElements();
+
+	/**
+	 * Returns the value of the '<em><b>Items</b></em>' containment reference list.
+	 * The list contents are of type {@link it.rcpvision.emf.components.examples.rap.model.Item}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Items</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Items</em>' containment reference list.
+	 * @see it.rcpvision.emf.components.examples.rap.model.ModelPackage#getModel_Items()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Item> getItems();
 
 } // Model

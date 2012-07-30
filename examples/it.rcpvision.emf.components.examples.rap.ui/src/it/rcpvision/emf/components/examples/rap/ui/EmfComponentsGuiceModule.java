@@ -2,6 +2,7 @@ package it.rcpvision.emf.components.examples.rap.ui;
 
 import it.rcpvision.emf.components.EmfComponentsGenericModule;
 import it.rcpvision.emf.components.examples.rap.model.Element;
+import it.rcpvision.emf.components.examples.rap.model.Item;
 import it.rcpvision.emf.components.examples.rap.model.Model;
 import it.rcpvision.emf.components.examples.rap.model.ModelFactory;
 import it.rcpvision.emf.components.resource.EmptyResourceInitializer;
@@ -17,18 +18,36 @@ public class EmfComponentsGuiceModule extends EmfComponentsGenericModule {
 			Model model = ModelFactory.eINSTANCE.createModel();
 			model.setName("My Model");
 
-			addElement(model, "First Element", 1);
-			addElement(model, "Second Element", 2);
+			Element firstElement = addElement(model, "First Element", 1);
+			Element secondElement = addElement(model, "Second Element", 2);
 			addElement(model, "Third Element", 3);
+			
+			Item firstItem = addItem(model, "First Item");
+			Item secondItem = addItem(model, "Second Item");
+			addItem(model, "Third Item");
+			addItem(model, "Fourth Item");
+			
+			firstElement.getItems().add(firstItem);
+			firstElement.getItems().add(secondItem);
 
+			secondElement.getItems().add(firstItem);
+			
 			resource.getContents().add(model);
 		}
 
-		private void addElement(Model model, String name, int age) {
+		private Element addElement(Model model, String name, int age) {
 			Element element = ModelFactory.eINSTANCE.createElement();
 			element.setName(name);
 			element.setAge(age);
 			model.getElements().add(element);
+			return element;
+		}
+		
+		private Item addItem(Model model, String name) {
+			Item item = ModelFactory.eINSTANCE.createItem();
+			item.setName(name);
+			model.getItems().add(item);
+			return item;
 		}
 	}
 
@@ -50,6 +69,10 @@ public class EmfComponentsGuiceModule extends EmfComponentsGenericModule {
 		
 		public Object image(Element o) {
 			return "detail.jpg";
+		}
+		
+		public Object image(Item o) {
+			return "table.jpg";
 		}
 	}
 
