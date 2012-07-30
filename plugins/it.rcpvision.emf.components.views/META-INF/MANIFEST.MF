@@ -6,7 +6,7 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: it.rcpvision.emf.components.views.Activator
 Bundle-Vendor: RCP Vision
 Require-Bundle: org.eclipse.core.runtime,
- it.rcpvision.emf.components;bundle-version="0.1.0",
+ it.rcpvision.emf.components;bundle-version="0.1.0";visibility:=reexport,
  org.eclipse.core.resources,
  org.eclipse.ui;resolution:=optional,
  org.eclipse.rap.ui;resolution:=optional,
