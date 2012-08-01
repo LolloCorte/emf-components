@@ -89,7 +89,7 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 			if (propertyDescriptionProviderClass != null)
 				members += element.propertyDescriptionProvider.genBindMethod(propertyDescriptionProviderClass, typeof(PropertyDescriptionProvider))
 			if (featureProviderClass != null)
-				members += element.featureProvider.genBindMethod(featureProviderClass, typeof(FeaturesProvider))
+				members += element.featuresProvider.genBindMethod(featureProviderClass, typeof(FeaturesProvider))
 		]
    	}
    	
@@ -194,24 +194,24 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 	}
 
 	def inferFeatureProvider(Module element, IJvmDeclaredTypeAcceptor acceptor) {
-		if (element.featureProvider == null)
+		if (element.featuresProvider == null)
 			null
 		else {
-			val featureProviderClass = element.featureProvider.toClass(element.featuresProviderQN)
+			val featureProviderClass = element.featuresProvider.toClass(element.featuresProviderQN)
 			acceptor.accept(featureProviderClass).initializeLater [
 				superTypes += element.newTypeRef(typeof(FeaturesProvider))
 				
-				members += element.featureProvider.
+				members += element.featuresProvider.
 						toMethod("buildStringMap", Void::TYPE.getTypeForName(element)) [
 					annotations += element.toAnnotation(typeof(Override))
-					parameters += element.featureProvider.toParameter("stringMap",
+					parameters += element.featuresProvider.toParameter("stringMap",
 							element.newTypeRef(
 								typeof(FeaturesProvider$EClassToEStructuralFeatureAsStringsMap)
 							)
 					)
 					body = [
 						append("super.buildStringMap(stringMap);").newLine
-						element.featureProvider.featureSpecifications.forEach [
+						element.featuresProvider.featureSpecifications.forEach [
 							featureSpecification |
 							newLine.
 								append('''stringMap.mapTo("«featureSpecification.parameterType.identifier»",''').

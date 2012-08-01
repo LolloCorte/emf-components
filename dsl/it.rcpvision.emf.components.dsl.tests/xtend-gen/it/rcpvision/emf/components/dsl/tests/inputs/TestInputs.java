@@ -38,7 +38,7 @@ public class TestInputs {
     return _builder;
   }
   
-  public CharSequence emptyFeatureLabelProvider() {
+  public CharSequence emptyPropertyDescriptionProvider() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("import java.util.*");
     _builder.newLine();
@@ -46,7 +46,7 @@ public class TestInputs {
     _builder.append("module my.empty {");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("featureLabelProvider {");
+    _builder.append("propertyDescriptionProvider {");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.newLine();
@@ -177,7 +177,7 @@ public class TestInputs {
     return _builder;
   }
   
-  public CharSequence featureLabelSpecifications() {
+  public CharSequence propertyDescriptionSpecifications() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("import java.util.*");
     _builder.newLine();
@@ -187,7 +187,7 @@ public class TestInputs {
     _builder.append("module my.empty {");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("featureLabelProvider {");
+    _builder.append("propertyDescriptionProvider {");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("labels {");
@@ -212,7 +212,7 @@ public class TestInputs {
     return _builder;
   }
   
-  public CharSequence featureSpecifications() {
+  public CharSequence featuresSpecifications() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("import java.util.*");
     _builder.newLine();
@@ -222,7 +222,7 @@ public class TestInputs {
     _builder.append("module my.empty {");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("featureProvider {");
+    _builder.append("featuresProvider {");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("features {");

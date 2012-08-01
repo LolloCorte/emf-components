@@ -48,13 +48,13 @@ class EmfComponentsDslParserTests extends EmfComponentsDslAbstractTests {
 	}
 	
 	@Test
-	def void testFeatureLabelSpecifications() {
-		inputs.featureLabelSpecifications.parseAndAssertNoError
+	def void testPropertyDescriptionSpecifications() {
+		inputs.propertyDescriptionSpecifications.parseAndAssertNoError
 	}
 
 	@Test
 	def void testWrongFeatureLabelSpecifications() {
-		val model = inputsWithErrors.wrongFeatureLabelSpecifications.parseModel
+		val model = inputsWithErrors.wrongPropertyDescriptionSpecifications.parseModel
 		model.assertError(
 			XbasePackage::eINSTANCE.XFeatureCall,
 			Diagnostic::LINKING_DIAGNOSTIC,
@@ -68,7 +68,7 @@ class EmfComponentsDslParserTests extends EmfComponentsDslAbstractTests {
 	}
 	
 	@Test
-	def void testFeatureSpecifications() {
-		inputs.featureSpecifications.parseAndAssertNoError
+	def void testFeaturesSpecifications() {
+		inputs.featuresSpecifications.parseAndAssertNoError
 	}
 }

@@ -68,8 +68,8 @@ public class LabelProviderGen extends ViewerLabelProvider {
 	}
 
 	@Test
-	def testEmptyFeatureLabelProvider() {
-		inputs.emptyFeatureLabelProvider.assertCorrectJavaCodeGeneration(
+	def testEmptyPropertyDescriptionProvider() {
+		inputs.emptyPropertyDescriptionProvider.assertCorrectJavaCodeGeneration(
 '''
 package my.empty;
 
@@ -202,8 +202,8 @@ public class LabelProviderGen extends ViewerLabelProvider {
 	}
 
 	@Test
-	def testFeatureLabelSpecifications() {
-		inputs.featureLabelSpecifications.assertCorrectJavaCodeGeneration(
+	def testPropertyDescriptionSpecifications() {
+		inputs.propertyDescriptionSpecifications.assertCorrectJavaCodeGeneration(
 '''
 package my.empty;
 
@@ -250,8 +250,8 @@ public class PropertyDescriptionProviderGen extends PropertyDescriptionProvider 
 	}
 
 	@Test
-	def testFeatureSpecifications() {
-		inputs.featureSpecifications.assertCorrectJavaCodeGeneration(
+	def testFeaturesSpecifications() {
+		inputs.featuresSpecifications.assertCorrectJavaCodeGeneration(
 '''
 package my.empty;
 

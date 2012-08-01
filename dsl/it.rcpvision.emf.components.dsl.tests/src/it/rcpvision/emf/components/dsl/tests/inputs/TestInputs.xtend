@@ -22,12 +22,12 @@ module my.empty {
 }
 '''
 
-	def emptyFeatureLabelProvider() 
+	def emptyPropertyDescriptionProvider() 
 '''
 import java.util.*
 
 module my.empty {
-	featureLabelProvider {
+	propertyDescriptionProvider {
 		
 	}
 }
@@ -82,13 +82,13 @@ module my.empty {
 }
 '''
 
-	def featureLabelSpecifications() 
+	def propertyDescriptionSpecifications() 
 '''
 import java.util.*
 import it.rcpvision.emf.components.examples.library.*
 
 module my.empty {
-	featureLabelProvider {
+	propertyDescriptionProvider {
 		labels {
 			Library:name -> 'Name' // constant
 			Library:books -> 'Books' // constant
@@ -98,13 +98,13 @@ module my.empty {
 }
 '''
 
-	def featureSpecifications() 
+	def featuresSpecifications() 
 '''
 import java.util.*
 import it.rcpvision.emf.components.examples.library.*
 
 module my.empty {
-	featureProvider {
+	featuresProvider {
 		features {
 			Library -> name
 			Writer -> firstName, lastName, books

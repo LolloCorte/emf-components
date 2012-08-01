@@ -318,17 +318,17 @@ ruleModule returns [EObject current=null]
 					({true}?=>(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModuleAccess().getFeatureProviderFeatureProviderParserRuleCall_3_2_0()); 
+	        newCompositeNode(grammarAccess.getModuleAccess().getFeaturesProviderFeaturesProviderParserRuleCall_3_2_0()); 
 	    }
-		lv_featureProvider_6_0=ruleFeatureProvider		{
+		lv_featuresProvider_6_0=ruleFeaturesProvider		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getModuleRule());
 	        }
        		set(
        			$current, 
-       			"featureProvider",
-        		lv_featureProvider_6_0, 
-        		"FeatureProvider");
+       			"featuresProvider",
+        		lv_featuresProvider_6_0, 
+        		"FeaturesProvider");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -596,9 +596,9 @@ rulePropertyDescriptionProvider returns [EObject current=null]
             grammarAccess.getPropertyDescriptionProviderAccess().getPropertyDescriptionProviderAction_0(),
             $current);
     }
-)	otherlv_1='featureLabelProvider' 
+)	otherlv_1='propertyDescriptionProvider' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getPropertyDescriptionProviderAccess().getFeatureLabelProviderKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getPropertyDescriptionProviderAccess().getPropertyDescriptionProviderKeyword_1());
     }
 	otherlv_2='{' 
     {
@@ -725,50 +725,50 @@ rulePropertyDescriptionSpecification returns [EObject current=null]
 
 
 
-// Entry rule entryRuleFeatureProvider
-entryRuleFeatureProvider returns [EObject current=null] 
+// Entry rule entryRuleFeaturesProvider
+entryRuleFeaturesProvider returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getFeatureProviderRule()); }
-	 iv_ruleFeatureProvider=ruleFeatureProvider 
-	 { $current=$iv_ruleFeatureProvider.current; } 
+	{ newCompositeNode(grammarAccess.getFeaturesProviderRule()); }
+	 iv_ruleFeaturesProvider=ruleFeaturesProvider 
+	 { $current=$iv_ruleFeaturesProvider.current; } 
 	 EOF 
 ;
 
-// Rule FeatureProvider
-ruleFeatureProvider returns [EObject current=null] 
+// Rule FeaturesProvider
+ruleFeaturesProvider returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
 ((
     {
         $current = forceCreateModelElement(
-            grammarAccess.getFeatureProviderAccess().getFeatureProviderAction_0(),
+            grammarAccess.getFeaturesProviderAccess().getFeaturesProviderAction_0(),
             $current);
     }
-)	otherlv_1='featureProvider' 
+)	otherlv_1='featuresProvider' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getFeatureProviderAccess().getFeatureProviderKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getFeaturesProviderAccess().getFeaturesProviderKeyword_1());
     }
 	otherlv_2='{' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getFeatureProviderAccess().getLeftCurlyBracketKeyword_2());
+    	newLeafNode(otherlv_2, grammarAccess.getFeaturesProviderAccess().getLeftCurlyBracketKeyword_2());
     }
 (	otherlv_3='features' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getFeatureProviderAccess().getFeaturesKeyword_3_0());
+    	newLeafNode(otherlv_3, grammarAccess.getFeaturesProviderAccess().getFeaturesKeyword_3_0());
     }
 	otherlv_4='{' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getFeatureProviderAccess().getLeftCurlyBracketKeyword_3_1());
+    	newLeafNode(otherlv_4, grammarAccess.getFeaturesProviderAccess().getLeftCurlyBracketKeyword_3_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFeatureProviderAccess().getFeatureSpecificationsFeatureSpecificationParserRuleCall_3_2_0()); 
+	        newCompositeNode(grammarAccess.getFeaturesProviderAccess().getFeatureSpecificationsFeatureSpecificationParserRuleCall_3_2_0()); 
 	    }
 		lv_featureSpecifications_5_0=ruleFeatureSpecification		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getFeatureProviderRule());
+	            $current = createModelElementForParent(grammarAccess.getFeaturesProviderRule());
 	        }
        		add(
        			$current, 
@@ -781,11 +781,11 @@ ruleFeatureProvider returns [EObject current=null]
 )
 )*	otherlv_6='}' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getFeatureProviderAccess().getRightCurlyBracketKeyword_3_3());
+    	newLeafNode(otherlv_6, grammarAccess.getFeaturesProviderAccess().getRightCurlyBracketKeyword_3_3());
     }
 )?	otherlv_7='}' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getFeatureProviderAccess().getRightCurlyBracketKeyword_4());
+    	newLeafNode(otherlv_7, grammarAccess.getFeaturesProviderAccess().getRightCurlyBracketKeyword_4());
     }
 )
 ;

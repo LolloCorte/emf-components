@@ -86,13 +86,13 @@ public interface ModelFactory extends EFactory
   PropertyDescriptionSpecification createPropertyDescriptionSpecification();
 
   /**
-   * Returns a new object of class '<em>Feature Provider</em>'.
+   * Returns a new object of class '<em>Features Provider</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Feature Provider</em>'.
+   * @return a new object of class '<em>Features Provider</em>'.
    * @generated
    */
-  FeatureProvider createFeatureProvider();
+  FeaturesProvider createFeaturesProvider();
 
   /**
    * Returns a new object of class '<em>Feature Specification</em>'.

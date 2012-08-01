@@ -20,13 +20,13 @@ module my.empty {
 }
 '''
 
-	def wrongFeatureLabelSpecifications() 
+	def wrongPropertyDescriptionSpecifications() 
 '''
 import java.util.*
 import it.rcpvision.emf.components.examples.library.*
 
 module my.empty {
-	featureLabelProvider {
+	propertyDescriptionProvider {
 		labels {
 			Item:publicationDate -> 'Publication Date'
 			Library:newArrayList(1) -> 'Name' // static method, wrong

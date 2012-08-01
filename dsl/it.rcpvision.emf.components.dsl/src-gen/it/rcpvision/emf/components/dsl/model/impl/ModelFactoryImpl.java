@@ -71,7 +71,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
       case ModelPackage.LABEL_SPECIFICATION: return createLabelSpecification();
       case ModelPackage.PROPERTY_DESCRIPTION_PROVIDER: return createPropertyDescriptionProvider();
       case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION: return createPropertyDescriptionSpecification();
-      case ModelPackage.FEATURE_PROVIDER: return createFeatureProvider();
+      case ModelPackage.FEATURES_PROVIDER: return createFeaturesProvider();
       case ModelPackage.FEATURE_SPECIFICATION: return createFeatureSpecification();
       case ModelPackage.EMF_FEATURE_ACCESS: return createEmfFeatureAccess();
       default:
@@ -161,10 +161,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public FeatureProvider createFeatureProvider()
+  public FeaturesProvider createFeaturesProvider()
   {
-    FeatureProviderImpl featureProvider = new FeatureProviderImpl();
-    return featureProvider;
+    FeaturesProviderImpl featuresProvider = new FeaturesProviderImpl();
+    return featuresProvider;
   }
 
   /**

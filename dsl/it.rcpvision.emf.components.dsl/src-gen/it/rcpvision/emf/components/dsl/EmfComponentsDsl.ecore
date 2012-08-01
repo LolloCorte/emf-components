@@ -17,7 +17,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertyDescriptionProvider"
         eType="#//PropertyDescriptionProvider" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="featureProvider" eType="#//FeatureProvider"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featuresProvider" eType="#//FeaturesProvider"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LabelProvider">
@@ -43,7 +43,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass ../../../../../../../org.eclipse.xtext.xbase/model/Xbase.ecore#//XExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FeatureProvider">
+  <eClassifiers xsi:type="ecore:EClass" name="FeaturesProvider">
     <eStructuralFeatures xsi:type="ecore:EReference" name="featureSpecifications"
         upperBound="-1" eType="#//FeatureSpecification" containment="true"/>
   </eClassifiers>

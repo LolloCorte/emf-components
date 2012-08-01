@@ -110,9 +110,9 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
         return createPropertyDescriptionSpecificationAdapter();
       }
       @Override
-      public Adapter caseFeatureProvider(FeatureProvider object)
+      public Adapter caseFeaturesProvider(FeaturesProvider object)
       {
-        return createFeatureProviderAdapter();
+        return createFeaturesProviderAdapter();
       }
       @Override
       public Adapter caseFeatureSpecification(FeatureSpecification object)
@@ -252,16 +252,16 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.FeatureProvider <em>Feature Provider</em>}'.
+   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.FeaturesProvider <em>Features Provider</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see it.rcpvision.emf.components.dsl.model.FeatureProvider
+   * @see it.rcpvision.emf.components.dsl.model.FeaturesProvider
    * @generated
    */
-  public Adapter createFeatureProviderAdapter()
+  public Adapter createFeaturesProviderAdapter()
   {
     return null;
   }

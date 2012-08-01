@@ -24,7 +24,7 @@ Module:
 			&
 			(propertyDescriptionProvider = PropertyDescriptionProvider)?
 			&
-			(featureProvider = FeatureProvider)?
+			(featuresProvider = FeaturesProvider)?
 		)
 	'}'
 ;
@@ -52,7 +52,7 @@ LabelSpecification:
 ;
 
 PropertyDescriptionProvider:
-	{PropertyDescriptionProvider} 'featureLabelProvider' '{'
+	{PropertyDescriptionProvider} 'propertyDescriptionProvider' '{'
 		((
 		'labels' '{'
 			labelSpecifications+=PropertyDescriptionSpecification*
@@ -67,8 +67,8 @@ PropertyDescriptionSpecification:
 	expression = XExpression
 ;
 
-FeatureProvider:
-	{FeatureProvider} 'featureProvider' '{'
+FeaturesProvider:
+	{FeaturesProvider} 'featuresProvider' '{'
 		((
 		'features' '{'
 			featureSpecifications+=FeatureSpecification*

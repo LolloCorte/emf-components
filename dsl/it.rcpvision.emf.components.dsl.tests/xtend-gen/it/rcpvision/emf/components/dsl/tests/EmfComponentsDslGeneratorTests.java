@@ -111,8 +111,8 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
   }
   
   @Test
-  public void testEmptyFeatureLabelProvider() {
-    CharSequence _emptyFeatureLabelProvider = this.inputs.emptyFeatureLabelProvider();
+  public void testEmptyPropertyDescriptionProvider() {
+    CharSequence _emptyPropertyDescriptionProvider = this.inputs.emptyPropertyDescriptionProvider();
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package my.empty;");
     _builder.newLine();
@@ -164,7 +164,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_emptyFeatureLabelProvider, _builder, _builder_1, null, null);
+    this.assertCorrectJavaCodeGeneration(_emptyPropertyDescriptionProvider, _builder, _builder_1, null, null);
   }
   
   @Test
@@ -398,8 +398,8 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
   }
   
   @Test
-  public void testFeatureLabelSpecifications() {
-    CharSequence _featureLabelSpecifications = this.inputs.featureLabelSpecifications();
+  public void testPropertyDescriptionSpecifications() {
+    CharSequence _propertyDescriptionSpecifications = this.inputs.propertyDescriptionSpecifications();
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package my.empty;");
     _builder.newLine();
@@ -492,12 +492,12 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_featureLabelSpecifications, _builder, null, _builder_1, null);
+    this.assertCorrectJavaCodeGeneration(_propertyDescriptionSpecifications, _builder, null, _builder_1, null);
   }
   
   @Test
-  public void testFeatureSpecifications() {
-    CharSequence _featureSpecifications = this.inputs.featureSpecifications();
+  public void testFeaturesSpecifications() {
+    CharSequence _featuresSpecifications = this.inputs.featuresSpecifications();
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package my.empty;");
     _builder.newLine();
@@ -577,7 +577,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_featureSpecifications, _builder, null, null, _builder_1);
+    this.assertCorrectJavaCodeGeneration(_featuresSpecifications, _builder, null, null, _builder_1);
   }
   
   private void assertCorrectJavaCodeGeneration(final CharSequence input, final CharSequence expectedModule, final CharSequence expectedLabelProvider, final CharSequence expectedPropertyDescriptionProvider, final CharSequence expectedFeatureProvider) {

@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getName <em>Name</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getLabelProvider <em>Label Provider</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getPropertyDescriptionProvider <em>Property Description Provider</em>}</li>
- *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getFeatureProvider <em>Feature Provider</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getFeaturesProvider <em>Features Provider</em>}</li>
  * </ul>
  * </p>
  *
@@ -104,29 +104,29 @@ public interface Module extends EObject
   void setPropertyDescriptionProvider(PropertyDescriptionProvider value);
 
   /**
-   * Returns the value of the '<em><b>Feature Provider</b></em>' containment reference.
+   * Returns the value of the '<em><b>Features Provider</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Feature Provider</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Features Provider</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Feature Provider</em>' containment reference.
-   * @see #setFeatureProvider(FeatureProvider)
-   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getModule_FeatureProvider()
+   * @return the value of the '<em>Features Provider</em>' containment reference.
+   * @see #setFeaturesProvider(FeaturesProvider)
+   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getModule_FeaturesProvider()
    * @model containment="true"
    * @generated
    */
-  FeatureProvider getFeatureProvider();
+  FeaturesProvider getFeaturesProvider();
 
   /**
-   * Sets the value of the '{@link it.rcpvision.emf.components.dsl.model.Module#getFeatureProvider <em>Feature Provider</em>}' containment reference.
+   * Sets the value of the '{@link it.rcpvision.emf.components.dsl.model.Module#getFeaturesProvider <em>Features Provider</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Feature Provider</em>' containment reference.
-   * @see #getFeatureProvider()
+   * @param value the new value of the '<em>Features Provider</em>' containment reference.
+   * @see #getFeaturesProvider()
    * @generated
    */
-  void setFeatureProvider(FeatureProvider value);
+  void setFeaturesProvider(FeaturesProvider value);
 
 } // Module
