@@ -70,7 +70,7 @@ public class NewEmfComponentsProjectSupport {
 			createExecutableExtensionFactory(project, projectName,
 					projectPackagePath, progressMonitor);
 			createModule(project, projectName, projectPackagePath,
-					"GuiceModule", progressMonitor);
+					"EmfComponentsGuiceModule", progressMonitor);
 
 			createProjectFile(project, metaInfPath + "/MANIFEST.MF",
 					filesGenerator.generateManifest(projectName).toString(),
@@ -144,7 +144,7 @@ public class NewEmfComponentsProjectSupport {
 			String projectPackagePath, String superClass,
 			IProgressMonitor progressMonitor) throws CoreException {
 		createProjectFile(project, projectPackagePath
-				+ "/EmfComponentsGuiceModule.java", filesGenerator
+				+ "/EmfComponentsModule.java", filesGenerator
 				.generateModule(projectName, superClass).toString(),
 				createSubProgressMonitor(progressMonitor));
 	}

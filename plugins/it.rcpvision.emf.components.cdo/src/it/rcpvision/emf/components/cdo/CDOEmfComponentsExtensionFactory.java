@@ -4,7 +4,7 @@
 package it.rcpvision.emf.components.cdo;
 
 import it.rcpvision.emf.components.EmfComponentsExtensionFactory;
-import it.rcpvision.emf.components.GuiceModule;
+import it.rcpvision.emf.components.EmfComponentsGuiceModule;
 
 /**
  * @author bettini
@@ -14,7 +14,7 @@ public class CDOEmfComponentsExtensionFactory extends
 		EmfComponentsExtensionFactory {
 
 	@Override
-	protected GuiceModule getModule() {
+	protected EmfComponentsGuiceModule getModule() {
 		return new CDOEmfComponentsModule(Activator.getDefault());
 	}
 	

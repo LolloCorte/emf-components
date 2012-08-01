@@ -74,7 +74,7 @@ public class EmfComponentsProjectFilesGenerator {
     _builder.append("import org.osgi.framework.BundleContext;");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("import it.rcpvision.emf.components.GuiceModule;");
+    _builder.append("import it.rcpvision.emf.components.EmfComponentsGuiceModule;");
     _builder.newLine();
     _builder.append("import it.rcpvision.emf.components.ui.EmfComponentsAbstractActivator;");
     _builder.newLine();
@@ -192,22 +192,22 @@ public class EmfComponentsProjectFilesGenerator {
     _builder.append("/**");
     _builder.newLine();
     _builder.append("\t ");
-    _builder.append("* Creates the GuiceModule for this this plugin");
+    _builder.append("* Creates the EmfComponentsGuiceModule for this this plugin");
     _builder.newLine();
     _builder.append("\t ");
     _builder.append("*");
     _builder.newLine();
     _builder.append("\t ");
-    _builder.append("* @return the  GuiceModule for this this plugin");
+    _builder.append("* @return the EmfComponentsGuiceModule for this this plugin");
     _builder.newLine();
     _builder.append("\t ");
     _builder.append("*/");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("public GuiceModule createModule() {");
+    _builder.append("public EmfComponentsGuiceModule createModule() {");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("return new GuiceModule(getDefault());");
+    _builder.append("return new EmfComponentsGuiceModule(getDefault());");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("}");
@@ -229,7 +229,7 @@ public class EmfComponentsProjectFilesGenerator {
     _builder.newLine();
     _builder.append("import it.rcpvision.emf.components.EmfComponentsExtensionFactory;");
     _builder.newLine();
-    _builder.append("import it.rcpvision.emf.components.GuiceModule;");
+    _builder.append("import it.rcpvision.emf.components.EmfComponentsGuiceModule;");
     _builder.newLine();
     _builder.newLine();
     _builder.append("import com.google.inject.Injector;");
@@ -258,7 +258,7 @@ public class EmfComponentsProjectFilesGenerator {
     _builder.append("@Override");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("protected GuiceModule getModule() {");
+    _builder.append("protected EmfComponentsGuiceModule getModule() {");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("return Activator.getDefault().createModule();");
@@ -295,20 +295,20 @@ public class EmfComponentsProjectFilesGenerator {
     _builder.newLine();
     _builder.newLine();
     {
-      boolean _equals = Objects.equal(superClass, "GuiceModule");
+      boolean _equals = Objects.equal(superClass, "EmfComponentsGuiceModule");
       if (_equals) {
-        _builder.append("import it.rcpvision.emf.components.GuiceModule;");
+        _builder.append("import it.rcpvision.emf.components.EmfComponentsGuiceModule;");
         _builder.newLine();
       }
     }
     _builder.newLine();
-    _builder.append("public class EmfComponentsGuiceModule extends ");
+    _builder.append("public class EmfComponentsModule extends ");
     _builder.append(superClass, "");
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("public EmfComponentsGuiceModule(AbstractUIPlugin plugin) {");
+    _builder.append("public EmfComponentsModule(AbstractUIPlugin plugin) {");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("super(plugin);");

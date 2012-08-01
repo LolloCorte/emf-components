@@ -4,7 +4,7 @@
 package it.rcpvision.emf.components.ui;
 
 import static com.google.inject.Guice.createInjector;
-import it.rcpvision.emf.components.GuiceModule;
+import it.rcpvision.emf.components.EmfComponentsGuiceModule;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
@@ -40,9 +40,9 @@ public abstract class EmfComponentsAbstractActivator extends AbstractUIPlugin {
 	}
 
 	/**
-	 * Creates the GuiceModule for this this plugin
+	 * Creates the EmfComponentsGuiceModule for this this plugin
 	 * 
-	 * @return the GuiceModule for this this plugin
+	 * @return the EmfComponentsGuiceModule for this this plugin
 	 */
-	protected abstract GuiceModule createModule();
+	protected abstract EmfComponentsGuiceModule createModule();
 }

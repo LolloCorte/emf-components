@@ -3,7 +3,7 @@
  */
 package it.rcpvision.emf.components.tests.factories;
 
-import it.rcpvision.emf.components.GuiceModule;
+import it.rcpvision.emf.components.EmfComponentsGuiceModule;
 import it.rcpvision.emf.components.listeners.ViewerMouseAdapter;
 import it.rcpvision.emf.components.listeners.ViewerNoOpMouseAdapter;
 import it.rcpvision.emf.components.tests.EmfComponentsTestsActivator;
@@ -19,8 +19,8 @@ public class NoMouseEventExecutableExtensionFactory extends
 		EmfComponentsTestsExecutableExtensionFactory {
 
 	@Override
-	protected GuiceModule getModule() {
-		return new GuiceModule(
+	protected EmfComponentsGuiceModule getModule() {
+		return new EmfComponentsGuiceModule(
 				EmfComponentsTestsActivator.getDefault()) {
 
 			@Override

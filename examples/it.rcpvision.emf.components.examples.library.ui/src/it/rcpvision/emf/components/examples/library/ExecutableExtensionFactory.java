@@ -3,7 +3,7 @@ package it.rcpvision.emf.components.examples.library;
 import org.osgi.framework.Bundle;
 
 import it.rcpvision.emf.components.EmfComponentsExtensionFactory;
-import it.rcpvision.emf.components.GuiceModule;
+import it.rcpvision.emf.components.EmfComponentsGuiceModule;
 
 public class ExecutableExtensionFactory extends
 		EmfComponentsExtensionFactory {
@@ -14,8 +14,8 @@ public class ExecutableExtensionFactory extends
 	}
 
 	@Override
-	protected GuiceModule getModule() {
-		return new GuiceModule(Activator.getDefault());
+	protected EmfComponentsGuiceModule getModule() {
+		return new EmfComponentsGuiceModule(Activator.getDefault());
 	}
 
 }

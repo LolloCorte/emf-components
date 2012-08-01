@@ -3,7 +3,7 @@
  */
 package it.rcpvision.emf.components.tests.factories;
 
-import it.rcpvision.emf.components.GuiceModule;
+import it.rcpvision.emf.components.EmfComponentsGuiceModule;
 import it.rcpvision.emf.components.tests.EmfComponentsTestsActivator;
 import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 
@@ -29,8 +29,8 @@ public class CustomLabelExecutableExtensionFactory extends
 	}
 
 	@Override
-	protected GuiceModule getModule() {
-		return new GuiceModule(EmfComponentsTestsActivator.getDefault()) {
+	protected EmfComponentsGuiceModule getModule() {
+		return new EmfComponentsGuiceModule(EmfComponentsTestsActivator.getDefault()) {
 
 			@Override
 			public Class<? extends ViewerLabelProvider> bindViewerLabelProvider() {

@@ -6,7 +6,7 @@ import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
 
-public class EmfComponentsGuiceModule extends it.rcpvision.emf.components.GuiceModule {
+public class EmfComponentsGuiceModule extends it.rcpvision.emf.components.EmfComponentsGuiceModule {
 
 	public EmfComponentsGuiceModule(AbstractUIPlugin plugin) {
 		super(plugin);

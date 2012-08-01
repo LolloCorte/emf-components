@@ -2,7 +2,7 @@ package $packageName$.internal.guice;
 
 import $packageName$.Activator;
 import it.rcpvision.emf.components.EmfComponentsExtensionFactory;
-import it.rcpvision.emf.components.GuiceModule;
+import it.rcpvision.emf.components.EmfComponentsGuiceModule;
 
 import org.osgi.framework.Bundle;
 
@@ -15,7 +15,7 @@ public class $prefixClassesname$ExecutableExtensionFactory extends
 	}
 
 	@Override
-	protected GuiceModule getModule() {
+	protected EmfComponentsGuiceModule getModule() {
 		return new $prefixClassesname$Module(Activator.getDefault());
 	}
 

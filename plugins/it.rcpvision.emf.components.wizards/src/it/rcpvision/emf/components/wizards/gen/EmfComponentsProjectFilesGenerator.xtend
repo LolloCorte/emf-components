@@ -33,7 +33,7 @@ package «projectName»;
 
 import org.osgi.framework.BundleContext;
 
-import it.rcpvision.emf.components.GuiceModule;
+import it.rcpvision.emf.components.EmfComponentsGuiceModule;
 import it.rcpvision.emf.components.ui.EmfComponentsAbstractActivator;
 
 /**
@@ -78,12 +78,12 @@ public class Activator extends EmfComponentsAbstractActivator {
 	}
 
 	/**
-	 * Creates the GuiceModule for this this plugin
+	 * Creates the EmfComponentsGuiceModule for this this plugin
 	 *
-	 * @return the  GuiceModule for this this plugin
+	 * @return the EmfComponentsGuiceModule for this this plugin
 	 */
-	public GuiceModule createModule() {
-		return new GuiceModule(getDefault());
+	public EmfComponentsGuiceModule createModule() {
+		return new EmfComponentsGuiceModule(getDefault());
 	}
 }
 '''
@@ -95,7 +95,7 @@ package «projectName»;
 import org.osgi.framework.Bundle;
 
 import it.rcpvision.emf.components.EmfComponentsExtensionFactory;
-import it.rcpvision.emf.components.GuiceModule;
+import it.rcpvision.emf.components.EmfComponentsGuiceModule;
 
 import com.google.inject.Injector;
 
@@ -108,7 +108,7 @@ public class ExecutableExtensionFactory extends
 	}
 
 	@Override
-	protected GuiceModule getModule() {
+	protected EmfComponentsGuiceModule getModule() {
 		return Activator.getDefault().createModule();
 	}
 
@@ -125,13 +125,13 @@ package «projectName»;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
-«IF superClass == "GuiceModule"»
-import it.rcpvision.emf.components.GuiceModule;
+«IF superClass == "EmfComponentsGuiceModule"»
+import it.rcpvision.emf.components.EmfComponentsGuiceModule;
 «ENDIF»
 
-public class EmfComponentsGuiceModule extends «superClass» {
+public class EmfComponentsModule extends «superClass» {
 
-	public EmfComponentsGuiceModule(AbstractUIPlugin plugin) {
+	public EmfComponentsModule(AbstractUIPlugin plugin) {
 		super(plugin);
 	}
 

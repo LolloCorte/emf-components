@@ -48,11 +48,11 @@ import com.google.inject.Provider;
  * @author Lorenzo Bettini
  * 
  */
-public class GuiceModule extends AbstractGenericModule {
+public class EmfComponentsGuiceModule extends AbstractGenericModule {
 
 	private final AbstractUIPlugin plugin;
 
-	public GuiceModule(AbstractUIPlugin plugin) {
+	public EmfComponentsGuiceModule(AbstractUIPlugin plugin) {
 		this.plugin = plugin;
 	}
 

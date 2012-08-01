@@ -43,8 +43,8 @@ public class EmfComponentsExtensionFactory extends
 		return createInjector(getModule());
 	}
 
-	protected GuiceModule getModule() {
-		return new GuiceModule(EmfComponentsActivator.getDefault());
+	protected EmfComponentsGuiceModule getModule() {
+		return new EmfComponentsGuiceModule(EmfComponentsActivator.getDefault());
 	}
 
 }
