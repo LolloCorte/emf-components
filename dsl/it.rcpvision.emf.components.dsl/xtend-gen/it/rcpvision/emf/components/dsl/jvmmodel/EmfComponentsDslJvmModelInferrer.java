@@ -2,7 +2,7 @@ package it.rcpvision.emf.components.dsl.jvmmodel;
 
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
-import it.rcpvision.emf.components.EmfComponentsGenericModule;
+import it.rcpvision.emf.components.EmfComponentsGuiceModule;
 import it.rcpvision.emf.components.dsl.jvmmodel.GeneratorUtils;
 import it.rcpvision.emf.components.dsl.model.FeatureProvider;
 import it.rcpvision.emf.components.dsl.model.FeatureSpecification;
@@ -11,9 +11,9 @@ import it.rcpvision.emf.components.dsl.model.LabelSpecification;
 import it.rcpvision.emf.components.dsl.model.Module;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification;
-import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
-import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
-import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider.EClassToEStructuralFeatureAsStringsMap;
+import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
+import it.rcpvision.emf.components.ui.provider.FeaturesProvider.EClassToEStructuralFeatureAsStringsMap;
+import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 import java.util.Arrays;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
@@ -117,7 +117,7 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
           String _documentation = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.getDocumentation(element);
           EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.setDocumentation(it, _documentation);
           EList<JvmTypeReference> _superTypes = it.getSuperTypes();
-          JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, EmfComponentsGenericModule.class);
+          JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, EmfComponentsGuiceModule.class);
           EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _newTypeRef);
           EList<JvmMember> _members = it.getMembers();
           final Procedure1<JvmConstructor> _function = new Procedure1<JvmConstructor>() {
@@ -140,7 +140,7 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
           if (_notEquals) {
             EList<JvmMember> _members_1 = it.getMembers();
             LabelProvider _labelProvider = element.getLabelProvider();
-            JvmOperation _genBindMethod = EmfComponentsDslJvmModelInferrer.this.genBindMethod(_labelProvider, labelProviderClass, CompositeLabelProvider.class);
+            JvmOperation _genBindMethod = EmfComponentsDslJvmModelInferrer.this.genBindMethod(_labelProvider, labelProviderClass, ViewerLabelProvider.class);
             EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_1, _genBindMethod);
           }
           boolean _notEquals_1 = (!Objects.equal(propertyDescriptionProviderClass, null));
@@ -154,7 +154,7 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
           if (_notEquals_2) {
             EList<JvmMember> _members_3 = it.getMembers();
             FeatureProvider _featureProvider = element.getFeatureProvider();
-            JvmOperation _genBindMethod_2 = EmfComponentsDslJvmModelInferrer.this.genBindMethod(_featureProvider, featureProviderClass, EStructuralFeaturesProvider.class);
+            JvmOperation _genBindMethod_2 = EmfComponentsDslJvmModelInferrer.this.genBindMethod(_featureProvider, featureProviderClass, FeaturesProvider.class);
             EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_3, _genBindMethod_2);
           }
         }
@@ -192,9 +192,9 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
     return _plus;
   }
   
-  public String featureProviderQN(final Module element) {
+  public String featuresProviderQN(final Module element) {
     QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(element);
-    String _plus = (_fullyQualifiedName + ".ui.provider.EStructuralFeaturesProviderGen");
+    String _plus = (_fullyQualifiedName + ".ui.provider.FeaturesProviderGen");
     return _plus;
   }
   
@@ -214,7 +214,7 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
         final Procedure1<JvmGenericType> _function = new Procedure1<JvmGenericType>() {
             public void apply(final JvmGenericType it) {
               EList<JvmTypeReference> _superTypes = it.getSuperTypes();
-              JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, CompositeLabelProvider.class);
+              JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, ViewerLabelProvider.class);
               EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _newTypeRef);
               LabelProvider _labelProvider = element.getLabelProvider();
               EList<LabelSpecification> _labelSpecifications = _labelProvider.getLabelSpecifications();
@@ -369,13 +369,13 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
       JvmGenericType _xblockexpression = null;
       {
         FeatureProvider _featureProvider_1 = element.getFeatureProvider();
-        String _featureProviderQN = this.featureProviderQN(element);
-        final JvmGenericType featureProviderClass = this._jvmTypesBuilder.toClass(_featureProvider_1, _featureProviderQN);
+        String _featuresProviderQN = this.featuresProviderQN(element);
+        final JvmGenericType featureProviderClass = this._jvmTypesBuilder.toClass(_featureProvider_1, _featuresProviderQN);
         IPostIndexingInitializing<JvmGenericType> _accept = acceptor.<JvmGenericType>accept(featureProviderClass);
         final Procedure1<JvmGenericType> _function = new Procedure1<JvmGenericType>() {
             public void apply(final JvmGenericType it) {
               EList<JvmTypeReference> _superTypes = it.getSuperTypes();
-              JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, EStructuralFeaturesProvider.class);
+              JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, FeaturesProvider.class);
               EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _newTypeRef);
               EList<JvmMember> _members = it.getMembers();
               FeatureProvider _featureProvider = element.getFeatureProvider();

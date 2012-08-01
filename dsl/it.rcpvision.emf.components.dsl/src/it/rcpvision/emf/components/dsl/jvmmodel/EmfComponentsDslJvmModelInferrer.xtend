@@ -1,12 +1,12 @@
 package it.rcpvision.emf.components.dsl.jvmmodel
 
 import com.google.inject.Inject
-import it.rcpvision.emf.components.EmfComponentsGenericModule
+import it.rcpvision.emf.components.EmfComponentsGuiceModule
 import it.rcpvision.emf.components.dsl.model.Module
-import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider
-import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider
-import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider$EClassToEStructuralFeatureAsStringsMap
+import it.rcpvision.emf.components.ui.provider.FeaturesProvider
+import it.rcpvision.emf.components.ui.provider.FeaturesProvider$EClassToEStructuralFeatureAsStringsMap
 import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider
+import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EStructuralFeature
 import org.eclipse.ui.plugin.AbstractUIPlugin
@@ -77,7 +77,7 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 		
 		acceptor.accept(moduleClass).initializeLater [
 			documentation = element.documentation
-			superTypes += element.newTypeRef(typeof(EmfComponentsGenericModule))
+			superTypes += element.newTypeRef(typeof(EmfComponentsGuiceModule))
 			
 			members += element.toConstructor() [
 				parameters += element.toParameter("plugin", element.newTypeRef(typeof(AbstractUIPlugin)))
@@ -85,11 +85,11 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 			]
 			
 			if (labelProviderClass != null)
-				members += element.labelProvider.genBindMethod(labelProviderClass, typeof(CompositeLabelProvider))
+				members += element.labelProvider.genBindMethod(labelProviderClass, typeof(ViewerLabelProvider))
 			if (propertyDescriptionProviderClass != null)
 				members += element.propertyDescriptionProvider.genBindMethod(propertyDescriptionProviderClass, typeof(PropertyDescriptionProvider))
 			if (featureProviderClass != null)
-				members += element.featureProvider.genBindMethod(featureProviderClass, typeof(EStructuralFeaturesProvider))
+				members += element.featureProvider.genBindMethod(featureProviderClass, typeof(FeaturesProvider))
 		]
    	}
    	
@@ -113,8 +113,8 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 		element.fullyQualifiedName + ".ui.provider.PropertyDescriptionProviderGen"
 	}
 
-	def featureProviderQN(Module element) {
-		element.fullyQualifiedName + ".ui.provider.EStructuralFeaturesProviderGen"
+	def featuresProviderQN(Module element) {
+		element.fullyQualifiedName + ".ui.provider.FeaturesProviderGen"
 	}
 
 	def inferLabelProvider(Module element, IJvmDeclaredTypeAcceptor acceptor) {
@@ -123,7 +123,7 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 		else {
 			val labelProviderClass = element.labelProvider.toClass(element.labelProviderQN)
 			acceptor.accept(labelProviderClass).initializeLater [
-				superTypes += element.newTypeRef(typeof(CompositeLabelProvider))
+				superTypes += element.newTypeRef(typeof(ViewerLabelProvider))
 				
 				element.labelProvider.labelSpecifications.forEach [
 					labelSpecification |
@@ -197,16 +197,16 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 		if (element.featureProvider == null)
 			null
 		else {
-			val featureProviderClass = element.featureProvider.toClass(element.featureProviderQN)
+			val featureProviderClass = element.featureProvider.toClass(element.featuresProviderQN)
 			acceptor.accept(featureProviderClass).initializeLater [
-				superTypes += element.newTypeRef(typeof(EStructuralFeaturesProvider))
+				superTypes += element.newTypeRef(typeof(FeaturesProvider))
 				
 				members += element.featureProvider.
 						toMethod("buildStringMap", Void::TYPE.getTypeForName(element)) [
 					annotations += element.toAnnotation(typeof(Override))
 					parameters += element.featureProvider.toParameter("stringMap",
 							element.newTypeRef(
-								typeof(EStructuralFeaturesProvider$EClassToEStructuralFeatureAsStringsMap)
+								typeof(FeaturesProvider$EClassToEStructuralFeatureAsStringsMap)
 							)
 					)
 					body = [

@@ -6,6 +6,8 @@
 	<dependencies>
 		<dependency name="it.rcpvision.emf.components.cdo.tests" 
 			componentType="osgi.bundle" />
+		<dependency name="it.rcpvision.emf.components.dsl.tests" 
+			componentType="osgi.bundle" />
 		<dependency name="it.rcpvision.emf.components.tests.swtbot.feature" 
 			componentType="eclipse.feature" />
 	</dependencies>
