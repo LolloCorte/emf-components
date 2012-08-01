@@ -20,7 +20,6 @@ Require-Bundle: org.eclipse.swtbot.go,
  org.eclipse.xtext.xbase.lib,
  it.rcpvision.emf.components.examples.fowlerdsl;bundle-version="1.0.0",
  it.rcpvision.emf.components.examples.fowlerdsl.ui;bundle-version="1.0.0",
- it.rcpvision.emf.components.dsl.ui;bundle-version="1.0.0",
  it.rcpvision.emf.components.views;bundle-version="1.0.0",
  it.rcpvision.emf.components.editors;bundle-version="1.0.0"
 Bundle-Activator: it.rcpvision.emf.components.tests.EmfComponentsTestsActivator
