@@ -5,14 +5,14 @@ package it.rcpvision.emf.components.tests.labeling;
 
 import it.rcpvision.emf.components.examples.library.Book;
 import it.rcpvision.emf.components.examples.library.Borrower;
-import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
+import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 
 
 /**
  * @author bettini
  * 
  */
-public class CustomLibraryLabelProvider extends CompositeLabelProvider {
+public class CustomLibraryLabelProvider extends ViewerLabelProvider {
 
 	public String text(Book book) {
 		return "Book: " + book.getTitle();

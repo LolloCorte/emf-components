@@ -70,7 +70,7 @@ public class NewEmfComponentsProjectSupport {
 			createExecutableExtensionFactory(project, projectName,
 					projectPackagePath, progressMonitor);
 			createModule(project, projectName, projectPackagePath,
-					"EmfComponentsGenericModule", progressMonitor);
+					"EmfComponentsGuiceModule", progressMonitor);
 
 			createProjectFile(project, metaInfPath + "/MANIFEST.MF",
 					filesGenerator.generateManifest(projectName).toString(),
@@ -106,7 +106,8 @@ public class NewEmfComponentsProjectSupport {
 						"/plugin.xml",
 						viewGenerator.generatePluginXml(
 								projectName
-										.concat(".ExecutableExtensionFactory"),
+										.concat(".").
+										concat(filesGenerator.extFactoryName(projectName).toString()),
 								projectName.concat(".").concat(
 										qualifiedNameView)).toString(),
 						createSubProgressMonitor(progressMonitor));
@@ -126,7 +127,8 @@ public class NewEmfComponentsProjectSupport {
 	public static void createActivator(IProject project, String projectName,
 			String projectPackagePath, IProgressMonitor progressMonitor)
 			throws CoreException {
-		createProjectFile(project, projectPackagePath + "/Activator.java",
+		createProjectFile(project, projectPackagePath + "/"
+				+ filesGenerator.activatorName(projectName) + ".java",
 				filesGenerator.generateActivator(projectName).toString(),
 				createSubProgressMonitor(progressMonitor));
 	}
@@ -135,7 +137,9 @@ public class NewEmfComponentsProjectSupport {
 			String projectName, String projectPackagePath,
 			IProgressMonitor progressMonitor) throws CoreException {
 		createProjectFile(project, projectPackagePath
-				+ "/ExecutableExtensionFactory.java", filesGenerator
+				+ "/"
+				+ filesGenerator.extFactoryName(projectName)
+				+ ".java", filesGenerator
 				.generateExecutableExtensionFactory(projectName).toString(),
 				createSubProgressMonitor(progressMonitor));
 	}
@@ -144,7 +148,9 @@ public class NewEmfComponentsProjectSupport {
 			String projectPackagePath, String superClass,
 			IProgressMonitor progressMonitor) throws CoreException {
 		createProjectFile(project, projectPackagePath
-				+ "/EmfComponentsGuiceModule.java", filesGenerator
+				+ "/"
+				+ filesGenerator.moduleName(projectName)
+				+ ".java", filesGenerator
 				.generateModule(projectName, superClass).toString(),
 				createSubProgressMonitor(progressMonitor));
 	}

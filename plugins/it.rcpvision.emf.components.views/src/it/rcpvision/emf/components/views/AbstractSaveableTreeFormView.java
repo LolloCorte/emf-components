@@ -2,14 +2,13 @@ package it.rcpvision.emf.components.views;
 
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
 import it.rcpvision.emf.components.factories.TreeFormFactory;
-import it.rcpvision.emf.components.menus.StructuredViewerContextMenuManagerCreator;
+import it.rcpvision.emf.components.menus.ViewerContextMenuFactory;
 import it.rcpvision.emf.components.viewers.ViewerSelectionProvider;
 import it.rcpvision.emf.components.widgets.TreeFormComposite;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.command.CreateChildCommand;
 import org.eclipse.jface.action.IMenuListener;
@@ -29,7 +28,7 @@ public abstract class AbstractSaveableTreeFormView extends AbstractSaveableView
 	protected TreeFormFactory treeFormFactory;
 
 	@Inject
-	protected StructuredViewerContextMenuManagerCreator structuredViewerContextMenuManagerCreator;
+	protected ViewerContextMenuFactory viewerContextMenuFactory;
 
 	@Inject
 	protected EmfActionBarContributor actionBarContributor;
@@ -74,11 +73,8 @@ public abstract class AbstractSaveableTreeFormView extends AbstractSaveableView
 		}
 	}
 
-	@Override
-    protected abstract URI createResourceURI();
-
 	public void createContextMenuFor(StructuredViewer viewer) {
-		MenuManager menuManager = structuredViewerContextMenuManagerCreator
+		MenuManager menuManager = viewerContextMenuFactory
 				.createContextMenuFor(viewer, this, editingDomain);
 		menuManager.addMenuListener(this);
 	}

@@ -15,7 +15,7 @@ import org.eclipse.jface.viewers.StructuredViewer;
  * @author bettini
  * 
  */
-public class ContentOutlineSelectionHandler {
+public class OutlineSelectionHandler {
 	protected StructuredViewer selectionViewer;
 
 	public StructuredViewer getSelectionViewer() {

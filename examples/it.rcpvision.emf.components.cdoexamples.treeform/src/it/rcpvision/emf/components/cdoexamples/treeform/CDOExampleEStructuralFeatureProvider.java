@@ -1,10 +1,10 @@
 package it.rcpvision.emf.components.cdoexamples.treeform;
 
 import static library.LibraryPackage.Literals.*;
-import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
+import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
 
 public class CDOExampleEStructuralFeatureProvider extends
-		EStructuralFeaturesProvider {
+		FeaturesProvider {
 
 	@Override
 	protected void buildMap(EClassToEStructuralFeatureMap map) {

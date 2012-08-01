@@ -5,7 +5,7 @@ package it.rcpvision.emf.components.factories;
 
 import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
-import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
+import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelFactory;
 import it.rcpvision.emf.components.widgets.FormDetailComposite;
 
@@ -33,7 +33,7 @@ public class FormFactory {
 	protected Provider<JfaceProviderFactory> jfaceProviderFactoryProvider;
 
 	@Inject
-	protected Provider<EStructuralFeaturesProvider> eClassFeatureProviderProvider;
+	protected Provider<FeaturesProvider> eClassFeatureProviderProvider;
 
 	@Inject
 	public FormFactory() {

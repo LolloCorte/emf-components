@@ -1,11 +1,11 @@
 package it.rcpvision.emf.components.view.masterdetail;
 
 import it.rcpvision.emf.components.factories.FormFactory;
-import it.rcpvision.emf.components.factories.EmfViewerFactory;
-import it.rcpvision.emf.components.listeners.EmfViewerMouseAdapter;
-import it.rcpvision.emf.components.menus.StructuredViewerContextMenuManagerCreator;
+import it.rcpvision.emf.components.factories.ViewerFactory;
+import it.rcpvision.emf.components.listeners.ViewerMouseAdapter;
+import it.rcpvision.emf.components.menus.ViewerContextMenuFactory;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
-import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
+import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 import it.rcpvision.emf.components.builders.EObjectManager;
 import it.rcpvision.emf.components.viewers.ViewerInitializer;
 import it.rcpvision.emf.components.builders.GenericDetailComposite;
@@ -138,7 +138,6 @@ public class TreeMasterDetailView extends ViewPart implements ISaveablePart, ISa
 	protected EmfViewerFactory emfTreeViewerFactory;
 	
 	@Inject
-	protected Provider<EmfViewerMouseAdapter> emfViewerMouseAdapterProvider;
 	
 	@Inject
 	protected StructuredViewerContextMenuCreator structuredViewerContextMenuCreator;

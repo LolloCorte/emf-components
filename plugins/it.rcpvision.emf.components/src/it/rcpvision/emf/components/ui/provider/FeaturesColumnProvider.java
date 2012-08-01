@@ -8,10 +8,10 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 
-public class EStructuralFeaturesColumnProvider extends EStructuralFeaturesProvider{
+public class FeaturesColumnProvider extends FeaturesProvider{
 	
 	@Inject
-	protected EStructuralFeaturesProvider featuresProvider;
+	protected FeaturesProvider featuresProvider;
 	
 	private List<Integer> weights;
 	

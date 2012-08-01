@@ -14,7 +14,7 @@ import com.google.inject.Injector;
  * @author bettini
  * 
  */
-public class EmfComponentsExecutableExtensionFactory extends
+public class EmfComponentsExtensionFactory extends
 		AbstractGuiceAwareExecutableExtensionFactory {
 
 	/**
@@ -43,8 +43,8 @@ public class EmfComponentsExecutableExtensionFactory extends
 		return createInjector(getModule());
 	}
 
-	protected EmfComponentsGenericModule getModule() {
-		return new EmfComponentsGenericModule(EmfComponentsActivator.getDefault());
+	protected EmfComponentsGuiceModule getModule() {
+		return new EmfComponentsGuiceModule(EmfComponentsActivator.getDefault());
 	}
 
 }

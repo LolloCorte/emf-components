@@ -3,8 +3,8 @@
  */
 package it.rcpvision.emf.components.views;
 
-import it.rcpvision.emf.components.factories.EmfViewerFactory;
-import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
+import it.rcpvision.emf.components.factories.ViewerFactory;
+import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
 
 import java.util.List;
 
@@ -35,10 +35,10 @@ import com.google.inject.Inject;
 public class OnSelectionTableView extends OnSelectionAbstractView {
 
 	@Inject
-	protected EmfViewerFactory emfViewerFactory;
+	protected ViewerFactory viewerFactory;
 
 	@Inject
-	protected EStructuralFeaturesProvider featuresProvider;
+	protected FeaturesProvider featuresProvider;
 
 	protected Composite parent;
 
@@ -115,7 +115,7 @@ public class OnSelectionTableView extends OnSelectionAbstractView {
 		Label lblNewLabel = new Label(composite, SWT.NONE);
 		lblNewLabel.setText(label);
 
-		TableViewer tableViewer = emfViewerFactory.createTableViewer(composite,
+		TableViewer tableViewer = viewerFactory.createTableViewer(composite,
 				SWT.BORDER | SWT.FULL_SELECTION, object, eClass);
 
 		Table table = tableViewer.getTable();
