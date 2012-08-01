@@ -249,8 +249,8 @@ public class EmfComponentsAbstractTests {
 		return treeItem.expand().getNode(BOOK_LABEL);
 	}
 
-	protected void accessTreeWithCustomLabels(SWTBotTreeItem rootOfTree) {
-		rootOfTree.expand().getNode("TEST " + LIBRARY_LABEL + " ENDTEST")
+	protected SWTBotTreeItem accessTreeWithCustomLabels(SWTBotTreeItem rootOfTree) {
+		return rootOfTree.expand().getNode("TEST " + LIBRARY_LABEL + " ENDTEST")
 				.expand().getNode("TEST " + WRITER_LABEL + " ENDTEST");
 	}
 

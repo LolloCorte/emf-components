@@ -115,6 +115,17 @@ public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 	}
 
 	@Test
+	public void testEditorWithCustomLibraryLabelsInEditPlugin() throws Exception {
+		SWTBotTreeItem rootOfTree = getRootOfEditorTree(
+				EMF_TREE_EDITOR_CUSTOM_LABEL, MY_EXTLIBRARY,
+				MY_EXT_LIBRARY_PLATFORM_URI);
+		SWTBotTreeItem treeItem = accessTreeWithCustomLabels(rootOfTree);
+		assertTreeItemImage(treeItem, getImageDescriptorFromTest("custom_book.png"));
+		treeItem = accessTreeWithCustomLabels(getRootOfOutlineViewTree());
+		assertTreeItemImage(treeItem, getImageDescriptorFromTest("custom_book.png"));
+	}
+
+	@Test
 	public void canSelectInOutlineView() throws Exception {
 		SWTBotTreeItem editorTreeRoot = getRootOfEditorTree(EMF_TREE_EDITOR,
 				MY_EXTLIBRARY, MY_EXT_LIBRARY_PLATFORM_URI);
