@@ -2,7 +2,7 @@ package it.rcpvision.emf.components.widgets;
 
 import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
-import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
+import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelFactory;
 
 import java.util.List;
@@ -26,7 +26,7 @@ public class FormDetailComposite extends Composite {
 
 	protected EditingDomainFinder editingDomainFinder;
 
-	protected EStructuralFeaturesProvider eClassFeatureProvider;
+	protected FeaturesProvider eClassFeatureProvider;
 
 	protected ILabelProvider labelProvider;
 
@@ -41,7 +41,7 @@ public class FormDetailComposite extends Composite {
 			FormFeatureControlFactory formFeatureControlFactory,
 			EditingDomainFinder editingDomainFinder,
 			ILabelProvider labelProvider,
-			EStructuralFeaturesProvider eClassFeatureProvider) {
+			FeaturesProvider eClassFeatureProvider) {
 		super(parent, style);
 		this.formFeatureLabelFactory = formFeatureLabelFactory;
 		this.formFeatureControlFactory = formFeatureControlFactory;
@@ -130,12 +130,12 @@ public class FormDetailComposite extends Composite {
 		this.editingDomainFinder = editingDomainFinder;
 	}
 
-	public EStructuralFeaturesProvider geteClassFeatureProvider() {
+	public FeaturesProvider geteClassFeatureProvider() {
 		return eClassFeatureProvider;
 	}
 
 	public void seteClassFeatureProvider(
-			EStructuralFeaturesProvider eClassFeatureProvider) {
+			FeaturesProvider eClassFeatureProvider) {
 		this.eClassFeatureProvider = eClassFeatureProvider;
 	}
 

@@ -4,7 +4,7 @@
 package it.rcpvision.emf.components.builders;
 
 import it.rcpvision.emf.components.factories.JfaceProviderFactory;
-import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesColumnProvider;
+import it.rcpvision.emf.components.ui.provider.FeaturesColumnProvider;
 import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
 
 import java.util.List;
@@ -40,7 +40,7 @@ public class TableViewerColumnBuilder {
 	protected PropertyDescriptionProvider propertyDescriptionProvider;
 
 	@Inject
-	protected EStructuralFeaturesColumnProvider featuresProvider;
+	protected FeaturesColumnProvider featuresProvider;
 
 	public void buildTableViewer(TableViewer tableViewer, EClass eClass) {
 		buildTableViewer(tableViewer, eClass, null);

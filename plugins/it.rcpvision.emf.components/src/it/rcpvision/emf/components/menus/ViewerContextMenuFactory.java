@@ -20,7 +20,7 @@ import org.eclipse.ui.part.WorkbenchPart;
  * @author Lorenzo Bettini
  * 
  */
-public class StructuredViewerContextMenuManagerCreator {
+public class ViewerContextMenuFactory {
 
 	public MenuManager createContextMenuFor(StructuredViewer viewer,
 			WorkbenchPart part, AdapterFactoryEditingDomain editingDomain) {

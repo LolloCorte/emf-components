@@ -70,7 +70,7 @@ public class NewEmfComponentsProjectSupport {
 			createExecutableExtensionFactory(project, projectName,
 					projectPackagePath, progressMonitor);
 			createModule(project, projectName, projectPackagePath,
-					"EmfComponentsGenericModule", progressMonitor);
+					"GuiceModule", progressMonitor);
 
 			createProjectFile(project, metaInfPath + "/MANIFEST.MF",
 					filesGenerator.generateManifest(projectName).toString(),

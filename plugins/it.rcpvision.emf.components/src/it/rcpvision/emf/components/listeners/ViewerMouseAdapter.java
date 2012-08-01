@@ -13,7 +13,7 @@ import org.eclipse.ui.PlatformUI;
  * @author bettini
  *
  */
-public class EmfViewerMouseAdapter extends MouseAdapter {
+public class ViewerMouseAdapter extends MouseAdapter {
 
 	@Override
 	public void mouseDoubleClick(MouseEvent event) {

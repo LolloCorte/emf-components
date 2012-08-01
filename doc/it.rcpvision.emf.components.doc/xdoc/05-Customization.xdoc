@@ -44,7 +44,7 @@ section2[EClass' EStructuralFeatures]
 When the framework builds components according to the
 codeRef[org.eclipse.emf.ecore.EStructuralFeature]s of a given
 codeRef[org.eclipse.emf.ecore.EClass] it relies on an injected
-codeRef[it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider].
+codeRef[it.rcpvision.emf.components.ui.provider.FeaturesProvider].
 The default behavior is to simply return all the features of the a given EClass,
 in the order they are defined in the EClass;
 you may want to provide a custom implementation by redefining
@@ -55,7 +55,7 @@ for instance by returning the features ordered according to their name
 
 code[Java][
 public class OrderedEStructuralFeaturesProvider 
-	extends EStructuralFeaturesProvider {
+	extends FeaturesProvider {
 
 	@Inject
 	EStructuralFeatureNameComparator comparator;
@@ -73,7 +73,7 @@ public class OrderedEStructuralFeaturesProvider
 Alternatively, you can set the mappings, i.e., specify the structural
 features you want to be used given an EClass, by implementing
 the method code[buildMap], which receives the
-codeRef[it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider$EClassToEStructuralFeatureMap]
+codeRef[it.rcpvision.emf.components.ui.provider.FeaturesProvider$EClassToEStructuralFeatureMap]
 that can be filled with the method code[mapTo]; 
 for instance, using the EMF extended library
 example, this customization will return only the e[name] and e[address] features
@@ -86,7 +86,7 @@ import static org.eclipse.emf.examples.extlibrary.EXTLibraryPackage.Literals.*;
 import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
 
 public class LibraryEStructuralFeaturesProvider extends
-		EStructuralFeaturesProvider {
+		FeaturesProvider {
 
 	@Override
 	protected void buildMap(EClassToEStructuralFeatureMap map) {
@@ -113,10 +113,10 @@ code[buildMap] has the precedence):
 
 code[Java][
 import static org.eclipse.emf.examples.extlibrary.EXTLibraryPackage.Literals.*;
-import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
+import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
 
 public class LibraryEStructuralFeaturesAsStringsProvider extends
-		EStructuralFeaturesProvider {
+		FeaturesProvider {
 
 	@Override
 	protected void buildMap(EClassToEStructuralFeatureMap map) {

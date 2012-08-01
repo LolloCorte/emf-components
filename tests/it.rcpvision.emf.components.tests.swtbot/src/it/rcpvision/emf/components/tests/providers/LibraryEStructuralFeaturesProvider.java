@@ -4,14 +4,14 @@
 package it.rcpvision.emf.components.tests.providers;
 
 import static it.rcpvision.emf.components.examples.library.EXTLibraryPackage.Literals.*;
-import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
+import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
 
 /**
  * @author bettini
  * 
  */
 public class LibraryEStructuralFeaturesProvider extends
-		EStructuralFeaturesProvider {
+		FeaturesProvider {
 
 	@Override
 	protected void buildMap(EClassToEStructuralFeatureMap map) {

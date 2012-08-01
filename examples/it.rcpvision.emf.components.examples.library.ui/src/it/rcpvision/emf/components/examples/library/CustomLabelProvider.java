@@ -3,10 +3,10 @@ package it.rcpvision.emf.components.examples.library;
 import it.rcpvision.emf.components.examples.library.Book;
 import it.rcpvision.emf.components.examples.library.Library;
 import it.rcpvision.emf.components.examples.library.Person;
-import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
+import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 
 
-public class CustomLabelProvider extends CompositeLabelProvider {
+public class CustomLabelProvider extends ViewerLabelProvider {
 
 	public String text(Book book) {
 		return "Book: " + book.getTitle();

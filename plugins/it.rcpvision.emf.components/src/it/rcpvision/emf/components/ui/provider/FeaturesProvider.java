@@ -27,7 +27,7 @@ import com.google.common.collect.Lists;
  * @author Lorenzo Bettini
  * 
  */
-public class EStructuralFeaturesProvider {
+public class FeaturesProvider {
 
 	public static class EClassToEStructuralFeatureMap extends
 			HashMap<EClass, List<EStructuralFeature>> {

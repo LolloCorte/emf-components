@@ -18,7 +18,7 @@ import com.google.inject.Inject;
  * @author bettini
  * 
  */
-public class CompositeLabelProvider implements ILabelProvider {
+public class ViewerLabelProvider implements ILabelProvider {
 
 	@Inject
 	private IImageHelper imageHelper;
