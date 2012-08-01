@@ -2,6 +2,23 @@ package it.rcpvision.emf.components.wizards.gen
 
 class EmfComponentsProjectFilesGenerator {
 
+	def prefixFromProject(String projectName) {
+		var prefixName = projectName
+		val dotIndex = projectName.lastIndexOf(".")
+		if (dotIndex > 0)
+			prefixName = projectName.substring(dotIndex+1)
+		return prefixName.toFirstUpper
+	}
+
+	def activatorName(String projectName)
+	'''«projectName.prefixFromProject»Activator'''
+
+	def moduleName(String projectName)
+	'''«projectName.prefixFromProject»GuiceModule'''
+
+	def extFactoryName(String projectName)
+	'''«projectName.prefixFromProject»ExecutableExtensionFactory'''
+
 	def generateManifest(String projectName)
 '''
 Manifest-Version: 1.0
@@ -9,7 +26,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: «projectName»
 Bundle-SymbolicName: «projectName»;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: «projectName».Activator
+Bundle-Activator: «projectName».«projectName.activatorName»
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  it.rcpvision.emf.components,
@@ -39,15 +56,15 @@ import it.rcpvision.emf.components.ui.EmfComponentsAbstractActivator;
 /**
  * The activator class controls the plug-in life cycle
  */
-public class Activator extends EmfComponentsAbstractActivator {
+public class «projectName.activatorName» extends EmfComponentsAbstractActivator {
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "«projectName»"; //$NON-NLS-1$
 
 	// The shared instance
-	private static Activator plugin;
+	private static «projectName.activatorName» plugin;
 
-	public Activator() {
+	public «projectName.activatorName»() {
 	}
 
 	/*
@@ -73,7 +90,7 @@ public class Activator extends EmfComponentsAbstractActivator {
 	 *
 	 * @return the shared instance
 	 */
-	public static Activator getDefault() {
+	public static «projectName.activatorName» getDefault() {
 		return plugin;
 	}
 
@@ -83,7 +100,7 @@ public class Activator extends EmfComponentsAbstractActivator {
 	 * @return the EmfComponentsGuiceModule for this this plugin
 	 */
 	public EmfComponentsGuiceModule createModule() {
-		return new EmfComponentsGuiceModule(getDefault());
+		return new «projectName.moduleName»(getDefault());
 	}
 }
 '''
@@ -99,22 +116,22 @@ import it.rcpvision.emf.components.EmfComponentsGuiceModule;
 
 import com.google.inject.Injector;
 
-public class ExecutableExtensionFactory extends
+public class «projectName.extFactoryName» extends
 		EmfComponentsExtensionFactory {
 
 	@Override
 	protected Bundle getBundle() {
-		return Activator.getDefault().getBundle();
+		return «projectName.activatorName».getDefault().getBundle();
 	}
 
 	@Override
 	protected EmfComponentsGuiceModule getModule() {
-		return Activator.getDefault().createModule();
+		return «projectName.activatorName».getDefault().createModule();
 	}
 
 	@Override
 	protected Injector getInjector() {
-		return Activator.getDefault().getInjector();
+		return «projectName.activatorName».getDefault().getInjector();
 	}
 }
 '''
@@ -129,9 +146,9 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import it.rcpvision.emf.components.EmfComponentsGuiceModule;
 «ENDIF»
 
-public class EmfComponentsModule extends «superClass» {
+public class «projectName.moduleName» extends «superClass» {
 
-	public EmfComponentsModule(AbstractUIPlugin plugin) {
+	public «projectName.moduleName»(AbstractUIPlugin plugin) {
 		super(plugin);
 	}
 
