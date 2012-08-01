@@ -57,15 +57,15 @@ public class EmfComponentsDslParserTests extends EmfComponentsDslAbstractTests {
   }
   
   @Test
-  public void testFeatureLabelSpecifications() {
-    CharSequence _featureLabelSpecifications = this.inputs.featureLabelSpecifications();
-    this.parseAndAssertNoError(_featureLabelSpecifications);
+  public void testPropertyDescriptionSpecifications() {
+    CharSequence _propertyDescriptionSpecifications = this.inputs.propertyDescriptionSpecifications();
+    this.parseAndAssertNoError(_propertyDescriptionSpecifications);
   }
   
   @Test
   public void testWrongFeatureLabelSpecifications() {
-    CharSequence _wrongFeatureLabelSpecifications = this.inputsWithErrors.wrongFeatureLabelSpecifications();
-    final Model model = this.parseModel(_wrongFeatureLabelSpecifications);
+    CharSequence _wrongPropertyDescriptionSpecifications = this.inputsWithErrors.wrongPropertyDescriptionSpecifications();
+    final Model model = this.parseModel(_wrongPropertyDescriptionSpecifications);
     EClass _xFeatureCall = XbasePackage.eINSTANCE.getXFeatureCall();
     this._validationTestHelper.assertError(model, _xFeatureCall, 
       Diagnostic.LINKING_DIAGNOSTIC, 
@@ -77,8 +77,8 @@ public class EmfComponentsDslParserTests extends EmfComponentsDslAbstractTests {
   }
   
   @Test
-  public void testFeatureSpecifications() {
-    CharSequence _featureSpecifications = this.inputs.featureSpecifications();
-    this.parseAndAssertNoError(_featureSpecifications);
+  public void testFeaturesSpecifications() {
+    CharSequence _featuresSpecifications = this.inputs.featuresSpecifications();
+    this.parseAndAssertNoError(_featuresSpecifications);
   }
 }

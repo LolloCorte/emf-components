@@ -4,7 +4,7 @@
 package it.rcpvision.emf.components.factories;
 
 import it.rcpvision.emf.components.ui.provider.AdapterMapCellLabelProvider;
-import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
+import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 import it.rcpvision.emf.components.ui.provider.TableColumnLabelProvider;
 
 import org.eclipse.core.databinding.observable.map.IObservableMap;
@@ -28,7 +28,7 @@ import com.google.inject.Provider;
 public class JfaceProviderFactory {
 
 	@Inject
-	protected Provider<CompositeLabelProvider> compositeLabelProviderProvider;
+	protected Provider<ViewerLabelProvider> compositeLabelProviderProvider;
 
 	@Inject
 	protected Provider<ComposedAdapterFactory> composedAdapterFactoryProvider;
@@ -38,10 +38,10 @@ public class JfaceProviderFactory {
 
 	public ILabelProvider createLabelProvider(
 			ILabelProvider delegateLabelProvider) {
-		CompositeLabelProvider compositeLabelProvider = compositeLabelProviderProvider
+		ViewerLabelProvider viewerLabelProvider = compositeLabelProviderProvider
 				.get();
-		compositeLabelProvider.setDelegateLabelProvider(delegateLabelProvider);
-		return compositeLabelProvider;
+		viewerLabelProvider.setDelegateLabelProvider(delegateLabelProvider);
+		return viewerLabelProvider;
 	}
 
 	public ILabelProvider createLabelProvider() {

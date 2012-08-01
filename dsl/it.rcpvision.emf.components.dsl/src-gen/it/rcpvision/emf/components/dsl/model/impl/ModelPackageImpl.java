@@ -3,8 +3,8 @@
 package it.rcpvision.emf.components.dsl.model.impl;
 
 import it.rcpvision.emf.components.dsl.model.EmfFeatureAccess;
-import it.rcpvision.emf.components.dsl.model.FeatureProvider;
 import it.rcpvision.emf.components.dsl.model.FeatureSpecification;
+import it.rcpvision.emf.components.dsl.model.FeaturesProvider;
 import it.rcpvision.emf.components.dsl.model.Import;
 import it.rcpvision.emf.components.dsl.model.LabelProvider;
 import it.rcpvision.emf.components.dsl.model.LabelSpecification;
@@ -88,7 +88,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass featureProviderEClass = null;
+  private EClass featuresProviderEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -265,7 +265,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModule_FeatureProvider()
+  public EReference getModule_FeaturesProvider()
   {
     return (EReference)moduleEClass.getEStructuralFeatures().get(3);
   }
@@ -395,9 +395,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getFeatureProvider()
+  public EClass getFeaturesProvider()
   {
-    return featureProviderEClass;
+    return featuresProviderEClass;
   }
 
   /**
@@ -405,9 +405,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFeatureProvider_FeatureSpecifications()
+  public EReference getFeaturesProvider_FeatureSpecifications()
   {
-    return (EReference)featureProviderEClass.getEStructuralFeatures().get(0);
+    return (EReference)featuresProviderEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -491,7 +491,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     createEAttribute(moduleEClass, MODULE__NAME);
     createEReference(moduleEClass, MODULE__LABEL_PROVIDER);
     createEReference(moduleEClass, MODULE__PROPERTY_DESCRIPTION_PROVIDER);
-    createEReference(moduleEClass, MODULE__FEATURE_PROVIDER);
+    createEReference(moduleEClass, MODULE__FEATURES_PROVIDER);
 
     labelProviderEClass = createEClass(LABEL_PROVIDER);
     createEReference(labelProviderEClass, LABEL_PROVIDER__LABEL_SPECIFICATIONS);
@@ -509,8 +509,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     createEReference(propertyDescriptionSpecificationEClass, PROPERTY_DESCRIPTION_SPECIFICATION__FEATURE);
     createEReference(propertyDescriptionSpecificationEClass, PROPERTY_DESCRIPTION_SPECIFICATION__EXPRESSION);
 
-    featureProviderEClass = createEClass(FEATURE_PROVIDER);
-    createEReference(featureProviderEClass, FEATURE_PROVIDER__FEATURE_SPECIFICATIONS);
+    featuresProviderEClass = createEClass(FEATURES_PROVIDER);
+    createEReference(featuresProviderEClass, FEATURES_PROVIDER__FEATURE_SPECIFICATIONS);
 
     featureSpecificationEClass = createEClass(FEATURE_SPECIFICATION);
     createEReference(featureSpecificationEClass, FEATURE_SPECIFICATION__FEATURES);
@@ -567,7 +567,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     initEAttribute(getModule_Name(), ecorePackage.getEString(), "name", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_LabelProvider(), this.getLabelProvider(), null, "labelProvider", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_PropertyDescriptionProvider(), this.getPropertyDescriptionProvider(), null, "propertyDescriptionProvider", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getModule_FeatureProvider(), this.getFeatureProvider(), null, "featureProvider", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModule_FeaturesProvider(), this.getFeaturesProvider(), null, "featuresProvider", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(labelProviderEClass, LabelProvider.class, "LabelProvider", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getLabelProvider_LabelSpecifications(), this.getLabelSpecification(), null, "labelSpecifications", null, 0, -1, LabelProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -585,8 +585,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     initEReference(getPropertyDescriptionSpecification_Feature(), theXbasePackage.getXExpression(), null, "feature", null, 0, 1, PropertyDescriptionSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPropertyDescriptionSpecification_Expression(), theXbasePackage.getXExpression(), null, "expression", null, 0, 1, PropertyDescriptionSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(featureProviderEClass, FeatureProvider.class, "FeatureProvider", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFeatureProvider_FeatureSpecifications(), this.getFeatureSpecification(), null, "featureSpecifications", null, 0, -1, FeatureProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(featuresProviderEClass, FeaturesProvider.class, "FeaturesProvider", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFeaturesProvider_FeatureSpecifications(), this.getFeatureSpecification(), null, "featureSpecifications", null, 0, -1, FeaturesProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(featureSpecificationEClass, FeatureSpecification.class, "FeatureSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getFeatureSpecification_Features(), theXbasePackage.getXExpression(), null, "features", null, 0, -1, FeatureSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -10,21 +10,21 @@ import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.edit.ResourceSaveManager;
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
 import it.rcpvision.emf.components.factories.EmfActionFactory;
-import it.rcpvision.emf.components.factories.EmfViewerFactory;
+import it.rcpvision.emf.components.factories.ViewerFactory;
 import it.rcpvision.emf.components.factories.FormFactory;
 import it.rcpvision.emf.components.factories.JfaceProviderFactory;
 import it.rcpvision.emf.components.factories.TreeFormFactory;
 import it.rcpvision.emf.components.guice.ComposedAdapterFactoryProvider;
-import it.rcpvision.emf.components.handlers.ContentOutlineSelectionHandler;
-import it.rcpvision.emf.components.listeners.EmfViewerMouseAdapter;
-import it.rcpvision.emf.components.menus.StructuredViewerContextMenuManagerCreator;
+import it.rcpvision.emf.components.handlers.OutlineSelectionHandler;
+import it.rcpvision.emf.components.listeners.ViewerMouseAdapter;
+import it.rcpvision.emf.components.menus.ViewerContextMenuFactory;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
 import it.rcpvision.emf.components.resource.EmptyResourceInitializer;
 import it.rcpvision.emf.components.resource.ResourceLoader;
-import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
-import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesColumnProvider;
-import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
+import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
+import it.rcpvision.emf.components.ui.provider.FeaturesColumnProvider;
+import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelFactory;
 import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
 import it.rcpvision.emf.components.ui.provider.TableColumnLabelProvider;
@@ -48,11 +48,11 @@ import com.google.inject.Provider;
  * @author Lorenzo Bettini
  * 
  */
-public class EmfComponentsGenericModule extends AbstractGenericModule {
+public class EmfComponentsGuiceModule extends AbstractGenericModule {
 
 	private final AbstractUIPlugin plugin;
 
-	public EmfComponentsGenericModule(AbstractUIPlugin plugin) {
+	public EmfComponentsGuiceModule(AbstractUIPlugin plugin) {
 		this.plugin = plugin;
 	}
 
@@ -76,12 +76,12 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 		return EditingDomainResourceLoader.class;
 	}
 
-	public Class<? extends EmfViewerMouseAdapter> bindEmfViewerMouseAdapter() {
-		return EmfViewerMouseAdapter.class;
+	public Class<? extends ViewerMouseAdapter> bindViewerMouseAdapter() {
+		return ViewerMouseAdapter.class;
 	}
 
-	public Class<? extends CompositeLabelProvider> bindCompositeLabelProvider() {
-		return CompositeLabelProvider.class;
+	public Class<? extends ViewerLabelProvider> bindViewerLabelProvider() {
+		return ViewerLabelProvider.class;
 	}
 
 	public Class<? extends PropertyDescriptionProvider> bindPropertyDescriptionProvider() {
@@ -92,16 +92,16 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 		return FormFeatureLabelFactory.class;
 	}
 
-	public Class<? extends ContentOutlineSelectionHandler> bindContentOutlineSelectionHandler() {
-		return ContentOutlineSelectionHandler.class;
+	public Class<? extends OutlineSelectionHandler> bindOutlineSelectionHandler() {
+		return OutlineSelectionHandler.class;
 	}
 
 	public Class<? extends EditingDomainFactory> bindEditingDomainFactory() {
 		return EditingDomainFactory.class;
 	}
 
-	public Class<? extends EmfViewerFactory> bindEmfViewerFactory() {
-		return EmfViewerFactory.class;
+	public Class<? extends ViewerFactory> bindViewerFactory() {
+		return ViewerFactory.class;
 	}
 
 	public Class<? extends TreeFormFactory> bindTreeFormFactory() {
@@ -124,8 +124,8 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 		return ComposedAdapterFactoryProvider.class;
 	}
 
-	public Class<? extends StructuredViewerContextMenuManagerCreator> bindStructuredViewerContextMenuManagerCreator() {
-		return StructuredViewerContextMenuManagerCreator.class;
+	public Class<? extends ViewerContextMenuFactory> bindViewerContextMenuFactory() {
+		return ViewerContextMenuFactory.class;
 	}
 
 	public Class<? extends JfaceProviderFactory> bindJfaceProviderFactory() {
@@ -152,12 +152,12 @@ public class EmfComponentsGenericModule extends AbstractGenericModule {
 		return EditingDomainFinder.class;
 	}
 
-	public Class<? extends EStructuralFeaturesProvider> bindEStructuralFeaturesProvider() {
-		return EStructuralFeaturesProvider.class;
+	public Class<? extends FeaturesProvider> bindFeaturesProvider() {
+		return FeaturesProvider.class;
 	}
 
-	public Class<? extends EStructuralFeaturesColumnProvider> bindEStructuralFeaturesColumnProvider() {
-		return EStructuralFeaturesColumnProvider.class;
+	public Class<? extends FeaturesColumnProvider> bindFeaturesColumnProvider() {
+		return FeaturesColumnProvider.class;
 	}
 
 	public Class<? extends EmfSelectionHelper> bindEmfSelectionHelper() {

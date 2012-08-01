@@ -32,12 +32,12 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("package my.empty;");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("import it.rcpvision.emf.components.EmfComponentsGenericModule;");
+    _builder.append("import it.rcpvision.emf.components.EmfComponentsGuiceModule;");
     _builder.newLine();
     _builder.append("import org.eclipse.ui.plugin.AbstractUIPlugin;");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("public class EmfComponentsGuiceModuleGen extends EmfComponentsGenericModule {");
+    _builder.append("public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {");
     _builder.newLine();
     _builder.append("  ");
     _builder.append("public EmfComponentsGuiceModuleGen(final AbstractUIPlugin plugin) {");
@@ -60,16 +60,16 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("package my.empty;");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("import it.rcpvision.emf.components.EmfComponentsGenericModule;");
+    _builder.append("import it.rcpvision.emf.components.EmfComponentsGuiceModule;");
     _builder.newLine();
-    _builder.append("import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;");
+    _builder.append("import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;");
     _builder.newLine();
     _builder.append("import my.empty.ui.provider.LabelProviderGen;");
     _builder.newLine();
     _builder.append("import org.eclipse.ui.plugin.AbstractUIPlugin;");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("public class EmfComponentsGuiceModuleGen extends EmfComponentsGenericModule {");
+    _builder.append("public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {");
     _builder.newLine();
     _builder.append("  ");
     _builder.append("public EmfComponentsGuiceModuleGen(final AbstractUIPlugin plugin) {");
@@ -86,7 +86,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("@Override");
     _builder.newLine();
     _builder.append("  ");
-    _builder.append("public Class<? extends CompositeLabelProvider> bindCompositeLabelProvider() {");
+    _builder.append("public Class<? extends ViewerLabelProvider> bindViewerLabelProvider() {");
     _builder.newLine();
     _builder.append("    ");
     _builder.append("return LabelProviderGen.class;");
@@ -100,10 +100,10 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.append("package my.empty.ui.provider;");
     _builder_1.newLine();
     _builder_1.newLine();
-    _builder_1.append("import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;");
+    _builder_1.append("import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;");
     _builder_1.newLine();
     _builder_1.newLine();
-    _builder_1.append("public class LabelProviderGen extends CompositeLabelProvider {");
+    _builder_1.append("public class LabelProviderGen extends ViewerLabelProvider {");
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
@@ -111,13 +111,13 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
   }
   
   @Test
-  public void testEmptyFeatureLabelProvider() {
-    CharSequence _emptyFeatureLabelProvider = this.inputs.emptyFeatureLabelProvider();
+  public void testEmptyPropertyDescriptionProvider() {
+    CharSequence _emptyPropertyDescriptionProvider = this.inputs.emptyPropertyDescriptionProvider();
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package my.empty;");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("import it.rcpvision.emf.components.EmfComponentsGenericModule;");
+    _builder.append("import it.rcpvision.emf.components.EmfComponentsGuiceModule;");
     _builder.newLine();
     _builder.append("import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;");
     _builder.newLine();
@@ -126,7 +126,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("import org.eclipse.ui.plugin.AbstractUIPlugin;");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("public class EmfComponentsGuiceModuleGen extends EmfComponentsGenericModule {");
+    _builder.append("public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {");
     _builder.newLine();
     _builder.append("  ");
     _builder.append("public EmfComponentsGuiceModuleGen(final AbstractUIPlugin plugin) {");
@@ -164,7 +164,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_emptyFeatureLabelProvider, _builder, _builder_1, null, null);
+    this.assertCorrectJavaCodeGeneration(_emptyPropertyDescriptionProvider, _builder, _builder_1, null, null);
   }
   
   @Test
@@ -174,10 +174,10 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("package my.empty.ui.provider;");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;");
+    _builder.append("import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("public class LabelProviderGen extends CompositeLabelProvider {");
+    _builder.append("public class LabelProviderGen extends ViewerLabelProvider {");
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
@@ -204,7 +204,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.newLine();
     _builder.append("import it.rcpvision.emf.components.examples.library.Writer;");
     _builder.newLine();
-    _builder.append("import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;");
+    _builder.append("import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;");
     _builder.newLine();
     _builder.append("import java.util.List;");
     _builder.newLine();
@@ -219,7 +219,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("import org.eclipse.xtext.xbase.lib.StringExtensions;");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("public class LabelProviderGen extends CompositeLabelProvider {");
+    _builder.append("public class LabelProviderGen extends ViewerLabelProvider {");
     _builder.newLine();
     _builder.append("  ");
     _builder.append("public String text(final Library it) {");
@@ -398,13 +398,13 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
   }
   
   @Test
-  public void testFeatureLabelSpecifications() {
-    CharSequence _featureLabelSpecifications = this.inputs.featureLabelSpecifications();
+  public void testPropertyDescriptionSpecifications() {
+    CharSequence _propertyDescriptionSpecifications = this.inputs.propertyDescriptionSpecifications();
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package my.empty;");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("import it.rcpvision.emf.components.EmfComponentsGenericModule;");
+    _builder.append("import it.rcpvision.emf.components.EmfComponentsGuiceModule;");
     _builder.newLine();
     _builder.append("import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;");
     _builder.newLine();
@@ -413,7 +413,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("import org.eclipse.ui.plugin.AbstractUIPlugin;");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("public class EmfComponentsGuiceModuleGen extends EmfComponentsGenericModule {");
+    _builder.append("public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {");
     _builder.newLine();
     _builder.append("  ");
     _builder.append("public EmfComponentsGuiceModuleGen(final AbstractUIPlugin plugin) {");
@@ -492,26 +492,26 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_featureLabelSpecifications, _builder, null, _builder_1, null);
+    this.assertCorrectJavaCodeGeneration(_propertyDescriptionSpecifications, _builder, null, _builder_1, null);
   }
   
   @Test
-  public void testFeatureSpecifications() {
-    CharSequence _featureSpecifications = this.inputs.featureSpecifications();
+  public void testFeaturesSpecifications() {
+    CharSequence _featuresSpecifications = this.inputs.featuresSpecifications();
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package my.empty;");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("import it.rcpvision.emf.components.EmfComponentsGenericModule;");
+    _builder.append("import it.rcpvision.emf.components.EmfComponentsGuiceModule;");
     _builder.newLine();
-    _builder.append("import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;");
+    _builder.append("import it.rcpvision.emf.components.ui.provider.FeaturesProvider;");
     _builder.newLine();
-    _builder.append("import my.empty.ui.provider.EStructuralFeaturesProviderGen;");
+    _builder.append("import my.empty.ui.provider.FeaturesProviderGen;");
     _builder.newLine();
     _builder.append("import org.eclipse.ui.plugin.AbstractUIPlugin;");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("public class EmfComponentsGuiceModuleGen extends EmfComponentsGenericModule {");
+    _builder.append("public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {");
     _builder.newLine();
     _builder.append("  ");
     _builder.append("public EmfComponentsGuiceModuleGen(final AbstractUIPlugin plugin) {");
@@ -528,10 +528,10 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("@Override");
     _builder.newLine();
     _builder.append("  ");
-    _builder.append("public Class<? extends EStructuralFeaturesProvider> bindEStructuralFeaturesProvider() {");
+    _builder.append("public Class<? extends FeaturesProvider> bindFeaturesProvider() {");
     _builder.newLine();
     _builder.append("    ");
-    _builder.append("return EStructuralFeaturesProviderGen.class;");
+    _builder.append("return FeaturesProviderGen.class;");
     _builder.newLine();
     _builder.append("  ");
     _builder.append("}");
@@ -542,12 +542,12 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.append("package my.empty.ui.provider;");
     _builder_1.newLine();
     _builder_1.newLine();
-    _builder_1.append("import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;");
+    _builder_1.append("import it.rcpvision.emf.components.ui.provider.FeaturesProvider;");
     _builder_1.newLine();
-    _builder_1.append("import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider.EClassToEStructuralFeatureAsStringsMap;");
+    _builder_1.append("import it.rcpvision.emf.components.ui.provider.FeaturesProvider.EClassToEStructuralFeatureAsStringsMap;");
     _builder_1.newLine();
     _builder_1.newLine();
-    _builder_1.append("public class EStructuralFeaturesProviderGen extends EStructuralFeaturesProvider {");
+    _builder_1.append("public class FeaturesProviderGen extends FeaturesProvider {");
     _builder_1.newLine();
     _builder_1.append("  ");
     _builder_1.append("@Override");
@@ -577,7 +577,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_featureSpecifications, _builder, null, null, _builder_1);
+    this.assertCorrectJavaCodeGeneration(_featuresSpecifications, _builder, null, null, _builder_1);
   }
   
   private void assertCorrectJavaCodeGeneration(final CharSequence input, final CharSequence expectedModule, final CharSequence expectedLabelProvider, final CharSequence expectedPropertyDescriptionProvider, final CharSequence expectedFeatureProvider) {
@@ -605,7 +605,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
                 }
               } else {
                 String _key_2 = e.getKey();
-                boolean _endsWith_2 = _key_2.endsWith("EStructuralFeaturesProviderGen.java");
+                boolean _endsWith_2 = _key_2.endsWith("FeaturesProviderGen.java");
                 if (_endsWith_2) {
                   boolean _notEquals_2 = (!Objects.equal(expectedFeatureProvider, null));
                   if (_notEquals_2) {

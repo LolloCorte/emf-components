@@ -8,7 +8,7 @@ import org.eclipse.swt.events.MouseEvent;
  * @author bettini
  * 
  */
-public class EmfViewerNoOpMouseAdapter extends EmfViewerMouseAdapter {
+public class ViewerNoOpMouseAdapter extends ViewerMouseAdapter {
 	@Override
 	public void mouseDoubleClick(MouseEvent event) {
 	}

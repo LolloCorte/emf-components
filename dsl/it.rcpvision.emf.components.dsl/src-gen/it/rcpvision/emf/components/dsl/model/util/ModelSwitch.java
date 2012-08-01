@@ -122,10 +122,10 @@ public class ModelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ModelPackage.FEATURE_PROVIDER:
+      case ModelPackage.FEATURES_PROVIDER:
       {
-        FeatureProvider featureProvider = (FeatureProvider)theEObject;
-        T result = caseFeatureProvider(featureProvider);
+        FeaturesProvider featuresProvider = (FeaturesProvider)theEObject;
+        T result = caseFeaturesProvider(featuresProvider);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -261,17 +261,17 @@ public class ModelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Feature Provider</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Features Provider</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Feature Provider</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Features Provider</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseFeatureProvider(FeatureProvider object)
+  public T caseFeaturesProvider(FeaturesProvider object)
   {
     return null;
   }

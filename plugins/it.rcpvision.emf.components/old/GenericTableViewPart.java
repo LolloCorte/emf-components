@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import it.rcpvision.emf.components.factories.FormFactory;
-import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
+import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;

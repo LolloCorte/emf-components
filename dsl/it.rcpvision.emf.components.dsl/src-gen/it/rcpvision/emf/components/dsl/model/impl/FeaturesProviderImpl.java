@@ -2,8 +2,8 @@
  */
 package it.rcpvision.emf.components.dsl.model.impl;
 
-import it.rcpvision.emf.components.dsl.model.FeatureProvider;
 import it.rcpvision.emf.components.dsl.model.FeatureSpecification;
+import it.rcpvision.emf.components.dsl.model.FeaturesProvider;
 import it.rcpvision.emf.components.dsl.model.ModelPackage;
 
 import java.util.Collection;
@@ -22,18 +22,18 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Feature Provider</b></em>'.
+ * An implementation of the model object '<em><b>Features Provider</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.FeatureProviderImpl#getFeatureSpecifications <em>Feature Specifications</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.FeaturesProviderImpl#getFeatureSpecifications <em>Feature Specifications</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class FeatureProviderImpl extends MinimalEObjectImpl.Container implements FeatureProvider
+public class FeaturesProviderImpl extends MinimalEObjectImpl.Container implements FeaturesProvider
 {
   /**
    * The cached value of the '{@link #getFeatureSpecifications() <em>Feature Specifications</em>}' containment reference list.
@@ -50,7 +50,7 @@ public class FeatureProviderImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  protected FeatureProviderImpl()
+  protected FeaturesProviderImpl()
   {
     super();
   }
@@ -63,7 +63,7 @@ public class FeatureProviderImpl extends MinimalEObjectImpl.Container implements
   @Override
   protected EClass eStaticClass()
   {
-    return ModelPackage.Literals.FEATURE_PROVIDER;
+    return ModelPackage.Literals.FEATURES_PROVIDER;
   }
 
   /**
@@ -75,7 +75,7 @@ public class FeatureProviderImpl extends MinimalEObjectImpl.Container implements
   {
     if (featureSpecifications == null)
     {
-      featureSpecifications = new EObjectContainmentEList<FeatureSpecification>(FeatureSpecification.class, this, ModelPackage.FEATURE_PROVIDER__FEATURE_SPECIFICATIONS);
+      featureSpecifications = new EObjectContainmentEList<FeatureSpecification>(FeatureSpecification.class, this, ModelPackage.FEATURES_PROVIDER__FEATURE_SPECIFICATIONS);
     }
     return featureSpecifications;
   }
@@ -90,7 +90,7 @@ public class FeatureProviderImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case ModelPackage.FEATURE_PROVIDER__FEATURE_SPECIFICATIONS:
+      case ModelPackage.FEATURES_PROVIDER__FEATURE_SPECIFICATIONS:
         return ((InternalEList<?>)getFeatureSpecifications()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -106,7 +106,7 @@ public class FeatureProviderImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case ModelPackage.FEATURE_PROVIDER__FEATURE_SPECIFICATIONS:
+      case ModelPackage.FEATURES_PROVIDER__FEATURE_SPECIFICATIONS:
         return getFeatureSpecifications();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -123,7 +123,7 @@ public class FeatureProviderImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case ModelPackage.FEATURE_PROVIDER__FEATURE_SPECIFICATIONS:
+      case ModelPackage.FEATURES_PROVIDER__FEATURE_SPECIFICATIONS:
         getFeatureSpecifications().clear();
         getFeatureSpecifications().addAll((Collection<? extends FeatureSpecification>)newValue);
         return;
@@ -141,7 +141,7 @@ public class FeatureProviderImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case ModelPackage.FEATURE_PROVIDER__FEATURE_SPECIFICATIONS:
+      case ModelPackage.FEATURES_PROVIDER__FEATURE_SPECIFICATIONS:
         getFeatureSpecifications().clear();
         return;
     }
@@ -158,10 +158,10 @@ public class FeatureProviderImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case ModelPackage.FEATURE_PROVIDER__FEATURE_SPECIFICATIONS:
+      case ModelPackage.FEATURES_PROVIDER__FEATURE_SPECIFICATIONS:
         return featureSpecifications != null && !featureSpecifications.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //FeatureProviderImpl
+} //FeaturesProviderImpl

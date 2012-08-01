@@ -22,7 +22,7 @@ import com.google.inject.Inject;
  * @author Lorenzo Bettini
  * 
  */
-public class EmfViewerFactory {
+public class ViewerFactory {
 
 	@Inject
 	protected ViewerInitializer viewerInitializer;

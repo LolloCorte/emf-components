@@ -11,14 +11,14 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import com.google.inject.Inject;
 
-import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
+import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
 import it.rcpvision.emf.components.util.EStructuralFeatureNameComparator;
 
 /**
  * @author bettini
  *
  */
-public class OrderedEStructuralFeaturesProvider extends EStructuralFeaturesProvider {
+public class OrderedEStructuralFeaturesProvider extends FeaturesProvider {
 
 	@Inject
 	EStructuralFeatureNameComparator comparator;

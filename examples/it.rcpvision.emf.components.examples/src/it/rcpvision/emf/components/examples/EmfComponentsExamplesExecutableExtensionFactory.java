@@ -1,12 +1,12 @@
 package it.rcpvision.emf.components.examples;
 
-import it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory;
-import it.rcpvision.emf.components.EmfComponentsGenericModule;
+import it.rcpvision.emf.components.EmfComponentsExtensionFactory;
+import it.rcpvision.emf.components.EmfComponentsGuiceModule;
 
 import org.osgi.framework.Bundle;
 
 public class EmfComponentsExamplesExecutableExtensionFactory extends
-		EmfComponentsExecutableExtensionFactory {
+		EmfComponentsExtensionFactory {
 
 	@Override
 	protected Bundle getBundle() {
@@ -14,7 +14,7 @@ public class EmfComponentsExamplesExecutableExtensionFactory extends
 	}
 
 	@Override
-	protected EmfComponentsGenericModule getModule() {
+	protected EmfComponentsGuiceModule getModule() {
 		return new EmfComponentsExamplesModule(Activator.getDefault());
 	}
 

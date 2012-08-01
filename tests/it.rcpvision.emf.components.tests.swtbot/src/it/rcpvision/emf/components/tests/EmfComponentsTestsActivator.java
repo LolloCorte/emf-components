@@ -1,7 +1,7 @@
 package it.rcpvision.emf.components.tests;
 
 import static com.google.inject.Guice.createInjector;
-import it.rcpvision.emf.components.EmfComponentsExecutableExtensionFactory;
+import it.rcpvision.emf.components.EmfComponentsExtensionFactory;
 import it.rcpvision.emf.components.tests.factories.CustomLibraryExecutableExtensionFactory;
 import it.rcpvision.emf.components.tests.factories.CustomLibraryModule;
 
@@ -80,7 +80,7 @@ public class EmfComponentsTestsActivator extends AbstractUIPlugin {
 	}
 
 	public Injector getInjector(
-			Class<? extends EmfComponentsExecutableExtensionFactory> cName) {
+			Class<? extends EmfComponentsExtensionFactory> cName) {
 		Injector injector = injectorsMap.get(cName.getCanonicalName());
 		if (injector == null) {
 			if (CustomLibraryExecutableExtensionFactory.class.equals(cName)) {

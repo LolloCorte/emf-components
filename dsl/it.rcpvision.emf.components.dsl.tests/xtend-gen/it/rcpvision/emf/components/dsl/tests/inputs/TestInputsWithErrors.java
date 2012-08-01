@@ -44,7 +44,7 @@ public class TestInputsWithErrors {
     return _builder;
   }
   
-  public CharSequence wrongFeatureLabelSpecifications() {
+  public CharSequence wrongPropertyDescriptionSpecifications() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("import java.util.*");
     _builder.newLine();
@@ -54,7 +54,7 @@ public class TestInputsWithErrors {
     _builder.append("module my.empty {");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("featureLabelProvider {");
+    _builder.append("propertyDescriptionProvider {");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("labels {");

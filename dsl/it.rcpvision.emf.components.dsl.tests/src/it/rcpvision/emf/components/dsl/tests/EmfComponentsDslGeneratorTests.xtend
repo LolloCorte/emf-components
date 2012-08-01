@@ -22,10 +22,10 @@ class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTests {
 '''
 package my.empty;
 
-import it.rcpvision.emf.components.EmfComponentsGenericModule;
+import it.rcpvision.emf.components.EmfComponentsGuiceModule;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
-public class EmfComponentsGuiceModuleGen extends EmfComponentsGenericModule {
+public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
   public EmfComponentsGuiceModuleGen(final AbstractUIPlugin plugin) {
     super(plugin);
   }
@@ -40,18 +40,18 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGenericModule {
 '''
 package my.empty;
 
-import it.rcpvision.emf.components.EmfComponentsGenericModule;
-import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
+import it.rcpvision.emf.components.EmfComponentsGuiceModule;
+import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 import my.empty.ui.provider.LabelProviderGen;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
-public class EmfComponentsGuiceModuleGen extends EmfComponentsGenericModule {
+public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
   public EmfComponentsGuiceModuleGen(final AbstractUIPlugin plugin) {
     super(plugin);
   }
   
   @Override
-  public Class<? extends CompositeLabelProvider> bindCompositeLabelProvider() {
+  public Class<? extends ViewerLabelProvider> bindViewerLabelProvider() {
     return LabelProviderGen.class;
   }
 }
@@ -59,26 +59,26 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGenericModule {
 '''
 package my.empty.ui.provider;
 
-import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
+import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 
-public class LabelProviderGen extends CompositeLabelProvider {
+public class LabelProviderGen extends ViewerLabelProvider {
 }
 ''', null, null
 		)
 	}
 
 	@Test
-	def testEmptyFeatureLabelProvider() {
-		inputs.emptyFeatureLabelProvider.assertCorrectJavaCodeGeneration(
+	def testEmptyPropertyDescriptionProvider() {
+		inputs.emptyPropertyDescriptionProvider.assertCorrectJavaCodeGeneration(
 '''
 package my.empty;
 
-import it.rcpvision.emf.components.EmfComponentsGenericModule;
+import it.rcpvision.emf.components.EmfComponentsGuiceModule;
 import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
 import my.empty.ui.provider.PropertyDescriptionProviderGen;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
-public class EmfComponentsGuiceModuleGen extends EmfComponentsGenericModule {
+public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
   public EmfComponentsGuiceModuleGen(final AbstractUIPlugin plugin) {
     super(plugin);
   }
@@ -107,9 +107,9 @@ null,
 '''
 package my.empty.ui.provider;
 
-import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
+import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 
-public class LabelProviderGen extends CompositeLabelProvider {
+public class LabelProviderGen extends ViewerLabelProvider {
 }
 ''', null, null
 		)
@@ -128,7 +128,7 @@ import it.rcpvision.emf.components.examples.library.Borrower;
 import it.rcpvision.emf.components.examples.library.Lendable;
 import it.rcpvision.emf.components.examples.library.Library;
 import it.rcpvision.emf.components.examples.library.Writer;
-import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
+import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.swt.graphics.ImageData;
@@ -136,7 +136,7 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 
-public class LabelProviderGen extends CompositeLabelProvider {
+public class LabelProviderGen extends ViewerLabelProvider {
   public String text(final Library it) {
     return "foo";
   }
@@ -202,17 +202,17 @@ public class LabelProviderGen extends CompositeLabelProvider {
 	}
 
 	@Test
-	def testFeatureLabelSpecifications() {
-		inputs.featureLabelSpecifications.assertCorrectJavaCodeGeneration(
+	def testPropertyDescriptionSpecifications() {
+		inputs.propertyDescriptionSpecifications.assertCorrectJavaCodeGeneration(
 '''
 package my.empty;
 
-import it.rcpvision.emf.components.EmfComponentsGenericModule;
+import it.rcpvision.emf.components.EmfComponentsGuiceModule;
 import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
 import my.empty.ui.provider.PropertyDescriptionProviderGen;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
-public class EmfComponentsGuiceModuleGen extends EmfComponentsGenericModule {
+public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
   public EmfComponentsGuiceModuleGen(final AbstractUIPlugin plugin) {
     super(plugin);
   }
@@ -250,34 +250,34 @@ public class PropertyDescriptionProviderGen extends PropertyDescriptionProvider 
 	}
 
 	@Test
-	def testFeatureSpecifications() {
-		inputs.featureSpecifications.assertCorrectJavaCodeGeneration(
+	def testFeaturesSpecifications() {
+		inputs.featuresSpecifications.assertCorrectJavaCodeGeneration(
 '''
 package my.empty;
 
-import it.rcpvision.emf.components.EmfComponentsGenericModule;
-import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
-import my.empty.ui.provider.EStructuralFeaturesProviderGen;
+import it.rcpvision.emf.components.EmfComponentsGuiceModule;
+import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
+import my.empty.ui.provider.FeaturesProviderGen;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
-public class EmfComponentsGuiceModuleGen extends EmfComponentsGenericModule {
+public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
   public EmfComponentsGuiceModuleGen(final AbstractUIPlugin plugin) {
     super(plugin);
   }
   
   @Override
-  public Class<? extends EStructuralFeaturesProvider> bindEStructuralFeaturesProvider() {
-    return EStructuralFeaturesProviderGen.class;
+  public Class<? extends FeaturesProvider> bindFeaturesProvider() {
+    return FeaturesProviderGen.class;
   }
 }
 ''', null, null,
 '''
 package my.empty.ui.provider;
 
-import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
-import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider.EClassToEStructuralFeatureAsStringsMap;
+import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
+import it.rcpvision.emf.components.ui.provider.FeaturesProvider.EClassToEStructuralFeatureAsStringsMap;
 
-public class EStructuralFeaturesProviderGen extends EStructuralFeaturesProvider {
+public class FeaturesProviderGen extends FeaturesProvider {
   @Override
   public void buildStringMap(final EClassToEStructuralFeatureAsStringsMap stringMap) {
     super.buildStringMap(stringMap);
@@ -306,7 +306,7 @@ public class EStructuralFeaturesProviderGen extends EStructuralFeaturesProvider 
 					// check the expected Java code for the module
 					if (expectedPropertyDescriptionProvider != null)
 						assertEqualsStrings(expectedPropertyDescriptionProvider, e.value)
-				} else if (e.key.endsWith("EStructuralFeaturesProviderGen.java")) {
+				} else if (e.key.endsWith("FeaturesProviderGen.java")) {
 					// check the expected Java code for the module
 					if (expectedFeatureProvider != null)
 						assertEqualsStrings(expectedFeatureProvider, e.value)

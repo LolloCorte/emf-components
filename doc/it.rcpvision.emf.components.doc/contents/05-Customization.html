@@ -62,7 +62,7 @@ we show here only relevant parts to give an example:
 When the framework builds components according to the
 <a class="jdoc" href="http://download.eclipse.org/modeling/emf/emf/javadoc/2.6.0/org/eclipse/emf/ecore/EStructuralFeature.html" title="View JavaDoc"><abbr title="org.eclipse.emf.ecore.EStructuralFeature" >EStructuralFeature</abbr></a> <a class="srcLink" href="https://github.com/eclipse/emf/blob/R2_8_0/plugins/org.eclipse.emf.ecore/src/org/eclipse/emf/ecore/EStructuralFeature.java" title="View Source Code" >(src)</a>s of a given
 <a class="jdoc" href="http://download.eclipse.org/modeling/emf/emf/javadoc/2.6.0/org/eclipse/emf/ecore/EClass.html" title="View JavaDoc"><abbr title="org.eclipse.emf.ecore.EClass" >EClass</abbr></a> <a class="srcLink" href="https://github.com/eclipse/emf/blob/R2_8_0/plugins/org.eclipse.emf.ecore/src/org/eclipse/emf/ecore/EClass.java" title="View Source Code" >(src)</a> it relies on an injected
-<abbr title="it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider" >EStructuralFeaturesProvider</abbr>.
+<abbr title="it.rcpvision.emf.components.ui.provider.FeaturesProvider" >FeaturesProvider</abbr>.
 The default behavior is to simply return all the features of the a given EClass,
 in the order they are defined in the EClass;
 you may want to provide a custom implementation by redefining
@@ -76,7 +76,7 @@ for instance by returning the features ordered according to their name
 <div class="incode">
 <p class="code">
 <span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;OrderedEStructuralFeaturesProvider&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">extends</span>&nbsp;EStructuralFeaturesProvider&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">extends</span>&nbsp;FeaturesProvider&nbsp;{<br/>
 <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;@Inject<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;EStructuralFeatureNameComparator&nbsp;comparator;<br/>
@@ -97,7 +97,7 @@ for instance by returning the features ordered according to their name
 Alternatively, you can set the mappings, i.e., specify the structural
 features you want to be used given an EClass, by implementing
 the method <span class="inlinecode">buildMap</span>, which receives the
-<abbr title="it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider.EClassToEStructuralFeatureMap" >EStructuralFeaturesProvider.EClassToEStructuralFeatureMap</abbr>
+<abbr title="it.rcpvision.emf.components.ui.provider.FeaturesProvider.EClassToEStructuralFeatureMap" >FeaturesProvider.EClassToEStructuralFeatureMap</abbr>
 that can be filled with the method <span class="inlinecode">mapTo</span>; 
 for instance, using the EMF extended library
 example, this customization will return only the <em>name</em> and <em>address</em> features
@@ -113,7 +113,7 @@ not <em>address</em>) for <span class="inlinecode">Writer</span> (which inherits
 <span class="keyword">import</span>&nbsp;it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;<br/>
 <br/>
 <span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;LibraryEStructuralFeaturesProvider&nbsp;<span class="keyword">extends</span><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EStructuralFeaturesProvider&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FeaturesProvider&nbsp;{<br/>
 <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;@Override<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;<span class="keyword">void</span>&nbsp;buildMap(EClassToEStructuralFeatureMap&nbsp;map)&nbsp;{<br/>
@@ -146,10 +146,10 @@ combine the two approaches (in that case the map built with
 <div class="incode">
 <p class="code">
 <span class="keyword">import</span>&nbsp;<span class="keyword">static</span>&nbsp;org.eclipse.emf.examples.extlibrary.EXTLibraryPackage.Literals.*;<br/>
-<span class="keyword">import</span>&nbsp;it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;<br/>
+<span class="keyword">import</span>&nbsp;it.rcpvision.emf.components.ui.provider.FeaturesProvider;<br/>
 <br/>
 <span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;LibraryEStructuralFeaturesAsStringsProvider&nbsp;<span class="keyword">extends</span><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EStructuralFeaturesProvider&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FeaturesProvider&nbsp;{<br/>
 <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;@Override<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;<span class="keyword">void</span>&nbsp;buildMap(EClassToEStructuralFeatureMap&nbsp;map)&nbsp;{<br/>

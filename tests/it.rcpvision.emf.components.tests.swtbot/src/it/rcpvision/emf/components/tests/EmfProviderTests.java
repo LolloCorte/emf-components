@@ -12,7 +12,7 @@ import it.rcpvision.emf.components.tests.providers.LibraryEStructuralFeaturesAsS
 import it.rcpvision.emf.components.tests.providers.LibraryEStructuralFeaturesProvider;
 import it.rcpvision.emf.components.tests.providers.OrderedEStructuralFeaturesProvider;
 import it.rcpvision.emf.components.tests.utils.EmfComponentsTestsUtils;
-import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
+import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelFactory;
 
 import org.eclipse.emf.common.util.URI;
@@ -114,7 +114,7 @@ public class EmfProviderTests extends EmfComponentsCustomLibraryAbstractTests {
 	public void testEClassFeatureProviderGetAllFeatures() {
 		EClass test = LIBRARY;
 		assertFeatureNames(test.getEAllStructuralFeatures(),
-				getInjector().getInstance(EStructuralFeaturesProvider.class)
+				getInjector().getInstance(FeaturesProvider.class)
 						.getFeatures(test));
 	}
 
@@ -130,7 +130,7 @@ public class EmfProviderTests extends EmfComponentsCustomLibraryAbstractTests {
 
 	@Test
 	public void testEClassFeatureProviderPolymorphic() {
-		EStructuralFeaturesProvider provider = getInjector().getInstance(
+		FeaturesProvider provider = getInjector().getInstance(
 				LibraryEStructuralFeaturesProvider.class);
 		assertFeatureNames("name, address", provider.getFeatures(LIBRARY));
 		assertFeatureNames("firstName, lastName, address",
@@ -141,7 +141,7 @@ public class EmfProviderTests extends EmfComponentsCustomLibraryAbstractTests {
 
 	@Test
 	public void testEClassFeatureProviderAsStringsPolymorphic() {
-		EStructuralFeaturesProvider provider = getInjector().getInstance(
+		FeaturesProvider provider = getInjector().getInstance(
 				LibraryEStructuralFeaturesAsStringsProvider.class);
 		assertFeatureNames("name, address", provider.getFeatures(LIBRARY));
 		assertFeatureNames("firstName, lastName, address",

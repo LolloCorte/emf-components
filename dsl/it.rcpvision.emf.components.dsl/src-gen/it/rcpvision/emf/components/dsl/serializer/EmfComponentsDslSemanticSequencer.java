@@ -2,8 +2,8 @@ package it.rcpvision.emf.components.dsl.serializer;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
-import it.rcpvision.emf.components.dsl.model.FeatureProvider;
 import it.rcpvision.emf.components.dsl.model.FeatureSpecification;
+import it.rcpvision.emf.components.dsl.model.FeaturesProvider;
 import it.rcpvision.emf.components.dsl.model.Import;
 import it.rcpvision.emf.components.dsl.model.LabelProvider;
 import it.rcpvision.emf.components.dsl.model.LabelSpecification;
@@ -70,16 +70,16 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == ModelPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
-			case ModelPackage.FEATURE_PROVIDER:
-				if(context == grammarAccess.getFeatureProviderRule()) {
-					sequence_FeatureProvider(context, (FeatureProvider) semanticObject); 
-					return; 
-				}
-				else break;
 			case ModelPackage.FEATURE_SPECIFICATION:
 				if(context == grammarAccess.getEmfFeatureAccessRule() ||
 				   context == grammarAccess.getFeatureSpecificationRule()) {
 					sequence_FeatureSpecification(context, (FeatureSpecification) semanticObject); 
+					return; 
+				}
+				else break;
+			case ModelPackage.FEATURES_PROVIDER:
+				if(context == grammarAccess.getFeaturesProviderRule()) {
+					sequence_FeaturesProvider(context, (FeaturesProvider) semanticObject); 
 					return; 
 				}
 				else break;
@@ -988,18 +988,18 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (featureSpecifications+=FeatureSpecification*)
+	 *     (parameterType=[JvmType|QualifiedName] features+=XFeatureCall features+=XFeatureCall*)
 	 */
-	protected void sequence_FeatureProvider(EObject context, FeatureProvider semanticObject) {
+	protected void sequence_FeatureSpecification(EObject context, FeatureSpecification semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (parameterType=[JvmType|QualifiedName] features+=XFeatureCall features+=XFeatureCall*)
+	 *     (featureSpecifications+=FeatureSpecification*)
 	 */
-	protected void sequence_FeatureSpecification(EObject context, FeatureSpecification semanticObject) {
+	protected void sequence_FeaturesProvider(EObject context, FeaturesProvider semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1049,7 +1049,7 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=QualifiedName labelProvider=LabelProvider? propertyDescriptionProvider=PropertyDescriptionProvider? featureProvider=FeatureProvider?)
+	 *     (name=QualifiedName labelProvider=LabelProvider? propertyDescriptionProvider=PropertyDescriptionProvider? featuresProvider=FeaturesProvider?)
 	 */
 	protected void sequence_Module(EObject context, Module semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

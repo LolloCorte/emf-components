@@ -3,9 +3,9 @@
  */
 package it.rcpvision.emf.components.tests.factories;
 
-import it.rcpvision.emf.components.EmfComponentsGenericModule;
+import it.rcpvision.emf.components.EmfComponentsGuiceModule;
 import it.rcpvision.emf.components.tests.EmfComponentsTestsActivator;
-import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
+import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 
 import org.eclipse.emf.ecore.xmi.XMLResource;
 
@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
 public class CustomLabelExecutableExtensionFactory extends
 		EmfComponentsTestsExecutableExtensionFactory {
 
-	public static class CustomLabelProvider extends CompositeLabelProvider {
+	public static class CustomLabelProvider extends ViewerLabelProvider {
 		@Override
 		public String getText(Object element) {
 			if (element instanceof XMLResource) {
@@ -29,11 +29,11 @@ public class CustomLabelExecutableExtensionFactory extends
 	}
 
 	@Override
-	protected EmfComponentsGenericModule getModule() {
-		return new EmfComponentsGenericModule(EmfComponentsTestsActivator.getDefault()) {
+	protected EmfComponentsGuiceModule getModule() {
+		return new EmfComponentsGuiceModule(EmfComponentsTestsActivator.getDefault()) {
 
 			@Override
-			public Class<? extends CompositeLabelProvider> bindCompositeLabelProvider() {
+			public Class<? extends ViewerLabelProvider> bindViewerLabelProvider() {
 				return CustomLabelProvider.class;
 			}
 

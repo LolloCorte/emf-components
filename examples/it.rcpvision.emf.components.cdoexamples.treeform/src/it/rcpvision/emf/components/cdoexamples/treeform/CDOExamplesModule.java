@@ -5,7 +5,7 @@ import it.rcpvision.emf.components.cdo.CDOEmfComponentsModule;
 import it.rcpvision.emf.components.cdo.CDOSessionManager;
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
 import it.rcpvision.emf.components.resource.ResourceLoader;
-import it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
+import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
@@ -31,7 +31,7 @@ public class CDOExamplesModule extends CDOEmfComponentsModule {
 	}
 
 	@Override
-	public Class<? extends EStructuralFeaturesProvider> bindEStructuralFeaturesProvider() {
+	public Class<? extends FeaturesProvider> bindFeaturesProvider() {
 		return CDOExampleEStructuralFeatureProvider.class;
 	}
 	

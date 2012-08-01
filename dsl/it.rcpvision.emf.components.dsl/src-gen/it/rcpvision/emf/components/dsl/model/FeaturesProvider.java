@@ -8,21 +8,21 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Feature Provider</b></em>'.
+ * A representation of the model object '<em><b>Features Provider</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link it.rcpvision.emf.components.dsl.model.FeatureProvider#getFeatureSpecifications <em>Feature Specifications</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.FeaturesProvider#getFeatureSpecifications <em>Feature Specifications</em>}</li>
  * </ul>
  * </p>
  *
- * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getFeatureProvider()
+ * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getFeaturesProvider()
  * @model
  * @generated
  */
-public interface FeatureProvider extends EObject
+public interface FeaturesProvider extends EObject
 {
   /**
    * Returns the value of the '<em><b>Feature Specifications</b></em>' containment reference list.
@@ -34,10 +34,10 @@ public interface FeatureProvider extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Feature Specifications</em>' containment reference list.
-   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getFeatureProvider_FeatureSpecifications()
+   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getFeaturesProvider_FeatureSpecifications()
    * @model containment="true"
    * @generated
    */
   EList<FeatureSpecification> getFeatureSpecifications();
 
-} // FeatureProvider
+} // FeaturesProvider

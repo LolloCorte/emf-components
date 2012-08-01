@@ -21,10 +21,10 @@ import it.rcpvision.emf.components.edit.action.EditingActionBarContributor;
 import it.rcpvision.emf.components.editors.listeners.ResourceDeltaVisitor;
 import it.rcpvision.emf.components.editors.outline.EmfEditorContentOutlineFactory;
 import it.rcpvision.emf.components.editors.outline.EmfEditorContentOutlinePage;
-import it.rcpvision.emf.components.factories.EmfViewerFactory;
-import it.rcpvision.emf.components.handlers.ContentOutlineSelectionHandler;
-import it.rcpvision.emf.components.listeners.EmfViewerMouseAdapter;
-import it.rcpvision.emf.components.menus.StructuredViewerContextMenuManagerCreator;
+import it.rcpvision.emf.components.factories.ViewerFactory;
+import it.rcpvision.emf.components.handlers.OutlineSelectionHandler;
+import it.rcpvision.emf.components.listeners.ViewerMouseAdapter;
+import it.rcpvision.emf.components.menus.ViewerContextMenuFactory;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
 import it.rcpvision.emf.components.util.EmfComponentsUtil;
@@ -439,16 +439,16 @@ public abstract class EmfAbstractEditor
     };
 
 @Inject
-protected EmfViewerFactory emfTreeViewerFactory;
+protected ViewerFactory treeViewerFactory;
 
 @Inject
-protected Provider<EmfViewerMouseAdapter> emfViewerMouseAdapterProvider;
+protected Provider<ViewerMouseAdapter> viewerMouseAdapterProvider;
 
 @Inject
 protected EmfEditorContentOutlineFactory emfContentOutlineFactory;
 
 @Inject
-protected ContentOutlineSelectionHandler contentOutlineSelectionHandler;
+protected OutlineSelectionHandler outlineSelectionHandler;
 
 @Inject
 protected EditingDomainFactory editingDomainFactory;
@@ -457,7 +457,7 @@ protected EditingDomainFactory editingDomainFactory;
 protected EditingDomainResourceLoader resourceLoader;
 
 @Inject
-protected StructuredViewerContextMenuManagerCreator structuredViewerContextMenuManagerCreator;
+protected ViewerContextMenuFactory viewerContextMenuFactory;
 
   /**
    * Handles activation of the editor or it's associated views.
@@ -809,15 +809,15 @@ protected StructuredViewerContextMenuManagerCreator structuredViewerContextMenuM
 	}
 
 	public void createContextMenuFor(StructuredViewer viewer) {
-		MenuManager menuManager = structuredViewerContextMenuManagerCreator.createContextMenuFor(viewer, this, getEditingDomain());
+		MenuManager menuManager = viewerContextMenuFactory.createContextMenuFor(viewer, this, getEditingDomain());
 		menuManager.addMenuListener(this);
 		
-		EmfViewerMouseAdapter listener = getEmfViewerMouseAdapter();
+		ViewerMouseAdapter listener = getViewerMouseAdapter();
 		viewer.getControl().addMouseListener(listener);
 	}
 
-	protected EmfViewerMouseAdapter getEmfViewerMouseAdapter() {
-		return emfViewerMouseAdapterProvider.get();
+	protected ViewerMouseAdapter getViewerMouseAdapter() {
+		return viewerMouseAdapterProvider.get();
 	}
 
 
@@ -1005,9 +1005,9 @@ protected StructuredViewerContextMenuManagerCreator structuredViewerContextMenuM
   }
 
 	public void handleContentOutlineSelection(ISelection selection) {
-		if (contentOutlineSelectionHandler.getSelectionViewer() == null)
-			contentOutlineSelectionHandler.setSelectionViewer(selectionViewer);
-		contentOutlineSelectionHandler.handleContentOutlineSelection(selection);
+		if (outlineSelectionHandler.getSelectionViewer() == null)
+			outlineSelectionHandler.setSelectionViewer(selectionViewer);
+		outlineSelectionHandler.handleContentOutlineSelection(selection);
 	}
 
 

@@ -18,7 +18,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EmfComponentsDsl.ecore#//Module/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/labelProvider"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/propertyDescriptionProvider"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/featureProvider"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/featuresProvider"/>
     </genClasses>
     <genClasses ecoreClass="EmfComponentsDsl.ecore#//LabelProvider">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//LabelProvider/labelSpecifications"/>
@@ -36,8 +36,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//PropertyDescriptionSpecification/feature"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//PropertyDescriptionSpecification/expression"/>
     </genClasses>
-    <genClasses ecoreClass="EmfComponentsDsl.ecore#//FeatureProvider">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FeatureProvider/featureSpecifications"/>
+    <genClasses ecoreClass="EmfComponentsDsl.ecore#//FeaturesProvider">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FeaturesProvider/featureSpecifications"/>
     </genClasses>
     <genClasses ecoreClass="EmfComponentsDsl.ecore#//FeatureSpecification">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FeatureSpecification/features"/>

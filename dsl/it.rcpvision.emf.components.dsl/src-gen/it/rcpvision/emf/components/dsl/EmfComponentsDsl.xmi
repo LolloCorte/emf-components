@@ -57,7 +57,7 @@
           <elements xsi:type="xtext:Assignment" cardinality="?" feature="propertyDescriptionProvider" operator="=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
           </elements>
-          <elements xsi:type="xtext:Assignment" cardinality="?" feature="featureProvider" operator="=">
+          <elements xsi:type="xtext:Assignment" cardinality="?" feature="featuresProvider" operator="=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
           </elements>
         </elements>
@@ -124,7 +124,7 @@
             <classifier xsi:type="ecore:EClass" href="http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl#//PropertyDescriptionProvider"/>
           </type>
         </elements>
-        <elements xsi:type="xtext:Keyword" value="featureLabelProvider"/>
+        <elements xsi:type="xtext:Keyword" value="propertyDescriptionProvider"/>
         <elements xsi:type="xtext:Keyword" value="{"/>
         <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Keyword" value="labels"/>
@@ -160,17 +160,17 @@
         </elements>
       </alternatives>
     </rules>
-    <rules xsi:type="xtext:ParserRule" name="FeatureProvider">
+    <rules xsi:type="xtext:ParserRule" name="FeaturesProvider">
       <type metamodel="/0/@metamodelDeclarations.1">
-        <classifier xsi:type="ecore:EClass" href="http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl#//FeatureProvider"/>
+        <classifier xsi:type="ecore:EClass" href="http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl#//FeaturesProvider"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Action">
           <type metamodel="/0/@metamodelDeclarations.1">
-            <classifier xsi:type="ecore:EClass" href="http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl#//FeatureProvider"/>
+            <classifier xsi:type="ecore:EClass" href="http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl#//FeaturesProvider"/>
           </type>
         </elements>
-        <elements xsi:type="xtext:Keyword" value="featureProvider"/>
+        <elements xsi:type="xtext:Keyword" value="featuresProvider"/>
         <elements xsi:type="xtext:Keyword" value="{"/>
         <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Keyword" value="features"/>

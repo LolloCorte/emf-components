@@ -3,9 +3,9 @@
  */
 package it.rcpvision.emf.components.tests.factories;
 
-import it.rcpvision.emf.components.EmfComponentsGenericModule;
-import it.rcpvision.emf.components.listeners.EmfViewerMouseAdapter;
-import it.rcpvision.emf.components.listeners.EmfViewerNoOpMouseAdapter;
+import it.rcpvision.emf.components.EmfComponentsGuiceModule;
+import it.rcpvision.emf.components.listeners.ViewerMouseAdapter;
+import it.rcpvision.emf.components.listeners.ViewerNoOpMouseAdapter;
 import it.rcpvision.emf.components.tests.EmfComponentsTestsActivator;
 
 
@@ -19,13 +19,13 @@ public class NoMouseEventExecutableExtensionFactory extends
 		EmfComponentsTestsExecutableExtensionFactory {
 
 	@Override
-	protected EmfComponentsGenericModule getModule() {
-		return new EmfComponentsGenericModule(
+	protected EmfComponentsGuiceModule getModule() {
+		return new EmfComponentsGuiceModule(
 				EmfComponentsTestsActivator.getDefault()) {
 
 			@Override
-			public Class<? extends EmfViewerMouseAdapter> bindEmfViewerMouseAdapter() {
-				return EmfViewerNoOpMouseAdapter.class;
+			public Class<? extends ViewerMouseAdapter> bindViewerMouseAdapter() {
+				return ViewerNoOpMouseAdapter.class;
 			}
 
 		};
