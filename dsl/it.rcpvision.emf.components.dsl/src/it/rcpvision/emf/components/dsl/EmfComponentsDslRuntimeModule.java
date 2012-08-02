@@ -4,16 +4,23 @@
 package it.rcpvision.emf.components.dsl;
 
 import it.rcpvision.emf.components.dsl.generator.EmfComponentsDslOutputConfigurationProvider;
+import it.rcpvision.emf.components.dsl.scoping.EmfComponentsDslImportedNamespaceScopeProvider;
 import it.rcpvision.emf.components.dsl.scoping.EmfComponentsDslScopeProvider;
+import it.rcpvision.emf.components.dsl.scoping.featurecalls.EmfComponentsDslExtensionClassNameProvider;
 
 import org.eclipse.xtext.generator.IOutputConfigurationProvider;
 import org.eclipse.xtext.generator.OutputConfigurationProvider;
 import org.eclipse.xtext.scoping.IScopeProvider;
+import org.eclipse.xtext.xbase.scoping.featurecalls.StaticImplicitMethodsFeatureForTypeProvider.ExtensionClassNameProvider;
+
+import com.google.inject.Binder;
+import com.google.inject.name.Names;
 
 /**
  * Use this class to register components to be used at runtime / without the
  * Equinox extension registry.
  */
+@SuppressWarnings("restriction")
 public class EmfComponentsDslRuntimeModule extends
 		it.rcpvision.emf.components.dsl.AbstractEmfComponentsDslRuntimeModule {
 
@@ -24,9 +31,21 @@ public class EmfComponentsDslRuntimeModule extends
 	public Class<? extends OutputConfigurationProvider> bindOutputConfigurationProvider() {
 		return EmfComponentsDslOutputConfigurationProvider.class;
 	}
-	
+
 	@Override
 	public Class<? extends IScopeProvider> bindIScopeProvider() {
 		return EmfComponentsDslScopeProvider.class;
+	}
+
+	public Class<? extends ExtensionClassNameProvider> bindExtensionClassNameProvider() {
+		return EmfComponentsDslExtensionClassNameProvider.class;
+	}
+
+	@Override
+	public void configureIScopeProviderDelegate(Binder binder) {
+		binder.bind(org.eclipse.xtext.scoping.IScopeProvider.class)
+				.annotatedWith(
+						Names.named(org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider.NAMED_DELEGATE))
+				.to(EmfComponentsDslImportedNamespaceScopeProvider.class);
 	}
 }

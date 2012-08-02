@@ -327,6 +327,7 @@ import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.jface.databinding.swt.ISWTObservableValue;
 import org.eclipse.jface.databinding.swt.SWTObservables;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
@@ -373,6 +374,26 @@ public class FormFeatureControlFactoryGen extends FormFeatureControlFactory {
   
   protected IObservableValue createTarget_Writer_name(final Control it) {
     ISWTObservableValue _observeText = SWTObservables.observeText(it);
+    return _observeText;
+  }
+  
+  public Control control_Writer_firstName(final DataBindingContext dataBindingContext, final IObservableValue observableValue) {
+    Control control = createControl_Writer_firstName();
+    dataBindingContext.bindValue(
+    	createTarget_Writer_firstName(control),
+    	observableValue);
+    return control;
+  }
+  
+  protected Control createControl_Writer_firstName() {
+    FormToolkit _toolkit = this.getToolkit();
+    Composite _parent = this.getParent();
+    Label _createLabel = _toolkit.createLabel(_parent, "");
+    return _createLabel;
+  }
+  
+  protected IObservableValue createTarget_Writer_firstName(final Control it) {
+    ISWTObservableValue _observeText = SWTObservables.observeText(it, SWT.Modify);
     return _observeText;
   }
 }

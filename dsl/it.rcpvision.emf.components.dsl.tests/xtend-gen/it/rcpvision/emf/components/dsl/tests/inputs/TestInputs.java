@@ -250,8 +250,6 @@ public class TestInputs {
     _builder.newLine();
     _builder.append("import it.rcpvision.emf.components.examples.library.*");
     _builder.newLine();
-    _builder.append("import org.eclipse.jface.databinding.swt.SWTObservables");
-    _builder.newLine();
     _builder.newLine();
     _builder.append("module my.empty {");
     _builder.newLine();
@@ -277,7 +275,16 @@ public class TestInputs {
     _builder.append("Writer : name -> { toolkit.createLabel(parent, \"\") }");
     _builder.newLine();
     _builder.append("\t\t\t\t");
-    _builder.append("target { SWTObservables::observeText(it) }");
+    _builder.append("target { observeText }");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("Writer : firstName -> ");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("toolkit.createLabel(parent, \"\")");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("target observeText(SWT::Modify)");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("}");
