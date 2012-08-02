@@ -9,6 +9,7 @@ public class SaveableView extends AbstractSaveableTreeFormView {
 
 	@Override
 	protected URI createResourceURI() {
-		return URI.createURI("dummy:/My.model");
+		return URI.createFileURI(System.getProperty("java.io.tmpdir")
+				+ "/My.model");
 	}
 }
