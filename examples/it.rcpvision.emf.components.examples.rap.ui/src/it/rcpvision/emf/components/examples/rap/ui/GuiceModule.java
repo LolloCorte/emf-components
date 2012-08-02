@@ -1,16 +1,16 @@
 package it.rcpvision.emf.components.examples.rap.ui;
 
-import it.rcpvision.emf.components.EmfComponentsGenericModule;
+import it.rcpvision.emf.components.EmfComponentsGuiceModule;
 import it.rcpvision.emf.components.examples.rap.model.Element;
 import it.rcpvision.emf.components.examples.rap.model.Item;
 import it.rcpvision.emf.components.examples.rap.model.Model;
 import it.rcpvision.emf.components.examples.rap.model.ModelFactory;
 import it.rcpvision.emf.components.resource.EmptyResourceInitializer;
-import it.rcpvision.emf.components.ui.provider.CompositeLabelProvider;
+import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
-public class EmfComponentsGuiceModule extends EmfComponentsGenericModule {
+public class GuiceModule extends EmfComponentsGuiceModule {
 
 	public static class CustomEmptyResourceInitializer extends
 			EmptyResourceInitializer {
@@ -51,7 +51,7 @@ public class EmfComponentsGuiceModule extends EmfComponentsGenericModule {
 		}
 	}
 
-	public static class CustomLabelProvider extends CompositeLabelProvider {
+	public static class CustomLabelProvider extends ViewerLabelProvider {
 
 		public String text(Model o) {
 			return "Model: " + (o.getName() != null ? o.getName() : "NO NAME");
@@ -76,12 +76,12 @@ public class EmfComponentsGuiceModule extends EmfComponentsGenericModule {
 		}
 	}
 
-	public EmfComponentsGuiceModule(AbstractUIPlugin plugin) {
+	public GuiceModule(AbstractUIPlugin plugin) {
 		super(plugin);
 	}
 
 	@Override
-	public Class<? extends CompositeLabelProvider> bindCompositeLabelProvider() {
+	public Class<? extends ViewerLabelProvider> bindViewerLabelProvider() {
 		return CustomLabelProvider.class;
 	}
 
