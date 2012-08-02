@@ -99,6 +99,7 @@ FormFeatureControlSpecification:
 	parameterType=[types::JvmType|QualifiedName] ':' feature=XFeatureCall
 	'->'
 	expression = XExpression
+	('target' target = XExpression)?
 ;
 
 // a utility base class for rules which access features of an EClass

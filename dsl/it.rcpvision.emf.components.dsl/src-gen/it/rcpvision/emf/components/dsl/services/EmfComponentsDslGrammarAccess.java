@@ -559,12 +559,18 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		private final Keyword cHyphenMinusGreaterThanSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cExpressionAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cExpressionXExpressionParserRuleCall_4_0 = (RuleCall)cExpressionAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cTargetKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cTargetAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cTargetXExpressionParserRuleCall_5_1_0 = (RuleCall)cTargetAssignment_5_1.eContents().get(0);
 		
 		//FormFeatureControlSpecification:
-		//	parameterType=[types::JvmType|QualifiedName] ":" feature=XFeatureCall "->" expression=XExpression;
+		//	parameterType=[types::JvmType|QualifiedName] ":" feature=XFeatureCall "->" expression=XExpression ("target"
+		//	target=XExpression)?;
 		public ParserRule getRule() { return rule; }
 
-		//parameterType=[types::JvmType|QualifiedName] ":" feature=XFeatureCall "->" expression=XExpression
+		//parameterType=[types::JvmType|QualifiedName] ":" feature=XFeatureCall "->" expression=XExpression ("target"
+		//target=XExpression)?
 		public Group getGroup() { return cGroup; }
 
 		//parameterType=[types::JvmType|QualifiedName]
@@ -593,6 +599,18 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 
 		//XExpression
 		public RuleCall getExpressionXExpressionParserRuleCall_4_0() { return cExpressionXExpressionParserRuleCall_4_0; }
+
+		//("target" target=XExpression)?
+		public Group getGroup_5() { return cGroup_5; }
+
+		//"target"
+		public Keyword getTargetKeyword_5_0() { return cTargetKeyword_5_0; }
+
+		//target=XExpression
+		public Assignment getTargetAssignment_5_1() { return cTargetAssignment_5_1; }
+
+		//XExpression
+		public RuleCall getTargetXExpressionParserRuleCall_5_1_0() { return cTargetXExpressionParserRuleCall_5_1_0; }
 	}
 
 	public class EmfFeatureAccessElements extends AbstractParserRuleElementFinder {
@@ -789,7 +807,8 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 	}
 
 	//FormFeatureControlSpecification:
-	//	parameterType=[types::JvmType|QualifiedName] ":" feature=XFeatureCall "->" expression=XExpression;
+	//	parameterType=[types::JvmType|QualifiedName] ":" feature=XFeatureCall "->" expression=XExpression ("target"
+	//	target=XExpression)?;
 	public FormFeatureControlSpecificationElements getFormFeatureControlSpecificationAccess() {
 		return (pFormFeatureControlSpecification != null) ? pFormFeatureControlSpecification : (pFormFeatureControlSpecification = new FormFeatureControlSpecificationElements());
 	}

@@ -17,6 +17,8 @@ import it.rcpvision.emf.components.ui.provider.FeaturesProvider.EClassToEStructu
 import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 import java.util.Arrays;
 import java.util.List;
+import org.eclipse.core.databinding.DataBindingContext;
+import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -35,6 +37,7 @@ import org.eclipse.xtext.common.types.JvmType;
 import org.eclipse.xtext.common.types.JvmTypeConstraint;
 import org.eclipse.xtext.common.types.JvmTypeReference;
 import org.eclipse.xtext.common.types.JvmUpperBound;
+import org.eclipse.xtext.common.types.JvmVisibility;
 import org.eclipse.xtext.common.types.JvmWildcardTypeReference;
 import org.eclipse.xtext.common.types.TypesFactory;
 import org.eclipse.xtext.common.types.util.TypeReferences;
@@ -465,69 +468,140 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
     return _xifexpression;
   }
   
-  public JvmGenericType inferFormFeatureControlFactory(final Module element, final IJvmDeclaredTypeAcceptor acceptor) {
+  public JvmGenericType inferFormFeatureControlFactory(final Module e, final IJvmDeclaredTypeAcceptor acceptor) {
     JvmGenericType _xifexpression = null;
-    FormFeatureControlFactory _formFeatureControlFactory = element.getFormFeatureControlFactory();
+    FormFeatureControlFactory _formFeatureControlFactory = e.getFormFeatureControlFactory();
     boolean _equals = Objects.equal(_formFeatureControlFactory, null);
     if (_equals) {
       _xifexpression = null;
     } else {
       JvmGenericType _xblockexpression = null;
       {
-        FormFeatureControlFactory _formFeatureControlFactory_1 = element.getFormFeatureControlFactory();
-        String _formFeatureControlFactoryQN = this.formFeatureControlFactoryQN(element);
+        FormFeatureControlFactory _formFeatureControlFactory_1 = e.getFormFeatureControlFactory();
+        String _formFeatureControlFactoryQN = this.formFeatureControlFactoryQN(e);
         final JvmGenericType formFeatureControlFactoryClass = this._jvmTypesBuilder.toClass(_formFeatureControlFactory_1, _formFeatureControlFactoryQN);
         IPostIndexingInitializing<JvmGenericType> _accept = acceptor.<JvmGenericType>accept(formFeatureControlFactoryClass);
         final Procedure1<JvmGenericType> _function = new Procedure1<JvmGenericType>() {
             public void apply(final JvmGenericType it) {
               EList<JvmTypeReference> _superTypes = it.getSuperTypes();
-              JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, it.rcpvision.emf.components.binding.FormFeatureControlFactory.class);
+              JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(e, it.rcpvision.emf.components.binding.FormFeatureControlFactory.class);
               EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _newTypeRef);
-              FormFeatureControlFactory _formFeatureControlFactory = element.getFormFeatureControlFactory();
+              FormFeatureControlFactory _formFeatureControlFactory = e.getFormFeatureControlFactory();
               String _documentation = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.getDocumentation(_formFeatureControlFactory);
               EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.setDocumentation(it, _documentation);
-              FormFeatureControlFactory _formFeatureControlFactory_1 = element.getFormFeatureControlFactory();
+              FormFeatureControlFactory _formFeatureControlFactory_1 = e.getFormFeatureControlFactory();
               EList<FormFeatureControlSpecification> _controlSpecifications = _formFeatureControlFactory_1.getControlSpecifications();
               final Procedure1<FormFeatureControlSpecification> _function = new Procedure1<FormFeatureControlSpecification>() {
-                  public void apply(final FormFeatureControlSpecification controlSpecification) {
+                  public void apply(final FormFeatureControlSpecification spec) {
                     boolean _and = false;
-                    XExpression _feature = controlSpecification.getFeature();
+                    XExpression _feature = spec.getFeature();
                     boolean _notEquals = (!Objects.equal(_feature, null));
                     if (!_notEquals) {
                       _and = false;
                     } else {
-                      XExpression _feature_1 = controlSpecification.getFeature();
+                      XExpression _feature_1 = spec.getFeature();
                       JvmIdentifiableElement _feature_2 = ((XFeatureCall) _feature_1).getFeature();
                       boolean _notEquals_1 = (!Objects.equal(_feature_2, null));
                       _and = (_notEquals && _notEquals_1);
                     }
                     if (_and) {
-                      EList<JvmMember> _members = it.getMembers();
-                      XExpression _expression = controlSpecification.getExpression();
-                      JvmType _parameterType = controlSpecification.getParameterType();
-                      String _simpleName = _parameterType.getSimpleName();
-                      String _plus = ("control_" + _simpleName);
-                      String _plus_1 = (_plus + "_");
-                      XExpression _feature_3 = controlSpecification.getFeature();
-                      JvmIdentifiableElement _feature_4 = ((XFeatureCall) _feature_3).getFeature();
-                      String _simpleName_1 = _feature_4.getSimpleName();
-                      String _propertyNameForGetterSetterMethod = EmfComponentsDslJvmModelInferrer.this._generatorUtils.getPropertyNameForGetterSetterMethod(_simpleName_1);
-                      String _plus_2 = (_plus_1 + _propertyNameForGetterSetterMethod);
-                      JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, Control.class);
-                      final Procedure1<JvmOperation> _function = new Procedure1<JvmOperation>() {
-                          public void apply(final JvmOperation it) {
-                            EList<JvmFormalParameter> _parameters = it.getParameters();
-                            JvmType _parameterType = controlSpecification.getParameterType();
-                            JvmParameterizedTypeReference _createTypeRef = EmfComponentsDslJvmModelInferrer.this._typeReferences.createTypeRef(_parameterType);
-                            JvmFormalParameter _parameter = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.toParameter(controlSpecification, 
-                              "it", _createTypeRef);
-                            EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
-                            XExpression _expression = controlSpecification.getExpression();
-                            EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _expression);
-                          }
-                        };
-                      JvmOperation _method = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.toMethod(_expression, _plus_2, _newTypeRef, _function);
-                      EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members, _method);
+                      XExpression _target = spec.getTarget();
+                      boolean _equals = Objects.equal(_target, null);
+                      if (_equals) {
+                        EList<JvmMember> _members = it.getMembers();
+                        XExpression _expression = spec.getExpression();
+                        final Procedure1<JvmOperation> _function = new Procedure1<JvmOperation>() {
+                            public void apply(final JvmOperation it) {
+                              EList<JvmFormalParameter> _parameters = it.getParameters();
+                              JvmType _parameterType = spec.getParameterType();
+                              JvmParameterizedTypeReference _createTypeRef = EmfComponentsDslJvmModelInferrer.this._typeReferences.createTypeRef(_parameterType);
+                              JvmFormalParameter _parameter = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.toParameter(spec, 
+                                "it", _createTypeRef);
+                              EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+                              XExpression _expression = spec.getExpression();
+                              EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _expression);
+                            }
+                          };
+                        JvmOperation _control_EClass_EStructuralFeature = EmfComponentsDslJvmModelInferrer.this.control_EClass_EStructuralFeature(spec, _expression, _function);
+                        EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members, _control_EClass_EStructuralFeature);
+                      } else {
+                        final String createControlMethodName = EmfComponentsDslJvmModelInferrer.this.methodNameForFormFeatureSpecification(spec, "createControl_");
+                        final String createTargetMethodName = EmfComponentsDslJvmModelInferrer.this.methodNameForFormFeatureSpecification(spec, "createTarget_");
+                        EList<JvmMember> _members_1 = it.getMembers();
+                        XExpression _expression_1 = spec.getExpression();
+                        final Procedure1<JvmOperation> _function_1 = new Procedure1<JvmOperation>() {
+                            public void apply(final JvmOperation it) {
+                              EList<JvmFormalParameter> _parameters = it.getParameters();
+                              JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(e, DataBindingContext.class);
+                              JvmFormalParameter _parameter = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.toParameter(spec, 
+                                "dataBindingContext", _newTypeRef);
+                              EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+                              EList<JvmFormalParameter> _parameters_1 = it.getParameters();
+                              JvmTypeReference _newTypeRef_1 = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(e, IObservableValue.class);
+                              JvmFormalParameter _parameter_1 = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.toParameter(spec, 
+                                "observableValue", _newTypeRef_1);
+                              EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters_1, _parameter_1);
+                              final Procedure1<ITreeAppendable> _function = new Procedure1<ITreeAppendable>() {
+                                  public void apply(final ITreeAppendable it) {
+                                    JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(spec, Control.class);
+                                    JvmType _type = _newTypeRef.getType();
+                                    it.append(_type);
+                                    StringConcatenation _builder = new StringConcatenation();
+                                    _builder.append(" ");
+                                    _builder.append("control = ");
+                                    _builder.append(createControlMethodName, " ");
+                                    _builder.append("();");
+                                    ITreeAppendable _append = it.append(_builder);
+                                    _append.newLine();
+                                    StringConcatenation _builder_1 = new StringConcatenation();
+                                    _builder_1.append("dataBindingContext.bindValue(");
+                                    _builder_1.newLine();
+                                    _builder_1.append("\t");
+                                    _builder_1.append(createTargetMethodName, "	");
+                                    _builder_1.append("(control),");
+                                    _builder_1.newLineIfNotEmpty();
+                                    _builder_1.append("\t");
+                                    _builder_1.append("observableValue);");
+                                    ITreeAppendable _append_1 = it.append(_builder_1);
+                                    _append_1.newLine();
+                                    StringConcatenation _builder_2 = new StringConcatenation();
+                                    _builder_2.append("return control;");
+                                    it.append(_builder_2);
+                                  }
+                                };
+                              EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _function);
+                            }
+                          };
+                        JvmOperation _control_EClass_EStructuralFeature_1 = EmfComponentsDslJvmModelInferrer.this.control_EClass_EStructuralFeature(spec, _expression_1, _function_1);
+                        EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_1, _control_EClass_EStructuralFeature_1);
+                        EList<JvmMember> _members_2 = it.getMembers();
+                        JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(spec, Control.class);
+                        final Procedure1<JvmOperation> _function_2 = new Procedure1<JvmOperation>() {
+                            public void apply(final JvmOperation it) {
+                              it.setVisibility(JvmVisibility.PROTECTED);
+                              XExpression _expression = spec.getExpression();
+                              EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _expression);
+                            }
+                          };
+                        JvmOperation _method = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.toMethod(spec, createControlMethodName, _newTypeRef, _function_2);
+                        EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_2, _method);
+                        EList<JvmMember> _members_3 = it.getMembers();
+                        JvmTypeReference _newTypeRef_1 = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(spec, IObservableValue.class);
+                        final Procedure1<JvmOperation> _function_3 = new Procedure1<JvmOperation>() {
+                            public void apply(final JvmOperation it) {
+                              it.setVisibility(JvmVisibility.PROTECTED);
+                              EList<JvmFormalParameter> _parameters = it.getParameters();
+                              JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(e, Control.class);
+                              JvmFormalParameter _parameter = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.toParameter(spec, 
+                                "it", _newTypeRef);
+                              EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+                              XExpression _target = spec.getTarget();
+                              EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _target);
+                            }
+                          };
+                        JvmOperation _method_1 = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.toMethod(spec, createTargetMethodName, _newTypeRef_1, _function_3);
+                        EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_3, _method_1);
+                      }
                     }
                   }
                 };
@@ -540,6 +614,26 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
       _xifexpression = _xblockexpression;
     }
     return _xifexpression;
+  }
+  
+  public JvmOperation control_EClass_EStructuralFeature(final FormFeatureControlSpecification spec, final XExpression exp, final Procedure1<? super JvmOperation> init) {
+    String _methodNameForFormFeatureSpecification = this.methodNameForFormFeatureSpecification(spec, "control_");
+    JvmTypeReference _newTypeRef = this._jvmTypesBuilder.newTypeRef(spec, Control.class);
+    JvmOperation _method = this._jvmTypesBuilder.toMethod(exp, _methodNameForFormFeatureSpecification, _newTypeRef, init);
+    return _method;
+  }
+  
+  public String methodNameForFormFeatureSpecification(final FormFeatureControlSpecification spec, final String prefix) {
+    JvmType _parameterType = spec.getParameterType();
+    String _simpleName = _parameterType.getSimpleName();
+    String _plus = (prefix + _simpleName);
+    String _plus_1 = (_plus + "_");
+    XExpression _feature = spec.getFeature();
+    JvmIdentifiableElement _feature_1 = ((XFeatureCall) _feature).getFeature();
+    String _simpleName_1 = _feature_1.getSimpleName();
+    String _propertyNameForGetterSetterMethod = this._generatorUtils.getPropertyNameForGetterSetterMethod(_simpleName_1);
+    String _plus_2 = (_plus_1 + _propertyNameForGetterSetterMethod);
+    return _plus_2;
   }
   
   public JvmOperation genBindMethod(final EObject element, final JvmGenericType type, final Class<? extends Object> clazz) {

@@ -1046,7 +1046,29 @@ ruleFormFeatureControlSpecification returns [EObject current=null]
 	    }
 
 )
-))
+)(	otherlv_5='target' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getFormFeatureControlSpecificationAccess().getTargetKeyword_5_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getFormFeatureControlSpecificationAccess().getTargetXExpressionParserRuleCall_5_1_0()); 
+	    }
+		lv_target_6_0=ruleXExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getFormFeatureControlSpecificationRule());
+	        }
+       		set(
+       			$current, 
+       			"target",
+        		lv_target_6_0, 
+        		"XExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?)
 ;
 
 

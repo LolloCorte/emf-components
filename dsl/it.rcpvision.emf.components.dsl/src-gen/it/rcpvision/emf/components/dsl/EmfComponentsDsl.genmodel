@@ -49,6 +49,7 @@
     <genClasses ecoreClass="EmfComponentsDsl.ecore#//FormFeatureControlSpecification">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FormFeatureControlSpecification/feature"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FormFeatureControlSpecification/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FormFeatureControlSpecification/target"/>
     </genClasses>
     <genClasses ecoreClass="EmfComponentsDsl.ecore#//EmfFeatureAccess">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//EmfFeatureAccess/parameterType"/>

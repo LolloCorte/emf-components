@@ -322,7 +322,11 @@ import it.rcpvision.emf.components.examples.library.Book;
 import it.rcpvision.emf.components.examples.library.Library;
 import it.rcpvision.emf.components.examples.library.Writer;
 import java.util.List;
+import org.eclipse.core.databinding.DataBindingContext;
+import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.jface.databinding.swt.ISWTObservableValue;
+import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
@@ -350,6 +354,26 @@ public class FormFeatureControlFactoryGen extends FormFeatureControlFactory {
     String _join = IterableExtensions.join(_map, ", ");
     Label _createLabel = _toolkit.createLabel(_parent, _join);
     return _createLabel;
+  }
+  
+  public Control control_Writer_name(final DataBindingContext dataBindingContext, final IObservableValue observableValue) {
+    Control control = createControl_Writer_name();
+    dataBindingContext.bindValue(
+    	createTarget_Writer_name(control),
+    	observableValue);
+    return control;
+  }
+  
+  protected Control createControl_Writer_name() {
+    FormToolkit _toolkit = this.getToolkit();
+    Composite _parent = this.getParent();
+    Label _createLabel = _toolkit.createLabel(_parent, "");
+    return _createLabel;
+  }
+  
+  protected IObservableValue createTarget_Writer_name(final Control it) {
+    ISWTObservableValue _observeText = SWTObservables.observeText(it);
+    return _observeText;
   }
 }
 '''

@@ -160,7 +160,6 @@ public class EmfComponentsDslSyntacticSequencer extends AbstractSyntacticSequenc
 	/**
 	 * Syntax:
 	 *     (
-	     ('images' '{' ('}' 'images' '{')*) | 
 	     (
 	         ('images' '{' ('}' 'images' '{')* '}')? 
 	         ('labels' '{' '}')+ 
@@ -168,7 +167,8 @@ public class EmfComponentsDslSyntacticSequencer extends AbstractSyntacticSequenc
 	         '{' 
 	         ('}' 'images' '{')* 
 	         ('}' ('labels' '{' '}')+ 'images' '{' ('}' 'images' '{')*)*
-	     )
+	     ) | 
+	     ('images' '{' ('}' 'images' '{')*)
 	 )
 	 */
 	protected void emit_LabelProvider___ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1___RightCurlyBracketKeyword_3_1_3_ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1__a___or_____ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1___RightCurlyBracketKeyword_3_1_3_ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1__a_RightCurlyBracketKeyword_3_1_3__q___LabelsKeyword_3_0_0_LeftCurlyBracketKeyword_3_0_1_RightCurlyBracketKeyword_3_0_3__p_ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1___RightCurlyBracketKeyword_3_1_3_ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1__a___RightCurlyBracketKeyword_3_1_3___LabelsKeyword_3_0_0_LeftCurlyBracketKeyword_3_0_1_RightCurlyBracketKeyword_3_0_3__p_ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1___RightCurlyBracketKeyword_3_1_3_ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1__a__a__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
@@ -194,7 +194,6 @@ public class EmfComponentsDslSyntacticSequencer extends AbstractSyntacticSequenc
 	/**
 	 * Syntax:
 	 *     (
-	     ('labels' '{' ('}' 'labels' '{')*) | 
 	     (
 	         ('labels' '{' ('}' 'labels' '{')* '}')? 
 	         ('images' '{' '}')+ 
@@ -202,7 +201,8 @@ public class EmfComponentsDslSyntacticSequencer extends AbstractSyntacticSequenc
 	         '{' 
 	         ('}' 'labels' '{')* 
 	         ('}' ('images' '{' '}')+ 'labels' '{' ('}' 'labels' '{')*)*
-	     )
+	     ) | 
+	     ('labels' '{' ('}' 'labels' '{')*)
 	 )
 	 */
 	protected void emit_LabelProvider___LabelsKeyword_3_0_0_LeftCurlyBracketKeyword_3_0_1___RightCurlyBracketKeyword_3_0_3_LabelsKeyword_3_0_0_LeftCurlyBracketKeyword_3_0_1__a___or_____LabelsKeyword_3_0_0_LeftCurlyBracketKeyword_3_0_1___RightCurlyBracketKeyword_3_0_3_LabelsKeyword_3_0_0_LeftCurlyBracketKeyword_3_0_1__a_RightCurlyBracketKeyword_3_0_3__q___ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1_RightCurlyBracketKeyword_3_1_3__p_LabelsKeyword_3_0_0_LeftCurlyBracketKeyword_3_0_1___RightCurlyBracketKeyword_3_0_3_LabelsKeyword_3_0_0_LeftCurlyBracketKeyword_3_0_1__a___RightCurlyBracketKeyword_3_0_3___ImagesKeyword_3_1_0_LeftCurlyBracketKeyword_3_1_1_RightCurlyBracketKeyword_3_1_3__p_LabelsKeyword_3_0_0_LeftCurlyBracketKeyword_3_0_1___RightCurlyBracketKeyword_3_0_3_LabelsKeyword_3_0_0_LeftCurlyBracketKeyword_3_0_1__a__a__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {

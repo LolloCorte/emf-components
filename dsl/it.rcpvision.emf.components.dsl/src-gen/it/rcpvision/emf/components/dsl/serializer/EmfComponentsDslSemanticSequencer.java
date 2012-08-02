@@ -1030,23 +1030,10 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (parameterType=[JvmType|QualifiedName] feature=XFeatureCall expression=XExpression)
+	 *     (parameterType=[JvmType|QualifiedName] feature=XFeatureCall expression=XExpression target=XExpression?)
 	 */
 	protected void sequence_FormFeatureControlSpecification(EObject context, FormFeatureControlSpecification semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.EMF_FEATURE_ACCESS__PARAMETER_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.EMF_FEATURE_ACCESS__PARAMETER_TYPE));
-			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.FORM_FEATURE_CONTROL_SPECIFICATION__FEATURE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.FORM_FEATURE_CONTROL_SPECIFICATION__FEATURE));
-			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.FORM_FEATURE_CONTROL_SPECIFICATION__EXPRESSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.FORM_FEATURE_CONTROL_SPECIFICATION__EXPRESSION));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getFormFeatureControlSpecificationAccess().getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1(), semanticObject.getParameterType());
-		feeder.accept(grammarAccess.getFormFeatureControlSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0(), semanticObject.getFeature());
-		feeder.accept(grammarAccess.getFormFeatureControlSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0(), semanticObject.getExpression());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

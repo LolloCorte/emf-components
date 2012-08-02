@@ -117,6 +117,7 @@ module my.empty {
 '''
 import java.util.*
 import it.rcpvision.emf.components.examples.library.*
+import org.eclipse.jface.databinding.swt.SWTObservables
 
 module my.empty {
 	formFeatureControlFactory {
@@ -125,6 +126,8 @@ module my.empty {
 			Writer : books -> 
 				toolkit.createLabel(parent, 
 					books.map[title].join(", "))
+			Writer : name -> { toolkit.createLabel(parent, "") }
+				target { SWTObservables::observeText(it) }
 		}
 	}
 }

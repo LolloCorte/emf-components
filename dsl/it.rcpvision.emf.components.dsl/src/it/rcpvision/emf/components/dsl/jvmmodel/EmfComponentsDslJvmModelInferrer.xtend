@@ -20,6 +20,12 @@ import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 import it.rcpvision.emf.components.binding.FormFeatureControlFactory
 import org.eclipse.swt.widgets.Control
+import it.rcpvision.emf.components.dsl.model.FormFeatureControlSpecification
+import org.eclipse.xtext.common.types.JvmOperation
+import org.eclipse.xtext.xbase.XExpression
+import org.eclipse.core.databinding.DataBindingContext
+import org.eclipse.core.databinding.observable.value.IObservableValue
+import org.eclipse.xtext.common.types.JvmVisibility
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -242,42 +248,95 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 		}
 	}
 
-	def inferFormFeatureControlFactory(Module element, IJvmDeclaredTypeAcceptor acceptor) {
-		if (element.formFeatureControlFactory == null)
+	def inferFormFeatureControlFactory(Module e, IJvmDeclaredTypeAcceptor acceptor) {
+		if (e.formFeatureControlFactory == null)
 			null
 		else {
-			val formFeatureControlFactoryClass = element.formFeatureControlFactory.toClass(element.formFeatureControlFactoryQN)
+			val formFeatureControlFactoryClass = e.formFeatureControlFactory.toClass(e.formFeatureControlFactoryQN)
 			acceptor.accept(formFeatureControlFactoryClass).initializeLater [
-				superTypes += element.newTypeRef(typeof(FormFeatureControlFactory))
+				superTypes += e.newTypeRef(typeof(FormFeatureControlFactory))
 				
-				documentation = element.formFeatureControlFactory.documentation
+				documentation = e.formFeatureControlFactory.documentation
 				
-				element.formFeatureControlFactory.controlSpecifications.forEach [
-					controlSpecification |
-					if (controlSpecification.feature != null &&
-						(controlSpecification.feature as XFeatureCall).feature != null
+				e.formFeatureControlFactory.controlSpecifications.forEach [
+					spec |
+					if (spec.feature != null &&
+						(spec.feature as XFeatureCall).feature != null
 					) {
 						// associate the method to the expression, not to the whole
 						// labelSpecification, otherwise the 'feature' is logically
 						// contained in a method which should return a string
 						// and the validator would complain
-						members += controlSpecification.expression.toMethod
-						("control_" + 
-								controlSpecification.parameterType.simpleName + "_" +
-								(controlSpecification.feature as XFeatureCall).
-									feature.simpleName.propertyNameForGetterSetterMethod, 
-							element.newTypeRef(typeof(Control))
-						) [
-							parameters += controlSpecification.toParameter(
-								"it", controlSpecification.parameterType.createTypeRef
-							)
-							body = controlSpecification.expression
-						]
+						if (spec.target == null)
+							members += spec.
+							control_EClass_EStructuralFeature(spec.expression) [
+								parameters += spec.toParameter(
+									"it", spec.parameterType.createTypeRef
+								)
+								body = spec.expression
+							]
+						else {
+							val createControlMethodName = spec.methodNameForFormFeatureSpecification("createControl_")
+							val createTargetMethodName = spec.methodNameForFormFeatureSpecification("createTarget_")
+							members += spec.
+							control_EClass_EStructuralFeature(spec.expression) [
+								parameters += spec.toParameter(
+									"dataBindingContext", e.newTypeRef(typeof(DataBindingContext))
+								)
+								parameters += spec.toParameter(
+									"observableValue", e.newTypeRef(typeof(IObservableValue))
+								)
+								body = [
+									append(spec.newTypeRef(typeof(Control)).type)
+									append(''' control = «createControlMethodName»();''').newLine
+									append(
+									'''
+									dataBindingContext.bindValue(
+										«createTargetMethodName»(control),
+										observableValue);'''
+									).newLine
+									append('''return control;''')
+								]
+							]
+							
+							members += spec.toMethod
+							(createControlMethodName, 
+								spec.newTypeRef(typeof(Control))) [
+									visibility = JvmVisibility::PROTECTED
+									body = spec.expression
+							]
+							
+							members += spec.toMethod
+							(createTargetMethodName, 
+								spec.newTypeRef(typeof(IObservableValue))) [
+									visibility = JvmVisibility::PROTECTED
+									parameters += spec.toParameter(
+										"it", e.newTypeRef(typeof(Control))
+									)
+									body = spec.target
+							]
+						}
 					}
 				]
 			]
 			formFeatureControlFactoryClass
 		}
+	}
+	
+	def control_EClass_EStructuralFeature(
+			FormFeatureControlSpecification spec, XExpression exp, (JvmOperation)=>void init
+	) {
+		exp.toMethod
+			(spec.methodNameForFormFeatureSpecification("control_"), 
+				spec.newTypeRef(typeof(Control))
+			, init)
+	}
+	
+	def methodNameForFormFeatureSpecification(FormFeatureControlSpecification spec, String prefix) {
+		prefix + 
+					spec.parameterType.simpleName + "_" +
+					(spec.feature as XFeatureCall).
+						feature.simpleName.propertyNameForGetterSetterMethod
 	}
 	
 	def genBindMethod(EObject element, JvmGenericType type, Class<?> clazz) {

@@ -14,6 +14,7 @@ import org.eclipse.xtext.xbase.XExpression;
  * <ul>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.FormFeatureControlSpecification#getFeature <em>Feature</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.FormFeatureControlSpecification#getExpression <em>Expression</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.FormFeatureControlSpecification#getTarget <em>Target</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,5 +75,31 @@ public interface FormFeatureControlSpecification extends EmfFeatureAccess
    * @generated
    */
   void setExpression(XExpression value);
+
+  /**
+   * Returns the value of the '<em><b>Target</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Target</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Target</em>' containment reference.
+   * @see #setTarget(XExpression)
+   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getFormFeatureControlSpecification_Target()
+   * @model containment="true"
+   * @generated
+   */
+  XExpression getTarget();
+
+  /**
+   * Sets the value of the '{@link it.rcpvision.emf.components.dsl.model.FormFeatureControlSpecification#getTarget <em>Target</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Target</em>' containment reference.
+   * @see #getTarget()
+   * @generated
+   */
+  void setTarget(XExpression value);
 
 } // FormFeatureControlSpecification

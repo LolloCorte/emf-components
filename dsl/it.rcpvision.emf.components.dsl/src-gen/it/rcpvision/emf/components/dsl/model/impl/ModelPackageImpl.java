@@ -511,6 +511,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getFormFeatureControlSpecification_Target()
+  {
+    return (EReference)formFeatureControlSpecificationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getEmfFeatureAccess()
   {
     return emfFeatureAccessEClass;
@@ -598,6 +608,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     formFeatureControlSpecificationEClass = createEClass(FORM_FEATURE_CONTROL_SPECIFICATION);
     createEReference(formFeatureControlSpecificationEClass, FORM_FEATURE_CONTROL_SPECIFICATION__FEATURE);
     createEReference(formFeatureControlSpecificationEClass, FORM_FEATURE_CONTROL_SPECIFICATION__EXPRESSION);
+    createEReference(formFeatureControlSpecificationEClass, FORM_FEATURE_CONTROL_SPECIFICATION__TARGET);
 
     emfFeatureAccessEClass = createEClass(EMF_FEATURE_ACCESS);
     createEReference(emfFeatureAccessEClass, EMF_FEATURE_ACCESS__PARAMETER_TYPE);
@@ -683,6 +694,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     initEClass(formFeatureControlSpecificationEClass, FormFeatureControlSpecification.class, "FormFeatureControlSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getFormFeatureControlSpecification_Feature(), theXbasePackage.getXExpression(), null, "feature", null, 0, 1, FormFeatureControlSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFormFeatureControlSpecification_Expression(), theXbasePackage.getXExpression(), null, "expression", null, 0, 1, FormFeatureControlSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFormFeatureControlSpecification_Target(), theXbasePackage.getXExpression(), null, "target", null, 0, 1, FormFeatureControlSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(emfFeatureAccessEClass, EmfFeatureAccess.class, "EmfFeatureAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEmfFeatureAccess_ParameterType(), theTypesPackage.getJvmType(), null, "parameterType", null, 0, 1, EmfFeatureAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -5324,6 +5324,7 @@ rule__FormFeatureControlSpecification__Group__4
     }
 :
 	rule__FormFeatureControlSpecification__Group__4__Impl
+	rule__FormFeatureControlSpecification__Group__5
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -5346,10 +5347,103 @@ finally {
 }
 
 
+rule__FormFeatureControlSpecification__Group__5
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__FormFeatureControlSpecification__Group__5__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__FormFeatureControlSpecification__Group__5__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getFormFeatureControlSpecificationAccess().getGroup_5()); }
+(rule__FormFeatureControlSpecification__Group_5__0)?
+{ after(grammarAccess.getFormFeatureControlSpecificationAccess().getGroup_5()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+rule__FormFeatureControlSpecification__Group_5__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__FormFeatureControlSpecification__Group_5__0__Impl
+	rule__FormFeatureControlSpecification__Group_5__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__FormFeatureControlSpecification__Group_5__0__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getFormFeatureControlSpecificationAccess().getTargetKeyword_5_0()); }
+
+	'target' 
+
+{ after(grammarAccess.getFormFeatureControlSpecificationAccess().getTargetKeyword_5_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__FormFeatureControlSpecification__Group_5__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__FormFeatureControlSpecification__Group_5__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__FormFeatureControlSpecification__Group_5__1__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getFormFeatureControlSpecificationAccess().getTargetAssignment_5_1()); }
+(rule__FormFeatureControlSpecification__TargetAssignment_5_1)
+{ after(grammarAccess.getFormFeatureControlSpecificationAccess().getTargetAssignment_5_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
 
 
 
@@ -16601,6 +16695,21 @@ rule__FormFeatureControlSpecification__ExpressionAssignment_4
 (
 { before(grammarAccess.getFormFeatureControlSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0()); }
 	ruleXExpression{ after(grammarAccess.getFormFeatureControlSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__FormFeatureControlSpecification__TargetAssignment_5_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getFormFeatureControlSpecificationAccess().getTargetXExpressionParserRuleCall_5_1_0()); }
+	ruleXExpression{ after(grammarAccess.getFormFeatureControlSpecificationAccess().getTargetXExpressionParserRuleCall_5_1_0()); }
 )
 
 ;
