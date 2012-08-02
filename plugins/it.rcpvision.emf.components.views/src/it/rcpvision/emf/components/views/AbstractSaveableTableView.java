@@ -3,6 +3,7 @@ package it.rcpvision.emf.components.views;
 import it.rcpvision.emf.components.builders.TableViewerBuilder;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
 
+import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.viewers.TableViewer;
@@ -12,7 +13,7 @@ import org.eclipse.swt.widgets.Composite;
 import com.google.inject.Inject;
 
 public abstract class AbstractSaveableTableView extends
-		AbstractSaveableView {
+		AbstractSaveableView implements IViewerProvider {
 
 	@Inject
 	protected TableViewerBuilder tableViewerBuilder;
@@ -41,5 +42,8 @@ public abstract class AbstractSaveableTableView extends
 		tableViewer.getTable().setFocus();
 	}
 
+	public TableViewer getViewer() {
+		return tableViewer;
+	}
 
 }

@@ -9,6 +9,7 @@ import it.rcpvision.emf.components.widgets.TreeFormComposite;
 import java.util.Collection;
 
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.command.CreateChildCommand;
 import org.eclipse.jface.action.IMenuListener;
@@ -22,7 +23,7 @@ import org.eclipse.swt.widgets.Composite;
 import com.google.inject.Inject;
 
 public abstract class AbstractSaveableTreeFormView extends AbstractSaveableView
-		implements IMenuListener{
+		implements IMenuListener, IViewerProvider {
 
 	@Inject
 	protected TreeFormFactory treeFormFactory;

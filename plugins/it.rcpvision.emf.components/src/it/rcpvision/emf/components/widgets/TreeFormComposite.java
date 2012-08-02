@@ -4,6 +4,7 @@ import it.rcpvision.emf.components.factories.FormFactory;
 import it.rcpvision.emf.components.util.EmfSelectionHelper;
 import it.rcpvision.emf.components.viewers.ViewerInitializer;
 
+import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -23,7 +24,7 @@ import org.eclipse.ui.part.PageBook;
  * @author Lorenzo Bettini, Francesco Guidieri
  * 
  */
-public class TreeFormComposite extends Composite {
+public class TreeFormComposite extends Composite implements IViewerProvider {
 
 	protected class SelectionChangedListener implements
 			ISelectionChangedListener {
