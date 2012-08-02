@@ -75,6 +75,8 @@ public class EmfComponentsAbstractTests {
 
 	protected static final String WRITER_LABEL = "Writer Lorenzo Bettini";
 
+	protected static final String WRITER_NAME = "Lorenzo Bettini";
+
 	protected static final String BORROWER_LABEL = "Borrower Bar";
 
 	protected static final String CUSTOM_BORROWER_LABEL = "Borrower: Foo";

@@ -37,7 +37,7 @@ public class CDOExamplesModule extends CDOEmfComponentsModule {
 	
 	@Override
 	public Class<? extends FormFeatureControlFactory> bindFormFeatureControlFactory() {
-		return CDOExampleEmfSwtBindingFactory.class;
+		return CDOExampleFormFeatureControlFactory.class;
 	}
 	
 }

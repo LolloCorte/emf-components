@@ -67,6 +67,18 @@ public class EmfComponentsFormTests extends EmfComponentsAbstractTests {
 	}
 
 	@Test
+	public void customControlOfWriterNode() throws Exception {
+		SWTBotView detailView = openTestView(LIBRARY_CUSTOM_DETAIL_VIEW);
+		// select on the editor's tree
+		SWTBotTreeItem rootOfEditorTree = getRootOfEditorTree(EMF_TREE_EDITOR,
+				MY_EXTLIBRARY, MY_EXT_LIBRARY_PLATFORM_URI);
+		getLibraryWriterNode(rootOfEditorTree).select();
+		SWTFormsBot formbot = formBotFromView(detailView);
+		formbot.label(ADDRESS_LABEL);
+		formbot.text(WRITER_NAME);
+	}
+
+	@Test
 	public void treeFormViewShowsOnSelection() throws Exception {
 		SWTBotView view = openTestView(EMF_TREE_FORM_DETAIL_VIEW);
 		// select on the editor's tree

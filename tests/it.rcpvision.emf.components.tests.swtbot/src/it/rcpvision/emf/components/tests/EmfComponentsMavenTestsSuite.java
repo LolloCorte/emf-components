@@ -11,7 +11,7 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
 	EmfColumnLabelProviderTests.class,
 	EmfLabelProviderTests.class,
-	EmfProviderTests.class,
+	EmfComponentsProvidersTests.class,
 	EmfComponentsViewTests.class,
 	EmfComponentsSaveableViewTests.class,
 	EmfComponentsEditorTests.class,

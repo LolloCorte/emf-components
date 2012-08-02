@@ -88,11 +88,11 @@ public class FormFeatureControlFactory {
 
 	private PolymorphicDispatcher.ErrorHandler<ControlObservablePair> control_errorHandler = new PolymorphicDispatcher.NullErrorHandler<ControlObservablePair>();
 
-	private PolymorphicDispatcher.ErrorHandler<Control> createAndBind_errorHandler = new PolymorphicDispatcher.NullErrorHandler<Control>();
+	private PolymorphicDispatcher.ErrorHandler<Control> createControl_errorHandler = new PolymorphicDispatcher.NullErrorHandler<Control>();
 
 	private PolymorphicDispatcher.ErrorHandler<IObservableValue> observeable_errorHandler = new PolymorphicDispatcher.NullErrorHandler<IObservableValue>();
 
-	private PolymorphicDispatcher.ErrorHandler<List> proposals_errorHandler = new PolymorphicDispatcher.NullErrorHandler<List>();
+	private PolymorphicDispatcher.ErrorHandler<List<?>> proposals_errorHandler = new PolymorphicDispatcher.NullErrorHandler<List<?>>();
 	
 	public FormFeatureControlFactory() {
 
@@ -119,7 +119,7 @@ public class FormFeatureControlFactory {
 	public Control create(EStructuralFeature feature) {
 		Control control = null;
 
-		control = polymorphicCreateControlAndBind(owner, feature);
+		control = polymorphicCreateControl(feature);
 		if (control == null) {
 			if (feature.isMany()) {
 				control = bindList(feature);
@@ -178,14 +178,19 @@ public class FormFeatureControlFactory {
 	}
 
 	private Control bindValue(EStructuralFeature feature) {
-		IObservableValue source = createFeatureObserveable(feature);
+		IObservableValue featureObservable = createFeatureObserveable(feature);
+		
+		Control control = polymorphicCreateControl(feature, featureObservable);
+		if (control != null)
+			return control;
 
 		ControlObservablePair retValAndTargetPair = createControlAndObservableValue(feature);
 		Control retVal = retValAndTargetPair.getControl();
-		IObservableValue target = retValAndTargetPair.getObservableValue();
+		IObservableValue controlObservable = retValAndTargetPair
+				.getObservableValue();
 
-		if (retVal != null && target != null) {
-			edbc.bindValue(target, source, null, null);
+		if (retVal != null && controlObservable != null) {
+			edbc.bindValue(controlObservable, featureObservable, null, null);
 		}
 		return retVal;
 	}
@@ -343,6 +348,48 @@ public class FormFeatureControlFactory {
 		return dispatcher.invoke(element);
 	}
 
+	/**
+	 * Polymorphically invokes a create_EClass_feature(DataBindingContext, IObservableValue)
+	 * @param element
+	 * @param featureObservable
+	 * @return
+	 */
+	private Control polymorphicCreateControl(EStructuralFeature element,
+			IObservableValue featureObservable) {
+		PolymorphicDispatcher<Control> dispatcher = createPolymorphicDispatcherForCreateControl(
+				element, 2);
+
+		return dispatcher.invoke(edbc, featureObservable);
+	}
+
+	/**
+	 * Polymorphically invokes a create_EClass_feature(EObject)
+	 * @param element
+	 * @return
+	 */
+	private Control polymorphicCreateControl(EStructuralFeature element) {
+		PolymorphicDispatcher<Control> dispatcher = createPolymorphicDispatcherForCreateControl(
+				element, 1);
+
+		return dispatcher.invoke(owner);
+	}
+
+	private PolymorphicDispatcher<Control> createPolymorphicDispatcherForCreateControl(
+			EStructuralFeature element, int numOfParams) {
+		return new PolymorphicDispatcher<Control>(
+				Collections.singletonList(this),
+				getCreateControlMethodPredicate(element, numOfParams),
+				createControl_errorHandler) {
+			@Override
+			protected Control handleNoSuchMethod(Object... params) {
+				if (PolymorphicDispatcher.NullErrorHandler.class
+						.equals(createControl_errorHandler.getClass()))
+					return null;
+				return super.handleNoSuchMethod(params);
+			}
+		};
+	}
+
 	protected Predicate<Method> getObservableControlPredicate(
 			EStructuralFeature feature) {
 		String methodName = "control_"
@@ -350,34 +397,15 @@ public class FormFeatureControlFactory {
 				+ feature.getName();
 		return PolymorphicDispatcher.Predicates.forName(methodName, 1);
 	}
-
-	private Control polymorphicCreateControlAndBind(EObject element,
-			EStructuralFeature feature) {
-		PolymorphicDispatcher<Control> dispatcher = new PolymorphicDispatcher<Control>(
-				Collections.singletonList(this),
-				getCreateControlPredicate(feature),
-				new PolymorphicDispatcher.NullErrorHandler<Control>()) {
-			@Override
-			protected Control handleNoSuchMethod(Object... params) {
-				if (PolymorphicDispatcher.NullErrorHandler.class
-						.equals(createAndBind_errorHandler.getClass()))
-					return null;
-				return super.handleNoSuchMethod(params);
-			}
-		};
-
-		return dispatcher.invoke(feature, element);
-	}
-
-	protected Predicate<Method> getCreateControlPredicate(
-			EStructuralFeature feature) {
-		String methodName = "createAndBind_"
+	
+	protected Predicate<Method> getCreateControlMethodPredicate(
+			EStructuralFeature feature, int numOfParams) {
+		String methodName = "control_"
 				+ feature.getEContainingClass().getName() + "_"
 				+ feature.getName();
-		return PolymorphicDispatcher.Predicates.forName(methodName, 2);
+		return PolymorphicDispatcher.Predicates.forName(methodName, numOfParams);
 	}
-	
-	
+
 	private IObservableValue polymorphicCreateObserveable(EditingDomain domain, EObject element,
 			EStructuralFeature feature) {
 		PolymorphicDispatcher<IObservableValue> dispatcher = new PolymorphicDispatcher<IObservableValue>(
@@ -405,13 +433,13 @@ public class FormFeatureControlFactory {
 	}
 	
 	
-	private List polymorphicCreateProposals(EObject element,	EStructuralFeature feature) {
-		PolymorphicDispatcher<List> dispatcher = new PolymorphicDispatcher<List>(
+	private List<?> polymorphicCreateProposals(EObject element,	EStructuralFeature feature) {
+		PolymorphicDispatcher<List<?>> dispatcher = new PolymorphicDispatcher<List<?>>(
 				Collections.singletonList(this),
 				getCreateProposalsPredicate(feature),
-				new PolymorphicDispatcher.NullErrorHandler<List>()) {
+				new PolymorphicDispatcher.NullErrorHandler<List<?>>()) {
 			@Override
-			protected List handleNoSuchMethod(Object... params) {
+			protected List<?> handleNoSuchMethod(Object... params) {
 				if (PolymorphicDispatcher.NullErrorHandler.class
 						.equals(proposals_errorHandler.getClass()))
 					return null;

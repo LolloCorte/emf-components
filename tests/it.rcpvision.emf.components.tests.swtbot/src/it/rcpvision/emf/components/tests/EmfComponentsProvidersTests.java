@@ -4,6 +4,7 @@ import static it.rcpvision.emf.components.examples.library.EXTLibraryPackage.Lit
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
+import it.rcpvision.emf.components.examples.library.Book;
 import it.rcpvision.emf.components.examples.library.EXTLibraryFactory;
 import it.rcpvision.emf.components.examples.library.EXTLibraryPackage;
 import it.rcpvision.emf.components.examples.library.Writer;
@@ -37,7 +38,7 @@ import org.junit.runner.RunWith;
  * 
  */
 @RunWith(SWTBotJunit4ClassRunner.class)
-public class EmfProviderTests extends EmfComponentsCustomLibraryAbstractTests {
+public class EmfComponentsProvidersTests extends EmfComponentsCustomLibraryAbstractTests {
 
 	protected EXTLibraryFactory libFactory = EXTLibraryFactory.eINSTANCE;
 
@@ -80,14 +81,10 @@ public class EmfProviderTests extends EmfComponentsCustomLibraryAbstractTests {
 	}
 
 	@Test
-	public void testLibraryBinding() {
+	public void testFormFeatureControlFactoryMethodWithTwoParams() {
 		final FormFeatureControlFactory bindingFactory = getInjector().getInstance(
 				FormFeatureControlFactory.class);
-		ResourceSet resourceSet = new ResourceSetImpl();
-		Resource resource = resourceSet.createResource(URI
-				.createURI("http:///My.extlibrary"));
-		final Writer writer = EXTLibraryFactory.eINSTANCE.createWriter();
-		resource.getContents().add(writer);
+		final Writer writer = createTestResourceAndWriter();
 		final SWTBotView view = openTestView(LIBRARY_EMF_VIEW);
 		Display.getDefault().syncExec(new Runnable() {
 			public void run() {
@@ -108,6 +105,49 @@ public class EmfProviderTests extends EmfComponentsCustomLibraryAbstractTests {
 			}
 		});
 		closeLibraryView(LIBRARY_EMF_VIEW);
+	}
+
+	@Test
+	public void testFormFeatureControlFactoryMethodWithOneParam() {
+		final FormFeatureControlFactory bindingFactory = getInjector().getInstance(
+				FormFeatureControlFactory.class);
+		final Writer writer = createTestResourceAndWriter();
+		final SWTBotView view = openTestView(LIBRARY_EMF_VIEW);
+		Display.getDefault().syncExec(new Runnable() {
+			public void run() {
+				try {
+					// we need a non-null display and parent so we use
+					// those in the view and in the tree
+					FormToolkit formToolkit = createFormToolkit(view);
+					bindingFactory.init(null, writer,
+							createCompositeParent(view), formToolkit);
+					Control control = bindingFactory
+							.create(EXTLibraryPackage.Literals.WRITER__BOOKS);
+					assertEquals("Test Book 1, Test Book 1",
+							((Label)control).getText());
+				} catch (Exception ex) {
+					fail(ex.getMessage());
+				}
+			}
+		});
+		closeLibraryView(LIBRARY_EMF_VIEW);
+	}
+	
+	protected Writer createTestResourceAndWriter() {
+		ResourceSet resourceSet = new ResourceSetImpl();
+		Resource resource = resourceSet.createResource(URI
+				.createURI("http:///My.extlibrary"));
+		final Writer writer = EXTLibraryFactory.eINSTANCE.createWriter();
+		createTestBook(writer);
+		createTestBook(writer);
+		resource.getContents().add(writer);
+		return writer;
+	}
+
+	protected void createTestBook(Writer writer) {
+		Book book = EXTLibraryFactory.eINSTANCE.createBook();
+		book.setTitle("Test Book 1");
+		writer.getBooks().add(book);
 	}
 
 	@Test
