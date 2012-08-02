@@ -5,7 +5,8 @@ Bundle-SymbolicName: it.rcpvision.emf.components.examples.rap.ui; singleton:=tru
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: it.rcpvision.emf.components.examples.rap.ui.Activator
 Bundle-Vendor: RCP-VISION
-Require-Bundle: org.eclipse.rap.ui,
+Require-Bundle: org.eclipse.rap.ui;resolution:=optional,
+ org.eclipse.ui;resolution:=optional,
  it.rcpvision.emf.components.examples.rap.model;bundle-version="1.0.0",
  it.rcpvision.emf.components.views;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
