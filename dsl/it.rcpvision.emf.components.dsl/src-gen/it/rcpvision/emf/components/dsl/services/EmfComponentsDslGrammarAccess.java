@@ -106,15 +106,18 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		private final RuleCall cPropertyDescriptionProviderPropertyDescriptionProviderParserRuleCall_3_1_0 = (RuleCall)cPropertyDescriptionProviderAssignment_3_1.eContents().get(0);
 		private final Assignment cFeaturesProviderAssignment_3_2 = (Assignment)cUnorderedGroup_3.eContents().get(2);
 		private final RuleCall cFeaturesProviderFeaturesProviderParserRuleCall_3_2_0 = (RuleCall)cFeaturesProviderAssignment_3_2.eContents().get(0);
+		private final Assignment cFormFeatureControlFactoryAssignment_3_3 = (Assignment)cUnorderedGroup_3.eContents().get(3);
+		private final RuleCall cFormFeatureControlFactoryFormFeatureControlFactoryParserRuleCall_3_3_0 = (RuleCall)cFormFeatureControlFactoryAssignment_3_3.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Module:
 		//	"module" name=QualifiedName "{" (labelProvider=LabelProvider? &
-		//	propertyDescriptionProvider=PropertyDescriptionProvider? & featuresProvider=FeaturesProvider?) "}";
+		//	propertyDescriptionProvider=PropertyDescriptionProvider? & featuresProvider=FeaturesProvider? &
+		//	formFeatureControlFactory=FormFeatureControlFactory?) "}";
 		public ParserRule getRule() { return rule; }
 
 		//"module" name=QualifiedName "{" (labelProvider=LabelProvider? & propertyDescriptionProvider=PropertyDescriptionProvider?
-		//& featuresProvider=FeaturesProvider?) "}"
+		//& featuresProvider=FeaturesProvider? & formFeatureControlFactory=FormFeatureControlFactory?) "}"
 		public Group getGroup() { return cGroup; }
 
 		//"module"
@@ -130,7 +133,7 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
 		//labelProvider=LabelProvider? & propertyDescriptionProvider=PropertyDescriptionProvider? &
-		//featuresProvider=FeaturesProvider?
+		//featuresProvider=FeaturesProvider? & formFeatureControlFactory=FormFeatureControlFactory?
 		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
 
 		//labelProvider=LabelProvider?
@@ -150,6 +153,12 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 
 		//FeaturesProvider
 		public RuleCall getFeaturesProviderFeaturesProviderParserRuleCall_3_2_0() { return cFeaturesProviderFeaturesProviderParserRuleCall_3_2_0; }
+
+		//formFeatureControlFactory=FormFeatureControlFactory?
+		public Assignment getFormFeatureControlFactoryAssignment_3_3() { return cFormFeatureControlFactoryAssignment_3_3; }
+
+		//FormFeatureControlFactory
+		public RuleCall getFormFeatureControlFactoryFormFeatureControlFactoryParserRuleCall_3_3_0() { return cFormFeatureControlFactoryFormFeatureControlFactoryParserRuleCall_3_3_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
@@ -484,18 +493,121 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		public RuleCall getFeaturesXFeatureCallParserRuleCall_3_1_0() { return cFeaturesXFeatureCallParserRuleCall_3_1_0; }
 	}
 
+	public class FormFeatureControlFactoryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FormFeatureControlFactory");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cFormFeatureControlFactoryAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cFormFeatureControlFactoryKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cControlsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cControlSpecificationsAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cControlSpecificationsFormFeatureControlSpecificationParserRuleCall_3_2_0 = (RuleCall)cControlSpecificationsAssignment_3_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//FormFeatureControlFactory:
+		//	{FormFeatureControlFactory} "formFeatureControlFactory" "{" ("controls" "{"
+		//	controlSpecifications+=FormFeatureControlSpecification* "}")? "}";
+		public ParserRule getRule() { return rule; }
+
+		//{FormFeatureControlFactory} "formFeatureControlFactory" "{" ("controls" "{"
+		//controlSpecifications+=FormFeatureControlSpecification* "}")? "}"
+		public Group getGroup() { return cGroup; }
+
+		//{FormFeatureControlFactory}
+		public Action getFormFeatureControlFactoryAction_0() { return cFormFeatureControlFactoryAction_0; }
+
+		//"formFeatureControlFactory"
+		public Keyword getFormFeatureControlFactoryKeyword_1() { return cFormFeatureControlFactoryKeyword_1; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
+		//("controls" "{" controlSpecifications+=FormFeatureControlSpecification* "}")?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"controls"
+		public Keyword getControlsKeyword_3_0() { return cControlsKeyword_3_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_3_1() { return cLeftCurlyBracketKeyword_3_1; }
+
+		//controlSpecifications+=FormFeatureControlSpecification*
+		public Assignment getControlSpecificationsAssignment_3_2() { return cControlSpecificationsAssignment_3_2; }
+
+		//FormFeatureControlSpecification
+		public RuleCall getControlSpecificationsFormFeatureControlSpecificationParserRuleCall_3_2_0() { return cControlSpecificationsFormFeatureControlSpecificationParserRuleCall_3_2_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_3_3() { return cRightCurlyBracketKeyword_3_3; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+
+	public class FormFeatureControlSpecificationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FormFeatureControlSpecification");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cParameterTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cParameterTypeJvmTypeCrossReference_0_0 = (CrossReference)cParameterTypeAssignment_0.eContents().get(0);
+		private final RuleCall cParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1 = (RuleCall)cParameterTypeJvmTypeCrossReference_0_0.eContents().get(1);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cFeatureAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cFeatureXFeatureCallParserRuleCall_2_0 = (RuleCall)cFeatureAssignment_2.eContents().get(0);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cExpressionAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cExpressionXExpressionParserRuleCall_4_0 = (RuleCall)cExpressionAssignment_4.eContents().get(0);
+		
+		//FormFeatureControlSpecification:
+		//	parameterType=[types::JvmType|QualifiedName] ":" feature=XFeatureCall "->" expression=XExpression;
+		public ParserRule getRule() { return rule; }
+
+		//parameterType=[types::JvmType|QualifiedName] ":" feature=XFeatureCall "->" expression=XExpression
+		public Group getGroup() { return cGroup; }
+
+		//parameterType=[types::JvmType|QualifiedName]
+		public Assignment getParameterTypeAssignment_0() { return cParameterTypeAssignment_0; }
+
+		//[types::JvmType|QualifiedName]
+		public CrossReference getParameterTypeJvmTypeCrossReference_0_0() { return cParameterTypeJvmTypeCrossReference_0_0; }
+
+		//QualifiedName
+		public RuleCall getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1() { return cParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1; }
+
+		//":"
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+
+		//feature=XFeatureCall
+		public Assignment getFeatureAssignment_2() { return cFeatureAssignment_2; }
+
+		//XFeatureCall
+		public RuleCall getFeatureXFeatureCallParserRuleCall_2_0() { return cFeatureXFeatureCallParserRuleCall_2_0; }
+
+		//"->"
+		public Keyword getHyphenMinusGreaterThanSignKeyword_3() { return cHyphenMinusGreaterThanSignKeyword_3; }
+
+		//expression=XExpression
+		public Assignment getExpressionAssignment_4() { return cExpressionAssignment_4; }
+
+		//XExpression
+		public RuleCall getExpressionXExpressionParserRuleCall_4_0() { return cExpressionXExpressionParserRuleCall_4_0; }
+	}
+
 	public class EmfFeatureAccessElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "EmfFeatureAccess");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cPropertyDescriptionSpecificationParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cFeatureSpecificationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cFormFeatureControlSpecificationParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//// a utility base class for rules which access features of an EClass
 		//EmfFeatureAccess:
-		//	PropertyDescriptionSpecification | FeatureSpecification;
+		//	PropertyDescriptionSpecification | FeatureSpecification | FormFeatureControlSpecification;
 		public ParserRule getRule() { return rule; }
 
-		//PropertyDescriptionSpecification | FeatureSpecification
+		//PropertyDescriptionSpecification | FeatureSpecification | FormFeatureControlSpecification
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//PropertyDescriptionSpecification
@@ -503,6 +615,9 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 
 		//FeatureSpecification
 		public RuleCall getFeatureSpecificationParserRuleCall_1() { return cFeatureSpecificationParserRuleCall_1; }
+
+		//FormFeatureControlSpecification
+		public RuleCall getFormFeatureControlSpecificationParserRuleCall_2() { return cFormFeatureControlSpecificationParserRuleCall_2; }
 	}
 	
 	
@@ -516,6 +631,8 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 	private PropertyDescriptionSpecificationElements pPropertyDescriptionSpecification;
 	private FeaturesProviderElements pFeaturesProvider;
 	private FeatureSpecificationElements pFeatureSpecification;
+	private FormFeatureControlFactoryElements pFormFeatureControlFactory;
+	private FormFeatureControlSpecificationElements pFormFeatureControlSpecification;
 	private EmfFeatureAccessElements pEmfFeatureAccess;
 	
 	private final Grammar grammar;
@@ -588,7 +705,8 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 
 	//Module:
 	//	"module" name=QualifiedName "{" (labelProvider=LabelProvider? &
-	//	propertyDescriptionProvider=PropertyDescriptionProvider? & featuresProvider=FeaturesProvider?) "}";
+	//	propertyDescriptionProvider=PropertyDescriptionProvider? & featuresProvider=FeaturesProvider? &
+	//	formFeatureControlFactory=FormFeatureControlFactory?) "}";
 	public ModuleElements getModuleAccess() {
 		return (pModule != null) ? pModule : (pModule = new ModuleElements());
 	}
@@ -659,9 +777,30 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		return getFeatureSpecificationAccess().getRule();
 	}
 
+	//FormFeatureControlFactory:
+	//	{FormFeatureControlFactory} "formFeatureControlFactory" "{" ("controls" "{"
+	//	controlSpecifications+=FormFeatureControlSpecification* "}")? "}";
+	public FormFeatureControlFactoryElements getFormFeatureControlFactoryAccess() {
+		return (pFormFeatureControlFactory != null) ? pFormFeatureControlFactory : (pFormFeatureControlFactory = new FormFeatureControlFactoryElements());
+	}
+	
+	public ParserRule getFormFeatureControlFactoryRule() {
+		return getFormFeatureControlFactoryAccess().getRule();
+	}
+
+	//FormFeatureControlSpecification:
+	//	parameterType=[types::JvmType|QualifiedName] ":" feature=XFeatureCall "->" expression=XExpression;
+	public FormFeatureControlSpecificationElements getFormFeatureControlSpecificationAccess() {
+		return (pFormFeatureControlSpecification != null) ? pFormFeatureControlSpecification : (pFormFeatureControlSpecification = new FormFeatureControlSpecificationElements());
+	}
+	
+	public ParserRule getFormFeatureControlSpecificationRule() {
+		return getFormFeatureControlSpecificationAccess().getRule();
+	}
+
 	//// a utility base class for rules which access features of an EClass
 	//EmfFeatureAccess:
-	//	PropertyDescriptionSpecification | FeatureSpecification;
+	//	PropertyDescriptionSpecification | FeatureSpecification | FormFeatureControlSpecification;
 	public EmfFeatureAccessElements getEmfFeatureAccessAccess() {
 		return (pEmfFeatureAccess != null) ? pEmfFeatureAccess : (pEmfFeatureAccess = new EmfFeatureAccessElements());
 	}

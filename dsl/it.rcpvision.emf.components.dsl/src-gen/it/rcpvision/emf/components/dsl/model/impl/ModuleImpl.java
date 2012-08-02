@@ -3,6 +3,7 @@
 package it.rcpvision.emf.components.dsl.model.impl;
 
 import it.rcpvision.emf.components.dsl.model.FeaturesProvider;
+import it.rcpvision.emf.components.dsl.model.FormFeatureControlFactory;
 import it.rcpvision.emf.components.dsl.model.LabelProvider;
 import it.rcpvision.emf.components.dsl.model.ModelPackage;
 import it.rcpvision.emf.components.dsl.model.Module;
@@ -28,6 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getLabelProvider <em>Label Provider</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getPropertyDescriptionProvider <em>Property Description Provider</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getFeaturesProvider <em>Features Provider</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getFormFeatureControlFactory <em>Form Feature Control Factory</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,6 +86,16 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
    * @ordered
    */
   protected FeaturesProvider featuresProvider;
+
+  /**
+   * The cached value of the '{@link #getFormFeatureControlFactory() <em>Form Feature Control Factory</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFormFeatureControlFactory()
+   * @generated
+   * @ordered
+   */
+  protected FormFeatureControlFactory formFeatureControlFactory;
 
   /**
    * <!-- begin-user-doc -->
@@ -278,6 +290,54 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
    * <!-- end-user-doc -->
    * @generated
    */
+  public FormFeatureControlFactory getFormFeatureControlFactory()
+  {
+    return formFeatureControlFactory;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFormFeatureControlFactory(FormFeatureControlFactory newFormFeatureControlFactory, NotificationChain msgs)
+  {
+    FormFeatureControlFactory oldFormFeatureControlFactory = formFeatureControlFactory;
+    formFeatureControlFactory = newFormFeatureControlFactory;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.MODULE__FORM_FEATURE_CONTROL_FACTORY, oldFormFeatureControlFactory, newFormFeatureControlFactory);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFormFeatureControlFactory(FormFeatureControlFactory newFormFeatureControlFactory)
+  {
+    if (newFormFeatureControlFactory != formFeatureControlFactory)
+    {
+      NotificationChain msgs = null;
+      if (formFeatureControlFactory != null)
+        msgs = ((InternalEObject)formFeatureControlFactory).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.MODULE__FORM_FEATURE_CONTROL_FACTORY, null, msgs);
+      if (newFormFeatureControlFactory != null)
+        msgs = ((InternalEObject)newFormFeatureControlFactory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.MODULE__FORM_FEATURE_CONTROL_FACTORY, null, msgs);
+      msgs = basicSetFormFeatureControlFactory(newFormFeatureControlFactory, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MODULE__FORM_FEATURE_CONTROL_FACTORY, newFormFeatureControlFactory, newFormFeatureControlFactory));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -289,6 +349,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
         return basicSetPropertyDescriptionProvider(null, msgs);
       case ModelPackage.MODULE__FEATURES_PROVIDER:
         return basicSetFeaturesProvider(null, msgs);
+      case ModelPackage.MODULE__FORM_FEATURE_CONTROL_FACTORY:
+        return basicSetFormFeatureControlFactory(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -311,6 +373,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
         return getPropertyDescriptionProvider();
       case ModelPackage.MODULE__FEATURES_PROVIDER:
         return getFeaturesProvider();
+      case ModelPackage.MODULE__FORM_FEATURE_CONTROL_FACTORY:
+        return getFormFeatureControlFactory();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -336,6 +400,9 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
         return;
       case ModelPackage.MODULE__FEATURES_PROVIDER:
         setFeaturesProvider((FeaturesProvider)newValue);
+        return;
+      case ModelPackage.MODULE__FORM_FEATURE_CONTROL_FACTORY:
+        setFormFeatureControlFactory((FormFeatureControlFactory)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -363,6 +430,9 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
       case ModelPackage.MODULE__FEATURES_PROVIDER:
         setFeaturesProvider((FeaturesProvider)null);
         return;
+      case ModelPackage.MODULE__FORM_FEATURE_CONTROL_FACTORY:
+        setFormFeatureControlFactory((FormFeatureControlFactory)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -385,6 +455,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
         return propertyDescriptionProvider != null;
       case ModelPackage.MODULE__FEATURES_PROVIDER:
         return featuresProvider != null;
+      case ModelPackage.MODULE__FORM_FEATURE_CONTROL_FACTORY:
+        return formFeatureControlFactory != null;
     }
     return super.eIsSet(featureID);
   }

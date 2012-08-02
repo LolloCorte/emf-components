@@ -50,7 +50,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
-    this.assertCorrectJavaCodeGeneration(_emptyModule, _builder, null, null, null);
+    this.assertCorrectJavaCodeGeneration(_emptyModule, _builder, null, null, null, null);
   }
   
   @Test
@@ -107,7 +107,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_emptyLabelProvider, _builder, _builder_1, null, null);
+    this.assertCorrectJavaCodeGeneration(_emptyLabelProvider, _builder, _builder_1, null, null, null);
   }
   
   @Test
@@ -164,7 +164,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_emptyPropertyDescriptionProvider, _builder, _builder_1, null, null);
+    this.assertCorrectJavaCodeGeneration(_emptyPropertyDescriptionProvider, _builder, _builder_1, null, null, null);
   }
   
   @Test
@@ -182,7 +182,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("}");
     _builder.newLine();
     this.assertCorrectJavaCodeGeneration(_emptyLabelSpecifications, 
-      null, _builder, null, null);
+      null, _builder, null, null, null);
   }
   
   @Test
@@ -394,7 +394,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("}");
     _builder.newLine();
     this.assertCorrectJavaCodeGeneration(_labelSpecifications, 
-      null, _builder, null, null);
+      null, _builder, null, null, null);
   }
   
   @Test
@@ -492,7 +492,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_propertyDescriptionSpecifications, _builder, null, _builder_1, null);
+    this.assertCorrectJavaCodeGeneration(_propertyDescriptionSpecifications, _builder, null, _builder_1, null, null);
   }
   
   @Test
@@ -577,10 +577,147 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_featuresSpecifications, _builder, null, null, _builder_1);
+    this.assertCorrectJavaCodeGeneration(_featuresSpecifications, _builder, null, null, _builder_1, null);
   }
   
-  private void assertCorrectJavaCodeGeneration(final CharSequence input, final CharSequence expectedModule, final CharSequence expectedLabelProvider, final CharSequence expectedPropertyDescriptionProvider, final CharSequence expectedFeatureProvider) {
+  @Test
+  public void testFormFeatureControlSpecifications() {
+    CharSequence _formFeatureControlSpecifications = this.inputs.formFeatureControlSpecifications();
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package my.empty;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("import it.rcpvision.emf.components.EmfComponentsGuiceModule;");
+    _builder.newLine();
+    _builder.append("import it.rcpvision.emf.components.binding.FormFeatureControlFactory;");
+    _builder.newLine();
+    _builder.append("import my.empty.binding.FormFeatureControlFactoryGen;");
+    _builder.newLine();
+    _builder.append("import org.eclipse.ui.plugin.AbstractUIPlugin;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("public EmfComponentsGuiceModuleGen(final AbstractUIPlugin plugin) {");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("super(plugin);");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("@Override");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("public Class<? extends FormFeatureControlFactory> bindFormFeatureControlFactory() {");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("return FormFeatureControlFactoryGen.class;");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.append("package my.empty.binding;");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("import it.rcpvision.emf.components.binding.FormFeatureControlFactory;");
+    _builder_1.newLine();
+    _builder_1.append("import it.rcpvision.emf.components.examples.library.Book;");
+    _builder_1.newLine();
+    _builder_1.append("import it.rcpvision.emf.components.examples.library.Library;");
+    _builder_1.newLine();
+    _builder_1.append("import it.rcpvision.emf.components.examples.library.Writer;");
+    _builder_1.newLine();
+    _builder_1.append("import java.util.List;");
+    _builder_1.newLine();
+    _builder_1.append("import org.eclipse.emf.common.util.EList;");
+    _builder_1.newLine();
+    _builder_1.append("import org.eclipse.swt.widgets.Composite;");
+    _builder_1.newLine();
+    _builder_1.append("import org.eclipse.swt.widgets.Control;");
+    _builder_1.newLine();
+    _builder_1.append("import org.eclipse.swt.widgets.Label;");
+    _builder_1.newLine();
+    _builder_1.append("import org.eclipse.ui.forms.widgets.FormToolkit;");
+    _builder_1.newLine();
+    _builder_1.append("import org.eclipse.xtext.xbase.lib.Functions.Function1;");
+    _builder_1.newLine();
+    _builder_1.append("import org.eclipse.xtext.xbase.lib.IterableExtensions;");
+    _builder_1.newLine();
+    _builder_1.append("import org.eclipse.xtext.xbase.lib.ListExtensions;");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("public class FormFeatureControlFactoryGen extends FormFeatureControlFactory {");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("public Control control_Library_name(final Library it) {");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("return null;");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("public Control control_Writer_books(final Writer it) {");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("FormToolkit _toolkit = this.getToolkit();");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("Composite _parent = this.getParent();");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("EList<Book> _books = it.getBooks();");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("final Function1<Book,String> _function = new Function1<Book,String>() {");
+    _builder_1.newLine();
+    _builder_1.append("        ");
+    _builder_1.append("public String apply(final Book it) {");
+    _builder_1.newLine();
+    _builder_1.append("          ");
+    _builder_1.append("String _title = it.getTitle();");
+    _builder_1.newLine();
+    _builder_1.append("          ");
+    _builder_1.append("return _title;");
+    _builder_1.newLine();
+    _builder_1.append("        ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("      ");
+    _builder_1.append("};");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("List<String> _map = ListExtensions.<Book, String>map(_books, _function);");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("String _join = IterableExtensions.join(_map, \", \");");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("Label _createLabel = _toolkit.createLabel(_parent, _join);");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("return _createLabel;");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("}");
+    _builder_1.newLine();
+    this.assertCorrectJavaCodeGeneration(_formFeatureControlSpecifications, _builder, null, null, null, _builder_1);
+  }
+  
+  private void assertCorrectJavaCodeGeneration(final CharSequence input, final CharSequence expectedModule, final CharSequence expectedLabelProvider, final CharSequence expectedPropertyDescriptionProvider, final CharSequence expectedFeatureProvider, final CharSequence expectedFormFeatureControlFactory) {
     final Procedure1<Result> _function = new Procedure1<Result>() {
         public void apply(final Result it) {
           Map<String,CharSequence> _allGeneratedResources = it.getAllGeneratedResources();
@@ -622,9 +759,19 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
                       EmfComponentsDslGeneratorTests.this.assertEqualsStrings(expectedLabelProvider, _value_3);
                     }
                   } else {
-                    CharSequence _value_4 = e.getValue();
-                    String _plus = ("unexpected generated code: " + _value_4);
-                    Assert.fail(_plus);
+                    String _key_4 = e.getKey();
+                    boolean _endsWith_4 = _key_4.endsWith("FormFeatureControlFactoryGen.java");
+                    if (_endsWith_4) {
+                      boolean _notEquals_4 = (!Objects.equal(expectedFormFeatureControlFactory, null));
+                      if (_notEquals_4) {
+                        CharSequence _value_4 = e.getValue();
+                        EmfComponentsDslGeneratorTests.this.assertEqualsStrings(expectedFormFeatureControlFactory, _value_4);
+                      }
+                    } else {
+                      CharSequence _value_5 = e.getValue();
+                      String _plus = ("unexpected generated code: " + _value_5);
+                      Assert.fail(_plus);
+                    }
                   }
                 }
               }

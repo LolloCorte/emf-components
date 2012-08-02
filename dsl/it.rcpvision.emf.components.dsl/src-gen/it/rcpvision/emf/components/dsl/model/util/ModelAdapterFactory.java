@@ -120,6 +120,16 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
         return createFeatureSpecificationAdapter();
       }
       @Override
+      public Adapter caseFormFeatureControlFactory(FormFeatureControlFactory object)
+      {
+        return createFormFeatureControlFactoryAdapter();
+      }
+      @Override
+      public Adapter caseFormFeatureControlSpecification(FormFeatureControlSpecification object)
+      {
+        return createFormFeatureControlSpecificationAdapter();
+      }
+      @Override
       public Adapter caseEmfFeatureAccess(EmfFeatureAccess object)
       {
         return createEmfFeatureAccessAdapter();
@@ -277,6 +287,36 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFeatureSpecificationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.FormFeatureControlFactory <em>Form Feature Control Factory</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see it.rcpvision.emf.components.dsl.model.FormFeatureControlFactory
+   * @generated
+   */
+  public Adapter createFormFeatureControlFactoryAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.FormFeatureControlSpecification <em>Form Feature Control Specification</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see it.rcpvision.emf.components.dsl.model.FormFeatureControlSpecification
+   * @generated
+   */
+  public Adapter createFormFeatureControlSpecificationAdapter()
   {
     return null;
   }

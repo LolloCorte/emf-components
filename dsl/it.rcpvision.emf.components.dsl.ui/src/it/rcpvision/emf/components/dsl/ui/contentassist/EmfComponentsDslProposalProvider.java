@@ -3,9 +3,8 @@
  */
 package it.rcpvision.emf.components.dsl.ui.contentassist;
 
-import it.rcpvision.emf.components.dsl.model.FeatureSpecification;
+import it.rcpvision.emf.components.dsl.model.EmfFeatureAccess;
 import it.rcpvision.emf.components.dsl.model.LabelSpecification;
-import it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.Assignment;
@@ -25,8 +24,7 @@ public class EmfComponentsDslProposalProvider extends
 	public void completeXFeatureCall_Feature(EObject model,
 			Assignment assignment, ContentAssistContext context,
 			ICompletionProposalAcceptor acceptor) {
-		if (model instanceof PropertyDescriptionSpecification
-				|| model instanceof FeatureSpecification) {
+		if (model instanceof EmfFeatureAccess) {
 			createLocalVariableAndImplicitProposals(model, context, acceptor);
 			return;
 		}

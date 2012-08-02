@@ -4,6 +4,8 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 import it.rcpvision.emf.components.dsl.model.FeatureSpecification;
 import it.rcpvision.emf.components.dsl.model.FeaturesProvider;
+import it.rcpvision.emf.components.dsl.model.FormFeatureControlFactory;
+import it.rcpvision.emf.components.dsl.model.FormFeatureControlSpecification;
 import it.rcpvision.emf.components.dsl.model.Import;
 import it.rcpvision.emf.components.dsl.model.LabelProvider;
 import it.rcpvision.emf.components.dsl.model.LabelSpecification;
@@ -80,6 +82,19 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 			case ModelPackage.FEATURES_PROVIDER:
 				if(context == grammarAccess.getFeaturesProviderRule()) {
 					sequence_FeaturesProvider(context, (FeaturesProvider) semanticObject); 
+					return; 
+				}
+				else break;
+			case ModelPackage.FORM_FEATURE_CONTROL_FACTORY:
+				if(context == grammarAccess.getFormFeatureControlFactoryRule()) {
+					sequence_FormFeatureControlFactory(context, (FormFeatureControlFactory) semanticObject); 
+					return; 
+				}
+				else break;
+			case ModelPackage.FORM_FEATURE_CONTROL_SPECIFICATION:
+				if(context == grammarAccess.getEmfFeatureAccessRule() ||
+				   context == grammarAccess.getFormFeatureControlSpecificationRule()) {
+					sequence_FormFeatureControlSpecification(context, (FormFeatureControlSpecification) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1006,6 +1021,37 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (controlSpecifications+=FormFeatureControlSpecification*)
+	 */
+	protected void sequence_FormFeatureControlFactory(EObject context, FormFeatureControlFactory semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (parameterType=[JvmType|QualifiedName] feature=XFeatureCall expression=XExpression)
+	 */
+	protected void sequence_FormFeatureControlSpecification(EObject context, FormFeatureControlSpecification semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.EMF_FEATURE_ACCESS__PARAMETER_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.EMF_FEATURE_ACCESS__PARAMETER_TYPE));
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.FORM_FEATURE_CONTROL_SPECIFICATION__FEATURE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.FORM_FEATURE_CONTROL_SPECIFICATION__FEATURE));
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.FORM_FEATURE_CONTROL_SPECIFICATION__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.FORM_FEATURE_CONTROL_SPECIFICATION__EXPRESSION));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getFormFeatureControlSpecificationAccess().getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1(), semanticObject.getParameterType());
+		feeder.accept(grammarAccess.getFormFeatureControlSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0(), semanticObject.getFeature());
+		feeder.accept(grammarAccess.getFormFeatureControlSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0(), semanticObject.getExpression());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     importedNamespace=QualifiedNameWithWildcard
 	 */
 	protected void sequence_Import(EObject context, Import semanticObject) {
@@ -1049,7 +1095,13 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=QualifiedName labelProvider=LabelProvider? propertyDescriptionProvider=PropertyDescriptionProvider? featuresProvider=FeaturesProvider?)
+	 *     (
+	 *         name=QualifiedName 
+	 *         labelProvider=LabelProvider? 
+	 *         propertyDescriptionProvider=PropertyDescriptionProvider? 
+	 *         featuresProvider=FeaturesProvider? 
+	 *         formFeatureControlFactory=FormFeatureControlFactory?
+	 *     )
 	 */
 	protected void sequence_Module(EObject context, Module semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

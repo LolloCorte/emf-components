@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getLabelProvider <em>Label Provider</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getPropertyDescriptionProvider <em>Property Description Provider</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getFeaturesProvider <em>Features Provider</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getFormFeatureControlFactory <em>Form Feature Control Factory</em>}</li>
  * </ul>
  * </p>
  *
@@ -128,5 +129,31 @@ public interface Module extends EObject
    * @generated
    */
   void setFeaturesProvider(FeaturesProvider value);
+
+  /**
+   * Returns the value of the '<em><b>Form Feature Control Factory</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Form Feature Control Factory</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Form Feature Control Factory</em>' containment reference.
+   * @see #setFormFeatureControlFactory(FormFeatureControlFactory)
+   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getModule_FormFeatureControlFactory()
+   * @model containment="true"
+   * @generated
+   */
+  FormFeatureControlFactory getFormFeatureControlFactory();
+
+  /**
+   * Sets the value of the '{@link it.rcpvision.emf.components.dsl.model.Module#getFormFeatureControlFactory <em>Form Feature Control Factory</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Form Feature Control Factory</em>' containment reference.
+   * @see #getFormFeatureControlFactory()
+   * @generated
+   */
+  void setFormFeatureControlFactory(FormFeatureControlFactory value);
 
 } // Module

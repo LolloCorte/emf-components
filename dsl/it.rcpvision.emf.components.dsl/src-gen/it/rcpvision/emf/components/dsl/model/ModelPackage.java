@@ -168,13 +168,22 @@ public interface ModelPackage extends EPackage
   int MODULE__FEATURES_PROVIDER = 3;
 
   /**
+   * The feature id for the '<em><b>Form Feature Control Factory</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODULE__FORM_FEATURE_CONTROL_FACTORY = 4;
+
+  /**
    * The number of structural features of the '<em>Module</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODULE_FEATURE_COUNT = 4;
+  int MODULE_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.LabelProviderImpl <em>Label Provider</em>}' class.
@@ -295,7 +304,7 @@ public interface ModelPackage extends EPackage
    * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getEmfFeatureAccess()
    * @generated
    */
-  int EMF_FEATURE_ACCESS = 9;
+  int EMF_FEATURE_ACCESS = 11;
 
   /**
    * The feature id for the '<em><b>Parameter Type</b></em>' reference.
@@ -426,6 +435,80 @@ public interface ModelPackage extends EPackage
    */
   int FEATURE_SPECIFICATION_FEATURE_COUNT = EMF_FEATURE_ACCESS_FEATURE_COUNT + 1;
 
+  /**
+   * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.FormFeatureControlFactoryImpl <em>Form Feature Control Factory</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see it.rcpvision.emf.components.dsl.model.impl.FormFeatureControlFactoryImpl
+   * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getFormFeatureControlFactory()
+   * @generated
+   */
+  int FORM_FEATURE_CONTROL_FACTORY = 9;
+
+  /**
+   * The feature id for the '<em><b>Control Specifications</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FORM_FEATURE_CONTROL_FACTORY__CONTROL_SPECIFICATIONS = 0;
+
+  /**
+   * The number of structural features of the '<em>Form Feature Control Factory</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FORM_FEATURE_CONTROL_FACTORY_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.FormFeatureControlSpecificationImpl <em>Form Feature Control Specification</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see it.rcpvision.emf.components.dsl.model.impl.FormFeatureControlSpecificationImpl
+   * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getFormFeatureControlSpecification()
+   * @generated
+   */
+  int FORM_FEATURE_CONTROL_SPECIFICATION = 10;
+
+  /**
+   * The feature id for the '<em><b>Parameter Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FORM_FEATURE_CONTROL_SPECIFICATION__PARAMETER_TYPE = EMF_FEATURE_ACCESS__PARAMETER_TYPE;
+
+  /**
+   * The feature id for the '<em><b>Feature</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FORM_FEATURE_CONTROL_SPECIFICATION__FEATURE = EMF_FEATURE_ACCESS_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FORM_FEATURE_CONTROL_SPECIFICATION__EXPRESSION = EMF_FEATURE_ACCESS_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Form Feature Control Specification</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FORM_FEATURE_CONTROL_SPECIFICATION_FEATURE_COUNT = EMF_FEATURE_ACCESS_FEATURE_COUNT + 2;
+
 
   /**
    * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.Model <em>Model</em>}'.
@@ -533,6 +616,17 @@ public interface ModelPackage extends EPackage
    * @generated
    */
   EReference getModule_FeaturesProvider();
+
+  /**
+   * Returns the meta object for the containment reference '{@link it.rcpvision.emf.components.dsl.model.Module#getFormFeatureControlFactory <em>Form Feature Control Factory</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Form Feature Control Factory</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.Module#getFormFeatureControlFactory()
+   * @see #getModule()
+   * @generated
+   */
+  EReference getModule_FormFeatureControlFactory();
 
   /**
    * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.LabelProvider <em>Label Provider</em>}'.
@@ -705,6 +799,59 @@ public interface ModelPackage extends EPackage
   EReference getFeatureSpecification_Features();
 
   /**
+   * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.FormFeatureControlFactory <em>Form Feature Control Factory</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Form Feature Control Factory</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.FormFeatureControlFactory
+   * @generated
+   */
+  EClass getFormFeatureControlFactory();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link it.rcpvision.emf.components.dsl.model.FormFeatureControlFactory#getControlSpecifications <em>Control Specifications</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Control Specifications</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.FormFeatureControlFactory#getControlSpecifications()
+   * @see #getFormFeatureControlFactory()
+   * @generated
+   */
+  EReference getFormFeatureControlFactory_ControlSpecifications();
+
+  /**
+   * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.FormFeatureControlSpecification <em>Form Feature Control Specification</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Form Feature Control Specification</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.FormFeatureControlSpecification
+   * @generated
+   */
+  EClass getFormFeatureControlSpecification();
+
+  /**
+   * Returns the meta object for the containment reference '{@link it.rcpvision.emf.components.dsl.model.FormFeatureControlSpecification#getFeature <em>Feature</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Feature</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.FormFeatureControlSpecification#getFeature()
+   * @see #getFormFeatureControlSpecification()
+   * @generated
+   */
+  EReference getFormFeatureControlSpecification_Feature();
+
+  /**
+   * Returns the meta object for the containment reference '{@link it.rcpvision.emf.components.dsl.model.FormFeatureControlSpecification#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.FormFeatureControlSpecification#getExpression()
+   * @see #getFormFeatureControlSpecification()
+   * @generated
+   */
+  EReference getFormFeatureControlSpecification_Expression();
+
+  /**
    * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.EmfFeatureAccess <em>Emf Feature Access</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -833,6 +980,14 @@ public interface ModelPackage extends EPackage
      * @generated
      */
     EReference MODULE__FEATURES_PROVIDER = eINSTANCE.getModule_FeaturesProvider();
+
+    /**
+     * The meta object literal for the '<em><b>Form Feature Control Factory</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODULE__FORM_FEATURE_CONTROL_FACTORY = eINSTANCE.getModule_FormFeatureControlFactory();
 
     /**
      * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.LabelProviderImpl <em>Label Provider</em>}' class.
@@ -973,6 +1128,50 @@ public interface ModelPackage extends EPackage
      * @generated
      */
     EReference FEATURE_SPECIFICATION__FEATURES = eINSTANCE.getFeatureSpecification_Features();
+
+    /**
+     * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.FormFeatureControlFactoryImpl <em>Form Feature Control Factory</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see it.rcpvision.emf.components.dsl.model.impl.FormFeatureControlFactoryImpl
+     * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getFormFeatureControlFactory()
+     * @generated
+     */
+    EClass FORM_FEATURE_CONTROL_FACTORY = eINSTANCE.getFormFeatureControlFactory();
+
+    /**
+     * The meta object literal for the '<em><b>Control Specifications</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FORM_FEATURE_CONTROL_FACTORY__CONTROL_SPECIFICATIONS = eINSTANCE.getFormFeatureControlFactory_ControlSpecifications();
+
+    /**
+     * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.FormFeatureControlSpecificationImpl <em>Form Feature Control Specification</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see it.rcpvision.emf.components.dsl.model.impl.FormFeatureControlSpecificationImpl
+     * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getFormFeatureControlSpecification()
+     * @generated
+     */
+    EClass FORM_FEATURE_CONTROL_SPECIFICATION = eINSTANCE.getFormFeatureControlSpecification();
+
+    /**
+     * The meta object literal for the '<em><b>Feature</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FORM_FEATURE_CONTROL_SPECIFICATION__FEATURE = eINSTANCE.getFormFeatureControlSpecification_Feature();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FORM_FEATURE_CONTROL_SPECIFICATION__EXPRESSION = eINSTANCE.getFormFeatureControlSpecification_Expression();
 
     /**
      * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.EmfFeatureAccessImpl <em>Emf Feature Access</em>}' class.

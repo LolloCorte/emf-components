@@ -338,6 +338,36 @@ ruleModule returns [EObject current=null]
 	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getModuleAccess().getUnorderedGroup_3());
 	 				}
  				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 3)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 3);
+	 				}
+					({true}?=>(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getModuleAccess().getFormFeatureControlFactoryFormFeatureControlFactoryParserRuleCall_3_3_0()); 
+	    }
+		lv_formFeatureControlFactory_7_0=ruleFormFeatureControlFactory		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getModuleRule());
+	        }
+       		set(
+       			$current, 
+       			"formFeatureControlFactory",
+        		lv_formFeatureControlFactory_7_0, 
+        		"FormFeatureControlFactory");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getModuleAccess().getUnorderedGroup_3());
+	 				}
+ 				)
 			)  
 
 		)*	
@@ -347,9 +377,9 @@ ruleModule returns [EObject current=null]
 	  getUnorderedGroupHelper().leave(grammarAccess.getModuleAccess().getUnorderedGroup_3());
 	}
 
-)	otherlv_7='}' 
+)	otherlv_8='}' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getModuleAccess().getRightCurlyBracketKeyword_4());
+    	newLeafNode(otherlv_8, grammarAccess.getModuleAccess().getRightCurlyBracketKeyword_4());
     }
 )
 ;
@@ -868,6 +898,155 @@ ruleFeatureSpecification returns [EObject current=null]
 
 )
 ))*)
+;
+
+
+
+
+
+// Entry rule entryRuleFormFeatureControlFactory
+entryRuleFormFeatureControlFactory returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getFormFeatureControlFactoryRule()); }
+	 iv_ruleFormFeatureControlFactory=ruleFormFeatureControlFactory 
+	 { $current=$iv_ruleFormFeatureControlFactory.current; } 
+	 EOF 
+;
+
+// Rule FormFeatureControlFactory
+ruleFormFeatureControlFactory returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getFormFeatureControlFactoryAccess().getFormFeatureControlFactoryAction_0(),
+            $current);
+    }
+)	otherlv_1='formFeatureControlFactory' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getFormFeatureControlFactoryAccess().getFormFeatureControlFactoryKeyword_1());
+    }
+	otherlv_2='{' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getFormFeatureControlFactoryAccess().getLeftCurlyBracketKeyword_2());
+    }
+(	otherlv_3='controls' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getFormFeatureControlFactoryAccess().getControlsKeyword_3_0());
+    }
+	otherlv_4='{' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getFormFeatureControlFactoryAccess().getLeftCurlyBracketKeyword_3_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getFormFeatureControlFactoryAccess().getControlSpecificationsFormFeatureControlSpecificationParserRuleCall_3_2_0()); 
+	    }
+		lv_controlSpecifications_5_0=ruleFormFeatureControlSpecification		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getFormFeatureControlFactoryRule());
+	        }
+       		add(
+       			$current, 
+       			"controlSpecifications",
+        		lv_controlSpecifications_5_0, 
+        		"FormFeatureControlSpecification");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_6='}' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getFormFeatureControlFactoryAccess().getRightCurlyBracketKeyword_3_3());
+    }
+)?	otherlv_7='}' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getFormFeatureControlFactoryAccess().getRightCurlyBracketKeyword_4());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleFormFeatureControlSpecification
+entryRuleFormFeatureControlSpecification returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getFormFeatureControlSpecificationRule()); }
+	 iv_ruleFormFeatureControlSpecification=ruleFormFeatureControlSpecification 
+	 { $current=$iv_ruleFormFeatureControlSpecification.current; } 
+	 EOF 
+;
+
+// Rule FormFeatureControlSpecification
+ruleFormFeatureControlSpecification returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFormFeatureControlSpecificationRule());
+	        }
+        }
+		{ 
+	        newCompositeNode(grammarAccess.getFormFeatureControlSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); 
+	    }
+		ruleQualifiedName		{ 
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_1=':' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getFormFeatureControlSpecificationAccess().getColonKeyword_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getFormFeatureControlSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0()); 
+	    }
+		lv_feature_2_0=ruleXFeatureCall		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getFormFeatureControlSpecificationRule());
+	        }
+       		set(
+       			$current, 
+       			"feature",
+        		lv_feature_2_0, 
+        		"XFeatureCall");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_3='->' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getFormFeatureControlSpecificationAccess().getHyphenMinusGreaterThanSignKeyword_3());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getFormFeatureControlSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0()); 
+	    }
+		lv_expression_4_0=ruleXExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getFormFeatureControlSpecificationRule());
+	        }
+       		set(
+       			$current, 
+       			"expression",
+        		lv_expression_4_0, 
+        		"XExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
 ;
 
 

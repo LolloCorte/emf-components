@@ -19,6 +19,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/labelProvider"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/propertyDescriptionProvider"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/featuresProvider"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/formFeatureControlFactory"/>
     </genClasses>
     <genClasses ecoreClass="EmfComponentsDsl.ecore#//LabelProvider">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//LabelProvider/labelSpecifications"/>
@@ -41,6 +42,13 @@
     </genClasses>
     <genClasses ecoreClass="EmfComponentsDsl.ecore#//FeatureSpecification">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FeatureSpecification/features"/>
+    </genClasses>
+    <genClasses ecoreClass="EmfComponentsDsl.ecore#//FormFeatureControlFactory">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FormFeatureControlFactory/controlSpecifications"/>
+    </genClasses>
+    <genClasses ecoreClass="EmfComponentsDsl.ecore#//FormFeatureControlSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FormFeatureControlSpecification/feature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FormFeatureControlSpecification/expression"/>
     </genClasses>
     <genClasses ecoreClass="EmfComponentsDsl.ecore#//EmfFeatureAccess">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//EmfFeatureAccess/parameterType"/>

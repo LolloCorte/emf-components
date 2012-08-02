@@ -18,6 +18,8 @@ import org.eclipse.xtext.xbase.XFeatureCall
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
+import it.rcpvision.emf.components.binding.FormFeatureControlFactory
+import org.eclipse.swt.widgets.Control
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -74,6 +76,7 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 		val labelProviderClass = element.inferLabelProvider(acceptor)
 		val propertyDescriptionProviderClass = element.inferPropertyDescriptionProvider(acceptor)
 		val featureProviderClass = element.inferFeatureProvider(acceptor)
+		val formFeatureControlFactoryClass = element.inferFormFeatureControlFactory(acceptor)
 		
 		acceptor.accept(moduleClass).initializeLater [
 			documentation = element.documentation
@@ -90,6 +93,8 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 				members += element.propertyDescriptionProvider.genBindMethod(propertyDescriptionProviderClass, typeof(PropertyDescriptionProvider))
 			if (featureProviderClass != null)
 				members += element.featuresProvider.genBindMethod(featureProviderClass, typeof(FeaturesProvider))
+			if (formFeatureControlFactoryClass != null)
+				members += element.formFeatureControlFactory.genBindMethod(formFeatureControlFactoryClass, typeof(FormFeatureControlFactory))
 		]
    	}
    	
@@ -115,6 +120,10 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 
 	def featuresProviderQN(Module element) {
 		element.fullyQualifiedName + ".ui.provider.FeaturesProviderGen"
+	}
+
+	def formFeatureControlFactoryQN(Module element) {
+		element.fullyQualifiedName + ".binding.FormFeatureControlFactoryGen"
 	}
 
 	def inferLabelProvider(Module element, IJvmDeclaredTypeAcceptor acceptor) {
@@ -201,6 +210,7 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 			acceptor.accept(featureProviderClass).initializeLater [
 				superTypes += element.newTypeRef(typeof(FeaturesProvider))
 				
+				documentation = element.featuresProvider.documentation
 				members += element.featuresProvider.
 						toMethod("buildStringMap", Void::TYPE.getTypeForName(element)) [
 					annotations += element.toAnnotation(typeof(Override))
@@ -229,6 +239,44 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 				]
 			]
 			featureProviderClass
+		}
+	}
+
+	def inferFormFeatureControlFactory(Module element, IJvmDeclaredTypeAcceptor acceptor) {
+		if (element.formFeatureControlFactory == null)
+			null
+		else {
+			val formFeatureControlFactoryClass = element.formFeatureControlFactory.toClass(element.formFeatureControlFactoryQN)
+			acceptor.accept(formFeatureControlFactoryClass).initializeLater [
+				superTypes += element.newTypeRef(typeof(FormFeatureControlFactory))
+				
+				documentation = element.formFeatureControlFactory.documentation
+				
+				element.formFeatureControlFactory.controlSpecifications.forEach [
+					controlSpecification |
+					if (controlSpecification.feature != null &&
+						(controlSpecification.feature as XFeatureCall).feature != null
+					) {
+						// associate the method to the expression, not to the whole
+						// labelSpecification, otherwise the 'feature' is logically
+						// contained in a method which should return a string
+						// and the validator would complain
+						members += controlSpecification.expression.toMethod
+						("control_" + 
+								controlSpecification.parameterType.simpleName + "_" +
+								(controlSpecification.feature as XFeatureCall).
+									feature.simpleName.propertyNameForGetterSetterMethod, 
+							element.newTypeRef(typeof(Control))
+						) [
+							parameters += controlSpecification.toParameter(
+								"it", controlSpecification.parameterType.createTypeRef
+							)
+							body = controlSpecification.expression
+						]
+					}
+				]
+			]
+			formFeatureControlFactoryClass
 		}
 	}
 	

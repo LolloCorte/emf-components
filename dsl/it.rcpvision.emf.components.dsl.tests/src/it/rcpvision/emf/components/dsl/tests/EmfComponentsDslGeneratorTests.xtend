@@ -30,7 +30,7 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
     super(plugin);
   }
 }
-''', null, null, null
+''', null, null, null, null
 		)
 	}
 
@@ -63,7 +63,7 @@ import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 
 public class LabelProviderGen extends ViewerLabelProvider {
 }
-''', null, null
+''', null, null, null
 		)
 	}
 
@@ -96,7 +96,7 @@ import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 
 public class PropertyDescriptionProviderGen extends PropertyDescriptionProvider {
 }
-''', null, null
+''', null, null, null
 		)
 	}
 
@@ -111,7 +111,7 @@ import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 
 public class LabelProviderGen extends ViewerLabelProvider {
 }
-''', null, null
+''', null, null, null
 		)
 	}
 
@@ -197,7 +197,7 @@ public class LabelProviderGen extends ViewerLabelProvider {
     return _xifexpression;
   }
 }
-''', null, null
+''', null, null, null
 		)
 	}
 
@@ -245,7 +245,7 @@ public class PropertyDescriptionProviderGen extends PropertyDescriptionProvider 
     return _firstUpper;
   }
 }
-''', null
+''', null, null
 		)
 	}
 
@@ -288,6 +288,70 @@ public class FeaturesProviderGen extends FeaturesProvider {
       "firstName", "lastName", "books");
   }
 }
+''', null
+		)
+	}
+
+	@Test
+	def testFormFeatureControlSpecifications() {
+		inputs.formFeatureControlSpecifications.assertCorrectJavaCodeGeneration(
+'''
+package my.empty;
+
+import it.rcpvision.emf.components.EmfComponentsGuiceModule;
+import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
+import my.empty.binding.FormFeatureControlFactoryGen;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
+
+public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
+  public EmfComponentsGuiceModuleGen(final AbstractUIPlugin plugin) {
+    super(plugin);
+  }
+  
+  @Override
+  public Class<? extends FormFeatureControlFactory> bindFormFeatureControlFactory() {
+    return FormFeatureControlFactoryGen.class;
+  }
+}
+''', null, null, null,
+'''
+package my.empty.binding;
+
+import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
+import it.rcpvision.emf.components.examples.library.Book;
+import it.rcpvision.emf.components.examples.library.Library;
+import it.rcpvision.emf.components.examples.library.Writer;
+import java.util.List;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.ui.forms.widgets.FormToolkit;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
+
+public class FormFeatureControlFactoryGen extends FormFeatureControlFactory {
+  public Control control_Library_name(final Library it) {
+    return null;
+  }
+  
+  public Control control_Writer_books(final Writer it) {
+    FormToolkit _toolkit = this.getToolkit();
+    Composite _parent = this.getParent();
+    EList<Book> _books = it.getBooks();
+    final Function1<Book,String> _function = new Function1<Book,String>() {
+        public String apply(final Book it) {
+          String _title = it.getTitle();
+          return _title;
+        }
+      };
+    List<String> _map = ListExtensions.<Book, String>map(_books, _function);
+    String _join = IterableExtensions.join(_map, ", ");
+    Label _createLabel = _toolkit.createLabel(_parent, _join);
+    return _createLabel;
+  }
+}
 '''
 		)
 	}
@@ -295,7 +359,8 @@ public class FeaturesProviderGen extends FeaturesProvider {
 	def private assertCorrectJavaCodeGeneration(CharSequence input,
 			CharSequence expectedModule, CharSequence expectedLabelProvider, 
 			CharSequence expectedPropertyDescriptionProvider,
-			CharSequence expectedFeatureProvider) {
+			CharSequence expectedFeatureProvider,
+			CharSequence expectedFormFeatureControlFactory) {
 		input.compileAll [
 			for (e : allGeneratedResources.entrySet) {
 				if (e.key.endsWith("ModuleGen.java")) {
@@ -314,6 +379,10 @@ public class FeaturesProviderGen extends FeaturesProvider {
 					// check the expected Java code for the module
 					if (expectedLabelProvider != null)
 						assertEqualsStrings(expectedLabelProvider, e.value)
+				} else if (e.key.endsWith("FormFeatureControlFactoryGen.java")) {
+					// check the expected Java code for the module
+					if (expectedFormFeatureControlFactory != null)
+						assertEqualsStrings(expectedFormFeatureControlFactory, e.value)
 				} else
 					fail("unexpected generated code: " + e.value)
 			}

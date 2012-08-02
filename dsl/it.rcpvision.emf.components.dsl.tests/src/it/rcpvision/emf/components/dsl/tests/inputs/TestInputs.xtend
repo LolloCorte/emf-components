@@ -113,4 +113,22 @@ module my.empty {
 }
 '''
 
+	def formFeatureControlSpecifications()
+'''
+import java.util.*
+import it.rcpvision.emf.components.examples.library.*
+
+module my.empty {
+	formFeatureControlFactory {
+		controls {
+			Library : name -> { }
+			Writer : books -> 
+				toolkit.createLabel(parent, 
+					books.map[title].join(", "))
+		}
+	}
+}
+'''
+
+
 }

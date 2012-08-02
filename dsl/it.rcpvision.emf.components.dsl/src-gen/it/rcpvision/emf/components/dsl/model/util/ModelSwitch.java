@@ -137,6 +137,21 @@ public class ModelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ModelPackage.FORM_FEATURE_CONTROL_FACTORY:
+      {
+        FormFeatureControlFactory formFeatureControlFactory = (FormFeatureControlFactory)theEObject;
+        T result = caseFormFeatureControlFactory(formFeatureControlFactory);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ModelPackage.FORM_FEATURE_CONTROL_SPECIFICATION:
+      {
+        FormFeatureControlSpecification formFeatureControlSpecification = (FormFeatureControlSpecification)theEObject;
+        T result = caseFormFeatureControlSpecification(formFeatureControlSpecification);
+        if (result == null) result = caseEmfFeatureAccess(formFeatureControlSpecification);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ModelPackage.EMF_FEATURE_ACCESS:
       {
         EmfFeatureAccess emfFeatureAccess = (EmfFeatureAccess)theEObject;
@@ -288,6 +303,38 @@ public class ModelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFeatureSpecification(FeatureSpecification object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Form Feature Control Factory</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Form Feature Control Factory</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFormFeatureControlFactory(FormFeatureControlFactory object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Form Feature Control Specification</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Form Feature Control Specification</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFormFeatureControlSpecification(FormFeatureControlSpecification object)
   {
     return null;
   }
