@@ -5,6 +5,7 @@ package it.rcpvision.emf.components.dsl.ui.wizard;
 
 import it.rcpvision.emf.components.dsl.generator.EmfComponentsDslOutputConfigurationProvider;
 import it.rcpvision.emf.components.wizards.NewEmfComponentsProjectSupport;
+import it.rcpvision.emf.components.wizards.gen.EmfComponentsProjectFilesGenerator;
 
 import java.util.List;
 
@@ -24,6 +25,8 @@ public class EmfComponentsDslProjectCreatorCustom extends
 		EmfComponentsDslProjectCreator {
 	static EmfComponentsDslNewProjectFiles filesGenerator = new EmfComponentsDslNewProjectFiles();
 
+	static EmfComponentsProjectFilesGenerator projectFilesGenerator = new EmfComponentsProjectFilesGenerator();
+	
 	@Override
 	protected List<String> getAllFolders() {
 		return ImmutableList.of(SRC_ROOT,
@@ -38,6 +41,14 @@ public class EmfComponentsDslProjectCreatorCustom extends
 		return Lists.newArrayList("com.ibm.icu", "org.eclipse.core.runtime",
 				"org.eclipse.xtext", "org.eclipse.xtext.generator",
 				DSL_GENERATOR_PROJECT_NAME);
+	}
+	
+	@Override
+	protected String getActivatorClassName() {
+		return getProjectInfo().getProjectName()
+				+ "."
+				+ projectFilesGenerator.activatorName(
+						getProjectInfo().getProjectName()).toString();
 	}
 
 	@Override
