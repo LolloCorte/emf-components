@@ -52,7 +52,7 @@ public abstract class AbstractSaveableView extends ViewPart implements
 
 	protected abstract URI createResourceURI();
 
-	private void loadResource(URI uri) {
+	protected void loadResource(URI uri) {
 		resource = resourceLoader.getResource(editingDomain, uri).getResource();
 	}
 
