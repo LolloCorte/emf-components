@@ -36,7 +36,7 @@ public class EditingDomainResourceLoader {
 			exception = e;
 			resource = editingDomain.getResourceSet().getResource(resourceURI,
 					false);
-			if (resource.getContents().isEmpty())
+			if (resource!=null && resource.getContents().isEmpty())
 				emptyResourceInitializer.initialize(resource);
 		}
 
