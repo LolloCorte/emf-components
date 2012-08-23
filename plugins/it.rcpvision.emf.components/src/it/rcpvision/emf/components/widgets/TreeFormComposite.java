@@ -56,13 +56,23 @@ public class TreeFormComposite extends Composite implements IViewerProvider {
 			ViewerInitializer viewerInitializer,
 			FormFactory formFactory,
 			EmfSelectionHelper emfSelectionHelper) {
+		this(parent, style, SWT.VERTICAL, new int[0], viewerInitializer, formFactory, emfSelectionHelper);
+	}
+	
+	
+	public TreeFormComposite(Composite parent, int style, int sashStyle, int[] weights,
+			ViewerInitializer viewerInitializer,
+			FormFactory formFactory,
+			EmfSelectionHelper emfSelectionHelper) {
 		super(parent, style);
 		setLayout(new FillLayout());
 		this.viewerInitializer = viewerInitializer;
 		this.formFactory = formFactory;
 		this.emfSelectionHelper = emfSelectionHelper;
 
-		SashForm sashForm = new SashForm(this, SWT.VERTICAL);
+		SashForm sashForm = new SashForm(this, sashStyle);
+		// Lorenzo: these do not seem to be necessary, and they throw an exception
+		// when used with RAP
 		//GridLayoutFactory.fillDefaults().applyTo(sashForm);
 		//GridDataFactory.fillDefaults().grab(true, true).applyTo(sashForm);
 
@@ -71,6 +81,9 @@ public class TreeFormComposite extends Composite implements IViewerProvider {
 		detail.setLayout(new FillLayout());
 		viewer = createViewer(pagebook);
 		viewer.addSelectionChangedListener(new SelectionChangedListener());
+		if(weights.length>0){
+			sashForm.setWeights(weights);
+		}
 	}
 
 	public StructuredViewer getViewer() {
