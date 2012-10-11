@@ -13178,7 +13178,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
                 int alt39=2;
                 int LA39_0 = input.LA(1);
 
-                if ( (LA39_0==RULE_ID) ) {
+                if ( (LA39_0==RULE_ID||LA39_0==25||LA39_0==62) ) {
                     alt39=1;
                 }
 
@@ -14348,7 +14348,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
                 int alt41=2;
                 int LA41_0 = input.LA(1);
 
-                if ( (LA41_0==RULE_ID) ) {
+                if ( (LA41_0==RULE_ID||LA41_0==25||LA41_0==62) ) {
                     alt41=1;
                 }
 
@@ -15620,7 +15620,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
                 int alt44=2;
                 int LA44_0 = input.LA(1);
 
-                if ( (LA44_0==RULE_ID) ) {
+                if ( (LA44_0==RULE_ID||LA44_0==25||LA44_0==62) ) {
                     alt44=1;
                 }
 
@@ -47000,40 +47000,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PropertyDescriptionSpecification__ParameterTypeAssignment_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16528:1: rule__PropertyDescriptionSpecification__ParameterTypeAssignment_0 : ( ( ruleQualifiedName ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16528:1: rule__PropertyDescriptionSpecification__ParameterTypeAssignment_0 : ( ruleJvmTypeReference ) ;
     public final void rule__PropertyDescriptionSpecification__ParameterTypeAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16532:1: ( ( ( ruleQualifiedName ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16533:1: ( ( ruleQualifiedName ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16532:1: ( ( ruleJvmTypeReference ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16533:1: ( ruleJvmTypeReference )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16533:1: ( ( ruleQualifiedName ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16534:1: ( ruleQualifiedName )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); 
-            }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16535:1: ( ruleQualifiedName )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16536:1: ruleQualifiedName
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16533:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16534:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1()); 
+               before(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); 
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_rule__PropertyDescriptionSpecification__ParameterTypeAssignment_033451);
-            ruleQualifiedName();
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__PropertyDescriptionSpecification__ParameterTypeAssignment_033447);
+            ruleJvmTypeReference();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1()); 
-            }
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); 
+               after(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); 
             }
 
             }
@@ -47057,22 +47045,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PropertyDescriptionSpecification__FeatureAssignment_2"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16547:1: rule__PropertyDescriptionSpecification__FeatureAssignment_2 : ( ruleXFeatureCall ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16543:1: rule__PropertyDescriptionSpecification__FeatureAssignment_2 : ( ruleXFeatureCall ) ;
     public final void rule__PropertyDescriptionSpecification__FeatureAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16551:1: ( ( ruleXFeatureCall ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16552:1: ( ruleXFeatureCall )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16547:1: ( ( ruleXFeatureCall ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16548:1: ( ruleXFeatureCall )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16552:1: ( ruleXFeatureCall )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16553:1: ruleXFeatureCall
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16548:1: ( ruleXFeatureCall )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16549:1: ruleXFeatureCall
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPropertyDescriptionSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleXFeatureCall_in_rule__PropertyDescriptionSpecification__FeatureAssignment_233486);
+            pushFollow(FOLLOW_ruleXFeatureCall_in_rule__PropertyDescriptionSpecification__FeatureAssignment_233478);
             ruleXFeatureCall();
 
             state._fsp--;
@@ -47102,22 +47090,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PropertyDescriptionSpecification__ExpressionAssignment_4"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16562:1: rule__PropertyDescriptionSpecification__ExpressionAssignment_4 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16558:1: rule__PropertyDescriptionSpecification__ExpressionAssignment_4 : ( ruleXExpression ) ;
     public final void rule__PropertyDescriptionSpecification__ExpressionAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16566:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16567:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16562:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16563:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16567:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16568:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16563:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16564:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPropertyDescriptionSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__PropertyDescriptionSpecification__ExpressionAssignment_433517);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__PropertyDescriptionSpecification__ExpressionAssignment_433509);
             ruleXExpression();
 
             state._fsp--;
@@ -47147,22 +47135,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__FeaturesProvider__FeatureSpecificationsAssignment_3_2"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16577:1: rule__FeaturesProvider__FeatureSpecificationsAssignment_3_2 : ( ruleFeatureSpecification ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16573:1: rule__FeaturesProvider__FeatureSpecificationsAssignment_3_2 : ( ruleFeatureSpecification ) ;
     public final void rule__FeaturesProvider__FeatureSpecificationsAssignment_3_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16581:1: ( ( ruleFeatureSpecification ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16582:1: ( ruleFeatureSpecification )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16577:1: ( ( ruleFeatureSpecification ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16578:1: ( ruleFeatureSpecification )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16582:1: ( ruleFeatureSpecification )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16583:1: ruleFeatureSpecification
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16578:1: ( ruleFeatureSpecification )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16579:1: ruleFeatureSpecification
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFeaturesProviderAccess().getFeatureSpecificationsFeatureSpecificationParserRuleCall_3_2_0()); 
             }
-            pushFollow(FOLLOW_ruleFeatureSpecification_in_rule__FeaturesProvider__FeatureSpecificationsAssignment_3_233548);
+            pushFollow(FOLLOW_ruleFeatureSpecification_in_rule__FeaturesProvider__FeatureSpecificationsAssignment_3_233540);
             ruleFeatureSpecification();
 
             state._fsp--;
@@ -47192,40 +47180,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__FeatureSpecification__ParameterTypeAssignment_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16592:1: rule__FeatureSpecification__ParameterTypeAssignment_0 : ( ( ruleQualifiedName ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16588:1: rule__FeatureSpecification__ParameterTypeAssignment_0 : ( ruleJvmTypeReference ) ;
     public final void rule__FeatureSpecification__ParameterTypeAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16596:1: ( ( ( ruleQualifiedName ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16597:1: ( ( ruleQualifiedName ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16592:1: ( ( ruleJvmTypeReference ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16593:1: ( ruleJvmTypeReference )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16597:1: ( ( ruleQualifiedName ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16598:1: ( ruleQualifiedName )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getFeatureSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); 
-            }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16599:1: ( ruleQualifiedName )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16600:1: ruleQualifiedName
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16593:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16594:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFeatureSpecificationAccess().getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1()); 
+               before(grammarAccess.getFeatureSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); 
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_rule__FeatureSpecification__ParameterTypeAssignment_033583);
-            ruleQualifiedName();
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__FeatureSpecification__ParameterTypeAssignment_033571);
+            ruleJvmTypeReference();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFeatureSpecificationAccess().getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1()); 
-            }
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getFeatureSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); 
+               after(grammarAccess.getFeatureSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); 
             }
 
             }
@@ -47249,22 +47225,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__FeatureSpecification__FeaturesAssignment_2"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16611:1: rule__FeatureSpecification__FeaturesAssignment_2 : ( ruleXFeatureCall ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16603:1: rule__FeatureSpecification__FeaturesAssignment_2 : ( ruleXFeatureCall ) ;
     public final void rule__FeatureSpecification__FeaturesAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16615:1: ( ( ruleXFeatureCall ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16616:1: ( ruleXFeatureCall )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16607:1: ( ( ruleXFeatureCall ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16608:1: ( ruleXFeatureCall )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16616:1: ( ruleXFeatureCall )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16617:1: ruleXFeatureCall
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16608:1: ( ruleXFeatureCall )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16609:1: ruleXFeatureCall
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFeatureSpecificationAccess().getFeaturesXFeatureCallParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleXFeatureCall_in_rule__FeatureSpecification__FeaturesAssignment_233618);
+            pushFollow(FOLLOW_ruleXFeatureCall_in_rule__FeatureSpecification__FeaturesAssignment_233602);
             ruleXFeatureCall();
 
             state._fsp--;
@@ -47294,22 +47270,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__FeatureSpecification__FeaturesAssignment_3_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16626:1: rule__FeatureSpecification__FeaturesAssignment_3_1 : ( ruleXFeatureCall ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16618:1: rule__FeatureSpecification__FeaturesAssignment_3_1 : ( ruleXFeatureCall ) ;
     public final void rule__FeatureSpecification__FeaturesAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16630:1: ( ( ruleXFeatureCall ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16631:1: ( ruleXFeatureCall )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16622:1: ( ( ruleXFeatureCall ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16623:1: ( ruleXFeatureCall )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16631:1: ( ruleXFeatureCall )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16632:1: ruleXFeatureCall
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16623:1: ( ruleXFeatureCall )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16624:1: ruleXFeatureCall
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFeatureSpecificationAccess().getFeaturesXFeatureCallParserRuleCall_3_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXFeatureCall_in_rule__FeatureSpecification__FeaturesAssignment_3_133649);
+            pushFollow(FOLLOW_ruleXFeatureCall_in_rule__FeatureSpecification__FeaturesAssignment_3_133633);
             ruleXFeatureCall();
 
             state._fsp--;
@@ -47339,22 +47315,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_2"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16641:1: rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_2 : ( ruleFormFeatureControlSpecification ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16633:1: rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_2 : ( ruleFormFeatureControlSpecification ) ;
     public final void rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16645:1: ( ( ruleFormFeatureControlSpecification ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16646:1: ( ruleFormFeatureControlSpecification )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16637:1: ( ( ruleFormFeatureControlSpecification ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16638:1: ( ruleFormFeatureControlSpecification )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16646:1: ( ruleFormFeatureControlSpecification )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16647:1: ruleFormFeatureControlSpecification
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16638:1: ( ruleFormFeatureControlSpecification )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16639:1: ruleFormFeatureControlSpecification
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFormFeatureControlFactoryAccess().getControlSpecificationsFormFeatureControlSpecificationParserRuleCall_3_2_0()); 
             }
-            pushFollow(FOLLOW_ruleFormFeatureControlSpecification_in_rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_233680);
+            pushFollow(FOLLOW_ruleFormFeatureControlSpecification_in_rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_233664);
             ruleFormFeatureControlSpecification();
 
             state._fsp--;
@@ -47384,40 +47360,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__FormFeatureControlSpecification__ParameterTypeAssignment_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16656:1: rule__FormFeatureControlSpecification__ParameterTypeAssignment_0 : ( ( ruleQualifiedName ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16648:1: rule__FormFeatureControlSpecification__ParameterTypeAssignment_0 : ( ruleJvmTypeReference ) ;
     public final void rule__FormFeatureControlSpecification__ParameterTypeAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16660:1: ( ( ( ruleQualifiedName ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16661:1: ( ( ruleQualifiedName ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16652:1: ( ( ruleJvmTypeReference ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16653:1: ( ruleJvmTypeReference )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16661:1: ( ( ruleQualifiedName ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16662:1: ( ruleQualifiedName )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); 
-            }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16663:1: ( ruleQualifiedName )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16664:1: ruleQualifiedName
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16653:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16654:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlSpecificationAccess().getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1()); 
+               before(grammarAccess.getFormFeatureControlSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); 
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_rule__FormFeatureControlSpecification__ParameterTypeAssignment_033715);
-            ruleQualifiedName();
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__FormFeatureControlSpecification__ParameterTypeAssignment_033695);
+            ruleJvmTypeReference();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlSpecificationAccess().getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1()); 
-            }
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); 
+               after(grammarAccess.getFormFeatureControlSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); 
             }
 
             }
@@ -47441,22 +47405,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__FormFeatureControlSpecification__FeatureAssignment_2"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16675:1: rule__FormFeatureControlSpecification__FeatureAssignment_2 : ( ruleXFeatureCall ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16663:1: rule__FormFeatureControlSpecification__FeatureAssignment_2 : ( ruleXFeatureCall ) ;
     public final void rule__FormFeatureControlSpecification__FeatureAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16679:1: ( ( ruleXFeatureCall ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16680:1: ( ruleXFeatureCall )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16667:1: ( ( ruleXFeatureCall ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16668:1: ( ruleXFeatureCall )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16680:1: ( ruleXFeatureCall )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16681:1: ruleXFeatureCall
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16668:1: ( ruleXFeatureCall )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16669:1: ruleXFeatureCall
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFormFeatureControlSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleXFeatureCall_in_rule__FormFeatureControlSpecification__FeatureAssignment_233750);
+            pushFollow(FOLLOW_ruleXFeatureCall_in_rule__FormFeatureControlSpecification__FeatureAssignment_233726);
             ruleXFeatureCall();
 
             state._fsp--;
@@ -47486,22 +47450,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__FormFeatureControlSpecification__ExpressionAssignment_4"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16690:1: rule__FormFeatureControlSpecification__ExpressionAssignment_4 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16678:1: rule__FormFeatureControlSpecification__ExpressionAssignment_4 : ( ruleXExpression ) ;
     public final void rule__FormFeatureControlSpecification__ExpressionAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16694:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16695:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16682:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16683:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16695:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16696:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16683:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16684:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFormFeatureControlSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__FormFeatureControlSpecification__ExpressionAssignment_433781);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__FormFeatureControlSpecification__ExpressionAssignment_433757);
             ruleXExpression();
 
             state._fsp--;
@@ -47531,22 +47495,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__FormFeatureControlSpecification__TargetAssignment_5_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16705:1: rule__FormFeatureControlSpecification__TargetAssignment_5_1 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16693:1: rule__FormFeatureControlSpecification__TargetAssignment_5_1 : ( ruleXExpression ) ;
     public final void rule__FormFeatureControlSpecification__TargetAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16709:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16710:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16697:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16698:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16710:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16711:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16698:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16699:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFormFeatureControlSpecificationAccess().getTargetXExpressionParserRuleCall_5_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__FormFeatureControlSpecification__TargetAssignment_5_133812);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__FormFeatureControlSpecification__TargetAssignment_5_133788);
             ruleXExpression();
 
             state._fsp--;
@@ -47576,28 +47540,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XAssignment__FeatureAssignment_0_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16720:1: rule__XAssignment__FeatureAssignment_0_1 : ( ( ruleValidID ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16708:1: rule__XAssignment__FeatureAssignment_0_1 : ( ( ruleValidID ) ) ;
     public final void rule__XAssignment__FeatureAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16724:1: ( ( ( ruleValidID ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16725:1: ( ( ruleValidID ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16712:1: ( ( ( ruleValidID ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16713:1: ( ( ruleValidID ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16725:1: ( ( ruleValidID ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16726:1: ( ruleValidID )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16713:1: ( ( ruleValidID ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16714:1: ( ruleValidID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXAssignmentAccess().getFeatureJvmIdentifiableElementCrossReference_0_1_0()); 
             }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16727:1: ( ruleValidID )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16728:1: ruleValidID
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16715:1: ( ruleValidID )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16716:1: ruleValidID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXAssignmentAccess().getFeatureJvmIdentifiableElementValidIDParserRuleCall_0_1_0_1()); 
             }
-            pushFollow(FOLLOW_ruleValidID_in_rule__XAssignment__FeatureAssignment_0_133847);
+            pushFollow(FOLLOW_ruleValidID_in_rule__XAssignment__FeatureAssignment_0_133823);
             ruleValidID();
 
             state._fsp--;
@@ -47633,22 +47597,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XAssignment__ValueAssignment_0_3"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16739:1: rule__XAssignment__ValueAssignment_0_3 : ( ruleXAssignment ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16727:1: rule__XAssignment__ValueAssignment_0_3 : ( ruleXAssignment ) ;
     public final void rule__XAssignment__ValueAssignment_0_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16743:1: ( ( ruleXAssignment ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16744:1: ( ruleXAssignment )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16731:1: ( ( ruleXAssignment ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16732:1: ( ruleXAssignment )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16744:1: ( ruleXAssignment )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16745:1: ruleXAssignment
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16732:1: ( ruleXAssignment )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16733:1: ruleXAssignment
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXAssignmentAccess().getValueXAssignmentParserRuleCall_0_3_0()); 
             }
-            pushFollow(FOLLOW_ruleXAssignment_in_rule__XAssignment__ValueAssignment_0_333882);
+            pushFollow(FOLLOW_ruleXAssignment_in_rule__XAssignment__ValueAssignment_0_333858);
             ruleXAssignment();
 
             state._fsp--;
@@ -47678,28 +47642,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XAssignment__FeatureAssignment_1_1_0_0_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16754:1: rule__XAssignment__FeatureAssignment_1_1_0_0_1 : ( ( ruleOpMultiAssign ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16742:1: rule__XAssignment__FeatureAssignment_1_1_0_0_1 : ( ( ruleOpMultiAssign ) ) ;
     public final void rule__XAssignment__FeatureAssignment_1_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16758:1: ( ( ( ruleOpMultiAssign ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16759:1: ( ( ruleOpMultiAssign ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16746:1: ( ( ( ruleOpMultiAssign ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16747:1: ( ( ruleOpMultiAssign ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16759:1: ( ( ruleOpMultiAssign ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16760:1: ( ruleOpMultiAssign )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16747:1: ( ( ruleOpMultiAssign ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16748:1: ( ruleOpMultiAssign )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXAssignmentAccess().getFeatureJvmIdentifiableElementCrossReference_1_1_0_0_1_0()); 
             }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16761:1: ( ruleOpMultiAssign )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16762:1: ruleOpMultiAssign
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16749:1: ( ruleOpMultiAssign )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16750:1: ruleOpMultiAssign
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXAssignmentAccess().getFeatureJvmIdentifiableElementOpMultiAssignParserRuleCall_1_1_0_0_1_0_1()); 
             }
-            pushFollow(FOLLOW_ruleOpMultiAssign_in_rule__XAssignment__FeatureAssignment_1_1_0_0_133917);
+            pushFollow(FOLLOW_ruleOpMultiAssign_in_rule__XAssignment__FeatureAssignment_1_1_0_0_133893);
             ruleOpMultiAssign();
 
             state._fsp--;
@@ -47735,22 +47699,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XAssignment__RightOperandAssignment_1_1_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16773:1: rule__XAssignment__RightOperandAssignment_1_1_1 : ( ruleXAssignment ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16761:1: rule__XAssignment__RightOperandAssignment_1_1_1 : ( ruleXAssignment ) ;
     public final void rule__XAssignment__RightOperandAssignment_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16777:1: ( ( ruleXAssignment ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16778:1: ( ruleXAssignment )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16765:1: ( ( ruleXAssignment ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16766:1: ( ruleXAssignment )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16778:1: ( ruleXAssignment )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16779:1: ruleXAssignment
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16766:1: ( ruleXAssignment )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16767:1: ruleXAssignment
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXAssignmentAccess().getRightOperandXAssignmentParserRuleCall_1_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXAssignment_in_rule__XAssignment__RightOperandAssignment_1_1_133952);
+            pushFollow(FOLLOW_ruleXAssignment_in_rule__XAssignment__RightOperandAssignment_1_1_133928);
             ruleXAssignment();
 
             state._fsp--;
@@ -47780,28 +47744,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XOrExpression__FeatureAssignment_1_0_0_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16788:1: rule__XOrExpression__FeatureAssignment_1_0_0_1 : ( ( ruleOpOr ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16776:1: rule__XOrExpression__FeatureAssignment_1_0_0_1 : ( ( ruleOpOr ) ) ;
     public final void rule__XOrExpression__FeatureAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16792:1: ( ( ( ruleOpOr ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16793:1: ( ( ruleOpOr ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16780:1: ( ( ( ruleOpOr ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16781:1: ( ( ruleOpOr ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16793:1: ( ( ruleOpOr ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16794:1: ( ruleOpOr )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16781:1: ( ( ruleOpOr ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16782:1: ( ruleOpOr )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXOrExpressionAccess().getFeatureJvmIdentifiableElementCrossReference_1_0_0_1_0()); 
             }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16795:1: ( ruleOpOr )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16796:1: ruleOpOr
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16783:1: ( ruleOpOr )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16784:1: ruleOpOr
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXOrExpressionAccess().getFeatureJvmIdentifiableElementOpOrParserRuleCall_1_0_0_1_0_1()); 
             }
-            pushFollow(FOLLOW_ruleOpOr_in_rule__XOrExpression__FeatureAssignment_1_0_0_133987);
+            pushFollow(FOLLOW_ruleOpOr_in_rule__XOrExpression__FeatureAssignment_1_0_0_133963);
             ruleOpOr();
 
             state._fsp--;
@@ -47837,22 +47801,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XOrExpression__RightOperandAssignment_1_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16807:1: rule__XOrExpression__RightOperandAssignment_1_1 : ( ruleXAndExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16795:1: rule__XOrExpression__RightOperandAssignment_1_1 : ( ruleXAndExpression ) ;
     public final void rule__XOrExpression__RightOperandAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16811:1: ( ( ruleXAndExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16812:1: ( ruleXAndExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16799:1: ( ( ruleXAndExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16800:1: ( ruleXAndExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16812:1: ( ruleXAndExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16813:1: ruleXAndExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16800:1: ( ruleXAndExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16801:1: ruleXAndExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXOrExpressionAccess().getRightOperandXAndExpressionParserRuleCall_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXAndExpression_in_rule__XOrExpression__RightOperandAssignment_1_134022);
+            pushFollow(FOLLOW_ruleXAndExpression_in_rule__XOrExpression__RightOperandAssignment_1_133998);
             ruleXAndExpression();
 
             state._fsp--;
@@ -47882,28 +47846,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XAndExpression__FeatureAssignment_1_0_0_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16822:1: rule__XAndExpression__FeatureAssignment_1_0_0_1 : ( ( ruleOpAnd ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16810:1: rule__XAndExpression__FeatureAssignment_1_0_0_1 : ( ( ruleOpAnd ) ) ;
     public final void rule__XAndExpression__FeatureAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16826:1: ( ( ( ruleOpAnd ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16827:1: ( ( ruleOpAnd ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16814:1: ( ( ( ruleOpAnd ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16815:1: ( ( ruleOpAnd ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16827:1: ( ( ruleOpAnd ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16828:1: ( ruleOpAnd )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16815:1: ( ( ruleOpAnd ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16816:1: ( ruleOpAnd )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXAndExpressionAccess().getFeatureJvmIdentifiableElementCrossReference_1_0_0_1_0()); 
             }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16829:1: ( ruleOpAnd )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16830:1: ruleOpAnd
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16817:1: ( ruleOpAnd )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16818:1: ruleOpAnd
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXAndExpressionAccess().getFeatureJvmIdentifiableElementOpAndParserRuleCall_1_0_0_1_0_1()); 
             }
-            pushFollow(FOLLOW_ruleOpAnd_in_rule__XAndExpression__FeatureAssignment_1_0_0_134057);
+            pushFollow(FOLLOW_ruleOpAnd_in_rule__XAndExpression__FeatureAssignment_1_0_0_134033);
             ruleOpAnd();
 
             state._fsp--;
@@ -47939,22 +47903,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XAndExpression__RightOperandAssignment_1_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16841:1: rule__XAndExpression__RightOperandAssignment_1_1 : ( ruleXEqualityExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16829:1: rule__XAndExpression__RightOperandAssignment_1_1 : ( ruleXEqualityExpression ) ;
     public final void rule__XAndExpression__RightOperandAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16845:1: ( ( ruleXEqualityExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16846:1: ( ruleXEqualityExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16833:1: ( ( ruleXEqualityExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16834:1: ( ruleXEqualityExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16846:1: ( ruleXEqualityExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16847:1: ruleXEqualityExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16834:1: ( ruleXEqualityExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16835:1: ruleXEqualityExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXAndExpressionAccess().getRightOperandXEqualityExpressionParserRuleCall_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXEqualityExpression_in_rule__XAndExpression__RightOperandAssignment_1_134092);
+            pushFollow(FOLLOW_ruleXEqualityExpression_in_rule__XAndExpression__RightOperandAssignment_1_134068);
             ruleXEqualityExpression();
 
             state._fsp--;
@@ -47984,28 +47948,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XEqualityExpression__FeatureAssignment_1_0_0_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16856:1: rule__XEqualityExpression__FeatureAssignment_1_0_0_1 : ( ( ruleOpEquality ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16844:1: rule__XEqualityExpression__FeatureAssignment_1_0_0_1 : ( ( ruleOpEquality ) ) ;
     public final void rule__XEqualityExpression__FeatureAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16860:1: ( ( ( ruleOpEquality ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16861:1: ( ( ruleOpEquality ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16848:1: ( ( ( ruleOpEquality ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16849:1: ( ( ruleOpEquality ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16861:1: ( ( ruleOpEquality ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16862:1: ( ruleOpEquality )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16849:1: ( ( ruleOpEquality ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16850:1: ( ruleOpEquality )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXEqualityExpressionAccess().getFeatureJvmIdentifiableElementCrossReference_1_0_0_1_0()); 
             }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16863:1: ( ruleOpEquality )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16864:1: ruleOpEquality
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16851:1: ( ruleOpEquality )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16852:1: ruleOpEquality
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXEqualityExpressionAccess().getFeatureJvmIdentifiableElementOpEqualityParserRuleCall_1_0_0_1_0_1()); 
             }
-            pushFollow(FOLLOW_ruleOpEquality_in_rule__XEqualityExpression__FeatureAssignment_1_0_0_134127);
+            pushFollow(FOLLOW_ruleOpEquality_in_rule__XEqualityExpression__FeatureAssignment_1_0_0_134103);
             ruleOpEquality();
 
             state._fsp--;
@@ -48041,22 +48005,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XEqualityExpression__RightOperandAssignment_1_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16875:1: rule__XEqualityExpression__RightOperandAssignment_1_1 : ( ruleXRelationalExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16863:1: rule__XEqualityExpression__RightOperandAssignment_1_1 : ( ruleXRelationalExpression ) ;
     public final void rule__XEqualityExpression__RightOperandAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16879:1: ( ( ruleXRelationalExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16880:1: ( ruleXRelationalExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16867:1: ( ( ruleXRelationalExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16868:1: ( ruleXRelationalExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16880:1: ( ruleXRelationalExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16881:1: ruleXRelationalExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16868:1: ( ruleXRelationalExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16869:1: ruleXRelationalExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXEqualityExpressionAccess().getRightOperandXRelationalExpressionParserRuleCall_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXRelationalExpression_in_rule__XEqualityExpression__RightOperandAssignment_1_134162);
+            pushFollow(FOLLOW_ruleXRelationalExpression_in_rule__XEqualityExpression__RightOperandAssignment_1_134138);
             ruleXRelationalExpression();
 
             state._fsp--;
@@ -48086,22 +48050,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XRelationalExpression__TypeAssignment_1_0_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16890:1: rule__XRelationalExpression__TypeAssignment_1_0_1 : ( ruleJvmTypeReference ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16878:1: rule__XRelationalExpression__TypeAssignment_1_0_1 : ( ruleJvmTypeReference ) ;
     public final void rule__XRelationalExpression__TypeAssignment_1_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16894:1: ( ( ruleJvmTypeReference ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16895:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16882:1: ( ( ruleJvmTypeReference ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16883:1: ( ruleJvmTypeReference )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16895:1: ( ruleJvmTypeReference )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16896:1: ruleJvmTypeReference
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16883:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16884:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXRelationalExpressionAccess().getTypeJvmTypeReferenceParserRuleCall_1_0_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XRelationalExpression__TypeAssignment_1_0_134193);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XRelationalExpression__TypeAssignment_1_0_134169);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -48131,28 +48095,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XRelationalExpression__FeatureAssignment_1_1_0_0_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16905:1: rule__XRelationalExpression__FeatureAssignment_1_1_0_0_1 : ( ( ruleOpCompare ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16893:1: rule__XRelationalExpression__FeatureAssignment_1_1_0_0_1 : ( ( ruleOpCompare ) ) ;
     public final void rule__XRelationalExpression__FeatureAssignment_1_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16909:1: ( ( ( ruleOpCompare ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16910:1: ( ( ruleOpCompare ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16897:1: ( ( ( ruleOpCompare ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16898:1: ( ( ruleOpCompare ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16910:1: ( ( ruleOpCompare ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16911:1: ( ruleOpCompare )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16898:1: ( ( ruleOpCompare ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16899:1: ( ruleOpCompare )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXRelationalExpressionAccess().getFeatureJvmIdentifiableElementCrossReference_1_1_0_0_1_0()); 
             }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16912:1: ( ruleOpCompare )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16913:1: ruleOpCompare
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16900:1: ( ruleOpCompare )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16901:1: ruleOpCompare
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXRelationalExpressionAccess().getFeatureJvmIdentifiableElementOpCompareParserRuleCall_1_1_0_0_1_0_1()); 
             }
-            pushFollow(FOLLOW_ruleOpCompare_in_rule__XRelationalExpression__FeatureAssignment_1_1_0_0_134228);
+            pushFollow(FOLLOW_ruleOpCompare_in_rule__XRelationalExpression__FeatureAssignment_1_1_0_0_134204);
             ruleOpCompare();
 
             state._fsp--;
@@ -48188,22 +48152,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XRelationalExpression__RightOperandAssignment_1_1_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16924:1: rule__XRelationalExpression__RightOperandAssignment_1_1_1 : ( ruleXOtherOperatorExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16912:1: rule__XRelationalExpression__RightOperandAssignment_1_1_1 : ( ruleXOtherOperatorExpression ) ;
     public final void rule__XRelationalExpression__RightOperandAssignment_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16928:1: ( ( ruleXOtherOperatorExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16929:1: ( ruleXOtherOperatorExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16916:1: ( ( ruleXOtherOperatorExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16917:1: ( ruleXOtherOperatorExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16929:1: ( ruleXOtherOperatorExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16930:1: ruleXOtherOperatorExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16917:1: ( ruleXOtherOperatorExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16918:1: ruleXOtherOperatorExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXRelationalExpressionAccess().getRightOperandXOtherOperatorExpressionParserRuleCall_1_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXOtherOperatorExpression_in_rule__XRelationalExpression__RightOperandAssignment_1_1_134263);
+            pushFollow(FOLLOW_ruleXOtherOperatorExpression_in_rule__XRelationalExpression__RightOperandAssignment_1_1_134239);
             ruleXOtherOperatorExpression();
 
             state._fsp--;
@@ -48233,28 +48197,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XOtherOperatorExpression__FeatureAssignment_1_0_0_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16939:1: rule__XOtherOperatorExpression__FeatureAssignment_1_0_0_1 : ( ( ruleOpOther ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16927:1: rule__XOtherOperatorExpression__FeatureAssignment_1_0_0_1 : ( ( ruleOpOther ) ) ;
     public final void rule__XOtherOperatorExpression__FeatureAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16943:1: ( ( ( ruleOpOther ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16944:1: ( ( ruleOpOther ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16931:1: ( ( ( ruleOpOther ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16932:1: ( ( ruleOpOther ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16944:1: ( ( ruleOpOther ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16945:1: ( ruleOpOther )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16932:1: ( ( ruleOpOther ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16933:1: ( ruleOpOther )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXOtherOperatorExpressionAccess().getFeatureJvmIdentifiableElementCrossReference_1_0_0_1_0()); 
             }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16946:1: ( ruleOpOther )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16947:1: ruleOpOther
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16934:1: ( ruleOpOther )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16935:1: ruleOpOther
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXOtherOperatorExpressionAccess().getFeatureJvmIdentifiableElementOpOtherParserRuleCall_1_0_0_1_0_1()); 
             }
-            pushFollow(FOLLOW_ruleOpOther_in_rule__XOtherOperatorExpression__FeatureAssignment_1_0_0_134298);
+            pushFollow(FOLLOW_ruleOpOther_in_rule__XOtherOperatorExpression__FeatureAssignment_1_0_0_134274);
             ruleOpOther();
 
             state._fsp--;
@@ -48290,22 +48254,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XOtherOperatorExpression__RightOperandAssignment_1_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16958:1: rule__XOtherOperatorExpression__RightOperandAssignment_1_1 : ( ruleXAdditiveExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16946:1: rule__XOtherOperatorExpression__RightOperandAssignment_1_1 : ( ruleXAdditiveExpression ) ;
     public final void rule__XOtherOperatorExpression__RightOperandAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16962:1: ( ( ruleXAdditiveExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16963:1: ( ruleXAdditiveExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16950:1: ( ( ruleXAdditiveExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16951:1: ( ruleXAdditiveExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16963:1: ( ruleXAdditiveExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16964:1: ruleXAdditiveExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16951:1: ( ruleXAdditiveExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16952:1: ruleXAdditiveExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXOtherOperatorExpressionAccess().getRightOperandXAdditiveExpressionParserRuleCall_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXAdditiveExpression_in_rule__XOtherOperatorExpression__RightOperandAssignment_1_134333);
+            pushFollow(FOLLOW_ruleXAdditiveExpression_in_rule__XOtherOperatorExpression__RightOperandAssignment_1_134309);
             ruleXAdditiveExpression();
 
             state._fsp--;
@@ -48335,28 +48299,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XAdditiveExpression__FeatureAssignment_1_0_0_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16973:1: rule__XAdditiveExpression__FeatureAssignment_1_0_0_1 : ( ( ruleOpAdd ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16961:1: rule__XAdditiveExpression__FeatureAssignment_1_0_0_1 : ( ( ruleOpAdd ) ) ;
     public final void rule__XAdditiveExpression__FeatureAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16977:1: ( ( ( ruleOpAdd ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16978:1: ( ( ruleOpAdd ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16965:1: ( ( ( ruleOpAdd ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16966:1: ( ( ruleOpAdd ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16978:1: ( ( ruleOpAdd ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16979:1: ( ruleOpAdd )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16966:1: ( ( ruleOpAdd ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16967:1: ( ruleOpAdd )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXAdditiveExpressionAccess().getFeatureJvmIdentifiableElementCrossReference_1_0_0_1_0()); 
             }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16980:1: ( ruleOpAdd )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16981:1: ruleOpAdd
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16968:1: ( ruleOpAdd )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16969:1: ruleOpAdd
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXAdditiveExpressionAccess().getFeatureJvmIdentifiableElementOpAddParserRuleCall_1_0_0_1_0_1()); 
             }
-            pushFollow(FOLLOW_ruleOpAdd_in_rule__XAdditiveExpression__FeatureAssignment_1_0_0_134368);
+            pushFollow(FOLLOW_ruleOpAdd_in_rule__XAdditiveExpression__FeatureAssignment_1_0_0_134344);
             ruleOpAdd();
 
             state._fsp--;
@@ -48392,22 +48356,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XAdditiveExpression__RightOperandAssignment_1_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16992:1: rule__XAdditiveExpression__RightOperandAssignment_1_1 : ( ruleXMultiplicativeExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16980:1: rule__XAdditiveExpression__RightOperandAssignment_1_1 : ( ruleXMultiplicativeExpression ) ;
     public final void rule__XAdditiveExpression__RightOperandAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16996:1: ( ( ruleXMultiplicativeExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16997:1: ( ruleXMultiplicativeExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16984:1: ( ( ruleXMultiplicativeExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16985:1: ( ruleXMultiplicativeExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16997:1: ( ruleXMultiplicativeExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16998:1: ruleXMultiplicativeExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16985:1: ( ruleXMultiplicativeExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16986:1: ruleXMultiplicativeExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXAdditiveExpressionAccess().getRightOperandXMultiplicativeExpressionParserRuleCall_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXMultiplicativeExpression_in_rule__XAdditiveExpression__RightOperandAssignment_1_134403);
+            pushFollow(FOLLOW_ruleXMultiplicativeExpression_in_rule__XAdditiveExpression__RightOperandAssignment_1_134379);
             ruleXMultiplicativeExpression();
 
             state._fsp--;
@@ -48437,28 +48401,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XMultiplicativeExpression__FeatureAssignment_1_0_0_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17007:1: rule__XMultiplicativeExpression__FeatureAssignment_1_0_0_1 : ( ( ruleOpMulti ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16995:1: rule__XMultiplicativeExpression__FeatureAssignment_1_0_0_1 : ( ( ruleOpMulti ) ) ;
     public final void rule__XMultiplicativeExpression__FeatureAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17011:1: ( ( ( ruleOpMulti ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17012:1: ( ( ruleOpMulti ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16999:1: ( ( ( ruleOpMulti ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17000:1: ( ( ruleOpMulti ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17012:1: ( ( ruleOpMulti ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17013:1: ( ruleOpMulti )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17000:1: ( ( ruleOpMulti ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17001:1: ( ruleOpMulti )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMultiplicativeExpressionAccess().getFeatureJvmIdentifiableElementCrossReference_1_0_0_1_0()); 
             }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17014:1: ( ruleOpMulti )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17015:1: ruleOpMulti
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17002:1: ( ruleOpMulti )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17003:1: ruleOpMulti
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMultiplicativeExpressionAccess().getFeatureJvmIdentifiableElementOpMultiParserRuleCall_1_0_0_1_0_1()); 
             }
-            pushFollow(FOLLOW_ruleOpMulti_in_rule__XMultiplicativeExpression__FeatureAssignment_1_0_0_134438);
+            pushFollow(FOLLOW_ruleOpMulti_in_rule__XMultiplicativeExpression__FeatureAssignment_1_0_0_134414);
             ruleOpMulti();
 
             state._fsp--;
@@ -48494,22 +48458,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XMultiplicativeExpression__RightOperandAssignment_1_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17026:1: rule__XMultiplicativeExpression__RightOperandAssignment_1_1 : ( ruleXUnaryOperation ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17014:1: rule__XMultiplicativeExpression__RightOperandAssignment_1_1 : ( ruleXUnaryOperation ) ;
     public final void rule__XMultiplicativeExpression__RightOperandAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17030:1: ( ( ruleXUnaryOperation ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17031:1: ( ruleXUnaryOperation )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17018:1: ( ( ruleXUnaryOperation ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17019:1: ( ruleXUnaryOperation )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17031:1: ( ruleXUnaryOperation )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17032:1: ruleXUnaryOperation
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17019:1: ( ruleXUnaryOperation )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17020:1: ruleXUnaryOperation
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMultiplicativeExpressionAccess().getRightOperandXUnaryOperationParserRuleCall_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXUnaryOperation_in_rule__XMultiplicativeExpression__RightOperandAssignment_1_134473);
+            pushFollow(FOLLOW_ruleXUnaryOperation_in_rule__XMultiplicativeExpression__RightOperandAssignment_1_134449);
             ruleXUnaryOperation();
 
             state._fsp--;
@@ -48539,28 +48503,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XUnaryOperation__FeatureAssignment_0_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17041:1: rule__XUnaryOperation__FeatureAssignment_0_1 : ( ( ruleOpUnary ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17029:1: rule__XUnaryOperation__FeatureAssignment_0_1 : ( ( ruleOpUnary ) ) ;
     public final void rule__XUnaryOperation__FeatureAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17045:1: ( ( ( ruleOpUnary ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17046:1: ( ( ruleOpUnary ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17033:1: ( ( ( ruleOpUnary ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17034:1: ( ( ruleOpUnary ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17046:1: ( ( ruleOpUnary ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17047:1: ( ruleOpUnary )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17034:1: ( ( ruleOpUnary ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17035:1: ( ruleOpUnary )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXUnaryOperationAccess().getFeatureJvmIdentifiableElementCrossReference_0_1_0()); 
             }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17048:1: ( ruleOpUnary )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17049:1: ruleOpUnary
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17036:1: ( ruleOpUnary )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17037:1: ruleOpUnary
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXUnaryOperationAccess().getFeatureJvmIdentifiableElementOpUnaryParserRuleCall_0_1_0_1()); 
             }
-            pushFollow(FOLLOW_ruleOpUnary_in_rule__XUnaryOperation__FeatureAssignment_0_134508);
+            pushFollow(FOLLOW_ruleOpUnary_in_rule__XUnaryOperation__FeatureAssignment_0_134484);
             ruleOpUnary();
 
             state._fsp--;
@@ -48596,22 +48560,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XUnaryOperation__OperandAssignment_0_2"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17060:1: rule__XUnaryOperation__OperandAssignment_0_2 : ( ruleXCastedExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17048:1: rule__XUnaryOperation__OperandAssignment_0_2 : ( ruleXCastedExpression ) ;
     public final void rule__XUnaryOperation__OperandAssignment_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17064:1: ( ( ruleXCastedExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17065:1: ( ruleXCastedExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17052:1: ( ( ruleXCastedExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17053:1: ( ruleXCastedExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17065:1: ( ruleXCastedExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17066:1: ruleXCastedExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17053:1: ( ruleXCastedExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17054:1: ruleXCastedExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXUnaryOperationAccess().getOperandXCastedExpressionParserRuleCall_0_2_0()); 
             }
-            pushFollow(FOLLOW_ruleXCastedExpression_in_rule__XUnaryOperation__OperandAssignment_0_234543);
+            pushFollow(FOLLOW_ruleXCastedExpression_in_rule__XUnaryOperation__OperandAssignment_0_234519);
             ruleXCastedExpression();
 
             state._fsp--;
@@ -48641,22 +48605,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XCastedExpression__TypeAssignment_1_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17075:1: rule__XCastedExpression__TypeAssignment_1_1 : ( ruleJvmTypeReference ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17063:1: rule__XCastedExpression__TypeAssignment_1_1 : ( ruleJvmTypeReference ) ;
     public final void rule__XCastedExpression__TypeAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17079:1: ( ( ruleJvmTypeReference ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17080:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17067:1: ( ( ruleJvmTypeReference ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17068:1: ( ruleJvmTypeReference )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17080:1: ( ruleJvmTypeReference )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17081:1: ruleJvmTypeReference
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17068:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17069:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXCastedExpressionAccess().getTypeJvmTypeReferenceParserRuleCall_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XCastedExpression__TypeAssignment_1_134574);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XCastedExpression__TypeAssignment_1_134550);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -48686,28 +48650,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XMemberFeatureCall__FeatureAssignment_1_0_0_0_2"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17090:1: rule__XMemberFeatureCall__FeatureAssignment_1_0_0_0_2 : ( ( ruleValidID ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17078:1: rule__XMemberFeatureCall__FeatureAssignment_1_0_0_0_2 : ( ( ruleValidID ) ) ;
     public final void rule__XMemberFeatureCall__FeatureAssignment_1_0_0_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17094:1: ( ( ( ruleValidID ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17095:1: ( ( ruleValidID ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17082:1: ( ( ( ruleValidID ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17083:1: ( ( ruleValidID ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17095:1: ( ( ruleValidID ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17096:1: ( ruleValidID )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17083:1: ( ( ruleValidID ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17084:1: ( ruleValidID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getFeatureJvmIdentifiableElementCrossReference_1_0_0_0_2_0()); 
             }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17097:1: ( ruleValidID )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17098:1: ruleValidID
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17085:1: ( ruleValidID )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17086:1: ruleValidID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getFeatureJvmIdentifiableElementValidIDParserRuleCall_1_0_0_0_2_0_1()); 
             }
-            pushFollow(FOLLOW_ruleValidID_in_rule__XMemberFeatureCall__FeatureAssignment_1_0_0_0_234609);
+            pushFollow(FOLLOW_ruleValidID_in_rule__XMemberFeatureCall__FeatureAssignment_1_0_0_0_234585);
             ruleValidID();
 
             state._fsp--;
@@ -48743,22 +48707,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XMemberFeatureCall__ValueAssignment_1_0_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17109:1: rule__XMemberFeatureCall__ValueAssignment_1_0_1 : ( ruleXAssignment ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17097:1: rule__XMemberFeatureCall__ValueAssignment_1_0_1 : ( ruleXAssignment ) ;
     public final void rule__XMemberFeatureCall__ValueAssignment_1_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17113:1: ( ( ruleXAssignment ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17114:1: ( ruleXAssignment )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17101:1: ( ( ruleXAssignment ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17102:1: ( ruleXAssignment )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17114:1: ( ruleXAssignment )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17115:1: ruleXAssignment
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17102:1: ( ruleXAssignment )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17103:1: ruleXAssignment
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getValueXAssignmentParserRuleCall_1_0_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXAssignment_in_rule__XMemberFeatureCall__ValueAssignment_1_0_134644);
+            pushFollow(FOLLOW_ruleXAssignment_in_rule__XMemberFeatureCall__ValueAssignment_1_0_134620);
             ruleXAssignment();
 
             state._fsp--;
@@ -48788,28 +48752,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XMemberFeatureCall__NullSafeAssignment_1_1_0_0_1_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17124:1: rule__XMemberFeatureCall__NullSafeAssignment_1_1_0_0_1_1 : ( ( '?.' ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17112:1: rule__XMemberFeatureCall__NullSafeAssignment_1_1_0_0_1_1 : ( ( '?.' ) ) ;
     public final void rule__XMemberFeatureCall__NullSafeAssignment_1_1_0_0_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17128:1: ( ( ( '?.' ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17129:1: ( ( '?.' ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17116:1: ( ( ( '?.' ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17117:1: ( ( '?.' ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17129:1: ( ( '?.' ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17130:1: ( '?.' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getXMemberFeatureCallAccess().getNullSafeQuestionMarkFullStopKeyword_1_1_0_0_1_1_0()); 
-            }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17131:1: ( '?.' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17132:1: '?.'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17117:1: ( ( '?.' ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17118:1: ( '?.' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getNullSafeQuestionMarkFullStopKeyword_1_1_0_0_1_1_0()); 
             }
-            match(input,83,FOLLOW_83_in_rule__XMemberFeatureCall__NullSafeAssignment_1_1_0_0_1_134680); if (state.failed) return ;
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17119:1: ( '?.' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17120:1: '?.'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getXMemberFeatureCallAccess().getNullSafeQuestionMarkFullStopKeyword_1_1_0_0_1_1_0()); 
+            }
+            match(input,83,FOLLOW_83_in_rule__XMemberFeatureCall__NullSafeAssignment_1_1_0_0_1_134656); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getXMemberFeatureCallAccess().getNullSafeQuestionMarkFullStopKeyword_1_1_0_0_1_1_0()); 
             }
@@ -48841,28 +48805,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XMemberFeatureCall__SpreadingAssignment_1_1_0_0_1_2"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17147:1: rule__XMemberFeatureCall__SpreadingAssignment_1_1_0_0_1_2 : ( ( '*.' ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17135:1: rule__XMemberFeatureCall__SpreadingAssignment_1_1_0_0_1_2 : ( ( '*.' ) ) ;
     public final void rule__XMemberFeatureCall__SpreadingAssignment_1_1_0_0_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17151:1: ( ( ( '*.' ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17152:1: ( ( '*.' ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17139:1: ( ( ( '*.' ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17140:1: ( ( '*.' ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17152:1: ( ( '*.' ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17153:1: ( '*.' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getXMemberFeatureCallAccess().getSpreadingAsteriskFullStopKeyword_1_1_0_0_1_2_0()); 
-            }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17154:1: ( '*.' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17155:1: '*.'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17140:1: ( ( '*.' ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17141:1: ( '*.' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getSpreadingAsteriskFullStopKeyword_1_1_0_0_1_2_0()); 
             }
-            match(input,84,FOLLOW_84_in_rule__XMemberFeatureCall__SpreadingAssignment_1_1_0_0_1_234724); if (state.failed) return ;
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17142:1: ( '*.' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17143:1: '*.'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getXMemberFeatureCallAccess().getSpreadingAsteriskFullStopKeyword_1_1_0_0_1_2_0()); 
+            }
+            match(input,84,FOLLOW_84_in_rule__XMemberFeatureCall__SpreadingAssignment_1_1_0_0_1_234700); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getXMemberFeatureCallAccess().getSpreadingAsteriskFullStopKeyword_1_1_0_0_1_2_0()); 
             }
@@ -48894,22 +48858,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17170:1: rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_1 : ( ruleJvmArgumentTypeReference ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17158:1: rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_1 : ( ruleJvmArgumentTypeReference ) ;
     public final void rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17174:1: ( ( ruleJvmArgumentTypeReference ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17175:1: ( ruleJvmArgumentTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17162:1: ( ( ruleJvmArgumentTypeReference ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17163:1: ( ruleJvmArgumentTypeReference )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17175:1: ( ruleJvmArgumentTypeReference )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17176:1: ruleJvmArgumentTypeReference
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17163:1: ( ruleJvmArgumentTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17164:1: ruleJvmArgumentTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getTypeArgumentsJvmArgumentTypeReferenceParserRuleCall_1_1_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_134763);
+            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_134739);
             ruleJvmArgumentTypeReference();
 
             state._fsp--;
@@ -48939,22 +48903,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_2_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17185:1: rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_2_1 : ( ruleJvmArgumentTypeReference ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17173:1: rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_2_1 : ( ruleJvmArgumentTypeReference ) ;
     public final void rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17189:1: ( ( ruleJvmArgumentTypeReference ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17190:1: ( ruleJvmArgumentTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17177:1: ( ( ruleJvmArgumentTypeReference ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17178:1: ( ruleJvmArgumentTypeReference )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17190:1: ( ruleJvmArgumentTypeReference )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17191:1: ruleJvmArgumentTypeReference
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17178:1: ( ruleJvmArgumentTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17179:1: ruleJvmArgumentTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getTypeArgumentsJvmArgumentTypeReferenceParserRuleCall_1_1_1_2_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_2_134794);
+            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_2_134770);
             ruleJvmArgumentTypeReference();
 
             state._fsp--;
@@ -48984,28 +48948,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XMemberFeatureCall__FeatureAssignment_1_1_2"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17200:1: rule__XMemberFeatureCall__FeatureAssignment_1_1_2 : ( ( ruleValidID ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17188:1: rule__XMemberFeatureCall__FeatureAssignment_1_1_2 : ( ( ruleValidID ) ) ;
     public final void rule__XMemberFeatureCall__FeatureAssignment_1_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17204:1: ( ( ( ruleValidID ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17205:1: ( ( ruleValidID ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17192:1: ( ( ( ruleValidID ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17193:1: ( ( ruleValidID ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17205:1: ( ( ruleValidID ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17206:1: ( ruleValidID )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17193:1: ( ( ruleValidID ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17194:1: ( ruleValidID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getFeatureJvmIdentifiableElementCrossReference_1_1_2_0()); 
             }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17207:1: ( ruleValidID )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17208:1: ruleValidID
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17195:1: ( ruleValidID )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17196:1: ruleValidID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getFeatureJvmIdentifiableElementValidIDParserRuleCall_1_1_2_0_1()); 
             }
-            pushFollow(FOLLOW_ruleValidID_in_rule__XMemberFeatureCall__FeatureAssignment_1_1_234829);
+            pushFollow(FOLLOW_ruleValidID_in_rule__XMemberFeatureCall__FeatureAssignment_1_1_234805);
             ruleValidID();
 
             state._fsp--;
@@ -49041,28 +49005,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XMemberFeatureCall__ExplicitOperationCallAssignment_1_1_3_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17219:1: rule__XMemberFeatureCall__ExplicitOperationCallAssignment_1_1_3_0 : ( ( '(' ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17207:1: rule__XMemberFeatureCall__ExplicitOperationCallAssignment_1_1_3_0 : ( ( '(' ) ) ;
     public final void rule__XMemberFeatureCall__ExplicitOperationCallAssignment_1_1_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17223:1: ( ( ( '(' ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17224:1: ( ( '(' ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17211:1: ( ( ( '(' ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17212:1: ( ( '(' ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17224:1: ( ( '(' ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17225:1: ( '(' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getXMemberFeatureCallAccess().getExplicitOperationCallLeftParenthesisKeyword_1_1_3_0_0()); 
-            }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17226:1: ( '(' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17227:1: '('
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17212:1: ( ( '(' ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17213:1: ( '(' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getExplicitOperationCallLeftParenthesisKeyword_1_1_3_0_0()); 
             }
-            match(input,62,FOLLOW_62_in_rule__XMemberFeatureCall__ExplicitOperationCallAssignment_1_1_3_034869); if (state.failed) return ;
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17214:1: ( '(' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17215:1: '('
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getXMemberFeatureCallAccess().getExplicitOperationCallLeftParenthesisKeyword_1_1_3_0_0()); 
+            }
+            match(input,62,FOLLOW_62_in_rule__XMemberFeatureCall__ExplicitOperationCallAssignment_1_1_3_034845); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getXMemberFeatureCallAccess().getExplicitOperationCallLeftParenthesisKeyword_1_1_3_0_0()); 
             }
@@ -49094,22 +49058,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17242:1: rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_0 : ( ruleXShortClosure ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17230:1: rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_0 : ( ruleXShortClosure ) ;
     public final void rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17246:1: ( ( ruleXShortClosure ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17247:1: ( ruleXShortClosure )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17234:1: ( ( ruleXShortClosure ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17235:1: ( ruleXShortClosure )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17247:1: ( ruleXShortClosure )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17248:1: ruleXShortClosure
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17235:1: ( ruleXShortClosure )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17236:1: ruleXShortClosure
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getMemberCallArgumentsXShortClosureParserRuleCall_1_1_3_1_0_0()); 
             }
-            pushFollow(FOLLOW_ruleXShortClosure_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_034908);
+            pushFollow(FOLLOW_ruleXShortClosure_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_034884);
             ruleXShortClosure();
 
             state._fsp--;
@@ -49139,22 +49103,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17257:1: rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_0 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17245:1: rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_0 : ( ruleXExpression ) ;
     public final void rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17261:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17262:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17249:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17250:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17262:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17263:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17250:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17251:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getMemberCallArgumentsXExpressionParserRuleCall_1_1_3_1_1_0_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_034939);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_034915);
             ruleXExpression();
 
             state._fsp--;
@@ -49184,22 +49148,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_1_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17272:1: rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_1_1 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17260:1: rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_1_1 : ( ruleXExpression ) ;
     public final void rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17276:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17277:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17264:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17265:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17277:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17278:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17265:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17266:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getMemberCallArgumentsXExpressionParserRuleCall_1_1_3_1_1_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_1_134970);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_1_134946);
             ruleXExpression();
 
             state._fsp--;
@@ -49229,22 +49193,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_4"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17287:1: rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_4 : ( ruleXClosure ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17275:1: rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_4 : ( ruleXClosure ) ;
     public final void rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17291:1: ( ( ruleXClosure ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17292:1: ( ruleXClosure )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17279:1: ( ( ruleXClosure ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17280:1: ( ruleXClosure )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17292:1: ( ruleXClosure )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17293:1: ruleXClosure
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17280:1: ( ruleXClosure )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17281:1: ruleXClosure
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXMemberFeatureCallAccess().getMemberCallArgumentsXClosureParserRuleCall_1_1_4_0()); 
             }
-            pushFollow(FOLLOW_ruleXClosure_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_435001);
+            pushFollow(FOLLOW_ruleXClosure_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_434977);
             ruleXClosure();
 
             state._fsp--;
@@ -49274,22 +49238,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17302:1: rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_0 : ( ruleJvmFormalParameter ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17290:1: rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_0 : ( ruleJvmFormalParameter ) ;
     public final void rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17306:1: ( ( ruleJvmFormalParameter ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17307:1: ( ruleJvmFormalParameter )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17294:1: ( ( ruleJvmFormalParameter ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17295:1: ( ruleJvmFormalParameter )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17307:1: ( ruleJvmFormalParameter )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17308:1: ruleJvmFormalParameter
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17295:1: ( ruleJvmFormalParameter )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17296:1: ruleJvmFormalParameter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXClosureAccess().getDeclaredFormalParametersJvmFormalParameterParserRuleCall_1_0_0_0_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_035032);
+            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_035008);
             ruleJvmFormalParameter();
 
             state._fsp--;
@@ -49319,22 +49283,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_1_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17317:1: rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_1_1 : ( ruleJvmFormalParameter ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17305:1: rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_1_1 : ( ruleJvmFormalParameter ) ;
     public final void rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17321:1: ( ( ruleJvmFormalParameter ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17322:1: ( ruleJvmFormalParameter )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17309:1: ( ( ruleJvmFormalParameter ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17310:1: ( ruleJvmFormalParameter )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17322:1: ( ruleJvmFormalParameter )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17323:1: ruleJvmFormalParameter
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17310:1: ( ruleJvmFormalParameter )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17311:1: ruleJvmFormalParameter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXClosureAccess().getDeclaredFormalParametersJvmFormalParameterParserRuleCall_1_0_0_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_1_135063);
+            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_1_135039);
             ruleJvmFormalParameter();
 
             state._fsp--;
@@ -49364,28 +49328,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XClosure__ExplicitSyntaxAssignment_1_0_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17332:1: rule__XClosure__ExplicitSyntaxAssignment_1_0_1 : ( ( '|' ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17320:1: rule__XClosure__ExplicitSyntaxAssignment_1_0_1 : ( ( '|' ) ) ;
     public final void rule__XClosure__ExplicitSyntaxAssignment_1_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17336:1: ( ( ( '|' ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17337:1: ( ( '|' ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17324:1: ( ( ( '|' ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17325:1: ( ( '|' ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17337:1: ( ( '|' ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17338:1: ( '|' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getXClosureAccess().getExplicitSyntaxVerticalLineKeyword_1_0_1_0()); 
-            }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17339:1: ( '|' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17340:1: '|'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17325:1: ( ( '|' ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17326:1: ( '|' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXClosureAccess().getExplicitSyntaxVerticalLineKeyword_1_0_1_0()); 
             }
-            match(input,85,FOLLOW_85_in_rule__XClosure__ExplicitSyntaxAssignment_1_0_135099); if (state.failed) return ;
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17327:1: ( '|' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17328:1: '|'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getXClosureAccess().getExplicitSyntaxVerticalLineKeyword_1_0_1_0()); 
+            }
+            match(input,85,FOLLOW_85_in_rule__XClosure__ExplicitSyntaxAssignment_1_0_135075); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getXClosureAccess().getExplicitSyntaxVerticalLineKeyword_1_0_1_0()); 
             }
@@ -49417,22 +49381,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XClosure__ExpressionAssignment_2"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17355:1: rule__XClosure__ExpressionAssignment_2 : ( ruleXExpressionInClosure ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17343:1: rule__XClosure__ExpressionAssignment_2 : ( ruleXExpressionInClosure ) ;
     public final void rule__XClosure__ExpressionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17359:1: ( ( ruleXExpressionInClosure ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17360:1: ( ruleXExpressionInClosure )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17347:1: ( ( ruleXExpressionInClosure ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17348:1: ( ruleXExpressionInClosure )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17360:1: ( ruleXExpressionInClosure )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17361:1: ruleXExpressionInClosure
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17348:1: ( ruleXExpressionInClosure )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17349:1: ruleXExpressionInClosure
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXClosureAccess().getExpressionXExpressionInClosureParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpressionInClosure_in_rule__XClosure__ExpressionAssignment_235138);
+            pushFollow(FOLLOW_ruleXExpressionInClosure_in_rule__XClosure__ExpressionAssignment_235114);
             ruleXExpressionInClosure();
 
             state._fsp--;
@@ -49462,22 +49426,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XExpressionInClosure__ExpressionsAssignment_1_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17370:1: rule__XExpressionInClosure__ExpressionsAssignment_1_0 : ( ruleXExpressionInsideBlock ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17358:1: rule__XExpressionInClosure__ExpressionsAssignment_1_0 : ( ruleXExpressionInsideBlock ) ;
     public final void rule__XExpressionInClosure__ExpressionsAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17374:1: ( ( ruleXExpressionInsideBlock ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17375:1: ( ruleXExpressionInsideBlock )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17362:1: ( ( ruleXExpressionInsideBlock ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17363:1: ( ruleXExpressionInsideBlock )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17375:1: ( ruleXExpressionInsideBlock )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17376:1: ruleXExpressionInsideBlock
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17363:1: ( ruleXExpressionInsideBlock )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17364:1: ruleXExpressionInsideBlock
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXExpressionInClosureAccess().getExpressionsXExpressionInsideBlockParserRuleCall_1_0_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpressionInsideBlock_in_rule__XExpressionInClosure__ExpressionsAssignment_1_035169);
+            pushFollow(FOLLOW_ruleXExpressionInsideBlock_in_rule__XExpressionInClosure__ExpressionsAssignment_1_035145);
             ruleXExpressionInsideBlock();
 
             state._fsp--;
@@ -49507,22 +49471,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17385:1: rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_0 : ( ruleJvmFormalParameter ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17373:1: rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_0 : ( ruleJvmFormalParameter ) ;
     public final void rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17389:1: ( ( ruleJvmFormalParameter ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17390:1: ( ruleJvmFormalParameter )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17377:1: ( ( ruleJvmFormalParameter ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17378:1: ( ruleJvmFormalParameter )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17390:1: ( ruleJvmFormalParameter )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17391:1: ruleJvmFormalParameter
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17378:1: ( ruleJvmFormalParameter )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17379:1: ruleJvmFormalParameter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXShortClosureAccess().getDeclaredFormalParametersJvmFormalParameterParserRuleCall_0_0_1_0_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_035200);
+            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_035176);
             ruleJvmFormalParameter();
 
             state._fsp--;
@@ -49552,22 +49516,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_1_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17400:1: rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_1_1 : ( ruleJvmFormalParameter ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17388:1: rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_1_1 : ( ruleJvmFormalParameter ) ;
     public final void rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17404:1: ( ( ruleJvmFormalParameter ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17405:1: ( ruleJvmFormalParameter )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17392:1: ( ( ruleJvmFormalParameter ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17393:1: ( ruleJvmFormalParameter )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17405:1: ( ruleJvmFormalParameter )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17406:1: ruleJvmFormalParameter
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17393:1: ( ruleJvmFormalParameter )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17394:1: ruleJvmFormalParameter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXShortClosureAccess().getDeclaredFormalParametersJvmFormalParameterParserRuleCall_0_0_1_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_1_135231);
+            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_1_135207);
             ruleJvmFormalParameter();
 
             state._fsp--;
@@ -49597,28 +49561,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XShortClosure__ExplicitSyntaxAssignment_0_0_2"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17415:1: rule__XShortClosure__ExplicitSyntaxAssignment_0_0_2 : ( ( '|' ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17403:1: rule__XShortClosure__ExplicitSyntaxAssignment_0_0_2 : ( ( '|' ) ) ;
     public final void rule__XShortClosure__ExplicitSyntaxAssignment_0_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17419:1: ( ( ( '|' ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17420:1: ( ( '|' ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17407:1: ( ( ( '|' ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17408:1: ( ( '|' ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17420:1: ( ( '|' ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17421:1: ( '|' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getXShortClosureAccess().getExplicitSyntaxVerticalLineKeyword_0_0_2_0()); 
-            }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17422:1: ( '|' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17423:1: '|'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17408:1: ( ( '|' ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17409:1: ( '|' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXShortClosureAccess().getExplicitSyntaxVerticalLineKeyword_0_0_2_0()); 
             }
-            match(input,85,FOLLOW_85_in_rule__XShortClosure__ExplicitSyntaxAssignment_0_0_235267); if (state.failed) return ;
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17410:1: ( '|' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17411:1: '|'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getXShortClosureAccess().getExplicitSyntaxVerticalLineKeyword_0_0_2_0()); 
+            }
+            match(input,85,FOLLOW_85_in_rule__XShortClosure__ExplicitSyntaxAssignment_0_0_235243); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getXShortClosureAccess().getExplicitSyntaxVerticalLineKeyword_0_0_2_0()); 
             }
@@ -49650,22 +49614,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XShortClosure__ExpressionAssignment_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17438:1: rule__XShortClosure__ExpressionAssignment_1 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17426:1: rule__XShortClosure__ExpressionAssignment_1 : ( ruleXExpression ) ;
     public final void rule__XShortClosure__ExpressionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17442:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17443:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17430:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17431:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17443:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17444:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17431:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17432:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXShortClosureAccess().getExpressionXExpressionParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XShortClosure__ExpressionAssignment_135306);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XShortClosure__ExpressionAssignment_135282);
             ruleXExpression();
 
             state._fsp--;
@@ -49695,22 +49659,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XIfExpression__IfAssignment_3"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17453:1: rule__XIfExpression__IfAssignment_3 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17441:1: rule__XIfExpression__IfAssignment_3 : ( ruleXExpression ) ;
     public final void rule__XIfExpression__IfAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17457:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17458:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17445:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17446:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17458:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17459:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17446:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17447:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXIfExpressionAccess().getIfXExpressionParserRuleCall_3_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XIfExpression__IfAssignment_335337);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XIfExpression__IfAssignment_335313);
             ruleXExpression();
 
             state._fsp--;
@@ -49740,22 +49704,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XIfExpression__ThenAssignment_5"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17468:1: rule__XIfExpression__ThenAssignment_5 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17456:1: rule__XIfExpression__ThenAssignment_5 : ( ruleXExpression ) ;
     public final void rule__XIfExpression__ThenAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17472:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17473:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17460:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17461:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17473:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17474:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17461:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17462:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXIfExpressionAccess().getThenXExpressionParserRuleCall_5_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XIfExpression__ThenAssignment_535368);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XIfExpression__ThenAssignment_535344);
             ruleXExpression();
 
             state._fsp--;
@@ -49785,22 +49749,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XIfExpression__ElseAssignment_6_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17483:1: rule__XIfExpression__ElseAssignment_6_1 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17471:1: rule__XIfExpression__ElseAssignment_6_1 : ( ruleXExpression ) ;
     public final void rule__XIfExpression__ElseAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17487:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17488:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17475:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17476:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17488:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17489:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17476:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17477:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXIfExpressionAccess().getElseXExpressionParserRuleCall_6_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XIfExpression__ElseAssignment_6_135399);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XIfExpression__ElseAssignment_6_135375);
             ruleXExpression();
 
             state._fsp--;
@@ -49830,22 +49794,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XSwitchExpression__LocalVarNameAssignment_2_0_0_0_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17498:1: rule__XSwitchExpression__LocalVarNameAssignment_2_0_0_0_0 : ( ruleValidID ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17486:1: rule__XSwitchExpression__LocalVarNameAssignment_2_0_0_0_0 : ( ruleValidID ) ;
     public final void rule__XSwitchExpression__LocalVarNameAssignment_2_0_0_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17502:1: ( ( ruleValidID ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17503:1: ( ruleValidID )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17490:1: ( ( ruleValidID ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17491:1: ( ruleValidID )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17503:1: ( ruleValidID )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17504:1: ruleValidID
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17491:1: ( ruleValidID )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17492:1: ruleValidID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXSwitchExpressionAccess().getLocalVarNameValidIDParserRuleCall_2_0_0_0_0_0()); 
             }
-            pushFollow(FOLLOW_ruleValidID_in_rule__XSwitchExpression__LocalVarNameAssignment_2_0_0_0_035430);
+            pushFollow(FOLLOW_ruleValidID_in_rule__XSwitchExpression__LocalVarNameAssignment_2_0_0_0_035406);
             ruleValidID();
 
             state._fsp--;
@@ -49875,22 +49839,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XSwitchExpression__SwitchAssignment_2_0_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17513:1: rule__XSwitchExpression__SwitchAssignment_2_0_1 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17501:1: rule__XSwitchExpression__SwitchAssignment_2_0_1 : ( ruleXExpression ) ;
     public final void rule__XSwitchExpression__SwitchAssignment_2_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17517:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17518:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17505:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17506:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17518:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17519:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17506:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17507:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXSwitchExpressionAccess().getSwitchXExpressionParserRuleCall_2_0_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XSwitchExpression__SwitchAssignment_2_0_135461);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XSwitchExpression__SwitchAssignment_2_0_135437);
             ruleXExpression();
 
             state._fsp--;
@@ -49920,22 +49884,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XSwitchExpression__LocalVarNameAssignment_2_1_0_0_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17528:1: rule__XSwitchExpression__LocalVarNameAssignment_2_1_0_0_1 : ( ruleValidID ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17516:1: rule__XSwitchExpression__LocalVarNameAssignment_2_1_0_0_1 : ( ruleValidID ) ;
     public final void rule__XSwitchExpression__LocalVarNameAssignment_2_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17532:1: ( ( ruleValidID ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17533:1: ( ruleValidID )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17520:1: ( ( ruleValidID ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17521:1: ( ruleValidID )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17533:1: ( ruleValidID )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17534:1: ruleValidID
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17521:1: ( ruleValidID )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17522:1: ruleValidID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXSwitchExpressionAccess().getLocalVarNameValidIDParserRuleCall_2_1_0_0_1_0()); 
             }
-            pushFollow(FOLLOW_ruleValidID_in_rule__XSwitchExpression__LocalVarNameAssignment_2_1_0_0_135492);
+            pushFollow(FOLLOW_ruleValidID_in_rule__XSwitchExpression__LocalVarNameAssignment_2_1_0_0_135468);
             ruleValidID();
 
             state._fsp--;
@@ -49965,22 +49929,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XSwitchExpression__SwitchAssignment_2_1_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17543:1: rule__XSwitchExpression__SwitchAssignment_2_1_1 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17531:1: rule__XSwitchExpression__SwitchAssignment_2_1_1 : ( ruleXExpression ) ;
     public final void rule__XSwitchExpression__SwitchAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17547:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17548:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17535:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17536:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17548:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17549:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17536:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17537:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXSwitchExpressionAccess().getSwitchXExpressionParserRuleCall_2_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XSwitchExpression__SwitchAssignment_2_1_135523);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XSwitchExpression__SwitchAssignment_2_1_135499);
             ruleXExpression();
 
             state._fsp--;
@@ -50010,22 +49974,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XSwitchExpression__CasesAssignment_4"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17558:1: rule__XSwitchExpression__CasesAssignment_4 : ( ruleXCasePart ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17546:1: rule__XSwitchExpression__CasesAssignment_4 : ( ruleXCasePart ) ;
     public final void rule__XSwitchExpression__CasesAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17562:1: ( ( ruleXCasePart ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17563:1: ( ruleXCasePart )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17550:1: ( ( ruleXCasePart ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17551:1: ( ruleXCasePart )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17563:1: ( ruleXCasePart )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17564:1: ruleXCasePart
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17551:1: ( ruleXCasePart )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17552:1: ruleXCasePart
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXSwitchExpressionAccess().getCasesXCasePartParserRuleCall_4_0()); 
             }
-            pushFollow(FOLLOW_ruleXCasePart_in_rule__XSwitchExpression__CasesAssignment_435554);
+            pushFollow(FOLLOW_ruleXCasePart_in_rule__XSwitchExpression__CasesAssignment_435530);
             ruleXCasePart();
 
             state._fsp--;
@@ -50055,22 +50019,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XSwitchExpression__DefaultAssignment_5_2"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17573:1: rule__XSwitchExpression__DefaultAssignment_5_2 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17561:1: rule__XSwitchExpression__DefaultAssignment_5_2 : ( ruleXExpression ) ;
     public final void rule__XSwitchExpression__DefaultAssignment_5_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17577:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17578:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17565:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17566:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17578:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17579:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17566:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17567:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXSwitchExpressionAccess().getDefaultXExpressionParserRuleCall_5_2_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XSwitchExpression__DefaultAssignment_5_235585);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XSwitchExpression__DefaultAssignment_5_235561);
             ruleXExpression();
 
             state._fsp--;
@@ -50100,22 +50064,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XCasePart__TypeGuardAssignment_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17588:1: rule__XCasePart__TypeGuardAssignment_0 : ( ruleJvmTypeReference ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17576:1: rule__XCasePart__TypeGuardAssignment_0 : ( ruleJvmTypeReference ) ;
     public final void rule__XCasePart__TypeGuardAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17592:1: ( ( ruleJvmTypeReference ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17593:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17580:1: ( ( ruleJvmTypeReference ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17581:1: ( ruleJvmTypeReference )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17593:1: ( ruleJvmTypeReference )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17594:1: ruleJvmTypeReference
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17581:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17582:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXCasePartAccess().getTypeGuardJvmTypeReferenceParserRuleCall_0_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XCasePart__TypeGuardAssignment_035616);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XCasePart__TypeGuardAssignment_035592);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -50145,22 +50109,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XCasePart__CaseAssignment_1_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17603:1: rule__XCasePart__CaseAssignment_1_1 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17591:1: rule__XCasePart__CaseAssignment_1_1 : ( ruleXExpression ) ;
     public final void rule__XCasePart__CaseAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17607:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17608:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17595:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17596:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17608:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17609:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17596:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17597:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXCasePartAccess().getCaseXExpressionParserRuleCall_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XCasePart__CaseAssignment_1_135647);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XCasePart__CaseAssignment_1_135623);
             ruleXExpression();
 
             state._fsp--;
@@ -50190,22 +50154,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XCasePart__ThenAssignment_3"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17618:1: rule__XCasePart__ThenAssignment_3 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17606:1: rule__XCasePart__ThenAssignment_3 : ( ruleXExpression ) ;
     public final void rule__XCasePart__ThenAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17622:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17623:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17610:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17611:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17623:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17624:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17611:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17612:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXCasePartAccess().getThenXExpressionParserRuleCall_3_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XCasePart__ThenAssignment_335678);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XCasePart__ThenAssignment_335654);
             ruleXExpression();
 
             state._fsp--;
@@ -50235,22 +50199,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XForLoopExpression__DeclaredParamAssignment_3"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17633:1: rule__XForLoopExpression__DeclaredParamAssignment_3 : ( ruleJvmFormalParameter ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17621:1: rule__XForLoopExpression__DeclaredParamAssignment_3 : ( ruleJvmFormalParameter ) ;
     public final void rule__XForLoopExpression__DeclaredParamAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17637:1: ( ( ruleJvmFormalParameter ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17638:1: ( ruleJvmFormalParameter )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17625:1: ( ( ruleJvmFormalParameter ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17626:1: ( ruleJvmFormalParameter )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17638:1: ( ruleJvmFormalParameter )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17639:1: ruleJvmFormalParameter
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17626:1: ( ruleJvmFormalParameter )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17627:1: ruleJvmFormalParameter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXForLoopExpressionAccess().getDeclaredParamJvmFormalParameterParserRuleCall_3_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__XForLoopExpression__DeclaredParamAssignment_335709);
+            pushFollow(FOLLOW_ruleJvmFormalParameter_in_rule__XForLoopExpression__DeclaredParamAssignment_335685);
             ruleJvmFormalParameter();
 
             state._fsp--;
@@ -50280,22 +50244,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XForLoopExpression__ForExpressionAssignment_5"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17648:1: rule__XForLoopExpression__ForExpressionAssignment_5 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17636:1: rule__XForLoopExpression__ForExpressionAssignment_5 : ( ruleXExpression ) ;
     public final void rule__XForLoopExpression__ForExpressionAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17652:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17653:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17640:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17641:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17653:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17654:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17641:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17642:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXForLoopExpressionAccess().getForExpressionXExpressionParserRuleCall_5_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XForLoopExpression__ForExpressionAssignment_535740);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XForLoopExpression__ForExpressionAssignment_535716);
             ruleXExpression();
 
             state._fsp--;
@@ -50325,22 +50289,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XForLoopExpression__EachExpressionAssignment_7"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17663:1: rule__XForLoopExpression__EachExpressionAssignment_7 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17651:1: rule__XForLoopExpression__EachExpressionAssignment_7 : ( ruleXExpression ) ;
     public final void rule__XForLoopExpression__EachExpressionAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17667:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17668:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17655:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17656:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17668:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17669:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17656:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17657:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXForLoopExpressionAccess().getEachExpressionXExpressionParserRuleCall_7_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XForLoopExpression__EachExpressionAssignment_735771);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XForLoopExpression__EachExpressionAssignment_735747);
             ruleXExpression();
 
             state._fsp--;
@@ -50370,22 +50334,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XWhileExpression__PredicateAssignment_3"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17678:1: rule__XWhileExpression__PredicateAssignment_3 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17666:1: rule__XWhileExpression__PredicateAssignment_3 : ( ruleXExpression ) ;
     public final void rule__XWhileExpression__PredicateAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17682:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17683:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17670:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17671:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17683:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17684:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17671:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17672:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXWhileExpressionAccess().getPredicateXExpressionParserRuleCall_3_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XWhileExpression__PredicateAssignment_335802);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XWhileExpression__PredicateAssignment_335778);
             ruleXExpression();
 
             state._fsp--;
@@ -50415,22 +50379,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XWhileExpression__BodyAssignment_5"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17693:1: rule__XWhileExpression__BodyAssignment_5 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17681:1: rule__XWhileExpression__BodyAssignment_5 : ( ruleXExpression ) ;
     public final void rule__XWhileExpression__BodyAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17697:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17698:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17685:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17686:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17698:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17699:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17686:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17687:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXWhileExpressionAccess().getBodyXExpressionParserRuleCall_5_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XWhileExpression__BodyAssignment_535833);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XWhileExpression__BodyAssignment_535809);
             ruleXExpression();
 
             state._fsp--;
@@ -50460,22 +50424,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XDoWhileExpression__BodyAssignment_2"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17708:1: rule__XDoWhileExpression__BodyAssignment_2 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17696:1: rule__XDoWhileExpression__BodyAssignment_2 : ( ruleXExpression ) ;
     public final void rule__XDoWhileExpression__BodyAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17712:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17713:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17700:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17701:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17713:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17714:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17701:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17702:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXDoWhileExpressionAccess().getBodyXExpressionParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XDoWhileExpression__BodyAssignment_235864);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XDoWhileExpression__BodyAssignment_235840);
             ruleXExpression();
 
             state._fsp--;
@@ -50505,22 +50469,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XDoWhileExpression__PredicateAssignment_5"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17723:1: rule__XDoWhileExpression__PredicateAssignment_5 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17711:1: rule__XDoWhileExpression__PredicateAssignment_5 : ( ruleXExpression ) ;
     public final void rule__XDoWhileExpression__PredicateAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17727:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17728:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17715:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17716:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17728:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17729:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17716:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17717:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXDoWhileExpressionAccess().getPredicateXExpressionParserRuleCall_5_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XDoWhileExpression__PredicateAssignment_535895);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XDoWhileExpression__PredicateAssignment_535871);
             ruleXExpression();
 
             state._fsp--;
@@ -50550,22 +50514,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XBlockExpression__ExpressionsAssignment_2_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17738:1: rule__XBlockExpression__ExpressionsAssignment_2_0 : ( ruleXExpressionInsideBlock ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17726:1: rule__XBlockExpression__ExpressionsAssignment_2_0 : ( ruleXExpressionInsideBlock ) ;
     public final void rule__XBlockExpression__ExpressionsAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17742:1: ( ( ruleXExpressionInsideBlock ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17743:1: ( ruleXExpressionInsideBlock )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17730:1: ( ( ruleXExpressionInsideBlock ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17731:1: ( ruleXExpressionInsideBlock )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17743:1: ( ruleXExpressionInsideBlock )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17744:1: ruleXExpressionInsideBlock
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17731:1: ( ruleXExpressionInsideBlock )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17732:1: ruleXExpressionInsideBlock
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXBlockExpressionAccess().getExpressionsXExpressionInsideBlockParserRuleCall_2_0_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpressionInsideBlock_in_rule__XBlockExpression__ExpressionsAssignment_2_035926);
+            pushFollow(FOLLOW_ruleXExpressionInsideBlock_in_rule__XBlockExpression__ExpressionsAssignment_2_035902);
             ruleXExpressionInsideBlock();
 
             state._fsp--;
@@ -50595,28 +50559,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XVariableDeclaration__WriteableAssignment_1_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17753:1: rule__XVariableDeclaration__WriteableAssignment_1_0 : ( ( 'var' ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17741:1: rule__XVariableDeclaration__WriteableAssignment_1_0 : ( ( 'var' ) ) ;
     public final void rule__XVariableDeclaration__WriteableAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17757:1: ( ( ( 'var' ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17758:1: ( ( 'var' ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17745:1: ( ( ( 'var' ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17746:1: ( ( 'var' ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17758:1: ( ( 'var' ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17759:1: ( 'var' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getXVariableDeclarationAccess().getWriteableVarKeyword_1_0_0()); 
-            }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17760:1: ( 'var' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17761:1: 'var'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17746:1: ( ( 'var' ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17747:1: ( 'var' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXVariableDeclarationAccess().getWriteableVarKeyword_1_0_0()); 
             }
-            match(input,86,FOLLOW_86_in_rule__XVariableDeclaration__WriteableAssignment_1_035962); if (state.failed) return ;
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17748:1: ( 'var' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17749:1: 'var'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getXVariableDeclarationAccess().getWriteableVarKeyword_1_0_0()); 
+            }
+            match(input,86,FOLLOW_86_in_rule__XVariableDeclaration__WriteableAssignment_1_035938); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getXVariableDeclarationAccess().getWriteableVarKeyword_1_0_0()); 
             }
@@ -50648,22 +50612,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XVariableDeclaration__TypeAssignment_2_0_0_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17776:1: rule__XVariableDeclaration__TypeAssignment_2_0_0_0 : ( ruleJvmTypeReference ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17764:1: rule__XVariableDeclaration__TypeAssignment_2_0_0_0 : ( ruleJvmTypeReference ) ;
     public final void rule__XVariableDeclaration__TypeAssignment_2_0_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17780:1: ( ( ruleJvmTypeReference ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17781:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17768:1: ( ( ruleJvmTypeReference ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17769:1: ( ruleJvmTypeReference )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17781:1: ( ruleJvmTypeReference )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17782:1: ruleJvmTypeReference
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17769:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17770:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXVariableDeclarationAccess().getTypeJvmTypeReferenceParserRuleCall_2_0_0_0_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XVariableDeclaration__TypeAssignment_2_0_0_036001);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XVariableDeclaration__TypeAssignment_2_0_0_035977);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -50693,22 +50657,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XVariableDeclaration__NameAssignment_2_0_0_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17791:1: rule__XVariableDeclaration__NameAssignment_2_0_0_1 : ( ruleValidID ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17779:1: rule__XVariableDeclaration__NameAssignment_2_0_0_1 : ( ruleValidID ) ;
     public final void rule__XVariableDeclaration__NameAssignment_2_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17795:1: ( ( ruleValidID ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17796:1: ( ruleValidID )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17783:1: ( ( ruleValidID ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17784:1: ( ruleValidID )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17796:1: ( ruleValidID )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17797:1: ruleValidID
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17784:1: ( ruleValidID )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17785:1: ruleValidID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXVariableDeclarationAccess().getNameValidIDParserRuleCall_2_0_0_1_0()); 
             }
-            pushFollow(FOLLOW_ruleValidID_in_rule__XVariableDeclaration__NameAssignment_2_0_0_136032);
+            pushFollow(FOLLOW_ruleValidID_in_rule__XVariableDeclaration__NameAssignment_2_0_0_136008);
             ruleValidID();
 
             state._fsp--;
@@ -50738,22 +50702,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XVariableDeclaration__NameAssignment_2_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17806:1: rule__XVariableDeclaration__NameAssignment_2_1 : ( ruleValidID ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17794:1: rule__XVariableDeclaration__NameAssignment_2_1 : ( ruleValidID ) ;
     public final void rule__XVariableDeclaration__NameAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17810:1: ( ( ruleValidID ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17811:1: ( ruleValidID )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17798:1: ( ( ruleValidID ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17799:1: ( ruleValidID )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17811:1: ( ruleValidID )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17812:1: ruleValidID
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17799:1: ( ruleValidID )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17800:1: ruleValidID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXVariableDeclarationAccess().getNameValidIDParserRuleCall_2_1_0()); 
             }
-            pushFollow(FOLLOW_ruleValidID_in_rule__XVariableDeclaration__NameAssignment_2_136063);
+            pushFollow(FOLLOW_ruleValidID_in_rule__XVariableDeclaration__NameAssignment_2_136039);
             ruleValidID();
 
             state._fsp--;
@@ -50783,22 +50747,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XVariableDeclaration__RightAssignment_3_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17821:1: rule__XVariableDeclaration__RightAssignment_3_1 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17809:1: rule__XVariableDeclaration__RightAssignment_3_1 : ( ruleXExpression ) ;
     public final void rule__XVariableDeclaration__RightAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17825:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17826:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17813:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17814:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17826:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17827:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17814:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17815:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXVariableDeclarationAccess().getRightXExpressionParserRuleCall_3_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XVariableDeclaration__RightAssignment_3_136094);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XVariableDeclaration__RightAssignment_3_136070);
             ruleXExpression();
 
             state._fsp--;
@@ -50828,22 +50792,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__JvmFormalParameter__ParameterTypeAssignment_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17836:1: rule__JvmFormalParameter__ParameterTypeAssignment_0 : ( ruleJvmTypeReference ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17824:1: rule__JvmFormalParameter__ParameterTypeAssignment_0 : ( ruleJvmTypeReference ) ;
     public final void rule__JvmFormalParameter__ParameterTypeAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17840:1: ( ( ruleJvmTypeReference ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17841:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17828:1: ( ( ruleJvmTypeReference ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17829:1: ( ruleJvmTypeReference )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17841:1: ( ruleJvmTypeReference )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17842:1: ruleJvmTypeReference
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17829:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17830:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmFormalParameterAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__JvmFormalParameter__ParameterTypeAssignment_036125);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__JvmFormalParameter__ParameterTypeAssignment_036101);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -50873,22 +50837,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__JvmFormalParameter__NameAssignment_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17851:1: rule__JvmFormalParameter__NameAssignment_1 : ( ruleValidID ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17839:1: rule__JvmFormalParameter__NameAssignment_1 : ( ruleValidID ) ;
     public final void rule__JvmFormalParameter__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17855:1: ( ( ruleValidID ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17856:1: ( ruleValidID )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17843:1: ( ( ruleValidID ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17844:1: ( ruleValidID )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17856:1: ( ruleValidID )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17857:1: ruleValidID
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17844:1: ( ruleValidID )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17845:1: ruleValidID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmFormalParameterAccess().getNameValidIDParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleValidID_in_rule__JvmFormalParameter__NameAssignment_136156);
+            pushFollow(FOLLOW_ruleValidID_in_rule__JvmFormalParameter__NameAssignment_136132);
             ruleValidID();
 
             state._fsp--;
@@ -50918,22 +50882,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__FullJvmFormalParameter__ParameterTypeAssignment_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17866:1: rule__FullJvmFormalParameter__ParameterTypeAssignment_0 : ( ruleJvmTypeReference ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17854:1: rule__FullJvmFormalParameter__ParameterTypeAssignment_0 : ( ruleJvmTypeReference ) ;
     public final void rule__FullJvmFormalParameter__ParameterTypeAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17870:1: ( ( ruleJvmTypeReference ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17871:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17858:1: ( ( ruleJvmTypeReference ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17859:1: ( ruleJvmTypeReference )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17871:1: ( ruleJvmTypeReference )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17872:1: ruleJvmTypeReference
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17859:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17860:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFullJvmFormalParameterAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__FullJvmFormalParameter__ParameterTypeAssignment_036187);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__FullJvmFormalParameter__ParameterTypeAssignment_036163);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -50963,22 +50927,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__FullJvmFormalParameter__NameAssignment_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17881:1: rule__FullJvmFormalParameter__NameAssignment_1 : ( ruleValidID ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17869:1: rule__FullJvmFormalParameter__NameAssignment_1 : ( ruleValidID ) ;
     public final void rule__FullJvmFormalParameter__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17885:1: ( ( ruleValidID ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17886:1: ( ruleValidID )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17873:1: ( ( ruleValidID ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17874:1: ( ruleValidID )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17886:1: ( ruleValidID )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17887:1: ruleValidID
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17874:1: ( ruleValidID )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17875:1: ruleValidID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFullJvmFormalParameterAccess().getNameValidIDParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleValidID_in_rule__FullJvmFormalParameter__NameAssignment_136218);
+            pushFollow(FOLLOW_ruleValidID_in_rule__FullJvmFormalParameter__NameAssignment_136194);
             ruleValidID();
 
             state._fsp--;
@@ -51008,28 +50972,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XFeatureCall__DeclaringTypeAssignment_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17896:1: rule__XFeatureCall__DeclaringTypeAssignment_1 : ( ( ruleStaticQualifier ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17884:1: rule__XFeatureCall__DeclaringTypeAssignment_1 : ( ( ruleStaticQualifier ) ) ;
     public final void rule__XFeatureCall__DeclaringTypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17900:1: ( ( ( ruleStaticQualifier ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17901:1: ( ( ruleStaticQualifier ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17888:1: ( ( ( ruleStaticQualifier ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17889:1: ( ( ruleStaticQualifier ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17901:1: ( ( ruleStaticQualifier ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17902:1: ( ruleStaticQualifier )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17889:1: ( ( ruleStaticQualifier ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17890:1: ( ruleStaticQualifier )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFeatureCallAccess().getDeclaringTypeJvmDeclaredTypeCrossReference_1_0()); 
             }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17903:1: ( ruleStaticQualifier )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17904:1: ruleStaticQualifier
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17891:1: ( ruleStaticQualifier )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17892:1: ruleStaticQualifier
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFeatureCallAccess().getDeclaringTypeJvmDeclaredTypeStaticQualifierParserRuleCall_1_0_1()); 
             }
-            pushFollow(FOLLOW_ruleStaticQualifier_in_rule__XFeatureCall__DeclaringTypeAssignment_136253);
+            pushFollow(FOLLOW_ruleStaticQualifier_in_rule__XFeatureCall__DeclaringTypeAssignment_136229);
             ruleStaticQualifier();
 
             state._fsp--;
@@ -51065,22 +51029,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XFeatureCall__TypeArgumentsAssignment_2_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17915:1: rule__XFeatureCall__TypeArgumentsAssignment_2_1 : ( ruleJvmArgumentTypeReference ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17903:1: rule__XFeatureCall__TypeArgumentsAssignment_2_1 : ( ruleJvmArgumentTypeReference ) ;
     public final void rule__XFeatureCall__TypeArgumentsAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17919:1: ( ( ruleJvmArgumentTypeReference ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17920:1: ( ruleJvmArgumentTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17907:1: ( ( ruleJvmArgumentTypeReference ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17908:1: ( ruleJvmArgumentTypeReference )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17920:1: ( ruleJvmArgumentTypeReference )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17921:1: ruleJvmArgumentTypeReference
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17908:1: ( ruleJvmArgumentTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17909:1: ruleJvmArgumentTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFeatureCallAccess().getTypeArgumentsJvmArgumentTypeReferenceParserRuleCall_2_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__XFeatureCall__TypeArgumentsAssignment_2_136288);
+            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__XFeatureCall__TypeArgumentsAssignment_2_136264);
             ruleJvmArgumentTypeReference();
 
             state._fsp--;
@@ -51110,22 +51074,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XFeatureCall__TypeArgumentsAssignment_2_2_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17930:1: rule__XFeatureCall__TypeArgumentsAssignment_2_2_1 : ( ruleJvmArgumentTypeReference ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17918:1: rule__XFeatureCall__TypeArgumentsAssignment_2_2_1 : ( ruleJvmArgumentTypeReference ) ;
     public final void rule__XFeatureCall__TypeArgumentsAssignment_2_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17934:1: ( ( ruleJvmArgumentTypeReference ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17935:1: ( ruleJvmArgumentTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17922:1: ( ( ruleJvmArgumentTypeReference ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17923:1: ( ruleJvmArgumentTypeReference )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17935:1: ( ruleJvmArgumentTypeReference )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17936:1: ruleJvmArgumentTypeReference
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17923:1: ( ruleJvmArgumentTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17924:1: ruleJvmArgumentTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFeatureCallAccess().getTypeArgumentsJvmArgumentTypeReferenceParserRuleCall_2_2_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__XFeatureCall__TypeArgumentsAssignment_2_2_136319);
+            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__XFeatureCall__TypeArgumentsAssignment_2_2_136295);
             ruleJvmArgumentTypeReference();
 
             state._fsp--;
@@ -51155,28 +51119,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XFeatureCall__FeatureAssignment_3"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17945:1: rule__XFeatureCall__FeatureAssignment_3 : ( ( ruleIdOrSuper ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17933:1: rule__XFeatureCall__FeatureAssignment_3 : ( ( ruleIdOrSuper ) ) ;
     public final void rule__XFeatureCall__FeatureAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17949:1: ( ( ( ruleIdOrSuper ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17950:1: ( ( ruleIdOrSuper ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17937:1: ( ( ( ruleIdOrSuper ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17938:1: ( ( ruleIdOrSuper ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17950:1: ( ( ruleIdOrSuper ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17951:1: ( ruleIdOrSuper )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17938:1: ( ( ruleIdOrSuper ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17939:1: ( ruleIdOrSuper )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFeatureCallAccess().getFeatureJvmIdentifiableElementCrossReference_3_0()); 
             }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17952:1: ( ruleIdOrSuper )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17953:1: ruleIdOrSuper
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17940:1: ( ruleIdOrSuper )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17941:1: ruleIdOrSuper
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFeatureCallAccess().getFeatureJvmIdentifiableElementIdOrSuperParserRuleCall_3_0_1()); 
             }
-            pushFollow(FOLLOW_ruleIdOrSuper_in_rule__XFeatureCall__FeatureAssignment_336354);
+            pushFollow(FOLLOW_ruleIdOrSuper_in_rule__XFeatureCall__FeatureAssignment_336330);
             ruleIdOrSuper();
 
             state._fsp--;
@@ -51212,28 +51176,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XFeatureCall__ExplicitOperationCallAssignment_4_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17964:1: rule__XFeatureCall__ExplicitOperationCallAssignment_4_0 : ( ( '(' ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17952:1: rule__XFeatureCall__ExplicitOperationCallAssignment_4_0 : ( ( '(' ) ) ;
     public final void rule__XFeatureCall__ExplicitOperationCallAssignment_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17968:1: ( ( ( '(' ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17969:1: ( ( '(' ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17956:1: ( ( ( '(' ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17957:1: ( ( '(' ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17969:1: ( ( '(' ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17970:1: ( '(' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getXFeatureCallAccess().getExplicitOperationCallLeftParenthesisKeyword_4_0_0()); 
-            }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17971:1: ( '(' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17972:1: '('
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17957:1: ( ( '(' ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17958:1: ( '(' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFeatureCallAccess().getExplicitOperationCallLeftParenthesisKeyword_4_0_0()); 
             }
-            match(input,62,FOLLOW_62_in_rule__XFeatureCall__ExplicitOperationCallAssignment_4_036394); if (state.failed) return ;
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17959:1: ( '(' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17960:1: '('
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getXFeatureCallAccess().getExplicitOperationCallLeftParenthesisKeyword_4_0_0()); 
+            }
+            match(input,62,FOLLOW_62_in_rule__XFeatureCall__ExplicitOperationCallAssignment_4_036370); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getXFeatureCallAccess().getExplicitOperationCallLeftParenthesisKeyword_4_0_0()); 
             }
@@ -51265,22 +51229,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XFeatureCall__FeatureCallArgumentsAssignment_4_1_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17987:1: rule__XFeatureCall__FeatureCallArgumentsAssignment_4_1_0 : ( ruleXShortClosure ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17975:1: rule__XFeatureCall__FeatureCallArgumentsAssignment_4_1_0 : ( ruleXShortClosure ) ;
     public final void rule__XFeatureCall__FeatureCallArgumentsAssignment_4_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17991:1: ( ( ruleXShortClosure ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17992:1: ( ruleXShortClosure )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17979:1: ( ( ruleXShortClosure ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17980:1: ( ruleXShortClosure )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17992:1: ( ruleXShortClosure )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17993:1: ruleXShortClosure
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17980:1: ( ruleXShortClosure )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17981:1: ruleXShortClosure
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFeatureCallAccess().getFeatureCallArgumentsXShortClosureParserRuleCall_4_1_0_0()); 
             }
-            pushFollow(FOLLOW_ruleXShortClosure_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_4_1_036433);
+            pushFollow(FOLLOW_ruleXShortClosure_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_4_1_036409);
             ruleXShortClosure();
 
             state._fsp--;
@@ -51310,22 +51274,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XFeatureCall__FeatureCallArgumentsAssignment_4_1_1_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18002:1: rule__XFeatureCall__FeatureCallArgumentsAssignment_4_1_1_0 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17990:1: rule__XFeatureCall__FeatureCallArgumentsAssignment_4_1_1_0 : ( ruleXExpression ) ;
     public final void rule__XFeatureCall__FeatureCallArgumentsAssignment_4_1_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18006:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18007:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17994:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17995:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18007:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18008:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17995:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17996:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFeatureCallAccess().getFeatureCallArgumentsXExpressionParserRuleCall_4_1_1_0_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_4_1_1_036464);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_4_1_1_036440);
             ruleXExpression();
 
             state._fsp--;
@@ -51355,22 +51319,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XFeatureCall__FeatureCallArgumentsAssignment_4_1_1_1_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18017:1: rule__XFeatureCall__FeatureCallArgumentsAssignment_4_1_1_1_1 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18005:1: rule__XFeatureCall__FeatureCallArgumentsAssignment_4_1_1_1_1 : ( ruleXExpression ) ;
     public final void rule__XFeatureCall__FeatureCallArgumentsAssignment_4_1_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18021:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18022:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18009:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18010:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18022:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18023:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18010:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18011:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFeatureCallAccess().getFeatureCallArgumentsXExpressionParserRuleCall_4_1_1_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_4_1_1_1_136495);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_4_1_1_1_136471);
             ruleXExpression();
 
             state._fsp--;
@@ -51400,22 +51364,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XFeatureCall__FeatureCallArgumentsAssignment_5"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18032:1: rule__XFeatureCall__FeatureCallArgumentsAssignment_5 : ( ruleXClosure ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18020:1: rule__XFeatureCall__FeatureCallArgumentsAssignment_5 : ( ruleXClosure ) ;
     public final void rule__XFeatureCall__FeatureCallArgumentsAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18036:1: ( ( ruleXClosure ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18037:1: ( ruleXClosure )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18024:1: ( ( ruleXClosure ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18025:1: ( ruleXClosure )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18037:1: ( ruleXClosure )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18038:1: ruleXClosure
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18025:1: ( ruleXClosure )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18026:1: ruleXClosure
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFeatureCallAccess().getFeatureCallArgumentsXClosureParserRuleCall_5_0()); 
             }
-            pushFollow(FOLLOW_ruleXClosure_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_536526);
+            pushFollow(FOLLOW_ruleXClosure_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_536502);
             ruleXClosure();
 
             state._fsp--;
@@ -51445,28 +51409,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XConstructorCall__ConstructorAssignment_2"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18047:1: rule__XConstructorCall__ConstructorAssignment_2 : ( ( ruleQualifiedName ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18035:1: rule__XConstructorCall__ConstructorAssignment_2 : ( ( ruleQualifiedName ) ) ;
     public final void rule__XConstructorCall__ConstructorAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18051:1: ( ( ( ruleQualifiedName ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18052:1: ( ( ruleQualifiedName ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18039:1: ( ( ( ruleQualifiedName ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18040:1: ( ( ruleQualifiedName ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18052:1: ( ( ruleQualifiedName ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18053:1: ( ruleQualifiedName )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18040:1: ( ( ruleQualifiedName ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18041:1: ( ruleQualifiedName )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXConstructorCallAccess().getConstructorJvmConstructorCrossReference_2_0()); 
             }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18054:1: ( ruleQualifiedName )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18055:1: ruleQualifiedName
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18042:1: ( ruleQualifiedName )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18043:1: ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXConstructorCallAccess().getConstructorJvmConstructorQualifiedNameParserRuleCall_2_0_1()); 
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_rule__XConstructorCall__ConstructorAssignment_236561);
+            pushFollow(FOLLOW_ruleQualifiedName_in_rule__XConstructorCall__ConstructorAssignment_236537);
             ruleQualifiedName();
 
             state._fsp--;
@@ -51502,22 +51466,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XConstructorCall__TypeArgumentsAssignment_3_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18066:1: rule__XConstructorCall__TypeArgumentsAssignment_3_1 : ( ruleJvmArgumentTypeReference ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18054:1: rule__XConstructorCall__TypeArgumentsAssignment_3_1 : ( ruleJvmArgumentTypeReference ) ;
     public final void rule__XConstructorCall__TypeArgumentsAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18070:1: ( ( ruleJvmArgumentTypeReference ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18071:1: ( ruleJvmArgumentTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18058:1: ( ( ruleJvmArgumentTypeReference ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18059:1: ( ruleJvmArgumentTypeReference )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18071:1: ( ruleJvmArgumentTypeReference )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18072:1: ruleJvmArgumentTypeReference
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18059:1: ( ruleJvmArgumentTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18060:1: ruleJvmArgumentTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXConstructorCallAccess().getTypeArgumentsJvmArgumentTypeReferenceParserRuleCall_3_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__XConstructorCall__TypeArgumentsAssignment_3_136596);
+            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__XConstructorCall__TypeArgumentsAssignment_3_136572);
             ruleJvmArgumentTypeReference();
 
             state._fsp--;
@@ -51547,22 +51511,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XConstructorCall__TypeArgumentsAssignment_3_2_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18081:1: rule__XConstructorCall__TypeArgumentsAssignment_3_2_1 : ( ruleJvmArgumentTypeReference ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18069:1: rule__XConstructorCall__TypeArgumentsAssignment_3_2_1 : ( ruleJvmArgumentTypeReference ) ;
     public final void rule__XConstructorCall__TypeArgumentsAssignment_3_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18085:1: ( ( ruleJvmArgumentTypeReference ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18086:1: ( ruleJvmArgumentTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18073:1: ( ( ruleJvmArgumentTypeReference ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18074:1: ( ruleJvmArgumentTypeReference )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18086:1: ( ruleJvmArgumentTypeReference )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18087:1: ruleJvmArgumentTypeReference
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18074:1: ( ruleJvmArgumentTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18075:1: ruleJvmArgumentTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXConstructorCallAccess().getTypeArgumentsJvmArgumentTypeReferenceParserRuleCall_3_2_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__XConstructorCall__TypeArgumentsAssignment_3_2_136627);
+            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__XConstructorCall__TypeArgumentsAssignment_3_2_136603);
             ruleJvmArgumentTypeReference();
 
             state._fsp--;
@@ -51592,22 +51556,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XConstructorCall__ArgumentsAssignment_4_1_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18096:1: rule__XConstructorCall__ArgumentsAssignment_4_1_0 : ( ruleXShortClosure ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18084:1: rule__XConstructorCall__ArgumentsAssignment_4_1_0 : ( ruleXShortClosure ) ;
     public final void rule__XConstructorCall__ArgumentsAssignment_4_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18100:1: ( ( ruleXShortClosure ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18101:1: ( ruleXShortClosure )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18088:1: ( ( ruleXShortClosure ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18089:1: ( ruleXShortClosure )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18101:1: ( ruleXShortClosure )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18102:1: ruleXShortClosure
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18089:1: ( ruleXShortClosure )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18090:1: ruleXShortClosure
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXConstructorCallAccess().getArgumentsXShortClosureParserRuleCall_4_1_0_0()); 
             }
-            pushFollow(FOLLOW_ruleXShortClosure_in_rule__XConstructorCall__ArgumentsAssignment_4_1_036658);
+            pushFollow(FOLLOW_ruleXShortClosure_in_rule__XConstructorCall__ArgumentsAssignment_4_1_036634);
             ruleXShortClosure();
 
             state._fsp--;
@@ -51637,22 +51601,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XConstructorCall__ArgumentsAssignment_4_1_1_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18111:1: rule__XConstructorCall__ArgumentsAssignment_4_1_1_0 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18099:1: rule__XConstructorCall__ArgumentsAssignment_4_1_1_0 : ( ruleXExpression ) ;
     public final void rule__XConstructorCall__ArgumentsAssignment_4_1_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18115:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18116:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18103:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18104:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18116:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18117:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18104:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18105:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXConstructorCallAccess().getArgumentsXExpressionParserRuleCall_4_1_1_0_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XConstructorCall__ArgumentsAssignment_4_1_1_036689);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XConstructorCall__ArgumentsAssignment_4_1_1_036665);
             ruleXExpression();
 
             state._fsp--;
@@ -51682,22 +51646,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XConstructorCall__ArgumentsAssignment_4_1_1_1_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18126:1: rule__XConstructorCall__ArgumentsAssignment_4_1_1_1_1 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18114:1: rule__XConstructorCall__ArgumentsAssignment_4_1_1_1_1 : ( ruleXExpression ) ;
     public final void rule__XConstructorCall__ArgumentsAssignment_4_1_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18130:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18131:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18118:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18119:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18131:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18132:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18119:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18120:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXConstructorCallAccess().getArgumentsXExpressionParserRuleCall_4_1_1_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XConstructorCall__ArgumentsAssignment_4_1_1_1_136720);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XConstructorCall__ArgumentsAssignment_4_1_1_1_136696);
             ruleXExpression();
 
             state._fsp--;
@@ -51727,22 +51691,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XConstructorCall__ArgumentsAssignment_5"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18141:1: rule__XConstructorCall__ArgumentsAssignment_5 : ( ruleXClosure ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18129:1: rule__XConstructorCall__ArgumentsAssignment_5 : ( ruleXClosure ) ;
     public final void rule__XConstructorCall__ArgumentsAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18145:1: ( ( ruleXClosure ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18146:1: ( ruleXClosure )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18133:1: ( ( ruleXClosure ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18134:1: ( ruleXClosure )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18146:1: ( ruleXClosure )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18147:1: ruleXClosure
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18134:1: ( ruleXClosure )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18135:1: ruleXClosure
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXConstructorCallAccess().getArgumentsXClosureParserRuleCall_5_0()); 
             }
-            pushFollow(FOLLOW_ruleXClosure_in_rule__XConstructorCall__ArgumentsAssignment_536751);
+            pushFollow(FOLLOW_ruleXClosure_in_rule__XConstructorCall__ArgumentsAssignment_536727);
             ruleXClosure();
 
             state._fsp--;
@@ -51772,28 +51736,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XBooleanLiteral__IsTrueAssignment_1_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18156:1: rule__XBooleanLiteral__IsTrueAssignment_1_1 : ( ( 'true' ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18144:1: rule__XBooleanLiteral__IsTrueAssignment_1_1 : ( ( 'true' ) ) ;
     public final void rule__XBooleanLiteral__IsTrueAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18160:1: ( ( ( 'true' ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18161:1: ( ( 'true' ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18148:1: ( ( ( 'true' ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18149:1: ( ( 'true' ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18161:1: ( ( 'true' ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18162:1: ( 'true' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getXBooleanLiteralAccess().getIsTrueTrueKeyword_1_1_0()); 
-            }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18163:1: ( 'true' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18164:1: 'true'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18149:1: ( ( 'true' ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18150:1: ( 'true' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXBooleanLiteralAccess().getIsTrueTrueKeyword_1_1_0()); 
             }
-            match(input,87,FOLLOW_87_in_rule__XBooleanLiteral__IsTrueAssignment_1_136787); if (state.failed) return ;
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18151:1: ( 'true' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18152:1: 'true'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getXBooleanLiteralAccess().getIsTrueTrueKeyword_1_1_0()); 
+            }
+            match(input,87,FOLLOW_87_in_rule__XBooleanLiteral__IsTrueAssignment_1_136763); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getXBooleanLiteralAccess().getIsTrueTrueKeyword_1_1_0()); 
             }
@@ -51825,22 +51789,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XNumberLiteral__ValueAssignment_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18179:1: rule__XNumberLiteral__ValueAssignment_1 : ( ruleNumber ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18167:1: rule__XNumberLiteral__ValueAssignment_1 : ( ruleNumber ) ;
     public final void rule__XNumberLiteral__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18183:1: ( ( ruleNumber ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18184:1: ( ruleNumber )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18171:1: ( ( ruleNumber ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18172:1: ( ruleNumber )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18184:1: ( ruleNumber )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18185:1: ruleNumber
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18172:1: ( ruleNumber )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18173:1: ruleNumber
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXNumberLiteralAccess().getValueNumberParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleNumber_in_rule__XNumberLiteral__ValueAssignment_136826);
+            pushFollow(FOLLOW_ruleNumber_in_rule__XNumberLiteral__ValueAssignment_136802);
             ruleNumber();
 
             state._fsp--;
@@ -51870,22 +51834,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XStringLiteral__ValueAssignment_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18194:1: rule__XStringLiteral__ValueAssignment_1 : ( RULE_STRING ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18182:1: rule__XStringLiteral__ValueAssignment_1 : ( RULE_STRING ) ;
     public final void rule__XStringLiteral__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18198:1: ( ( RULE_STRING ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18199:1: ( RULE_STRING )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18186:1: ( ( RULE_STRING ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18187:1: ( RULE_STRING )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18199:1: ( RULE_STRING )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18200:1: RULE_STRING
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18187:1: ( RULE_STRING )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18188:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXStringLiteralAccess().getValueSTRINGTerminalRuleCall_1_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__XStringLiteral__ValueAssignment_136857); if (state.failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__XStringLiteral__ValueAssignment_136833); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getXStringLiteralAccess().getValueSTRINGTerminalRuleCall_1_0()); 
             }
@@ -51911,28 +51875,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XTypeLiteral__TypeAssignment_3"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18209:1: rule__XTypeLiteral__TypeAssignment_3 : ( ( ruleQualifiedName ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18197:1: rule__XTypeLiteral__TypeAssignment_3 : ( ( ruleQualifiedName ) ) ;
     public final void rule__XTypeLiteral__TypeAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18213:1: ( ( ( ruleQualifiedName ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18214:1: ( ( ruleQualifiedName ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18201:1: ( ( ( ruleQualifiedName ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18202:1: ( ( ruleQualifiedName ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18214:1: ( ( ruleQualifiedName ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18215:1: ( ruleQualifiedName )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18202:1: ( ( ruleQualifiedName ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18203:1: ( ruleQualifiedName )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXTypeLiteralAccess().getTypeJvmTypeCrossReference_3_0()); 
             }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18216:1: ( ruleQualifiedName )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18217:1: ruleQualifiedName
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18204:1: ( ruleQualifiedName )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18205:1: ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXTypeLiteralAccess().getTypeJvmTypeQualifiedNameParserRuleCall_3_0_1()); 
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_rule__XTypeLiteral__TypeAssignment_336892);
+            pushFollow(FOLLOW_ruleQualifiedName_in_rule__XTypeLiteral__TypeAssignment_336868);
             ruleQualifiedName();
 
             state._fsp--;
@@ -51968,22 +51932,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XThrowExpression__ExpressionAssignment_2"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18228:1: rule__XThrowExpression__ExpressionAssignment_2 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18216:1: rule__XThrowExpression__ExpressionAssignment_2 : ( ruleXExpression ) ;
     public final void rule__XThrowExpression__ExpressionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18232:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18233:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18220:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18221:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18233:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18234:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18221:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18222:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXThrowExpressionAccess().getExpressionXExpressionParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XThrowExpression__ExpressionAssignment_236927);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XThrowExpression__ExpressionAssignment_236903);
             ruleXExpression();
 
             state._fsp--;
@@ -52013,22 +51977,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XReturnExpression__ExpressionAssignment_2"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18243:1: rule__XReturnExpression__ExpressionAssignment_2 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18231:1: rule__XReturnExpression__ExpressionAssignment_2 : ( ruleXExpression ) ;
     public final void rule__XReturnExpression__ExpressionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18247:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18248:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18235:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18236:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18248:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18249:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18236:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18237:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXReturnExpressionAccess().getExpressionXExpressionParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XReturnExpression__ExpressionAssignment_236958);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XReturnExpression__ExpressionAssignment_236934);
             ruleXExpression();
 
             state._fsp--;
@@ -52058,22 +52022,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XTryCatchFinallyExpression__ExpressionAssignment_2"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18258:1: rule__XTryCatchFinallyExpression__ExpressionAssignment_2 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18246:1: rule__XTryCatchFinallyExpression__ExpressionAssignment_2 : ( ruleXExpression ) ;
     public final void rule__XTryCatchFinallyExpression__ExpressionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18262:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18263:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18250:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18251:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18263:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18264:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18251:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18252:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXTryCatchFinallyExpressionAccess().getExpressionXExpressionParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XTryCatchFinallyExpression__ExpressionAssignment_236989);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XTryCatchFinallyExpression__ExpressionAssignment_236965);
             ruleXExpression();
 
             state._fsp--;
@@ -52103,22 +52067,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XTryCatchFinallyExpression__CatchClausesAssignment_3_0_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18273:1: rule__XTryCatchFinallyExpression__CatchClausesAssignment_3_0_0 : ( ruleXCatchClause ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18261:1: rule__XTryCatchFinallyExpression__CatchClausesAssignment_3_0_0 : ( ruleXCatchClause ) ;
     public final void rule__XTryCatchFinallyExpression__CatchClausesAssignment_3_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18277:1: ( ( ruleXCatchClause ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18278:1: ( ruleXCatchClause )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18265:1: ( ( ruleXCatchClause ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18266:1: ( ruleXCatchClause )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18278:1: ( ruleXCatchClause )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18279:1: ruleXCatchClause
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18266:1: ( ruleXCatchClause )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18267:1: ruleXCatchClause
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXTryCatchFinallyExpressionAccess().getCatchClausesXCatchClauseParserRuleCall_3_0_0_0()); 
             }
-            pushFollow(FOLLOW_ruleXCatchClause_in_rule__XTryCatchFinallyExpression__CatchClausesAssignment_3_0_037020);
+            pushFollow(FOLLOW_ruleXCatchClause_in_rule__XTryCatchFinallyExpression__CatchClausesAssignment_3_0_036996);
             ruleXCatchClause();
 
             state._fsp--;
@@ -52148,22 +52112,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_0_1_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18288:1: rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_0_1_1 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18276:1: rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_0_1_1 : ( ruleXExpression ) ;
     public final void rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_0_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18292:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18293:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18280:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18281:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18293:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18294:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18281:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18282:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXTryCatchFinallyExpressionAccess().getFinallyExpressionXExpressionParserRuleCall_3_0_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_0_1_137051);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_0_1_137027);
             ruleXExpression();
 
             state._fsp--;
@@ -52193,22 +52157,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_1_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18303:1: rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_1_1 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18291:1: rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_1_1 : ( ruleXExpression ) ;
     public final void rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18307:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18308:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18295:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18296:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18308:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18309:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18296:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18297:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXTryCatchFinallyExpressionAccess().getFinallyExpressionXExpressionParserRuleCall_3_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_1_137082);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_1_137058);
             ruleXExpression();
 
             state._fsp--;
@@ -52238,22 +52202,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XCatchClause__DeclaredParamAssignment_2"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18318:1: rule__XCatchClause__DeclaredParamAssignment_2 : ( ruleFullJvmFormalParameter ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18306:1: rule__XCatchClause__DeclaredParamAssignment_2 : ( ruleFullJvmFormalParameter ) ;
     public final void rule__XCatchClause__DeclaredParamAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18322:1: ( ( ruleFullJvmFormalParameter ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18323:1: ( ruleFullJvmFormalParameter )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18310:1: ( ( ruleFullJvmFormalParameter ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18311:1: ( ruleFullJvmFormalParameter )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18323:1: ( ruleFullJvmFormalParameter )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18324:1: ruleFullJvmFormalParameter
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18311:1: ( ruleFullJvmFormalParameter )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18312:1: ruleFullJvmFormalParameter
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXCatchClauseAccess().getDeclaredParamFullJvmFormalParameterParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleFullJvmFormalParameter_in_rule__XCatchClause__DeclaredParamAssignment_237113);
+            pushFollow(FOLLOW_ruleFullJvmFormalParameter_in_rule__XCatchClause__DeclaredParamAssignment_237089);
             ruleFullJvmFormalParameter();
 
             state._fsp--;
@@ -52283,22 +52247,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XCatchClause__ExpressionAssignment_4"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18333:1: rule__XCatchClause__ExpressionAssignment_4 : ( ruleXExpression ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18321:1: rule__XCatchClause__ExpressionAssignment_4 : ( ruleXExpression ) ;
     public final void rule__XCatchClause__ExpressionAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18337:1: ( ( ruleXExpression ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18338:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18325:1: ( ( ruleXExpression ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18326:1: ( ruleXExpression )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18338:1: ( ruleXExpression )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18339:1: ruleXExpression
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18326:1: ( ruleXExpression )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18327:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXCatchClauseAccess().getExpressionXExpressionParserRuleCall_4_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__XCatchClause__ExpressionAssignment_437144);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__XCatchClause__ExpressionAssignment_437120);
             ruleXExpression();
 
             state._fsp--;
@@ -52328,22 +52292,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XFunctionTypeRef__ParamTypesAssignment_0_1_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18348:1: rule__XFunctionTypeRef__ParamTypesAssignment_0_1_0 : ( ruleJvmTypeReference ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18336:1: rule__XFunctionTypeRef__ParamTypesAssignment_0_1_0 : ( ruleJvmTypeReference ) ;
     public final void rule__XFunctionTypeRef__ParamTypesAssignment_0_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18352:1: ( ( ruleJvmTypeReference ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18353:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18340:1: ( ( ruleJvmTypeReference ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18341:1: ( ruleJvmTypeReference )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18353:1: ( ruleJvmTypeReference )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18354:1: ruleJvmTypeReference
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18341:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18342:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFunctionTypeRefAccess().getParamTypesJvmTypeReferenceParserRuleCall_0_1_0_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XFunctionTypeRef__ParamTypesAssignment_0_1_037175);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XFunctionTypeRef__ParamTypesAssignment_0_1_037151);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -52373,22 +52337,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XFunctionTypeRef__ParamTypesAssignment_0_1_1_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18363:1: rule__XFunctionTypeRef__ParamTypesAssignment_0_1_1_1 : ( ruleJvmTypeReference ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18351:1: rule__XFunctionTypeRef__ParamTypesAssignment_0_1_1_1 : ( ruleJvmTypeReference ) ;
     public final void rule__XFunctionTypeRef__ParamTypesAssignment_0_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18367:1: ( ( ruleJvmTypeReference ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18368:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18355:1: ( ( ruleJvmTypeReference ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18356:1: ( ruleJvmTypeReference )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18368:1: ( ruleJvmTypeReference )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18369:1: ruleJvmTypeReference
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18356:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18357:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFunctionTypeRefAccess().getParamTypesJvmTypeReferenceParserRuleCall_0_1_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XFunctionTypeRef__ParamTypesAssignment_0_1_1_137206);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XFunctionTypeRef__ParamTypesAssignment_0_1_1_137182);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -52418,22 +52382,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__XFunctionTypeRef__ReturnTypeAssignment_2"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18378:1: rule__XFunctionTypeRef__ReturnTypeAssignment_2 : ( ruleJvmTypeReference ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18366:1: rule__XFunctionTypeRef__ReturnTypeAssignment_2 : ( ruleJvmTypeReference ) ;
     public final void rule__XFunctionTypeRef__ReturnTypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18382:1: ( ( ruleJvmTypeReference ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18383:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18370:1: ( ( ruleJvmTypeReference ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18371:1: ( ruleJvmTypeReference )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18383:1: ( ruleJvmTypeReference )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18384:1: ruleJvmTypeReference
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18371:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18372:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getXFunctionTypeRefAccess().getReturnTypeJvmTypeReferenceParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XFunctionTypeRef__ReturnTypeAssignment_237237);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__XFunctionTypeRef__ReturnTypeAssignment_237213);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -52463,28 +52427,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__JvmParameterizedTypeReference__TypeAssignment_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18393:1: rule__JvmParameterizedTypeReference__TypeAssignment_0 : ( ( ruleQualifiedName ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18381:1: rule__JvmParameterizedTypeReference__TypeAssignment_0 : ( ( ruleQualifiedName ) ) ;
     public final void rule__JvmParameterizedTypeReference__TypeAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18397:1: ( ( ( ruleQualifiedName ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18398:1: ( ( ruleQualifiedName ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18385:1: ( ( ( ruleQualifiedName ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18386:1: ( ( ruleQualifiedName ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18398:1: ( ( ruleQualifiedName ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18399:1: ( ruleQualifiedName )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18386:1: ( ( ruleQualifiedName ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18387:1: ( ruleQualifiedName )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getTypeJvmTypeCrossReference_0_0()); 
             }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18400:1: ( ruleQualifiedName )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18401:1: ruleQualifiedName
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18388:1: ( ruleQualifiedName )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18389:1: ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getTypeJvmTypeQualifiedNameParserRuleCall_0_0_1()); 
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_rule__JvmParameterizedTypeReference__TypeAssignment_037272);
+            pushFollow(FOLLOW_ruleQualifiedName_in_rule__JvmParameterizedTypeReference__TypeAssignment_037248);
             ruleQualifiedName();
 
             state._fsp--;
@@ -52520,22 +52484,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18412:1: rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_1 : ( ruleJvmArgumentTypeReference ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18400:1: rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_1 : ( ruleJvmArgumentTypeReference ) ;
     public final void rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18416:1: ( ( ruleJvmArgumentTypeReference ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18417:1: ( ruleJvmArgumentTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18404:1: ( ( ruleJvmArgumentTypeReference ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18405:1: ( ruleJvmArgumentTypeReference )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18417:1: ( ruleJvmArgumentTypeReference )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18418:1: ruleJvmArgumentTypeReference
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18405:1: ( ruleJvmArgumentTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18406:1: ruleJvmArgumentTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getArgumentsJvmArgumentTypeReferenceParserRuleCall_1_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_137307);
+            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_137283);
             ruleJvmArgumentTypeReference();
 
             state._fsp--;
@@ -52565,22 +52529,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18427:1: rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1 : ( ruleJvmArgumentTypeReference ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18415:1: rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1 : ( ruleJvmArgumentTypeReference ) ;
     public final void rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18431:1: ( ( ruleJvmArgumentTypeReference ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18432:1: ( ruleJvmArgumentTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18419:1: ( ( ruleJvmArgumentTypeReference ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18420:1: ( ruleJvmArgumentTypeReference )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18432:1: ( ruleJvmArgumentTypeReference )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18433:1: ruleJvmArgumentTypeReference
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18420:1: ( ruleJvmArgumentTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18421:1: ruleJvmArgumentTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmParameterizedTypeReferenceAccess().getArgumentsJvmArgumentTypeReferenceParserRuleCall_1_2_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_137338);
+            pushFollow(FOLLOW_ruleJvmArgumentTypeReference_in_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_137314);
             ruleJvmArgumentTypeReference();
 
             state._fsp--;
@@ -52610,22 +52574,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18442:1: rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0 : ( ruleJvmUpperBound ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18430:1: rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0 : ( ruleJvmUpperBound ) ;
     public final void rule__JvmWildcardTypeReference__ConstraintsAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18446:1: ( ( ruleJvmUpperBound ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18447:1: ( ruleJvmUpperBound )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18434:1: ( ( ruleJvmUpperBound ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18435:1: ( ruleJvmUpperBound )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18447:1: ( ruleJvmUpperBound )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18448:1: ruleJvmUpperBound
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18435:1: ( ruleJvmUpperBound )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18436:1: ruleJvmUpperBound
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmWildcardTypeReferenceAccess().getConstraintsJvmUpperBoundParserRuleCall_2_0_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmUpperBound_in_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_037369);
+            pushFollow(FOLLOW_ruleJvmUpperBound_in_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_037345);
             ruleJvmUpperBound();
 
             state._fsp--;
@@ -52655,22 +52619,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18457:1: rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1 : ( ruleJvmLowerBound ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18445:1: rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1 : ( ruleJvmLowerBound ) ;
     public final void rule__JvmWildcardTypeReference__ConstraintsAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18461:1: ( ( ruleJvmLowerBound ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18462:1: ( ruleJvmLowerBound )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18449:1: ( ( ruleJvmLowerBound ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18450:1: ( ruleJvmLowerBound )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18462:1: ( ruleJvmLowerBound )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18463:1: ruleJvmLowerBound
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18450:1: ( ruleJvmLowerBound )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18451:1: ruleJvmLowerBound
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmWildcardTypeReferenceAccess().getConstraintsJvmLowerBoundParserRuleCall_2_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmLowerBound_in_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_137400);
+            pushFollow(FOLLOW_ruleJvmLowerBound_in_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_137376);
             ruleJvmLowerBound();
 
             state._fsp--;
@@ -52700,22 +52664,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__JvmUpperBound__TypeReferenceAssignment_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18472:1: rule__JvmUpperBound__TypeReferenceAssignment_1 : ( ruleJvmTypeReference ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18460:1: rule__JvmUpperBound__TypeReferenceAssignment_1 : ( ruleJvmTypeReference ) ;
     public final void rule__JvmUpperBound__TypeReferenceAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18476:1: ( ( ruleJvmTypeReference ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18477:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18464:1: ( ( ruleJvmTypeReference ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18465:1: ( ruleJvmTypeReference )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18477:1: ( ruleJvmTypeReference )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18478:1: ruleJvmTypeReference
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18465:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18466:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmUpperBoundAccess().getTypeReferenceJvmTypeReferenceParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__JvmUpperBound__TypeReferenceAssignment_137431);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__JvmUpperBound__TypeReferenceAssignment_137407);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -52745,22 +52709,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__JvmUpperBoundAnded__TypeReferenceAssignment_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18487:1: rule__JvmUpperBoundAnded__TypeReferenceAssignment_1 : ( ruleJvmTypeReference ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18475:1: rule__JvmUpperBoundAnded__TypeReferenceAssignment_1 : ( ruleJvmTypeReference ) ;
     public final void rule__JvmUpperBoundAnded__TypeReferenceAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18491:1: ( ( ruleJvmTypeReference ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18492:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18479:1: ( ( ruleJvmTypeReference ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18480:1: ( ruleJvmTypeReference )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18492:1: ( ruleJvmTypeReference )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18493:1: ruleJvmTypeReference
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18480:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18481:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmUpperBoundAndedAccess().getTypeReferenceJvmTypeReferenceParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__JvmUpperBoundAnded__TypeReferenceAssignment_137462);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__JvmUpperBoundAnded__TypeReferenceAssignment_137438);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -52790,22 +52754,22 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__JvmLowerBound__TypeReferenceAssignment_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18502:1: rule__JvmLowerBound__TypeReferenceAssignment_1 : ( ruleJvmTypeReference ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18490:1: rule__JvmLowerBound__TypeReferenceAssignment_1 : ( ruleJvmTypeReference ) ;
     public final void rule__JvmLowerBound__TypeReferenceAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18506:1: ( ( ruleJvmTypeReference ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18507:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18494:1: ( ( ruleJvmTypeReference ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18495:1: ( ruleJvmTypeReference )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18507:1: ( ruleJvmTypeReference )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18508:1: ruleJvmTypeReference
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18495:1: ( ruleJvmTypeReference )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:18496:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getJvmLowerBoundAccess().getTypeReferenceJvmTypeReferenceParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__JvmLowerBound__TypeReferenceAssignment_137493);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__JvmLowerBound__TypeReferenceAssignment_137469);
             ruleJvmTypeReference();
 
             state._fsp--;
@@ -54585,7 +54549,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
     static final String DFA51_acceptS =
         "\1\uffff\1\2\10\uffff\1\1";
     static final String DFA51_specialS =
-        "\2\uffff\1\5\1\2\1\4\1\6\1\0\1\7\1\3\1\1\1\uffff}>";
+        "\2\uffff\1\4\1\5\1\3\1\1\1\6\1\2\1\0\1\7\1\uffff}>";
     static final String[] DFA51_transitionS = {
             "\5\1\5\uffff\7\1\1\2\1\3\1\5\1\6\1\4\1\7\1\10\1\11\13\1\3\uffff"+
             "\2\1\4\uffff\1\1\2\uffff\1\1\2\uffff\20\1\1\uffff\10\1\3\uffff"+
@@ -54639,51 +54603,6 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA51_6 = input.LA(1);
-
-                         
-                        int index51_6 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred78_InternalEmfComponentsDsl()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index51_6);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA51_9 = input.LA(1);
-
-                         
-                        int index51_9 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred78_InternalEmfComponentsDsl()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index51_9);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA51_3 = input.LA(1);
-
-                         
-                        int index51_3 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred78_InternalEmfComponentsDsl()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index51_3);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
                         int LA51_8 = input.LA(1);
 
                          
@@ -54698,37 +54617,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
                         input.seek(index51_8);
                         if ( s>=0 ) return s;
                         break;
-                    case 4 : 
-                        int LA51_4 = input.LA(1);
-
-                         
-                        int index51_4 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred78_InternalEmfComponentsDsl()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index51_4);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 5 : 
-                        int LA51_2 = input.LA(1);
-
-                         
-                        int index51_2 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred78_InternalEmfComponentsDsl()) ) {s = 10;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index51_2);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 6 : 
+                    case 1 : 
                         int LA51_5 = input.LA(1);
 
                          
@@ -54743,7 +54632,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
                         input.seek(index51_5);
                         if ( s>=0 ) return s;
                         break;
-                    case 7 : 
+                    case 2 : 
                         int LA51_7 = input.LA(1);
 
                          
@@ -54756,6 +54645,81 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
                          
                         input.seek(index51_7);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 3 : 
+                        int LA51_4 = input.LA(1);
+
+                         
+                        int index51_4 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred78_InternalEmfComponentsDsl()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index51_4);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 4 : 
+                        int LA51_2 = input.LA(1);
+
+                         
+                        int index51_2 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred78_InternalEmfComponentsDsl()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index51_2);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 5 : 
+                        int LA51_3 = input.LA(1);
+
+                         
+                        int index51_3 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred78_InternalEmfComponentsDsl()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index51_3);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 6 : 
+                        int LA51_6 = input.LA(1);
+
+                         
+                        int index51_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred78_InternalEmfComponentsDsl()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index51_6);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 7 : 
+                        int LA51_9 = input.LA(1);
+
+                         
+                        int index51_9 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred78_InternalEmfComponentsDsl()) ) {s = 10;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index51_9);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -56946,12 +56910,12 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
     public static final BitSet FOLLOW_rule__PropertyDescriptionProvider__Group_3__0__Impl_in_rule__PropertyDescriptionProvider__Group_3__08768 = new BitSet(new long[]{0x0000080000000000L});
     public static final BitSet FOLLOW_rule__PropertyDescriptionProvider__Group_3__1_in_rule__PropertyDescriptionProvider__Group_3__08771 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_46_in_rule__PropertyDescriptionProvider__Group_3__0__Impl8799 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__PropertyDescriptionProvider__Group_3__1__Impl_in_rule__PropertyDescriptionProvider__Group_3__18830 = new BitSet(new long[]{0x0000100000000010L});
+    public static final BitSet FOLLOW_rule__PropertyDescriptionProvider__Group_3__1__Impl_in_rule__PropertyDescriptionProvider__Group_3__18830 = new BitSet(new long[]{0x4000100002000010L});
     public static final BitSet FOLLOW_rule__PropertyDescriptionProvider__Group_3__2_in_rule__PropertyDescriptionProvider__Group_3__18833 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_43_in_rule__PropertyDescriptionProvider__Group_3__1__Impl8861 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__PropertyDescriptionProvider__Group_3__2__Impl_in_rule__PropertyDescriptionProvider__Group_3__28892 = new BitSet(new long[]{0x0000100000000010L});
+    public static final BitSet FOLLOW_rule__PropertyDescriptionProvider__Group_3__2__Impl_in_rule__PropertyDescriptionProvider__Group_3__28892 = new BitSet(new long[]{0x4000100002000010L});
     public static final BitSet FOLLOW_rule__PropertyDescriptionProvider__Group_3__3_in_rule__PropertyDescriptionProvider__Group_3__28895 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__PropertyDescriptionProvider__LabelSpecificationsAssignment_3_2_in_rule__PropertyDescriptionProvider__Group_3__2__Impl8922 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_rule__PropertyDescriptionProvider__LabelSpecificationsAssignment_3_2_in_rule__PropertyDescriptionProvider__Group_3__2__Impl8922 = new BitSet(new long[]{0x4000000002000012L});
     public static final BitSet FOLLOW_rule__PropertyDescriptionProvider__Group_3__3__Impl_in_rule__PropertyDescriptionProvider__Group_3__38953 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_44_in_rule__PropertyDescriptionProvider__Group_3__3__Impl8981 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__PropertyDescriptionSpecification__Group__0__Impl_in_rule__PropertyDescriptionSpecification__Group__09020 = new BitSet(new long[]{0x0002000000000000L});
@@ -56984,12 +56948,12 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
     public static final BitSet FOLLOW_rule__FeaturesProvider__Group_3__0__Impl_in_rule__FeaturesProvider__Group_3__09646 = new BitSet(new long[]{0x0000080000000000L});
     public static final BitSet FOLLOW_rule__FeaturesProvider__Group_3__1_in_rule__FeaturesProvider__Group_3__09649 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_51_in_rule__FeaturesProvider__Group_3__0__Impl9677 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FeaturesProvider__Group_3__1__Impl_in_rule__FeaturesProvider__Group_3__19708 = new BitSet(new long[]{0x0000100000000010L});
+    public static final BitSet FOLLOW_rule__FeaturesProvider__Group_3__1__Impl_in_rule__FeaturesProvider__Group_3__19708 = new BitSet(new long[]{0x4000100002000010L});
     public static final BitSet FOLLOW_rule__FeaturesProvider__Group_3__2_in_rule__FeaturesProvider__Group_3__19711 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_43_in_rule__FeaturesProvider__Group_3__1__Impl9739 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FeaturesProvider__Group_3__2__Impl_in_rule__FeaturesProvider__Group_3__29770 = new BitSet(new long[]{0x0000100000000010L});
+    public static final BitSet FOLLOW_rule__FeaturesProvider__Group_3__2__Impl_in_rule__FeaturesProvider__Group_3__29770 = new BitSet(new long[]{0x4000100002000010L});
     public static final BitSet FOLLOW_rule__FeaturesProvider__Group_3__3_in_rule__FeaturesProvider__Group_3__29773 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FeaturesProvider__FeatureSpecificationsAssignment_3_2_in_rule__FeaturesProvider__Group_3__2__Impl9800 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_rule__FeaturesProvider__FeatureSpecificationsAssignment_3_2_in_rule__FeaturesProvider__Group_3__2__Impl9800 = new BitSet(new long[]{0x4000000002000012L});
     public static final BitSet FOLLOW_rule__FeaturesProvider__Group_3__3__Impl_in_rule__FeaturesProvider__Group_3__39831 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_44_in_rule__FeaturesProvider__Group_3__3__Impl9859 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__FeatureSpecification__Group__0__Impl_in_rule__FeatureSpecification__Group__09898 = new BitSet(new long[]{0x0000000000800000L});
@@ -57024,12 +56988,12 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
     public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group_3__0__Impl_in_rule__FormFeatureControlFactory__Group_3__010584 = new BitSet(new long[]{0x0000080000000000L});
     public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group_3__1_in_rule__FormFeatureControlFactory__Group_3__010587 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_54_in_rule__FormFeatureControlFactory__Group_3__0__Impl10615 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group_3__1__Impl_in_rule__FormFeatureControlFactory__Group_3__110646 = new BitSet(new long[]{0x0000100000000010L});
+    public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group_3__1__Impl_in_rule__FormFeatureControlFactory__Group_3__110646 = new BitSet(new long[]{0x4000100002000010L});
     public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group_3__2_in_rule__FormFeatureControlFactory__Group_3__110649 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_43_in_rule__FormFeatureControlFactory__Group_3__1__Impl10677 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group_3__2__Impl_in_rule__FormFeatureControlFactory__Group_3__210708 = new BitSet(new long[]{0x0000100000000010L});
+    public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group_3__2__Impl_in_rule__FormFeatureControlFactory__Group_3__210708 = new BitSet(new long[]{0x4000100002000010L});
     public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group_3__3_in_rule__FormFeatureControlFactory__Group_3__210711 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_2_in_rule__FormFeatureControlFactory__Group_3__2__Impl10738 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_2_in_rule__FormFeatureControlFactory__Group_3__2__Impl10738 = new BitSet(new long[]{0x4000000002000012L});
     public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group_3__3__Impl_in_rule__FormFeatureControlFactory__Group_3__310769 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_44_in_rule__FormFeatureControlFactory__Group_3__3__Impl10797 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__FormFeatureControlSpecification__Group__0__Impl_in_rule__FormFeatureControlSpecification__Group__010836 = new BitSet(new long[]{0x0002000000000000L});
@@ -57926,129 +57890,129 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
     public static final BitSet FOLLOW_ruleValidID_in_rule__LabelSpecification__NameAssignment_133354 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXExpression_in_rule__LabelSpecification__ExpressionAssignment_333385 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulePropertyDescriptionSpecification_in_rule__PropertyDescriptionProvider__LabelSpecificationsAssignment_3_233416 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__PropertyDescriptionSpecification__ParameterTypeAssignment_033451 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXFeatureCall_in_rule__PropertyDescriptionSpecification__FeatureAssignment_233486 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__PropertyDescriptionSpecification__ExpressionAssignment_433517 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFeatureSpecification_in_rule__FeaturesProvider__FeatureSpecificationsAssignment_3_233548 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__FeatureSpecification__ParameterTypeAssignment_033583 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXFeatureCall_in_rule__FeatureSpecification__FeaturesAssignment_233618 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXFeatureCall_in_rule__FeatureSpecification__FeaturesAssignment_3_133649 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFormFeatureControlSpecification_in_rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_233680 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__FormFeatureControlSpecification__ParameterTypeAssignment_033715 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXFeatureCall_in_rule__FormFeatureControlSpecification__FeatureAssignment_233750 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__FormFeatureControlSpecification__ExpressionAssignment_433781 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__FormFeatureControlSpecification__TargetAssignment_5_133812 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValidID_in_rule__XAssignment__FeatureAssignment_0_133847 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXAssignment_in_rule__XAssignment__ValueAssignment_0_333882 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOpMultiAssign_in_rule__XAssignment__FeatureAssignment_1_1_0_0_133917 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXAssignment_in_rule__XAssignment__RightOperandAssignment_1_1_133952 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOpOr_in_rule__XOrExpression__FeatureAssignment_1_0_0_133987 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXAndExpression_in_rule__XOrExpression__RightOperandAssignment_1_134022 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOpAnd_in_rule__XAndExpression__FeatureAssignment_1_0_0_134057 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXEqualityExpression_in_rule__XAndExpression__RightOperandAssignment_1_134092 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOpEquality_in_rule__XEqualityExpression__FeatureAssignment_1_0_0_134127 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXRelationalExpression_in_rule__XEqualityExpression__RightOperandAssignment_1_134162 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XRelationalExpression__TypeAssignment_1_0_134193 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOpCompare_in_rule__XRelationalExpression__FeatureAssignment_1_1_0_0_134228 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXOtherOperatorExpression_in_rule__XRelationalExpression__RightOperandAssignment_1_1_134263 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOpOther_in_rule__XOtherOperatorExpression__FeatureAssignment_1_0_0_134298 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXAdditiveExpression_in_rule__XOtherOperatorExpression__RightOperandAssignment_1_134333 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOpAdd_in_rule__XAdditiveExpression__FeatureAssignment_1_0_0_134368 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXMultiplicativeExpression_in_rule__XAdditiveExpression__RightOperandAssignment_1_134403 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOpMulti_in_rule__XMultiplicativeExpression__FeatureAssignment_1_0_0_134438 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXUnaryOperation_in_rule__XMultiplicativeExpression__RightOperandAssignment_1_134473 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOpUnary_in_rule__XUnaryOperation__FeatureAssignment_0_134508 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXCastedExpression_in_rule__XUnaryOperation__OperandAssignment_0_234543 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XCastedExpression__TypeAssignment_1_134574 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValidID_in_rule__XMemberFeatureCall__FeatureAssignment_1_0_0_0_234609 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXAssignment_in_rule__XMemberFeatureCall__ValueAssignment_1_0_134644 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_83_in_rule__XMemberFeatureCall__NullSafeAssignment_1_1_0_0_1_134680 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_84_in_rule__XMemberFeatureCall__SpreadingAssignment_1_1_0_0_1_234724 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_134763 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_2_134794 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValidID_in_rule__XMemberFeatureCall__FeatureAssignment_1_1_234829 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_62_in_rule__XMemberFeatureCall__ExplicitOperationCallAssignment_1_1_3_034869 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXShortClosure_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_034908 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_034939 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_1_134970 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXClosure_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_435001 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_035032 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_1_135063 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_85_in_rule__XClosure__ExplicitSyntaxAssignment_1_0_135099 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpressionInClosure_in_rule__XClosure__ExpressionAssignment_235138 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpressionInsideBlock_in_rule__XExpressionInClosure__ExpressionsAssignment_1_035169 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_035200 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_1_135231 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_85_in_rule__XShortClosure__ExplicitSyntaxAssignment_0_0_235267 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XShortClosure__ExpressionAssignment_135306 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XIfExpression__IfAssignment_335337 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XIfExpression__ThenAssignment_535368 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XIfExpression__ElseAssignment_6_135399 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValidID_in_rule__XSwitchExpression__LocalVarNameAssignment_2_0_0_0_035430 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XSwitchExpression__SwitchAssignment_2_0_135461 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValidID_in_rule__XSwitchExpression__LocalVarNameAssignment_2_1_0_0_135492 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XSwitchExpression__SwitchAssignment_2_1_135523 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXCasePart_in_rule__XSwitchExpression__CasesAssignment_435554 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XSwitchExpression__DefaultAssignment_5_235585 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XCasePart__TypeGuardAssignment_035616 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XCasePart__CaseAssignment_1_135647 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XCasePart__ThenAssignment_335678 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__XForLoopExpression__DeclaredParamAssignment_335709 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XForLoopExpression__ForExpressionAssignment_535740 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XForLoopExpression__EachExpressionAssignment_735771 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XWhileExpression__PredicateAssignment_335802 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XWhileExpression__BodyAssignment_535833 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XDoWhileExpression__BodyAssignment_235864 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XDoWhileExpression__PredicateAssignment_535895 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpressionInsideBlock_in_rule__XBlockExpression__ExpressionsAssignment_2_035926 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_86_in_rule__XVariableDeclaration__WriteableAssignment_1_035962 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XVariableDeclaration__TypeAssignment_2_0_0_036001 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValidID_in_rule__XVariableDeclaration__NameAssignment_2_0_0_136032 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValidID_in_rule__XVariableDeclaration__NameAssignment_2_136063 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XVariableDeclaration__RightAssignment_3_136094 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__JvmFormalParameter__ParameterTypeAssignment_036125 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValidID_in_rule__JvmFormalParameter__NameAssignment_136156 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__FullJvmFormalParameter__ParameterTypeAssignment_036187 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValidID_in_rule__FullJvmFormalParameter__NameAssignment_136218 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStaticQualifier_in_rule__XFeatureCall__DeclaringTypeAssignment_136253 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__XFeatureCall__TypeArgumentsAssignment_2_136288 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__XFeatureCall__TypeArgumentsAssignment_2_2_136319 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIdOrSuper_in_rule__XFeatureCall__FeatureAssignment_336354 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_62_in_rule__XFeatureCall__ExplicitOperationCallAssignment_4_036394 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXShortClosure_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_4_1_036433 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_4_1_1_036464 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_4_1_1_1_136495 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXClosure_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_536526 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__XConstructorCall__ConstructorAssignment_236561 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__XConstructorCall__TypeArgumentsAssignment_3_136596 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__XConstructorCall__TypeArgumentsAssignment_3_2_136627 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXShortClosure_in_rule__XConstructorCall__ArgumentsAssignment_4_1_036658 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XConstructorCall__ArgumentsAssignment_4_1_1_036689 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XConstructorCall__ArgumentsAssignment_4_1_1_1_136720 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXClosure_in_rule__XConstructorCall__ArgumentsAssignment_536751 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_87_in_rule__XBooleanLiteral__IsTrueAssignment_1_136787 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNumber_in_rule__XNumberLiteral__ValueAssignment_136826 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__XStringLiteral__ValueAssignment_136857 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__XTypeLiteral__TypeAssignment_336892 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XThrowExpression__ExpressionAssignment_236927 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XReturnExpression__ExpressionAssignment_236958 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XTryCatchFinallyExpression__ExpressionAssignment_236989 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXCatchClause_in_rule__XTryCatchFinallyExpression__CatchClausesAssignment_3_0_037020 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_0_1_137051 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_1_137082 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFullJvmFormalParameter_in_rule__XCatchClause__DeclaredParamAssignment_237113 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__XCatchClause__ExpressionAssignment_437144 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XFunctionTypeRef__ParamTypesAssignment_0_1_037175 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XFunctionTypeRef__ParamTypesAssignment_0_1_1_137206 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XFunctionTypeRef__ReturnTypeAssignment_237237 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__JvmParameterizedTypeReference__TypeAssignment_037272 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_137307 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_137338 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmUpperBound_in_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_037369 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmLowerBound_in_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_137400 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__JvmUpperBound__TypeReferenceAssignment_137431 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__JvmUpperBoundAnded__TypeReferenceAssignment_137462 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__JvmLowerBound__TypeReferenceAssignment_137493 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__PropertyDescriptionSpecification__ParameterTypeAssignment_033447 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXFeatureCall_in_rule__PropertyDescriptionSpecification__FeatureAssignment_233478 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__PropertyDescriptionSpecification__ExpressionAssignment_433509 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFeatureSpecification_in_rule__FeaturesProvider__FeatureSpecificationsAssignment_3_233540 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__FeatureSpecification__ParameterTypeAssignment_033571 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXFeatureCall_in_rule__FeatureSpecification__FeaturesAssignment_233602 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXFeatureCall_in_rule__FeatureSpecification__FeaturesAssignment_3_133633 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFormFeatureControlSpecification_in_rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_233664 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__FormFeatureControlSpecification__ParameterTypeAssignment_033695 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXFeatureCall_in_rule__FormFeatureControlSpecification__FeatureAssignment_233726 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__FormFeatureControlSpecification__ExpressionAssignment_433757 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__FormFeatureControlSpecification__TargetAssignment_5_133788 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValidID_in_rule__XAssignment__FeatureAssignment_0_133823 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXAssignment_in_rule__XAssignment__ValueAssignment_0_333858 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOpMultiAssign_in_rule__XAssignment__FeatureAssignment_1_1_0_0_133893 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXAssignment_in_rule__XAssignment__RightOperandAssignment_1_1_133928 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOpOr_in_rule__XOrExpression__FeatureAssignment_1_0_0_133963 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXAndExpression_in_rule__XOrExpression__RightOperandAssignment_1_133998 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOpAnd_in_rule__XAndExpression__FeatureAssignment_1_0_0_134033 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXEqualityExpression_in_rule__XAndExpression__RightOperandAssignment_1_134068 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOpEquality_in_rule__XEqualityExpression__FeatureAssignment_1_0_0_134103 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXRelationalExpression_in_rule__XEqualityExpression__RightOperandAssignment_1_134138 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XRelationalExpression__TypeAssignment_1_0_134169 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOpCompare_in_rule__XRelationalExpression__FeatureAssignment_1_1_0_0_134204 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXOtherOperatorExpression_in_rule__XRelationalExpression__RightOperandAssignment_1_1_134239 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOpOther_in_rule__XOtherOperatorExpression__FeatureAssignment_1_0_0_134274 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXAdditiveExpression_in_rule__XOtherOperatorExpression__RightOperandAssignment_1_134309 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOpAdd_in_rule__XAdditiveExpression__FeatureAssignment_1_0_0_134344 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXMultiplicativeExpression_in_rule__XAdditiveExpression__RightOperandAssignment_1_134379 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOpMulti_in_rule__XMultiplicativeExpression__FeatureAssignment_1_0_0_134414 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXUnaryOperation_in_rule__XMultiplicativeExpression__RightOperandAssignment_1_134449 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOpUnary_in_rule__XUnaryOperation__FeatureAssignment_0_134484 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXCastedExpression_in_rule__XUnaryOperation__OperandAssignment_0_234519 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XCastedExpression__TypeAssignment_1_134550 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValidID_in_rule__XMemberFeatureCall__FeatureAssignment_1_0_0_0_234585 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXAssignment_in_rule__XMemberFeatureCall__ValueAssignment_1_0_134620 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_83_in_rule__XMemberFeatureCall__NullSafeAssignment_1_1_0_0_1_134656 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_84_in_rule__XMemberFeatureCall__SpreadingAssignment_1_1_0_0_1_234700 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_134739 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__XMemberFeatureCall__TypeArgumentsAssignment_1_1_1_2_134770 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValidID_in_rule__XMemberFeatureCall__FeatureAssignment_1_1_234805 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_62_in_rule__XMemberFeatureCall__ExplicitOperationCallAssignment_1_1_3_034845 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXShortClosure_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_034884 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_034915 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_1_1_134946 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXClosure_in_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_434977 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_035008 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__XClosure__DeclaredFormalParametersAssignment_1_0_0_1_135039 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_85_in_rule__XClosure__ExplicitSyntaxAssignment_1_0_135075 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpressionInClosure_in_rule__XClosure__ExpressionAssignment_235114 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpressionInsideBlock_in_rule__XExpressionInClosure__ExpressionsAssignment_1_035145 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_035176 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__XShortClosure__DeclaredFormalParametersAssignment_0_0_1_1_135207 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_85_in_rule__XShortClosure__ExplicitSyntaxAssignment_0_0_235243 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XShortClosure__ExpressionAssignment_135282 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XIfExpression__IfAssignment_335313 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XIfExpression__ThenAssignment_535344 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XIfExpression__ElseAssignment_6_135375 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValidID_in_rule__XSwitchExpression__LocalVarNameAssignment_2_0_0_0_035406 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XSwitchExpression__SwitchAssignment_2_0_135437 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValidID_in_rule__XSwitchExpression__LocalVarNameAssignment_2_1_0_0_135468 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XSwitchExpression__SwitchAssignment_2_1_135499 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXCasePart_in_rule__XSwitchExpression__CasesAssignment_435530 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XSwitchExpression__DefaultAssignment_5_235561 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XCasePart__TypeGuardAssignment_035592 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XCasePart__CaseAssignment_1_135623 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XCasePart__ThenAssignment_335654 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmFormalParameter_in_rule__XForLoopExpression__DeclaredParamAssignment_335685 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XForLoopExpression__ForExpressionAssignment_535716 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XForLoopExpression__EachExpressionAssignment_735747 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XWhileExpression__PredicateAssignment_335778 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XWhileExpression__BodyAssignment_535809 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XDoWhileExpression__BodyAssignment_235840 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XDoWhileExpression__PredicateAssignment_535871 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpressionInsideBlock_in_rule__XBlockExpression__ExpressionsAssignment_2_035902 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_86_in_rule__XVariableDeclaration__WriteableAssignment_1_035938 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XVariableDeclaration__TypeAssignment_2_0_0_035977 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValidID_in_rule__XVariableDeclaration__NameAssignment_2_0_0_136008 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValidID_in_rule__XVariableDeclaration__NameAssignment_2_136039 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XVariableDeclaration__RightAssignment_3_136070 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__JvmFormalParameter__ParameterTypeAssignment_036101 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValidID_in_rule__JvmFormalParameter__NameAssignment_136132 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__FullJvmFormalParameter__ParameterTypeAssignment_036163 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValidID_in_rule__FullJvmFormalParameter__NameAssignment_136194 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStaticQualifier_in_rule__XFeatureCall__DeclaringTypeAssignment_136229 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__XFeatureCall__TypeArgumentsAssignment_2_136264 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__XFeatureCall__TypeArgumentsAssignment_2_2_136295 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIdOrSuper_in_rule__XFeatureCall__FeatureAssignment_336330 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_62_in_rule__XFeatureCall__ExplicitOperationCallAssignment_4_036370 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXShortClosure_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_4_1_036409 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_4_1_1_036440 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_4_1_1_1_136471 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXClosure_in_rule__XFeatureCall__FeatureCallArgumentsAssignment_536502 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__XConstructorCall__ConstructorAssignment_236537 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__XConstructorCall__TypeArgumentsAssignment_3_136572 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__XConstructorCall__TypeArgumentsAssignment_3_2_136603 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXShortClosure_in_rule__XConstructorCall__ArgumentsAssignment_4_1_036634 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XConstructorCall__ArgumentsAssignment_4_1_1_036665 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XConstructorCall__ArgumentsAssignment_4_1_1_1_136696 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXClosure_in_rule__XConstructorCall__ArgumentsAssignment_536727 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_87_in_rule__XBooleanLiteral__IsTrueAssignment_1_136763 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNumber_in_rule__XNumberLiteral__ValueAssignment_136802 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__XStringLiteral__ValueAssignment_136833 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__XTypeLiteral__TypeAssignment_336868 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XThrowExpression__ExpressionAssignment_236903 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XReturnExpression__ExpressionAssignment_236934 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XTryCatchFinallyExpression__ExpressionAssignment_236965 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXCatchClause_in_rule__XTryCatchFinallyExpression__CatchClausesAssignment_3_0_036996 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_0_1_137027 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XTryCatchFinallyExpression__FinallyExpressionAssignment_3_1_137058 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFullJvmFormalParameter_in_rule__XCatchClause__DeclaredParamAssignment_237089 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__XCatchClause__ExpressionAssignment_437120 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XFunctionTypeRef__ParamTypesAssignment_0_1_037151 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XFunctionTypeRef__ParamTypesAssignment_0_1_1_137182 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__XFunctionTypeRef__ReturnTypeAssignment_237213 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__JvmParameterizedTypeReference__TypeAssignment_037248 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_137283 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmArgumentTypeReference_in_rule__JvmParameterizedTypeReference__ArgumentsAssignment_1_2_137314 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmUpperBound_in_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_037345 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmLowerBound_in_rule__JvmWildcardTypeReference__ConstraintsAssignment_2_137376 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__JvmUpperBound__TypeReferenceAssignment_137407 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__JvmUpperBoundAnded__TypeReferenceAssignment_137438 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__JvmLowerBound__TypeReferenceAssignment_137469 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__OpOther__Group_4_1_0__0_in_synpred16_InternalEmfComponentsDsl5089 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__XMemberFeatureCall__MemberCallArgumentsAssignment_1_1_3_1_0_in_synpred27_InternalEmfComponentsDsl5539 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__XVariableDeclaration__Group_2_0__0_in_synpred48_InternalEmfComponentsDsl6098 = new BitSet(new long[]{0x0000000000000002L});

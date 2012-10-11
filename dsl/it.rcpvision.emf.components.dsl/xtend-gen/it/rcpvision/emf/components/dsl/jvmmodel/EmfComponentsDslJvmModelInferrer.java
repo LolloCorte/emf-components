@@ -32,7 +32,6 @@ import org.eclipse.xtext.common.types.JvmGenericType;
 import org.eclipse.xtext.common.types.JvmIdentifiableElement;
 import org.eclipse.xtext.common.types.JvmMember;
 import org.eclipse.xtext.common.types.JvmOperation;
-import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
 import org.eclipse.xtext.common.types.JvmType;
 import org.eclipse.xtext.common.types.JvmTypeConstraint;
 import org.eclipse.xtext.common.types.JvmTypeReference;
@@ -342,7 +341,7 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
                     if (_and) {
                       EList<JvmMember> _members = it.getMembers();
                       XExpression _expression = labelSpecification.getExpression();
-                      JvmType _parameterType = labelSpecification.getParameterType();
+                      JvmTypeReference _parameterType = labelSpecification.getParameterType();
                       String _simpleName = _parameterType.getSimpleName();
                       String _plus = ("text_" + _simpleName);
                       String _plus_1 = (_plus + "_");
@@ -425,7 +424,7 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
                                 ITreeAppendable _newLine = it.newLine();
                                 StringConcatenation _builder = new StringConcatenation();
                                 _builder.append("stringMap.mapTo(\"");
-                                JvmType _parameterType = featureSpecification.getParameterType();
+                                JvmTypeReference _parameterType = featureSpecification.getParameterType();
                                 String _identifier = _parameterType.getIdentifier();
                                 _builder.append(_identifier, "");
                                 _builder.append("\",");
@@ -513,10 +512,9 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
                         final Procedure1<JvmOperation> _function = new Procedure1<JvmOperation>() {
                             public void apply(final JvmOperation it) {
                               EList<JvmFormalParameter> _parameters = it.getParameters();
-                              JvmType _parameterType = spec.getParameterType();
-                              JvmParameterizedTypeReference _createTypeRef = EmfComponentsDslJvmModelInferrer.this._typeReferences.createTypeRef(_parameterType);
+                              JvmTypeReference _parameterType = spec.getParameterType();
                               JvmFormalParameter _parameter = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.toParameter(spec, 
-                                "it", _createTypeRef);
+                                "it", _parameterType);
                               EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
                               XExpression _expression = spec.getExpression();
                               EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _expression);
@@ -624,7 +622,7 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
   }
   
   public String methodNameForFormFeatureSpecification(final FormFeatureControlSpecification spec, final String prefix) {
-    JvmType _parameterType = spec.getParameterType();
+    JvmTypeReference _parameterType = spec.getParameterType();
     String _simpleName = _parameterType.getSimpleName();
     String _plus = (prefix + _simpleName);
     String _plus_1 = (_plus + "_");

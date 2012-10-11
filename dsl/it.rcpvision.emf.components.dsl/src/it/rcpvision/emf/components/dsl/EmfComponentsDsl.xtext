@@ -64,7 +64,7 @@ PropertyDescriptionProvider:
 ;
 
 PropertyDescriptionSpecification:
-	parameterType=[types::JvmType|QualifiedName] ':' feature=XFeatureCall
+	parameterType=JvmTypeReference ':' feature=XFeatureCall
 	'->'
 	expression = XExpression
 ;
@@ -80,7 +80,7 @@ FeaturesProvider:
 ;
 
 FeatureSpecification:
-	parameterType=[types::JvmType|QualifiedName] 
+	parameterType=JvmTypeReference 
 	'->'
 	features += XFeatureCall (',' features += XFeatureCall)*
 ;
@@ -96,7 +96,7 @@ FormFeatureControlFactory:
 ;
 
 FormFeatureControlSpecification:
-	parameterType=[types::JvmType|QualifiedName] ':' feature=XFeatureCall
+	parameterType=JvmTypeReference ':' feature=XFeatureCall
 	'->'
 	expression = XExpression
 	('target' target = XExpression)?

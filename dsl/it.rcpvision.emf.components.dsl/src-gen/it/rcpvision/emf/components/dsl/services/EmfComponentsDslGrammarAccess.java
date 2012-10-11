@@ -345,8 +345,7 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PropertyDescriptionSpecification");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cParameterTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final CrossReference cParameterTypeJvmTypeCrossReference_0_0 = (CrossReference)cParameterTypeAssignment_0.eContents().get(0);
-		private final RuleCall cParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1 = (RuleCall)cParameterTypeJvmTypeCrossReference_0_0.eContents().get(1);
+		private final RuleCall cParameterTypeJvmTypeReferenceParserRuleCall_0_0 = (RuleCall)cParameterTypeAssignment_0.eContents().get(0);
 		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cFeatureAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cFeatureXFeatureCallParserRuleCall_2_0 = (RuleCall)cFeatureAssignment_2.eContents().get(0);
@@ -355,20 +354,17 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		private final RuleCall cExpressionXExpressionParserRuleCall_4_0 = (RuleCall)cExpressionAssignment_4.eContents().get(0);
 		
 		//PropertyDescriptionSpecification:
-		//	parameterType=[types::JvmType|QualifiedName] ":" feature=XFeatureCall "->" expression=XExpression;
+		//	parameterType=JvmTypeReference ":" feature=XFeatureCall "->" expression=XExpression;
 		public ParserRule getRule() { return rule; }
 
-		//parameterType=[types::JvmType|QualifiedName] ":" feature=XFeatureCall "->" expression=XExpression
+		//parameterType=JvmTypeReference ":" feature=XFeatureCall "->" expression=XExpression
 		public Group getGroup() { return cGroup; }
 
-		//parameterType=[types::JvmType|QualifiedName]
+		//parameterType=JvmTypeReference
 		public Assignment getParameterTypeAssignment_0() { return cParameterTypeAssignment_0; }
 
-		//[types::JvmType|QualifiedName]
-		public CrossReference getParameterTypeJvmTypeCrossReference_0_0() { return cParameterTypeJvmTypeCrossReference_0_0; }
-
-		//QualifiedName
-		public RuleCall getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1() { return cParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1; }
+		//JvmTypeReference
+		public RuleCall getParameterTypeJvmTypeReferenceParserRuleCall_0_0() { return cParameterTypeJvmTypeReferenceParserRuleCall_0_0; }
 
 		//":"
 		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
@@ -445,8 +441,7 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FeatureSpecification");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cParameterTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final CrossReference cParameterTypeJvmTypeCrossReference_0_0 = (CrossReference)cParameterTypeAssignment_0.eContents().get(0);
-		private final RuleCall cParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1 = (RuleCall)cParameterTypeJvmTypeCrossReference_0_0.eContents().get(1);
+		private final RuleCall cParameterTypeJvmTypeReferenceParserRuleCall_0_0 = (RuleCall)cParameterTypeAssignment_0.eContents().get(0);
 		private final Keyword cHyphenMinusGreaterThanSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cFeaturesAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cFeaturesXFeatureCallParserRuleCall_2_0 = (RuleCall)cFeaturesAssignment_2.eContents().get(0);
@@ -456,20 +451,17 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		private final RuleCall cFeaturesXFeatureCallParserRuleCall_3_1_0 = (RuleCall)cFeaturesAssignment_3_1.eContents().get(0);
 		
 		//FeatureSpecification:
-		//	parameterType=[types::JvmType|QualifiedName] "->" features+=XFeatureCall ("," features+=XFeatureCall)*;
+		//	parameterType=JvmTypeReference "->" features+=XFeatureCall ("," features+=XFeatureCall)*;
 		public ParserRule getRule() { return rule; }
 
-		//parameterType=[types::JvmType|QualifiedName] "->" features+=XFeatureCall ("," features+=XFeatureCall)*
+		//parameterType=JvmTypeReference "->" features+=XFeatureCall ("," features+=XFeatureCall)*
 		public Group getGroup() { return cGroup; }
 
-		//parameterType=[types::JvmType|QualifiedName]
+		//parameterType=JvmTypeReference
 		public Assignment getParameterTypeAssignment_0() { return cParameterTypeAssignment_0; }
 
-		//[types::JvmType|QualifiedName]
-		public CrossReference getParameterTypeJvmTypeCrossReference_0_0() { return cParameterTypeJvmTypeCrossReference_0_0; }
-
-		//QualifiedName
-		public RuleCall getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1() { return cParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1; }
+		//JvmTypeReference
+		public RuleCall getParameterTypeJvmTypeReferenceParserRuleCall_0_0() { return cParameterTypeJvmTypeReferenceParserRuleCall_0_0; }
 
 		//"->"
 		public Keyword getHyphenMinusGreaterThanSignKeyword_1() { return cHyphenMinusGreaterThanSignKeyword_1; }
@@ -551,8 +543,7 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FormFeatureControlSpecification");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cParameterTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final CrossReference cParameterTypeJvmTypeCrossReference_0_0 = (CrossReference)cParameterTypeAssignment_0.eContents().get(0);
-		private final RuleCall cParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1 = (RuleCall)cParameterTypeJvmTypeCrossReference_0_0.eContents().get(1);
+		private final RuleCall cParameterTypeJvmTypeReferenceParserRuleCall_0_0 = (RuleCall)cParameterTypeAssignment_0.eContents().get(0);
 		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cFeatureAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cFeatureXFeatureCallParserRuleCall_2_0 = (RuleCall)cFeatureAssignment_2.eContents().get(0);
@@ -565,22 +556,17 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		private final RuleCall cTargetXExpressionParserRuleCall_5_1_0 = (RuleCall)cTargetAssignment_5_1.eContents().get(0);
 		
 		//FormFeatureControlSpecification:
-		//	parameterType=[types::JvmType|QualifiedName] ":" feature=XFeatureCall "->" expression=XExpression ("target"
-		//	target=XExpression)?;
+		//	parameterType=JvmTypeReference ":" feature=XFeatureCall "->" expression=XExpression ("target" target=XExpression)?;
 		public ParserRule getRule() { return rule; }
 
-		//parameterType=[types::JvmType|QualifiedName] ":" feature=XFeatureCall "->" expression=XExpression ("target"
-		//target=XExpression)?
+		//parameterType=JvmTypeReference ":" feature=XFeatureCall "->" expression=XExpression ("target" target=XExpression)?
 		public Group getGroup() { return cGroup; }
 
-		//parameterType=[types::JvmType|QualifiedName]
+		//parameterType=JvmTypeReference
 		public Assignment getParameterTypeAssignment_0() { return cParameterTypeAssignment_0; }
 
-		//[types::JvmType|QualifiedName]
-		public CrossReference getParameterTypeJvmTypeCrossReference_0_0() { return cParameterTypeJvmTypeCrossReference_0_0; }
-
-		//QualifiedName
-		public RuleCall getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1() { return cParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1; }
+		//JvmTypeReference
+		public RuleCall getParameterTypeJvmTypeReferenceParserRuleCall_0_0() { return cParameterTypeJvmTypeReferenceParserRuleCall_0_0; }
 
 		//":"
 		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
@@ -766,7 +752,7 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 	}
 
 	//PropertyDescriptionSpecification:
-	//	parameterType=[types::JvmType|QualifiedName] ":" feature=XFeatureCall "->" expression=XExpression;
+	//	parameterType=JvmTypeReference ":" feature=XFeatureCall "->" expression=XExpression;
 	public PropertyDescriptionSpecificationElements getPropertyDescriptionSpecificationAccess() {
 		return (pPropertyDescriptionSpecification != null) ? pPropertyDescriptionSpecification : (pPropertyDescriptionSpecification = new PropertyDescriptionSpecificationElements());
 	}
@@ -786,7 +772,7 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 	}
 
 	//FeatureSpecification:
-	//	parameterType=[types::JvmType|QualifiedName] "->" features+=XFeatureCall ("," features+=XFeatureCall)*;
+	//	parameterType=JvmTypeReference "->" features+=XFeatureCall ("," features+=XFeatureCall)*;
 	public FeatureSpecificationElements getFeatureSpecificationAccess() {
 		return (pFeatureSpecification != null) ? pFeatureSpecification : (pFeatureSpecification = new FeatureSpecificationElements());
 	}
@@ -807,8 +793,7 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 	}
 
 	//FormFeatureControlSpecification:
-	//	parameterType=[types::JvmType|QualifiedName] ":" feature=XFeatureCall "->" expression=XExpression ("target"
-	//	target=XExpression)?;
+	//	parameterType=JvmTypeReference ":" feature=XFeatureCall "->" expression=XExpression ("target" target=XExpression)?;
 	public FormFeatureControlSpecificationElements getFormFeatureControlSpecificationAccess() {
 		return (pFormFeatureControlSpecification != null) ? pFormFeatureControlSpecification : (pFormFeatureControlSpecification = new FormFeatureControlSpecificationElements());
 	}

@@ -691,15 +691,18 @@ rulePropertyDescriptionSpecification returns [EObject current=null]
     @after { leaveRule(); }:
 ((
 (
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getPropertyDescriptionSpecificationRule());
-	        }
-        }
 		{ 
-	        newCompositeNode(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); 
+	        newCompositeNode(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); 
 	    }
-		ruleQualifiedName		{ 
+		lv_parameterType_0_0=ruleJvmTypeReference		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPropertyDescriptionSpecificationRule());
+	        }
+       		set(
+       			$current, 
+       			"parameterType",
+        		lv_parameterType_0_0, 
+        		"JvmTypeReference");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -840,15 +843,18 @@ ruleFeatureSpecification returns [EObject current=null]
     @after { leaveRule(); }:
 ((
 (
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getFeatureSpecificationRule());
-	        }
-        }
 		{ 
-	        newCompositeNode(grammarAccess.getFeatureSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); 
+	        newCompositeNode(grammarAccess.getFeatureSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); 
 	    }
-		ruleQualifiedName		{ 
+		lv_parameterType_0_0=ruleJvmTypeReference		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getFeatureSpecificationRule());
+	        }
+       		set(
+       			$current, 
+       			"parameterType",
+        		lv_parameterType_0_0, 
+        		"JvmTypeReference");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -989,15 +995,18 @@ ruleFormFeatureControlSpecification returns [EObject current=null]
     @after { leaveRule(); }:
 ((
 (
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getFormFeatureControlSpecificationRule());
-	        }
-        }
 		{ 
-	        newCompositeNode(grammarAccess.getFormFeatureControlSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); 
+	        newCompositeNode(grammarAccess.getFormFeatureControlSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); 
 	    }
-		ruleQualifiedName		{ 
+		lv_parameterType_0_0=ruleJvmTypeReference		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getFormFeatureControlSpecificationRule());
+	        }
+       		set(
+       			$current, 
+       			"parameterType",
+        		lv_parameterType_0_0, 
+        		"JvmTypeReference");
 	        afterParserOrEnumRuleCall();
 	    }
 

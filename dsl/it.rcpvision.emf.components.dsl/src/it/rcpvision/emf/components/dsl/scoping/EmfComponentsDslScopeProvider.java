@@ -62,7 +62,7 @@ public class EmfComponentsDslScopeProvider extends XbaseScopeProvider {
 	protected JvmDeclaredType getContextType(EObject obj) {
 		if (obj instanceof EmfFeatureAccess) {
 			EmfFeatureAccess featureAccess = (EmfFeatureAccess) obj;
-			JvmType parameterType = featureAccess.getParameterType();
+			JvmType parameterType = featureAccess.getParameterType().getType();
 			if (parameterType instanceof JvmDeclaredType) {
 				return (JvmDeclaredType) parameterType;
 			}
@@ -82,7 +82,7 @@ public class EmfComponentsDslScopeProvider extends XbaseScopeProvider {
 				EmfFeatureAccess featureAccess = (EmfFeatureAccess) context;
 				return new SimpleScope(parentScope,
 						Collections.singleton(EObjectDescription.create(THIS,
-								featureAccess.getParameterType())));
+								featureAccess.getParameterType().getType())));
 			}
 		}
 

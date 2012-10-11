@@ -1003,7 +1003,7 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (parameterType=[JvmType|QualifiedName] features+=XFeatureCall features+=XFeatureCall*)
+	 *     (parameterType=JvmTypeReference features+=XFeatureCall features+=XFeatureCall*)
 	 */
 	protected void sequence_FeatureSpecification(EObject context, FeatureSpecification semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1030,7 +1030,7 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (parameterType=[JvmType|QualifiedName] feature=XFeatureCall expression=XExpression target=XExpression?)
+	 *     (parameterType=JvmTypeReference feature=XFeatureCall expression=XExpression target=XExpression?)
 	 */
 	protected void sequence_FormFeatureControlSpecification(EObject context, FormFeatureControlSpecification semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1106,7 +1106,7 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (parameterType=[JvmType|QualifiedName] feature=XFeatureCall expression=XExpression)
+	 *     (parameterType=JvmTypeReference feature=XFeatureCall expression=XExpression)
 	 */
 	protected void sequence_PropertyDescriptionSpecification(EObject context, PropertyDescriptionSpecification semanticObject) {
 		if(errorAcceptor != null) {
@@ -1119,7 +1119,7 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1(), semanticObject.getParameterType());
+		feeder.accept(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0(), semanticObject.getParameterType());
 		feeder.accept(grammarAccess.getPropertyDescriptionSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0(), semanticObject.getFeature());
 		feeder.accept(grammarAccess.getPropertyDescriptionSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0(), semanticObject.getExpression());
 		feeder.finish();

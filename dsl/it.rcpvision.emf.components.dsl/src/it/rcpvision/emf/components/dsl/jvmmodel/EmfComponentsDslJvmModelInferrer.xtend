@@ -271,7 +271,7 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 							members += spec.
 							control_EClass_EStructuralFeature(spec.expression) [
 								parameters += spec.toParameter(
-									"it", spec.parameterType.createTypeRef
+									"it", spec.parameterType
 								)
 								body = spec.expression
 							]

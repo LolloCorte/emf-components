@@ -6,6 +6,7 @@ import it.rcpvision.emf.components.dsl.model.EmfFeatureAccess;
 import it.rcpvision.emf.components.dsl.model.ModelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -13,7 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.xtext.common.types.JvmType;
+import org.eclipse.xtext.common.types.JvmTypeReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,14 +32,14 @@ import org.eclipse.xtext.common.types.JvmType;
 public class EmfFeatureAccessImpl extends MinimalEObjectImpl.Container implements EmfFeatureAccess
 {
   /**
-   * The cached value of the '{@link #getParameterType() <em>Parameter Type</em>}' reference.
+   * The cached value of the '{@link #getParameterType() <em>Parameter Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getParameterType()
    * @generated
    * @ordered
    */
-  protected JvmType parameterType;
+  protected JvmTypeReference parameterType;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,27 +67,7 @@ public class EmfFeatureAccessImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public JvmType getParameterType()
-  {
-    if (parameterType != null && parameterType.eIsProxy())
-    {
-      InternalEObject oldParameterType = (InternalEObject)parameterType;
-      parameterType = (JvmType)eResolveProxy(oldParameterType);
-      if (parameterType != oldParameterType)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.EMF_FEATURE_ACCESS__PARAMETER_TYPE, oldParameterType, parameterType));
-      }
-    }
-    return parameterType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public JvmType basicGetParameterType()
+  public JvmTypeReference getParameterType()
   {
     return parameterType;
   }
@@ -96,12 +77,53 @@ public class EmfFeatureAccessImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setParameterType(JvmType newParameterType)
+  public NotificationChain basicSetParameterType(JvmTypeReference newParameterType, NotificationChain msgs)
   {
-    JvmType oldParameterType = parameterType;
+    JvmTypeReference oldParameterType = parameterType;
     parameterType = newParameterType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.EMF_FEATURE_ACCESS__PARAMETER_TYPE, oldParameterType, parameterType));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.EMF_FEATURE_ACCESS__PARAMETER_TYPE, oldParameterType, newParameterType);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setParameterType(JvmTypeReference newParameterType)
+  {
+    if (newParameterType != parameterType)
+    {
+      NotificationChain msgs = null;
+      if (parameterType != null)
+        msgs = ((InternalEObject)parameterType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.EMF_FEATURE_ACCESS__PARAMETER_TYPE, null, msgs);
+      if (newParameterType != null)
+        msgs = ((InternalEObject)newParameterType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.EMF_FEATURE_ACCESS__PARAMETER_TYPE, null, msgs);
+      msgs = basicSetParameterType(newParameterType, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.EMF_FEATURE_ACCESS__PARAMETER_TYPE, newParameterType, newParameterType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case ModelPackage.EMF_FEATURE_ACCESS__PARAMETER_TYPE:
+        return basicSetParameterType(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -115,8 +137,7 @@ public class EmfFeatureAccessImpl extends MinimalEObjectImpl.Container implement
     switch (featureID)
     {
       case ModelPackage.EMF_FEATURE_ACCESS__PARAMETER_TYPE:
-        if (resolve) return getParameterType();
-        return basicGetParameterType();
+        return getParameterType();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -132,7 +153,7 @@ public class EmfFeatureAccessImpl extends MinimalEObjectImpl.Container implement
     switch (featureID)
     {
       case ModelPackage.EMF_FEATURE_ACCESS__PARAMETER_TYPE:
-        setParameterType((JvmType)newValue);
+        setParameterType((JvmTypeReference)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -149,7 +170,7 @@ public class EmfFeatureAccessImpl extends MinimalEObjectImpl.Container implement
     switch (featureID)
     {
       case ModelPackage.EMF_FEATURE_ACCESS__PARAMETER_TYPE:
-        setParameterType((JvmType)null);
+        setParameterType((JvmTypeReference)null);
         return;
     }
     super.eUnset(featureID);

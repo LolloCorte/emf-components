@@ -16531,12 +16531,8 @@ rule__PropertyDescriptionSpecification__ParameterTypeAssignment_0
     }
 :
 (
-{ before(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); }
-(
-{ before(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1()); }
-	ruleQualifiedName{ after(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1()); }
-)
-{ after(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); }
+{ before(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); }
+	ruleJvmTypeReference{ after(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); }
 )
 
 ;
@@ -16595,12 +16591,8 @@ rule__FeatureSpecification__ParameterTypeAssignment_0
     }
 :
 (
-{ before(grammarAccess.getFeatureSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); }
-(
-{ before(grammarAccess.getFeatureSpecificationAccess().getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1()); }
-	ruleQualifiedName{ after(grammarAccess.getFeatureSpecificationAccess().getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1()); }
-)
-{ after(grammarAccess.getFeatureSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); }
+{ before(grammarAccess.getFeatureSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); }
+	ruleJvmTypeReference{ after(grammarAccess.getFeatureSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); }
 )
 
 ;
@@ -16659,12 +16651,8 @@ rule__FormFeatureControlSpecification__ParameterTypeAssignment_0
     }
 :
 (
-{ before(grammarAccess.getFormFeatureControlSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); }
-(
-{ before(grammarAccess.getFormFeatureControlSpecificationAccess().getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1()); }
-	ruleQualifiedName{ after(grammarAccess.getFormFeatureControlSpecificationAccess().getParameterTypeJvmTypeQualifiedNameParserRuleCall_0_0_1()); }
-)
-{ after(grammarAccess.getFormFeatureControlSpecificationAccess().getParameterTypeJvmTypeCrossReference_0_0()); }
+{ before(grammarAccess.getFormFeatureControlSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); }
+	ruleJvmTypeReference{ after(grammarAccess.getFormFeatureControlSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); }
 )
 
 ;

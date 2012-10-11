@@ -307,7 +307,7 @@ public interface ModelPackage extends EPackage
   int EMF_FEATURE_ACCESS = 11;
 
   /**
-   * The feature id for the '<em><b>Parameter Type</b></em>' reference.
+   * The feature id for the '<em><b>Parameter Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -335,7 +335,7 @@ public interface ModelPackage extends EPackage
   int PROPERTY_DESCRIPTION_SPECIFICATION = 6;
 
   /**
-   * The feature id for the '<em><b>Parameter Type</b></em>' reference.
+   * The feature id for the '<em><b>Parameter Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -409,7 +409,7 @@ public interface ModelPackage extends EPackage
   int FEATURE_SPECIFICATION = 8;
 
   /**
-   * The feature id for the '<em><b>Parameter Type</b></em>' reference.
+   * The feature id for the '<em><b>Parameter Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -474,7 +474,7 @@ public interface ModelPackage extends EPackage
   int FORM_FEATURE_CONTROL_SPECIFICATION = 10;
 
   /**
-   * The feature id for the '<em><b>Parameter Type</b></em>' reference.
+   * The feature id for the '<em><b>Parameter Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -882,10 +882,10 @@ public interface ModelPackage extends EPackage
   EClass getEmfFeatureAccess();
 
   /**
-   * Returns the meta object for the reference '{@link it.rcpvision.emf.components.dsl.model.EmfFeatureAccess#getParameterType <em>Parameter Type</em>}'.
+   * Returns the meta object for the containment reference '{@link it.rcpvision.emf.components.dsl.model.EmfFeatureAccess#getParameterType <em>Parameter Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Parameter Type</em>'.
+   * @return the meta object for the containment reference '<em>Parameter Type</em>'.
    * @see it.rcpvision.emf.components.dsl.model.EmfFeatureAccess#getParameterType()
    * @see #getEmfFeatureAccess()
    * @generated
@@ -1212,7 +1212,7 @@ public interface ModelPackage extends EPackage
     EClass EMF_FEATURE_ACCESS = eINSTANCE.getEmfFeatureAccess();
 
     /**
-     * The meta object literal for the '<em><b>Parameter Type</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Parameter Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
