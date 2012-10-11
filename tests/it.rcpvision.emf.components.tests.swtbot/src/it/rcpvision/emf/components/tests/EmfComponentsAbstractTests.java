@@ -511,6 +511,7 @@ public class EmfComponentsAbstractTests {
 							image.getImageData());
 				} catch (Exception ex) {
 					ex.printStackTrace();
+					fail("due to exception: " + ex.getMessage());
 				}
 			}
 		});
