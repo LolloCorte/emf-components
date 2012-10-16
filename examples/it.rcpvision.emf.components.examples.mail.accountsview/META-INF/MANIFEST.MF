@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: it.rcpvision.emf.components.examples.mail.accountsview
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: it.rcpvision.emf.components.examples.mail.accountsview;singleton:=true
+Bundle-Activator: it.rcpvision.emf.components.examples.mail.accountsview.AccountsviewActivator
+Bundle-ActivationPolicy: lazy
+Require-Bundle: com.ibm.icu,
+ org.eclipse.core.runtime,
+ org.eclipse.xtext,
+ org.eclipse.xtext.generator,
+ it.rcpvision.emf.components.dsl,
+ org.eclipse.ui,
+ it.rcpvision.emf.components.views;bundle-version="0.1.0"
+Import-Package: org.apache.log4j,
+ org.apache.commons.logging
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
