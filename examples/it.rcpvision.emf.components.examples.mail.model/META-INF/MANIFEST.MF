@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Emf Components Mail Model Example
+Bundle-SymbolicName: it.rcpvision.emf.components.examples.mail.model; singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Require-Bundle: org.eclipse.emf.ecore
+Bundle-Vendor: RCP-VISION
