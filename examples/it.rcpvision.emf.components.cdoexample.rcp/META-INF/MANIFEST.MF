@@ -6,7 +6,6 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: it.rcpvision.emf.components.cdoexample.rcp.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.eclipse.emf;bundle-version="2.6.0",
  org.eclipse.emf.common.ui;bundle-version="2.6.0",
  it.rcpvision.emf.components.cdoexample.model;bundle-version="0.1.0",
  org.junit4;bundle-version="4.8.1",

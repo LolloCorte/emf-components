@@ -7,7 +7,6 @@ Bundle-Activator: it.rcpvision.emf.components.cdo.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  it.rcpvision.emf.components;bundle-version="0.1.0";visibility:=reexport,
- org.eclipse.emf;bundle-version="2.6.0";visibility:=reexport,
  org.eclipse.emf.common.ui;bundle-version="2.6.0",
  org.junit4;bundle-version="4.8.1",
  org.eclipse.emf.cdo.net4j;bundle-version="3.0.1",
