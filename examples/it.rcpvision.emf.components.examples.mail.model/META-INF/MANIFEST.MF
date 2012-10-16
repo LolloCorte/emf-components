@@ -1,7 +1,15 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Emf Components Mail Model Example
-Bundle-SymbolicName: it.rcpvision.emf.components.examples.mail.model; singleton:=true
+Bundle-Name: %pluginName
+Bundle-SymbolicName: it.rcpvision.emf.components.examples.mail.model;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Require-Bundle: org.eclipse.emf.ecore
-Bundle-Vendor: RCP-VISION
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: it.rcpvision.emf.components.examples.mail,
+ it.rcpvision.emf.components.examples.mail.impl,
+ it.rcpvision.emf.components.examples.mail.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport
+Bundle-ActivationPolicy: lazy
