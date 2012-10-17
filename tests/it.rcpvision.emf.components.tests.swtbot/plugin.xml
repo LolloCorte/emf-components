@@ -112,8 +112,8 @@
        <view
              category="it.rcpvision.emf.components"
              class="it.rcpvision.emf.components.tests.factories.CustomLibraryExecutableExtensionFactory:it.rcpvision.emf.components.tests.views.TestSaveableResourceTableView"
-             id="it.rcpvision.emf.components.tests.views.testsaveableresourcetableview"
-             name="Library Test Saveable Resource Table View"
+             id="it.rcpvision.emf.components.tests.views.testsaveabletableview"
+             name="Library Test Saveable Table View"
              restorable="true">
        </view>
     </extension>

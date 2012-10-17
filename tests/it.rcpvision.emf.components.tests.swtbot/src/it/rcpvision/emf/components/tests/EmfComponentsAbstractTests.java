@@ -141,6 +141,8 @@ public class EmfComponentsAbstractTests {
 
 	protected static final String TEST_SAVEABLE_RESOURCE_TREE_FORM_VIEW = "Library Test Saveable Resource Tree Form View";
 
+	protected static final String TEST_SAVEABLE_TABLE_VIEW = "Library Test Saveable Table View";
+	
 	protected static final String WRITER_S_ADDRESS_TEXT = "writer's address";
 
 	protected static final String ADDRESS_LABEL = "address";
@@ -179,6 +181,8 @@ public class EmfComponentsAbstractTests {
 	protected static final String BOOK_ON_TAPE = "Book On Tape";
 
 	protected static final String NEW_CHILD = "New Child";
+
+	protected static final String NEW_SIBLING = "New Sibling";
 
 	protected static final String EMF_COMPONENTS_PROJECT = "EmfComponentsProject";
 
@@ -349,6 +353,11 @@ public class EmfComponentsAbstractTests {
 		new SWTBotMenu(contextMenu(treeItem, texts)).click();
 	}
 
+	protected void clickOnContextMenu(SWTBotTable table,
+			final String... texts) {
+		new SWTBotMenu(contextMenu(table, texts)).click();
+	}
+
 	protected MenuItem contextMenu(final SWTBotTreeItem treeItem,
 			final String... texts) {
 		treeItem.select();
@@ -366,6 +375,10 @@ public class EmfComponentsAbstractTests {
 
 	protected MenuItem contextMenu(SWTBotTree tree, final String... texts) {
 		return ContextMenuHelper.contextMenu(tree, texts);
+	}
+
+	protected MenuItem contextMenu(SWTBotTable table, final String... texts) {
+		return ContextMenuHelper.contextMenu(table, texts);
 	}
 
 	protected SWTBotEditor getEditor(String emfEditorContextMenuString) {

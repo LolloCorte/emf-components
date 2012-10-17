@@ -9,7 +9,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.resource.Resource;
 
-public class TestSaveableResourceTableView extends AbstractSaveableTableView{
+public class TestSaveableResourceTableView extends AbstractSaveableTableView {
 
 	@Override
 	protected Object getContents(Resource resource) {

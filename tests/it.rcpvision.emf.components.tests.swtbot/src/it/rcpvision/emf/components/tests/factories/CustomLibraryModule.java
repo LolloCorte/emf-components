@@ -2,11 +2,13 @@ package it.rcpvision.emf.components.tests.factories;
 
 import it.rcpvision.emf.components.EmfComponentsGuiceModule;
 import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
+import it.rcpvision.emf.components.resource.EmptyResourceInitializer;
 import it.rcpvision.emf.components.tests.binding.CustomLibraryBindingFactory;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryFeatureLabelProvider;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryFormFeatureLabelProvider;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryLabelProvider;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryTableColumnLabelProvider;
+import it.rcpvision.emf.components.tests.resource.TestEmptyLibraryResourceInitializer;
 import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelFactory;
@@ -43,5 +45,10 @@ public final class CustomLibraryModule extends
 	@Override
 	public Class<? extends TableColumnLabelProvider> bindTableColumnLabelProvider() {
 		return CustomLibraryTableColumnLabelProvider.class;
+	}
+	
+	@Override
+	public Class<? extends EmptyResourceInitializer> bindEmptyResourceInitializer() {
+		return TestEmptyLibraryResourceInitializer.class;
 	}
 }
