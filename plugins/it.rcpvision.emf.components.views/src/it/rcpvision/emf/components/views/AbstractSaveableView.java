@@ -10,6 +10,7 @@ import java.util.EventObject;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -69,8 +70,7 @@ public abstract class AbstractSaveableView extends ViewPart implements
 										if (EmfCommandsUtil.affectsResource(
 												mostRecentCommand,
 												getResource())) {
-											setDirty(true);
-											firePropertyChange(PROP_DIRTY);
+											mostRecentCommandAffectsResource(mostRecentCommand);
 										}
 
 										customizePostCommandStackChanged(mostRecentCommand);
@@ -83,6 +83,17 @@ public abstract class AbstractSaveableView extends ViewPart implements
 
 	protected void customizePostCommandStackChanged(Command mostRecentCommand) {
 		// do nothing
+	}
+
+	/**
+	 * It is called when the {@link CommandStack} changed and the change
+	 * concerns something which is in this {@link Resource}.
+	 * 
+	 * @param mostRecentCommand
+	 */
+	protected void mostRecentCommandAffectsResource(Command mostRecentCommand) {
+		setDirty(true);
+		firePropertyChange(PROP_DIRTY);
 	}
 
 	protected Resource getResource() {
