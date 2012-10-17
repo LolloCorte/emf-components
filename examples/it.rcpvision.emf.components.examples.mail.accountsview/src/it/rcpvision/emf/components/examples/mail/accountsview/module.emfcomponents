@@ -1,6 +1,25 @@
 import java.util.*
+import it.rcpvision.emf.components.examples.mail.*
 
 /* it.rcpvision.emf.components.examples.mail.accountsview Emf Components Dsl Module file */
 module it.rcpvision.emf.components.examples.mail.accountsview {
 	
+	labelProvider {
+		images {
+			Account -> "account.gif"
+			Folder -> {
+				switch (name) {
+					case "Inbox" : "inbox.gif"
+					case "Sent" : "sent.png"
+					case "Trash" : "trash.png"
+					default: "folder.gif"
+				}
+			}
+		}
+		
+		labels {
+			Account -> email
+			Folder -> name
+		}
+	}
 }
