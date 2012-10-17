@@ -139,10 +139,12 @@ public class EmfComponentsAbstractTests {
 
 	protected static final String LIBRARY_TEST_EMF_TABLE_VIEW = "Library Test Table";
 
-	protected static final String TEST_SAVEABLE_RESOURCE_TREE_FORM_VIEW = "Library Test Saveable Resource Tree Form View";
+	protected static final String TEST_SAVEABLE_TREE_FORM_VIEW = "Library Test Saveable Resource Tree Form View";
 
 	protected static final String TEST_SAVEABLE_TABLE_VIEW = "Library Test Saveable Table View";
-	
+
+	protected static final String TEST_SAVEABLE_TREE_VIEW = "Library Test Saveable Tree View";
+
 	protected static final String WRITER_S_ADDRESS_TEXT = "writer's address";
 
 	protected static final String ADDRESS_LABEL = "address";

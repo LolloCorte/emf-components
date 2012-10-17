@@ -30,18 +30,23 @@ public class EmfComponentsSaveableViewTests extends EmfComponentsAbstractTests {
 
 	boolean tableViewOpened = false;
 
+	boolean treeViewOpened = false;
+
 	@Before
 	public void runBefore() {
 		treeFormViewOpened = false;
 		tableViewOpened = false;
+		treeViewOpened = false;
 	}
 
 	@After
 	public void runAfterEveryTest() throws CoreException {
 		if (treeFormViewOpened)
-			closeLibraryView(TEST_SAVEABLE_RESOURCE_TREE_FORM_VIEW);
+			closeLibraryView(TEST_SAVEABLE_TREE_FORM_VIEW);
 		if (tableViewOpened)
 			closeLibraryView(TEST_SAVEABLE_TABLE_VIEW);
+		if (treeViewOpened)
+			closeLibraryView(TEST_SAVEABLE_TREE_VIEW);
 		super.runAfterEveryTest();
 	}
 
@@ -57,7 +62,7 @@ public class EmfComponentsSaveableViewTests extends EmfComponentsAbstractTests {
 			throws Exception {
 		SWTBotTreeItem libraryNode = prepareSaveableViewAndGetLibraryNode();
 		createNewChild(libraryNode, BOOK_ON_TAPE);
-		assertDirtyThenSaveAndAssertNotDirty(TEST_SAVEABLE_RESOURCE_TREE_FORM_VIEW);
+		assertDirtyThenSaveAndAssertNotDirty(TEST_SAVEABLE_TREE_FORM_VIEW);
 	}
 
 	@Test
@@ -66,7 +71,7 @@ public class EmfComponentsSaveableViewTests extends EmfComponentsAbstractTests {
 		clickOnContextMenu(
 				getWriterNode(prepareSaveableViewAndGetLibraryNode()),
 				ACTION_DELETE);
-		assertDirtyThenSaveAndAssertNotDirty(TEST_SAVEABLE_RESOURCE_TREE_FORM_VIEW);
+		assertDirtyThenSaveAndAssertNotDirty(TEST_SAVEABLE_TREE_FORM_VIEW);
 	}
 
 	@Test
@@ -74,11 +79,11 @@ public class EmfComponentsSaveableViewTests extends EmfComponentsAbstractTests {
 			throws Exception {
 		SWTBotTreeItem libraryNode = prepareSaveableViewAndGetLibraryNode();
 		clickOnContextMenu(getWriterNode(libraryNode), ACTION_DELETE);
-		assertSaveableViewIsDirty(true, TEST_SAVEABLE_RESOURCE_TREE_FORM_VIEW);
+		assertSaveableViewIsDirty(true, TEST_SAVEABLE_TREE_FORM_VIEW);
 		undo(ACTION_DELETE);
 		// make sure the writer is back
 		getWriterNode(libraryNode);
-		saveViewAndAssertNotDirty(TEST_SAVEABLE_RESOURCE_TREE_FORM_VIEW);
+		saveViewAndAssertNotDirty(TEST_SAVEABLE_TREE_FORM_VIEW);
 	}
 
 	@Test
@@ -96,6 +101,17 @@ public class EmfComponentsSaveableViewTests extends EmfComponentsAbstractTests {
 		clickOnContextMenu(table, NEW_SIBLING, "Book");
 		assertTableItemsSize(table, 3);
 		assertDirtyThenSaveAndAssertNotDirty(TEST_SAVEABLE_TABLE_VIEW);
+	}
+
+	@Test
+	public void canPerformUndoDeleteActionOnSaveableTreeView() throws Exception {
+		SWTBotTreeItem libraryNode = prepareSaveableTreeViewAndGetLibraryNode();
+		clickOnContextMenu(getWriterNode(libraryNode), ACTION_DELETE);
+		assertSaveableViewIsDirty(true, TEST_SAVEABLE_TREE_VIEW);
+		undo(ACTION_DELETE);
+		// make sure the writer is back
+		getWriterNode(libraryNode);
+		saveViewAndAssertNotDirty(TEST_SAVEABLE_TREE_VIEW);
 	}
 
 	protected void createNewChild(SWTBotTreeItem libraryNode, String childType) {
@@ -144,11 +160,10 @@ public class EmfComponentsSaveableViewTests extends EmfComponentsAbstractTests {
 			throws CoreException, InvocationTargetException,
 			InterruptedException, IOException {
 		createProjectAndTestFiles();
-		openTestView(TEST_SAVEABLE_RESOURCE_TREE_FORM_VIEW);
+		openTestView(TEST_SAVEABLE_TREE_FORM_VIEW);
 		treeFormViewOpened = true;
 		SWTBotTreeItem libraryNode = getRootOfTreeFromView(
-				TEST_SAVEABLE_RESOURCE_TREE_FORM_VIEW).getTreeItem(
-				LIBRARY_LABEL);
+				TEST_SAVEABLE_TREE_FORM_VIEW).getTreeItem(LIBRARY_LABEL);
 		return libraryNode;
 	}
 
@@ -159,6 +174,17 @@ public class EmfComponentsSaveableViewTests extends EmfComponentsAbstractTests {
 		SWTBotTable table = bot.table();
 		tableViewOpened = true;
 		return table;
+	}
+
+	protected SWTBotTreeItem prepareSaveableTreeViewAndGetLibraryNode()
+			throws CoreException, InvocationTargetException,
+			InterruptedException, IOException {
+		createProjectAndTestFiles();
+		openTestView(TEST_SAVEABLE_TREE_VIEW);
+		treeViewOpened = true;
+		SWTBotTreeItem libraryNode = getRootOfTreeFromView(
+				TEST_SAVEABLE_TREE_VIEW).getTreeItem(LIBRARY_LABEL);
+		return libraryNode;
 	}
 
 }
