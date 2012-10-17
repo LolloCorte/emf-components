@@ -14,7 +14,7 @@ import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.widgets.Menu;
-import org.eclipse.ui.part.WorkbenchPart;
+import org.eclipse.ui.IWorkbenchPart;
 
 /**
  * @author Lorenzo Bettini
@@ -23,7 +23,7 @@ import org.eclipse.ui.part.WorkbenchPart;
 public class ViewerContextMenuFactory {
 
 	public MenuManager createContextMenuFor(StructuredViewer viewer,
-			WorkbenchPart part, AdapterFactoryEditingDomain editingDomain) {
+			IWorkbenchPart part, AdapterFactoryEditingDomain editingDomain) {
 		MenuManager menuManager = createMenuManager();
 		createMenu(viewer, part, menuManager);
 		
@@ -44,7 +44,7 @@ public class ViewerContextMenuFactory {
 	}
 
 	protected void createMenu(StructuredViewer viewer,
-			WorkbenchPart part, MenuManager menuManager) {
+			IWorkbenchPart part, MenuManager menuManager) {
 		Menu menu = menuManager.createContextMenu(viewer.getControl());
 		viewer.getControl().setMenu(menu);
 		part.getSite().registerContextMenu(menuManager,
