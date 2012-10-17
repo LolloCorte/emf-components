@@ -1,9 +1,11 @@
 package it.rcpvision.emf.components.views;
 
 import it.rcpvision.emf.components.edit.ResourceSaveManager;
+import it.rcpvision.emf.components.editors.EmfActionBarContributor;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
 import it.rcpvision.emf.components.util.EmfCommandsUtil;
+import it.rcpvision.emf.components.viewers.ViewerInitializer;
 
 import java.io.IOException;
 import java.util.EventObject;
@@ -12,11 +14,15 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
+import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
+import org.eclipse.jface.action.IMenuListener;
+import org.eclipse.jface.action.IMenuManager;
+import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.ISaveablePart;
 import org.eclipse.ui.part.ViewPart;
@@ -24,7 +30,7 @@ import org.eclipse.ui.part.ViewPart;
 import com.google.inject.Inject;
 
 public abstract class AbstractSaveableView extends ViewPart implements
-		ISaveablePart, IEditingDomainProvider {
+		ISaveablePart, IEditingDomainProvider, IMenuListener, IViewerProvider {
 	@Inject
 	protected EditingDomainFactory editingDomainFactory;
 
@@ -33,6 +39,12 @@ public abstract class AbstractSaveableView extends ViewPart implements
 
 	@Inject
 	protected ResourceSaveManager resourceSaveManager;
+
+	@Inject
+	private EmfActionBarContributor actionBarContributor;
+
+	@Inject
+	private ViewerInitializer viewerInitializer;
 
 	private Resource resource;
 
@@ -96,12 +108,22 @@ public abstract class AbstractSaveableView extends ViewPart implements
 		firePropertyChange(PROP_DIRTY);
 	}
 
+	protected void addContextMenu(StructuredViewer viewer) {
+		viewerInitializer.addContextMenu(viewer, actionBarContributor,
+				editingDomain, this, this);
+	}
+
 	protected Resource getResource() {
 		return resource;
 	}
 
 	public EditingDomain getEditingDomain() {
 		return editingDomain;
+	}
+
+	@Override
+	public void menuAboutToShow(IMenuManager menuManager) {
+		actionBarContributor.menuAboutToShow(menuManager);
 	}
 
 	@Override

@@ -1,18 +1,13 @@
 package it.rcpvision.emf.components.views;
 
-import it.rcpvision.emf.components.editors.EmfActionBarContributor;
 import it.rcpvision.emf.components.factories.TreeFormFactory;
-import it.rcpvision.emf.components.viewers.ViewerInitializer;
 import it.rcpvision.emf.components.widgets.TreeFormComposite;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.command.CreateChildCommand;
-import org.eclipse.jface.action.IMenuListener;
-import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.swt.SWT;
@@ -21,16 +16,10 @@ import org.eclipse.swt.widgets.Composite;
 import com.google.inject.Inject;
 
 public abstract class AbstractSaveableTreeFormView extends AbstractSaveableView
-		implements IMenuListener, IViewerProvider {
+		{
 
 	@Inject
 	protected TreeFormFactory treeFormFactory;
-
-	@Inject
-	protected ViewerInitializer viewerInitializer;
-
-	@Inject
-	protected EmfActionBarContributor actionBarContributor;
 
 	protected TreeFormComposite treeFormComposite;
 
@@ -47,8 +36,7 @@ public abstract class AbstractSaveableTreeFormView extends AbstractSaveableView
 
 		treeFormComposite.update(getContents(getResource()));
 
-		viewerInitializer.addContextMenu(treeFormComposite.getViewer(),
-				actionBarContributor, editingDomain, this, this);
+		addContextMenu(treeFormComposite.getViewer());
 	}
 
 	@Override
@@ -80,11 +68,6 @@ public abstract class AbstractSaveableTreeFormView extends AbstractSaveableView
 			};
 			getSite().getShell().getDisplay().asyncExec(runnable);
 		}
-	}
-
-	@Override
-	public void menuAboutToShow(IMenuManager menuManager) {
-		actionBarContributor.menuAboutToShow(menuManager);
 	}
 
 	@Override
