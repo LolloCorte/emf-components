@@ -20,15 +20,16 @@ public class AccountsView extends AbstractSaveableTreeView {
 
 	@Override
 	protected URI createResourceURI() {
-		System.out.println(System.getProperty("user.home"));
 		return URI.createFileURI(System.getProperty("user.home")
 				+ "/examples/mail/My.mail");
 	}
 
 	@Override
 	protected void mostRecentCommandAffectsResource(Command mostRecentCommand) {
+		super.mostRecentCommandAffectsResource(mostRecentCommand);
 		try {
 			getResource().save(null);
+			setDirtyAndFirePropertyChange(false);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
