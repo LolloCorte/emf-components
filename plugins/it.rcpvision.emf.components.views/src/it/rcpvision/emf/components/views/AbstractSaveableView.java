@@ -104,7 +104,11 @@ public abstract class AbstractSaveableView extends ViewPart implements
 	 * @param mostRecentCommand
 	 */
 	protected void mostRecentCommandAffectsResource(Command mostRecentCommand) {
-		setDirty(true);
+		setDirtyAndFirePropertyChange(true);
+	}
+
+	protected void setDirtyAndFirePropertyChange(boolean dirtyState) {
+		setDirty(dirtyState);
 		firePropertyChange(PROP_DIRTY);
 	}
 
@@ -130,8 +134,7 @@ public abstract class AbstractSaveableView extends ViewPart implements
 	public void doSave(IProgressMonitor monitor) {
 		try {
 			if (resourceSaveManager.save(resource)) {
-				dirty = false;
-				firePropertyChange(PROP_DIRTY);
+				setDirtyAndFirePropertyChange(false);
 			}
 		} catch (IOException e) {
 			// TODO Serious log
