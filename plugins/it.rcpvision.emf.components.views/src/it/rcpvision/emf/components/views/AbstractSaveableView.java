@@ -133,12 +133,16 @@ public abstract class AbstractSaveableView extends ViewPart implements
 	@Override
 	public void doSave(IProgressMonitor monitor) {
 		try {
-			if (resourceSaveManager.save(resource)) {
-				setDirtyAndFirePropertyChange(false);
-			}
+			saveResourceAndUpdateDirtyState();
 		} catch (IOException e) {
-			// TODO Serious log
+			// TODO Serious log!
 			e.printStackTrace();
+		}
+	}
+
+	protected void saveResourceAndUpdateDirtyState() throws IOException {
+		if (resourceSaveManager.save(resource)) {
+			setDirtyAndFirePropertyChange(false);
 		}
 	}
 
