@@ -55,6 +55,10 @@
         <element xmi:type="ecore:EAttribute" href="mail.ecore#//Mail/recipients"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_4OixsReNEeKcMszoK7VHwQ"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_x7cs4RoHEeKWC5t4GpmTjw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="mail.ecore#//Mail/subject"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_x7cs4hoHEeKWC5t4GpmTjw"/>
+      </children>
       <children xmi:type="notation:Node" xmi:id="_8SUwMBeNEeKcMszoK7VHwQ" type="2001">
         <element xmi:type="ecore:EAttribute" href="mail.ecore#//Mail/message"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_8SVXQBeNEeKcMszoK7VHwQ"/>

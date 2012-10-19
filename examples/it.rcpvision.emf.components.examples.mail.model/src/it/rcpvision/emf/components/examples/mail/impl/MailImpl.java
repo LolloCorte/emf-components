@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *   <li>{@link it.rcpvision.emf.components.examples.mail.impl.MailImpl#getFrom <em>From</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.examples.mail.impl.MailImpl#getRecipients <em>Recipients</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.examples.mail.impl.MailImpl#getMessage <em>Message</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.examples.mail.impl.MailImpl#getSubject <em>Subject</em>}</li>
  * </ul>
  * </p>
  *
@@ -83,6 +84,26 @@ public class MailImpl extends EObjectImpl implements Mail {
 	 * @ordered
 	 */
 	protected String message = MESSAGE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSubject() <em>Subject</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubject()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SUBJECT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSubject() <em>Subject</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubject()
+	 * @generated
+	 * @ordered
+	 */
+	protected String subject = SUBJECT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -162,6 +183,27 @@ public class MailImpl extends EObjectImpl implements Mail {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getSubject() {
+		return subject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSubject(String newSubject) {
+		String oldSubject = subject;
+		subject = newSubject;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MailPackage.MAIL__SUBJECT, oldSubject, subject));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -171,6 +213,8 @@ public class MailImpl extends EObjectImpl implements Mail {
 				return getRecipients();
 			case MailPackage.MAIL__MESSAGE:
 				return getMessage();
+			case MailPackage.MAIL__SUBJECT:
+				return getSubject();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -194,6 +238,9 @@ public class MailImpl extends EObjectImpl implements Mail {
 			case MailPackage.MAIL__MESSAGE:
 				setMessage((String)newValue);
 				return;
+			case MailPackage.MAIL__SUBJECT:
+				setSubject((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -215,6 +262,9 @@ public class MailImpl extends EObjectImpl implements Mail {
 			case MailPackage.MAIL__MESSAGE:
 				setMessage(MESSAGE_EDEFAULT);
 				return;
+			case MailPackage.MAIL__SUBJECT:
+				setSubject(SUBJECT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -233,6 +283,8 @@ public class MailImpl extends EObjectImpl implements Mail {
 				return recipients != null && !recipients.isEmpty();
 			case MailPackage.MAIL__MESSAGE:
 				return MESSAGE_EDEFAULT == null ? message != null : !MESSAGE_EDEFAULT.equals(message);
+			case MailPackage.MAIL__SUBJECT:
+				return SUBJECT_EDEFAULT == null ? subject != null : !SUBJECT_EDEFAULT.equals(subject);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -253,6 +305,8 @@ public class MailImpl extends EObjectImpl implements Mail {
 		result.append(recipients);
 		result.append(", message: ");
 		result.append(message);
+		result.append(", subject: ");
+		result.append(subject);
 		result.append(')');
 		return result.toString();
 	}

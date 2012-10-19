@@ -251,6 +251,15 @@ public class MailPackageImpl extends EPackageImpl implements MailPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getMail_Subject() {
+		return (EAttribute)mailEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MailFactory getMailFactory() {
 		return (MailFactory)getEFactoryInstance();
 	}
@@ -292,6 +301,7 @@ public class MailPackageImpl extends EPackageImpl implements MailPackage {
 		createEAttribute(mailEClass, MAIL__FROM);
 		createEAttribute(mailEClass, MAIL__RECIPIENTS);
 		createEAttribute(mailEClass, MAIL__MESSAGE);
+		createEAttribute(mailEClass, MAIL__SUBJECT);
 	}
 
 	/**
@@ -344,6 +354,7 @@ public class MailPackageImpl extends EPackageImpl implements MailPackage {
 		initEAttribute(getMail_From(), ecorePackage.getEString(), "from", null, 0, 1, Mail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMail_Recipients(), ecorePackage.getEString(), "recipients", null, 0, -1, Mail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMail_Message(), ecorePackage.getEString(), "message", null, 0, 1, Mail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMail_Subject(), ecorePackage.getEString(), "subject", null, 0, 1, Mail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

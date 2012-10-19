@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link it.rcpvision.emf.components.examples.mail.Mail#getFrom <em>From</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.examples.mail.Mail#getRecipients <em>Recipients</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.examples.mail.Mail#getMessage <em>Message</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.examples.mail.Mail#getSubject <em>Subject</em>}</li>
  * </ul>
  * </p>
  *
@@ -92,5 +93,31 @@ public interface Mail extends EObject {
 	 * @generated
 	 */
 	void setMessage(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Subject</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Subject</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Subject</em>' attribute.
+	 * @see #setSubject(String)
+	 * @see it.rcpvision.emf.components.examples.mail.MailPackage#getMail_Subject()
+	 * @model
+	 * @generated
+	 */
+	String getSubject();
+
+	/**
+	 * Sets the value of the '{@link it.rcpvision.emf.components.examples.mail.Mail#getSubject <em>Subject</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Subject</em>' attribute.
+	 * @see #getSubject()
+	 * @generated
+	 */
+	void setSubject(String value);
 
 } // Mail

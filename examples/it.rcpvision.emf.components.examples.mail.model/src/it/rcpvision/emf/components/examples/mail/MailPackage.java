@@ -223,13 +223,22 @@ public interface MailPackage extends EPackage {
 	int MAIL__MESSAGE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Subject</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAIL__SUBJECT = 3;
+
+	/**
 	 * The number of structural features of the '<em>Mail</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAIL_FEATURE_COUNT = 3;
+	int MAIL_FEATURE_COUNT = 4;
 
 
 	/**
@@ -382,6 +391,17 @@ public interface MailPackage extends EPackage {
 	EAttribute getMail_Message();
 
 	/**
+	 * Returns the meta object for the attribute '{@link it.rcpvision.emf.components.examples.mail.Mail#getSubject <em>Subject</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Subject</em>'.
+	 * @see it.rcpvision.emf.components.examples.mail.Mail#getSubject()
+	 * @see #getMail()
+	 * @generated
+	 */
+	EAttribute getMail_Subject();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -524,6 +544,14 @@ public interface MailPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MAIL__MESSAGE = eINSTANCE.getMail_Message();
+
+		/**
+		 * The meta object literal for the '<em><b>Subject</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MAIL__SUBJECT = eINSTANCE.getMail_Subject();
 
 	}
 
