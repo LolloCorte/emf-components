@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="it.rcpvision.emf.components.examples.mail.messageview"
+            name="Mail Example">
+      </category>
+      <view
+            category="it.rcpvision.emf.components.examples.mail.messageview"
+            class="it.rcpvision.emf.components.examples.mail.messageview.MessageviewExecutableExtensionFactory:it.rcpvision.emf.components.examples.mail.messageview.views.MessageView"
+            icon="icons/sample.gif"
+            id="it.rcpvision.emf.components.examples.mail.messageview.views.MessageView"
+            name="Mail Message View">
+      </view>
+   </extension>
+
+</plugin>
