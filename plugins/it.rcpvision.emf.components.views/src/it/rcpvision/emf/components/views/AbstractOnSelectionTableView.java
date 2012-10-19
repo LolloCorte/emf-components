@@ -14,10 +14,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
-import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.ui.IWorkbenchPart;
 
@@ -71,16 +68,9 @@ public abstract class AbstractOnSelectionTableView extends OnSelectionAbstractVi
 			
 			EClassifier type = feature.getEType();
 			if (type instanceof EClass) {
-				Composite composite = new Composite(scrolledComposite, SWT.BORDER);
-				scrolledComposite.setContent(composite);
-				composite.setLayout(new GridLayout(1, false));
-				composite.setLayoutData(new GridData(GridData.FILL_BOTH));
-
 				EClass eClass = (EClass) type;
-				buildTable(value, eClass,
-						composite, feature.getName());
-				
-				composite.setSize(composite.computeSize(SWT.DEFAULT, SWT.DEFAULT));
+
+				buildTable(value, eClass, feature.getName());
 				parent.layout(true, true);
 			}
 		}
@@ -93,19 +83,16 @@ public abstract class AbstractOnSelectionTableView extends OnSelectionAbstractVi
 	 *            the EClass of the contents (that is, the EClass of the object
 	 *            if the contents is a single object, or the EClass of the
 	 *            objects in the list, if the contents is a list)
-	 * @param composite
 	 * @param label
 	 */
 	protected void buildTable(Object object, EClass eClass,
-			Composite composite, String label) {
-		Label lblNewLabel = new Label(composite, SWT.NONE);
-		lblNewLabel.setText(label);
-
-		TableViewer tableViewer = viewerFactory.createTableViewer(composite,
+			String label) {
+		TableViewer tableViewer = viewerFactory.createTableViewer(scrolledComposite,
 				SWT.BORDER | SWT.FULL_SELECTION, object, eClass);
 
 		Table table = tableViewer.getTable();
-		table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		scrolledComposite.setContent(table);
+		scrolledComposite.setMinSize(table.computeSize(SWT.DEFAULT, SWT.DEFAULT));
 	}
 
 	private void resetView() {
@@ -115,6 +102,7 @@ public abstract class AbstractOnSelectionTableView extends OnSelectionAbstractVi
 		scrolledComposite = new ScrolledComposite(parent, SWT.V_SCROLL
 				| SWT.BORDER);
 		scrolledComposite.setExpandHorizontal(true);
+		scrolledComposite.setExpandVertical(true);
 	}
 
 	public void setFocus() {
