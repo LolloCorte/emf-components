@@ -1,0 +1,6 @@
+import java.util.*
+
+/* it.rcpvision.emf.components.examples.mail.messageview Emf Components Dsl Module file */
+module it.rcpvision.emf.components.examples.mail.messageview {
+	
+}

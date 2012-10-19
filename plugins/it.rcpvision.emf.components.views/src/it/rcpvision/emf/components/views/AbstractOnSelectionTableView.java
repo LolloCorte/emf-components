@@ -84,8 +84,9 @@ public abstract class AbstractOnSelectionTableView extends OnSelectionAbstractVi
 	 *            if the contents is a single object, or the EClass of the
 	 *            objects in the list, if the contents is a list)
 	 * @param label
+	 * @return the created {@link TableViewer}
 	 */
-	protected void buildTable(Object object, EClass eClass,
+	protected TableViewer buildTable(Object object, EClass eClass,
 			String label) {
 		TableViewer tableViewer = viewerFactory.createTableViewer(scrolledComposite,
 				SWT.BORDER | SWT.FULL_SELECTION, object, eClass);
@@ -93,6 +94,8 @@ public abstract class AbstractOnSelectionTableView extends OnSelectionAbstractVi
 		Table table = tableViewer.getTable();
 		scrolledComposite.setContent(table);
 		scrolledComposite.setMinSize(table.computeSize(SWT.DEFAULT, SWT.DEFAULT));
+		
+		return tableViewer;
 	}
 
 	private void resetView() {
