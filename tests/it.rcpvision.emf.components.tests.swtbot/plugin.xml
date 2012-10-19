@@ -123,5 +123,12 @@
              name="Library Test Saveable Tree View"
              restorable="true">
        </view>
+       <view
+             category="it.rcpvision.emf.components"
+             class="it.rcpvision.emf.components.tests.factories.CustomLibraryExecutableExtensionFactory:it.rcpvision.emf.components.tests.views.TestOnSelectionLibraryBooksTableView"
+             id="it.rcpvision.emf.components.tests.views.librarybookstableview"
+             name="Library Books Table View"
+             restorable="true">
+       </view>
     </extension>
 </plugin>

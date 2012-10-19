@@ -138,6 +138,8 @@ public class EmfComponentsAbstractTests {
 	protected static final String EMF_SHOW_ALL_TABLE_VIEW = "Emf Show All Table View";
 
 	protected static final String LIBRARY_TEST_EMF_TABLE_VIEW = "Library Test Table";
+	
+	protected static final String LIBRARY_BOOKS_TABLE_VIEW = "Library Books Table View";
 
 	protected static final String TEST_SAVEABLE_TREE_FORM_VIEW = "Library Test Saveable Resource Tree Form View";
 
@@ -148,6 +150,8 @@ public class EmfComponentsAbstractTests {
 	protected static final String WRITER_S_ADDRESS_TEXT = "writer's address";
 
 	protected static final String ADDRESS_LABEL = "address";
+	
+	protected static final String AUTHOR_LABEL = "author";
 
 	protected static final String FIRSTNAME_LABEL = "firstName";
 
