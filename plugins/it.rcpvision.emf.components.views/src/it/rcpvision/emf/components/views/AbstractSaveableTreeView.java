@@ -28,6 +28,8 @@ public abstract class AbstractSaveableTreeView extends AbstractSaveableView {
 		viewerInitializer.initialize(treeViewer, getResource());
 
 		addContextMenu(treeViewer);
+		
+		getSite().setSelectionProvider(treeViewer);
 	}
 
 	@Override

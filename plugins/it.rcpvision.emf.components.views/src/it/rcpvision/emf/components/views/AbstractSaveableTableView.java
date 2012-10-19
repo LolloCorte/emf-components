@@ -32,6 +32,8 @@ public abstract class AbstractSaveableTableView extends AbstractSaveableView {
 				getContents(getResource()), getEClass());
 		
 		addContextMenu(tableViewer);
+		
+		getSite().setSelectionProvider(tableViewer);
 	}
 
 	/**
