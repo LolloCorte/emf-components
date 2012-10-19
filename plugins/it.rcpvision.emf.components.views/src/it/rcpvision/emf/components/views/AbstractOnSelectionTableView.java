@@ -21,13 +21,14 @@ import org.eclipse.ui.IWorkbenchPart;
 import com.google.inject.Inject;
 
 /**
- * A View that visualizes the list of elements of an EObject (it
- * also acts as a selection provider), filtered by the specified type.
+ * A View that visualizes the list of elements of an EObject (it also acts as a
+ * selection provider), filtered by the specified type.
  * 
  * @author Lorenzo Bettini
  * 
  */
-public abstract class AbstractOnSelectionTableView extends OnSelectionAbstractView {
+public abstract class AbstractOnSelectionTableView extends
+		OnSelectionAbstractView {
 
 	@Inject
 	protected ViewerFactory viewerFactory;
@@ -58,19 +59,21 @@ public abstract class AbstractOnSelectionTableView extends OnSelectionAbstractVi
 		EObject eObject = getFirstSelectedEObject(selection);
 		if (eObject != null) {
 			EStructuralFeature feature = getEStructuralFeature();
-			
+
 			if (!eObject.eClass().getEAllStructuralFeatures().contains(feature))
 				return;
-			
+
 			Object value = eObject.eGet(feature);
 			if (value == null)
 				return;
-			
+
 			EClassifier type = feature.getEType();
 			if (type instanceof EClass) {
 				EClass eClass = (EClass) type;
 
-				buildTable(value, eClass, feature.getName());
+				TableViewer tableViewer = buildTable(value, eClass,
+						feature.getName());
+				getSite().setSelectionProvider(tableViewer);
 				parent.layout(true, true);
 			}
 		}
@@ -86,15 +89,16 @@ public abstract class AbstractOnSelectionTableView extends OnSelectionAbstractVi
 	 * @param label
 	 * @return the created {@link TableViewer}
 	 */
-	protected TableViewer buildTable(Object object, EClass eClass,
-			String label) {
-		TableViewer tableViewer = viewerFactory.createTableViewer(scrolledComposite,
-				SWT.BORDER | SWT.FULL_SELECTION, object, eClass);
+	protected TableViewer buildTable(Object object, EClass eClass, String label) {
+		TableViewer tableViewer = viewerFactory.createTableViewer(
+				scrolledComposite, SWT.BORDER | SWT.FULL_SELECTION, object,
+				eClass);
 
 		Table table = tableViewer.getTable();
 		scrolledComposite.setContent(table);
-		scrolledComposite.setMinSize(table.computeSize(SWT.DEFAULT, SWT.DEFAULT));
-		
+		scrolledComposite.setMinSize(table
+				.computeSize(SWT.DEFAULT, SWT.DEFAULT));
+
 		return tableViewer;
 	}
 
@@ -113,8 +117,8 @@ public abstract class AbstractOnSelectionTableView extends OnSelectionAbstractVi
 	}
 
 	/**
-	 * @return the {@link EStructuralFeature} to retrieve the values
-	 * of the selected {@link EObject} to show on the table
+	 * @return the {@link EStructuralFeature} to retrieve the values of the
+	 *         selected {@link EObject} to show on the table
 	 */
 	protected abstract EStructuralFeature getEStructuralFeature();
 }
