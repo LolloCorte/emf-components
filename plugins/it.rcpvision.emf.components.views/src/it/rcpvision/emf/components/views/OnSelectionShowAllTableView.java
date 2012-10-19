@@ -32,7 +32,7 @@ import com.google.inject.Inject;
  * @author Lorenzo Bettini
  * 
  */
-public class OnSelectionTableView extends OnSelectionAbstractView {
+public class OnSelectionShowAllTableView extends OnSelectionAbstractView {
 
 	@Inject
 	protected ViewerFactory viewerFactory;
@@ -44,7 +44,7 @@ public class OnSelectionTableView extends OnSelectionAbstractView {
 
 	protected ScrolledComposite scrolledComposite;
 
-	public OnSelectionTableView() {
+	public OnSelectionShowAllTableView() {
 	}
 
 	@Override

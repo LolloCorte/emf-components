@@ -49,10 +49,10 @@
       </view>
       <view
             category="it.rcpvision.emf.components"
-            class="it.rcpvision.emf.components.examples.EmfComponentsExamplesExecutableExtensionFactory:it.rcpvision.emf.components.views.OnSelectionTableView"
+            class="it.rcpvision.emf.components.examples.EmfComponentsExamplesExecutableExtensionFactory:it.rcpvision.emf.components.views.OnSelectionShowAllTableView"
             icon="icons/view.jpg"
-            id="it.rcpvision.emf.components.tableview"
-            name="Emf Table View"
+            id="it.rcpvision.emf.components.showalltableview"
+            name="Emf Show All Table View"
             restorable="true">
       </view>
       <view

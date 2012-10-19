@@ -23,9 +23,9 @@
             restorable="true">
       </view>
             <view
-            class="it.rcpvision.emf.components.examples.library.ExecutableExtensionFactory:it.rcpvision.emf.components.views.OnSelectionTableView"
+            class="it.rcpvision.emf.components.examples.library.ExecutableExtensionFactory:it.rcpvision.emf.components.views.OnSelectionShowAllTableView"
             id="it.rcpvision.emf.components.examples.library.tableview"
-            name="Custom Table View"
+            name="Custom Show All Table View"
             restorable="true">
       </view>
       <view

@@ -155,7 +155,7 @@ public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 
 	@Test
 	public void tableViewShowsTablesOnSelection() throws Exception {
-		SWTBotView tableView = openTestView(EMF_TABLE_VIEW);
+		SWTBotView tableView = openTestView(EMF_SHOW_ALL_TABLE_VIEW);
 		// select on the editor's tree
 		SWTBotTreeItem rootOfEditorTree = getRootOfEditorTree(EMF_TREE_EDITOR,
 				MY_EXTLIBRARY, MY_EXT_LIBRARY_PLATFORM_URI);

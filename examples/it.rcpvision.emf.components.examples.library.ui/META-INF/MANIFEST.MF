@@ -8,6 +8,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  it.rcpvision.emf.components,
  it.rcpvision.emf.components.examples.library;bundle-version="0.1.0",
- it.rcpvision.emf.components.examples;bundle-version="0.1.0"
+ it.rcpvision.emf.components.examples;bundle-version="0.1.0",
+ it.rcpvision.emf.components.editors;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
