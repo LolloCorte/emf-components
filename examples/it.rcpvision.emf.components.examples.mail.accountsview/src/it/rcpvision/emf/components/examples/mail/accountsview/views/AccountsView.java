@@ -26,12 +26,9 @@ public class AccountsView extends AbstractSaveableTreeView {
 
 	@Override
 	protected void mostRecentCommandAffectsResource(Command mostRecentCommand) {
-		super.mostRecentCommandAffectsResource(mostRecentCommand);
 		try {
-			getResource().save(null);
-			setDirtyAndFirePropertyChange(false);
+			saveResourceAndUpdateDirtyState();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
