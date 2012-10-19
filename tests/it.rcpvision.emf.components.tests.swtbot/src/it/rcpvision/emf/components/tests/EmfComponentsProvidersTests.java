@@ -1,6 +1,6 @@
 package it.rcpvision.emf.components.tests;
 
-import static it.rcpvision.emf.components.examples.library.EXTLibraryPackage.Literals.LIBRARY;
+import static it.rcpvision.emf.components.examples.library.EXTLibraryPackage.Literals.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
@@ -13,6 +13,7 @@ import it.rcpvision.emf.components.tests.providers.LibraryEStructuralFeaturesAsS
 import it.rcpvision.emf.components.tests.providers.LibraryEStructuralFeaturesProvider;
 import it.rcpvision.emf.components.tests.providers.OrderedEStructuralFeaturesProvider;
 import it.rcpvision.emf.components.tests.utils.EmfComponentsTestsUtils;
+import it.rcpvision.emf.components.ui.provider.FeaturesColumnProvider;
 import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelFactory;
 
@@ -188,6 +189,41 @@ public class EmfComponentsProvidersTests extends EmfComponentsCustomLibraryAbstr
 				provider.getFeatures(EXTLibraryPackage.Literals.PERSON));
 		assertFeatureNames("firstName, lastName, books",
 				provider.getFeatures(EXTLibraryPackage.Literals.WRITER));
+	}
+
+	@Test
+	public void testFeaturesColumnProviderDelegated() {
+		FeaturesProvider provider = getInjector().getInstance(
+				FeaturesColumnProvider.class);
+		// this is actually defined in FeaturesProvider
+		// and we delegate to it if there's no customization
+		assertFeatureNames("copies", provider.getFeatures(LENDABLE));
+	}
+
+	@Test
+	public void testFeaturesColumnProviderAsStringsDelegated() {
+		FeaturesProvider provider = getInjector().getInstance(
+				FeaturesColumnProvider.class);
+		// this is actually defined in FeaturesProvider
+		// and we delegate to it if there's no customization
+		assertFeatureNames("title", provider.getFeatures(PERIODICAL));
+	}
+
+	@Test
+	public void testFeaturesColumnProvider() {
+		FeaturesProvider provider = getInjector().getInstance(
+				FeaturesColumnProvider.class);
+		// this is actually defined in FeaturesColumnProvider
+		assertFeatureNames("damaged", provider.getFeatures(AUDIO_VISUAL_ITEM));
+	}
+
+	@Test
+	public void testFeaturesColumnProviderAsStrings() {
+		FeaturesProvider provider = getInjector().getInstance(
+				FeaturesColumnProvider.class);
+		// this is actually defined in FeaturesColumnProvider
+		assertFeatureNames("reader",
+				provider.getFeatures(EXTLibraryPackage.Literals.BOOK_ON_TAPE));
 	}
 
 	protected void assertFeatureNames(Iterable<EStructuralFeature> expected,

@@ -25,6 +25,14 @@ public class FeaturesColumnProvider extends FeaturesProvider{
 		return featuresProvider.getFromMap(eClass);
 	}
 
+	@Override
+	protected List<EStructuralFeature> getFromStringMap(EClass eClass) {
+		List<EStructuralFeature> columnDefinition=super.getFromStringMap(eClass);
+		if(columnDefinition!=null){
+			return columnDefinition;
+		}
+		return featuresProvider.getFromStringMap(eClass);
+	}
 
 	public List<Integer> getWeights() {
 		return weights;

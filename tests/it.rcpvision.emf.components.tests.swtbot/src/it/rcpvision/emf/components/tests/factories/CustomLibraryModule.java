@@ -8,7 +8,11 @@ import it.rcpvision.emf.components.tests.labeling.CustomLibraryFeatureLabelProvi
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryFormFeatureLabelProvider;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryLabelProvider;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryTableColumnLabelProvider;
+import it.rcpvision.emf.components.tests.providers.TestFeaturesColumnProvider;
+import it.rcpvision.emf.components.tests.providers.TestFeaturesProvider;
 import it.rcpvision.emf.components.tests.resource.TestEmptyLibraryResourceInitializer;
+import it.rcpvision.emf.components.ui.provider.FeaturesColumnProvider;
+import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelFactory;
@@ -50,5 +54,15 @@ public final class CustomLibraryModule extends
 	@Override
 	public Class<? extends EmptyResourceInitializer> bindEmptyResourceInitializer() {
 		return TestEmptyLibraryResourceInitializer.class;
+	}
+	
+	@Override
+	public Class<? extends FeaturesProvider> bindFeaturesProvider() {
+		return TestFeaturesProvider.class;
+	}
+	
+	@Override
+	public Class<? extends FeaturesColumnProvider> bindFeaturesColumnProvider() {
+		return TestFeaturesColumnProvider.class;
 	}
 }
