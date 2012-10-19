@@ -1,6 +1,10 @@
-import java.util.*
+import it.rcpvision.emf.components.examples.mail.Mail
 
 /* it.rcpvision.emf.components.examples.mail.mailsview Emf Components Dsl Module file */
 module it.rcpvision.emf.components.examples.mail.mailsview {
-	
+	featuresProvider {
+		features {
+			Mail -> subject, from
+		}
+	}
 }

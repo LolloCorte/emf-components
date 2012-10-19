@@ -72,6 +72,7 @@ public class MailEmptyResourceInitializer extends EmptyResourceInitializer {
 	protected void createMail(Folder folder) {
 		Mail mail = MailFactory.eINSTANCE.createMail();
 		mail.setFrom("foo@foobar");
+		mail.setSubject("Test subject");
 		mail.getRecipients().add("dest@foobar");
 		mail.setMessage("This is a test message.\nCheers!");
 		folder.getMails().add(mail);
