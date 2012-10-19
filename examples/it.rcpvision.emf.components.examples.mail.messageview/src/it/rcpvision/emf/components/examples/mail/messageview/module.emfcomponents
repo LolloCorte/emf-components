@@ -1,6 +1,34 @@
-import java.util.*
+import it.rcpvision.emf.components.examples.mail.*
 
 /* it.rcpvision.emf.components.examples.mail.messageview Emf Components Dsl Module file */
 module it.rcpvision.emf.components.examples.mail.messageview {
-	
+	labelProvider {
+		labels {
+			Mail -> subject
+		}
+		images {
+			Mail -> "email.png"
+		}
+	}
+	formFeatureControlFactory {
+		controls {
+			Mail : message ->
+				toolkit.createText(parent, "", 
+					SWT::MULTI.bitwiseOr(SWT::BORDER).
+						bitwiseOr(SWT::WRAP).bitwiseOr(SWT::V_SCROLL)
+				)
+				target observeText(SWT::Modify)
+		}
+	}
+	featuresProvider {
+		features {
+			// the subject is already in the title
+			Mail -> from, recipients, message
+		}
+	}
+	propertyDescriptionProvider {
+		labels {
+			Mail : recipients -> 'to'
+		}
+	}
 }
