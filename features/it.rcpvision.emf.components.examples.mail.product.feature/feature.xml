@@ -21,6 +21,10 @@
          id="it.rcpvision.emf.components.examples.mail.feature"
          version="0.0.0"/>
 
+   <includes
+         id="org.eclipse.rcp"
+         version="0.0.0"/>
+
    <plugin
          id="it.rcpvision.emf.components.examples.mail.rcp"
          download-size="0"
