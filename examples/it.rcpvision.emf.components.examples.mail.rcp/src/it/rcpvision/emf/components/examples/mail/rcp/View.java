@@ -1,5 +1,8 @@
 package it.rcpvision.emf.components.examples.mail.rcp;
 
+import it.rcpvision.emf.components.examples.mail.Mail;
+import it.rcpvision.emf.components.examples.mail.MailFactory;
+
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.swt.SWT;
@@ -65,6 +68,9 @@ public class View extends ViewPart {
 		l = new Label(banner, SWT.WRAP);
 		l.setText("10:34 am");
 		// message contents
+		Mail mail = MailFactory.eINSTANCE.createMail();
+		mail.setMessage("Test Mail Message");
+
 		messageText = new Text(top, SWT.MULTI | SWT.WRAP);
 		messageText.setText("This RCP Application was generated from the PDE Plug-in Project wizard. This sample shows how to:\n"+
 						"- add a top-level menu and toolbar with actions\n"+
@@ -73,7 +79,8 @@ public class View extends ViewPart {
 						"  multiple instances of the same view\n"+
 						"- perspectives with placeholders for new views\n"+
 						"- use the default about dialog\n"+
-						"- create a product definition\n");
+						"- create a product definition\n\n" +
+						mail.getMessage());
 		messageText.setLayoutData(new GridData(GridData.FILL_BOTH));
 	}
 
