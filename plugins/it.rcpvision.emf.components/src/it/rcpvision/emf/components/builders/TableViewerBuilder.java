@@ -47,6 +47,8 @@ public class TableViewerBuilder {
 	}
 
 	protected Collection<?> ensureCollection(Object contents) {
+		if (contents == null)
+			return Collections.emptyList();
 		if (contents instanceof Collection<?>)
 			return (Collection<?>) contents;
 		else

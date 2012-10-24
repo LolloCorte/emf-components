@@ -45,9 +45,7 @@ public class OnSelectionFormView extends OnSelectionAbstractView {
 
 		EObject eObject = getFirstSelectedEObject(selection);
 		if (eObject != null) {
-			if (formComposite != null) {
-				formComposite.dispose();
-			}
+			resetFormComposite();
 			
 			formComposite = formFactory.createFormDetailComposite(
 					parent, SWT.NONE);
@@ -57,10 +55,19 @@ public class OnSelectionFormView extends OnSelectionAbstractView {
 		}
 	}
 
+	protected void resetFormComposite() {
+		if (formComposite != null) {
+			formComposite.dispose();
+			parent.layout(true, true);
+		}
+	}
+
 	@Override
 	public void setFocus() {
 		if (formComposite != null)
 			formComposite.setFocus();
+		else
+			parent.setFocus();
 	}
 
 }

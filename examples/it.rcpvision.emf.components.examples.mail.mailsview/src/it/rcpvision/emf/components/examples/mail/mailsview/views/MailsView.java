@@ -3,6 +3,7 @@
  */
 package it.rcpvision.emf.components.examples.mail.mailsview.views;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import it.rcpvision.emf.components.examples.mail.MailPackage;
@@ -19,6 +20,11 @@ public class MailsView extends AbstractOnSelectionTableView {
 	@Override
 	protected EStructuralFeature getEStructuralFeature() {
 		return MailPackage.Literals.FOLDER__MAILS;
+	}
+
+	@Override
+	protected EClass getEClass() {
+		return MailPackage.Literals.MAIL;
 	}
 
 }

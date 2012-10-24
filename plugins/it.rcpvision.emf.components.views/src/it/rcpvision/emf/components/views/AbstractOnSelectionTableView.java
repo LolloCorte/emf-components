@@ -7,7 +7,6 @@ import it.rcpvision.emf.components.factories.ViewerFactory;
 import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.viewers.ISelection;
@@ -38,7 +37,7 @@ public abstract class AbstractOnSelectionTableView extends
 
 	protected Composite parent;
 
-	protected ScrolledComposite scrolledComposite;
+	protected TableViewer tableViewer;
 
 	public AbstractOnSelectionTableView() {
 	}
@@ -48,15 +47,18 @@ public abstract class AbstractOnSelectionTableView extends
 		super.createPartControl(parent);
 
 		this.parent = parent;
-		resetView();
+		createTableViewer();
+		getSite().setSelectionProvider(tableViewer);
+		parent.layout(true, true);
 	}
 
 	@Override
 	protected void updateOnSelection(IWorkbenchPart sourcepart,
 			ISelection selection) {
-		resetView();
-
+		if (tableViewer == null)
+			return;
 		EObject eObject = getFirstSelectedEObject(selection);
+		tableViewer.setInput(null);
 		if (eObject != null) {
 			EStructuralFeature feature = getEStructuralFeature();
 
@@ -64,56 +66,27 @@ public abstract class AbstractOnSelectionTableView extends
 				return;
 
 			Object value = eObject.eGet(feature);
-			if (value == null)
-				return;
-
-			EClassifier type = feature.getEType();
-			if (type instanceof EClass) {
-				EClass eClass = (EClass) type;
-
-				TableViewer tableViewer = buildTable(value, eClass,
-						feature.getName());
-				getSite().setSelectionProvider(tableViewer);
-				parent.layout(true, true);
-			}
+			tableViewer.setInput(value);
 		}
 	}
 
-	/**
-	 * @param object
-	 *            the contents to show in the table
-	 * @param eClass
-	 *            the EClass of the contents (that is, the EClass of the object
-	 *            if the contents is a single object, or the EClass of the
-	 *            objects in the list, if the contents is a list)
-	 * @param label
-	 * @return the created {@link TableViewer}
-	 */
-	protected TableViewer buildTable(Object object, EClass eClass, String label) {
-		TableViewer tableViewer = viewerFactory.createTableViewer(
-				scrolledComposite, SWT.BORDER | SWT.FULL_SELECTION, object,
-				eClass);
+	protected void createTableViewer() {
+		ScrolledComposite scrolledComposite = new ScrolledComposite(parent,
+				SWT.V_SCROLL | SWT.BORDER);
+		scrolledComposite.setExpandHorizontal(true);
+		scrolledComposite.setExpandVertical(true);
+
+		tableViewer = viewerFactory.createTableViewer(scrolledComposite,
+				SWT.BORDER | SWT.FULL_SELECTION, null, getEClass());
 
 		Table table = tableViewer.getTable();
 		scrolledComposite.setContent(table);
 		scrolledComposite.setMinSize(table
 				.computeSize(SWT.DEFAULT, SWT.DEFAULT));
-
-		return tableViewer;
-	}
-
-	private void resetView() {
-		if (scrolledComposite != null)
-			scrolledComposite.dispose();
-
-		scrolledComposite = new ScrolledComposite(parent, SWT.V_SCROLL
-				| SWT.BORDER);
-		scrolledComposite.setExpandHorizontal(true);
-		scrolledComposite.setExpandVertical(true);
 	}
 
 	public void setFocus() {
-		scrolledComposite.setFocus();
+		tableViewer.getTable().setFocus();
 	}
 
 	/**
@@ -121,4 +94,9 @@ public abstract class AbstractOnSelectionTableView extends
 	 *         selected {@link EObject} to show on the table
 	 */
 	protected abstract EStructuralFeature getEStructuralFeature();
+
+	/**
+	 * @return the {@link EClass} to build the table columns
+	 */
+	protected abstract EClass getEClass();
 }
