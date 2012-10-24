@@ -16,3 +16,5 @@ Require-Bundle: com.ibm.icu,
 Import-Package: org.apache.log4j,
  org.apache.commons.logging
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: it.rcpvision.emf.components.examples.mail.messageview,
+ it.rcpvision.emf.components.examples.mail.messageview.views

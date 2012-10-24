@@ -2,8 +2,8 @@ package it.rcpvision.emf.components.examples.mail.rcp;
 
 import it.rcpvision.emf.components.examples.mail.accountsview.views.AccountsView;
 import it.rcpvision.emf.components.examples.mail.mailsview.views.MailsView;
+import it.rcpvision.emf.components.examples.mail.messageview.views.MessageView;
 
-import org.eclipse.ui.IFolderLayout;
 import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveFactory;
 
@@ -19,9 +19,14 @@ public class Perspective implements IPerspectiveFactory {
 		layout.setEditorAreaVisible(false);
 		
 		//layout.addStandaloneView(NavigationView.ID,  false, IPageLayout.LEFT, 0.25f, editorArea);
-		layout.addStandaloneView(AccountsView.ID,  false, IPageLayout.LEFT, 0.25f, editorArea);
-		
-		layout.addStandaloneView(MailsView.ID,  false, IPageLayout.TOP, 0.25f, editorArea);
+		layout.addStandaloneView(AccountsView.ID, true, IPageLayout.LEFT, 0.25f, editorArea);
+		layout.addStandaloneView(MailsView.ID, true, IPageLayout.TOP, 0.25f, editorArea);
+		layout.addStandaloneView(MessageView.ID, true, IPageLayout.BOTTOM, 0.25f, editorArea);
+
+		// if you want to show the view tabs
+//		layout.addView(AccountsView.ID, IPageLayout.LEFT, 0.25f, editorArea);
+//		layout.addView(MailsView.ID, IPageLayout.TOP, 0.25f, editorArea);
+//		layout.addView(MessageView.ID, IPageLayout.BOTTOM, 0.25f, editorArea);
 		
 //		IFolderLayout folder = layout.createFolder("messages", IPageLayout.TOP, 0.5f, editorArea);
 //		folder.addPlaceholder(View.ID + ":*");
@@ -30,5 +35,6 @@ public class Perspective implements IPerspectiveFactory {
 		//layout.getViewLayout(NavigationView.ID).setCloseable(false);
 		layout.getViewLayout(AccountsView.ID).setCloseable(false);
 		layout.getViewLayout(MailsView.ID).setCloseable(false);
+		layout.getViewLayout(MessageView.ID).setCloseable(false);
 	}
 }

@@ -16,6 +16,8 @@ import it.rcpvision.emf.components.resource.EmptyResourceInitializer;
  * 
  */
 public class MailEmptyResourceInitializer extends EmptyResourceInitializer {
+	
+	int counter = 0;
 
 	@Override
 	public void initialize(Resource resource) {
@@ -72,9 +74,11 @@ public class MailEmptyResourceInitializer extends EmptyResourceInitializer {
 	protected void createMail(Folder folder) {
 		Mail mail = MailFactory.eINSTANCE.createMail();
 		mail.setFrom("foo@foobar");
-		mail.setSubject("Test subject");
+		mail.setSubject("Test subject " + (++counter));
 		mail.getRecipients().add("dest@foobar");
-		mail.setMessage("This is a test message.\nCheers!");
+		mail.setMessage("This is a test message."
+				+ "\nNumber " + counter
+				+ "\nCheers!");
 		folder.getMails().add(mail);
 	}
 }

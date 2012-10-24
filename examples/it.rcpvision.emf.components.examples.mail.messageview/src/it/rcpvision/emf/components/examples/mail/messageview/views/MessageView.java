@@ -14,14 +14,18 @@ import org.eclipse.ui.IWorkbenchPart;
  * 
  */
 public class MessageView extends OnSelectionFormView {
+	
+	public static final String ID = "it.rcpvision.emf.components.examples.mail.messageview.views.MessageView";
 
 	@Override
 	protected void updateOnSelection(IWorkbenchPart sourcepart,
 			ISelection selection) {
 		// we want to display only Mail elements
 		if (!MailPackage.Literals.MAIL
-				.isInstance(getFirstSelectedEObject(selection)))
+				.isInstance(getFirstSelectedEObject(selection))) {
+			resetFormComposite();
 			return;
+		}
 
 		super.updateOnSelection(sourcepart, selection);
 	}
