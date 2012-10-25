@@ -91,6 +91,10 @@
                name="aboutImage"
                value="product_lg.gif">
          </property>
+         <property
+               name="appName"
+               value="Emf Components Mail RCP Product">
+         </property>
       </product>
    </extension>
 
