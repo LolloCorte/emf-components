@@ -10,7 +10,7 @@
 			componentType="osgi.bundle" />
 		<dependency name="it.rcpvision.emf.components.tests.swtbot.feature" 
 			componentType="eclipse.feature" />
-		<dependency name="it.rcpvision.emf.components.examples.mail.product.feature" 
+		<dependency name="it.rcpvision.emf.components.examples.mail.product.site" 
 			componentType="eclipse.feature" />
 	</dependencies>
 	<generators>
