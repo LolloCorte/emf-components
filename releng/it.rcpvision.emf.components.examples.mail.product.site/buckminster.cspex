@@ -11,7 +11,7 @@
             </actorProperties>
             <properties>
                 <property key="profile" value="EmfComponentsMailProfile"/>
-                <property key="iu" value="it.rcpvision.emf.components.examples.mail.product"/>
+                <property key="iu" value="it.rcpvision.emf.components.examples.mail.rcp.product"/>
             </properties>
 			<prerequisites alias="repository">
 				<attribute name="site.p2"/>
