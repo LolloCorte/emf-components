@@ -14,10 +14,23 @@
    </configIni>
 
    <launcherArgs>
+      <vmArgs>-Xms40m -Xmx512m -XX:MaxPermSize=256m</vmArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
    </launcherArgs>
 
    <windowImages i16="icons/sample2.gif"/>
+
+   <splash
+      location="it.rcpvision.emf.components.examples.mail.rcp" />
+   <launcher name="emfcomponents_mail">
+      <solaris/>
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+   </vm>
 
    <plugins>
    </plugins>
