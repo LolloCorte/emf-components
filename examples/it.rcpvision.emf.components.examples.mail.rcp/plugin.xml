@@ -14,7 +14,7 @@
    <extension
          point="org.eclipse.ui.perspectives">
       <perspective
-            name="RCP Perspective"
+            name="Emf Components Mail RCP Perspective"
             class="it.rcpvision.emf.components.examples.mail.rcp.Perspective"
             id="it.rcpvision.emf.components.examples.mail.rcp.perspective">
       </perspective>
@@ -81,7 +81,7 @@
             name="Emf Components Mail RCP Product">
          <property
                name="aboutText"
-               value="RCP Mail template created by PDE">
+               value="RCP Mail created with Emf Components">
          </property>
          <property
                name="windowImages"
