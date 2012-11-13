@@ -15,7 +15,7 @@ public class TestInputsWithErrors {
     _builder.append("labelProvider {");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("labels {");
+    _builder.append("text {");
     _builder.newLine();
     _builder.append("\t\t\t");
     _builder.newLine();
@@ -23,7 +23,7 @@ public class TestInputsWithErrors {
     _builder.append("}");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("images {");
+    _builder.append("image {");
     _builder.newLine();
     _builder.append("\t\t\t");
     _builder.newLine();
@@ -31,7 +31,7 @@ public class TestInputsWithErrors {
     _builder.append("}");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("labels {");
+    _builder.append("text {");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("}");
@@ -57,7 +57,7 @@ public class TestInputsWithErrors {
     _builder.append("propertyDescriptionProvider {");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("labels {");
+    _builder.append("text {");
     _builder.newLine();
     _builder.append("\t\t\t");
     _builder.append("Item:publicationDate -> \'Publication Date\'");

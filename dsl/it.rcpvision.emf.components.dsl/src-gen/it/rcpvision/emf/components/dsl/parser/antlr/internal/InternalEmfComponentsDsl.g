@@ -430,9 +430,9 @@ ruleLabelProvider returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getLabelProviderAccess().getUnorderedGroup_3(), 0);
 	 				}
-					({true}?=>(	otherlv_4='labels' 
+					({true}?=>(	otherlv_4='text' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getLabelProviderAccess().getLabelsKeyword_3_0_0());
+    	newLeafNode(otherlv_4, grammarAccess.getLabelProviderAccess().getTextKeyword_3_0_0());
     }
 	otherlv_5='{' 
     {
@@ -472,9 +472,9 @@ ruleLabelProvider returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getLabelProviderAccess().getUnorderedGroup_3(), 1);
 	 				}
-					({true}?=>(	otherlv_8='images' 
+					({true}?=>(	otherlv_8='image' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getLabelProviderAccess().getImagesKeyword_3_1_0());
+    	newLeafNode(otherlv_8, grammarAccess.getLabelProviderAccess().getImageKeyword_3_1_0());
     }
 	otherlv_9='{' 
     {
@@ -634,9 +634,9 @@ rulePropertyDescriptionProvider returns [EObject current=null]
     {
     	newLeafNode(otherlv_2, grammarAccess.getPropertyDescriptionProviderAccess().getLeftCurlyBracketKeyword_2());
     }
-(	otherlv_3='labels' 
+(	otherlv_3='text' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getPropertyDescriptionProviderAccess().getLabelsKeyword_3_0());
+    	newLeafNode(otherlv_3, grammarAccess.getPropertyDescriptionProviderAccess().getTextKeyword_3_0());
     }
 	otherlv_4='{' 
     {

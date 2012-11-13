@@ -8,13 +8,13 @@ import java.util.*
 
 module my.empty {
 	labelProvider {
-		labels {
+		text {
 			
 		}
-		images {
+		image {
 			
 		}
-		labels {
+		text {
 		}
 	}
 }
@@ -27,7 +27,7 @@ import it.rcpvision.emf.components.examples.library.*
 
 module my.empty {
 	propertyDescriptionProvider {
-		labels {
+		text {
 			Item:publicationDate -> 'Publication Date'
 			Library:newArrayList(1) -> 'Name' // static method, wrong
 			Library:getBooks -> 'Books' // don't use get methods

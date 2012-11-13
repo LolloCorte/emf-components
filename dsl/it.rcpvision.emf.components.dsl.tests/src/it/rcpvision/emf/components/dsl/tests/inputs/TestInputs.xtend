@@ -39,10 +39,10 @@ import java.util.*
 
 module my.empty {
 	labelProvider {
-		labels {
+		text {
 			
 		}
-		images {
+		image {
 			
 		}
 	}
@@ -56,7 +56,7 @@ import it.rcpvision.emf.components.examples.library.*
 
 module my.empty {
 	labelProvider {
-		labels {
+		text {
 			Library -> 'foo' // constant
 			Writer writer -> writer.getName() // explicit param
 			Book -> title // implit 'it' param
@@ -70,7 +70,7 @@ module my.empty {
 			BookOnTape -> getTitle
 		}
 		
-		images {
+		image {
 			Library -> 'library.jpeg' // constant
 			Writer writer -> 
 				if (writer.name.nullOrEmpty) 
@@ -89,7 +89,7 @@ import it.rcpvision.emf.components.examples.library.*
 
 module my.empty {
 	propertyDescriptionProvider {
-		labels {
+		text {
 			Library:name -> 'Name' // constant
 			Library:books -> 'Books' // constant
 			Writer:lastName -> name.toFirstUpper // the implicit param is an EStructuralFeature

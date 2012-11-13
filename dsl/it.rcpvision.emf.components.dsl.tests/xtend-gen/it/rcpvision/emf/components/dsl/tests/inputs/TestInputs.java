@@ -69,7 +69,7 @@ public class TestInputs {
     _builder.append("labelProvider {");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("labels {");
+    _builder.append("text {");
     _builder.newLine();
     _builder.append("\t\t\t");
     _builder.newLine();
@@ -77,7 +77,7 @@ public class TestInputs {
     _builder.append("}");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("images {");
+    _builder.append("image {");
     _builder.newLine();
     _builder.append("\t\t\t");
     _builder.newLine();
@@ -105,7 +105,7 @@ public class TestInputs {
     _builder.append("labelProvider {");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("labels {");
+    _builder.append("text {");
     _builder.newLine();
     _builder.append("\t\t\t");
     _builder.append("Library -> \'foo\' // constant");
@@ -146,7 +146,7 @@ public class TestInputs {
     _builder.append("\t\t");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("images {");
+    _builder.append("image {");
     _builder.newLine();
     _builder.append("\t\t\t");
     _builder.append("Library -> \'library.jpeg\' // constant");
@@ -190,7 +190,7 @@ public class TestInputs {
     _builder.append("propertyDescriptionProvider {");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("labels {");
+    _builder.append("text {");
     _builder.newLine();
     _builder.append("\t\t\t");
     _builder.append("Library:name -> \'Name\' // constant");

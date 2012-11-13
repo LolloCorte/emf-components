@@ -34,13 +34,13 @@ Module:
 LabelProvider:
 	{LabelProvider} 'labelProvider' '{'
 		((
-		'labels' '{'
+		'text' '{'
 			labelSpecifications+=LabelSpecification*
 		'}'
 		)?
 		&
 		(
-		'images' '{'
+		'image' '{'
 			imageSpecifications+=LabelSpecification*
 		'}'
 		)?)
@@ -56,7 +56,7 @@ LabelSpecification:
 PropertyDescriptionProvider:
 	{PropertyDescriptionProvider} 'propertyDescriptionProvider' '{'
 		((
-		'labels' '{'
+		'text' '{'
 			labelSpecifications+=PropertyDescriptionSpecification*
 		'}'
 		)?)

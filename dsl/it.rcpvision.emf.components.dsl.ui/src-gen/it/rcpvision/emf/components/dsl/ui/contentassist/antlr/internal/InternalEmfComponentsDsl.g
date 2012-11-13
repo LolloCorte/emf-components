@@ -3614,11 +3614,11 @@ rule__LabelProvider__Group_3_0__0__Impl
     }
 :
 (
-{ before(grammarAccess.getLabelProviderAccess().getLabelsKeyword_3_0_0()); }
+{ before(grammarAccess.getLabelProviderAccess().getTextKeyword_3_0_0()); }
 
-	'labels' 
+	'text' 
 
-{ after(grammarAccess.getLabelProviderAccess().getLabelsKeyword_3_0_0()); }
+{ after(grammarAccess.getLabelProviderAccess().getTextKeyword_3_0_0()); }
 )
 
 ;
@@ -3743,11 +3743,11 @@ rule__LabelProvider__Group_3_1__0__Impl
     }
 :
 (
-{ before(grammarAccess.getLabelProviderAccess().getImagesKeyword_3_1_0()); }
+{ before(grammarAccess.getLabelProviderAccess().getImageKeyword_3_1_0()); }
 
-	'images' 
+	'image' 
 
-{ after(grammarAccess.getLabelProviderAccess().getImagesKeyword_3_1_0()); }
+{ after(grammarAccess.getLabelProviderAccess().getImageKeyword_3_1_0()); }
 )
 
 ;
@@ -4159,11 +4159,11 @@ rule__PropertyDescriptionProvider__Group_3__0__Impl
     }
 :
 (
-{ before(grammarAccess.getPropertyDescriptionProviderAccess().getLabelsKeyword_3_0()); }
+{ before(grammarAccess.getPropertyDescriptionProviderAccess().getTextKeyword_3_0()); }
 
-	'labels' 
+	'text' 
 
-{ after(grammarAccess.getPropertyDescriptionProviderAccess().getLabelsKeyword_3_0()); }
+{ after(grammarAccess.getPropertyDescriptionProviderAccess().getTextKeyword_3_0()); }
 )
 
 ;

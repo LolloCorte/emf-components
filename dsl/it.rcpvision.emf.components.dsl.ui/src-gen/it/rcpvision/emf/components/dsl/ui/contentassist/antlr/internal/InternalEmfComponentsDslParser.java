@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalEmfComponentsDslParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_HEX", "RULE_INT", "RULE_DECIMAL", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'='", "'+='", "'||'", "'&&'", "'=='", "'!='", "'>='", "'<='", "'>'", "'<'", "'->'", "'..'", "'=>'", "'<>'", "'?:'", "'<=>'", "'+'", "'-'", "'*'", "'**'", "'/'", "'%'", "'!'", "'.'", "'val'", "'super'", "'false'", "'import'", "'.*'", "'module'", "'{'", "'}'", "'labelProvider'", "'labels'", "'images'", "'propertyDescriptionProvider'", "':'", "'featuresProvider'", "'features'", "','", "'formFeatureControlFactory'", "'controls'", "'target'", "'instanceof'", "'as'", "')'", "']'", "'['", "';'", "'('", "'if'", "'else'", "'switch'", "'default'", "'case'", "'for'", "'while'", "'do'", "'::'", "'new'", "'null'", "'typeof'", "'throw'", "'return'", "'try'", "'finally'", "'catch'", "'?'", "'extends'", "'&'", "'?.'", "'*.'", "'|'", "'var'", "'true'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_HEX", "RULE_INT", "RULE_DECIMAL", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'='", "'+='", "'||'", "'&&'", "'=='", "'!='", "'>='", "'<='", "'>'", "'<'", "'->'", "'..'", "'=>'", "'<>'", "'?:'", "'<=>'", "'+'", "'-'", "'*'", "'**'", "'/'", "'%'", "'!'", "'.'", "'val'", "'super'", "'false'", "'import'", "'.*'", "'module'", "'{'", "'}'", "'labelProvider'", "'text'", "'image'", "'propertyDescriptionProvider'", "':'", "'featuresProvider'", "'features'", "','", "'formFeatureControlFactory'", "'controls'", "'target'", "'instanceof'", "'as'", "')'", "']'", "'['", "';'", "'('", "'if'", "'else'", "'switch'", "'default'", "'case'", "'for'", "'while'", "'do'", "'::'", "'new'", "'null'", "'typeof'", "'throw'", "'return'", "'try'", "'finally'", "'catch'", "'?'", "'extends'", "'&'", "'?.'", "'*.'", "'|'", "'var'", "'true'"
     };
     public static final int T__68=68;
     public static final int T__69=69;
@@ -11558,24 +11558,24 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__LabelProvider__Group_3_0__0__Impl"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:3611:1: rule__LabelProvider__Group_3_0__0__Impl : ( 'labels' ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:3611:1: rule__LabelProvider__Group_3_0__0__Impl : ( 'text' ) ;
     public final void rule__LabelProvider__Group_3_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:3615:1: ( ( 'labels' ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:3616:1: ( 'labels' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:3615:1: ( ( 'text' ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:3616:1: ( 'text' )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:3616:1: ( 'labels' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:3617:1: 'labels'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:3616:1: ( 'text' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:3617:1: 'text'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getLabelProviderAccess().getLabelsKeyword_3_0_0()); 
+               before(grammarAccess.getLabelProviderAccess().getTextKeyword_3_0_0()); 
             }
             match(input,46,FOLLOW_46_in_rule__LabelProvider__Group_3_0__0__Impl7732); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getLabelProviderAccess().getLabelsKeyword_3_0_0()); 
+               after(grammarAccess.getLabelProviderAccess().getTextKeyword_3_0_0()); 
             }
 
             }
@@ -11897,24 +11897,24 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__LabelProvider__Group_3_1__0__Impl"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:3740:1: rule__LabelProvider__Group_3_1__0__Impl : ( 'images' ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:3740:1: rule__LabelProvider__Group_3_1__0__Impl : ( 'image' ) ;
     public final void rule__LabelProvider__Group_3_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:3744:1: ( ( 'images' ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:3745:1: ( 'images' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:3744:1: ( ( 'image' ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:3745:1: ( 'image' )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:3745:1: ( 'images' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:3746:1: 'images'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:3745:1: ( 'image' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:3746:1: 'image'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getLabelProviderAccess().getImagesKeyword_3_1_0()); 
+               before(grammarAccess.getLabelProviderAccess().getImageKeyword_3_1_0()); 
             }
             match(input,47,FOLLOW_47_in_rule__LabelProvider__Group_3_1__0__Impl7984); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getLabelProviderAccess().getImagesKeyword_3_1_0()); 
+               after(grammarAccess.getLabelProviderAccess().getImageKeyword_3_1_0()); 
             }
 
             }
@@ -12999,24 +12999,24 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PropertyDescriptionProvider__Group_3__0__Impl"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:4156:1: rule__PropertyDescriptionProvider__Group_3__0__Impl : ( 'labels' ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:4156:1: rule__PropertyDescriptionProvider__Group_3__0__Impl : ( 'text' ) ;
     public final void rule__PropertyDescriptionProvider__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:4160:1: ( ( 'labels' ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:4161:1: ( 'labels' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:4160:1: ( ( 'text' ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:4161:1: ( 'text' )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:4161:1: ( 'labels' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:4162:1: 'labels'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:4161:1: ( 'text' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:4162:1: 'text'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getPropertyDescriptionProviderAccess().getLabelsKeyword_3_0()); 
+               before(grammarAccess.getPropertyDescriptionProviderAccess().getTextKeyword_3_0()); 
             }
             match(input,46,FOLLOW_46_in_rule__PropertyDescriptionProvider__Group_3__0__Impl8799); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getPropertyDescriptionProviderAccess().getLabelsKeyword_3_0()); 
+               after(grammarAccess.getPropertyDescriptionProviderAccess().getTextKeyword_3_0()); 
             }
 
             }

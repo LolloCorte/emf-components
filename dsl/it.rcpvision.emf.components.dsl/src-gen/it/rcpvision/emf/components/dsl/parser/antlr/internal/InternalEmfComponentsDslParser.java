@@ -22,7 +22,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_HEX", "RULE_INT", "RULE_DECIMAL", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'import'", "'.*'", "'module'", "'{'", "'}'", "'labelProvider'", "'labels'", "'images'", "'->'", "'propertyDescriptionProvider'", "':'", "'featuresProvider'", "'features'", "','", "'formFeatureControlFactory'", "'controls'", "'target'", "'='", "'+='", "'||'", "'&&'", "'=='", "'!='", "'instanceof'", "'>='", "'<='", "'>'", "'<'", "'..'", "'=>'", "'<>'", "'?:'", "'<=>'", "'+'", "'-'", "'*'", "'**'", "'/'", "'%'", "'!'", "'as'", "'.'", "'?.'", "'*.'", "'('", "')'", "'['", "'|'", "']'", "';'", "'if'", "'else'", "'switch'", "'default'", "'case'", "'for'", "'while'", "'do'", "'var'", "'val'", "'super'", "'::'", "'new'", "'false'", "'true'", "'null'", "'typeof'", "'throw'", "'return'", "'try'", "'finally'", "'catch'", "'?'", "'extends'", "'&'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_HEX", "RULE_INT", "RULE_DECIMAL", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'import'", "'.*'", "'module'", "'{'", "'}'", "'labelProvider'", "'text'", "'image'", "'->'", "'propertyDescriptionProvider'", "':'", "'featuresProvider'", "'features'", "','", "'formFeatureControlFactory'", "'controls'", "'target'", "'='", "'+='", "'||'", "'&&'", "'=='", "'!='", "'instanceof'", "'>='", "'<='", "'>'", "'<'", "'..'", "'=>'", "'<>'", "'?:'", "'<=>'", "'+'", "'-'", "'*'", "'**'", "'/'", "'%'", "'!'", "'as'", "'.'", "'?.'", "'*.'", "'('", "')'", "'['", "'|'", "']'", "';'", "'if'", "'else'", "'switch'", "'default'", "'case'", "'for'", "'while'", "'do'", "'var'", "'val'", "'super'", "'::'", "'new'", "'false'", "'true'", "'null'", "'typeof'", "'throw'", "'return'", "'try'", "'finally'", "'catch'", "'?'", "'extends'", "'&'"
     };
     public static final int T__68=68;
     public static final int T__69=69;
@@ -1069,7 +1069,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
 
 
     // $ANTLR start "ruleLabelProvider"
-    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:401:1: ruleLabelProvider returns [EObject current=null] : ( () otherlv_1= 'labelProvider' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'labels' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'images' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) ) )* ) ) ) otherlv_12= '}' ) ;
+    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:401:1: ruleLabelProvider returns [EObject current=null] : ( () otherlv_1= 'labelProvider' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'text' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'image' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) ) )* ) ) ) otherlv_12= '}' ) ;
     public final EObject ruleLabelProvider() throws RecognitionException {
         EObject current = null;
 
@@ -1090,11 +1090,11 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
          enterRule(); 
             
         try {
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:404:28: ( ( () otherlv_1= 'labelProvider' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'labels' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'images' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) ) )* ) ) ) otherlv_12= '}' ) )
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:405:1: ( () otherlv_1= 'labelProvider' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'labels' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'images' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) ) )* ) ) ) otherlv_12= '}' )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:404:28: ( ( () otherlv_1= 'labelProvider' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'text' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'image' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) ) )* ) ) ) otherlv_12= '}' ) )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:405:1: ( () otherlv_1= 'labelProvider' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'text' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'image' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) ) )* ) ) ) otherlv_12= '}' )
             {
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:405:1: ( () otherlv_1= 'labelProvider' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'labels' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'images' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) ) )* ) ) ) otherlv_12= '}' )
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:405:2: () otherlv_1= 'labelProvider' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'labels' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'images' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) ) )* ) ) ) otherlv_12= '}'
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:405:1: ( () otherlv_1= 'labelProvider' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'text' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'image' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) ) )* ) ) ) otherlv_12= '}' )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:405:2: () otherlv_1= 'labelProvider' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'text' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'image' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) ) )* ) ) ) otherlv_12= '}'
             {
             // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:405:2: ()
             // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:406:5: 
@@ -1121,17 +1121,17 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
                   	newLeafNode(otherlv_2, grammarAccess.getLabelProviderAccess().getLeftCurlyBracketKeyword_2());
                   
             }
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:419:1: ( ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'labels' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'images' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) ) )* ) ) )
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:421:1: ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'labels' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'images' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) ) )* ) )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:419:1: ( ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'text' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'image' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) ) )* ) ) )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:421:1: ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'text' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'image' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) ) )* ) )
             {
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:421:1: ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'labels' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'images' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) ) )* ) )
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:422:2: ( ( ({...}? => ( ({...}? => (otherlv_4= 'labels' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'images' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) ) )* )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:421:1: ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'text' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'image' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) ) )* ) )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:422:2: ( ( ({...}? => ( ({...}? => (otherlv_4= 'text' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'image' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) ) )* )
             {
             getUnorderedGroupHelper().enter(grammarAccess.getLabelProviderAccess().getUnorderedGroup_3());
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:425:2: ( ( ({...}? => ( ({...}? => (otherlv_4= 'labels' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'images' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) ) )* )
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:426:3: ( ({...}? => ( ({...}? => (otherlv_4= 'labels' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'images' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) ) )*
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:425:2: ( ( ({...}? => ( ({...}? => (otherlv_4= 'text' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'image' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) ) )* )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:426:3: ( ({...}? => ( ({...}? => (otherlv_4= 'text' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'image' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) ) )*
             {
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:426:3: ( ({...}? => ( ({...}? => (otherlv_4= 'labels' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'images' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) ) )*
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:426:3: ( ({...}? => ( ({...}? => (otherlv_4= 'text' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'image' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) ) )*
             loop6:
             do {
                 int alt6=3;
@@ -1147,33 +1147,33 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
 
                 switch (alt6) {
             	case 1 :
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:428:4: ({...}? => ( ({...}? => (otherlv_4= 'labels' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:428:4: ({...}? => ( ({...}? => (otherlv_4= 'text' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) )
             	    {
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:428:4: ({...}? => ( ({...}? => (otherlv_4= 'labels' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) )
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:429:5: {...}? => ( ({...}? => (otherlv_4= 'labels' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:428:4: ({...}? => ( ({...}? => (otherlv_4= 'text' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:429:5: {...}? => ( ({...}? => (otherlv_4= 'text' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getLabelProviderAccess().getUnorderedGroup_3(), 0) ) {
             	        if (state.backtracking>0) {state.failed=true; return current;}
             	        throw new FailedPredicateException(input, "ruleLabelProvider", "getUnorderedGroupHelper().canSelect(grammarAccess.getLabelProviderAccess().getUnorderedGroup_3(), 0)");
             	    }
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:429:110: ( ({...}? => (otherlv_4= 'labels' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) )
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:430:6: ({...}? => (otherlv_4= 'labels' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:429:110: ( ({...}? => (otherlv_4= 'text' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:430:6: ({...}? => (otherlv_4= 'text' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) )
             	    {
             	    getUnorderedGroupHelper().select(grammarAccess.getLabelProviderAccess().getUnorderedGroup_3(), 0);
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:433:6: ({...}? => (otherlv_4= 'labels' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) )
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:433:7: {...}? => (otherlv_4= 'labels' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:433:6: ({...}? => (otherlv_4= 'text' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:433:7: {...}? => (otherlv_4= 'text' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' )
             	    {
             	    if ( !((true)) ) {
             	        if (state.backtracking>0) {state.failed=true; return current;}
             	        throw new FailedPredicateException(input, "ruleLabelProvider", "true");
             	    }
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:433:16: (otherlv_4= 'labels' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' )
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:433:18: otherlv_4= 'labels' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}'
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:433:16: (otherlv_4= 'text' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}' )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:433:18: otherlv_4= 'text' otherlv_5= '{' ( (lv_labelSpecifications_6_0= ruleLabelSpecification ) )* otherlv_7= '}'
             	    {
             	    otherlv_4=(Token)match(input,19,FOLLOW_19_in_ruleLabelProvider998); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	          	newLeafNode(otherlv_4, grammarAccess.getLabelProviderAccess().getLabelsKeyword_3_0_0());
+            	          	newLeafNode(otherlv_4, grammarAccess.getLabelProviderAccess().getTextKeyword_3_0_0());
             	          
             	    }
             	    otherlv_5=(Token)match(input,16,FOLLOW_16_in_ruleLabelProvider1010); if (state.failed) return current;
@@ -1258,33 +1258,33 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
             	    }
             	    break;
             	case 2 :
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:470:4: ({...}? => ( ({...}? => (otherlv_8= 'images' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:470:4: ({...}? => ( ({...}? => (otherlv_8= 'image' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) )
             	    {
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:470:4: ({...}? => ( ({...}? => (otherlv_8= 'images' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) )
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:471:5: {...}? => ( ({...}? => (otherlv_8= 'images' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:470:4: ({...}? => ( ({...}? => (otherlv_8= 'image' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:471:5: {...}? => ( ({...}? => (otherlv_8= 'image' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getLabelProviderAccess().getUnorderedGroup_3(), 1) ) {
             	        if (state.backtracking>0) {state.failed=true; return current;}
             	        throw new FailedPredicateException(input, "ruleLabelProvider", "getUnorderedGroupHelper().canSelect(grammarAccess.getLabelProviderAccess().getUnorderedGroup_3(), 1)");
             	    }
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:471:110: ( ({...}? => (otherlv_8= 'images' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) )
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:472:6: ({...}? => (otherlv_8= 'images' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:471:110: ( ({...}? => (otherlv_8= 'image' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:472:6: ({...}? => (otherlv_8= 'image' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) )
             	    {
             	    getUnorderedGroupHelper().select(grammarAccess.getLabelProviderAccess().getUnorderedGroup_3(), 1);
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:475:6: ({...}? => (otherlv_8= 'images' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) )
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:475:7: {...}? => (otherlv_8= 'images' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:475:6: ({...}? => (otherlv_8= 'image' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:475:7: {...}? => (otherlv_8= 'image' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' )
             	    {
             	    if ( !((true)) ) {
             	        if (state.backtracking>0) {state.failed=true; return current;}
             	        throw new FailedPredicateException(input, "ruleLabelProvider", "true");
             	    }
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:475:16: (otherlv_8= 'images' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' )
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:475:18: otherlv_8= 'images' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}'
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:475:16: (otherlv_8= 'image' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}' )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:475:18: otherlv_8= 'image' otherlv_9= '{' ( (lv_imageSpecifications_10_0= ruleLabelSpecification ) )* otherlv_11= '}'
             	    {
             	    otherlv_8=(Token)match(input,20,FOLLOW_20_in_ruleLabelProvider1112); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	          	newLeafNode(otherlv_8, grammarAccess.getLabelProviderAccess().getImagesKeyword_3_1_0());
+            	          	newLeafNode(otherlv_8, grammarAccess.getLabelProviderAccess().getImageKeyword_3_1_0());
             	          
             	    }
             	    otherlv_9=(Token)match(input,16,FOLLOW_16_in_ruleLabelProvider1124); if (state.failed) return current;
@@ -1659,7 +1659,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
 
 
     // $ANTLR start "rulePropertyDescriptionProvider"
-    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:619:1: rulePropertyDescriptionProvider returns [EObject current=null] : ( () otherlv_1= 'propertyDescriptionProvider' otherlv_2= '{' (otherlv_3= 'labels' otherlv_4= '{' ( (lv_labelSpecifications_5_0= rulePropertyDescriptionSpecification ) )* otherlv_6= '}' )? otherlv_7= '}' ) ;
+    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:619:1: rulePropertyDescriptionProvider returns [EObject current=null] : ( () otherlv_1= 'propertyDescriptionProvider' otherlv_2= '{' (otherlv_3= 'text' otherlv_4= '{' ( (lv_labelSpecifications_5_0= rulePropertyDescriptionSpecification ) )* otherlv_6= '}' )? otherlv_7= '}' ) ;
     public final EObject rulePropertyDescriptionProvider() throws RecognitionException {
         EObject current = null;
 
@@ -1675,11 +1675,11 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
          enterRule(); 
             
         try {
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:622:28: ( ( () otherlv_1= 'propertyDescriptionProvider' otherlv_2= '{' (otherlv_3= 'labels' otherlv_4= '{' ( (lv_labelSpecifications_5_0= rulePropertyDescriptionSpecification ) )* otherlv_6= '}' )? otherlv_7= '}' ) )
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:623:1: ( () otherlv_1= 'propertyDescriptionProvider' otherlv_2= '{' (otherlv_3= 'labels' otherlv_4= '{' ( (lv_labelSpecifications_5_0= rulePropertyDescriptionSpecification ) )* otherlv_6= '}' )? otherlv_7= '}' )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:622:28: ( ( () otherlv_1= 'propertyDescriptionProvider' otherlv_2= '{' (otherlv_3= 'text' otherlv_4= '{' ( (lv_labelSpecifications_5_0= rulePropertyDescriptionSpecification ) )* otherlv_6= '}' )? otherlv_7= '}' ) )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:623:1: ( () otherlv_1= 'propertyDescriptionProvider' otherlv_2= '{' (otherlv_3= 'text' otherlv_4= '{' ( (lv_labelSpecifications_5_0= rulePropertyDescriptionSpecification ) )* otherlv_6= '}' )? otherlv_7= '}' )
             {
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:623:1: ( () otherlv_1= 'propertyDescriptionProvider' otherlv_2= '{' (otherlv_3= 'labels' otherlv_4= '{' ( (lv_labelSpecifications_5_0= rulePropertyDescriptionSpecification ) )* otherlv_6= '}' )? otherlv_7= '}' )
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:623:2: () otherlv_1= 'propertyDescriptionProvider' otherlv_2= '{' (otherlv_3= 'labels' otherlv_4= '{' ( (lv_labelSpecifications_5_0= rulePropertyDescriptionSpecification ) )* otherlv_6= '}' )? otherlv_7= '}'
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:623:1: ( () otherlv_1= 'propertyDescriptionProvider' otherlv_2= '{' (otherlv_3= 'text' otherlv_4= '{' ( (lv_labelSpecifications_5_0= rulePropertyDescriptionSpecification ) )* otherlv_6= '}' )? otherlv_7= '}' )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:623:2: () otherlv_1= 'propertyDescriptionProvider' otherlv_2= '{' (otherlv_3= 'text' otherlv_4= '{' ( (lv_labelSpecifications_5_0= rulePropertyDescriptionSpecification ) )* otherlv_6= '}' )? otherlv_7= '}'
             {
             // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:623:2: ()
             // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:624:5: 
@@ -1706,7 +1706,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
                   	newLeafNode(otherlv_2, grammarAccess.getPropertyDescriptionProviderAccess().getLeftCurlyBracketKeyword_2());
                   
             }
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:637:1: (otherlv_3= 'labels' otherlv_4= '{' ( (lv_labelSpecifications_5_0= rulePropertyDescriptionSpecification ) )* otherlv_6= '}' )?
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:637:1: (otherlv_3= 'text' otherlv_4= '{' ( (lv_labelSpecifications_5_0= rulePropertyDescriptionSpecification ) )* otherlv_6= '}' )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -1715,12 +1715,12 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
             }
             switch (alt9) {
                 case 1 :
-                    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:637:3: otherlv_3= 'labels' otherlv_4= '{' ( (lv_labelSpecifications_5_0= rulePropertyDescriptionSpecification ) )* otherlv_6= '}'
+                    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:637:3: otherlv_3= 'text' otherlv_4= '{' ( (lv_labelSpecifications_5_0= rulePropertyDescriptionSpecification ) )* otherlv_6= '}'
                     {
                     otherlv_3=(Token)match(input,19,FOLLOW_19_in_rulePropertyDescriptionProvider1475); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                          	newLeafNode(otherlv_3, grammarAccess.getPropertyDescriptionProviderAccess().getLabelsKeyword_3_0());
+                          	newLeafNode(otherlv_3, grammarAccess.getPropertyDescriptionProviderAccess().getTextKeyword_3_0());
                           
                     }
                     otherlv_4=(Token)match(input,16,FOLLOW_16_in_rulePropertyDescriptionProvider1487); if (state.failed) return current;
