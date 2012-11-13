@@ -257,7 +257,7 @@ public class TestInputs {
     _builder.append("formFeatureControlFactory {");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("controls {");
+    _builder.append("control {");
     _builder.newLine();
     _builder.append("\t\t\t");
     _builder.append("Library : name -> { }");

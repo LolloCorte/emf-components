@@ -938,9 +938,9 @@ ruleFormFeatureControlFactory returns [EObject current=null]
     {
     	newLeafNode(otherlv_2, grammarAccess.getFormFeatureControlFactoryAccess().getLeftCurlyBracketKeyword_2());
     }
-(	otherlv_3='controls' 
+(	otherlv_3='control' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getFormFeatureControlFactoryAccess().getControlsKeyword_3_0());
+    	newLeafNode(otherlv_3, grammarAccess.getFormFeatureControlFactoryAccess().getControlKeyword_3_0());
     }
 	otherlv_4='{' 
     {

@@ -5087,11 +5087,11 @@ rule__FormFeatureControlFactory__Group_3__0__Impl
     }
 :
 (
-{ before(grammarAccess.getFormFeatureControlFactoryAccess().getControlsKeyword_3_0()); }
+{ before(grammarAccess.getFormFeatureControlFactoryAccess().getControlKeyword_3_0()); }
 
-	'controls' 
+	'control' 
 
-{ after(grammarAccess.getFormFeatureControlFactoryAccess().getControlsKeyword_3_0()); }
+{ after(grammarAccess.getFormFeatureControlFactoryAccess().getControlKeyword_3_0()); }
 )
 
 ;

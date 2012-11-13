@@ -491,7 +491,7 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		private final Keyword cFormFeatureControlFactoryKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cControlsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cControlKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
 		private final Assignment cControlSpecificationsAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
 		private final RuleCall cControlSpecificationsFormFeatureControlSpecificationParserRuleCall_3_2_0 = (RuleCall)cControlSpecificationsAssignment_3_2.eContents().get(0);
@@ -499,11 +499,11 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//FormFeatureControlFactory:
-		//	{FormFeatureControlFactory} "formFeatureControlFactory" "{" ("controls" "{"
+		//	{FormFeatureControlFactory} "formFeatureControlFactory" "{" ("control" "{"
 		//	controlSpecifications+=FormFeatureControlSpecification* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{FormFeatureControlFactory} "formFeatureControlFactory" "{" ("controls" "{"
+		//{FormFeatureControlFactory} "formFeatureControlFactory" "{" ("control" "{"
 		//controlSpecifications+=FormFeatureControlSpecification* "}")? "}"
 		public Group getGroup() { return cGroup; }
 
@@ -516,11 +516,11 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//("controls" "{" controlSpecifications+=FormFeatureControlSpecification* "}")?
+		//("control" "{" controlSpecifications+=FormFeatureControlSpecification* "}")?
 		public Group getGroup_3() { return cGroup_3; }
 
-		//"controls"
-		public Keyword getControlsKeyword_3_0() { return cControlsKeyword_3_0; }
+		//"control"
+		public Keyword getControlKeyword_3_0() { return cControlKeyword_3_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3_1() { return cLeftCurlyBracketKeyword_3_1; }
@@ -781,7 +781,7 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 	}
 
 	//FormFeatureControlFactory:
-	//	{FormFeatureControlFactory} "formFeatureControlFactory" "{" ("controls" "{"
+	//	{FormFeatureControlFactory} "formFeatureControlFactory" "{" ("control" "{"
 	//	controlSpecifications+=FormFeatureControlSpecification* "}")? "}";
 	public FormFeatureControlFactoryElements getFormFeatureControlFactoryAccess() {
 		return (pFormFeatureControlFactory != null) ? pFormFeatureControlFactory : (pFormFeatureControlFactory = new FormFeatureControlFactoryElements());

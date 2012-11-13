@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalEmfComponentsDslParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_HEX", "RULE_INT", "RULE_DECIMAL", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'='", "'+='", "'||'", "'&&'", "'=='", "'!='", "'>='", "'<='", "'>'", "'<'", "'->'", "'..'", "'=>'", "'<>'", "'?:'", "'<=>'", "'+'", "'-'", "'*'", "'**'", "'/'", "'%'", "'!'", "'.'", "'val'", "'super'", "'false'", "'import'", "'.*'", "'module'", "'{'", "'}'", "'labelProvider'", "'text'", "'image'", "'propertyDescriptionProvider'", "':'", "'featuresProvider'", "'features'", "','", "'formFeatureControlFactory'", "'controls'", "'target'", "'instanceof'", "'as'", "')'", "']'", "'['", "';'", "'('", "'if'", "'else'", "'switch'", "'default'", "'case'", "'for'", "'while'", "'do'", "'::'", "'new'", "'null'", "'typeof'", "'throw'", "'return'", "'try'", "'finally'", "'catch'", "'?'", "'extends'", "'&'", "'?.'", "'*.'", "'|'", "'var'", "'true'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_HEX", "RULE_INT", "RULE_DECIMAL", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'='", "'+='", "'||'", "'&&'", "'=='", "'!='", "'>='", "'<='", "'>'", "'<'", "'->'", "'..'", "'=>'", "'<>'", "'?:'", "'<=>'", "'+'", "'-'", "'*'", "'**'", "'/'", "'%'", "'!'", "'.'", "'val'", "'super'", "'false'", "'import'", "'.*'", "'module'", "'{'", "'}'", "'labelProvider'", "'text'", "'image'", "'propertyDescriptionProvider'", "':'", "'featuresProvider'", "'features'", "','", "'formFeatureControlFactory'", "'control'", "'target'", "'instanceof'", "'as'", "')'", "']'", "'['", "';'", "'('", "'if'", "'else'", "'switch'", "'default'", "'case'", "'for'", "'while'", "'do'", "'::'", "'new'", "'null'", "'typeof'", "'throw'", "'return'", "'try'", "'finally'", "'catch'", "'?'", "'extends'", "'&'", "'?.'", "'*.'", "'|'", "'var'", "'true'"
     };
     public static final int T__68=68;
     public static final int T__69=69;
@@ -15441,24 +15441,24 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__FormFeatureControlFactory__Group_3__0__Impl"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5084:1: rule__FormFeatureControlFactory__Group_3__0__Impl : ( 'controls' ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5084:1: rule__FormFeatureControlFactory__Group_3__0__Impl : ( 'control' ) ;
     public final void rule__FormFeatureControlFactory__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5088:1: ( ( 'controls' ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5089:1: ( 'controls' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5088:1: ( ( 'control' ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5089:1: ( 'control' )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5089:1: ( 'controls' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5090:1: 'controls'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5089:1: ( 'control' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5090:1: 'control'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlFactoryAccess().getControlsKeyword_3_0()); 
+               before(grammarAccess.getFormFeatureControlFactoryAccess().getControlKeyword_3_0()); 
             }
             match(input,54,FOLLOW_54_in_rule__FormFeatureControlFactory__Group_3__0__Impl10615); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlFactoryAccess().getControlsKeyword_3_0()); 
+               after(grammarAccess.getFormFeatureControlFactoryAccess().getControlKeyword_3_0()); 
             }
 
             }

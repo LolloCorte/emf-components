@@ -120,7 +120,7 @@ import it.rcpvision.emf.components.examples.library.*
 
 module my.empty {
 	formFeatureControlFactory {
-		controls {
+		control {
 			Library : name -> { }
 			Writer : books -> 
 				toolkit.createLabel(parent, 
