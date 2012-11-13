@@ -3,15 +3,15 @@ import it.rcpvision.emf.components.examples.mail.*
 /* it.rcpvision.emf.components.examples.mail.messageview Emf Components Dsl Module file */
 module it.rcpvision.emf.components.examples.mail.messageview {
 	labelProvider {
-		labels {
+		text {
 			Mail -> subject
 		}
-		images {
+		image {
 			Mail -> "email.png"
 		}
 	}
 	formFeatureControlFactory {
-		controls {
+		control {
 			Mail : message ->
 				toolkit.createText(parent, "", 
 					SWT::MULTI.bitwiseOr(SWT::BORDER).
@@ -27,7 +27,7 @@ module it.rcpvision.emf.components.examples.mail.messageview {
 		}
 	}
 	propertyDescriptionProvider {
-		labels {
+		text {
 			Mail : recipients -> 'to'
 		}
 	}
