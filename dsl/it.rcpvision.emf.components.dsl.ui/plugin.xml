@@ -275,7 +275,7 @@
             class="it.rcpvision.emf.components.dsl.ui.EmfComponentsDslExecutableExtensionFactory:it.rcpvision.emf.components.dsl.ui.wizard.EmfComponentsDslNewProjectWizard"
             icon="icons/sample.gif"
             id="it.rcpvision.emf.components.dsl.ui.wizard.EmfComponentsDslNewProjectWizard"
-            name="New Emf Components Dsl Based Project"
+            name="Emf Components Dsl Based Project"
             project="true">
       </wizard>
    </extension>

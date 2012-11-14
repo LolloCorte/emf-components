@@ -192,9 +192,9 @@ public class EmfComponentsAbstractTests {
 
 	protected static final String EMF_COMPONENTS_PROJECT = "EmfComponentsProject";
 
-	protected static final String NEW_EMF_COMPONENTS_PROJECT = "New Emf Components Project";
+	protected static final String NEW_EMF_COMPONENTS_PROJECT = "Emf Components Project";
 
-	protected static final String NEW_EMF_COMPONENTS_DSL_PROJECT = "New Emf Components Dsl Based Project";
+	protected static final String NEW_EMF_COMPONENTS_DSL_PROJECT = "Emf Components Dsl Based Project";
 
 	protected static SWTWorkbenchBot bot;
 

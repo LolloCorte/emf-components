@@ -15,7 +15,7 @@
             class="it.rcpvision.emf.components.wizards.NewEmfComponentsProjectWizard"
             icon="icons/sample.gif"
             id="it.rcpvision.emf.components.wizards.NewEmfComponentsProject"
-            name="New Emf Components Project"
+            name="Emf Components Project"
             project="true">
       </wizard>
    </extension>
