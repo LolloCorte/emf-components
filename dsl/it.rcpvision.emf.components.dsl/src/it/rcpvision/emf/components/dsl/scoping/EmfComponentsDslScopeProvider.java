@@ -28,7 +28,6 @@ import com.google.common.collect.Iterables;
  * @author Lorenzo Bettini
  * 
  */
-@SuppressWarnings("restriction")
 public class EmfComponentsDslScopeProvider extends XbaseScopeProvider {
 
 	// public IScope __getScope(EObject context, EReference reference) {

@@ -7,7 +7,6 @@ import library.LibraryFactory;
 
 import org.eclipse.emf.cdo.transaction.CDOTransaction;
 import org.eclipse.emf.cdo.util.CommitException;
-import org.junit.Before;
 import org.junit.Test;
 
 public class PopulateModel {

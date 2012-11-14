@@ -19,7 +19,6 @@ import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 public class EmfComponentsDslProposalProvider extends
 		AbstractEmfComponentsDslProposalProvider {
 
-	@SuppressWarnings("restriction")
 	@Override
 	public void completeXFeatureCall_Feature(EObject model,
 			Assignment assignment, ContentAssistContext context,

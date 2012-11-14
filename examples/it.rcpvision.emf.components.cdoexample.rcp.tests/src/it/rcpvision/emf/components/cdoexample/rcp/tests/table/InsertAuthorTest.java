@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
 public class InsertAuthorTest extends CdoExampleUiTable {
 	private static final String AUTHOR_NAME_TOINSERT = "Edward";
 	private static final String AUTHOR_SURNAME_TOINSERT = "Merks";
-	private static final String AUTHOR_BIRTHDAY_TOINSERT = "01/01/1966";
+	//private static final String AUTHOR_BIRTHDAY_TOINSERT = "01/01/1966";
 
 	@Test
 	public void testInsertAuthor() {

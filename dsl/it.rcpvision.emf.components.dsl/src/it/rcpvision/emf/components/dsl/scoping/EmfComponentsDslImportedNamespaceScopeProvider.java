@@ -14,7 +14,6 @@ import org.eclipse.xtext.xbase.scoping.XbaseImportedNamespaceScopeProvider;
  * @author Lorenzo Bettini
  *
  */
-@SuppressWarnings("restriction")
 public class EmfComponentsDslImportedNamespaceScopeProvider extends
 		XbaseImportedNamespaceScopeProvider {
 
