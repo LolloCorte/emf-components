@@ -2,16 +2,14 @@ package it.rcpvision.emf.components.examples.mail.rcp;
 
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PartInitException;
 
 
 public class OpenViewAction extends Action {
 	
 	private final IWorkbenchWindow window;
-	private int instanceNum = 0;
-	private final String viewId;
+	protected int instanceNum = 0;
+	protected final String viewId;
 	
 	public OpenViewAction(IWorkbenchWindow window, String label, String viewId) {
 		this.window = window;

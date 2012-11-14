@@ -28,6 +28,13 @@
             class="it.rcpvision.emf.components.examples.mail.rcp.View"
             id="it.rcpvision.emf.components.examples.mail.rcp.view">
       </view>
+      <view
+            name="Mailboxes"
+            allowMultiple="true"
+            icon="icons/sample3.gif"
+            class="it.rcpvision.emf.components.examples.mail.rcp.NavigationView"
+            id="it.rcpvision.emf.components.examples.mail.rcp.navigationView">
+      </view>
    </extension>
    <extension
          point="org.eclipse.ui.commands">
