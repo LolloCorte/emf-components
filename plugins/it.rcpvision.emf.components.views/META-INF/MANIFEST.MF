@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: EMF Components Views
 Bundle-SymbolicName: it.rcpvision.emf.components.views
 Bundle-Version: 0.1.0.qualifier
-Bundle-Activator: it.rcpvision.emf.components.views.Activator
+Bundle-Activator: it.rcpvision.emf.components.views.EmfComponentsViewsActivator
 Bundle-Vendor: RCP Vision
 Require-Bundle: org.eclipse.core.runtime,
  it.rcpvision.emf.components;bundle-version="0.1.0";visibility:=reexport,

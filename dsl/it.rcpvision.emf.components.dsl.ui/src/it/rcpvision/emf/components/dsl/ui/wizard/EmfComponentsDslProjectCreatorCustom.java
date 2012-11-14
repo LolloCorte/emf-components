@@ -4,6 +4,7 @@
 package it.rcpvision.emf.components.dsl.ui.wizard;
 
 import it.rcpvision.emf.components.dsl.generator.EmfComponentsDslOutputConfigurationProvider;
+import it.rcpvision.emf.components.views.EmfComponentsViewsActivator;
 import it.rcpvision.emf.components.wizards.NewEmfComponentsProjectSupport;
 import it.rcpvision.emf.components.wizards.gen.EmfComponentsProjectFilesGenerator;
 
@@ -38,9 +39,15 @@ public class EmfComponentsDslProjectCreatorCustom extends
 	 *         <code>null</code>
 	 */
 	protected List<String> getRequiredBundles() {
-		return Lists.newArrayList("com.ibm.icu", "org.eclipse.core.runtime",
-				"org.eclipse.xtext", "org.eclipse.xtext.generator",
-				DSL_GENERATOR_PROJECT_NAME);
+		return Lists.newArrayList(
+				"org.eclipse.core.runtime",
+				"org.eclipse.ui",
+				EmfComponentsViewsActivator.PLUGIN_ID,
+				"org.eclipse.xtext.xbase.lib");
+		// don't add the components.dsl project dep
+		// otherwise the plugin will depend on xtext stuff
+		// which are not used by the generated code
+		// DSL_GENERATOR_PROJECT_NAME);
 	}
 	
 	@Override

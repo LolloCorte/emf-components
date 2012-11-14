@@ -23,7 +23,8 @@ Require-Bundle: it.rcpvision.emf.components.dsl;visibility:=reexport,
  org.eclipse.xpand,
  it.rcpvision.emf.components.wizards;bundle-version="0.1.0",
  com.google.guava,
- org.eclipse.xtext.xbase.lib
+ org.eclipse.xtext.xbase.lib,
+ it.rcpvision.emf.components.views;bundle-version="0.1.0"
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: it.rcpvision.emf.components.dsl.ui.contentassist,
