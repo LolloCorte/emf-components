@@ -2,6 +2,8 @@ package it.rcpvision.emf.components.tests;
 
 import static com.google.inject.Guice.createInjector;
 import it.rcpvision.emf.components.EmfComponentsExtensionFactory;
+import it.rcpvision.emf.components.tests.factories.CustomContentProviderLibraryExecutableExtensionFactory;
+import it.rcpvision.emf.components.tests.factories.CustomContentProviderLibraryModule;
 import it.rcpvision.emf.components.tests.factories.CustomLibraryExecutableExtensionFactory;
 import it.rcpvision.emf.components.tests.factories.CustomLibraryModule;
 
@@ -86,6 +88,11 @@ public class EmfComponentsTestsActivator extends AbstractUIPlugin {
 			if (CustomLibraryExecutableExtensionFactory.class.equals(cName)) {
 				injector = createInjector(new CustomLibraryModule(this));
 				injectorsMap.put(cName.getCanonicalName(), injector);
+			} else if (CustomContentProviderLibraryExecutableExtensionFactory.class
+					.equals(cName)) {
+				injector = createInjector(new CustomContentProviderLibraryModule(
+						this));
+				injectorsMap.put(cName.getCanonicalName(), injector);
 			}
 		}
 
@@ -96,15 +103,20 @@ public class EmfComponentsTestsActivator extends AbstractUIPlugin {
 	}
 
 	public static String localFileContents(String filename) throws IOException {
+		File f = localFile(filename);
+		if (f.exists()) {
+			return readFileAsString(f);
+		}
+		return f.getAbsolutePath();
+	}
+
+	protected static File localFile(String filename) throws IOException {
 		IPath path = new Path("models/" + filename);
 		URL url = FileLocator.find(getDefault().getBundle(), path, null);
 		url = FileLocator.resolve(url);
 		url.toExternalForm();
 		File f = new File(url.getFile());
-		if (f.exists()) {
-			return readFileAsString(f);
-		}
-		return f.getAbsolutePath();
+		return f;
 	}
 
 	private static String readFileAsString(File file) throws IOException {

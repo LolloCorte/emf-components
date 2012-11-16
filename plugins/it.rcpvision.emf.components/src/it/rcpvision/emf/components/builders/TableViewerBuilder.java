@@ -3,10 +3,8 @@
  */
 package it.rcpvision.emf.components.builders;
 
+import it.rcpvision.emf.components.util.EmfComponentsUtil;
 import it.rcpvision.emf.components.viewers.ViewerInitializer;
-
-import java.util.Collection;
-import java.util.Collections;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.jface.viewers.ArrayContentProvider;
@@ -42,16 +40,9 @@ public class TableViewerBuilder {
 			EClass eClass, IStructuredContentProvider contentProvider,
 			IBaseLabelProvider labelProvider) {
 		columnBuilder.buildTableViewer(tableViewer, eClass, contentProvider);
-		viewerInitializer.initialize(tableViewer, ensureCollection(contents),
-				contentProvider, labelProvider);
+		viewerInitializer.initialize(tableViewer,
+				EmfComponentsUtil.ensureCollection(contents), contentProvider,
+				labelProvider);
 	}
 
-	protected Collection<?> ensureCollection(Object contents) {
-		if (contents == null)
-			return Collections.emptyList();
-		if (contents instanceof Collection<?>)
-			return (Collection<?>) contents;
-		else
-			return Collections.singleton(contents);
-	}
 }

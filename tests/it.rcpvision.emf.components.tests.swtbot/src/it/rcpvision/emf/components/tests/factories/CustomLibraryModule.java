@@ -20,7 +20,7 @@ import it.rcpvision.emf.components.ui.provider.TableColumnLabelProvider;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
-public final class CustomLibraryModule extends
+public class CustomLibraryModule extends
 		EmfComponentsGuiceModule {
 	public CustomLibraryModule(AbstractUIPlugin plugin) {
 		super(plugin);

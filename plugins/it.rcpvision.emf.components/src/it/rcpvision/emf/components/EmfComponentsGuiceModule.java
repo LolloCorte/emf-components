@@ -8,8 +8,10 @@ import it.rcpvision.emf.components.builders.TableViewerBuilder;
 import it.rcpvision.emf.components.builders.TableViewerColumnBuilder;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.edit.ResourceSaveManager;
+import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider;
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
 import it.rcpvision.emf.components.factories.EmfActionFactory;
+import it.rcpvision.emf.components.factories.ViewerContentProviderFactory;
 import it.rcpvision.emf.components.factories.ViewerFactory;
 import it.rcpvision.emf.components.factories.FormFactory;
 import it.rcpvision.emf.components.factories.JfaceProviderFactory;
@@ -178,5 +180,13 @@ public class EmfComponentsGuiceModule extends AbstractGenericModule {
 
 	public Class<? extends EmptyResourceInitializer> bindEmptyResourceInitializer() {
 		return EmptyResourceInitializer.class;
+	}
+
+	public Class<? extends ViewerContentProviderFactory> bindViewerContentProviderFactory() {
+		return ViewerContentProviderFactory.class;
+	}
+
+	public Class<? extends ViewerContentProvider> bindViewerContentProvider() {
+		return ViewerContentProvider.class;
 	}
 }

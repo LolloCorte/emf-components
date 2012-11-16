@@ -82,7 +82,9 @@ public class EmfComponentsEditorTests extends EmfComponentsAbstractTests {
 		assertPropertyViewIsOpenedAndCloseIt();
 	}
 
-	@Test
+	//@Test
+	// this takes some time to test (due to timeout)
+	// and it does not make much sense as a test (Lorenzo)
 	public void testEditorWithNoMouseEvents() throws Exception {
 		// double click on Library node on the tree of the editor and outline
 		// view should NOT open the property view

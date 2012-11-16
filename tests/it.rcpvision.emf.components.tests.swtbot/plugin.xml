@@ -130,5 +130,12 @@
              name="Library Books Table View"
              restorable="true">
        </view>
+       <view
+             category="it.rcpvision.emf.components"
+             class="it.rcpvision.emf.components.tests.factories.CustomContentProviderLibraryExecutableExtensionFactory:it.rcpvision.emf.components.tests.views.TestSaveableTreeView2"
+             id="it.rcpvision.emf.components.tests.views.testsaveabletreeviewcontentprovider"
+             name="Library Tree View With Custom Content Provider"
+             restorable="true">
+       </view>
     </extension>
 </plugin>

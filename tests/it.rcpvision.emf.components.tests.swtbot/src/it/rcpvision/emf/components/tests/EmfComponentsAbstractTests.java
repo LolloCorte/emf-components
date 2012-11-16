@@ -7,10 +7,12 @@ import static org.eclipse.xtext.ui.junit.util.IResourcesSetupUtil.root;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
+import it.rcpvision.emf.components.examples.library.Library;
 import it.rcpvision.emf.components.tests.utils.ContextMenuHelper;
 import it.rcpvision.emf.components.tests.views.LibraryEmfView;
 import it.rcpvision.emf.components.util.ActionBarsUtils;
 
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.text.MessageFormat;
@@ -27,6 +29,10 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.jface.action.StatusLineManager;
 import org.eclipse.jface.action.SubStatusLineManager;
@@ -107,12 +113,17 @@ public class EmfComponentsAbstractTests {
 
 	protected static final String MY_EXTLIBRARY = "My.extlibrary";
 
+	protected static final String MY2_EXTLIBRARY = "My2.extlibrary";
+
 	protected static final String MY_STATEMACHINE = "fowlerdsl.statemachine";
 
 	protected static final String MY_TEST_PROJECT = "MyTestProject";
 
 	public static final String MY_EXTLIBRARY_RELATIVE_PATH = MY_TEST_PROJECT
 			+ "/" + MY_EXTLIBRARY;
+
+	public static final String MY2_EXTLIBRARY_RELATIVE_PATH = MY_TEST_PROJECT
+			+ "/" + MY2_EXTLIBRARY;
 
 	protected static final String MY_STATEMACHINE_RELATIVE_PATH = MY_TEST_PROJECT
 			+ "/" + MY_STATEMACHINE;
@@ -147,6 +158,8 @@ public class EmfComponentsAbstractTests {
 
 	protected static final String TEST_SAVEABLE_TREE_VIEW = "Library Test Saveable Tree View";
 
+	protected static final String TEST_SAVEABLE_VIEW_WITH_CUSTOM_CONTENT_PROVIDER = "Library Tree View With Custom Content Provider";
+	
 	protected static final String WRITER_S_ADDRESS_TEXT = "writer's address";
 
 	protected static final String ADDRESS_LABEL = "address";
@@ -413,6 +426,14 @@ public class EmfComponentsAbstractTests {
 
 	protected String localFileContents(String string) throws IOException {
 		return EmfComponentsTestsActivator.localFileContents(string);
+	}
+	
+	protected Library localLibrary(String extlibraryFileName) throws IOException {
+		File file = EmfComponentsTestsActivator.localFile(extlibraryFileName);
+		URI uri = URI.createFileURI(file.getAbsolutePath());
+		ResourceSet resourceSet = new ResourceSetImpl();
+		Resource resource = resourceSet.getResource(uri, true);
+		return (Library) resource.getContents().get(0);
 	}
 
 	protected void createMyTestProject() {

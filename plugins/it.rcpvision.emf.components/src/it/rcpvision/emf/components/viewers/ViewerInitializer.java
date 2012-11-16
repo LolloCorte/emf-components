@@ -3,8 +3,10 @@
  */
 package it.rcpvision.emf.components.viewers;
 
+import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider;
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
 import it.rcpvision.emf.components.factories.JfaceProviderFactory;
+import it.rcpvision.emf.components.factories.ViewerContentProviderFactory;
 import it.rcpvision.emf.components.menus.ViewerContextMenuFactory;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
@@ -16,7 +18,6 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.MenuManager;
@@ -51,6 +52,9 @@ public class ViewerInitializer {
 	@Inject
 	protected ViewerContextMenuFactory viewerContextMenuFactory;
 
+	@Inject
+	protected ViewerContentProviderFactory viewerContentProviderFactory;
+
 	public void initialize(StructuredViewer viewer, URI resourceURI) {
 		initialize(viewer, loadResource(resourceURI));
 	}
@@ -82,8 +86,8 @@ public class ViewerInitializer {
 	 */
 	public void initialize(StructuredViewer viewer, Object input,
 			AdapterFactory adapterFactory) {
-		AdapterFactoryContentProvider contentProvider = new AdapterFactoryContentProvider(
-				adapterFactory);
+		ViewerContentProvider contentProvider = viewerContentProviderFactory
+				.create(adapterFactory);
 		initialize(viewer, input, contentProvider,
 				jfaceProviderFactory
 						.createLabelProvider(new AdapterFactoryLabelProvider(
@@ -110,16 +114,20 @@ public class ViewerInitializer {
 	 * Adds a context menu to the passed {@link StructuredViewer}.
 	 * 
 	 * The passed {@link IMenuListener} should implement a method like
+	 * 
 	 * <pre>
-	 * 		public void menuAboutToShow(IMenuManager menuManager) {
-	 * 			actionBarContributor.menuAboutToShow(menuManager);
-	 * 		}
+	 * public void menuAboutToShow(IMenuManager menuManager) {
+	 * 	actionBarContributor.menuAboutToShow(menuManager);
+	 * }
 	 * </pre>
 	 * 
 	 * @param viewer
-	 * @param actionBarContributor should be created by injection
-	 * @param editingDomain should be created by injection
-	 * @param menuListener the listener should have a method like
+	 * @param actionBarContributor
+	 *            should be created by injection
+	 * @param editingDomain
+	 *            should be created by injection
+	 * @param menuListener
+	 *            the listener should have a method like
 	 * @param activePart
 	 */
 	public void addContextMenu(StructuredViewer viewer,

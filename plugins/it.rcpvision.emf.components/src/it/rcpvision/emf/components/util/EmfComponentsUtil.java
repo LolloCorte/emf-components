@@ -1,5 +1,8 @@
 package it.rcpvision.emf.components.util;
 
+import java.util.Collection;
+import java.util.Collections;
+
 import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorSite;
@@ -28,5 +31,21 @@ public class EmfComponentsUtil {
 
 	private static IStatusLineManager getStatusLineManager(IActionBars actionBars) {
 		return actionBars.getStatusLineManager();
+	}
+	
+	/**
+	 * Given the passed object it ensures that it is a {@link Collection};
+	 * if it is not, it returns a singleton {@link Collection}; if it is null
+	 * it returns an empty {@link Collection}.
+	 * @param contents
+	 * @return
+	 */
+	public static Collection<?> ensureCollection(Object contents) {
+		if (contents == null)
+			return Collections.emptyList();
+		if (contents instanceof Collection<?>)
+			return (Collection<?>) contents;
+		else
+			return Collections.singleton(contents);
 	}
 }

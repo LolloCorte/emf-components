@@ -1,14 +1,22 @@
 package it.rcpvision.emf.components.tests;
 
-import static it.rcpvision.emf.components.examples.library.EXTLibraryPackage.Literals.*;
+import static it.rcpvision.emf.components.examples.library.EXTLibraryPackage.Literals.AUDIO_VISUAL_ITEM;
+import static it.rcpvision.emf.components.examples.library.EXTLibraryPackage.Literals.LENDABLE;
+import static it.rcpvision.emf.components.examples.library.EXTLibraryPackage.Literals.LIBRARY;
+import static it.rcpvision.emf.components.examples.library.EXTLibraryPackage.Literals.PERIODICAL;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
 import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
+import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider;
 import it.rcpvision.emf.components.examples.library.Book;
 import it.rcpvision.emf.components.examples.library.EXTLibraryFactory;
 import it.rcpvision.emf.components.examples.library.EXTLibraryPackage;
+import it.rcpvision.emf.components.examples.library.Library;
 import it.rcpvision.emf.components.examples.library.Writer;
+import it.rcpvision.emf.components.factories.JfaceProviderFactory;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryFormFeatureLabelProvider;
+import it.rcpvision.emf.components.tests.providers.CustomLibraryViewerContentProvider;
 import it.rcpvision.emf.components.tests.providers.LibraryEStructuralFeaturesAsStringsProvider;
 import it.rcpvision.emf.components.tests.providers.LibraryEStructuralFeaturesProvider;
 import it.rcpvision.emf.components.tests.providers.OrderedEStructuralFeaturesProvider;
@@ -17,12 +25,15 @@ import it.rcpvision.emf.components.ui.provider.FeaturesColumnProvider;
 import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelFactory;
 
+import java.io.IOException;
+
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
@@ -224,6 +235,35 @@ public class EmfComponentsProvidersTests extends EmfComponentsCustomLibraryAbstr
 		// this is actually defined in FeaturesColumnProvider
 		assertFeatureNames("reader",
 				provider.getFeatures(EXTLibraryPackage.Literals.BOOK_ON_TAPE));
+	}
+
+	@Test
+	public void testCustomViewerContentProvider() throws IOException {
+		Library library = localLibrary("My2.extlibrary");
+		ViewerContentProvider viewerContentProvider = getInjector()
+				.getInstance(CustomLibraryViewerContentProvider.class);
+		Object[] libraryChildren = viewerContentProvider.getChildren(library);
+		assertLabels(
+				"Book: Without Author; Book: First Author's Book; Book: Empty Book; ",
+				libraryChildren);
+		// the first book has no author, but two borrowers
+		assertLabels("Borrower: First Borrower; Borrower: Second Borrower; ",
+				viewerContentProvider.getChildren(libraryChildren[0]));
+		// the second book has author, and one borrower
+		assertLabels("Writer First Author; Borrower: First Borrower; ",
+				viewerContentProvider.getChildren(libraryChildren[1]));
+		// the third book has neither an author nor s borrower
+		assertFalse(viewerContentProvider.hasChildren(libraryChildren[2]));
+	}
+
+	private void assertLabels(String expected, Object[] libraryChildren) {
+		ILabelProvider labelProvider = getInjector().getInstance(
+				JfaceProviderFactory.class).createLabelProvider();
+		StringBuffer buffer = new StringBuffer();
+		for (int i = 0; i < libraryChildren.length; i++) {
+			buffer.append(labelProvider.getText(libraryChildren[i]) + "; ");
+		}
+		assertEquals(expected, buffer.toString());
 	}
 
 	protected void assertFeatureNames(Iterable<EStructuralFeature> expected,
