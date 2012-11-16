@@ -30,7 +30,7 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
     super(plugin);
   }
 }
-''', null, null, null, null
+''', null, null, null, null, null
 		)
 	}
 
@@ -63,7 +63,7 @@ import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 
 public class LabelProviderGen extends ViewerLabelProvider {
 }
-''', null, null, null
+''', null, null, null, null
 		)
 	}
 
@@ -96,7 +96,7 @@ import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 
 public class PropertyDescriptionProviderGen extends PropertyDescriptionProvider {
 }
-''', null, null, null
+''', null, null, null, null
 		)
 	}
 
@@ -111,7 +111,7 @@ import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 
 public class LabelProviderGen extends ViewerLabelProvider {
 }
-''', null, null, null
+''', null, null, null, null
 		)
 	}
 
@@ -197,7 +197,7 @@ public class LabelProviderGen extends ViewerLabelProvider {
     return _xifexpression;
   }
 }
-''', null, null, null
+''', null, null, null, null
 		)
 	}
 
@@ -245,7 +245,7 @@ public class PropertyDescriptionProviderGen extends PropertyDescriptionProvider 
     return _firstUpper;
   }
 }
-''', null, null
+''', null, null, null
 		)
 	}
 
@@ -288,7 +288,7 @@ public class FeaturesProviderGen extends FeaturesProvider {
       "firstName", "lastName", "books");
   }
 }
-''', null
+''', null, null
 		)
 	}
 
@@ -397,6 +397,61 @@ public class FormFeatureControlFactoryGen extends FormFeatureControlFactory {
     return _observeText;
   }
 }
+''', null
+		)
+	}
+
+	@Test
+	def testViewerContentProviderSpecifications() {
+		inputs.viewerContentProviderSpecifications.assertCorrectJavaCodeGeneration(
+'''
+package my.empty;
+
+import it.rcpvision.emf.components.EmfComponentsGuiceModule;
+import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider;
+import my.empty.edit.ui.provider.ViewerContentProviderGen;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
+
+public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
+  public EmfComponentsGuiceModuleGen(final AbstractUIPlugin plugin) {
+    super(plugin);
+  }
+  
+  @Override
+  public Class<? extends ViewerContentProvider> bindViewerContentProvider() {
+    return ViewerContentProviderGen.class;
+  }
+}
+''', null, null, null, null,
+'''
+package my.empty.edit.ui.provider;
+
+import com.google.common.collect.Iterables;
+import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider;
+import it.rcpvision.emf.components.examples.library.Book;
+import it.rcpvision.emf.components.examples.library.Library;
+import it.rcpvision.emf.components.examples.library.Writer;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+
+public class ViewerContentProviderGen extends ViewerContentProvider {
+  public Object children(final Library it) {
+    EList<Book> _books = it.getBooks();
+    EList<Writer> _writers = it.getWriters();
+    Iterable<EObject> _plus = Iterables.<EObject>concat(_books, _writers);
+    return _plus;
+  }
+  
+  public Object children(final Writer writer) {
+    EList<Book> _books = writer.getBooks();
+    return _books;
+  }
+  
+  public Object children(final Book it) {
+    Writer _author = it.getAuthor();
+    return _author;
+  }
+}
 '''
 		)
 	}
@@ -405,7 +460,8 @@ public class FormFeatureControlFactoryGen extends FormFeatureControlFactory {
 			CharSequence expectedModule, CharSequence expectedLabelProvider, 
 			CharSequence expectedPropertyDescriptionProvider,
 			CharSequence expectedFeatureProvider,
-			CharSequence expectedFormFeatureControlFactory) {
+			CharSequence expectedFormFeatureControlFactory,
+			CharSequence expectedViewerContentProvider) {
 		input.compileAll [
 			for (e : allGeneratedResources.entrySet) {
 				if (e.key.endsWith("ModuleGen.java")) {
@@ -428,6 +484,10 @@ public class FormFeatureControlFactoryGen extends FormFeatureControlFactory {
 					// check the expected Java code for the module
 					if (expectedFormFeatureControlFactory != null)
 						assertEqualsStrings(expectedFormFeatureControlFactory, e.value)
+				} else if (e.key.endsWith("ViewerContentProviderGen.java")) {
+					// check the expected Java code for the module
+					if (expectedViewerContentProvider != null)
+						assertEqualsStrings(expectedViewerContentProvider, e.value)
 				} else
 					fail("unexpected generated code: " + e.value)
 			}

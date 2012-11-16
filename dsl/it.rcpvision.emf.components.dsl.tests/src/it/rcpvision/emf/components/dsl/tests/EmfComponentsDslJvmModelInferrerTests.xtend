@@ -69,4 +69,11 @@ class EmfComponentsDslJvmModelInferrerTests extends EmfComponentsDslAbstractTest
         	inferrer.formFeatureControlFactoryQN(inputs.emptyModule.module)
         )
     }
+
+	@Test
+	def void testViewerContentProviderName() {
+        "my.empty.edit.ui.provider.ViewerContentProviderGen".assertEqualsStrings(
+        	inferrer.viewerContentProviderQN(inputs.emptyModule.module)
+        )
+    }
 }

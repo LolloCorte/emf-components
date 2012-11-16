@@ -26,6 +26,7 @@ import org.eclipse.xtext.xbase.XExpression
 import org.eclipse.core.databinding.DataBindingContext
 import org.eclipse.core.databinding.observable.value.IObservableValue
 import org.eclipse.xtext.common.types.JvmVisibility
+import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -83,6 +84,7 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 		val propertyDescriptionProviderClass = element.inferPropertyDescriptionProvider(acceptor)
 		val featureProviderClass = element.inferFeatureProvider(acceptor)
 		val formFeatureControlFactoryClass = element.inferFormFeatureControlFactory(acceptor)
+		val viewerContentProviderClass = element.inferViewerContentProvider(acceptor)
 		
 		acceptor.accept(moduleClass).initializeLater [
 			documentation = element.documentation
@@ -101,6 +103,8 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 				members += element.featuresProvider.genBindMethod(featureProviderClass, typeof(FeaturesProvider))
 			if (formFeatureControlFactoryClass != null)
 				members += element.formFeatureControlFactory.genBindMethod(formFeatureControlFactoryClass, typeof(FormFeatureControlFactory))
+			if (viewerContentProviderClass != null)
+				members += element.viewerContentProvider.genBindMethod(viewerContentProviderClass, typeof(ViewerContentProvider))
 		]
    	}
    	
@@ -130,6 +134,10 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 
 	def formFeatureControlFactoryQN(Module element) {
 		element.fullyQualifiedName + ".binding.FormFeatureControlFactoryGen"
+	}
+
+	def viewerContentProviderQN(Module element) {
+		element.fullyQualifiedName + ".edit.ui.provider.ViewerContentProviderGen"
 	}
 
 	def inferLabelProvider(Module element, IJvmDeclaredTypeAcceptor acceptor) {
@@ -320,6 +328,32 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 				]
 			]
 			formFeatureControlFactoryClass
+		}
+	}
+
+	def inferViewerContentProvider(Module element, IJvmDeclaredTypeAcceptor acceptor) {
+		if (element.viewerContentProvider == null)
+			null
+		else {
+			val viewerContentProviderClass = element.viewerContentProvider.toClass(element.viewerContentProviderQN)
+			acceptor.accept(viewerContentProviderClass).initializeLater [
+				superTypes += element.newTypeRef(typeof(ViewerContentProvider))
+				
+				element.viewerContentProvider.childrenSpecifications.forEach [
+					specification |
+					members += specification.toMethod("children", element.newTypeRef(typeof(Object))) [
+						parameters += specification.toParameter(
+							if (specification.name != null)
+								specification.name
+							else
+								"it"
+							, specification.parameterType
+						)
+						body = specification.expression
+					]
+				]
+			]
+			viewerContentProviderClass
 		}
 	}
 	

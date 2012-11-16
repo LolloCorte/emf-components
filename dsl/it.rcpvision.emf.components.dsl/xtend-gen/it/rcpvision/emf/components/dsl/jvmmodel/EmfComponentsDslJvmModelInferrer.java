@@ -13,6 +13,7 @@ import it.rcpvision.emf.components.dsl.model.LabelSpecification;
 import it.rcpvision.emf.components.dsl.model.Module;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification;
+import it.rcpvision.emf.components.dsl.model.ViewerContentProvider;
 import it.rcpvision.emf.components.ui.provider.FeaturesProvider.EClassToEStructuralFeatureAsStringsMap;
 import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 import java.util.Arrays;
@@ -117,6 +118,7 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
     final JvmGenericType propertyDescriptionProviderClass = this.inferPropertyDescriptionProvider(element, acceptor);
     final JvmGenericType featureProviderClass = this.inferFeatureProvider(element, acceptor);
     final JvmGenericType formFeatureControlFactoryClass = this.inferFormFeatureControlFactory(element, acceptor);
+    final JvmGenericType viewerContentProviderClass = this.inferViewerContentProvider(element, acceptor);
     IPostIndexingInitializing<JvmGenericType> _accept = acceptor.<JvmGenericType>accept(moduleClass);
     final Procedure1<JvmGenericType> _function = new Procedure1<JvmGenericType>() {
         public void apply(final JvmGenericType it) {
@@ -170,6 +172,13 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
             JvmOperation _genBindMethod_3 = EmfComponentsDslJvmModelInferrer.this.genBindMethod(_formFeatureControlFactory, formFeatureControlFactoryClass, it.rcpvision.emf.components.binding.FormFeatureControlFactory.class);
             EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_4, _genBindMethod_3);
           }
+          boolean _notEquals_4 = (!Objects.equal(viewerContentProviderClass, null));
+          if (_notEquals_4) {
+            EList<JvmMember> _members_5 = it.getMembers();
+            ViewerContentProvider _viewerContentProvider = element.getViewerContentProvider();
+            JvmOperation _genBindMethod_4 = EmfComponentsDslJvmModelInferrer.this.genBindMethod(_viewerContentProvider, viewerContentProviderClass, it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider.class);
+            EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_5, _genBindMethod_4);
+          }
         }
       };
     _accept.initializeLater(_function);
@@ -214,6 +223,12 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
   public String formFeatureControlFactoryQN(final Module element) {
     QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(element);
     String _plus = (_fullyQualifiedName + ".binding.FormFeatureControlFactoryGen");
+    return _plus;
+  }
+  
+  public String viewerContentProviderQN(final Module element) {
+    QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(element);
+    String _plus = (_fullyQualifiedName + ".edit.ui.provider.ViewerContentProviderGen");
     return _plus;
   }
   
@@ -608,6 +623,64 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
           };
         _accept.initializeLater(_function);
         _xblockexpression = (formFeatureControlFactoryClass);
+      }
+      _xifexpression = _xblockexpression;
+    }
+    return _xifexpression;
+  }
+  
+  public JvmGenericType inferViewerContentProvider(final Module element, final IJvmDeclaredTypeAcceptor acceptor) {
+    JvmGenericType _xifexpression = null;
+    ViewerContentProvider _viewerContentProvider = element.getViewerContentProvider();
+    boolean _equals = Objects.equal(_viewerContentProvider, null);
+    if (_equals) {
+      _xifexpression = null;
+    } else {
+      JvmGenericType _xblockexpression = null;
+      {
+        ViewerContentProvider _viewerContentProvider_1 = element.getViewerContentProvider();
+        String _viewerContentProviderQN = this.viewerContentProviderQN(element);
+        final JvmGenericType viewerContentProviderClass = this._jvmTypesBuilder.toClass(_viewerContentProvider_1, _viewerContentProviderQN);
+        IPostIndexingInitializing<JvmGenericType> _accept = acceptor.<JvmGenericType>accept(viewerContentProviderClass);
+        final Procedure1<JvmGenericType> _function = new Procedure1<JvmGenericType>() {
+            public void apply(final JvmGenericType it) {
+              EList<JvmTypeReference> _superTypes = it.getSuperTypes();
+              JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider.class);
+              EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _newTypeRef);
+              ViewerContentProvider _viewerContentProvider = element.getViewerContentProvider();
+              EList<LabelSpecification> _childrenSpecifications = _viewerContentProvider.getChildrenSpecifications();
+              final Procedure1<LabelSpecification> _function = new Procedure1<LabelSpecification>() {
+                  public void apply(final LabelSpecification specification) {
+                    EList<JvmMember> _members = it.getMembers();
+                    JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, Object.class);
+                    final Procedure1<JvmOperation> _function = new Procedure1<JvmOperation>() {
+                        public void apply(final JvmOperation it) {
+                          EList<JvmFormalParameter> _parameters = it.getParameters();
+                          String _xifexpression = null;
+                          String _name = specification.getName();
+                          boolean _notEquals = (!Objects.equal(_name, null));
+                          if (_notEquals) {
+                            String _name_1 = specification.getName();
+                            _xifexpression = _name_1;
+                          } else {
+                            _xifexpression = "it";
+                          }
+                          JvmTypeReference _parameterType = specification.getParameterType();
+                          JvmFormalParameter _parameter = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.toParameter(specification, _xifexpression, _parameterType);
+                          EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+                          XExpression _expression = specification.getExpression();
+                          EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _expression);
+                        }
+                      };
+                    JvmOperation _method = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.toMethod(specification, "children", _newTypeRef, _function);
+                    EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members, _method);
+                  }
+                };
+              IterableExtensions.<LabelSpecification>forEach(_childrenSpecifications, _function);
+            }
+          };
+        _accept.initializeLater(_function);
+        _xblockexpression = (viewerContentProviderClass);
       }
       _xifexpression = _xblockexpression;
     }

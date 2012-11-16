@@ -368,6 +368,36 @@ ruleModule returns [EObject current=null]
 	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getModuleAccess().getUnorderedGroup_3());
 	 				}
  				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 4)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 4);
+	 				}
+					({true}?=>(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getModuleAccess().getViewerContentProviderViewerContentProviderParserRuleCall_3_4_0()); 
+	    }
+		lv_viewerContentProvider_8_0=ruleViewerContentProvider		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getModuleRule());
+	        }
+       		set(
+       			$current, 
+       			"viewerContentProvider",
+        		lv_viewerContentProvider_8_0, 
+        		"ViewerContentProvider");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getModuleAccess().getUnorderedGroup_3());
+	 				}
+ 				)
 			)  
 
 		)*	
@@ -377,9 +407,9 @@ ruleModule returns [EObject current=null]
 	  getUnorderedGroupHelper().leave(grammarAccess.getModuleAccess().getUnorderedGroup_3());
 	}
 
-)	otherlv_8='}' 
+)	otherlv_9='}' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getModuleAccess().getRightCurlyBracketKeyword_4());
+    	newLeafNode(otherlv_9, grammarAccess.getModuleAccess().getRightCurlyBracketKeyword_4());
     }
 )
 ;
@@ -1078,6 +1108,75 @@ ruleFormFeatureControlSpecification returns [EObject current=null]
 
 )
 ))?)
+;
+
+
+
+
+
+// Entry rule entryRuleViewerContentProvider
+entryRuleViewerContentProvider returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getViewerContentProviderRule()); }
+	 iv_ruleViewerContentProvider=ruleViewerContentProvider 
+	 { $current=$iv_ruleViewerContentProvider.current; } 
+	 EOF 
+;
+
+// Rule ViewerContentProvider
+ruleViewerContentProvider returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getViewerContentProviderAccess().getViewerContentProviderAction_0(),
+            $current);
+    }
+)	otherlv_1='viewerContentProvider' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getViewerContentProviderAccess().getViewerContentProviderKeyword_1());
+    }
+	otherlv_2='{' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getViewerContentProviderAccess().getLeftCurlyBracketKeyword_2());
+    }
+(	otherlv_3='children' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getViewerContentProviderAccess().getChildrenKeyword_3_0());
+    }
+	otherlv_4='{' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getViewerContentProviderAccess().getLeftCurlyBracketKeyword_3_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getViewerContentProviderAccess().getChildrenSpecificationsLabelSpecificationParserRuleCall_3_2_0()); 
+	    }
+		lv_childrenSpecifications_5_0=ruleLabelSpecification		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getViewerContentProviderRule());
+	        }
+       		add(
+       			$current, 
+       			"childrenSpecifications",
+        		lv_childrenSpecifications_5_0, 
+        		"LabelSpecification");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_6='}' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getViewerContentProviderAccess().getRightCurlyBracketKeyword_3_3());
+    }
+)?	otherlv_7='}' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getViewerContentProviderAccess().getRightCurlyBracketKeyword_4());
+    }
+)
 ;
 
 

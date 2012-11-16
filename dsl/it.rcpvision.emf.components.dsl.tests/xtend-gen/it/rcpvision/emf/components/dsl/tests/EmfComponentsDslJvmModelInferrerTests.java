@@ -78,4 +78,12 @@ public class EmfComponentsDslJvmModelInferrerTests extends EmfComponentsDslAbstr
     String _formFeatureControlFactoryQN = this.inferrer.formFeatureControlFactoryQN(_module);
     this.assertEqualsStrings("my.empty.binding.FormFeatureControlFactoryGen", _formFeatureControlFactoryQN);
   }
+  
+  @Test
+  public void testViewerContentProviderName() {
+    CharSequence _emptyModule = this.inputs.emptyModule();
+    Module _module = this.module(_emptyModule);
+    String _viewerContentProviderQN = this.inferrer.viewerContentProviderQN(_module);
+    this.assertEqualsStrings("my.empty.edit.ui.provider.ViewerContentProviderGen", _viewerContentProviderQN);
+  }
 }

@@ -27,6 +27,8 @@ Module:
 			(featuresProvider = FeaturesProvider)?
 			&
 			(formFeatureControlFactory = FormFeatureControlFactory)?
+			&
+			(viewerContentProvider = ViewerContentProvider)?
 		)
 	'}'
 ;
@@ -100,6 +102,16 @@ FormFeatureControlSpecification:
 	'->'
 	expression = XExpression
 	('target' target = XExpression)?
+;
+
+ViewerContentProvider:
+	{ViewerContentProvider} 'viewerContentProvider' '{'
+		((
+		'children' '{'
+			childrenSpecifications+=LabelSpecification*
+		'}'
+		)?)
+	'}'
 ;
 
 // a utility base class for rules which access features of an EClass

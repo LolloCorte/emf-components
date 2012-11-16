@@ -10,6 +10,8 @@ import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.IWorkbenchPartSite;
 import org.eclipse.ui.PlatformUI;
 
+import com.google.common.collect.Lists;
+
 /**
  * @author bettini
  * 
@@ -45,6 +47,8 @@ public class EmfComponentsUtil {
 			return Collections.emptyList();
 		if (contents instanceof Collection<?>)
 			return (Collection<?>) contents;
+		else if (contents instanceof Iterable<?>)
+			return Lists.newArrayList((Iterable<?>)contents);
 		else
 			return Collections.singleton(contents);
 	}

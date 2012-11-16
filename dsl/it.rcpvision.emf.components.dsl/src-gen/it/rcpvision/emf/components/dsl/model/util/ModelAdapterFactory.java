@@ -130,6 +130,11 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
         return createFormFeatureControlSpecificationAdapter();
       }
       @Override
+      public Adapter caseViewerContentProvider(ViewerContentProvider object)
+      {
+        return createViewerContentProviderAdapter();
+      }
+      @Override
       public Adapter caseEmfFeatureAccess(EmfFeatureAccess object)
       {
         return createEmfFeatureAccessAdapter();
@@ -317,6 +322,21 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFormFeatureControlSpecificationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.ViewerContentProvider <em>Viewer Content Provider</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see it.rcpvision.emf.components.dsl.model.ViewerContentProvider
+   * @generated
+   */
+  public Adapter createViewerContentProviderAdapter()
   {
     return null;
   }

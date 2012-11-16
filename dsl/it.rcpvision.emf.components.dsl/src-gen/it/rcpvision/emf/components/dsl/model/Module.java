@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getPropertyDescriptionProvider <em>Property Description Provider</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getFeaturesProvider <em>Features Provider</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getFormFeatureControlFactory <em>Form Feature Control Factory</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getViewerContentProvider <em>Viewer Content Provider</em>}</li>
  * </ul>
  * </p>
  *
@@ -155,5 +156,31 @@ public interface Module extends EObject
    * @generated
    */
   void setFormFeatureControlFactory(FormFeatureControlFactory value);
+
+  /**
+   * Returns the value of the '<em><b>Viewer Content Provider</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Viewer Content Provider</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Viewer Content Provider</em>' containment reference.
+   * @see #setViewerContentProvider(ViewerContentProvider)
+   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getModule_ViewerContentProvider()
+   * @model containment="true"
+   * @generated
+   */
+  ViewerContentProvider getViewerContentProvider();
+
+  /**
+   * Sets the value of the '{@link it.rcpvision.emf.components.dsl.model.Module#getViewerContentProvider <em>Viewer Content Provider</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Viewer Content Provider</em>' containment reference.
+   * @see #getViewerContentProvider()
+   * @generated
+   */
+  void setViewerContentProvider(ViewerContentProvider value);
 
 } // Module

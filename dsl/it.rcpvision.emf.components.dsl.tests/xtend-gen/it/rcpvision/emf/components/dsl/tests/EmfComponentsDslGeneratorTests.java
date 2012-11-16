@@ -50,7 +50,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
-    this.assertCorrectJavaCodeGeneration(_emptyModule, _builder, null, null, null, null);
+    this.assertCorrectJavaCodeGeneration(_emptyModule, _builder, null, null, null, null, null);
   }
   
   @Test
@@ -107,7 +107,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_emptyLabelProvider, _builder, _builder_1, null, null, null);
+    this.assertCorrectJavaCodeGeneration(_emptyLabelProvider, _builder, _builder_1, null, null, null, null);
   }
   
   @Test
@@ -164,7 +164,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_emptyPropertyDescriptionProvider, _builder, _builder_1, null, null, null);
+    this.assertCorrectJavaCodeGeneration(_emptyPropertyDescriptionProvider, _builder, _builder_1, null, null, null, null);
   }
   
   @Test
@@ -182,7 +182,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("}");
     _builder.newLine();
     this.assertCorrectJavaCodeGeneration(_emptyLabelSpecifications, 
-      null, _builder, null, null, null);
+      null, _builder, null, null, null, null);
   }
   
   @Test
@@ -394,7 +394,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("}");
     _builder.newLine();
     this.assertCorrectJavaCodeGeneration(_labelSpecifications, 
-      null, _builder, null, null, null);
+      null, _builder, null, null, null, null);
   }
   
   @Test
@@ -492,7 +492,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_propertyDescriptionSpecifications, _builder, null, _builder_1, null, null);
+    this.assertCorrectJavaCodeGeneration(_propertyDescriptionSpecifications, _builder, null, _builder_1, null, null, null);
   }
   
   @Test
@@ -577,7 +577,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_featuresSpecifications, _builder, null, null, _builder_1, null);
+    this.assertCorrectJavaCodeGeneration(_featuresSpecifications, _builder, null, null, _builder_1, null, null);
   }
   
   @Test
@@ -838,10 +838,125 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_formFeatureControlSpecifications, _builder, null, null, null, _builder_1);
+    this.assertCorrectJavaCodeGeneration(_formFeatureControlSpecifications, _builder, null, null, null, _builder_1, null);
   }
   
-  private void assertCorrectJavaCodeGeneration(final CharSequence input, final CharSequence expectedModule, final CharSequence expectedLabelProvider, final CharSequence expectedPropertyDescriptionProvider, final CharSequence expectedFeatureProvider, final CharSequence expectedFormFeatureControlFactory) {
+  @Test
+  public void testViewerContentProviderSpecifications() {
+    CharSequence _viewerContentProviderSpecifications = this.inputs.viewerContentProviderSpecifications();
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package my.empty;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("import it.rcpvision.emf.components.EmfComponentsGuiceModule;");
+    _builder.newLine();
+    _builder.append("import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider;");
+    _builder.newLine();
+    _builder.append("import my.empty.edit.ui.provider.ViewerContentProviderGen;");
+    _builder.newLine();
+    _builder.append("import org.eclipse.ui.plugin.AbstractUIPlugin;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("public EmfComponentsGuiceModuleGen(final AbstractUIPlugin plugin) {");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("super(plugin);");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("@Override");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("public Class<? extends ViewerContentProvider> bindViewerContentProvider() {");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("return ViewerContentProviderGen.class;");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.append("package my.empty.edit.ui.provider;");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("import com.google.common.collect.Iterables;");
+    _builder_1.newLine();
+    _builder_1.append("import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider;");
+    _builder_1.newLine();
+    _builder_1.append("import it.rcpvision.emf.components.examples.library.Book;");
+    _builder_1.newLine();
+    _builder_1.append("import it.rcpvision.emf.components.examples.library.Library;");
+    _builder_1.newLine();
+    _builder_1.append("import it.rcpvision.emf.components.examples.library.Writer;");
+    _builder_1.newLine();
+    _builder_1.append("import org.eclipse.emf.common.util.EList;");
+    _builder_1.newLine();
+    _builder_1.append("import org.eclipse.emf.ecore.EObject;");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("public class ViewerContentProviderGen extends ViewerContentProvider {");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("public Object children(final Library it) {");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("EList<Book> _books = it.getBooks();");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("EList<Writer> _writers = it.getWriters();");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("Iterable<EObject> _plus = Iterables.<EObject>concat(_books, _writers);");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("return _plus;");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("public Object children(final Writer writer) {");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("EList<Book> _books = writer.getBooks();");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("return _books;");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("public Object children(final Book it) {");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("Writer _author = it.getAuthor();");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("return _author;");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("}");
+    _builder_1.newLine();
+    this.assertCorrectJavaCodeGeneration(_viewerContentProviderSpecifications, _builder, null, null, null, null, _builder_1);
+  }
+  
+  private void assertCorrectJavaCodeGeneration(final CharSequence input, final CharSequence expectedModule, final CharSequence expectedLabelProvider, final CharSequence expectedPropertyDescriptionProvider, final CharSequence expectedFeatureProvider, final CharSequence expectedFormFeatureControlFactory, final CharSequence expectedViewerContentProvider) {
     final Procedure1<Result> _function = new Procedure1<Result>() {
         public void apply(final Result it) {
           Map<String,CharSequence> _allGeneratedResources = it.getAllGeneratedResources();
@@ -892,9 +1007,19 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
                         EmfComponentsDslGeneratorTests.this.assertEqualsStrings(expectedFormFeatureControlFactory, _value_4);
                       }
                     } else {
-                      CharSequence _value_5 = e.getValue();
-                      String _plus = ("unexpected generated code: " + _value_5);
-                      Assert.fail(_plus);
+                      String _key_5 = e.getKey();
+                      boolean _endsWith_5 = _key_5.endsWith("ViewerContentProviderGen.java");
+                      if (_endsWith_5) {
+                        boolean _notEquals_5 = (!Objects.equal(expectedViewerContentProvider, null));
+                        if (_notEquals_5) {
+                          CharSequence _value_5 = e.getValue();
+                          EmfComponentsDslGeneratorTests.this.assertEqualsStrings(expectedViewerContentProvider, _value_5);
+                        }
+                      } else {
+                        CharSequence _value_6 = e.getValue();
+                        String _plus = ("unexpected generated code: " + _value_6);
+                        Assert.fail(_plus);
+                      }
                     }
                   }
                 }

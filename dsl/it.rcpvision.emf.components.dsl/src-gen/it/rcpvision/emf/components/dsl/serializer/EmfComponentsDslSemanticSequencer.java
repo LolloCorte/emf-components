@@ -14,6 +14,7 @@ import it.rcpvision.emf.components.dsl.model.ModelPackage;
 import it.rcpvision.emf.components.dsl.model.Module;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification;
+import it.rcpvision.emf.components.dsl.model.ViewerContentProvider;
 import it.rcpvision.emf.components.dsl.services.EmfComponentsDslGrammarAccess;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.common.types.JvmFormalParameter;
@@ -138,6 +139,12 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 				if(context == grammarAccess.getEmfFeatureAccessRule() ||
 				   context == grammarAccess.getPropertyDescriptionSpecificationRule()) {
 					sequence_PropertyDescriptionSpecification(context, (PropertyDescriptionSpecification) semanticObject); 
+					return; 
+				}
+				else break;
+			case ModelPackage.VIEWER_CONTENT_PROVIDER:
+				if(context == grammarAccess.getViewerContentProviderRule()) {
+					sequence_ViewerContentProvider(context, (ViewerContentProvider) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1087,7 +1094,8 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	 *         labelProvider=LabelProvider? 
 	 *         propertyDescriptionProvider=PropertyDescriptionProvider? 
 	 *         featuresProvider=FeaturesProvider? 
-	 *         formFeatureControlFactory=FormFeatureControlFactory?
+	 *         formFeatureControlFactory=FormFeatureControlFactory? 
+	 *         viewerContentProvider=ViewerContentProvider?
 	 *     )
 	 */
 	protected void sequence_Module(EObject context, Module semanticObject) {
@@ -1123,5 +1131,14 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 		feeder.accept(grammarAccess.getPropertyDescriptionSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0(), semanticObject.getFeature());
 		feeder.accept(grammarAccess.getPropertyDescriptionSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0(), semanticObject.getExpression());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (childrenSpecifications+=LabelSpecification*)
+	 */
+	protected void sequence_ViewerContentProvider(EObject context, ViewerContentProvider semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 }

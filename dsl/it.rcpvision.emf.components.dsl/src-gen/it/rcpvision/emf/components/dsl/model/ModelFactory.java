@@ -122,6 +122,15 @@ public interface ModelFactory extends EFactory
   FormFeatureControlSpecification createFormFeatureControlSpecification();
 
   /**
+   * Returns a new object of class '<em>Viewer Content Provider</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Viewer Content Provider</em>'.
+   * @generated
+   */
+  ViewerContentProvider createViewerContentProvider();
+
+  /**
    * Returns a new object of class '<em>Emf Feature Access</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

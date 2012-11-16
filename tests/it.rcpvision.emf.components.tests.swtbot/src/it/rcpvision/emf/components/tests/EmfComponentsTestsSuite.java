@@ -9,6 +9,7 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
+	EmfComponentsUtilTests.class,
 	EmfColumnLabelProviderTests.class,
 	EmfLabelProviderTests.class,
 	EmfComponentsProvidersTests.class,

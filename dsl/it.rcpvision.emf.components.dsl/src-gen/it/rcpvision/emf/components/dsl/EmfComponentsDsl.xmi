@@ -63,6 +63,9 @@
           <elements xsi:type="xtext:Assignment" cardinality="?" feature="formFeatureControlFactory" operator="=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.10"/>
           </elements>
+          <elements xsi:type="xtext:Assignment" cardinality="?" feature="viewerContentProvider" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
+          </elements>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
@@ -246,6 +249,29 @@
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
           </elements>
         </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="ViewerContentProvider">
+      <type metamodel="/0/@metamodelDeclarations.1">
+        <classifier xsi:type="ecore:EClass" href="http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl#//ViewerContentProvider"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Action">
+          <type metamodel="/0/@metamodelDeclarations.1">
+            <classifier xsi:type="ecore:EClass" href="http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl#//ViewerContentProvider"/>
+          </type>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="viewerContentProvider"/>
+        <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="children"/>
+          <elements xsi:type="xtext:Keyword" value="{"/>
+          <elements xsi:type="xtext:Assignment" cardinality="*" feature="childrenSpecifications" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.5"/>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="}"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="EmfFeatureAccess">

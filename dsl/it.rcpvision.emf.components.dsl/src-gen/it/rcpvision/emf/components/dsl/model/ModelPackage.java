@@ -177,13 +177,22 @@ public interface ModelPackage extends EPackage
   int MODULE__FORM_FEATURE_CONTROL_FACTORY = 4;
 
   /**
+   * The feature id for the '<em><b>Viewer Content Provider</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODULE__VIEWER_CONTENT_PROVIDER = 5;
+
+  /**
    * The number of structural features of the '<em>Module</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODULE_FEATURE_COUNT = 5;
+  int MODULE_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.LabelProviderImpl <em>Label Provider</em>}' class.
@@ -304,7 +313,7 @@ public interface ModelPackage extends EPackage
    * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getEmfFeatureAccess()
    * @generated
    */
-  int EMF_FEATURE_ACCESS = 11;
+  int EMF_FEATURE_ACCESS = 12;
 
   /**
    * The feature id for the '<em><b>Parameter Type</b></em>' containment reference.
@@ -518,6 +527,34 @@ public interface ModelPackage extends EPackage
    */
   int FORM_FEATURE_CONTROL_SPECIFICATION_FEATURE_COUNT = EMF_FEATURE_ACCESS_FEATURE_COUNT + 3;
 
+  /**
+   * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.ViewerContentProviderImpl <em>Viewer Content Provider</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see it.rcpvision.emf.components.dsl.model.impl.ViewerContentProviderImpl
+   * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getViewerContentProvider()
+   * @generated
+   */
+  int VIEWER_CONTENT_PROVIDER = 11;
+
+  /**
+   * The feature id for the '<em><b>Children Specifications</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEWER_CONTENT_PROVIDER__CHILDREN_SPECIFICATIONS = 0;
+
+  /**
+   * The number of structural features of the '<em>Viewer Content Provider</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEWER_CONTENT_PROVIDER_FEATURE_COUNT = 1;
+
 
   /**
    * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.Model <em>Model</em>}'.
@@ -636,6 +673,17 @@ public interface ModelPackage extends EPackage
    * @generated
    */
   EReference getModule_FormFeatureControlFactory();
+
+  /**
+   * Returns the meta object for the containment reference '{@link it.rcpvision.emf.components.dsl.model.Module#getViewerContentProvider <em>Viewer Content Provider</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Viewer Content Provider</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.Module#getViewerContentProvider()
+   * @see #getModule()
+   * @generated
+   */
+  EReference getModule_ViewerContentProvider();
 
   /**
    * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.LabelProvider <em>Label Provider</em>}'.
@@ -872,6 +920,27 @@ public interface ModelPackage extends EPackage
   EReference getFormFeatureControlSpecification_Target();
 
   /**
+   * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.ViewerContentProvider <em>Viewer Content Provider</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Viewer Content Provider</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.ViewerContentProvider
+   * @generated
+   */
+  EClass getViewerContentProvider();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link it.rcpvision.emf.components.dsl.model.ViewerContentProvider#getChildrenSpecifications <em>Children Specifications</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Children Specifications</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.ViewerContentProvider#getChildrenSpecifications()
+   * @see #getViewerContentProvider()
+   * @generated
+   */
+  EReference getViewerContentProvider_ChildrenSpecifications();
+
+  /**
    * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.EmfFeatureAccess <em>Emf Feature Access</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1008,6 +1077,14 @@ public interface ModelPackage extends EPackage
      * @generated
      */
     EReference MODULE__FORM_FEATURE_CONTROL_FACTORY = eINSTANCE.getModule_FormFeatureControlFactory();
+
+    /**
+     * The meta object literal for the '<em><b>Viewer Content Provider</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODULE__VIEWER_CONTENT_PROVIDER = eINSTANCE.getModule_ViewerContentProvider();
 
     /**
      * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.LabelProviderImpl <em>Label Provider</em>}' class.
@@ -1200,6 +1277,24 @@ public interface ModelPackage extends EPackage
      * @generated
      */
     EReference FORM_FEATURE_CONTROL_SPECIFICATION__TARGET = eINSTANCE.getFormFeatureControlSpecification_Target();
+
+    /**
+     * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.ViewerContentProviderImpl <em>Viewer Content Provider</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see it.rcpvision.emf.components.dsl.model.impl.ViewerContentProviderImpl
+     * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getViewerContentProvider()
+     * @generated
+     */
+    EClass VIEWER_CONTENT_PROVIDER = eINSTANCE.getViewerContentProvider();
+
+    /**
+     * The meta object literal for the '<em><b>Children Specifications</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VIEWER_CONTENT_PROVIDER__CHILDREN_SPECIFICATIONS = eINSTANCE.getViewerContentProvider_ChildrenSpecifications();
 
     /**
      * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.EmfFeatureAccessImpl <em>Emf Feature Access</em>}' class.

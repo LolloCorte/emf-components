@@ -135,5 +135,19 @@ module my.empty {
 }
 '''
 
+	def viewerContentProviderSpecifications() 
+'''
+import java.util.*
+import it.rcpvision.emf.components.examples.library.*
 
+module my.empty {
+	viewerContentProvider {
+		children {
+			Library -> books + writers
+			Writer writer -> writer.books
+			Book -> author // implit 'it' param
+		}
+	}
+}
+'''
 }

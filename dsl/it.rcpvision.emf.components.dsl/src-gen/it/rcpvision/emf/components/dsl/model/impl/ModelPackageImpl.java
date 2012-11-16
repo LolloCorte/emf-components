@@ -16,6 +16,7 @@ import it.rcpvision.emf.components.dsl.model.ModelPackage;
 import it.rcpvision.emf.components.dsl.model.Module;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification;
+import it.rcpvision.emf.components.dsl.model.ViewerContentProvider;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -112,6 +113,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * @generated
    */
   private EClass formFeatureControlSpecificationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass viewerContentProviderEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -294,6 +302,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
   public EReference getModule_FormFeatureControlFactory()
   {
     return (EReference)moduleEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModule_ViewerContentProvider()
+  {
+    return (EReference)moduleEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -521,6 +539,26 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getViewerContentProvider()
+  {
+    return viewerContentProviderEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getViewerContentProvider_ChildrenSpecifications()
+  {
+    return (EReference)viewerContentProviderEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getEmfFeatureAccess()
   {
     return emfFeatureAccessEClass;
@@ -579,6 +617,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     createEReference(moduleEClass, MODULE__PROPERTY_DESCRIPTION_PROVIDER);
     createEReference(moduleEClass, MODULE__FEATURES_PROVIDER);
     createEReference(moduleEClass, MODULE__FORM_FEATURE_CONTROL_FACTORY);
+    createEReference(moduleEClass, MODULE__VIEWER_CONTENT_PROVIDER);
 
     labelProviderEClass = createEClass(LABEL_PROVIDER);
     createEReference(labelProviderEClass, LABEL_PROVIDER__LABEL_SPECIFICATIONS);
@@ -609,6 +648,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     createEReference(formFeatureControlSpecificationEClass, FORM_FEATURE_CONTROL_SPECIFICATION__FEATURE);
     createEReference(formFeatureControlSpecificationEClass, FORM_FEATURE_CONTROL_SPECIFICATION__EXPRESSION);
     createEReference(formFeatureControlSpecificationEClass, FORM_FEATURE_CONTROL_SPECIFICATION__TARGET);
+
+    viewerContentProviderEClass = createEClass(VIEWER_CONTENT_PROVIDER);
+    createEReference(viewerContentProviderEClass, VIEWER_CONTENT_PROVIDER__CHILDREN_SPECIFICATIONS);
 
     emfFeatureAccessEClass = createEClass(EMF_FEATURE_ACCESS);
     createEReference(emfFeatureAccessEClass, EMF_FEATURE_ACCESS__PARAMETER_TYPE);
@@ -665,6 +707,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     initEReference(getModule_PropertyDescriptionProvider(), this.getPropertyDescriptionProvider(), null, "propertyDescriptionProvider", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_FeaturesProvider(), this.getFeaturesProvider(), null, "featuresProvider", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_FormFeatureControlFactory(), this.getFormFeatureControlFactory(), null, "formFeatureControlFactory", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModule_ViewerContentProvider(), this.getViewerContentProvider(), null, "viewerContentProvider", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(labelProviderEClass, LabelProvider.class, "LabelProvider", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getLabelProvider_LabelSpecifications(), this.getLabelSpecification(), null, "labelSpecifications", null, 0, -1, LabelProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -695,6 +738,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     initEReference(getFormFeatureControlSpecification_Feature(), theXbasePackage.getXExpression(), null, "feature", null, 0, 1, FormFeatureControlSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFormFeatureControlSpecification_Expression(), theXbasePackage.getXExpression(), null, "expression", null, 0, 1, FormFeatureControlSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFormFeatureControlSpecification_Target(), theXbasePackage.getXExpression(), null, "target", null, 0, 1, FormFeatureControlSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(viewerContentProviderEClass, ViewerContentProvider.class, "ViewerContentProvider", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getViewerContentProvider_ChildrenSpecifications(), this.getLabelSpecification(), null, "childrenSpecifications", null, 0, -1, ViewerContentProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(emfFeatureAccessEClass, EmfFeatureAccess.class, "EmfFeatureAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEmfFeatureAccess_ParameterType(), theTypesPackage.getJvmTypeReference(), null, "parameterType", null, 0, 1, EmfFeatureAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
