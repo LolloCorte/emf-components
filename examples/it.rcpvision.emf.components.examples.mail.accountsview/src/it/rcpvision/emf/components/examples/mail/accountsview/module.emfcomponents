@@ -22,4 +22,10 @@ module it.rcpvision.emf.components.examples.mail.accountsview {
 			Folder -> name
 		}
 	}
+	
+	viewerContentProvider {
+		children {
+			Folder -> subfolders // don't show emails
+		}
+	}
 }
