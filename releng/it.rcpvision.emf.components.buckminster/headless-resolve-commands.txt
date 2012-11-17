@@ -1,0 +1,3 @@
+setpref targetPlatformPath="${target.platform}"
+resolve "${projects.location}/releng/it.rcpvision.emf.components.buckminster/target-platform.cquery"
+resolve "${projects.location}/releng/it.rcpvision.emf.components.buckminster/project.cquery"
