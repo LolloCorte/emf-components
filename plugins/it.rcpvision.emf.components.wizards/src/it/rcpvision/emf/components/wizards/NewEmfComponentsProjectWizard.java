@@ -42,13 +42,11 @@ public class NewEmfComponentsProjectWizard extends Wizard implements INewWizard 
 	 * @see org.eclipse.ui.IWorkbenchWizard#init(org.eclipse.ui.IWorkbench,
 	 * org.eclipse.jface.viewers.IStructuredSelection)
 	 */
-	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		setNeedsProgressMonitor(true);
 		setWindowTitle(WIZARD_NAME);
 	}
 
-	@Override
 	public void addPages() {
 		super.addPages();
 
@@ -79,7 +77,6 @@ public class NewEmfComponentsProjectWizard extends Wizard implements INewWizard 
 		final URI location = _location;
 
 		IRunnableWithProgress op = new IRunnableWithProgress() {
-			@Override
 			public void run(IProgressMonitor monitor)
 					throws InvocationTargetException {
 				NewEmfComponentsProjectSupport.createProject(name, location, _pageTwo.getChoice(),

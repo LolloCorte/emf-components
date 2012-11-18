@@ -23,7 +23,6 @@ public class ChoiceTemplateEmfComponents extends NewElementWizardPage {
         super(name);
     }
     
-    @Override
     public void createControl(Composite parent) {
         Composite composite = new Composite(parent, SWT.NULL);
         

@@ -28,7 +28,6 @@ public class TreeFormComposite extends Composite implements IViewerProvider {
 
 	protected class SelectionChangedListener implements
 			ISelectionChangedListener {
-		@Override
 		public void selectionChanged(SelectionChangedEvent event) {
 			EObject selectedObject = emfSelectionHelper
 					.getFirstSelectedEObject(event.getSelection());

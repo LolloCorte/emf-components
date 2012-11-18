@@ -17,7 +17,6 @@ import com.google.inject.Provider;
 public class ComposedAdapterFactoryProvider implements
 		Provider<ComposedAdapterFactory> {
 
-	@Override
 	public ComposedAdapterFactory get() {
 		// Create an adapter factory that yields item providers.
 		ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(

@@ -35,7 +35,6 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 	
 	private static final String MASTERDETAIL_VIEWNAME = "it.rcpvision.emf.components.view.masterdetail.TableMasterDetailView";
 	
-	@Override
 	public String getUsedExtensionPoint() {
 		// TODO Auto-generated method stub
 		return null;
@@ -47,7 +46,6 @@ public class TableViewTemplateSection extends OptionTemplateSection {
 		return super.getTemplateLocation();
 	}
 	
-	@Override
 	public String[] getNewFiles() {
 		return new String[] { "icons/" };
 	}

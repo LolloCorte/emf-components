@@ -19,7 +19,7 @@ Require-Bundle: org.eclipse.emf.databinding.edit;visibility:=reexport,
  org.eclipse.rap.ui.forms;resolution:=optional,
  org.eclipse.jface.databinding;bundle-version="1.2.0";resolution:=optional;visibility:=reexport,
  org.eclipse.rap.jface.databinding;resolution:=optional
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ActivationPolicy: lazy
 Export-Package: it.rcpvision.emf.components,
  it.rcpvision.emf.components.binding,

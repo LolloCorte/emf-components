@@ -725,7 +725,6 @@ protected ViewerContextMenuFactory viewerContextMenuFactory;
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public AdapterFactoryEditingDomain getEditingDomain()
   {
     return editingDomain;
@@ -1461,7 +1460,6 @@ protected ViewerContextMenuFactory viewerContextMenuFactory;
 		contentOutlineViewer = treeViewer;
 	}
 
-	@Override
 	public Viewer getViewer() {
 		return selectionViewer;
 	}

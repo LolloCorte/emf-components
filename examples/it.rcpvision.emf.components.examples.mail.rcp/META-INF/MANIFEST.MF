@@ -11,5 +11,5 @@ Require-Bundle: org.eclipse.ui,
  it.rcpvision.emf.components.examples.mail.mailsview;bundle-version="1.0.0",
  it.rcpvision.emf.components.examples.mail.messageview;bundle-version="1.0.0",
  it.rcpvision.emf.components.examples.mail.model;bundle-version="0.1.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ActivationPolicy: lazy

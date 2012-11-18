@@ -11,12 +11,10 @@ public class StructuredViewerAwareComposite extends Composite implements IStruct
         super(parent, style);
     }
 
-    @Override
     public void setViewer(StructuredViewer viewer) {
         this.viewer = viewer;
     }
 
-    @Override
     public StructuredViewer getViewer() {
         return viewer;
     }

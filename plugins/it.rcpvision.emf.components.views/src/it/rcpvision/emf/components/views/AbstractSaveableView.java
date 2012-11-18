@@ -118,7 +118,6 @@ public abstract class AbstractSaveableView extends ViewPart implements
 		final Collection<?> theSelection = collection;
 		if (theSelection != null && !theSelection.isEmpty()) {
 			Runnable runnable = new Runnable() {
-				@Override
 				public void run() {
 					// Try to select the items in the current viewer.
 					if (getViewer() != null) {
@@ -161,12 +160,10 @@ public abstract class AbstractSaveableView extends ViewPart implements
 		return editingDomain;
 	}
 
-	@Override
 	public void menuAboutToShow(IMenuManager menuManager) {
 		actionBarContributor.menuAboutToShow(menuManager);
 	}
 
-	@Override
 	public void doSave(IProgressMonitor monitor) {
 		try {
 			saveResourceAndUpdateDirtyState();

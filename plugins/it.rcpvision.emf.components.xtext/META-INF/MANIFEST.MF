@@ -4,7 +4,7 @@ Bundle-Name: Emf Components Xtext Minimal Parts
 Bundle-SymbolicName: it.rcpvision.emf.components.xtext
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: RCP-VISION
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Require-Bundle: com.google.inject;bundle-version="3.0.0";visibility:=reexport,
  javax.inject;bundle-version="1.0.0";visibility:=reexport,
  com.google.guava;bundle-version="10.0.1";visibility:=reexport,

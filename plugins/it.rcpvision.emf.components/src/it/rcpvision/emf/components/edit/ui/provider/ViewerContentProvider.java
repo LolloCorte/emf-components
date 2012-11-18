@@ -36,12 +36,10 @@ public class ViewerContentProvider implements ITreeContentProvider {
 		this.delegateContentProvider = delegateContentProvider;
 	}
 
-	@Override
 	public void dispose() {
 		delegateContentProvider.dispose();
 	}
 
-	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		delegateContentProvider.inputChanged(viewer, oldInput, newInput);
 	}
@@ -53,12 +51,10 @@ public class ViewerContentProvider implements ITreeContentProvider {
 	 * getElements and getChildren to return the same thing, so this makes that
 	 * easy.
 	 */
-	@Override
 	public Object[] getElements(Object inputElement) {
 		return getChildren(inputElement);
 	}
 
-	@Override
 	public Object getParent(Object element) {
 		return delegateContentProvider.getParent(element);
 	}
@@ -69,7 +65,6 @@ public class ViewerContentProvider implements ITreeContentProvider {
 	 * approach simply tests whether whether {@link #getChildren getChildren}
 	 * returns any children.
 	 */
-	@Override
 	public boolean hasChildren(Object element) {
 		return getChildren(element).length > 0;
 	}
