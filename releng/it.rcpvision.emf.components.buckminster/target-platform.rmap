@@ -5,12 +5,12 @@
 	<rm:property key="projects.location" value="${workspace.root}" />
 	<rm:property key="eclipse.download" value="http://download.eclipse.org" />
 	<rm:property key="xtext.p2.repository"
-		value="${eclipse.download}/modeling/tmf/xtext/updates/composite/releases/" />
+		value="${eclipse.download}/modeling/tmf/xtext/updates/composite/releases" />
 	<rm:property key="eclipse.target.platform" value="${eclipse.download}/releases/juno" />
 	<rm:property key="swtbot.repository"
 		value="${eclipse.download}/technology/swtbot/helios/dev-build/update-site" />
 	<rm:property key="orbit.repository"
-		value="${eclipse.download}/tools/orbit/downloads/drops/R20120526062928/repository/" />
+		value="${eclipse.download}/tools/orbit/downloads/drops/R20120526062928/repository" />
 
 	<rm:redirect pattern="it.rcpvision.emf.components.buckminster"
 		href="project.rmap" />
@@ -22,6 +22,7 @@
 	<rm:locator pattern="^org\.antlr.*" searchPathRef="xtext" />
 	<rm:locator pattern="javax.inject" searchPathRef="xtext" />
 	<rm:locator pattern="^org\.hamcrest*" searchPathRef="orbit" />
+	<rm:locator pattern="^org\.apache*" searchPathRef="orbit" />
 	<rm:locator pattern="^org\.eclipse\.(?:swtbot)(?:\..+)?$"
 		searchPathRef="swtbot" />
 	<rm:locator searchPathRef="eclipse" />
