@@ -635,9 +635,29 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getViewSpecification_Id()
+  {
+    return (EAttribute)viewSpecificationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getViewSpecification_ViewName()
+  {
+    return (EAttribute)viewSpecificationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getViewSpecification_Type()
   {
-    return (EReference)viewSpecificationEClass.getEStructuralFeatures().get(0);
+    return (EReference)viewSpecificationEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -726,6 +746,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     createEReference(viewsSpecificationEClass, VIEWS_SPECIFICATION__VIEWS);
 
     viewSpecificationEClass = createEClass(VIEW_SPECIFICATION);
+    createEAttribute(viewSpecificationEClass, VIEW_SPECIFICATION__ID);
+    createEAttribute(viewSpecificationEClass, VIEW_SPECIFICATION__VIEW_NAME);
     createEReference(viewSpecificationEClass, VIEW_SPECIFICATION__TYPE);
   }
 
@@ -823,6 +845,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     initEReference(getViewsSpecification_Views(), this.getViewSpecification(), null, "views", null, 0, -1, ViewsSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(viewSpecificationEClass, ViewSpecification.class, "ViewSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getViewSpecification_Id(), ecorePackage.getEString(), "id", null, 0, 1, ViewSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getViewSpecification_ViewName(), ecorePackage.getEString(), "viewName", null, 0, 1, ViewSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getViewSpecification_Type(), theTypesPackage.getJvmTypeReference(), null, "type", null, 0, 1, ViewSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource

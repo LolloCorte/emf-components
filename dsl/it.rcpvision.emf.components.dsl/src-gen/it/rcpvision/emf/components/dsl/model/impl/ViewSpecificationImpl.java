@@ -23,6 +23,8 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ViewSpecificationImpl#getId <em>Id</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ViewSpecificationImpl#getViewName <em>View Name</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ViewSpecificationImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
@@ -31,6 +33,46 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  */
 public class ViewSpecificationImpl extends MinimalEObjectImpl.Container implements ViewSpecification
 {
+  /**
+   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected static final String ID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected String id = ID_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getViewName() <em>View Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getViewName()
+   * @generated
+   * @ordered
+   */
+  protected static final String VIEW_NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getViewName() <em>View Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getViewName()
+   * @generated
+   * @ordered
+   */
+  protected String viewName = VIEW_NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -60,6 +102,52 @@ public class ViewSpecificationImpl extends MinimalEObjectImpl.Container implemen
   protected EClass eStaticClass()
   {
     return ModelPackage.Literals.VIEW_SPECIFICATION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getId()
+  {
+    return id;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setId(String newId)
+  {
+    String oldId = id;
+    id = newId;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.VIEW_SPECIFICATION__ID, oldId, id));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getViewName()
+  {
+    return viewName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setViewName(String newViewName)
+  {
+    String oldViewName = viewName;
+    viewName = newViewName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.VIEW_SPECIFICATION__VIEW_NAME, oldViewName, viewName));
   }
 
   /**
@@ -136,6 +224,10 @@ public class ViewSpecificationImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
+      case ModelPackage.VIEW_SPECIFICATION__ID:
+        return getId();
+      case ModelPackage.VIEW_SPECIFICATION__VIEW_NAME:
+        return getViewName();
       case ModelPackage.VIEW_SPECIFICATION__TYPE:
         return getType();
     }
@@ -152,6 +244,12 @@ public class ViewSpecificationImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
+      case ModelPackage.VIEW_SPECIFICATION__ID:
+        setId((String)newValue);
+        return;
+      case ModelPackage.VIEW_SPECIFICATION__VIEW_NAME:
+        setViewName((String)newValue);
+        return;
       case ModelPackage.VIEW_SPECIFICATION__TYPE:
         setType((JvmTypeReference)newValue);
         return;
@@ -169,6 +267,12 @@ public class ViewSpecificationImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
+      case ModelPackage.VIEW_SPECIFICATION__ID:
+        setId(ID_EDEFAULT);
+        return;
+      case ModelPackage.VIEW_SPECIFICATION__VIEW_NAME:
+        setViewName(VIEW_NAME_EDEFAULT);
+        return;
       case ModelPackage.VIEW_SPECIFICATION__TYPE:
         setType((JvmTypeReference)null);
         return;
@@ -186,10 +290,33 @@ public class ViewSpecificationImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
+      case ModelPackage.VIEW_SPECIFICATION__ID:
+        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+      case ModelPackage.VIEW_SPECIFICATION__VIEW_NAME:
+        return VIEW_NAME_EDEFAULT == null ? viewName != null : !VIEW_NAME_EDEFAULT.equals(viewName);
       case ModelPackage.VIEW_SPECIFICATION__TYPE:
         return type != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (id: ");
+    result.append(id);
+    result.append(", viewName: ");
+    result.append(viewName);
+    result.append(')');
+    return result.toString();
   }
 
 } //ViewSpecificationImpl

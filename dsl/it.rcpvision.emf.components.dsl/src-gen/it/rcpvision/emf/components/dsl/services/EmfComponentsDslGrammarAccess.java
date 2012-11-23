@@ -735,37 +735,61 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 	public class ViewSpecificationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ViewSpecification");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cViewclassKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cTypeJvmTypeReferenceParserRuleCall_1_0 = (RuleCall)cTypeAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cLeftCurlyBracketKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Action cViewSpecificationAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cViewpartKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cIdAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cIdQualifiedNameParserRuleCall_2_0 = (RuleCall)cIdAssignment_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cViewnameKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cViewNameAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cViewNameSTRINGTerminalRuleCall_5_0 = (RuleCall)cViewNameAssignment_5.eContents().get(0);
+		private final Keyword cViewclassKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cTypeAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cTypeJvmTypeReferenceParserRuleCall_7_0 = (RuleCall)cTypeAssignment_7.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//ViewSpecification:
-		//	"viewclass" type=JvmTypeReference ("{" "}")?;
+		//	{ViewSpecification} "viewpart" id=QualifiedName "{" "viewname" viewName=STRING "viewclass" type=JvmTypeReference "}";
 		public ParserRule getRule() { return rule; }
 
-		//"viewclass" type=JvmTypeReference ("{" "}")?
+		//{ViewSpecification} "viewpart" id=QualifiedName "{" "viewname" viewName=STRING "viewclass" type=JvmTypeReference "}"
 		public Group getGroup() { return cGroup; }
 
-		//"viewclass"
-		public Keyword getViewclassKeyword_0() { return cViewclassKeyword_0; }
+		//{ViewSpecification}
+		public Action getViewSpecificationAction_0() { return cViewSpecificationAction_0; }
 
-		//type=JvmTypeReference
-		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+		//"viewpart"
+		public Keyword getViewpartKeyword_1() { return cViewpartKeyword_1; }
 
-		//JvmTypeReference
-		public RuleCall getTypeJvmTypeReferenceParserRuleCall_1_0() { return cTypeJvmTypeReferenceParserRuleCall_1_0; }
+		//id=QualifiedName
+		public Assignment getIdAssignment_2() { return cIdAssignment_2; }
 
-		//("{" "}")?
-		public Group getGroup_2() { return cGroup_2; }
+		//QualifiedName
+		public RuleCall getIdQualifiedNameParserRuleCall_2_0() { return cIdQualifiedNameParserRuleCall_2_0; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_2_0() { return cLeftCurlyBracketKeyword_2_0; }
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+
+		//"viewname"
+		public Keyword getViewnameKeyword_4() { return cViewnameKeyword_4; }
+
+		//viewName=STRING
+		public Assignment getViewNameAssignment_5() { return cViewNameAssignment_5; }
+
+		//STRING
+		public RuleCall getViewNameSTRINGTerminalRuleCall_5_0() { return cViewNameSTRINGTerminalRuleCall_5_0; }
+
+		//"viewclass"
+		public Keyword getViewclassKeyword_6() { return cViewclassKeyword_6; }
+
+		//type=JvmTypeReference
+		public Assignment getTypeAssignment_7() { return cTypeAssignment_7; }
+
+		//JvmTypeReference
+		public RuleCall getTypeJvmTypeReferenceParserRuleCall_7_0() { return cTypeJvmTypeReferenceParserRuleCall_7_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_2_1() { return cRightCurlyBracketKeyword_2_1; }
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 	
 	
@@ -983,7 +1007,7 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 	}
 
 	//ViewSpecification:
-	//	"viewclass" type=JvmTypeReference ("{" "}")?;
+	//	{ViewSpecification} "viewpart" id=QualifiedName "{" "viewname" viewName=STRING "viewclass" type=JvmTypeReference "}";
 	public ViewSpecificationElements getViewSpecificationAccess() {
 		return (pViewSpecification != null) ? pViewSpecification : (pViewSpecification = new ViewSpecificationElements());
 	}

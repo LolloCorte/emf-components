@@ -603,13 +603,31 @@ public interface ModelPackage extends EPackage
   int VIEW_SPECIFICATION = 14;
 
   /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW_SPECIFICATION__ID = 0;
+
+  /**
+   * The feature id for the '<em><b>View Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW_SPECIFICATION__VIEW_NAME = 1;
+
+  /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VIEW_SPECIFICATION__TYPE = 0;
+  int VIEW_SPECIFICATION__TYPE = 2;
 
   /**
    * The number of structural features of the '<em>View Specification</em>' class.
@@ -618,7 +636,7 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VIEW_SPECIFICATION_FEATURE_COUNT = 1;
+  int VIEW_SPECIFICATION_FEATURE_COUNT = 3;
 
 
   /**
@@ -1069,6 +1087,28 @@ public interface ModelPackage extends EPackage
   EClass getViewSpecification();
 
   /**
+   * Returns the meta object for the attribute '{@link it.rcpvision.emf.components.dsl.model.ViewSpecification#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.ViewSpecification#getId()
+   * @see #getViewSpecification()
+   * @generated
+   */
+  EAttribute getViewSpecification_Id();
+
+  /**
+   * Returns the meta object for the attribute '{@link it.rcpvision.emf.components.dsl.model.ViewSpecification#getViewName <em>View Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>View Name</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.ViewSpecification#getViewName()
+   * @see #getViewSpecification()
+   * @generated
+   */
+  EAttribute getViewSpecification_ViewName();
+
+  /**
    * Returns the meta object for the containment reference '{@link it.rcpvision.emf.components.dsl.model.ViewSpecification#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1467,6 +1507,22 @@ public interface ModelPackage extends EPackage
      * @generated
      */
     EClass VIEW_SPECIFICATION = eINSTANCE.getViewSpecification();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VIEW_SPECIFICATION__ID = eINSTANCE.getViewSpecification_Id();
+
+    /**
+     * The meta object literal for the '<em><b>View Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VIEW_SPECIFICATION__VIEW_NAME = eINSTANCE.getViewSpecification_ViewName();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.

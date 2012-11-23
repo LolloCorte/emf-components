@@ -171,7 +171,10 @@ import it.rcpvision.emf.components.views.*
 
 module my.empty {
 	viewparts {
-		viewclass AbstractSaveableTreeView
+		viewpart my.view.part {
+			viewname "My View"
+			viewclass AbstractSaveableTreeView
+		}
 	}
 }
 '''

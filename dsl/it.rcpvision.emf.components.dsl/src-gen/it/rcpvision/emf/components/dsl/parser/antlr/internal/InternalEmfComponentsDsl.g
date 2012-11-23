@@ -1286,37 +1286,87 @@ ruleViewSpecification returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='viewclass' 
+((
     {
-    	newLeafNode(otherlv_0, grammarAccess.getViewSpecificationAccess().getViewclassKeyword_0());
+        $current = forceCreateModelElement(
+            grammarAccess.getViewSpecificationAccess().getViewSpecificationAction_0(),
+            $current);
+    }
+)	otherlv_1='viewpart' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getViewSpecificationAccess().getViewpartKeyword_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getViewSpecificationAccess().getTypeJvmTypeReferenceParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getViewSpecificationAccess().getIdQualifiedNameParserRuleCall_2_0()); 
 	    }
-		lv_type_1_0=ruleJvmTypeReference		{
+		lv_id_2_0=ruleQualifiedName		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getViewSpecificationRule());
+	        }
+       		set(
+       			$current, 
+       			"id",
+        		lv_id_2_0, 
+        		"QualifiedName");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_3='{' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getViewSpecificationAccess().getLeftCurlyBracketKeyword_3());
+    }
+	otherlv_4='viewname' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getViewSpecificationAccess().getViewnameKeyword_4());
+    }
+(
+(
+		lv_viewName_5_0=RULE_STRING
+		{
+			newLeafNode(lv_viewName_5_0, grammarAccess.getViewSpecificationAccess().getViewNameSTRINGTerminalRuleCall_5_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getViewSpecificationRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"viewName",
+        		lv_viewName_5_0, 
+        		"STRING");
+	    }
+
+)
+)	otherlv_6='viewclass' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getViewSpecificationAccess().getViewclassKeyword_6());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getViewSpecificationAccess().getTypeJvmTypeReferenceParserRuleCall_7_0()); 
+	    }
+		lv_type_7_0=ruleJvmTypeReference		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getViewSpecificationRule());
 	        }
        		set(
        			$current, 
        			"type",
-        		lv_type_1_0, 
+        		lv_type_7_0, 
         		"JvmTypeReference");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_2='{' 
+)	otherlv_8='}' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getViewSpecificationAccess().getLeftCurlyBracketKeyword_2_0());
+    	newLeafNode(otherlv_8, grammarAccess.getViewSpecificationAccess().getRightCurlyBracketKeyword_8());
     }
-	otherlv_3='}' 
-    {
-    	newLeafNode(otherlv_3, grammarAccess.getViewSpecificationAccess().getRightCurlyBracketKeyword_2_1());
-    }
-)?)
+)
 ;
 
 

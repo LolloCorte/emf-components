@@ -369,7 +369,16 @@ public class TestInputs {
     _builder.append("viewparts {");
     _builder.newLine();
     _builder.append("\t\t");
+    _builder.append("viewpart my.view.part {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("viewname \"My View\"");
+    _builder.newLine();
+    _builder.append("\t\t\t");
     _builder.append("viewclass AbstractSaveableTreeView");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("}");

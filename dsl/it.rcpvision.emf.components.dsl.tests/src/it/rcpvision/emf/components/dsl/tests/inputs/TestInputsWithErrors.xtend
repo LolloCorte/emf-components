@@ -44,8 +44,10 @@ import it.rcpvision.emf.components.examples.library.*
 
 module my.empty {
 	viewparts {
-		viewclass Library
-		viewclass Writer
+		viewpart my.view.part {
+			viewname "My View"
+			viewclass Library // not an IViewPart!
+		}
 	}
 }
 '''

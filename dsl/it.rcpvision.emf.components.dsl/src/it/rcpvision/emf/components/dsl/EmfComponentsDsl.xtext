@@ -130,5 +130,8 @@ ViewsSpecification:
 ;
 
 ViewSpecification:
-	'viewclass' type=JvmTypeReference ('{' '}')?
+	{ViewSpecification} 'viewpart' id=QualifiedName '{'
+		'viewname' viewName=STRING
+		'viewclass' type=JvmTypeReference
+	'}'
 ;

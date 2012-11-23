@@ -17,8 +17,9 @@ public class EmfComponentsDslJavaValidator extends
 
 	@Check
 	public void checkViewSpecification(ViewSpecification viewSpecification) {
-		if (!typeSystem.isViewPart(viewSpecification.getType(),
-				viewSpecification)) {
+		if (viewSpecification.getType() != null
+				&& !typeSystem.isViewPart(viewSpecification.getType(),
+						viewSpecification)) {
 			error("Must be an IViewPart",
 					ModelPackage.Literals.VIEW_SPECIFICATION__TYPE,
 					NOT_I_VIEW_PART);

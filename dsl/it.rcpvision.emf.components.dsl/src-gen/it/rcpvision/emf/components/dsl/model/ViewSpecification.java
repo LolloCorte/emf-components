@@ -14,6 +14,8 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.ViewSpecification#getId <em>Id</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.ViewSpecification#getViewName <em>View Name</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.ViewSpecification#getType <em>Type</em>}</li>
  * </ul>
  * </p>
@@ -24,6 +26,58 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  */
 public interface ViewSpecification extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Id</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Id</em>' attribute.
+   * @see #setId(String)
+   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getViewSpecification_Id()
+   * @model
+   * @generated
+   */
+  String getId();
+
+  /**
+   * Sets the value of the '{@link it.rcpvision.emf.components.dsl.model.ViewSpecification#getId <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Id</em>' attribute.
+   * @see #getId()
+   * @generated
+   */
+  void setId(String value);
+
+  /**
+   * Returns the value of the '<em><b>View Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>View Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>View Name</em>' attribute.
+   * @see #setViewName(String)
+   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getViewSpecification_ViewName()
+   * @model
+   * @generated
+   */
+  String getViewName();
+
+  /**
+   * Sets the value of the '{@link it.rcpvision.emf.components.dsl.model.ViewSpecification#getViewName <em>View Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>View Name</em>' attribute.
+   * @see #getViewName()
+   * @generated
+   */
+  void setViewName(String value);
+
   /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->

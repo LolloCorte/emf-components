@@ -95,10 +95,16 @@ public class TestInputsWithErrors {
     _builder.append("viewparts {");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("viewclass Library");
+    _builder.append("viewpart my.view.part {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("viewname \"My View\"");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("viewclass Library // not an IViewPart!");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("viewclass Writer");
+    _builder.append("}");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("}");
