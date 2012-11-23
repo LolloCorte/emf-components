@@ -14,6 +14,7 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
 	EClassTests.class,
 	EmfComponentsDslParserTests.class,
+	EmfComponentsDslValidatorTests.class,
 	EmfComponentsDslJvmModelInferrerTests.class,
 	EmfComponentsDslGeneratorTests.class
 })

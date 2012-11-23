@@ -15,6 +15,7 @@ import org.eclipse.xtext.junit4.validation.ValidationTestHelper;
 import org.eclipse.xtext.validation.Issue;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
 @RunWith(value = XtextRunner.class)
@@ -32,6 +33,11 @@ public class EmfComponentsDslAbstractTests {
   
   @Inject
   private ValidationTestHelper _validationTestHelper;
+  
+  @BeforeClass
+  public static void setCRLF() {
+    System.setProperty("line.separator", "\n");
+  }
   
   public Model parseAndAssertNoError(final CharSequence s) {
     try {

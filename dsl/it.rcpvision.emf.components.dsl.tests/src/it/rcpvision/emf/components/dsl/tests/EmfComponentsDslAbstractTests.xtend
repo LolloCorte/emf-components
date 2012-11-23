@@ -13,6 +13,7 @@ import org.eclipse.xtext.junit4.validation.ValidationTestHelper
 import org.junit.runner.RunWith
 
 import static extension org.junit.Assert.*
+import org.junit.BeforeClass
 
 @RunWith(typeof(XtextRunner))
 @InjectWith(typeof(EmfComponentsDslInjectorProvider))
@@ -27,6 +28,11 @@ class EmfComponentsDslAbstractTests {
 	@Inject extension ParseHelper<Model>
  
     @Inject extension ValidationTestHelper
+    
+    @BeforeClass
+	def static void setCRLF() {
+		System::setProperty("line.separator", "\n")
+	}
     
     def parseAndAssertNoError(CharSequence s) {
 		var ts = s.parse

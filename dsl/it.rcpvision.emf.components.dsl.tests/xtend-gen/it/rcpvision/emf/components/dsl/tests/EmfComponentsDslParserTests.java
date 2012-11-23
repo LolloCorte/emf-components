@@ -10,7 +10,6 @@ import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
 import org.eclipse.xtext.junit4.validation.ValidationTestHelper;
 import org.eclipse.xtext.xbase.XbasePackage;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -20,11 +19,6 @@ import org.junit.runner.RunWith;
 public class EmfComponentsDslParserTests extends EmfComponentsDslAbstractTests {
   @Inject
   private ValidationTestHelper _validationTestHelper;
-  
-  @BeforeClass
-  public static void setCRLF() {
-    System.setProperty("line.separator", "\n");
-  }
   
   @Test
   public void testEmptyModule() {
