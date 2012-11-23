@@ -3,11 +3,13 @@
  */
 package it.rcpvision.emf.components.dsl;
 
+import it.rcpvision.emf.components.dsl.generator.EmfComponentsDslGenerator;
 import it.rcpvision.emf.components.dsl.generator.EmfComponentsDslOutputConfigurationProvider;
 import it.rcpvision.emf.components.dsl.scoping.EmfComponentsDslImportedNamespaceScopeProvider;
 import it.rcpvision.emf.components.dsl.scoping.EmfComponentsDslScopeProvider;
 import it.rcpvision.emf.components.dsl.scoping.featurecalls.EmfComponentsDslExtensionClassNameProvider;
 
+import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.generator.IOutputConfigurationProvider;
 import org.eclipse.xtext.generator.OutputConfigurationProvider;
 import org.eclipse.xtext.scoping.IScopeProvider;
@@ -29,6 +31,11 @@ public class EmfComponentsDslRuntimeModule extends
 
 	public Class<? extends OutputConfigurationProvider> bindOutputConfigurationProvider() {
 		return EmfComponentsDslOutputConfigurationProvider.class;
+	}
+	
+	@Override
+	public Class<? extends IGenerator> bindIGenerator() {
+		return EmfComponentsDslGenerator.class;
 	}
 
 	@Override
