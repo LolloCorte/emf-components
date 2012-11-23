@@ -150,4 +150,30 @@ module my.empty {
 	}
 }
 '''
+
+	def emptyViewsSpecifications() 
+'''
+import java.util.*
+import it.rcpvision.emf.components.examples.library.*
+
+module my.empty {
+	viewparts {
+		
+	}
+}
+'''
+
+	def nonEmptyViewsSpecifications() 
+'''
+import java.util.*
+import it.rcpvision.emf.components.examples.library.*
+import it.rcpvision.emf.components.views.*
+
+module my.empty {
+	viewparts {
+		viewclass AbstractSaveableTreeView
+	}
+}
+'''
+
 }

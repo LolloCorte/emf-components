@@ -29,6 +29,8 @@ Module:
 			(formFeatureControlFactory = FormFeatureControlFactory)?
 			&
 			(viewerContentProvider = ViewerContentProvider)?
+			&
+			(views += ViewsSpecification)?
 		)
 	'}'
 ;
@@ -119,4 +121,14 @@ EmfFeatureAccess:
 	PropertyDescriptionSpecification |
 	FeatureSpecification |
 	FormFeatureControlSpecification
+;
+
+ViewsSpecification:
+	{ViewsSpecification} 'viewparts' '{'
+		views += ViewSpecification*	
+	'}'
+;
+
+ViewSpecification:
+	'viewclass' type=JvmTypeReference ('{' '}')?
 ;

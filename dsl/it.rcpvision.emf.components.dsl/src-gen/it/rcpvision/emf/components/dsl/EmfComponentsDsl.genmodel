@@ -21,6 +21,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/featuresProvider"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/formFeatureControlFactory"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/viewerContentProvider"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/views"/>
     </genClasses>
     <genClasses ecoreClass="EmfComponentsDsl.ecore#//LabelProvider">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//LabelProvider/labelSpecifications"/>
@@ -57,6 +58,12 @@
     </genClasses>
     <genClasses ecoreClass="EmfComponentsDsl.ecore#//EmfFeatureAccess">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//EmfFeatureAccess/parameterType"/>
+    </genClasses>
+    <genClasses ecoreClass="EmfComponentsDsl.ecore#//ViewsSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//ViewsSpecification/views"/>
+    </genClasses>
+    <genClasses ecoreClass="EmfComponentsDsl.ecore#//ViewSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//ViewSpecification/type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

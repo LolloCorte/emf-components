@@ -398,6 +398,36 @@ ruleModule returns [EObject current=null]
 	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getModuleAccess().getUnorderedGroup_3());
 	 				}
  				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 5)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 5);
+	 				}
+					({true}?=>(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getModuleAccess().getViewsViewsSpecificationParserRuleCall_3_5_0()); 
+	    }
+		lv_views_9_0=ruleViewsSpecification		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getModuleRule());
+	        }
+       		add(
+       			$current, 
+       			"views",
+        		lv_views_9_0, 
+        		"ViewsSpecification");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getModuleAccess().getUnorderedGroup_3());
+	 				}
+ 				)
 			)  
 
 		)*	
@@ -407,9 +437,9 @@ ruleModule returns [EObject current=null]
 	  getUnorderedGroupHelper().leave(grammarAccess.getModuleAccess().getUnorderedGroup_3());
 	}
 
-)	otherlv_9='}' 
+)	otherlv_10='}' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getModuleAccess().getRightCurlyBracketKeyword_4());
+    	newLeafNode(otherlv_10, grammarAccess.getModuleAccess().getRightCurlyBracketKeyword_4());
     }
 )
 ;
@@ -1180,6 +1210,114 @@ ruleViewerContentProvider returns [EObject current=null]
 ;
 
 
+
+
+
+
+
+// Entry rule entryRuleViewsSpecification
+entryRuleViewsSpecification returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getViewsSpecificationRule()); }
+	 iv_ruleViewsSpecification=ruleViewsSpecification 
+	 { $current=$iv_ruleViewsSpecification.current; } 
+	 EOF 
+;
+
+// Rule ViewsSpecification
+ruleViewsSpecification returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getViewsSpecificationAccess().getViewsSpecificationAction_0(),
+            $current);
+    }
+)	otherlv_1='viewparts' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getViewsSpecificationAccess().getViewpartsKeyword_1());
+    }
+	otherlv_2='{' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getViewsSpecificationAccess().getLeftCurlyBracketKeyword_2());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getViewsSpecificationAccess().getViewsViewSpecificationParserRuleCall_3_0()); 
+	    }
+		lv_views_3_0=ruleViewSpecification		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getViewsSpecificationRule());
+	        }
+       		add(
+       			$current, 
+       			"views",
+        		lv_views_3_0, 
+        		"ViewSpecification");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_4='}' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getViewsSpecificationAccess().getRightCurlyBracketKeyword_4());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleViewSpecification
+entryRuleViewSpecification returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getViewSpecificationRule()); }
+	 iv_ruleViewSpecification=ruleViewSpecification 
+	 { $current=$iv_ruleViewSpecification.current; } 
+	 EOF 
+;
+
+// Rule ViewSpecification
+ruleViewSpecification returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='viewclass' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getViewSpecificationAccess().getViewclassKeyword_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getViewSpecificationAccess().getTypeJvmTypeReferenceParserRuleCall_1_0()); 
+	    }
+		lv_type_1_0=ruleJvmTypeReference		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getViewSpecificationRule());
+	        }
+       		set(
+       			$current, 
+       			"type",
+        		lv_type_1_0, 
+        		"JvmTypeReference");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(	otherlv_2='{' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getViewSpecificationAccess().getLeftCurlyBracketKeyword_2_0());
+    }
+	otherlv_3='}' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getViewSpecificationAccess().getRightCurlyBracketKeyword_2_1());
+    }
+)?)
+;
 
 
 

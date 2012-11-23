@@ -23,6 +23,8 @@
         eType="#//FormFeatureControlFactory" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="viewerContentProvider"
         eType="#//ViewerContentProvider" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="views" upperBound="-1"
+        eType="#//ViewsSpecification" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LabelProvider">
     <eStructuralFeatures xsi:type="ecore:EReference" name="labelSpecifications" upperBound="-1"
@@ -74,6 +76,14 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EmfFeatureAccess">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameterType" eType="ecore:EClass ../../../../../../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ViewsSpecification">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="views" upperBound="-1"
+        eType="#//ViewSpecification" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ViewSpecification">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass ../../../../../../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
         containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

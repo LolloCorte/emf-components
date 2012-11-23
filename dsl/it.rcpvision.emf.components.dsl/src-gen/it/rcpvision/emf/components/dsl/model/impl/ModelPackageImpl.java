@@ -16,7 +16,9 @@ import it.rcpvision.emf.components.dsl.model.ModelPackage;
 import it.rcpvision.emf.components.dsl.model.Module;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification;
+import it.rcpvision.emf.components.dsl.model.ViewSpecification;
 import it.rcpvision.emf.components.dsl.model.ViewerContentProvider;
+import it.rcpvision.emf.components.dsl.model.ViewsSpecification;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -127,6 +129,20 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * @generated
    */
   private EClass emfFeatureAccessEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass viewsSpecificationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass viewSpecificationEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -312,6 +328,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
   public EReference getModule_ViewerContentProvider()
   {
     return (EReference)moduleEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModule_Views()
+  {
+    return (EReference)moduleEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -579,6 +605,46 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getViewsSpecification()
+  {
+    return viewsSpecificationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getViewsSpecification_Views()
+  {
+    return (EReference)viewsSpecificationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getViewSpecification()
+  {
+    return viewSpecificationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getViewSpecification_Type()
+  {
+    return (EReference)viewSpecificationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ModelFactory getModelFactory()
   {
     return (ModelFactory)getEFactoryInstance();
@@ -618,6 +684,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     createEReference(moduleEClass, MODULE__FEATURES_PROVIDER);
     createEReference(moduleEClass, MODULE__FORM_FEATURE_CONTROL_FACTORY);
     createEReference(moduleEClass, MODULE__VIEWER_CONTENT_PROVIDER);
+    createEReference(moduleEClass, MODULE__VIEWS);
 
     labelProviderEClass = createEClass(LABEL_PROVIDER);
     createEReference(labelProviderEClass, LABEL_PROVIDER__LABEL_SPECIFICATIONS);
@@ -654,6 +721,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
 
     emfFeatureAccessEClass = createEClass(EMF_FEATURE_ACCESS);
     createEReference(emfFeatureAccessEClass, EMF_FEATURE_ACCESS__PARAMETER_TYPE);
+
+    viewsSpecificationEClass = createEClass(VIEWS_SPECIFICATION);
+    createEReference(viewsSpecificationEClass, VIEWS_SPECIFICATION__VIEWS);
+
+    viewSpecificationEClass = createEClass(VIEW_SPECIFICATION);
+    createEReference(viewSpecificationEClass, VIEW_SPECIFICATION__TYPE);
   }
 
   /**
@@ -708,6 +781,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     initEReference(getModule_FeaturesProvider(), this.getFeaturesProvider(), null, "featuresProvider", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_FormFeatureControlFactory(), this.getFormFeatureControlFactory(), null, "formFeatureControlFactory", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_ViewerContentProvider(), this.getViewerContentProvider(), null, "viewerContentProvider", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModule_Views(), this.getViewsSpecification(), null, "views", null, 0, -1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(labelProviderEClass, LabelProvider.class, "LabelProvider", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getLabelProvider_LabelSpecifications(), this.getLabelSpecification(), null, "labelSpecifications", null, 0, -1, LabelProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -744,6 +818,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
 
     initEClass(emfFeatureAccessEClass, EmfFeatureAccess.class, "EmfFeatureAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEmfFeatureAccess_ParameterType(), theTypesPackage.getJvmTypeReference(), null, "parameterType", null, 0, 1, EmfFeatureAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(viewsSpecificationEClass, ViewsSpecification.class, "ViewsSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getViewsSpecification_Views(), this.getViewSpecification(), null, "views", null, 0, -1, ViewsSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(viewSpecificationEClass, ViewSpecification.class, "ViewSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getViewSpecification_Type(), theTypesPackage.getJvmTypeReference(), null, "type", null, 0, 1, ViewSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

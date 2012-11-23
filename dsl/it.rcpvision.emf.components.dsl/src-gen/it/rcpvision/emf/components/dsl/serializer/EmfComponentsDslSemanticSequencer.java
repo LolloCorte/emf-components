@@ -14,7 +14,9 @@ import it.rcpvision.emf.components.dsl.model.ModelPackage;
 import it.rcpvision.emf.components.dsl.model.Module;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification;
+import it.rcpvision.emf.components.dsl.model.ViewSpecification;
 import it.rcpvision.emf.components.dsl.model.ViewerContentProvider;
+import it.rcpvision.emf.components.dsl.model.ViewsSpecification;
 import it.rcpvision.emf.components.dsl.services.EmfComponentsDslGrammarAccess;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.common.types.JvmFormalParameter;
@@ -142,9 +144,21 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 					return; 
 				}
 				else break;
+			case ModelPackage.VIEW_SPECIFICATION:
+				if(context == grammarAccess.getViewSpecificationRule()) {
+					sequence_ViewSpecification(context, (ViewSpecification) semanticObject); 
+					return; 
+				}
+				else break;
 			case ModelPackage.VIEWER_CONTENT_PROVIDER:
 				if(context == grammarAccess.getViewerContentProviderRule()) {
 					sequence_ViewerContentProvider(context, (ViewerContentProvider) semanticObject); 
+					return; 
+				}
+				else break;
+			case ModelPackage.VIEWS_SPECIFICATION:
+				if(context == grammarAccess.getViewsSpecificationRule()) {
+					sequence_ViewsSpecification(context, (ViewsSpecification) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1095,7 +1109,8 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	 *         propertyDescriptionProvider=PropertyDescriptionProvider? 
 	 *         featuresProvider=FeaturesProvider? 
 	 *         formFeatureControlFactory=FormFeatureControlFactory? 
-	 *         viewerContentProvider=ViewerContentProvider?
+	 *         viewerContentProvider=ViewerContentProvider? 
+	 *         views+=ViewsSpecification?
 	 *     )
 	 */
 	protected void sequence_Module(EObject context, Module semanticObject) {
@@ -1136,9 +1151,34 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     type=JvmTypeReference
+	 */
+	protected void sequence_ViewSpecification(EObject context, ViewSpecification semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.VIEW_SPECIFICATION__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.VIEW_SPECIFICATION__TYPE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getViewSpecificationAccess().getTypeJvmTypeReferenceParserRuleCall_1_0(), semanticObject.getType());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (childrenSpecifications+=LabelSpecification*)
 	 */
 	protected void sequence_ViewerContentProvider(EObject context, ViewerContentProvider semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (views+=ViewSpecification*)
+	 */
+	protected void sequence_ViewsSpecification(EObject context, ViewsSpecification semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 }

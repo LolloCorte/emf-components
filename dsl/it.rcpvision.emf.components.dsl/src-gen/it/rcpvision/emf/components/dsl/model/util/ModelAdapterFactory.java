@@ -140,6 +140,16 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
         return createEmfFeatureAccessAdapter();
       }
       @Override
+      public Adapter caseViewsSpecification(ViewsSpecification object)
+      {
+        return createViewsSpecificationAdapter();
+      }
+      @Override
+      public Adapter caseViewSpecification(ViewSpecification object)
+      {
+        return createViewSpecificationAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -352,6 +362,36 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEmfFeatureAccessAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.ViewsSpecification <em>Views Specification</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see it.rcpvision.emf.components.dsl.model.ViewsSpecification
+   * @generated
+   */
+  public Adapter createViewsSpecificationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.ViewSpecification <em>View Specification</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see it.rcpvision.emf.components.dsl.model.ViewSpecification
+   * @generated
+   */
+  public Adapter createViewSpecificationAdapter()
   {
     return null;
   }

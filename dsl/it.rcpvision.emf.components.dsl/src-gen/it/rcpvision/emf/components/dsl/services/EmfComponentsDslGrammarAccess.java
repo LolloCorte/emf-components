@@ -110,17 +110,20 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		private final RuleCall cFormFeatureControlFactoryFormFeatureControlFactoryParserRuleCall_3_3_0 = (RuleCall)cFormFeatureControlFactoryAssignment_3_3.eContents().get(0);
 		private final Assignment cViewerContentProviderAssignment_3_4 = (Assignment)cUnorderedGroup_3.eContents().get(4);
 		private final RuleCall cViewerContentProviderViewerContentProviderParserRuleCall_3_4_0 = (RuleCall)cViewerContentProviderAssignment_3_4.eContents().get(0);
+		private final Assignment cViewsAssignment_3_5 = (Assignment)cUnorderedGroup_3.eContents().get(5);
+		private final RuleCall cViewsViewsSpecificationParserRuleCall_3_5_0 = (RuleCall)cViewsAssignment_3_5.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Module:
 		//	"module" name=QualifiedName "{" (labelProvider=LabelProvider? &
 		//	propertyDescriptionProvider=PropertyDescriptionProvider? & featuresProvider=FeaturesProvider? &
-		//	formFeatureControlFactory=FormFeatureControlFactory? & viewerContentProvider=ViewerContentProvider?) "}";
+		//	formFeatureControlFactory=FormFeatureControlFactory? & viewerContentProvider=ViewerContentProvider? &
+		//	views+=ViewsSpecification?) "}";
 		public ParserRule getRule() { return rule; }
 
 		//"module" name=QualifiedName "{" (labelProvider=LabelProvider? & propertyDescriptionProvider=PropertyDescriptionProvider?
 		//& featuresProvider=FeaturesProvider? & formFeatureControlFactory=FormFeatureControlFactory? &
-		//viewerContentProvider=ViewerContentProvider?) "}"
+		//viewerContentProvider=ViewerContentProvider? & views+=ViewsSpecification?) "}"
 		public Group getGroup() { return cGroup; }
 
 		//"module"
@@ -137,7 +140,7 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 
 		//labelProvider=LabelProvider? & propertyDescriptionProvider=PropertyDescriptionProvider? &
 		//featuresProvider=FeaturesProvider? & formFeatureControlFactory=FormFeatureControlFactory? &
-		//viewerContentProvider=ViewerContentProvider?
+		//viewerContentProvider=ViewerContentProvider? & views+=ViewsSpecification?
 		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
 
 		//labelProvider=LabelProvider?
@@ -169,6 +172,12 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 
 		//ViewerContentProvider
 		public RuleCall getViewerContentProviderViewerContentProviderParserRuleCall_3_4_0() { return cViewerContentProviderViewerContentProviderParserRuleCall_3_4_0; }
+
+		//views+=ViewsSpecification?
+		public Assignment getViewsAssignment_3_5() { return cViewsAssignment_3_5; }
+
+		//ViewsSpecification
+		public RuleCall getViewsViewsSpecificationParserRuleCall_3_5_0() { return cViewsViewsSpecificationParserRuleCall_3_5_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
@@ -686,6 +695,78 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		//FormFeatureControlSpecification
 		public RuleCall getFormFeatureControlSpecificationParserRuleCall_2() { return cFormFeatureControlSpecificationParserRuleCall_2; }
 	}
+
+	public class ViewsSpecificationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ViewsSpecification");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cViewsSpecificationAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cViewpartsKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cViewsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cViewsViewSpecificationParserRuleCall_3_0 = (RuleCall)cViewsAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//ViewsSpecification:
+		//	{ViewsSpecification} "viewparts" "{" views+=ViewSpecification* "}";
+		public ParserRule getRule() { return rule; }
+
+		//{ViewsSpecification} "viewparts" "{" views+=ViewSpecification* "}"
+		public Group getGroup() { return cGroup; }
+
+		//{ViewsSpecification}
+		public Action getViewsSpecificationAction_0() { return cViewsSpecificationAction_0; }
+
+		//"viewparts"
+		public Keyword getViewpartsKeyword_1() { return cViewpartsKeyword_1; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
+		//views+=ViewSpecification*
+		public Assignment getViewsAssignment_3() { return cViewsAssignment_3; }
+
+		//ViewSpecification
+		public RuleCall getViewsViewSpecificationParserRuleCall_3_0() { return cViewsViewSpecificationParserRuleCall_3_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+
+	public class ViewSpecificationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ViewSpecification");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cViewclassKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTypeJvmTypeReferenceParserRuleCall_1_0 = (RuleCall)cTypeAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cLeftCurlyBracketKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		
+		//ViewSpecification:
+		//	"viewclass" type=JvmTypeReference ("{" "}")?;
+		public ParserRule getRule() { return rule; }
+
+		//"viewclass" type=JvmTypeReference ("{" "}")?
+		public Group getGroup() { return cGroup; }
+
+		//"viewclass"
+		public Keyword getViewclassKeyword_0() { return cViewclassKeyword_0; }
+
+		//type=JvmTypeReference
+		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+
+		//JvmTypeReference
+		public RuleCall getTypeJvmTypeReferenceParserRuleCall_1_0() { return cTypeJvmTypeReferenceParserRuleCall_1_0; }
+
+		//("{" "}")?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2_0() { return cLeftCurlyBracketKeyword_2_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_2_1() { return cRightCurlyBracketKeyword_2_1; }
+	}
 	
 	
 	private ModelElements pModel;
@@ -702,6 +783,8 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 	private FormFeatureControlSpecificationElements pFormFeatureControlSpecification;
 	private ViewerContentProviderElements pViewerContentProvider;
 	private EmfFeatureAccessElements pEmfFeatureAccess;
+	private ViewsSpecificationElements pViewsSpecification;
+	private ViewSpecificationElements pViewSpecification;
 	
 	private final Grammar grammar;
 
@@ -774,7 +857,8 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 	//Module:
 	//	"module" name=QualifiedName "{" (labelProvider=LabelProvider? &
 	//	propertyDescriptionProvider=PropertyDescriptionProvider? & featuresProvider=FeaturesProvider? &
-	//	formFeatureControlFactory=FormFeatureControlFactory? & viewerContentProvider=ViewerContentProvider?) "}";
+	//	formFeatureControlFactory=FormFeatureControlFactory? & viewerContentProvider=ViewerContentProvider? &
+	//	views+=ViewsSpecification?) "}";
 	public ModuleElements getModuleAccess() {
 		return (pModule != null) ? pModule : (pModule = new ModuleElements());
 	}
@@ -886,6 +970,26 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 	
 	public ParserRule getEmfFeatureAccessRule() {
 		return getEmfFeatureAccessAccess().getRule();
+	}
+
+	//ViewsSpecification:
+	//	{ViewsSpecification} "viewparts" "{" views+=ViewSpecification* "}";
+	public ViewsSpecificationElements getViewsSpecificationAccess() {
+		return (pViewsSpecification != null) ? pViewsSpecification : (pViewsSpecification = new ViewsSpecificationElements());
+	}
+	
+	public ParserRule getViewsSpecificationRule() {
+		return getViewsSpecificationAccess().getRule();
+	}
+
+	//ViewSpecification:
+	//	"viewclass" type=JvmTypeReference ("{" "}")?;
+	public ViewSpecificationElements getViewSpecificationAccess() {
+		return (pViewSpecification != null) ? pViewSpecification : (pViewSpecification = new ViewSpecificationElements());
+	}
+	
+	public ParserRule getViewSpecificationRule() {
+		return getViewSpecificationAccess().getRule();
 	}
 
 	//XExpression:
