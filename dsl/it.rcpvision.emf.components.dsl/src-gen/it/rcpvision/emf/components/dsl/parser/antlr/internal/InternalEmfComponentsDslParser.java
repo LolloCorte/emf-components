@@ -1111,7 +1111,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
             	      	        if (current==null) {
             	      	            current = createModelElementForParent(grammarAccess.getModuleRule());
             	      	        }
-            	             		add(
+            	             		set(
             	             			current, 
             	             			"views",
             	              		lv_views_9_0, 
@@ -21165,9 +21165,9 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
     static final String DFA85_acceptS =
         "\33\uffff\1\2\45\uffff\1\1";
     static final String DFA85_specialS =
-        "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14"+
-        "\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30\1\31"+
-        "\47\uffff}>";
+        "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1"+
+        "\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30"+
+        "\1\31\47\uffff}>";
     static final String[] DFA85_transitionS = {
             "\1\21\1\15\1\16\1\17\1\1\7\uffff\1\6\1\33\3\uffff\1\33\1\uffff"+
             "\1\33\2\uffff\1\33\2\uffff\1\33\7\uffff\11\33\1\10\5\33\1\4"+

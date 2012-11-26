@@ -2,8 +2,6 @@
  */
 package it.rcpvision.emf.components.dsl.model;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -187,19 +185,29 @@ public interface Module extends EObject
   void setViewerContentProvider(ViewerContentProvider value);
 
   /**
-   * Returns the value of the '<em><b>Views</b></em>' containment reference list.
-   * The list contents are of type {@link it.rcpvision.emf.components.dsl.model.ViewsSpecification}.
+   * Returns the value of the '<em><b>Views</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Views</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Views</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Views</em>' containment reference list.
+   * @return the value of the '<em>Views</em>' containment reference.
+   * @see #setViews(ViewsSpecification)
    * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getModule_Views()
    * @model containment="true"
    * @generated
    */
-  EList<ViewsSpecification> getViews();
+  ViewsSpecification getViews();
+
+  /**
+   * Sets the value of the '{@link it.rcpvision.emf.components.dsl.model.Module#getViews <em>Views</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Views</em>' containment reference.
+   * @see #getViews()
+   * @generated
+   */
+  void setViews(ViewsSpecification value);
 
 } // Module

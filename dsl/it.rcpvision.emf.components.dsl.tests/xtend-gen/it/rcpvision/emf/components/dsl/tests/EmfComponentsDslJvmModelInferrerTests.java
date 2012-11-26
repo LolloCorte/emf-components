@@ -4,6 +4,7 @@ import com.google.inject.Inject;
 import it.rcpvision.emf.components.dsl.EmfComponentsDslInjectorProvider;
 import it.rcpvision.emf.components.dsl.jvmmodel.EmfComponentsDslJvmModelInferrer;
 import it.rcpvision.emf.components.dsl.model.Module;
+import it.rcpvision.emf.components.dsl.model.ViewSpecification;
 import it.rcpvision.emf.components.dsl.tests.EmfComponentsDslAbstractTests;
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
@@ -37,6 +38,14 @@ public class EmfComponentsDslJvmModelInferrerTests extends EmfComponentsDslAbstr
     Module _module = this.module(_emptyModule);
     String _executableExtensionFactoryQN = this.inferrer.executableExtensionFactoryQN(_module);
     this.assertEqualsStrings("my.empty.ExecutableExtensionFactory", _executableExtensionFactoryQN);
+  }
+  
+  @Test
+  public void testViewSpecificationExecutableExtensionFactoryName() {
+    CharSequence _nonEmptyViewsSpecifications = this.inputs.nonEmptyViewsSpecifications();
+    ViewSpecification _viewSpecification = this.viewSpecification(_nonEmptyViewsSpecifications);
+    String _executableExtensionFactoryQN = this.inferrer.executableExtensionFactoryQN(_viewSpecification);
+    this.assertEqualsStrings("my.test.ExecutableExtensionFactory", _executableExtensionFactoryQN);
   }
   
   @Test

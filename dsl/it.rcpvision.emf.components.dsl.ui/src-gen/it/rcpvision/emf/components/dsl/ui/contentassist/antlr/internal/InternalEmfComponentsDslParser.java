@@ -58354,8 +58354,8 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
     static final String DFA89_specialS =
         "\1\uffff\1\0\100\uffff}>";
     static final String[] DFA89_transitionS = {
-            "\5\2\5\uffff\10\2\1\1\21\2\3\uffff\2\2\4\uffff\1\2\2\uffff\1"+
-            "\2\2\uffff\1\2\6\uffff\17\2\1\uffff\10\2\3\uffff\2\2\1\uffff"+
+            "\5\2\5\uffff\10\2\1\1\21\2\3\uffff\2\2\4\uffff\1\2\2\uffff"+
+            "\1\2\2\uffff\1\2\6\uffff\17\2\1\uffff\10\2\3\uffff\2\2\1\uffff"+
             "\2\2",
             "\1\uffff",
             "",
@@ -58778,15 +58778,15 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
     static final String DFA95_acceptS =
         "\33\uffff\1\2\45\uffff\1\1";
     static final String DFA95_specialS =
-        "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14"+
-        "\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30\1\31"+
-        "\47\uffff}>";
+        "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1"+
+        "\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30"+
+        "\1\31\47\uffff}>";
     static final String[] DFA95_transitionS = {
-            "\1\1\1\15\1\16\1\17\1\21\5\uffff\10\33\1\10\6\33\1\4\1\3\4\33"+
-            "\1\2\2\33\1\11\1\13\3\uffff\1\6\1\33\4\uffff\1\33\2\uffff\1"+
-            "\33\2\uffff\1\33\6\uffff\4\33\1\12\1\33\1\32\1\23\1\33\1\7\2"+
-            "\33\1\24\1\25\1\26\1\uffff\1\5\1\20\1\22\1\27\1\30\1\31\2\33"+
-            "\3\uffff\2\33\1\uffff\1\33\1\14",
+            "\1\1\1\15\1\16\1\17\1\21\5\uffff\10\33\1\10\6\33\1\4\1\3\4"+
+            "\33\1\2\2\33\1\11\1\13\3\uffff\1\6\1\33\4\uffff\1\33\2\uffff"+
+            "\1\33\2\uffff\1\33\6\uffff\4\33\1\12\1\33\1\32\1\23\1\33\1\7"+
+            "\2\33\1\24\1\25\1\26\1\uffff\1\5\1\20\1\22\1\27\1\30\1\31\2"+
+            "\33\3\uffff\2\33\1\uffff\1\33\1\14",
             "\1\uffff",
             "\1\uffff",
             "\1\uffff",
@@ -59301,8 +59301,8 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
     static final String DFA104_specialS =
         "\1\uffff\1\0\100\uffff}>";
     static final String[] DFA104_transitionS = {
-            "\5\2\5\uffff\10\2\1\1\21\2\3\uffff\2\2\4\uffff\1\2\2\uffff\1"+
-            "\2\2\uffff\1\2\6\uffff\17\2\1\uffff\10\2\3\uffff\2\2\1\uffff"+
+            "\5\2\5\uffff\10\2\1\1\21\2\3\uffff\2\2\4\uffff\1\2\2\uffff"+
+            "\1\2\2\uffff\1\2\6\uffff\17\2\1\uffff\10\2\3\uffff\2\2\1\uffff"+
             "\2\2",
             "\1\uffff",
             "",

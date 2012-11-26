@@ -66,7 +66,7 @@
           <elements xsi:type="xtext:Assignment" cardinality="?" feature="viewerContentProvider" operator="=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
           </elements>
-          <elements xsi:type="xtext:Assignment" cardinality="?" feature="views" operator="+=">
+          <elements xsi:type="xtext:Assignment" cardinality="?" feature="views" operator="=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
           </elements>
         </elements>

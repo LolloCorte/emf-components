@@ -85,4 +85,9 @@ class EmfComponentsDslParserTests extends EmfComponentsDslAbstractTests {
 	def void testNonEmptyViewsSpecifications() {
 		inputs.nonEmptyViewsSpecifications.parseAndAssertNoError
 	}
+
+	@Test
+	def void testMultipleViewsSpecifications() {
+		inputs.multipleViewsSpecifications.parseAndAssertNoError
+	}
 }

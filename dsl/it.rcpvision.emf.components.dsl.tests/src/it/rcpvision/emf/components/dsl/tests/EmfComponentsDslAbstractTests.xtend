@@ -60,4 +60,8 @@ class EmfComponentsDslAbstractTests {
 	def assertEqualsStrings(Object o1, Object o2) {
 		assertEquals("" + o1, "" + o2)
 	}
+
+	def viewSpecification(CharSequence s) {
+		s.module.views.views.head
+	}
 }

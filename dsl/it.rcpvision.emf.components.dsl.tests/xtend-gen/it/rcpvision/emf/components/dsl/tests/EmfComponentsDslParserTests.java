@@ -99,4 +99,10 @@ public class EmfComponentsDslParserTests extends EmfComponentsDslAbstractTests {
     CharSequence _nonEmptyViewsSpecifications = this.inputs.nonEmptyViewsSpecifications();
     this.parseAndAssertNoError(_nonEmptyViewsSpecifications);
   }
+  
+  @Test
+  public void testMultipleViewsSpecifications() {
+    CharSequence _multipleViewsSpecifications = this.inputs.multipleViewsSpecifications();
+    this.parseAndAssertNoError(_multipleViewsSpecifications);
+  }
 }

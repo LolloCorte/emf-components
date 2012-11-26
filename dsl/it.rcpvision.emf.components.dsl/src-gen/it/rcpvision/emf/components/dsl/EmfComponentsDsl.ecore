@@ -23,8 +23,8 @@
         eType="#//FormFeatureControlFactory" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="viewerContentProvider"
         eType="#//ViewerContentProvider" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="views" upperBound="-1"
-        eType="#//ViewsSpecification" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="views" eType="#//ViewsSpecification"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LabelProvider">
     <eStructuralFeatures xsi:type="ecore:EReference" name="labelSpecifications" upperBound="-1"

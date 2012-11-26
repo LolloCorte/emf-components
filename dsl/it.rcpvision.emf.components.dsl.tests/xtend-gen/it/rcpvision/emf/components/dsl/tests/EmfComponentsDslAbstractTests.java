@@ -4,9 +4,12 @@ import com.google.inject.Inject;
 import it.rcpvision.emf.components.dsl.EmfComponentsDslInjectorProvider;
 import it.rcpvision.emf.components.dsl.model.Model;
 import it.rcpvision.emf.components.dsl.model.Module;
+import it.rcpvision.emf.components.dsl.model.ViewSpecification;
+import it.rcpvision.emf.components.dsl.model.ViewsSpecification;
 import it.rcpvision.emf.components.dsl.tests.inputs.TestInputs;
 import it.rcpvision.emf.components.dsl.tests.inputs.TestInputsWithErrors;
 import java.util.List;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
@@ -14,6 +17,7 @@ import org.eclipse.xtext.junit4.util.ParseHelper;
 import org.eclipse.xtext.junit4.validation.ValidationTestHelper;
 import org.eclipse.xtext.validation.Issue;
 import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
@@ -93,5 +97,13 @@ public class EmfComponentsDslAbstractTests {
     String _plus = ("" + o1);
     String _plus_1 = ("" + o2);
     Assert.assertEquals(_plus, _plus_1);
+  }
+  
+  public ViewSpecification viewSpecification(final CharSequence s) {
+    Module _module = this.module(s);
+    ViewsSpecification _views = _module.getViews();
+    EList<ViewSpecification> _views_1 = _views.getViews();
+    ViewSpecification _head = IterableExtensions.<ViewSpecification>head(_views_1);
+    return _head;
   }
 }

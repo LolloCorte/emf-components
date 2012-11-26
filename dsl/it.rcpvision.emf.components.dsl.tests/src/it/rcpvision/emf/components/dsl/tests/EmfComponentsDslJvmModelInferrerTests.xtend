@@ -36,6 +36,15 @@ class EmfComponentsDslJvmModelInferrerTests extends EmfComponentsDslAbstractTest
     }
 
 	@Test
+	def void testViewSpecificationExecutableExtensionFactoryName() {
+        "my.test.ExecutableExtensionFactory".assertEqualsStrings(
+        	inferrer.executableExtensionFactoryQN(
+        		inputs.nonEmptyViewsSpecifications.viewSpecification
+        	)
+        )
+    }
+
+	@Test
 	def void testActivatorName() {
         "my.empty.Activator".assertEqualsStrings(
         	inferrer.activatorQN(inputs.emptyModule.module)

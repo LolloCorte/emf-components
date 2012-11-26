@@ -27,6 +27,8 @@ import org.eclipse.core.databinding.DataBindingContext
 import org.eclipse.core.databinding.observable.value.IObservableValue
 import org.eclipse.xtext.common.types.JvmVisibility
 import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider
+import it.rcpvision.emf.components.dsl.model.ViewSpecification
+import static extension org.eclipse.xtext.EcoreUtil2.*
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -118,6 +120,10 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 
    	def executableExtensionFactoryQN(Module element) {
    		element.fullyQualifiedName + ".ExecutableExtensionFactory"
+   	}
+
+   	def executableExtensionFactoryQN(ViewSpecification element) {
+   		element.getContainerOfType(typeof(Module)).executableExtensionFactoryQN
    	}
 
 	def labelProviderQN(Module element) {

@@ -186,7 +186,7 @@ public interface ModelPackage extends EPackage
   int MODULE__VIEWER_CONTENT_PROVIDER = 5;
 
   /**
-   * The feature id for the '<em><b>Views</b></em>' containment reference list.
+   * The feature id for the '<em><b>Views</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -769,10 +769,10 @@ public interface ModelPackage extends EPackage
   EReference getModule_ViewerContentProvider();
 
   /**
-   * Returns the meta object for the containment reference list '{@link it.rcpvision.emf.components.dsl.model.Module#getViews <em>Views</em>}'.
+   * Returns the meta object for the containment reference '{@link it.rcpvision.emf.components.dsl.model.Module#getViews <em>Views</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Views</em>'.
+   * @return the meta object for the containment reference '<em>Views</em>'.
    * @see it.rcpvision.emf.components.dsl.model.Module#getViews()
    * @see #getModule()
    * @generated
@@ -1245,7 +1245,7 @@ public interface ModelPackage extends EPackage
     EReference MODULE__VIEWER_CONTENT_PROVIDER = eINSTANCE.getModule_ViewerContentProvider();
 
     /**
-     * The meta object literal for the '<em><b>Views</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Views</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated

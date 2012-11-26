@@ -30,7 +30,7 @@ Module:
 			&
 			(viewerContentProvider = ViewerContentProvider)?
 			&
-			(views += ViewsSpecification)?
+			(views = ViewsSpecification)?
 		)
 	'}'
 ;

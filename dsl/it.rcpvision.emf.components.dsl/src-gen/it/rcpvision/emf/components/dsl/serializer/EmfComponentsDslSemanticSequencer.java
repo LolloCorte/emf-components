@@ -1110,7 +1110,7 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	 *         featuresProvider=FeaturesProvider? 
 	 *         formFeatureControlFactory=FormFeatureControlFactory? 
 	 *         viewerContentProvider=ViewerContentProvider? 
-	 *         views+=ViewsSpecification?
+	 *         views=ViewsSpecification?
 	 *     )
 	 */
 	protected void sequence_Module(EObject context, Module semanticObject) {

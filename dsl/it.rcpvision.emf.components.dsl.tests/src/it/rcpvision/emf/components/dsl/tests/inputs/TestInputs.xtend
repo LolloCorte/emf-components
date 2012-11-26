@@ -169,11 +169,31 @@ import java.util.*
 import it.rcpvision.emf.components.examples.library.*
 import it.rcpvision.emf.components.views.*
 
-module my.empty {
+module my.test {
 	viewparts {
 		viewpart my.view.part {
 			viewname "My View"
 			viewclass AbstractSaveableTreeView
+		}
+	}
+}
+'''
+
+	def multipleViewsSpecifications() 
+'''
+import java.util.*
+import it.rcpvision.emf.components.examples.library.*
+import it.rcpvision.emf.components.views.*
+
+module my.test {
+	viewparts {
+		viewpart my.view.tree.part {
+			viewname "My Tree View"
+			viewclass AbstractSaveableTreeView
+		}
+		viewpart my.view.form.part {
+			viewname "My Tree Form View"
+			viewclass AbstractSaveableTreeFormView
 		}
 	}
 }

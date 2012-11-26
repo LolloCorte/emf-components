@@ -13,6 +13,7 @@ import it.rcpvision.emf.components.dsl.model.LabelSpecification;
 import it.rcpvision.emf.components.dsl.model.Module;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification;
+import it.rcpvision.emf.components.dsl.model.ViewSpecification;
 import it.rcpvision.emf.components.dsl.model.ViewerContentProvider;
 import it.rcpvision.emf.components.ui.provider.FeaturesProvider.EClassToEStructuralFeatureAsStringsMap;
 import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
@@ -26,6 +27,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtend2.lib.StringConcatenation;
+import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.common.types.JvmAnnotationReference;
 import org.eclipse.xtext.common.types.JvmConstructor;
 import org.eclipse.xtext.common.types.JvmFormalParameter;
@@ -200,6 +202,12 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
     QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(element);
     String _plus = (_fullyQualifiedName + ".ExecutableExtensionFactory");
     return _plus;
+  }
+  
+  public String executableExtensionFactoryQN(final ViewSpecification element) {
+    Module _containerOfType = EcoreUtil2.<Module>getContainerOfType(element, Module.class);
+    String _executableExtensionFactoryQN = this.executableExtensionFactoryQN(_containerOfType);
+    return _executableExtensionFactoryQN;
   }
   
   public String labelProviderQN(final Module element) {

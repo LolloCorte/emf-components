@@ -414,7 +414,7 @@ ruleModule returns [EObject current=null]
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getModuleRule());
 	        }
-       		add(
+       		set(
        			$current, 
        			"views",
         		lv_views_9_0, 
