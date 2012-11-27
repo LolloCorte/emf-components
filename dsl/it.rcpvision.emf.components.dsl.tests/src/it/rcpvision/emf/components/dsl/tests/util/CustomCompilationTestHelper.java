@@ -73,6 +73,9 @@ public class CustomCompilationTestHelper extends CompilationTestHelper {
 					Map<String, String> toCompile = new HashMap<String, String>();
 					
 					for (final Entry<String, CharSequence> e : access.getFiles().entrySet()) {
+						if (!e.getKey().contains(".java"))
+							continue; // it's not a Java file
+						
 						String name = e.getKey().substring(
 								"DEFAULT_OUTPUT".length(),
 								e.getKey().length() - ".java".length());

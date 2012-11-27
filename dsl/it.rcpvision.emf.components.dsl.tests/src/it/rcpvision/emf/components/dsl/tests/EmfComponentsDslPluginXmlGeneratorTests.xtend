@@ -140,7 +140,7 @@ class EmfComponentsDslPluginXmlGeneratorTests extends EmfComponentsDslAbstractTe
 		assertEqualsStrings(1, entrySet.size)
 		val e = entrySet.head
 		val name = e.getKey().substring(
-				EmfComponentsDslOutputConfigurationProvider::PROJECT_ROOT_OUTPUT.length());
+				"DEFAULT_OUTPUT".length());
 		assertEqualsStrings(
 			EmfComponentsDslOutputConfigurationProvider::PLUGIN_XML_EMFCOMPONENTS_GEN,
 				name)

@@ -32,10 +32,15 @@ public class EmfComponentsDslPluginXmlGenerator implements IGenerator {
     Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_allContents);
     Iterable<Module> _filter = Iterables.<Module>filter(_iterable, Module.class);
     for (final Module module : _filter) {
-      CharSequence _generatePluginXml = this.generatePluginXml(module);
-      fsa.generateFile(
-        EmfComponentsDslOutputConfigurationProvider.PLUGIN_XML_EMFCOMPONENTS_GEN, 
-        EmfComponentsDslOutputConfigurationProvider.PROJECT_ROOT_OUTPUT, _generatePluginXml);
+      {
+        final CharSequence contents = this.generatePluginXml(module);
+        int _length = contents==null?0:contents.length();
+        boolean _greaterThan = (_length > 0);
+        if (_greaterThan) {
+          fsa.generateFile(
+            EmfComponentsDslOutputConfigurationProvider.PLUGIN_XML_EMFCOMPONENTS_GEN, contents);
+        }
+      }
     }
   }
   

@@ -13,9 +13,12 @@ import org.eclipse.xtext.xbase.compiler.JvmModelGenerator
 class EmfComponentsDslGenerator implements IGenerator {
 
 	@Inject JvmModelGenerator jvmModelGenerator
+	
+	@Inject EmfComponentsDslPluginXmlGenerator pluginXmlGenerator
 
 	override doGenerate(Resource input, IFileSystemAccess fsa) {
 		jvmModelGenerator.doGenerate(input, fsa);
+		pluginXmlGenerator.doGenerate(input, fsa);
 	}
 	
 }

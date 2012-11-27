@@ -14,10 +14,11 @@ class EmfComponentsDslPluginXmlGenerator implements IGenerator {
 
 	override doGenerate(Resource resource, IFileSystemAccess fsa) {
 		for(module: resource.allContents.toIterable.filter(typeof(Module))) {
-			fsa.generateFile(
-            	EmfComponentsDslOutputConfigurationProvider::PLUGIN_XML_EMFCOMPONENTS_GEN,
-            	EmfComponentsDslOutputConfigurationProvider::PROJECT_ROOT_OUTPUT,
-            	module.generatePluginXml)
+			val contents = module.generatePluginXml
+			if (contents?.length > 0)
+				fsa.generateFile(
+	            	EmfComponentsDslOutputConfigurationProvider::PLUGIN_XML_EMFCOMPONENTS_GEN,
+	            	contents)
 		}
 	}
 

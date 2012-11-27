@@ -50,7 +50,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
-    this.assertCorrectJavaCodeGeneration(_emptyModule, _builder, null, null, null, null, null);
+    this.assertCorrectJavaCodeGeneration(_emptyModule, _builder, null, null, null, null, null, null);
   }
   
   @Test
@@ -107,7 +107,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_emptyLabelProvider, _builder, _builder_1, null, null, null, null);
+    this.assertCorrectJavaCodeGeneration(_emptyLabelProvider, _builder, _builder_1, null, null, null, null, null);
   }
   
   @Test
@@ -164,7 +164,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_emptyPropertyDescriptionProvider, _builder, _builder_1, null, null, null, null);
+    this.assertCorrectJavaCodeGeneration(_emptyPropertyDescriptionProvider, _builder, _builder_1, null, null, null, null, null);
   }
   
   @Test
@@ -182,7 +182,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("}");
     _builder.newLine();
     this.assertCorrectJavaCodeGeneration(_emptyLabelSpecifications, 
-      null, _builder, null, null, null, null);
+      null, _builder, null, null, null, null, null);
   }
   
   @Test
@@ -394,7 +394,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("}");
     _builder.newLine();
     this.assertCorrectJavaCodeGeneration(_labelSpecifications, 
-      null, _builder, null, null, null, null);
+      null, _builder, null, null, null, null, null);
   }
   
   @Test
@@ -492,7 +492,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_propertyDescriptionSpecifications, _builder, null, _builder_1, null, null, null);
+    this.assertCorrectJavaCodeGeneration(_propertyDescriptionSpecifications, _builder, null, _builder_1, null, null, null, null);
   }
   
   @Test
@@ -577,7 +577,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_featuresSpecifications, _builder, null, null, _builder_1, null, null);
+    this.assertCorrectJavaCodeGeneration(_featuresSpecifications, _builder, null, null, _builder_1, null, null, null);
   }
   
   @Test
@@ -838,7 +838,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_formFeatureControlSpecifications, _builder, null, null, null, _builder_1, null);
+    this.assertCorrectJavaCodeGeneration(_formFeatureControlSpecifications, _builder, null, null, null, _builder_1, null, null);
   }
   
   @Test
@@ -953,10 +953,98 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_viewerContentProviderSpecifications, _builder, null, null, null, null, _builder_1);
+    this.assertCorrectJavaCodeGeneration(_viewerContentProviderSpecifications, _builder, null, null, null, null, _builder_1, null);
   }
   
-  private void assertCorrectJavaCodeGeneration(final CharSequence input, final CharSequence expectedModule, final CharSequence expectedLabelProvider, final CharSequence expectedPropertyDescriptionProvider, final CharSequence expectedFeatureProvider, final CharSequence expectedFormFeatureControlFactory, final CharSequence expectedViewerContentProvider) {
+  @Test
+  public void testViewsSpecifications() {
+    CharSequence _multipleViewsSpecifications = this.inputs.multipleViewsSpecifications();
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package my.test;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("import it.rcpvision.emf.components.EmfComponentsGuiceModule;");
+    _builder.newLine();
+    _builder.append("import org.eclipse.ui.plugin.AbstractUIPlugin;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("public EmfComponentsGuiceModuleGen(final AbstractUIPlugin plugin) {");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("super(plugin);");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+    _builder_1.newLine();
+    _builder_1.append("<?eclipse version=\"3.4\"?>");
+    _builder_1.newLine();
+    _builder_1.append("<plugin>");
+    _builder_1.newLine();
+    _builder_1.append("\t");
+    _builder_1.append("<extension");
+    _builder_1.newLine();
+    _builder_1.append("\t      ");
+    _builder_1.append("point=\"org.eclipse.ui.views\">");
+    _builder_1.newLine();
+    _builder_1.append("\t    ");
+    _builder_1.append("<view");
+    _builder_1.newLine();
+    _builder_1.append("\t          ");
+    _builder_1.append("category=\"it.rcpvision.emf.components\"");
+    _builder_1.newLine();
+    _builder_1.append("\t          ");
+    _builder_1.append("class=\"my.test.ExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeView\"");
+    _builder_1.newLine();
+    _builder_1.append("\t          ");
+    _builder_1.append("id=\"my.view.tree.part\"");
+    _builder_1.newLine();
+    _builder_1.append("\t          ");
+    _builder_1.append("name=\"My Tree View\"");
+    _builder_1.newLine();
+    _builder_1.append("\t          ");
+    _builder_1.append("restorable=\"true\">");
+    _builder_1.newLine();
+    _builder_1.append("\t    ");
+    _builder_1.append("</view>");
+    _builder_1.newLine();
+    _builder_1.append("\t    ");
+    _builder_1.append("<view");
+    _builder_1.newLine();
+    _builder_1.append("\t          ");
+    _builder_1.append("category=\"it.rcpvision.emf.components\"");
+    _builder_1.newLine();
+    _builder_1.append("\t          ");
+    _builder_1.append("class=\"my.test.ExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeFormView\"");
+    _builder_1.newLine();
+    _builder_1.append("\t          ");
+    _builder_1.append("id=\"my.view.form.part\"");
+    _builder_1.newLine();
+    _builder_1.append("\t          ");
+    _builder_1.append("name=\"My Tree Form View\"");
+    _builder_1.newLine();
+    _builder_1.append("\t          ");
+    _builder_1.append("restorable=\"true\">");
+    _builder_1.newLine();
+    _builder_1.append("\t    ");
+    _builder_1.append("</view>");
+    _builder_1.newLine();
+    _builder_1.append("\t");
+    _builder_1.append("</extension>");
+    _builder_1.newLine();
+    _builder_1.append("</plugin>");
+    _builder_1.newLine();
+    this.assertCorrectJavaCodeGeneration(_multipleViewsSpecifications, _builder, null, null, null, null, null, _builder_1);
+  }
+  
+  private void assertCorrectJavaCodeGeneration(final CharSequence input, final CharSequence expectedModule, final CharSequence expectedLabelProvider, final CharSequence expectedPropertyDescriptionProvider, final CharSequence expectedFeatureProvider, final CharSequence expectedFormFeatureControlFactory, final CharSequence expectedViewerContentProvider, final CharSequence expectedPluginXmlGen) {
     final Procedure1<Result> _function = new Procedure1<Result>() {
         public void apply(final Result it) {
           Map<String,CharSequence> _allGeneratedResources = it.getAllGeneratedResources();
@@ -1016,9 +1104,19 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
                           EmfComponentsDslGeneratorTests.this.assertEqualsStrings(expectedViewerContentProvider, _value_5);
                         }
                       } else {
-                        CharSequence _value_6 = e.getValue();
-                        String _plus = ("unexpected generated code: " + _value_6);
-                        Assert.fail(_plus);
+                        String _key_6 = e.getKey();
+                        boolean _endsWith_6 = _key_6.endsWith(".xml.emfcomponents_gen");
+                        if (_endsWith_6) {
+                          boolean _notEquals_6 = (!Objects.equal(expectedPluginXmlGen, null));
+                          if (_notEquals_6) {
+                            CharSequence _value_6 = e.getValue();
+                            EmfComponentsDslGeneratorTests.this.assertEqualsStrings(expectedPluginXmlGen, _value_6);
+                          }
+                        } else {
+                          CharSequence _value_7 = e.getValue();
+                          String _plus = ("unexpected generated code: " + _value_7);
+                          Assert.fail(_plus);
+                        }
                       }
                     }
                   }

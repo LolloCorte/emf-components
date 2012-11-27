@@ -30,7 +30,7 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
     super(plugin);
   }
 }
-''', null, null, null, null, null
+''', null, null, null, null, null, null
 		)
 	}
 
@@ -63,7 +63,7 @@ import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 
 public class LabelProviderGen extends ViewerLabelProvider {
 }
-''', null, null, null, null
+''', null, null, null, null, null
 		)
 	}
 
@@ -96,7 +96,7 @@ import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 
 public class PropertyDescriptionProviderGen extends PropertyDescriptionProvider {
 }
-''', null, null, null, null
+''', null, null, null, null, null
 		)
 	}
 
@@ -111,7 +111,7 @@ import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 
 public class LabelProviderGen extends ViewerLabelProvider {
 }
-''', null, null, null, null
+''', null, null, null, null, null
 		)
 	}
 
@@ -197,7 +197,7 @@ public class LabelProviderGen extends ViewerLabelProvider {
     return _xifexpression;
   }
 }
-''', null, null, null, null
+''', null, null, null, null, null
 		)
 	}
 
@@ -245,7 +245,7 @@ public class PropertyDescriptionProviderGen extends PropertyDescriptionProvider 
     return _firstUpper;
   }
 }
-''', null, null, null
+''', null, null, null, null
 		)
 	}
 
@@ -288,7 +288,7 @@ public class FeaturesProviderGen extends FeaturesProvider {
       "firstName", "lastName", "books");
   }
 }
-''', null, null
+''', null, null, null
 		)
 	}
 
@@ -397,7 +397,7 @@ public class FormFeatureControlFactoryGen extends FormFeatureControlFactory {
     return _observeText;
   }
 }
-''', null
+''', null, null
 		)
 	}
 
@@ -452,6 +452,47 @@ public class ViewerContentProviderGen extends ViewerContentProvider {
     return _author;
   }
 }
+''', null
+		)
+	}
+
+	@Test
+	def testViewsSpecifications() {
+		inputs.multipleViewsSpecifications.assertCorrectJavaCodeGeneration(
+'''
+package my.test;
+
+import it.rcpvision.emf.components.EmfComponentsGuiceModule;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
+
+public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
+  public EmfComponentsGuiceModuleGen(final AbstractUIPlugin plugin) {
+    super(plugin);
+  }
+}
+''', null, null, null, null, null,
+'''
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension
+	      point="org.eclipse.ui.views">
+	    <view
+	          category="it.rcpvision.emf.components"
+	          class="my.test.ExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeView"
+	          id="my.view.tree.part"
+	          name="My Tree View"
+	          restorable="true">
+	    </view>
+	    <view
+	          category="it.rcpvision.emf.components"
+	          class="my.test.ExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeFormView"
+	          id="my.view.form.part"
+	          name="My Tree Form View"
+	          restorable="true">
+	    </view>
+	</extension>
+</plugin>
 '''
 		)
 	}
@@ -461,7 +502,8 @@ public class ViewerContentProviderGen extends ViewerContentProvider {
 			CharSequence expectedPropertyDescriptionProvider,
 			CharSequence expectedFeatureProvider,
 			CharSequence expectedFormFeatureControlFactory,
-			CharSequence expectedViewerContentProvider) {
+			CharSequence expectedViewerContentProvider,
+			CharSequence expectedPluginXmlGen) {
 		input.compileAll [
 			for (e : allGeneratedResources.entrySet) {
 				if (e.key.endsWith("ModuleGen.java")) {
@@ -488,6 +530,10 @@ public class ViewerContentProviderGen extends ViewerContentProvider {
 					// check the expected Java code for the module
 					if (expectedViewerContentProvider != null)
 						assertEqualsStrings(expectedViewerContentProvider, e.value)
+				} else if (e.key.endsWith(".xml.emfcomponents_gen")) {
+					// check the expected Java code for the module
+					if (expectedPluginXmlGen != null)
+						assertEqualsStrings(expectedPluginXmlGen, e.value)
 				} else
 					fail("unexpected generated code: " + e.value)
 			}
