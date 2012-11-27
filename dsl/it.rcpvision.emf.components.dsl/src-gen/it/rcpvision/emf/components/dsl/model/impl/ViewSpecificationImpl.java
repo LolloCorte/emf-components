@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.xtext.common.types.JvmTypeReference;
 
@@ -31,7 +30,7 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  *
  * @generated
  */
-public class ViewSpecificationImpl extends MinimalEObjectImpl.Container implements ViewSpecification
+public class ViewSpecificationImpl extends PartSpecificationImpl implements ViewSpecification
 {
   /**
    * The default value of the '{@link #getId() <em>Id</em>}' attribute.

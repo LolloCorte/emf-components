@@ -342,7 +342,7 @@ public class TestInputs {
     _builder.append("module my.empty {");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("viewparts {");
+    _builder.append("parts {");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.newLine();
@@ -366,7 +366,7 @@ public class TestInputs {
     _builder.append("module my.test {");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("viewparts {");
+    _builder.append("parts {");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("viewpart my.view.part {");
@@ -400,7 +400,7 @@ public class TestInputs {
     _builder.append("module my.test {");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("viewparts {");
+    _builder.append("parts {");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("viewpart my.view.tree.part {");

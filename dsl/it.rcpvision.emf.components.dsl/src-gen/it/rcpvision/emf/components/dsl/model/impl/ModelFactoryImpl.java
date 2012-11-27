@@ -77,7 +77,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
       case ModelPackage.FORM_FEATURE_CONTROL_SPECIFICATION: return createFormFeatureControlSpecification();
       case ModelPackage.VIEWER_CONTENT_PROVIDER: return createViewerContentProvider();
       case ModelPackage.EMF_FEATURE_ACCESS: return createEmfFeatureAccess();
-      case ModelPackage.VIEWS_SPECIFICATION: return createViewsSpecification();
+      case ModelPackage.PART_SPECIFICATION: return createPartSpecification();
       case ModelPackage.VIEW_SPECIFICATION: return createViewSpecification();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -232,10 +232,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ViewsSpecification createViewsSpecification()
+  public PartSpecification createPartSpecification()
   {
-    ViewsSpecificationImpl viewsSpecification = new ViewsSpecificationImpl();
-    return viewsSpecification;
+    PartSpecificationImpl partSpecification = new PartSpecificationImpl();
+    return partSpecification;
   }
 
   /**

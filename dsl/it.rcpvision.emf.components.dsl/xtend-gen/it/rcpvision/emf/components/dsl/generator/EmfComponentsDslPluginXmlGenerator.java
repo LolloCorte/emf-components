@@ -6,8 +6,9 @@ import com.google.inject.Inject;
 import it.rcpvision.emf.components.dsl.generator.EmfComponentsDslOutputConfigurationProvider;
 import it.rcpvision.emf.components.dsl.jvmmodel.EmfComponentsDslJvmModelInferrer;
 import it.rcpvision.emf.components.dsl.model.Module;
+import it.rcpvision.emf.components.dsl.model.PartSpecification;
 import it.rcpvision.emf.components.dsl.model.ViewSpecification;
-import it.rcpvision.emf.components.dsl.model.ViewsSpecification;
+import java.util.Arrays;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
@@ -47,15 +48,14 @@ public class EmfComponentsDslPluginXmlGenerator implements IGenerator {
   public CharSequence generatePluginXml(final Module module) {
     CharSequence _xblockexpression = null;
     {
-      ViewsSpecification _views = module==null?(ViewsSpecification)null:module.getViews();
-      final EList<ViewSpecification> viewSpecs = _views==null?(EList<ViewSpecification>)null:_views.getViews();
+      final EList<PartSpecification> partSpecs = module==null?(EList<PartSpecification>)null:module.getParts();
       CharSequence _xifexpression = null;
       boolean _or = false;
-      boolean _equals = Objects.equal(viewSpecs, null);
+      boolean _equals = Objects.equal(partSpecs, null);
       if (_equals) {
         _or = true;
       } else {
-        boolean _isEmpty = viewSpecs.isEmpty();
+        boolean _isEmpty = partSpecs.isEmpty();
         _or = (_equals || _isEmpty);
       }
       if (_or) {
@@ -69,13 +69,13 @@ public class EmfComponentsDslPluginXmlGenerator implements IGenerator {
         _builder_1.append("point=\"org.eclipse.ui.views\">");
         _builder_1.newLine();
         _builder_1.append("    ");
-        final Function1<ViewSpecification,CharSequence> _function = new Function1<ViewSpecification,CharSequence>() {
-            public CharSequence apply(final ViewSpecification it) {
-              CharSequence _generateViewExtensionPoint = EmfComponentsDslPluginXmlGenerator.this.generateViewExtensionPoint(it);
-              return _generateViewExtensionPoint;
+        final Function1<PartSpecification,CharSequence> _function = new Function1<PartSpecification,CharSequence>() {
+            public CharSequence apply(final PartSpecification it) {
+              CharSequence _generateExtensionPoint = EmfComponentsDslPluginXmlGenerator.this.generateExtensionPoint(it);
+              return _generateExtensionPoint;
             }
           };
-        List<CharSequence> _map = ListExtensions.<ViewSpecification, CharSequence>map(viewSpecs, _function);
+        List<CharSequence> _map = ListExtensions.<PartSpecification, CharSequence>map(partSpecs, _function);
         String _join = IterableExtensions.join(_map, "");
         _builder_1.append(_join, "    ");
         _builder_1.newLineIfNotEmpty();
@@ -89,7 +89,11 @@ public class EmfComponentsDslPluginXmlGenerator implements IGenerator {
     return _xblockexpression;
   }
   
-  public CharSequence generateViewExtensionPoint(final ViewSpecification viewSpecification) {
+  protected CharSequence _generateExtensionPoint(final PartSpecification partSpecification) {
+    return null;
+  }
+  
+  protected CharSequence _generateExtensionPoint(final ViewSpecification viewSpecification) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<view");
     _builder.newLine();
@@ -140,5 +144,16 @@ public class EmfComponentsDslPluginXmlGenerator implements IGenerator {
     _builder.append("</plugin>");
     _builder.newLine();
     return _builder;
+  }
+  
+  public CharSequence generateExtensionPoint(final PartSpecification viewSpecification) {
+    if (viewSpecification instanceof ViewSpecification) {
+      return _generateExtensionPoint((ViewSpecification)viewSpecification);
+    } else if (viewSpecification != null) {
+      return _generateExtensionPoint(viewSpecification);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(viewSpecification).toString());
+    }
   }
 }

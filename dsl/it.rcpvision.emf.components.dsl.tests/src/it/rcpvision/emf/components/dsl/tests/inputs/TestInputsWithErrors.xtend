@@ -43,7 +43,7 @@ import java.util.*
 import it.rcpvision.emf.components.examples.library.*
 
 module my.empty {
-	viewparts {
+	parts {
 		viewpart my.view.part {
 			viewname "My View"
 			viewclass Library // not an IViewPart!

@@ -6,7 +6,7 @@ import it.rcpvision.emf.components.dsl.generator.EmfComponentsDslOutputConfigura
 import it.rcpvision.emf.components.dsl.generator.EmfComponentsDslPluginXmlGenerator;
 import it.rcpvision.emf.components.dsl.model.Model;
 import it.rcpvision.emf.components.dsl.model.Module;
-import it.rcpvision.emf.components.dsl.model.ViewSpecification;
+import it.rcpvision.emf.components.dsl.model.PartSpecification;
 import it.rcpvision.emf.components.dsl.tests.EmfComponentsDslAbstractTests;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -64,9 +64,9 @@ public class EmfComponentsDslPluginXmlGeneratorTests extends EmfComponentsDslAbs
     _builder.append("</view>");
     _builder.newLine();
     CharSequence _nonEmptyViewsSpecifications = this.inputs.nonEmptyViewsSpecifications();
-    ViewSpecification _viewSpecification = this.viewSpecification(_nonEmptyViewsSpecifications);
-    CharSequence _generateViewExtensionPoint = this.pluginXmlGenerator.generateViewExtensionPoint(_viewSpecification);
-    this.assertEqualsStrings(_builder, _generateViewExtensionPoint);
+    PartSpecification _partSpecification = this.partSpecification(_nonEmptyViewsSpecifications);
+    CharSequence _generateExtensionPoint = this.pluginXmlGenerator.generateExtensionPoint(_partSpecification);
+    this.assertEqualsStrings(_builder, _generateExtensionPoint);
   }
   
   @Test

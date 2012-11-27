@@ -7,6 +7,7 @@ import com.google.inject.Inject
 import it.rcpvision.emf.components.dsl.jvmmodel.EmfComponentsDslJvmModelInferrer
 import it.rcpvision.emf.components.dsl.model.ViewSpecification
 import it.rcpvision.emf.components.dsl.model.Module
+import it.rcpvision.emf.components.dsl.model.PartSpecification
 
 class EmfComponentsDslPluginXmlGenerator implements IGenerator {
 	
@@ -23,20 +24,24 @@ class EmfComponentsDslPluginXmlGenerator implements IGenerator {
 	}
 
 	def generatePluginXml(Module module) {
-		val viewSpecs = module?.views?.views
-		if (viewSpecs == null || viewSpecs.empty) {
+		val partSpecs = module?.parts
+		if (partSpecs == null || partSpecs.empty) {
 			return ''''''
 		} else {
 '''
 <extension
       point="org.eclipse.ui.views">
-    «viewSpecs.map[generateViewExtensionPoint].join("")»
+    «partSpecs.map[generateExtensionPoint].join("")»
 </extension>
 '''.generatePluginXml
 		}
 	}
 
-	def generateViewExtensionPoint(ViewSpecification viewSpecification) {
+	def dispatch generateExtensionPoint(PartSpecification partSpecification) {
+		
+	}
+
+	def dispatch generateExtensionPoint(ViewSpecification viewSpecification) {
 '''
   <view
         category="it.rcpvision.emf.components"

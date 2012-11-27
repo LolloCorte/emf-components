@@ -4,8 +4,7 @@ import com.google.inject.Inject;
 import it.rcpvision.emf.components.dsl.EmfComponentsDslInjectorProvider;
 import it.rcpvision.emf.components.dsl.model.Model;
 import it.rcpvision.emf.components.dsl.model.Module;
-import it.rcpvision.emf.components.dsl.model.ViewSpecification;
-import it.rcpvision.emf.components.dsl.model.ViewsSpecification;
+import it.rcpvision.emf.components.dsl.model.PartSpecification;
 import it.rcpvision.emf.components.dsl.tests.inputs.TestInputs;
 import it.rcpvision.emf.components.dsl.tests.inputs.TestInputsWithErrors;
 import java.util.List;
@@ -99,11 +98,10 @@ public class EmfComponentsDslAbstractTests {
     Assert.assertEquals(_plus, _plus_1);
   }
   
-  public ViewSpecification viewSpecification(final CharSequence s) {
+  public PartSpecification partSpecification(final CharSequence s) {
     Module _module = this.module(s);
-    ViewsSpecification _views = _module.getViews();
-    EList<ViewSpecification> _views_1 = _views.getViews();
-    ViewSpecification _head = IterableExtensions.<ViewSpecification>head(_views_1);
+    EList<PartSpecification> _parts = _module.getParts();
+    PartSpecification _head = IterableExtensions.<PartSpecification>head(_parts);
     return _head;
   }
 }

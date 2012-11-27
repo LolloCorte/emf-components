@@ -61,7 +61,7 @@ class EmfComponentsDslAbstractTests {
 		assertEquals("" + expected, "" + actual)
 	}
 
-	def viewSpecification(CharSequence s) {
-		s.module.views.views.head
+	def partSpecification(CharSequence s) {
+		s.module.parts.head
 	}
 }

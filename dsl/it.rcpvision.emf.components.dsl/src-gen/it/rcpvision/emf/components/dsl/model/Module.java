@@ -2,6 +2,8 @@
  */
 package it.rcpvision.emf.components.dsl.model;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -18,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getFeaturesProvider <em>Features Provider</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getFormFeatureControlFactory <em>Form Feature Control Factory</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getViewerContentProvider <em>Viewer Content Provider</em>}</li>
- *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getViews <em>Views</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getParts <em>Parts</em>}</li>
  * </ul>
  * </p>
  *
@@ -185,29 +187,19 @@ public interface Module extends EObject
   void setViewerContentProvider(ViewerContentProvider value);
 
   /**
-   * Returns the value of the '<em><b>Views</b></em>' containment reference.
+   * Returns the value of the '<em><b>Parts</b></em>' containment reference list.
+   * The list contents are of type {@link it.rcpvision.emf.components.dsl.model.PartSpecification}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Views</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Parts</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Views</em>' containment reference.
-   * @see #setViews(ViewsSpecification)
-   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getModule_Views()
+   * @return the value of the '<em>Parts</em>' containment reference list.
+   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getModule_Parts()
    * @model containment="true"
    * @generated
    */
-  ViewsSpecification getViews();
-
-  /**
-   * Sets the value of the '{@link it.rcpvision.emf.components.dsl.model.Module#getViews <em>Views</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Views</em>' containment reference.
-   * @see #getViews()
-   * @generated
-   */
-  void setViews(ViewsSpecification value);
+  EList<PartSpecification> getParts();
 
 } // Module

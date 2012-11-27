@@ -11,9 +11,9 @@ import it.rcpvision.emf.components.dsl.model.FormFeatureControlSpecification;
 import it.rcpvision.emf.components.dsl.model.LabelProvider;
 import it.rcpvision.emf.components.dsl.model.LabelSpecification;
 import it.rcpvision.emf.components.dsl.model.Module;
+import it.rcpvision.emf.components.dsl.model.PartSpecification;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification;
-import it.rcpvision.emf.components.dsl.model.ViewSpecification;
 import it.rcpvision.emf.components.dsl.model.ViewerContentProvider;
 import it.rcpvision.emf.components.ui.provider.FeaturesProvider.EClassToEStructuralFeatureAsStringsMap;
 import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
@@ -204,7 +204,7 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
     return _plus;
   }
   
-  public String executableExtensionFactoryQN(final ViewSpecification element) {
+  public String executableExtensionFactoryQN(final PartSpecification element) {
     Module _containerOfType = EcoreUtil2.<Module>getContainerOfType(element, Module.class);
     String _executableExtensionFactoryQN = this.executableExtensionFactoryQN(_containerOfType);
     return _executableExtensionFactoryQN;

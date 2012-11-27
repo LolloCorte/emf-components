@@ -157,7 +157,7 @@ import java.util.*
 import it.rcpvision.emf.components.examples.library.*
 
 module my.empty {
-	viewparts {
+	parts {
 		
 	}
 }
@@ -170,7 +170,7 @@ import it.rcpvision.emf.components.examples.library.*
 import it.rcpvision.emf.components.views.*
 
 module my.test {
-	viewparts {
+	parts {
 		viewpart my.view.part {
 			viewname "My View"
 			viewclass AbstractSaveableTreeView
@@ -186,7 +186,7 @@ import it.rcpvision.emf.components.examples.library.*
 import it.rcpvision.emf.components.views.*
 
 module my.test {
-	viewparts {
+	parts {
 		viewpart my.view.tree.part {
 			viewname "My Tree View"
 			viewclass AbstractSaveableTreeView

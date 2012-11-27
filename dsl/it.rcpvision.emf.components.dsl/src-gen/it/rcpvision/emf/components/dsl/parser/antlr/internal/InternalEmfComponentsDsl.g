@@ -405,24 +405,36 @@ ruleModule returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 5);
 	 				}
-					({true}?=>(
+					({true}?=>(	otherlv_9='parts' 
+    {
+    	newLeafNode(otherlv_9, grammarAccess.getModuleAccess().getPartsKeyword_3_5_0());
+    }
+	otherlv_10='{' 
+    {
+    	newLeafNode(otherlv_10, grammarAccess.getModuleAccess().getLeftCurlyBracketKeyword_3_5_1());
+    }
+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModuleAccess().getViewsViewsSpecificationParserRuleCall_3_5_0()); 
+	        newCompositeNode(grammarAccess.getModuleAccess().getPartsPartSpecificationParserRuleCall_3_5_2_0()); 
 	    }
-		lv_views_9_0=ruleViewsSpecification		{
+		lv_parts_11_0=rulePartSpecification		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getModuleRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"views",
-        		lv_views_9_0, 
-        		"ViewsSpecification");
+       			"parts",
+        		lv_parts_11_0, 
+        		"PartSpecification");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
+)*	otherlv_12='}' 
+    {
+    	newLeafNode(otherlv_12, grammarAccess.getModuleAccess().getRightCurlyBracketKeyword_3_5_3());
+    }
 ))
 					{ 
 	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getModuleAccess().getUnorderedGroup_3());
@@ -437,9 +449,9 @@ ruleModule returns [EObject current=null]
 	  getUnorderedGroupHelper().leave(grammarAccess.getModuleAccess().getUnorderedGroup_3());
 	}
 
-)	otherlv_10='}' 
+)	otherlv_13='}' 
     {
-    	newLeafNode(otherlv_10, grammarAccess.getModuleAccess().getRightCurlyBracketKeyword_4());
+    	newLeafNode(otherlv_13, grammarAccess.getModuleAccess().getRightCurlyBracketKeyword_4());
     }
 )
 ;
@@ -1215,57 +1227,30 @@ ruleViewerContentProvider returns [EObject current=null]
 
 
 
-// Entry rule entryRuleViewsSpecification
-entryRuleViewsSpecification returns [EObject current=null] 
+// Entry rule entryRulePartSpecification
+entryRulePartSpecification returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getViewsSpecificationRule()); }
-	 iv_ruleViewsSpecification=ruleViewsSpecification 
-	 { $current=$iv_ruleViewsSpecification.current; } 
+	{ newCompositeNode(grammarAccess.getPartSpecificationRule()); }
+	 iv_rulePartSpecification=rulePartSpecification 
+	 { $current=$iv_rulePartSpecification.current; } 
 	 EOF 
 ;
 
-// Rule ViewsSpecification
-ruleViewsSpecification returns [EObject current=null] 
+// Rule PartSpecification
+rulePartSpecification returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-((
-    {
-        $current = forceCreateModelElement(
-            grammarAccess.getViewsSpecificationAccess().getViewsSpecificationAction_0(),
-            $current);
-    }
-)	otherlv_1='viewparts' 
-    {
-    	newLeafNode(otherlv_1, grammarAccess.getViewsSpecificationAccess().getViewpartsKeyword_1());
-    }
-	otherlv_2='{' 
-    {
-    	newLeafNode(otherlv_2, grammarAccess.getViewsSpecificationAccess().getLeftCurlyBracketKeyword_2());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getViewsSpecificationAccess().getViewsViewSpecificationParserRuleCall_3_0()); 
-	    }
-		lv_views_3_0=ruleViewSpecification		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getViewsSpecificationRule());
-	        }
-       		add(
-       			$current, 
-       			"views",
-        		lv_views_3_0, 
-        		"ViewSpecification");
-	        afterParserOrEnumRuleCall();
-	    }
 
-)
-)*	otherlv_4='}' 
-    {
-    	newLeafNode(otherlv_4, grammarAccess.getViewsSpecificationAccess().getRightCurlyBracketKeyword_4());
+    { 
+        newCompositeNode(grammarAccess.getPartSpecificationAccess().getViewSpecificationParserRuleCall()); 
     }
-)
+    this_ViewSpecification_0=ruleViewSpecification
+    { 
+        $current = $this_ViewSpecification_0.current; 
+        afterParserOrEnumRuleCall();
+    }
+
 ;
 
 

@@ -166,10 +166,10 @@ public class ModelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ModelPackage.VIEWS_SPECIFICATION:
+      case ModelPackage.PART_SPECIFICATION:
       {
-        ViewsSpecification viewsSpecification = (ViewsSpecification)theEObject;
-        T result = caseViewsSpecification(viewsSpecification);
+        PartSpecification partSpecification = (PartSpecification)theEObject;
+        T result = casePartSpecification(partSpecification);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -177,6 +177,7 @@ public class ModelSwitch<T> extends Switch<T>
       {
         ViewSpecification viewSpecification = (ViewSpecification)theEObject;
         T result = caseViewSpecification(viewSpecification);
+        if (result == null) result = casePartSpecification(viewSpecification);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -393,17 +394,17 @@ public class ModelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Views Specification</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Part Specification</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Views Specification</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Part Specification</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseViewsSpecification(ViewsSpecification object)
+  public T casePartSpecification(PartSpecification object)
   {
     return null;
   }

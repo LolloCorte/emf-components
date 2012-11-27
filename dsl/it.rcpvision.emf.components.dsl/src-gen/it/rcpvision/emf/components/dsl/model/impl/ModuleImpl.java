@@ -7,18 +7,25 @@ import it.rcpvision.emf.components.dsl.model.FormFeatureControlFactory;
 import it.rcpvision.emf.components.dsl.model.LabelProvider;
 import it.rcpvision.emf.components.dsl.model.ModelPackage;
 import it.rcpvision.emf.components.dsl.model.Module;
+import it.rcpvision.emf.components.dsl.model.PartSpecification;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider;
 import it.rcpvision.emf.components.dsl.model.ViewerContentProvider;
-import it.rcpvision.emf.components.dsl.model.ViewsSpecification;
+
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +40,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getFeaturesProvider <em>Features Provider</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getFormFeatureControlFactory <em>Form Feature Control Factory</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getViewerContentProvider <em>Viewer Content Provider</em>}</li>
- *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getViews <em>Views</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getParts <em>Parts</em>}</li>
  * </ul>
  * </p>
  *
@@ -112,14 +119,14 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
   protected ViewerContentProvider viewerContentProvider;
 
   /**
-   * The cached value of the '{@link #getViews() <em>Views</em>}' containment reference.
+   * The cached value of the '{@link #getParts() <em>Parts</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getViews()
+   * @see #getParts()
    * @generated
    * @ordered
    */
-  protected ViewsSpecification views;
+  protected EList<PartSpecification> parts;
 
   /**
    * <!-- begin-user-doc -->
@@ -410,47 +417,13 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
    * <!-- end-user-doc -->
    * @generated
    */
-  public ViewsSpecification getViews()
+  public EList<PartSpecification> getParts()
   {
-    return views;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetViews(ViewsSpecification newViews, NotificationChain msgs)
-  {
-    ViewsSpecification oldViews = views;
-    views = newViews;
-    if (eNotificationRequired())
+    if (parts == null)
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.MODULE__VIEWS, oldViews, newViews);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
+      parts = new EObjectContainmentEList<PartSpecification>(PartSpecification.class, this, ModelPackage.MODULE__PARTS);
     }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setViews(ViewsSpecification newViews)
-  {
-    if (newViews != views)
-    {
-      NotificationChain msgs = null;
-      if (views != null)
-        msgs = ((InternalEObject)views).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.MODULE__VIEWS, null, msgs);
-      if (newViews != null)
-        msgs = ((InternalEObject)newViews).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.MODULE__VIEWS, null, msgs);
-      msgs = basicSetViews(newViews, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MODULE__VIEWS, newViews, newViews));
+    return parts;
   }
 
   /**
@@ -473,8 +446,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
         return basicSetFormFeatureControlFactory(null, msgs);
       case ModelPackage.MODULE__VIEWER_CONTENT_PROVIDER:
         return basicSetViewerContentProvider(null, msgs);
-      case ModelPackage.MODULE__VIEWS:
-        return basicSetViews(null, msgs);
+      case ModelPackage.MODULE__PARTS:
+        return ((InternalEList<?>)getParts()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -501,8 +474,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
         return getFormFeatureControlFactory();
       case ModelPackage.MODULE__VIEWER_CONTENT_PROVIDER:
         return getViewerContentProvider();
-      case ModelPackage.MODULE__VIEWS:
-        return getViews();
+      case ModelPackage.MODULE__PARTS:
+        return getParts();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -512,6 +485,7 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -535,8 +509,9 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
       case ModelPackage.MODULE__VIEWER_CONTENT_PROVIDER:
         setViewerContentProvider((ViewerContentProvider)newValue);
         return;
-      case ModelPackage.MODULE__VIEWS:
-        setViews((ViewsSpecification)newValue);
+      case ModelPackage.MODULE__PARTS:
+        getParts().clear();
+        getParts().addAll((Collection<? extends PartSpecification>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -570,8 +545,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
       case ModelPackage.MODULE__VIEWER_CONTENT_PROVIDER:
         setViewerContentProvider((ViewerContentProvider)null);
         return;
-      case ModelPackage.MODULE__VIEWS:
-        setViews((ViewsSpecification)null);
+      case ModelPackage.MODULE__PARTS:
+        getParts().clear();
         return;
     }
     super.eUnset(featureID);
@@ -599,8 +574,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
         return formFeatureControlFactory != null;
       case ModelPackage.MODULE__VIEWER_CONTENT_PROVIDER:
         return viewerContentProvider != null;
-      case ModelPackage.MODULE__VIEWS:
-        return views != null;
+      case ModelPackage.MODULE__PARTS:
+        return parts != null && !parts.isEmpty();
     }
     return super.eIsSet(featureID);
   }

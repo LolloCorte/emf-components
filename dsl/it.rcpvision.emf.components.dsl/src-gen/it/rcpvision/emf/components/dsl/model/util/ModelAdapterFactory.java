@@ -140,9 +140,9 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
         return createEmfFeatureAccessAdapter();
       }
       @Override
-      public Adapter caseViewsSpecification(ViewsSpecification object)
+      public Adapter casePartSpecification(PartSpecification object)
       {
-        return createViewsSpecificationAdapter();
+        return createPartSpecificationAdapter();
       }
       @Override
       public Adapter caseViewSpecification(ViewSpecification object)
@@ -367,16 +367,16 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.ViewsSpecification <em>Views Specification</em>}'.
+   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.PartSpecification <em>Part Specification</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see it.rcpvision.emf.components.dsl.model.ViewsSpecification
+   * @see it.rcpvision.emf.components.dsl.model.PartSpecification
    * @generated
    */
-  public Adapter createViewsSpecificationAdapter()
+  public Adapter createPartSpecificationAdapter()
   {
     return null;
   }

@@ -30,7 +30,9 @@ Module:
 			&
 			(viewerContentProvider = ViewerContentProvider)?
 			&
-			(views = ViewsSpecification)?
+			('parts' '{'
+				parts += PartSpecification*	
+			'}')?
 		)
 	'}'
 ;
@@ -123,11 +125,7 @@ EmfFeatureAccess:
 	FormFeatureControlSpecification
 ;
 
-ViewsSpecification:
-	{ViewsSpecification} 'viewparts' '{'
-		views += ViewSpecification*	
-	'}'
-;
+PartSpecification: ViewSpecification;
 
 ViewSpecification:
 	{ViewSpecification} 'viewpart' id=QualifiedName '{'

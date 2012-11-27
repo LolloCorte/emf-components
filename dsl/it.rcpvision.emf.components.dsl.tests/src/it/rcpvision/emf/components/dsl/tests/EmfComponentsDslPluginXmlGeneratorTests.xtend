@@ -40,8 +40,8 @@ class EmfComponentsDslPluginXmlGeneratorTests extends EmfComponentsDslAbstractTe
       restorable="true">
 </view>
 '''.assertEqualsStrings(
-	pluginXmlGenerator.generateViewExtensionPoint(
-		inputs.nonEmptyViewsSpecifications.viewSpecification
+	pluginXmlGenerator.generateExtensionPoint(
+		inputs.nonEmptyViewsSpecifications.partSpecification
 	)
 )
 	}

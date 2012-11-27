@@ -16,7 +16,6 @@ import it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification;
 import it.rcpvision.emf.components.dsl.model.ViewSpecification;
 import it.rcpvision.emf.components.dsl.model.ViewerContentProvider;
-import it.rcpvision.emf.components.dsl.model.ViewsSpecification;
 import it.rcpvision.emf.components.dsl.services.EmfComponentsDslGrammarAccess;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.common.types.JvmFormalParameter;
@@ -145,7 +144,8 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 				}
 				else break;
 			case ModelPackage.VIEW_SPECIFICATION:
-				if(context == grammarAccess.getViewSpecificationRule()) {
+				if(context == grammarAccess.getPartSpecificationRule() ||
+				   context == grammarAccess.getViewSpecificationRule()) {
 					sequence_ViewSpecification(context, (ViewSpecification) semanticObject); 
 					return; 
 				}
@@ -153,12 +153,6 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 			case ModelPackage.VIEWER_CONTENT_PROVIDER:
 				if(context == grammarAccess.getViewerContentProviderRule()) {
 					sequence_ViewerContentProvider(context, (ViewerContentProvider) semanticObject); 
-					return; 
-				}
-				else break;
-			case ModelPackage.VIEWS_SPECIFICATION:
-				if(context == grammarAccess.getViewsSpecificationRule()) {
-					sequence_ViewsSpecification(context, (ViewsSpecification) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1110,7 +1104,7 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	 *         featuresProvider=FeaturesProvider? 
 	 *         formFeatureControlFactory=FormFeatureControlFactory? 
 	 *         viewerContentProvider=ViewerContentProvider? 
-	 *         views=ViewsSpecification?
+	 *         parts+=PartSpecification*
 	 *     )
 	 */
 	protected void sequence_Module(EObject context, Module semanticObject) {
@@ -1176,15 +1170,6 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	 *     (childrenSpecifications+=LabelSpecification*)
 	 */
 	protected void sequence_ViewerContentProvider(EObject context, ViewerContentProvider semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (views+=ViewSpecification*)
-	 */
-	protected void sequence_ViewsSpecification(EObject context, ViewsSpecification semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 }

@@ -113,8 +113,12 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		private final RuleCall cFormFeatureControlFactoryFormFeatureControlFactoryParserRuleCall_3_3_0 = (RuleCall)cFormFeatureControlFactoryAssignment_3_3.eContents().get(0);
 		private final Assignment cViewerContentProviderAssignment_3_4 = (Assignment)cUnorderedGroup_3.eContents().get(4);
 		private final RuleCall cViewerContentProviderViewerContentProviderParserRuleCall_3_4_0 = (RuleCall)cViewerContentProviderAssignment_3_4.eContents().get(0);
-		private final Assignment cViewsAssignment_3_5 = (Assignment)cUnorderedGroup_3.eContents().get(5);
-		private final RuleCall cViewsViewsSpecificationParserRuleCall_3_5_0 = (RuleCall)cViewsAssignment_3_5.eContents().get(0);
+		private final Group cGroup_3_5 = (Group)cUnorderedGroup_3.eContents().get(5);
+		private final Keyword cPartsKeyword_3_5_0 = (Keyword)cGroup_3_5.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3_5_1 = (Keyword)cGroup_3_5.eContents().get(1);
+		private final Assignment cPartsAssignment_3_5_2 = (Assignment)cGroup_3_5.eContents().get(2);
+		private final RuleCall cPartsPartSpecificationParserRuleCall_3_5_2_0 = (RuleCall)cPartsAssignment_3_5_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_5_3 = (Keyword)cGroup_3_5.eContents().get(3);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Module:
@@ -123,16 +127,16 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		//
 		//	propertyDescriptionProvider=PropertyDescriptionProvider? & featuresProvider=FeaturesProvider? &
 		//
-		//	formFeatureControlFactory=FormFeatureControlFactory? & viewerContentProvider=ViewerContentProvider? &
+		//	formFeatureControlFactory=FormFeatureControlFactory? & viewerContentProvider=ViewerContentProvider? & ("parts" "{"
 		//
-		//	views=ViewsSpecification?) "}";
+		//	parts+=PartSpecification* "}")?) "}";
 		public ParserRule getRule() { return rule; }
 
 		//"module" name=QualifiedName "{" (labelProvider=LabelProvider? & propertyDescriptionProvider=PropertyDescriptionProvider?
 		//
 		//& featuresProvider=FeaturesProvider? & formFeatureControlFactory=FormFeatureControlFactory? &
 		//
-		//viewerContentProvider=ViewerContentProvider? & views=ViewsSpecification?) "}"
+		//viewerContentProvider=ViewerContentProvider? & ("parts" "{" parts+=PartSpecification* "}")?) "}"
 		public Group getGroup() { return cGroup; }
 
 		//"module"
@@ -151,7 +155,7 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		//
 		//featuresProvider=FeaturesProvider? & formFeatureControlFactory=FormFeatureControlFactory? &
 		//
-		//viewerContentProvider=ViewerContentProvider? & views=ViewsSpecification?
+		//viewerContentProvider=ViewerContentProvider? & ("parts" "{" parts+=PartSpecification* "}")?
 		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
 
 		//labelProvider=LabelProvider?
@@ -184,11 +188,23 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		//ViewerContentProvider
 		public RuleCall getViewerContentProviderViewerContentProviderParserRuleCall_3_4_0() { return cViewerContentProviderViewerContentProviderParserRuleCall_3_4_0; }
 
-		//views=ViewsSpecification?
-		public Assignment getViewsAssignment_3_5() { return cViewsAssignment_3_5; }
+		//("parts" "{" parts+=PartSpecification* "}")?
+		public Group getGroup_3_5() { return cGroup_3_5; }
 
-		//ViewsSpecification
-		public RuleCall getViewsViewsSpecificationParserRuleCall_3_5_0() { return cViewsViewsSpecificationParserRuleCall_3_5_0; }
+		//"parts"
+		public Keyword getPartsKeyword_3_5_0() { return cPartsKeyword_3_5_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_3_5_1() { return cLeftCurlyBracketKeyword_3_5_1; }
+
+		//parts+=PartSpecification*
+		public Assignment getPartsAssignment_3_5_2() { return cPartsAssignment_3_5_2; }
+
+		//PartSpecification
+		public RuleCall getPartsPartSpecificationParserRuleCall_3_5_2_0() { return cPartsPartSpecificationParserRuleCall_3_5_2_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_3_5_3() { return cRightCurlyBracketKeyword_3_5_3; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
@@ -726,41 +742,17 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		public RuleCall getFormFeatureControlSpecificationParserRuleCall_2() { return cFormFeatureControlSpecificationParserRuleCall_2; }
 	}
 
-	public class ViewsSpecificationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ViewsSpecification");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cViewsSpecificationAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cViewpartsKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cViewsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cViewsViewSpecificationParserRuleCall_3_0 = (RuleCall)cViewsAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+	public class PartSpecificationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PartSpecification");
+		private final RuleCall cViewSpecificationParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		//ViewsSpecification:
+		//PartSpecification:
 		//
-		//	{ViewsSpecification} "viewparts" "{" views+=ViewSpecification* "}";
+		//	ViewSpecification;
 		public ParserRule getRule() { return rule; }
 
-		//{ViewsSpecification} "viewparts" "{" views+=ViewSpecification* "}"
-		public Group getGroup() { return cGroup; }
-
-		//{ViewsSpecification}
-		public Action getViewsSpecificationAction_0() { return cViewsSpecificationAction_0; }
-
-		//"viewparts"
-		public Keyword getViewpartsKeyword_1() { return cViewpartsKeyword_1; }
-
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
-
-		//views+=ViewSpecification*
-		public Assignment getViewsAssignment_3() { return cViewsAssignment_3; }
-
 		//ViewSpecification
-		public RuleCall getViewsViewSpecificationParserRuleCall_3_0() { return cViewsViewSpecificationParserRuleCall_3_0; }
-
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public RuleCall getViewSpecificationParserRuleCall() { return cViewSpecificationParserRuleCall; }
 	}
 
 	public class ViewSpecificationElements extends AbstractParserRuleElementFinder {
@@ -839,7 +831,7 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 	private FormFeatureControlSpecificationElements pFormFeatureControlSpecification;
 	private ViewerContentProviderElements pViewerContentProvider;
 	private EmfFeatureAccessElements pEmfFeatureAccess;
-	private ViewsSpecificationElements pViewsSpecification;
+	private PartSpecificationElements pPartSpecification;
 	private ViewSpecificationElements pViewSpecification;
 	
 	private final Grammar grammar;
@@ -919,9 +911,9 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 	//
 	//	propertyDescriptionProvider=PropertyDescriptionProvider? & featuresProvider=FeaturesProvider? &
 	//
-	//	formFeatureControlFactory=FormFeatureControlFactory? & viewerContentProvider=ViewerContentProvider? &
+	//	formFeatureControlFactory=FormFeatureControlFactory? & viewerContentProvider=ViewerContentProvider? & ("parts" "{"
 	//
-	//	views=ViewsSpecification?) "}";
+	//	parts+=PartSpecification* "}")?) "}";
 	public ModuleElements getModuleAccess() {
 		return (pModule != null) ? pModule : (pModule = new ModuleElements());
 	}
@@ -1050,15 +1042,15 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		return getEmfFeatureAccessAccess().getRule();
 	}
 
-	//ViewsSpecification:
+	//PartSpecification:
 	//
-	//	{ViewsSpecification} "viewparts" "{" views+=ViewSpecification* "}";
-	public ViewsSpecificationElements getViewsSpecificationAccess() {
-		return (pViewsSpecification != null) ? pViewsSpecification : (pViewsSpecification = new ViewsSpecificationElements());
+	//	ViewSpecification;
+	public PartSpecificationElements getPartSpecificationAccess() {
+		return (pPartSpecification != null) ? pPartSpecification : (pPartSpecification = new PartSpecificationElements());
 	}
 	
-	public ParserRule getViewsSpecificationRule() {
-		return getViewsSpecificationAccess().getRule();
+	public ParserRule getPartSpecificationRule() {
+		return getPartSpecificationAccess().getRule();
 	}
 
 	//ViewSpecification:

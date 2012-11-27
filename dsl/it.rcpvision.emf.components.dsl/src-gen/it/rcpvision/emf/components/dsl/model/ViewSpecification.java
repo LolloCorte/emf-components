@@ -2,8 +2,6 @@
  */
 package it.rcpvision.emf.components.dsl.model;
 
-import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.xtext.common.types.JvmTypeReference;
 
 /**
@@ -24,7 +22,7 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  * @model
  * @generated
  */
-public interface ViewSpecification extends EObject
+public interface ViewSpecification extends PartSpecification
 {
   /**
    * Returns the value of the '<em><b>Id</b></em>' attribute.

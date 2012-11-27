@@ -92,7 +92,7 @@ public class TestInputsWithErrors {
     _builder.append("module my.empty {");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("viewparts {");
+    _builder.append("parts {");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("viewpart my.view.part {");

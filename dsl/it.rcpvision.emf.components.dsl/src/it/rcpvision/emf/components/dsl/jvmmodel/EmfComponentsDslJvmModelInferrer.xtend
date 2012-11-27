@@ -2,32 +2,33 @@ package it.rcpvision.emf.components.dsl.jvmmodel
 
 import com.google.inject.Inject
 import it.rcpvision.emf.components.EmfComponentsGuiceModule
+import it.rcpvision.emf.components.binding.FormFeatureControlFactory
+import it.rcpvision.emf.components.dsl.model.FormFeatureControlSpecification
 import it.rcpvision.emf.components.dsl.model.Module
+import it.rcpvision.emf.components.dsl.model.PartSpecification
+import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider
 import it.rcpvision.emf.components.ui.provider.FeaturesProvider
 import it.rcpvision.emf.components.ui.provider.FeaturesProvider$EClassToEStructuralFeatureAsStringsMap
 import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider
 import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider
+import org.eclipse.core.databinding.DataBindingContext
+import org.eclipse.core.databinding.observable.value.IObservableValue
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EStructuralFeature
+import org.eclipse.swt.widgets.Control
 import org.eclipse.ui.plugin.AbstractUIPlugin
 import org.eclipse.xtext.common.types.JvmGenericType
+import org.eclipse.xtext.common.types.JvmOperation
+import org.eclipse.xtext.common.types.JvmVisibility
 import org.eclipse.xtext.common.types.TypesFactory
 import org.eclipse.xtext.common.types.util.TypeReferences
 import org.eclipse.xtext.naming.IQualifiedNameProvider
+import org.eclipse.xtext.xbase.XExpression
 import org.eclipse.xtext.xbase.XFeatureCall
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
-import it.rcpvision.emf.components.binding.FormFeatureControlFactory
-import org.eclipse.swt.widgets.Control
-import it.rcpvision.emf.components.dsl.model.FormFeatureControlSpecification
-import org.eclipse.xtext.common.types.JvmOperation
-import org.eclipse.xtext.xbase.XExpression
-import org.eclipse.core.databinding.DataBindingContext
-import org.eclipse.core.databinding.observable.value.IObservableValue
-import org.eclipse.xtext.common.types.JvmVisibility
-import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider
-import it.rcpvision.emf.components.dsl.model.ViewSpecification
+
 import static extension org.eclipse.xtext.EcoreUtil2.*
 
 /**
@@ -122,7 +123,7 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
    		element.fullyQualifiedName + ".ExecutableExtensionFactory"
    	}
 
-   	def executableExtensionFactoryQN(ViewSpecification element) {
+   	def executableExtensionFactoryQN(PartSpecification element) {
    		element.getContainerOfType(typeof(Module)).executableExtensionFactoryQN
    	}
 

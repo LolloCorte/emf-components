@@ -186,13 +186,13 @@ public interface ModelPackage extends EPackage
   int MODULE__VIEWER_CONTENT_PROVIDER = 5;
 
   /**
-   * The feature id for the '<em><b>Views</b></em>' containment reference.
+   * The feature id for the '<em><b>Parts</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODULE__VIEWS = 6;
+  int MODULE__PARTS = 6;
 
   /**
    * The number of structural features of the '<em>Module</em>' class.
@@ -565,32 +565,23 @@ public interface ModelPackage extends EPackage
   int VIEWER_CONTENT_PROVIDER_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.ViewsSpecificationImpl <em>Views Specification</em>}' class.
+   * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.PartSpecificationImpl <em>Part Specification</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see it.rcpvision.emf.components.dsl.model.impl.ViewsSpecificationImpl
-   * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getViewsSpecification()
+   * @see it.rcpvision.emf.components.dsl.model.impl.PartSpecificationImpl
+   * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getPartSpecification()
    * @generated
    */
-  int VIEWS_SPECIFICATION = 13;
+  int PART_SPECIFICATION = 13;
 
   /**
-   * The feature id for the '<em><b>Views</b></em>' containment reference list.
+   * The number of structural features of the '<em>Part Specification</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VIEWS_SPECIFICATION__VIEWS = 0;
-
-  /**
-   * The number of structural features of the '<em>Views Specification</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VIEWS_SPECIFICATION_FEATURE_COUNT = 1;
+  int PART_SPECIFICATION_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.ViewSpecificationImpl <em>View Specification</em>}' class.
@@ -609,7 +600,7 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VIEW_SPECIFICATION__ID = 0;
+  int VIEW_SPECIFICATION__ID = PART_SPECIFICATION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>View Name</b></em>' attribute.
@@ -618,7 +609,7 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VIEW_SPECIFICATION__VIEW_NAME = 1;
+  int VIEW_SPECIFICATION__VIEW_NAME = PART_SPECIFICATION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -627,7 +618,7 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VIEW_SPECIFICATION__TYPE = 2;
+  int VIEW_SPECIFICATION__TYPE = PART_SPECIFICATION_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>View Specification</em>' class.
@@ -636,7 +627,7 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VIEW_SPECIFICATION_FEATURE_COUNT = 3;
+  int VIEW_SPECIFICATION_FEATURE_COUNT = PART_SPECIFICATION_FEATURE_COUNT + 3;
 
 
   /**
@@ -769,15 +760,15 @@ public interface ModelPackage extends EPackage
   EReference getModule_ViewerContentProvider();
 
   /**
-   * Returns the meta object for the containment reference '{@link it.rcpvision.emf.components.dsl.model.Module#getViews <em>Views</em>}'.
+   * Returns the meta object for the containment reference list '{@link it.rcpvision.emf.components.dsl.model.Module#getParts <em>Parts</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Views</em>'.
-   * @see it.rcpvision.emf.components.dsl.model.Module#getViews()
+   * @return the meta object for the containment reference list '<em>Parts</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.Module#getParts()
    * @see #getModule()
    * @generated
    */
-  EReference getModule_Views();
+  EReference getModule_Parts();
 
   /**
    * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.LabelProvider <em>Label Provider</em>}'.
@@ -1056,25 +1047,14 @@ public interface ModelPackage extends EPackage
   EReference getEmfFeatureAccess_ParameterType();
 
   /**
-   * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.ViewsSpecification <em>Views Specification</em>}'.
+   * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.PartSpecification <em>Part Specification</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Views Specification</em>'.
-   * @see it.rcpvision.emf.components.dsl.model.ViewsSpecification
+   * @return the meta object for class '<em>Part Specification</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.PartSpecification
    * @generated
    */
-  EClass getViewsSpecification();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link it.rcpvision.emf.components.dsl.model.ViewsSpecification#getViews <em>Views</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Views</em>'.
-   * @see it.rcpvision.emf.components.dsl.model.ViewsSpecification#getViews()
-   * @see #getViewsSpecification()
-   * @generated
-   */
-  EReference getViewsSpecification_Views();
+  EClass getPartSpecification();
 
   /**
    * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.ViewSpecification <em>View Specification</em>}'.
@@ -1245,12 +1225,12 @@ public interface ModelPackage extends EPackage
     EReference MODULE__VIEWER_CONTENT_PROVIDER = eINSTANCE.getModule_ViewerContentProvider();
 
     /**
-     * The meta object literal for the '<em><b>Views</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Parts</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODULE__VIEWS = eINSTANCE.getModule_Views();
+    EReference MODULE__PARTS = eINSTANCE.getModule_Parts();
 
     /**
      * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.LabelProviderImpl <em>Label Provider</em>}' class.
@@ -1481,22 +1461,14 @@ public interface ModelPackage extends EPackage
     EReference EMF_FEATURE_ACCESS__PARAMETER_TYPE = eINSTANCE.getEmfFeatureAccess_ParameterType();
 
     /**
-     * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.ViewsSpecificationImpl <em>Views Specification</em>}' class.
+     * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.PartSpecificationImpl <em>Part Specification</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see it.rcpvision.emf.components.dsl.model.impl.ViewsSpecificationImpl
-     * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getViewsSpecification()
+     * @see it.rcpvision.emf.components.dsl.model.impl.PartSpecificationImpl
+     * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getPartSpecification()
      * @generated
      */
-    EClass VIEWS_SPECIFICATION = eINSTANCE.getViewsSpecification();
-
-    /**
-     * The meta object literal for the '<em><b>Views</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference VIEWS_SPECIFICATION__VIEWS = eINSTANCE.getViewsSpecification_Views();
+    EClass PART_SPECIFICATION = eINSTANCE.getPartSpecification();
 
     /**
      * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.ViewSpecificationImpl <em>View Specification</em>}' class.

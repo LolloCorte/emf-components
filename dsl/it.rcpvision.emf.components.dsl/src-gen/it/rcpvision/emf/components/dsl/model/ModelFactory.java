@@ -140,13 +140,13 @@ public interface ModelFactory extends EFactory
   EmfFeatureAccess createEmfFeatureAccess();
 
   /**
-   * Returns a new object of class '<em>Views Specification</em>'.
+   * Returns a new object of class '<em>Part Specification</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Views Specification</em>'.
+   * @return a new object of class '<em>Part Specification</em>'.
    * @generated
    */
-  ViewsSpecification createViewsSpecification();
+  PartSpecification createPartSpecification();
 
   /**
    * Returns a new object of class '<em>View Specification</em>'.
