@@ -93,9 +93,9 @@ public class EmfComponentsDslAbstractTests {
     return _module;
   }
   
-  public void assertEqualsStrings(final Object o1, final Object o2) {
-    String _plus = ("" + o1);
-    String _plus_1 = ("" + o2);
+  public void assertEqualsStrings(final Object expected, final Object actual) {
+    String _plus = ("" + expected);
+    String _plus_1 = ("" + actual);
     Assert.assertEquals(_plus, _plus_1);
   }
   

@@ -1,13 +1,17 @@
 package it.rcpvision.emf.components.dsl.generator;
 
 import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
+import it.rcpvision.emf.components.dsl.generator.EmfComponentsDslOutputConfigurationProvider;
 import it.rcpvision.emf.components.dsl.jvmmodel.EmfComponentsDslJvmModelInferrer;
 import it.rcpvision.emf.components.dsl.model.Module;
 import it.rcpvision.emf.components.dsl.model.ViewSpecification;
 import it.rcpvision.emf.components.dsl.model.ViewsSpecification;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.common.types.JvmTypeReference;
@@ -15,6 +19,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
 
 @SuppressWarnings("all")
@@ -22,9 +27,16 @@ public class EmfComponentsDslPluginXmlGenerator implements IGenerator {
   @Inject
   private EmfComponentsDslJvmModelInferrer inferrer;
   
-  public void doGenerate(final Resource input, final IFileSystemAccess fsa) {
-    UnsupportedOperationException _unsupportedOperationException = new UnsupportedOperationException("Auto-generated function stub");
-    throw _unsupportedOperationException;
+  public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
+    TreeIterator<EObject> _allContents = resource.getAllContents();
+    Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_allContents);
+    Iterable<Module> _filter = Iterables.<Module>filter(_iterable, Module.class);
+    for (final Module module : _filter) {
+      CharSequence _generatePluginXml = this.generatePluginXml(module);
+      fsa.generateFile(
+        EmfComponentsDslOutputConfigurationProvider.PLUGIN_XML_EMFCOMPONENTS_GEN, 
+        EmfComponentsDslOutputConfigurationProvider.PROJECT_ROOT_OUTPUT, _generatePluginXml);
+    }
   }
   
   public CharSequence generatePluginXml(final Module module) {

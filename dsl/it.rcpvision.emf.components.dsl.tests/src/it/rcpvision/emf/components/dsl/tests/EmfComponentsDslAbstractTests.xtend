@@ -11,9 +11,9 @@ import org.eclipse.xtext.junit4.XtextRunner
 import org.eclipse.xtext.junit4.util.ParseHelper
 import org.eclipse.xtext.junit4.validation.ValidationTestHelper
 import org.junit.runner.RunWith
+import org.junit.BeforeClass
 
 import static extension org.junit.Assert.*
-import org.junit.BeforeClass
 
 @RunWith(typeof(XtextRunner))
 @InjectWith(typeof(EmfComponentsDslInjectorProvider))
@@ -57,8 +57,8 @@ class EmfComponentsDslAbstractTests {
 		s.parseAndAssertNoError.module
 	}
 	
-	def assertEqualsStrings(Object o1, Object o2) {
-		assertEquals("" + o1, "" + o2)
+	def assertEqualsStrings(Object expected, Object actual) {
+		assertEquals("" + expected, "" + actual)
 	}
 
 	def viewSpecification(CharSequence s) {
