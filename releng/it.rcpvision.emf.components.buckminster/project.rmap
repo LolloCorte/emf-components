@@ -54,9 +54,28 @@
 				<bc:propertyRef key="buckminster.component" />
 			</rm:uri>
 		</rm:provider>
+		<rm:provider componentTypes="osgi.bundle,eclipse.feature"
+			readerType="p2" source="false">
+			<rm:property key="buckminster.source" value="false" />
+			<rm:uri format="file:/{0}/../../devtools/xdoc/site">
+				<bc:replace pattern="\\" quotePattern="false" replacement="/">
+					<bc:propertyRef
+						key="project_loc:it.rcpvision.emf.components.buckminster" />
+				</bc:replace>
+			</rm:uri>
+		</rm:provider>
+		<rm:provider componentTypes="osgi.bundle,eclipse.feature"
+			readerType="p2" source="false">
+			<rm:property key="buckminster.source" value="false" />
+			<rm:uri format="file:{0}/devtools/xdoc/site">
+				<bc:propertyRef key="projects.location" />
+			</rm:uri>
+		</rm:provider>
 	</rm:searchPath>
 
 	<rm:locator pattern="^it\.rcpvision\.emf\.components(?:\..+)?$"
+		searchPathRef="emfcomponents" />
+	<rm:locator pattern="^org\.eclipse\.xtext\.xdoc(?:\..+)?$"
 		searchPathRef="emfcomponents" />
 
 </rm:rmap>

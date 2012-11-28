@@ -14,6 +14,8 @@
 
 	<rm:redirect pattern="it.rcpvision.emf.components.buckminster"
 		href="project.rmap" />
+	<rm:redirect pattern="^org\.eclipse\.xtext\.xdoc(?:\..+)?$"
+		href="project.rmap" />
 
 	<rm:locator
 		pattern="^org\.eclipse\.(?:xtext|xpand|xtend|xtend2|emf\.mwe|emf\.mwe2)(?:\..+)?$"
