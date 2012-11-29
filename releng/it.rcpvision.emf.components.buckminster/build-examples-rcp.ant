@@ -18,19 +18,20 @@
 <project name="Buckminster Headless" default="buckminster">
 	<import file="common.ant" as="common" />
 
+	<property name="products.commands.file" location="${projects.location}/releng/it.rcpvision.emf.components.buckminster/headless-perform-examples-rcp.txt" />
+	
 	<target name="buckminster" depends="common.cleanup" description="description">
 
 		<fail unless="buckminster.home" message="buckminster.home must be specified." />
-
-		<property name="perform.commands.file" location="${projects.location}/releng/it.rcpvision.emf.components.buckminster/headless-perform-commands.txt" />
 
 		<echo message="IMPORTANT: Populating an empty target platform may took over 10 minutes." />
 		<echo message="eclipse.download: ${eclipse.download}" />
 
 		<run_buckminster commandsfile="${resolve.commands.file}" />
-		<run_buckminster commandsfile="${perform.commands.file}" />
+		<run_buckminster commandsfile="${products.commands.file}" />
 
 		<echo message=" " />
-		<echo message="Updatesite output in: ${build.root}/buckminster.output/it.rcpvision.emf.components.site_*-eclipse.feature/site.p2/" />
+		<echo message="Updatesite output in: ${build.root}/buckminster.output/it.rcpvision.emf.components.examples.mail.product.site_*-eclipse.feature/site.p2/" />
+		<echo message="Products output in: ${build.root}/buckminster.output/it.rcpvision.emf.components.examples.mail.product.site_*-eclipse.feature/EmfComponentsMail.OS.WS.ARCH/" />
 	</target>
 </project>
