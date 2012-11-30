@@ -21,7 +21,7 @@ import com.google.inject.Inject;
  * @author Lorenzo Bettini
  * 
  */
-public class OnSelectionFormView extends OnSelectionAbstractView {
+public class OnSelectionFormView extends AbstractOnSelectionView {
 
 	@Inject
 	protected FormFactory formFactory;

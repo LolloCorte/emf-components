@@ -25,7 +25,7 @@ import com.google.inject.Inject;
  * @author Lorenzo Bettini
  * 
  */
-public abstract class OnSelectionStructuredViewerAbstractView extends OnSelectionAbstractView {
+public abstract class OnSelectionStructuredViewerAbstractView extends AbstractOnSelectionView {
 
 	private PageBook pagebook;
 

@@ -32,7 +32,7 @@ import com.google.inject.Inject;
  * @author Lorenzo Bettini
  * 
  */
-public class OnSelectionShowAllTableView extends OnSelectionAbstractView {
+public class OnSelectionShowAllTableView extends AbstractOnSelectionView {
 
 	@Inject
 	protected ViewerFactory viewerFactory;

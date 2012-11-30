@@ -27,7 +27,7 @@ import com.google.inject.Inject;
  * 
  */
 public abstract class AbstractOnSelectionTableView extends
-		OnSelectionAbstractView {
+		AbstractOnSelectionView {
 
 	@Inject
 	protected ViewerFactory viewerFactory;

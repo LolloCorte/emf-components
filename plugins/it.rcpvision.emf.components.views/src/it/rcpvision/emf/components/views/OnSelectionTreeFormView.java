@@ -10,7 +10,7 @@ import org.eclipse.ui.IWorkbenchPart;
 
 import com.google.inject.Inject;
 
-public class OnSelectionTreeFormView extends OnSelectionAbstractView {
+public class OnSelectionTreeFormView extends AbstractOnSelectionView {
 
 	@Inject
 	protected TreeFormFactory treeFormFactory;
