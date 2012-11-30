@@ -655,6 +655,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getViewSpecification_Category()
+  {
+    return (EAttribute)viewSpecificationEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ModelFactory getModelFactory()
   {
     return (ModelFactory)getEFactoryInstance();
@@ -738,6 +748,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     createEAttribute(viewSpecificationEClass, VIEW_SPECIFICATION__ID);
     createEAttribute(viewSpecificationEClass, VIEW_SPECIFICATION__VIEW_NAME);
     createEReference(viewSpecificationEClass, VIEW_SPECIFICATION__TYPE);
+    createEAttribute(viewSpecificationEClass, VIEW_SPECIFICATION__CATEGORY);
   }
 
   /**
@@ -837,6 +848,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     initEAttribute(getViewSpecification_Id(), ecorePackage.getEString(), "id", null, 0, 1, ViewSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getViewSpecification_ViewName(), ecorePackage.getEString(), "viewName", null, 0, 1, ViewSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getViewSpecification_Type(), theTypesPackage.getJvmTypeReference(), null, "type", null, 0, 1, ViewSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getViewSpecification_Category(), ecorePackage.getEString(), "category", null, 0, 1, ViewSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

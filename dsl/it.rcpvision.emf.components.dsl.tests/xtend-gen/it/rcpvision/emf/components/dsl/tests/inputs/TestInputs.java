@@ -423,6 +423,9 @@ public class TestInputs {
     _builder.append("\t\t\t");
     _builder.append("viewclass AbstractSaveableTreeFormView");
     _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("viewcategory my.view.category");
+    _builder.newLine();
     _builder.append("\t\t");
     _builder.append("}");
     _builder.newLine();

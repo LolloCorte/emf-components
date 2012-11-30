@@ -64,6 +64,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EmfComponentsDsl.ecore#//ViewSpecification/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EmfComponentsDsl.ecore#//ViewSpecification/viewName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//ViewSpecification/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EmfComponentsDsl.ecore#//ViewSpecification/category"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

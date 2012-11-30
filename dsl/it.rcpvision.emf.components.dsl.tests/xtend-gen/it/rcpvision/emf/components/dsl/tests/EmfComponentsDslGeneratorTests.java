@@ -1019,7 +1019,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.append("<view");
     _builder_1.newLine();
     _builder_1.append("\t          ");
-    _builder_1.append("category=\"it.rcpvision.emf.components\"");
+    _builder_1.append("category=\"my.view.category\"");
     _builder_1.newLine();
     _builder_1.append("\t          ");
     _builder_1.append("class=\"my.test.TestExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeFormView\"");

@@ -485,7 +485,7 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
 	          restorable="true">
 	    </view>
 	    <view
-	          category="it.rcpvision.emf.components"
+	          category="my.view.category"
 	          class="my.test.TestExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeFormView"
 	          id="my.view.form.part"
 	          name="My Tree Form View"

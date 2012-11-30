@@ -1347,9 +1347,31 @@ ruleViewSpecification returns [EObject current=null]
 	    }
 
 )
-)	otherlv_8='}' 
+)(	otherlv_8='viewcategory' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getViewSpecificationAccess().getRightCurlyBracketKeyword_8());
+    	newLeafNode(otherlv_8, grammarAccess.getViewSpecificationAccess().getViewcategoryKeyword_8_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getViewSpecificationAccess().getCategoryQualifiedNameParserRuleCall_8_1_0()); 
+	    }
+		lv_category_9_0=ruleQualifiedName		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getViewSpecificationRule());
+	        }
+       		set(
+       			$current, 
+       			"category",
+        		lv_category_9_0, 
+        		"QualifiedName");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?	otherlv_10='}' 
+    {
+    	newLeafNode(otherlv_10, grammarAccess.getViewSpecificationAccess().getRightCurlyBracketKeyword_9());
     }
 )
 ;

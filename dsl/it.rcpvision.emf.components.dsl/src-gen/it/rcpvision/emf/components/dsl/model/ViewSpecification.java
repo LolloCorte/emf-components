@@ -15,6 +15,7 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  *   <li>{@link it.rcpvision.emf.components.dsl.model.ViewSpecification#getId <em>Id</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.ViewSpecification#getViewName <em>View Name</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.ViewSpecification#getType <em>Type</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.ViewSpecification#getCategory <em>Category</em>}</li>
  * </ul>
  * </p>
  *
@@ -101,5 +102,31 @@ public interface ViewSpecification extends PartSpecification
    * @generated
    */
   void setType(JvmTypeReference value);
+
+  /**
+   * Returns the value of the '<em><b>Category</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Category</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Category</em>' attribute.
+   * @see #setCategory(String)
+   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getViewSpecification_Category()
+   * @model
+   * @generated
+   */
+  String getCategory();
+
+  /**
+   * Sets the value of the '{@link it.rcpvision.emf.components.dsl.model.ViewSpecification#getCategory <em>Category</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Category</em>' attribute.
+   * @see #getCategory()
+   * @generated
+   */
+  void setCategory(String value);
 
 } // ViewSpecification

@@ -1145,23 +1145,10 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (id=QualifiedName viewName=STRING type=JvmTypeReference)
+	 *     (id=QualifiedName viewName=STRING type=JvmTypeReference category=QualifiedName?)
 	 */
 	protected void sequence_ViewSpecification(EObject context, ViewSpecification semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.VIEW_SPECIFICATION__ID) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.VIEW_SPECIFICATION__ID));
-			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.VIEW_SPECIFICATION__VIEW_NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.VIEW_SPECIFICATION__VIEW_NAME));
-			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.VIEW_SPECIFICATION__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.VIEW_SPECIFICATION__TYPE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getViewSpecificationAccess().getIdQualifiedNameParserRuleCall_2_0(), semanticObject.getId());
-		feeder.accept(grammarAccess.getViewSpecificationAccess().getViewNameSTRINGTerminalRuleCall_5_0(), semanticObject.getViewName());
-		feeder.accept(grammarAccess.getViewSpecificationAccess().getTypeJvmTypeReferenceParserRuleCall_7_0(), semanticObject.getType());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

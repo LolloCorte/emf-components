@@ -621,13 +621,22 @@ public interface ModelPackage extends EPackage
   int VIEW_SPECIFICATION__TYPE = PART_SPECIFICATION_FEATURE_COUNT + 2;
 
   /**
+   * The feature id for the '<em><b>Category</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIEW_SPECIFICATION__CATEGORY = PART_SPECIFICATION_FEATURE_COUNT + 3;
+
+  /**
    * The number of structural features of the '<em>View Specification</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VIEW_SPECIFICATION_FEATURE_COUNT = PART_SPECIFICATION_FEATURE_COUNT + 3;
+  int VIEW_SPECIFICATION_FEATURE_COUNT = PART_SPECIFICATION_FEATURE_COUNT + 4;
 
 
   /**
@@ -1100,6 +1109,17 @@ public interface ModelPackage extends EPackage
   EReference getViewSpecification_Type();
 
   /**
+   * Returns the meta object for the attribute '{@link it.rcpvision.emf.components.dsl.model.ViewSpecification#getCategory <em>Category</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Category</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.ViewSpecification#getCategory()
+   * @see #getViewSpecification()
+   * @generated
+   */
+  EAttribute getViewSpecification_Category();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1503,6 +1523,14 @@ public interface ModelPackage extends EPackage
      * @generated
      */
     EReference VIEW_SPECIFICATION__TYPE = eINSTANCE.getViewSpecification_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Category</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VIEW_SPECIFICATION__CATEGORY = eINSTANCE.getViewSpecification_Category();
 
   }
 

@@ -194,6 +194,7 @@ module my.test {
 		viewpart my.view.form.part {
 			viewname "My Tree Form View"
 			viewclass AbstractSaveableTreeFormView
+			viewcategory my.view.category
 		}
 	}
 }

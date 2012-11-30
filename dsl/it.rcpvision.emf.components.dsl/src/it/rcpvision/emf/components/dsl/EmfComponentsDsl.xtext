@@ -131,5 +131,6 @@ ViewSpecification:
 	{ViewSpecification} 'viewpart' id=QualifiedName '{'
 		'viewname' viewName=STRING
 		'viewclass' type=JvmTypeReference
+		('viewcategory' category=QualifiedName)?
 	'}'
 ;

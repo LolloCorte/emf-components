@@ -43,13 +43,15 @@ class EmfComponentsDslPluginXmlGenerator implements IGenerator {
 
 	def dispatch generateExtensionPoint(ViewSpecification viewSpecification) {
 '''
-  <view
-        category="it.rcpvision.emf.components"
-        class="«inferrer.executableExtensionFactoryQN(viewSpecification)»:«viewSpecification.type.identifier»"
-        id="«viewSpecification.id»"
-        name="«viewSpecification.viewName»"
-        restorable="true">
-  </view>
+<view
+      category="«if (viewSpecification.category == null || viewSpecification.category.empty)
+  	"it.rcpvision.emf.components" else
+    viewSpecification.category»"
+      class="«inferrer.executableExtensionFactoryQN(viewSpecification)»:«viewSpecification.type.identifier»"
+      id="«viewSpecification.id»"
+      name="«viewSpecification.viewName»"
+      restorable="true">
+</view>
 '''
 	}
 

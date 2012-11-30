@@ -98,8 +98,27 @@ public class EmfComponentsDslPluginXmlGenerator implements IGenerator {
     _builder.append("<view");
     _builder.newLine();
     _builder.append("      ");
-    _builder.append("category=\"it.rcpvision.emf.components\"");
-    _builder.newLine();
+    _builder.append("category=\"");
+    String _xifexpression = null;
+    boolean _or = false;
+    String _category = viewSpecification.getCategory();
+    boolean _equals = Objects.equal(_category, null);
+    if (_equals) {
+      _or = true;
+    } else {
+      String _category_1 = viewSpecification.getCategory();
+      boolean _isEmpty = _category_1.isEmpty();
+      _or = (_equals || _isEmpty);
+    }
+    if (_or) {
+      _xifexpression = "it.rcpvision.emf.components";
+    } else {
+      String _category_2 = viewSpecification.getCategory();
+      _xifexpression = _category_2;
+    }
+    _builder.append(_xifexpression, "      ");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
     _builder.append("      ");
     _builder.append("class=\"");
     String _executableExtensionFactoryQN = this.inferrer.executableExtensionFactoryQN(viewSpecification);

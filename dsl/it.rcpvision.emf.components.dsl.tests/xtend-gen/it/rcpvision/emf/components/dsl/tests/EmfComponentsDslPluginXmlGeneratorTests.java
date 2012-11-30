@@ -164,7 +164,7 @@ public class EmfComponentsDslPluginXmlGeneratorTests extends EmfComponentsDslAbs
     _builder.append("<view");
     _builder.newLine();
     _builder.append("\t          ");
-    _builder.append("category=\"it.rcpvision.emf.components\"");
+    _builder.append("category=\"my.view.category\"");
     _builder.newLine();
     _builder.append("\t          ");
     _builder.append("class=\"my.test.TestExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeFormView\"");
@@ -230,7 +230,7 @@ public class EmfComponentsDslPluginXmlGeneratorTests extends EmfComponentsDslAbs
     _builder.append("<view");
     _builder.newLine();
     _builder.append("\t          ");
-    _builder.append("category=\"it.rcpvision.emf.components\"");
+    _builder.append("category=\"my.view.category\"");
     _builder.newLine();
     _builder.append("\t          ");
     _builder.append("class=\"my.test.TestExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeFormView\"");
