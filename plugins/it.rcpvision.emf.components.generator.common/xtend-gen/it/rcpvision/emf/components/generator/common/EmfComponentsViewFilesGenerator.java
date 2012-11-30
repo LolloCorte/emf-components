@@ -1,4 +1,4 @@
-package it.rcpvision.emf.components.wizards.gen;
+package it.rcpvision.emf.components.generator.common;
 
 import org.eclipse.xtend2.lib.StringConcatenation;
 

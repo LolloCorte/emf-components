@@ -4,9 +4,9 @@
 package it.rcpvision.emf.components.dsl.ui.wizard;
 
 import it.rcpvision.emf.components.dsl.generator.EmfComponentsDslOutputConfigurationProvider;
+import it.rcpvision.emf.components.generator.common.EmfComponentsProjectFilesGenerator;
 import it.rcpvision.emf.components.views.EmfComponentsViewsActivator;
 import it.rcpvision.emf.components.wizards.NewEmfComponentsProjectSupport;
-import it.rcpvision.emf.components.wizards.gen.EmfComponentsProjectFilesGenerator;
 
 import java.util.List;
 

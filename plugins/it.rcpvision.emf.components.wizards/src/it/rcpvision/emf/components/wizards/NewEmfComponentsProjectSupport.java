@@ -1,8 +1,8 @@
 package it.rcpvision.emf.components.wizards;
 
+import it.rcpvision.emf.components.generator.common.EmfComponentsProjectFilesGenerator;
+import it.rcpvision.emf.components.generator.common.EmfComponentsViewFilesGenerator;
 import it.rcpvision.emf.components.wizards.ChoiceTemplateEmfComponents.Choice;
-import it.rcpvision.emf.components.wizards.gen.EmfComponentsProjectFilesGenerator;
-import it.rcpvision.emf.components.wizards.gen.EmfComponentsViewFilesGenerator;
 
 import java.io.ByteArrayInputStream;
 import java.net.URI;
