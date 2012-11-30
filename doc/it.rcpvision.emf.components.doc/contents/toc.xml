@@ -1,29 +1,67 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <toc topic="contents/00-Main.html" label="Emf Components Guide" >
 	<topic href="contents/01-Introduction.html#Introduction" label="Introduction" >
-		<topic href="contents/01-Introduction.html#Links" label="References" >
+		<topic href="contents/01-Introduction.html#reflectiveComponents" label="Reflective Components" >
 		</topic>
-		<topic href="contents/01-Introduction.html#CodeSections" label="Code Sections" >
+		<topic href="contents/01-Introduction.html#easyToCustomize" label="Easy to Customize" >
 		</topic>
-		<topic href="contents/01-Introduction.html#Lists" label="Lists and Tables" >
-		</topic>
-		<topic href="contents/01-Introduction.html#Tables" label="Tables" >
-		</topic>
-		<topic href="contents/01-Introduction.html#TODO" label="TODO" >
-		</topic>
-		<topic href="contents/01-Introduction.html#Images" label="Images" >
+		<topic href="contents/01-Introduction.html#architecture" label="Architecture" >
 		</topic>
 	</topic>
 	<topic href="contents/02-GettingStarted.html#GettingStarted" label="Getting Started" >
+		<topic href="contents/02-GettingStarted.html#Installation" label="Installation" >
+		</topic>
+		<topic href="contents/02-GettingStarted.html#FirstExample" label="First Example" >
+		</topic>
+		<topic href="contents/02-GettingStarted.html#RCPMail" label="RCP Mail Example" >
+		</topic>
 	</topic>
-	<topic href="contents/05-Customization.html#Customization" label="Customization" >
-		<topic href="contents/05-Customization.html#ResourceManagers" label="Managing Resources" >
-			<topic href="contents/05-Customization.html#ResourceSaveValidation" label="Resource saving and validation" >
+	<topic href="contents/03-Components.html#Components" label="Components" >
+		<topic href="contents/03-Components.html#ResourceBased" label="Resource Based Components" >
+			<topic href="contents/03-Components.html#TableResourceView" label="Table Resource View" >
+			</topic>
+			<topic href="contents/03-Components.html#TreeResourceView" label="Tree Resource View" >
+			</topic>
+			<topic href="contents/03-Components.html#TreeFormResourceView" label="Tree Form Resource View" >
 			</topic>
 		</topic>
-		<topic href="contents/05-Customization.html#Providers" label="Providers" >
-			<topic href="contents/05-Customization.html#Providers_1" label="EClass' EStructuralFeatures" >
+		<topic href="contents/03-Components.html#SelectionChange" label="Selection Change Components" >
+			<topic href="contents/03-Components.html#AbstractOnSelectionTableView" label="On Selection Table View (Abstract)" >
+			</topic>
+			<topic href="contents/03-Components.html#OnSelectionFormView" label="On Selection Form View" >
+			</topic>
+			<topic href="contents/03-Components.html#OnSelectionListView" label="On Selection List View" >
+			</topic>
+			<topic href="contents/03-Components.html#OnSelectionTreeView" label="On Selection Tree View" >
+			</topic>
+			<topic href="contents/03-Components.html#OnSelectionTreeFormView" label="On Selection Tree Form View" >
 			</topic>
 		</topic>
+		<topic href="contents/03-Components.html#Editor" label="Editor component" >
+		</topic>
+	</topic>
+	<topic href="contents/04-Customization.html#Customization" label="Customization" >
+		<topic href="contents/04-Customization.html#ResourceManagers" label="Managing Resources" >
+			<topic href="contents/04-Customization.html#ResourceSaveValidation" label="Resource saving and validation" >
+			</topic>
+			<topic href="contents/04-Customization.html#EmptyResourceInitializer" label="Empty Resource Initializer" >
+			</topic>
+		</topic>
+		<topic href="contents/04-Customization.html#Providers" label="Providers" >
+			<topic href="contents/04-Customization.html#Providers_1" label="EClass' EStructuralFeatures" >
+			</topic>
+			<topic href="contents/04-Customization.html#FeaturesProvider" label="Features Provider" >
+			</topic>
+			<topic href="contents/04-Customization.html#FeaturesColumnProvider" label="Features Column Provider" >
+			</topic>
+			<topic href="contents/04-Customization.html#FormFeaturesLabelFactory" label="Form Features Label Factory" >
+			</topic>
+		</topic>
+	</topic>
+	<topic href="contents/05-DSL.html#DSL" label="EMF Components DSL" >
+		<topic href="contents/05-DSL.html#xbase" label="Xbase features" >
+		</topic>
+	</topic>
+	<topic href="contents/06-AdvancedComponents.html#AdvancedComponents" label="Advanced Components" >
 	</topic>
 </toc>

@@ -1,0 +1,28 @@
+chapter:Components[Components]
+
+section:ResourceBased[Resource Based Components]
+
+(...)fanno tutti capo a codeRef[it.rcpvision.emf.components.views.AbstractSaveableView]
+
+section2:TableResourceView[Table Resource View]
+
+section2:TreeResourceView[Tree Resource View]
+
+section2:TreeFormResourceView[Tree Form Resource View]
+
+section:SelectionChange[Selection Change Components]
+
+(...)fanno tutti capo a codeRef[it.rcpvision.emf.components.views.AbstractOnSelectionView]
+
+section2:AbstractOnSelectionTableView[On Selection Table View (Abstract)]
+
+section2:OnSelectionFormView[On Selection Form View]
+
+section2:OnSelectionListView[On Selection List View]
+
+section2:OnSelectionTreeView[On Selection Tree View]
+
+section2:OnSelectionTreeFormView[On Selection Tree Form View]
+
+section:Editor[Editor component]
+

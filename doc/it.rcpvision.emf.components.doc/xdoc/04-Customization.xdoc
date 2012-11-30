@@ -37,6 +37,8 @@ public class ValidateResourceSaveManager extends ResourceSaveManager {
 }
 ]
 
+section2:EmptyResourceInitializer[Empty Resource Initializer]
+
 section:Providers[Providers]
 
 section2[EClass' EStructuralFeatures]
@@ -136,3 +138,11 @@ public class LibraryEStructuralFeaturesAsStringsProvider extends
 	}
 }
 ]
+
+
+section2:FeaturesProvider[Features Provider]
+
+section2:FeaturesColumnProvider[Features Column Provider]
+
+section2:FormFeaturesLabelFactory[Form Features Label Factory]
+
