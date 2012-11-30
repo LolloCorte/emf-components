@@ -1001,7 +1001,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.append("category=\"it.rcpvision.emf.components\"");
     _builder_1.newLine();
     _builder_1.append("\t          ");
-    _builder_1.append("class=\"my.test.ExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeView\"");
+    _builder_1.append("class=\"my.test.TestExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeView\"");
     _builder_1.newLine();
     _builder_1.append("\t          ");
     _builder_1.append("id=\"my.view.tree.part\"");
@@ -1022,7 +1022,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.append("category=\"it.rcpvision.emf.components\"");
     _builder_1.newLine();
     _builder_1.append("\t          ");
-    _builder_1.append("class=\"my.test.ExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeFormView\"");
+    _builder_1.append("class=\"my.test.TestExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeFormView\"");
     _builder_1.newLine();
     _builder_1.append("\t          ");
     _builder_1.append("id=\"my.view.form.part\"");

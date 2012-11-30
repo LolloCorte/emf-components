@@ -34,7 +34,7 @@ class EmfComponentsDslPluginXmlGeneratorTests extends EmfComponentsDslAbstractTe
 '''
 <view
       category="it.rcpvision.emf.components"
-      class="my.test.ExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeView"
+      class="my.test.TestExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeView"
       id="my.view.part"
       name="My View"
       restorable="true">
@@ -62,7 +62,7 @@ class EmfComponentsDslPluginXmlGeneratorTests extends EmfComponentsDslAbstractTe
 	      point="org.eclipse.ui.views">
 	    <view
 	          category="it.rcpvision.emf.components"
-	          class="my.test.ExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeView"
+	          class="my.test.TestExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeView"
 	          id="my.view.part"
 	          name="My View"
 	          restorable="true">
@@ -84,14 +84,14 @@ class EmfComponentsDslPluginXmlGeneratorTests extends EmfComponentsDslAbstractTe
 	      point="org.eclipse.ui.views">
 	    <view
 	          category="it.rcpvision.emf.components"
-	          class="my.test.ExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeView"
+	          class="my.test.TestExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeView"
 	          id="my.view.tree.part"
 	          name="My Tree View"
 	          restorable="true">
 	    </view>
 	    <view
 	          category="it.rcpvision.emf.components"
-	          class="my.test.ExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeFormView"
+	          class="my.test.TestExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeFormView"
 	          id="my.view.form.part"
 	          name="My Tree Form View"
 	          restorable="true">
@@ -114,14 +114,14 @@ class EmfComponentsDslPluginXmlGeneratorTests extends EmfComponentsDslAbstractTe
 	      point="org.eclipse.ui.views">
 	    <view
 	          category="it.rcpvision.emf.components"
-	          class="my.test.ExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeView"
+	          class="my.test.TestExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeView"
 	          id="my.view.tree.part"
 	          name="My Tree View"
 	          restorable="true">
 	    </view>
 	    <view
 	          category="it.rcpvision.emf.components"
-	          class="my.test.ExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeFormView"
+	          class="my.test.TestExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeFormView"
 	          id="my.view.form.part"
 	          name="My Tree Form View"
 	          restorable="true">

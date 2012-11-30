@@ -50,7 +50,7 @@ public class EmfComponentsDslPluginXmlGeneratorTests extends EmfComponentsDslAbs
     _builder.append("category=\"it.rcpvision.emf.components\"");
     _builder.newLine();
     _builder.append("      ");
-    _builder.append("class=\"my.test.ExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeView\"");
+    _builder.append("class=\"my.test.TestExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeView\"");
     _builder.newLine();
     _builder.append("      ");
     _builder.append("id=\"my.view.part\"");
@@ -100,7 +100,7 @@ public class EmfComponentsDslPluginXmlGeneratorTests extends EmfComponentsDslAbs
     _builder.append("category=\"it.rcpvision.emf.components\"");
     _builder.newLine();
     _builder.append("\t          ");
-    _builder.append("class=\"my.test.ExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeView\"");
+    _builder.append("class=\"my.test.TestExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeView\"");
     _builder.newLine();
     _builder.append("\t          ");
     _builder.append("id=\"my.view.part\"");
@@ -146,7 +146,7 @@ public class EmfComponentsDslPluginXmlGeneratorTests extends EmfComponentsDslAbs
     _builder.append("category=\"it.rcpvision.emf.components\"");
     _builder.newLine();
     _builder.append("\t          ");
-    _builder.append("class=\"my.test.ExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeView\"");
+    _builder.append("class=\"my.test.TestExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeView\"");
     _builder.newLine();
     _builder.append("\t          ");
     _builder.append("id=\"my.view.tree.part\"");
@@ -167,7 +167,7 @@ public class EmfComponentsDslPluginXmlGeneratorTests extends EmfComponentsDslAbs
     _builder.append("category=\"it.rcpvision.emf.components\"");
     _builder.newLine();
     _builder.append("\t          ");
-    _builder.append("class=\"my.test.ExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeFormView\"");
+    _builder.append("class=\"my.test.TestExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeFormView\"");
     _builder.newLine();
     _builder.append("\t          ");
     _builder.append("id=\"my.view.form.part\"");
@@ -212,7 +212,7 @@ public class EmfComponentsDslPluginXmlGeneratorTests extends EmfComponentsDslAbs
     _builder.append("category=\"it.rcpvision.emf.components\"");
     _builder.newLine();
     _builder.append("\t          ");
-    _builder.append("class=\"my.test.ExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeView\"");
+    _builder.append("class=\"my.test.TestExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeView\"");
     _builder.newLine();
     _builder.append("\t          ");
     _builder.append("id=\"my.view.tree.part\"");
@@ -233,7 +233,7 @@ public class EmfComponentsDslPluginXmlGeneratorTests extends EmfComponentsDslAbs
     _builder.append("category=\"it.rcpvision.emf.components\"");
     _builder.newLine();
     _builder.append("\t          ");
-    _builder.append("class=\"my.test.ExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeFormView\"");
+    _builder.append("class=\"my.test.TestExecutableExtensionFactory:it.rcpvision.emf.components.views.AbstractSaveableTreeFormView\"");
     _builder.newLine();
     _builder.append("\t          ");
     _builder.append("id=\"my.view.form.part\"");

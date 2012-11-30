@@ -37,7 +37,7 @@ public class EmfComponentsDslJvmModelInferrerTests extends EmfComponentsDslAbstr
     CharSequence _emptyModule = this.inputs.emptyModule();
     Module _module = this.module(_emptyModule);
     String _executableExtensionFactoryQN = this.inferrer.executableExtensionFactoryQN(_module);
-    this.assertEqualsStrings("my.empty.ExecutableExtensionFactory", _executableExtensionFactoryQN);
+    this.assertEqualsStrings("my.empty.EmptyExecutableExtensionFactory", _executableExtensionFactoryQN);
   }
   
   @Test
@@ -45,7 +45,7 @@ public class EmfComponentsDslJvmModelInferrerTests extends EmfComponentsDslAbstr
     CharSequence _nonEmptyViewsSpecifications = this.inputs.nonEmptyViewsSpecifications();
     PartSpecification _partSpecification = this.partSpecification(_nonEmptyViewsSpecifications);
     String _executableExtensionFactoryQN = this.inferrer.executableExtensionFactoryQN(_partSpecification);
-    this.assertEqualsStrings("my.test.ExecutableExtensionFactory", _executableExtensionFactoryQN);
+    this.assertEqualsStrings("my.test.TestExecutableExtensionFactory", _executableExtensionFactoryQN);
   }
   
   @Test

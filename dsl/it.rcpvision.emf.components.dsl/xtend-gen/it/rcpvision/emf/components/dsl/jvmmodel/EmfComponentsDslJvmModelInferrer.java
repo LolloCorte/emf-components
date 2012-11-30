@@ -15,6 +15,7 @@ import it.rcpvision.emf.components.dsl.model.PartSpecification;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification;
 import it.rcpvision.emf.components.dsl.model.ViewerContentProvider;
+import it.rcpvision.emf.components.generator.common.EmfComponentsProjectFilesGenerator;
 import it.rcpvision.emf.components.ui.provider.FeaturesProvider.EClassToEStructuralFeatureAsStringsMap;
 import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 import java.util.Arrays;
@@ -82,6 +83,9 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
   
   @Inject
   private GeneratorUtils _generatorUtils;
+  
+  @Inject
+  private EmfComponentsProjectFilesGenerator projectFilesGenerator;
   
   /**
    * The dispatch method {@code infer} is called for each instance of the
@@ -200,8 +204,13 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
   
   public String executableExtensionFactoryQN(final Module element) {
     QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(element);
-    String _plus = (_fullyQualifiedName + ".ExecutableExtensionFactory");
-    return _plus;
+    String _string = _fullyQualifiedName.toString();
+    String _plus = (_string + ".");
+    QualifiedName _fullyQualifiedName_1 = this._iQualifiedNameProvider.getFullyQualifiedName(element);
+    String _string_1 = _fullyQualifiedName_1.toString();
+    CharSequence _extFactoryName = this.projectFilesGenerator.extFactoryName(_string_1);
+    String _plus_1 = (_plus + _extFactoryName);
+    return _plus_1;
   }
   
   public String executableExtensionFactoryQN(final PartSpecification element) {

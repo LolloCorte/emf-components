@@ -30,6 +30,7 @@ import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 
 import static extension org.eclipse.xtext.EcoreUtil2.*
+import it.rcpvision.emf.components.generator.common.EmfComponentsProjectFilesGenerator
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -51,6 +52,8 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 	@Inject extension TypesFactory
 	
 	@Inject extension GeneratorUtils
+	
+	@Inject EmfComponentsProjectFilesGenerator projectFilesGenerator
 
 	/**
 	 * The dispatch method {@code infer} is called for each instance of the
@@ -120,7 +123,8 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
    	}
 
    	def executableExtensionFactoryQN(Module element) {
-   		element.fullyQualifiedName + ".ExecutableExtensionFactory"
+   		element.fullyQualifiedName.toString + "." +
+   		projectFilesGenerator.extFactoryName(element.fullyQualifiedName.toString)
    	}
 
    	def executableExtensionFactoryQN(PartSpecification element) {
