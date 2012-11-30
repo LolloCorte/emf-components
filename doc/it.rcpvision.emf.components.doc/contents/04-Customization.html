@@ -12,8 +12,8 @@
 <h1>Customization</h1>
 <a name="ResourceManagers"></a>
 <h2>Managing Resources</h2>
-<a name="ResourceSaveValidation"></a>
-<h3>Resource saving and validation</h3>
+<a name="ResourceSaveManager"></a>
+<h3>Resource Save Manager</h3>
 <p>
 Resource saving is delegated to <abbr title="it.rcpvision.emf.components.edit.ResourceSaveManager" >ResourceSaveManager</abbr>
 which, by defaults only saves the passed <a class="jdoc" href="http://download.eclipse.org/modeling/emf/emf/javadoc/2.6.0/org/eclipse/emf/ecore/resource/Resource.html" title="View JavaDoc"><abbr title="org.eclipse.emf.ecore.resource.Resource" >Resource</abbr></a> <a class="srcLink" href="https://github.com/eclipse/emf/blob/R2_8_0/plugins/org.eclipse.emf.ecore/src/org/eclipse/emf/ecore/resource/Resource.java" title="View Source Code" >(src)</a>.
@@ -22,6 +22,8 @@ instance, you may want to validate the resource before saving, and in case the v
 fails to return <span class="inlinecode">false</span>.  If the precondition is <span class="inlinecode">false</span> the default implementation
 will not save the resource (and in turn will return <span class="inlinecode">false</span>).
 </p>
+<a name="ValidateResourceSaveManager"></a>
+<h4>Validate Resource Save Manager</h4>
 <p>
 We provide an example of custom resource save manager: <abbr title="it.rcpvision.emf.components.edit.ValidateResourceSaveManager" >ValidateResourceSaveManager</abbr>,
 we show here only relevant parts to give an example:
@@ -70,12 +72,23 @@ we show here only relevant parts to give an example:
 </div>
 </div>
 </p>
+<a name="EditingDomainFinder"></a>
+<h3>Editing Domain Finder</h3>
 <a name="EmptyResourceInitializer"></a>
 <h3>Empty Resource Initializer</h3>
+<a name="EditingDomainFactory"></a>
+<h3>Editing Domain Factory</h3>
+<p>
+Per la creazione dell&apos;editing domain
+</p>
+<a name="EditingDomainResourceLoader"></a>
+<h3>Editing Domain Resource Loader</h3>
+<a name="ResourceLoader"></a>
+<h3>Resource Loader</h3>
 <a name="Providers"></a>
 <h2>Providers</h2>
-<a name="Providers_1"></a>
-<h3>EClass' EStructuralFeatures</h3>
+<a name="FeaturesProvider"></a>
+<h3>Features Provider</h3>
 <p>
 When the framework builds components according to the
 <a class="jdoc" href="http://download.eclipse.org/modeling/emf/emf/javadoc/2.6.0/org/eclipse/emf/ecore/EStructuralFeature.html" title="View JavaDoc"><abbr title="org.eclipse.emf.ecore.EStructuralFeature" >EStructuralFeature</abbr></a> <a class="srcLink" href="https://github.com/eclipse/emf/blob/R2_8_0/plugins/org.eclipse.emf.ecore/src/org/eclipse/emf/ecore/EStructuralFeature.java" title="View Source Code" >(src)</a>s of a given
@@ -231,11 +244,43 @@ stringMap.mapTo(WRITER.getInstanceClassName(),&nbsp;<span class="string">"firstN
 </div>
 </div>
 </p>
-<a name="FeaturesProvider"></a>
-<h3>Features Provider</h3>
 <a name="FeaturesColumnProvider"></a>
 <h3>Features Column Provider</h3>
-<a name="FormFeaturesLabelFactory"></a>
-<h3>Form Features Label Factory</h3>
+<a name="FormPropertyDescriptionProvider"></a>
+<h3>Form Property Description Provider</h3>
+<a name="PropertyDescriptionProvider"></a>
+<h3>Property Description Provider</h3>
+<a name="TableColumnLabelProvider"></a>
+<h3>Table Column Label Provider</h3>
+<a name="ViewerLabelProvider"></a>
+<h3>Viewer Label Provider</h3>
+<a name="AdapterMapCellLabelProvider"></a>
+<h3>Adapter Map Cell Label Provider (?)</h3>
+<a name="ViewerContentProvider"></a>
+<h3>Viewer Content Provider</h3>
+<a name="Builders"></a>
+<h2>Builders</h2>
+<a name="TableViewerBuilder"></a>
+<h3>Table Viewer Builder</h3>
+<a name="TableViewerColumnBuilder"></a>
+<h3>Table Viewer Column Builder</h3>
+<a name="TableViewerEditableColumnBuilder"></a>
+<h4>Table Viewer Editable Column Builder</h4>
+<a name="Factories"></a>
+<h2>Factories</h2>
+<a name="EmfActionFactory"></a>
+<h3>Emf Action Factory</h3>
+<a name="FormFactory"></a>
+<h3>Form Factory</h3>
+<a name="JfaceProviderFactory"></a>
+<h3>Jface Provider Factory</h3>
+<a name="TreeFormFactory"></a>
+<h3>Tree Form Factory</h3>
+<a name="ViewerFactory"></a>
+<h3>Viewer Factory</h3>
+<a name="Viewers"></a>
+<h2>Viewers</h2>
+<a name="ViewerInitializer"></a>
+<h3>Viewer Initializer</h3>
 </body>
 </html>

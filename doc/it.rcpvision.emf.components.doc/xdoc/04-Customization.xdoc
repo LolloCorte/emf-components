@@ -2,7 +2,7 @@ chapter:Customization[Customization]
 
 section:ResourceManagers[Managing Resources]
 
-section2:ResourceSaveValidation[Resource saving and validation]
+section2:ResourceSaveManager[Resource Save Manager]
 
 Resource saving is delegated to codeRef[it.rcpvision.emf.components.edit.ResourceSaveManager]
 which, by defaults only saves the passed codeRef[org.eclipse.emf.ecore.resource.Resource].
@@ -10,6 +10,8 @@ You can inject your own save manager and implement the method code[precondition(
 instance, you may want to validate the resource before saving, and in case the validation
 fails to return code[false].  If the precondition is code[false] the default implementation
 will not save the resource (and in turn will return code[false]).
+
+section3:ValidateResourceSaveManager[Validate Resource Save Manager]
 
 We provide an example of custom resource save manager: codeRef[it.rcpvision.emf.components.edit.ValidateResourceSaveManager],
 we show here only relevant parts to give an example:
@@ -37,11 +39,22 @@ public class ValidateResourceSaveManager extends ResourceSaveManager {
 }
 ]
 
+section2:EditingDomainFinder[Editing Domain Finder]
+
 section2:EmptyResourceInitializer[Empty Resource Initializer]
+
+section2:EditingDomainFactory[Editing Domain Factory]
+
+Per la creazione dell'editing domain
+
+section2:EditingDomainResourceLoader[Editing Domain Resource Loader]
+
+section2:ResourceLoader[Resource Loader]
+
 
 section:Providers[Providers]
 
-section2[EClass' EStructuralFeatures]
+section2:FeaturesProvider[Features Provider]
 
 When the framework builds components according to the
 codeRef[org.eclipse.emf.ecore.EStructuralFeature]s of a given
@@ -140,9 +153,44 @@ public class LibraryEStructuralFeaturesAsStringsProvider extends
 ]
 
 
-section2:FeaturesProvider[Features Provider]
-
 section2:FeaturesColumnProvider[Features Column Provider]
 
-section2:FormFeaturesLabelFactory[Form Features Label Factory]
+section2:FormPropertyDescriptionProvider[Form Property Description Provider]
+
+section2:PropertyDescriptionProvider[Property Description Provider]
+
+section2:TableColumnLabelProvider[Table Column Label Provider]
+
+section2:ViewerLabelProvider[Viewer Label Provider]
+
+section2:AdapterMapCellLabelProvider[Adapter Map Cell Label Provider (?)]
+
+section2:ViewerContentProvider[Viewer Content Provider]
+
+section:Builders[Builders]
+
+section2:TableViewerBuilder[Table Viewer Builder]
+
+section2:TableViewerColumnBuilder[Table Viewer Column Builder]
+
+section3:TableViewerEditableColumnBuilder[Table Viewer Editable Column Builder]
+
+
+section:Factories[Factories]
+
+section2:EmfActionFactory[Emf Action Factory]
+
+section2:FormFactory[Form Factory]
+
+section2:JfaceProviderFactory[Jface Provider Factory]
+
+section2:TreeFormFactory[Tree Form Factory]
+
+section2:ViewerFactory[Viewer Factory]
+
+
+
+section:Viewers[Viewers]
+
+section2:ViewerInitializer[Viewer Initializer]
 
