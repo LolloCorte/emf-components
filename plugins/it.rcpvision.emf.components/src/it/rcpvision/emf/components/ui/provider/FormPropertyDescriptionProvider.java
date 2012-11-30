@@ -27,7 +27,7 @@ import com.google.inject.Inject;
  * @author Lorenzo Bettini
  * 
  */
-public class FormFeatureLabelFactory extends PropertyDescriptionProvider {
+public class FormPropertyDescriptionProvider extends PropertyDescriptionProvider {
 
 	@Inject
 	protected PropertyDescriptionProvider delegate;

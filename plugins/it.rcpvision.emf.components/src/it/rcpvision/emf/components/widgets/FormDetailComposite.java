@@ -3,7 +3,7 @@ package it.rcpvision.emf.components.widgets;
 import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
-import it.rcpvision.emf.components.ui.provider.FormFeatureLabelFactory;
+import it.rcpvision.emf.components.ui.provider.FormPropertyDescriptionProvider;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ import org.eclipse.ui.forms.widgets.ScrolledForm;
 
 public class FormDetailComposite extends Composite {
 
-	protected FormFeatureLabelFactory formFeatureLabelFactory;
+	protected FormPropertyDescriptionProvider formPropertyDescriptionProvider;
 
 	protected FormFeatureControlFactory formFeatureControlFactory;
 
@@ -37,13 +37,13 @@ public class FormDetailComposite extends Composite {
 	private final ScrolledForm scrolledForm;
 
 	public FormDetailComposite(Composite parent, int style,
-			FormFeatureLabelFactory formFeatureLabelFactory,
+			FormPropertyDescriptionProvider formPropertyDescriptionProvider,
 			FormFeatureControlFactory formFeatureControlFactory,
 			EditingDomainFinder editingDomainFinder,
 			ILabelProvider labelProvider,
 			FeaturesProvider eClassFeatureProvider) {
 		super(parent, style);
-		this.formFeatureLabelFactory = formFeatureLabelFactory;
+		this.formPropertyDescriptionProvider = formPropertyDescriptionProvider;
 		this.formFeatureControlFactory = formFeatureControlFactory;
 		this.editingDomainFinder = editingDomainFinder;
 		this.labelProvider = labelProvider;
@@ -62,7 +62,7 @@ public class FormDetailComposite extends Composite {
 		//toolkit.paintBordersFor(scrolledForm);
 		scrolledForm.getBody().setLayout(new GridLayout(2, false));
 
-		formFeatureLabelFactory.setFormToolkit(toolkit);
+		formPropertyDescriptionProvider.setFormToolkit(toolkit);
 
 		main = scrolledForm.getBody();
 	}
@@ -87,7 +87,7 @@ public class FormDetailComposite extends Composite {
 //							|| ((EReference) feature).isContainer()
 							))) {
 
-				formFeatureLabelFactory.getLabel(main, feature);
+				formPropertyDescriptionProvider.getLabel(main, feature);
 
 				formFeatureControlFactory.create(feature);
 			}
@@ -104,13 +104,13 @@ public class FormDetailComposite extends Composite {
 		toolkit.dispose();
 	}
 
-	public FormFeatureLabelFactory getFormFeatureLabelProvider() {
-		return formFeatureLabelFactory;
+	public FormPropertyDescriptionProvider getFormFeatureLabelProvider() {
+		return formPropertyDescriptionProvider;
 	}
 
 	public void setFormFeatureLabelProvider(
-			FormFeatureLabelFactory formFeatureLabelFactory) {
-		this.formFeatureLabelFactory = formFeatureLabelFactory;
+			FormPropertyDescriptionProvider formPropertyDescriptionProvider) {
+		this.formPropertyDescriptionProvider = formPropertyDescriptionProvider;
 	}
 
 	public FormFeatureControlFactory getEmfSwtBindingFactory() {

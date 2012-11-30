@@ -15,7 +15,7 @@ import it.rcpvision.emf.components.ui.provider.FeaturesColumnProvider;
 import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
-import it.rcpvision.emf.components.ui.provider.FormFeatureLabelFactory;
+import it.rcpvision.emf.components.ui.provider.FormPropertyDescriptionProvider;
 import it.rcpvision.emf.components.ui.provider.TableColumnLabelProvider;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -37,7 +37,7 @@ public class CustomLibraryModule extends
 	}
 
 	@Override
-	public Class<? extends FormFeatureLabelFactory> bindFormFeatureLabelFactory() {
+	public Class<? extends FormPropertyDescriptionProvider> bindFormPropertyDescriptionProvider() {
 		return CustomLibraryFormFeatureLabelProvider.class;
 	}
 

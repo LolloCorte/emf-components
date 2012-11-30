@@ -7,7 +7,7 @@ import it.rcpvision.emf.components.cdo.CDOEmfComponentsModule;
 import it.rcpvision.emf.components.cdo.CDOSessionManager;
 import it.rcpvision.emf.components.view.masterdetail.ViewConfigurator;
 import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
-import it.rcpvision.emf.components.ui.provider.FormFeatureLabelFactory;
+import it.rcpvision.emf.components.ui.provider.FormPropertyDescriptionProvider;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 

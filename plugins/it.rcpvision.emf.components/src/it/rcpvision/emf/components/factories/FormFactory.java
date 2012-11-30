@@ -6,7 +6,7 @@ package it.rcpvision.emf.components.factories;
 import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
-import it.rcpvision.emf.components.ui.provider.FormFeatureLabelFactory;
+import it.rcpvision.emf.components.ui.provider.FormPropertyDescriptionProvider;
 import it.rcpvision.emf.components.widgets.FormDetailComposite;
 
 import org.eclipse.swt.widgets.Composite;
@@ -21,7 +21,7 @@ import com.google.inject.Provider;
 public class FormFactory {
 
 	@Inject
-	protected Provider<FormFeatureLabelFactory> featureLabelProviderProvider;
+	protected Provider<FormPropertyDescriptionProvider> featureLabelProviderProvider;
 
 	@Inject
 	protected Provider<FormFeatureControlFactory> bindingFactoryProvider;
