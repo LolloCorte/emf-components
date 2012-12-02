@@ -64,8 +64,8 @@ the opened component query:
 
 img[images/open-cquery1.png][The properties tab][ ][width:90%]
 
-You can customize a property by clicking that property and press
-the e[Edit] button.
+You can add a property by pressing
+the e[New] button.
 
 The main properties you can customize is the main eclipse
 base repository, which defaults to link[http://download.eclipse.org][http://download.eclipse.org];
@@ -75,14 +75,14 @@ for details about mirror eclipse repositories).
 
 For instance, here's a possible customization
 
-img[images/open-cquery-edit-property.png][Property customization][ ][width:50%]
+img[images/open-cquery-new-property.png][Property customization][ ][width:50%]
 
 Similarly, you can customize the path in your system where
 the git repository will be cloned, which defaults to
 e[${user.home}/git/emf-components]); for instance, you can change it
 to something else
 
-img[images/open-cquery-edit-property1.png][Property customization][ ][width:50%]
+img[images/open-cquery-new-property1.png][Property customization][ ][width:50%]
 
 section2:StartMaterialization[Start Materialization]
 
