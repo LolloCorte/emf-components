@@ -16,6 +16,8 @@ codelanguage-def[Java]
 	float,native,super,while
 ]
 
+part[Documentation]
+
 chapter-ref[Introduction]
 
 chapter-ref[GettingStarted]
@@ -27,3 +29,7 @@ chapter-ref[Customization]
 chapter-ref[DSL]
 
 chapter-ref[AdvancedComponents]
+
+part[Appendix]
+
+chapter-ref[GettingSources]
