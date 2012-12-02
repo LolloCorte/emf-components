@@ -295,6 +295,38 @@ section2:ViewerFactory[Viewer Factory]
 
 codeRef[it.rcpvision.emf.components.factories.ViewerFactory]
 
+ul[
+	item[ref:TableViewerBuilder[TableViewerBuilder]
+	ul[
+		item[ref:TableViewerColumnBuilder[TableViewerColumnBuilder]
+		ul[
+			item[ref:JfaceProviderFactory[JfaceProviderFactory]]
+			item[ref:PropertyDescriptionProvider[PropertyDescriptionProvider]]
+			item[ref:FeaturesProvider[FeaturesProvider]]
+		]]
+	]]
+	item[ref:ViewerInitializer[ViewerInitializer]
+	ul[
+		item[ref:EditingDomainResourceLoader[EditingDomainResourceLoader]
+		ul[
+			item[ref:ResourceLoader[ResourceLoader]
+			ul[
+				item[ref:EmptyResourceInitializer[EmptyResourceInitializer]]
+			]]
+			item[ref:EmptyResourceInitializer[EmptyResourceInitializer]]
+			item[ref:FeaturesProvider[FeaturesProvider]]
+		]]
+		item[ref:EditingDomainFactory[EditingDomainFactory]]
+		item[ref:JfaceProviderFactory[JfaceProviderFactory]
+		ul[
+			item[ref:ViewerLabelProvider[ViewerLabelProvider]]
+			item[ref:TableColumnLabelProvider[TableColumnLabelProvider]]
+		]]	
+		item[ref:ViewerContextMenuFactory[ViewerContextMenuFactory]]
+		item[ref:ViewerContentProviderFactory[ViewerContentProviderFactory]]
+	]]
+]
+
 section2:ViewerContentProviderFactory[Viewer Content Provider Factory]
 
 codeRef[it.rcpvision.emf.components.factories.ViewerContentProviderFactory]
