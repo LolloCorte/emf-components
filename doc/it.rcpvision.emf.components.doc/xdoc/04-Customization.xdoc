@@ -41,16 +41,33 @@ public class ValidateResourceSaveManager extends ResourceSaveManager {
 
 section2:EditingDomainFinder[Editing Domain Finder]
 
+codeRef[it.rcpvision.emf.components.edit.EditingDomainFinder]
+
 section2:EmptyResourceInitializer[Empty Resource Initializer]
+
+codeRef[it.rcpvision.emf.components.resource.EmptyResourceInitializer]
 
 section2:EditingDomainFactory[Editing Domain Factory]
 
 Per la creazione dell'editing domain
+codeRef[it.rcpvision.emf.components.resource.EditingDomainFactory]
 
 section2:EditingDomainResourceLoader[Editing Domain Resource Loader]
 
+ul[
+	item[ref:ResourceLoader[ResourceLoader]
+	ul[
+		item[ref:EmptyResourceInitializer[EmptyResourceInitializer]]
+	]]
+	item[ref:EmptyResourceInitializer[EmptyResourceInitializer]]
+	item[ref:FeaturesProvider[FeaturesProvider]]
+]
+
 section2:ResourceLoader[Resource Loader]
 
+ul[
+	item[ref:EmptyResourceInitializer[EmptyResourceInitializer]]
+]
 
 section:Providers[Providers]
 
@@ -155,42 +172,159 @@ public class LibraryEStructuralFeaturesAsStringsProvider extends
 
 section2:FeaturesColumnProvider[Features Column Provider]
 
+codeRef[it.rcpvision.emf.components.ui.provider.FeaturesColumnProvider]
+
 section2:FormPropertyDescriptionProvider[Form Property Description Provider]
+
+codeRef[it.rcpvision.emf.components.ui.provider.FormPropertyDescriptionProvider]
+
+ul[
+	item[ref:PropertyDescriptionProvider[PropertyDescriptionProvider]]
+]
 
 section2:PropertyDescriptionProvider[Property Description Provider]
 
+codeRef[it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider]
+
 section2:TableColumnLabelProvider[Table Column Label Provider]
+
+codeRef[it.rcpvision.emf.components.ui.provider.TableColumnLabelProvider]
 
 section2:ViewerLabelProvider[Viewer Label Provider]
 
+codeRef[it.rcpvision.emf.components.ui.provider.ViewerLabelProvider]
+
 section2:AdapterMapCellLabelProvider[Adapter Map Cell Label Provider (?)]
 
+codeRef[it.rcpvision.emf.components.ui.provider.AdapterMapCellLabelProvider]
+
 section2:ViewerContentProvider[Viewer Content Provider]
+
+codeRef[it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider]
+
+section2:ViewerContextMenuFactory[Viewer Context Menu Factory]
+
+codeRef[it.rcpvision.emf.components.menus.ViewerContextMenuFactory]
+
+
+
+section:SelectionAndMenu[Selection And Menu]
+
+section2:EmfActionBarContributor[Emf Action Bar Contributor]
+
+codeRef[it.rcpvision.emf.components.editors.EmfActionBarContributor]
+
+section2:EmfSelectionHelper[Emf Selection Helper]
+
+codeRef[it.rcpvision.emf.components.util.EmfSelectionHelper]
+
 
 section:Builders[Builders]
 
 section2:TableViewerBuilder[Table Viewer Builder]
 
+codeRef[it.rcpvision.emf.components.builders.TableViewerBuilder]
+
+ul[
+	item[ref:TableViewerColumnBuilder[TableViewerColumnBuilder]]
+	item[ref:ViewerInitializer[ViewerInitializer]]
+]
+
 section2:TableViewerColumnBuilder[Table Viewer Column Builder]
 
+codeRef[it.rcpvision.emf.components.builders.TableViewerColumnBuilder]
+
+ul[
+	item[ref:JfaceProviderFactory[JfaceProviderFactory]]
+	item[ref:PropertyDescriptionProvider[PropertyDescriptionProvider]]
+	item[ref:FeaturesProvider[FeaturesProvider]]
+]
+
 section3:TableViewerEditableColumnBuilder[Table Viewer Editable Column Builder]
+
+codeRef[it.rcpvision.emf.components.builders.TableViewerEditableColumnBuilder]
+
 
 
 section:Factories[Factories]
 
 section2:EmfActionFactory[Emf Action Factory]
 
+codeRef[it.rcpvision.emf.components.factories.EmfActionFactory]
+
 section2:FormFactory[Form Factory]
+
+codeRef[it.rcpvision.emf.components.factories.FormFactory]
+
+ul[
+	item[ref:FormPropertyDescriptionProvider[FormPropertyDescriptionProvider]]
+	item[ref:FormFeatureControlFactory[FormFeatureControlFactory]]
+	item[ref:EditingDomainFinder[EditingDomainFinder]]
+	item[ref:JfaceProviderFactory[JfaceProviderFactory]]
+	item[ref:FeaturesProvider[FeaturesProvider]]
+]
 
 section2:JfaceProviderFactory[Jface Provider Factory]
 
+codeRef[it.rcpvision.emf.components.factories.JfaceProviderFactory]
+
+ul[
+	item[ref:ViewerLabelProvider[ViewerLabelProvider]]
+	item[ref:TableColumnLabelProvider[TableColumnLabelProvider]]
+]
+
+
+section2:FormFeatureControlFactory[Form Feature Control Factory]
+
+codeRef[it.rcpvision.emf.components.binding.FormFeatureControlFactory]
+
+ul[
+	item[ref:JfaceProviderFactory[JfaceProviderFactory]]
+]
+
 section2:TreeFormFactory[Tree Form Factory]
+
+codeRef[it.rcpvision.emf.components.factories.TreeFormFactory]
+
+ul[
+	item[ref:ViewerInitializer[ViewerInitializer]]
+	item[ref:FormFactory[FormFactory]]
+]
 
 section2:ViewerFactory[Viewer Factory]
 
+codeRef[it.rcpvision.emf.components.factories.ViewerFactory]
 
+section2:ViewerContentProviderFactory[Viewer Content Provider Factory]
+
+codeRef[it.rcpvision.emf.components.factories.ViewerContentProviderFactory]
+
+ul[
+	item[ref:ViewerContentProvider[ViewerContentProvider]]
+]
 
 section:Viewers[Viewers]
 
 section2:ViewerInitializer[Viewer Initializer]
 
+codeRef[it.rcpvision.emf.components.viewers.ViewerInitializer]
+
+ul[
+	item[ref:EditingDomainResourceLoader[EditingDomainResourceLoader]
+	ul[
+		item[ref:ResourceLoader[ResourceLoader]
+		ul[
+			item[ref:EmptyResourceInitializer[EmptyResourceInitializer]]
+		]]
+		item[ref:EmptyResourceInitializer[EmptyResourceInitializer]]
+		item[ref:FeaturesProvider[FeaturesProvider]]
+	]]
+	item[ref:EditingDomainFactory[EditingDomainFactory]]
+	item[ref:JfaceProviderFactory[JfaceProviderFactory]
+	ul[
+		item[ref:ViewerLabelProvider[ViewerLabelProvider]]
+		item[ref:TableColumnLabelProvider[TableColumnLabelProvider]]
+	]]	
+	item[ref:ViewerContextMenuFactory[ViewerContextMenuFactory]]
+	item[ref:ViewerContentProviderFactory[ViewerContentProviderFactory]]
+]

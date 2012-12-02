@@ -13,29 +13,552 @@
 <a name="ResourceBased"></a>
 <h2>Resource Based Components</h2>
 <p>
-(...)fanno tutti capo a <abbr title="it.rcpvision.emf.components.views.AbstractSaveableView" >AbstractSaveableView</abbr>
+These components are used to access and manipulate resource based models.
+Since all of them specialize the abstract class <abbr title="it.rcpvision.emf.components.views.AbstractSaveableView" >AbstractSaveableView</abbr>, 
+they are all customizable via the following common features:
+</p>
+<p>
+<ul>
+	<li>
+		<a href="04-Customization.html#EditingDomainFactory" title="Go to &quot;Editing Domain Factory&quot;">EditingDomainFactory</a>
+	</li>
+	<li>
+		<a href="04-Customization.html#EditingDomainResourceLoader" title="Go to &quot;Editing Domain Resource Loader&quot;">EditingDomainResourceLoader</a>
+			<ul>
+			<li>
+				<a href="04-Customization.html#ResourceLoader" title="Go to &quot;Resource Loader&quot;">ResourceLoader</a>
+						<ul>
+					<li>
+						<a href="04-Customization.html#EmptyResourceInitializer" title="Go to &quot;Empty Resource Initializer&quot;">EmptyResourceInitializer</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="04-Customization.html#EmptyResourceInitializer" title="Go to &quot;Empty Resource Initializer&quot;">EmptyResourceInitializer</a>
+			</li>
+			<li>
+				<a href="04-Customization.html#FeaturesProvider" title="Go to &quot;Features Provider&quot;">FeaturesProvider</a>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="04-Customization.html#ResourceSaveManager" title="Go to &quot;Resource Save Manager&quot;">ResourceSaveManager</a>
+	</li>
+	<li>
+		<a href="04-Customization.html#EmfActionBarContributor" title="Go to &quot;Emf Action Bar Contributor&quot;">EmfActionBarContributor</a>
+	</li>
+	<li>
+		<a href="04-Customization.html#ViewerInitializer" title="Go to &quot;Viewer Initializer&quot;">ViewerInitializer</a>
+				<ul>
+			<li>
+				<a href="04-Customization.html#EditingDomainResourceLoader" title="Go to &quot;Editing Domain Resource Loader&quot;">EditingDomainResourceLoader</a>
+						<ul>
+					<li>
+						<a href="04-Customization.html#ResourceLoader" title="Go to &quot;Resource Loader&quot;">ResourceLoader</a>
+									<ul>
+							<li>
+								<a href="04-Customization.html#EmptyResourceInitializer" title="Go to &quot;Empty Resource Initializer&quot;">EmptyResourceInitializer</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="04-Customization.html#EmptyResourceInitializer" title="Go to &quot;Empty Resource Initializer&quot;">EmptyResourceInitializer</a>
+					</li>
+					<li>
+						<a href="04-Customization.html#FeaturesProvider" title="Go to &quot;Features Provider&quot;">FeaturesProvider</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="04-Customization.html#EditingDomainFactory" title="Go to &quot;Editing Domain Factory&quot;">EditingDomainFactory</a>
+			</li>
+			<li>
+				<a href="04-Customization.html#JfaceProviderFactory" title="Go to &quot;Jface Provider Factory&quot;">JfaceProviderFactory</a>
+						<ul>
+					<li>
+						<a href="04-Customization.html#ViewerLabelProvider" title="Go to &quot;Viewer Label Provider&quot;">ViewerLabelProvider</a>
+					</li>
+					<li>
+						<a href="04-Customization.html#TableColumnLabelProvider" title="Go to &quot;Table Column Label Provider&quot;">TableColumnLabelProvider</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="04-Customization.html#ViewerContextMenuFactory" title="Go to &quot;Viewer Context Menu Factory&quot;">ViewerContextMenuFactory</a>
+			</li>
+			<li>
+				<a href="04-Customization.html#ViewerContentProviderFactory" title="Go to &quot;Viewer Content Provider Factory&quot;">ViewerContentProviderFactory</a>
+			</li>
+		</ul>
+	</li>
+</ul>
 </p>
 <a name="TableResourceView"></a>
 <h3>Table Resource View</h3>
+<p>
+The <em>Table Resource View</em> is implemented by <abbr title="it.rcpvision.emf.components.views.AbstractSaveableTableView" >AbstractSaveableTableView</abbr>
+class that is intended to be subclassed bu user. It aims to provide a ready-to-use view containing a table that visualizes homogeneous objects.
+</p>
+<p>
+The following code is an simple example of how it can be used to display a list of Book (based on ExtLibrary
+example). To use this view you must first implement the <span class="inlinecode">URI&nbsp;createResourceURI()</span> method to specify resource URI. 
+</p>
+<p>
+<div class="literallayout">
+<div class="incode">
+<p class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;@Override
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;URI&nbsp;createResourceURI()&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;URI.createPlatformResourceURI(
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EmfComponentsAbstractTests.MY_EXTLIBRARY_RELATIVE_PATH,&nbsp;true);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+
+<br/>
+</p>
+</div>
+</div>
+</p>
+<p>
+Therefore you have to implements <span class="inlinecode">EClass&nbsp;getEClass()</span> method to specify wich is the type to rapresent and <span class="inlinecode">Object&nbsp;getContents(Resource&nbsp;resource)</span>
+for the retrieve of the collection.
+</p>
+<p>
+<div class="literallayout">
+<div class="incode">
+<p class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;@Override
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;EClass&nbsp;getEClass()&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;EXTLibraryPackage.Literals.BOOK;
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>
+
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;@Override
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;Object&nbsp;getContents(Resource&nbsp;resource)&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Library&nbsp;library=(Library)&nbsp;resource.getContents().get(0);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;library.getBooks();
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>
+</p>
+</div>
+</div>
+</p>
+<p>
+Here a list of available customizations (see related links for examples):
+</p>
+<p>
+<ul>
+	<li>
+		<a href="04-Customization.html#TableViewerBuilder" title="Go to &quot;Table Viewer Builder&quot;">TableViewerBuilder</a>
+			<ul>
+			<li>
+				<a href="04-Customization.html#TableViewerColumnBuilder" title="Go to &quot;Table Viewer Column Builder&quot;">TableViewerColumnBuilder</a>
+						<ul>
+					<li>
+						<a href="04-Customization.html#JfaceProviderFactory" title="Go to &quot;Jface Provider Factory&quot;">JfaceProviderFactory</a>
+					</li>
+					<li>
+						<a href="04-Customization.html#PropertyDescriptionProvider" title="Go to &quot;Property Description Provider&quot;">PropertyDescriptionProvider</a>
+					</li>
+					<li>
+						<a href="04-Customization.html#FeaturesProvider" title="Go to &quot;Features Provider&quot;">FeaturesProvider</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="04-Customization.html#ViewerInitializer" title="Go to &quot;Viewer Initializer&quot;">ViewerInitializer</a>
+						<ul>
+					<li>
+						<a href="04-Customization.html#EditingDomainResourceLoader" title="Go to &quot;Editing Domain Resource Loader&quot;">EditingDomainResourceLoader</a>
+									<ul>
+							<li>
+								<a href="04-Customization.html#ResourceLoader" title="Go to &quot;Resource Loader&quot;">ResourceLoader</a>
+												<ul>
+									<li>
+										<a href="04-Customization.html#EmptyResourceInitializer" title="Go to &quot;Empty Resource Initializer&quot;">EmptyResourceInitializer</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="04-Customization.html#EmptyResourceInitializer" title="Go to &quot;Empty Resource Initializer&quot;">EmptyResourceInitializer</a>
+							</li>
+							<li>
+								<a href="04-Customization.html#FeaturesProvider" title="Go to &quot;Features Provider&quot;">FeaturesProvider</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="04-Customization.html#EditingDomainFactory" title="Go to &quot;Editing Domain Factory&quot;">EditingDomainFactory</a>
+					</li>
+					<li>
+						<a href="04-Customization.html#JfaceProviderFactory" title="Go to &quot;Jface Provider Factory&quot;">JfaceProviderFactory</a>
+									<ul>
+							<li>
+								<a href="04-Customization.html#ViewerLabelProvider" title="Go to &quot;Viewer Label Provider&quot;">ViewerLabelProvider</a>
+							</li>
+							<li>
+								<a href="04-Customization.html#TableColumnLabelProvider" title="Go to &quot;Table Column Label Provider&quot;">TableColumnLabelProvider</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="04-Customization.html#ViewerContextMenuFactory" title="Go to &quot;Viewer Context Menu Factory&quot;">ViewerContextMenuFactory</a>
+					</li>
+					<li>
+						<a href="04-Customization.html#ViewerContentProviderFactory" title="Go to &quot;Viewer Content Provider Factory&quot;">ViewerContentProviderFactory</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="04-Customization.html#EditingDomainResourceLoader" title="Go to &quot;Editing Domain Resource Loader&quot;">EditingDomainResourceLoader</a>
+			<ul>
+			<li>
+				<a href="04-Customization.html#ResourceLoader" title="Go to &quot;Resource Loader&quot;">ResourceLoader</a>
+						<ul>
+					<li>
+						<a href="04-Customization.html#EmptyResourceInitializer" title="Go to &quot;Empty Resource Initializer&quot;">EmptyResourceInitializer</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="04-Customization.html#EmptyResourceInitializer" title="Go to &quot;Empty Resource Initializer&quot;">EmptyResourceInitializer</a>
+			</li>
+			<li>
+				<a href="04-Customization.html#FeaturesProvider" title="Go to &quot;Features Provider&quot;">FeaturesProvider</a>
+			</li>
+		</ul>
+	</li>
+</ul>
+</p>
 <a name="TreeResourceView"></a>
 <h3>Tree Resource View</h3>
-<a name="TreeFormResourceView"></a>
+<p>
+The <em>Tree Resource View</em> is implemented by class <abbr title="it.rcpvision.emf.components.views.AbstractSaveableTreeView" >AbstractSaveableTreeView</abbr>,
+that is intented to be subclassed by user.
+</p>
+<p>
+The following code is an simple example of how it can be used to display a tree of Book (based on ExtLibrary
+example). To use this view you must first implement the <span class="inlinecode">URI&nbsp;createResourceURI()</span> method to specify resource URI. 
+</p>
+<p>
+<div class="literallayout">
+<div class="incode">
+<p class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;@Override
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;URI&nbsp;createResourceURI()&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;URI.createPlatformResourceURI(
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EmfComponentsAbstractTests.MY_EXTLIBRARY_RELATIVE_PATH,&nbsp;true);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>
+</p>
+</div>
+</div>
+</p>
+<p>
+Here a list of available customizations (see related links for examples):
+</p>
+<p>
+<ul>
+	<li>
+		<a href="04-Customization.html#ViewerInitializer" title="Go to &quot;Viewer Initializer&quot;">ViewerInitializer</a>
+				<ul>
+			<li>
+				<a href="04-Customization.html#EditingDomainResourceLoader" title="Go to &quot;Editing Domain Resource Loader&quot;">EditingDomainResourceLoader</a>
+							<ul>
+					<li>
+						<a href="04-Customization.html#ResourceLoader" title="Go to &quot;Resource Loader&quot;">ResourceLoader</a>
+										<ul>
+							<li>
+								<a href="04-Customization.html#EmptyResourceInitializer" title="Go to &quot;Empty Resource Initializer&quot;">EmptyResourceInitializer</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="04-Customization.html#EmptyResourceInitializer" title="Go to &quot;Empty Resource Initializer&quot;">EmptyResourceInitializer</a>
+					</li>
+					<li>
+						<a href="04-Customization.html#FeaturesProvider" title="Go to &quot;Features Provider&quot;">FeaturesProvider</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="04-Customization.html#EditingDomainFactory" title="Go to &quot;Editing Domain Factory&quot;">EditingDomainFactory</a>
+			</li>
+			<li>
+				<a href="04-Customization.html#JfaceProviderFactory" title="Go to &quot;Jface Provider Factory&quot;">JfaceProviderFactory</a>
+							<ul>
+					<li>
+						<a href="04-Customization.html#ViewerLabelProvider" title="Go to &quot;Viewer Label Provider&quot;">ViewerLabelProvider</a>
+					</li>
+					<li>
+						<a href="04-Customization.html#TableColumnLabelProvider" title="Go to &quot;Table Column Label Provider&quot;">TableColumnLabelProvider</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="04-Customization.html#ViewerContextMenuFactory" title="Go to &quot;Viewer Context Menu Factory&quot;">ViewerContextMenuFactory</a>
+			</li>
+			<li>
+				<a href="04-Customization.html#ViewerContentProviderFactory" title="Go to &quot;Viewer Content Provider Factory&quot;">ViewerContentProviderFactory</a>
+			</li>
+		</ul>
+	</li>
+</ul>
+</p>
+<a name="AbstractSaveableTreeFormView"></a>
 <h3>Tree Form Resource View</h3>
+<p>
+The <em>Tree Form Resource View</em> is implemented by class <abbr title="it.rcpvision.emf.components.views.AbstractSaveableTreeFormView" >AbstractSaveableTreeFormView</abbr>,
+that is inteded to be subclassed by user.
+As well as in the <em>Tree Resource View</em>, it can be used to display a tree but it adds a detail form for editing.
+</p>
+<p>
+The following code is an example based on ExtLibrary example, where you can see how to implement the <span class="inlinecode">URI&nbsp;createResourceURI()</span> method to specify resource URI. 
+</p>
+<p>
+<div class="literallayout">
+<div class="incode">
+<p class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;@Override
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;URI&nbsp;createResourceURI()&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;URI.createPlatformResourceURI(
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EmfComponentsAbstractTests.MY_EXTLIBRARY_RELATIVE_PATH,&nbsp;true);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>
+</p>
+</div>
+</div>
+</p>
+<p>
+Here a list of available customizations (see related links for examples):
+</p>
+<p>
+<ul>
+	<li>
+		<a href="04-Customization.html#TreeFormFactory" title="Go to &quot;Tree Form Factory&quot;">TreeFormFactory</a>
+			<ul>
+			<li>
+				<a href="04-Customization.html#ViewerInitializer" title="Go to &quot;Viewer Initializer&quot;">ViewerInitializer</a>
+						<ul>
+					<li>
+						<a href="04-Customization.html#EditingDomainResourceLoader" title="Go to &quot;Editing Domain Resource Loader&quot;">EditingDomainResourceLoader</a>
+									<ul>
+							<li>
+								<a href="04-Customization.html#ResourceLoader" title="Go to &quot;Resource Loader&quot;">ResourceLoader</a>
+												<ul>
+									<li>
+										<a href="04-Customization.html#EmptyResourceInitializer" title="Go to &quot;Empty Resource Initializer&quot;">EmptyResourceInitializer</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="04-Customization.html#EmptyResourceInitializer" title="Go to &quot;Empty Resource Initializer&quot;">EmptyResourceInitializer</a>
+							</li>
+							<li>
+								<a href="04-Customization.html#FeaturesProvider" title="Go to &quot;Features Provider&quot;">FeaturesProvider</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="04-Customization.html#EditingDomainFactory" title="Go to &quot;Editing Domain Factory&quot;">EditingDomainFactory</a>
+					</li>
+					<li>
+						<a href="04-Customization.html#JfaceProviderFactory" title="Go to &quot;Jface Provider Factory&quot;">JfaceProviderFactory</a>
+									<ul>
+							<li>
+								<a href="04-Customization.html#ViewerLabelProvider" title="Go to &quot;Viewer Label Provider&quot;">ViewerLabelProvider</a>
+							</li>
+							<li>
+								<a href="04-Customization.html#TableColumnLabelProvider" title="Go to &quot;Table Column Label Provider&quot;">TableColumnLabelProvider</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="04-Customization.html#ViewerContextMenuFactory" title="Go to &quot;Viewer Context Menu Factory&quot;">ViewerContextMenuFactory</a>
+					</li>
+					<li>
+						<a href="04-Customization.html#ViewerContentProviderFactory" title="Go to &quot;Viewer Content Provider Factory&quot;">ViewerContentProviderFactory</a>
+									<ul>
+							<li>
+								<a href="04-Customization.html#ViewerContentProvider" title="Go to &quot;Viewer Content Provider&quot;">ViewerContentProvider</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="04-Customization.html#FormFactory" title="Go to &quot;Form Factory&quot;">FormFactory</a>
+						<ul>
+					<li>
+						<a href="04-Customization.html#FormPropertyDescriptionProvider" title="Go to &quot;Form Property Description Provider&quot;">FormPropertyDescriptionProvider</a>
+									<ul>
+							<li>
+								<a href="04-Customization.html#PropertyDescriptionProvider" title="Go to &quot;Property Description Provider&quot;">PropertyDescriptionProvider</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="04-Customization.html#FormFeatureControlFactory" title="Go to &quot;Form Feature Control Factory&quot;">FormFeatureControlFactory</a>
+									<ul>
+							<li>
+								<a href="04-Customization.html#JfaceProviderFactory" title="Go to &quot;Jface Provider Factory&quot;">JfaceProviderFactory</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="04-Customization.html#EditingDomainFinder" title="Go to &quot;Editing Domain Finder&quot;">EditingDomainFinder</a>
+					</li>
+					<li>
+						<a href="04-Customization.html#JfaceProviderFactory" title="Go to &quot;Jface Provider Factory&quot;">JfaceProviderFactory</a>
+									<ul>
+							<li>
+								<a href="04-Customization.html#ViewerLabelProvider" title="Go to &quot;Viewer Label Provider&quot;">ViewerLabelProvider</a>
+							</li>
+							<li>
+								<a href="04-Customization.html#TableColumnLabelProvider" title="Go to &quot;Table Column Label Provider&quot;">TableColumnLabelProvider</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="04-Customization.html#FeaturesProvider" title="Go to &quot;Features Provider&quot;">FeaturesProvider</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
+</p>
 <a name="SelectionChange"></a>
 <h2>Selection Change Components</h2>
 <p>
 (...)fanno tutti capo a <abbr title="it.rcpvision.emf.components.views.AbstractOnSelectionView" >AbstractOnSelectionView</abbr>
 </p>
+<p>
+<ul>
+	<li>
+		<a href="04-Customization.html#EmfSelectionHelper" title="Go to &quot;Emf Selection Helper&quot;">EmfSelectionHelper</a>
+	</li>
+</ul>
+</p>
 <a name="AbstractOnSelectionTableView"></a>
 <h3>On Selection Table View (Abstract)</h3>
+<p>
+<abbr title="it.rcpvision.emf.components.views.AbstractOnSelectionTableView" >AbstractOnSelectionTableView</abbr>
+</p>
+<p>
+<ul>
+	<li>
+		<a href="04-Customization.html#ViewerFactory" title="Go to &quot;Viewer Factory&quot;">ViewerFactory</a>
+	</li>
+	<li>
+		<a href="04-Customization.html#ViewerInitializer" title="Go to &quot;Viewer Initializer&quot;">ViewerInitializer</a>
+				<ul>
+			<li>
+				<a href="04-Customization.html#EditingDomainResourceLoader" title="Go to &quot;Editing Domain Resource Loader&quot;">EditingDomainResourceLoader</a>
+						<ul>
+					<li>
+						<a href="04-Customization.html#ResourceLoader" title="Go to &quot;Resource Loader&quot;">ResourceLoader</a>
+									<ul>
+							<li>
+								<a href="04-Customization.html#EmptyResourceInitializer" title="Go to &quot;Empty Resource Initializer&quot;">EmptyResourceInitializer</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="04-Customization.html#EmptyResourceInitializer" title="Go to &quot;Empty Resource Initializer&quot;">EmptyResourceInitializer</a>
+					</li>
+					<li>
+						<a href="04-Customization.html#FeaturesProvider" title="Go to &quot;Features Provider&quot;">FeaturesProvider</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="04-Customization.html#EditingDomainFactory" title="Go to &quot;Editing Domain Factory&quot;">EditingDomainFactory</a>
+			</li>
+			<li>
+				<a href="04-Customization.html#JfaceProviderFactory" title="Go to &quot;Jface Provider Factory&quot;">JfaceProviderFactory</a>
+						<ul>
+					<li>
+						<a href="04-Customization.html#ViewerLabelProvider" title="Go to &quot;Viewer Label Provider&quot;">ViewerLabelProvider</a>
+					</li>
+					<li>
+						<a href="04-Customization.html#TableColumnLabelProvider" title="Go to &quot;Table Column Label Provider&quot;">TableColumnLabelProvider</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="04-Customization.html#ViewerContextMenuFactory" title="Go to &quot;Viewer Context Menu Factory&quot;">ViewerContextMenuFactory</a>
+			</li>
+			<li>
+				<a href="04-Customization.html#ViewerContentProviderFactory" title="Go to &quot;Viewer Content Provider Factory&quot;">ViewerContentProviderFactory</a>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="04-Customization.html#TableViewerBuilder" title="Go to &quot;Table Viewer Builder&quot;">TableViewerBuilder</a>
+	</li>
+	<li>
+		<a href="04-Customization.html#TableViewerColumnBuilder" title="Go to &quot;Table Viewer Column Builder&quot;">TableViewerColumnBuilder</a>
+	</li>
+	<li>
+		<a href="04-Customization.html#JfaceProviderFactory" title="Go to &quot;Jface Provider Factory&quot;">JfaceProviderFactory</a>
+	</li>
+	<li>
+		<a href="04-Customization.html#PropertyDescriptionProvider" title="Go to &quot;Property Description Provider&quot;">PropertyDescriptionProvider</a>
+	</li>
+	<li>
+		<a href="04-Customization.html#FeaturesProvider" title="Go to &quot;Features Provider&quot;">FeaturesProvider</a>
+	</li>
+</ul>
+</p>
 <a name="OnSelectionFormView"></a>
 <h3>On Selection Form View</h3>
+<p>
+<abbr title="it.rcpvision.emf.components.views.OnSelectionFormView" >OnSelectionFormView</abbr>
+</p>
 <a name="OnSelectionListView"></a>
 <h3>On Selection List View</h3>
+<p>
+<abbr title="it.rcpvision.emf.components.views.OnSelectionListView" >OnSelectionListView</abbr>
+</p>
 <a name="OnSelectionTreeView"></a>
 <h3>On Selection Tree View</h3>
+<p>
+<abbr title="it.rcpvision.emf.components.views.OnSelectionTreeView" >OnSelectionTreeView</abbr>
+</p>
 <a name="OnSelectionTreeFormView"></a>
 <h3>On Selection Tree Form View</h3>
+<p>
+<abbr title="it.rcpvision.emf.components.views.OnSelectionTreeFormView" >OnSelectionTreeFormView</abbr>
+</p>
 <a name="Editor"></a>
 <h2>Editor component</h2>
 </body>
