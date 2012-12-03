@@ -107,18 +107,11 @@ example). To use this view you must first implement the <span class="inlinecode"
 <div class="literallayout">
 <div class="incode">
 <p class="code">
-&nbsp;&nbsp;&nbsp;&nbsp;@Override
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;URI&nbsp;createResourceURI()&nbsp;{
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;URI.createPlatformResourceURI(
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EmfComponentsAbstractTests.MY_EXTLIBRARY_RELATIVE_PATH,&nbsp;true);
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;}
-<br/>
-
-<br/>
+@Override<br/>
+<span class="keyword">protected</span>&nbsp;URI&nbsp;createResourceURI()&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;URI.createPlatformResourceURI(<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EmfComponentsAbstractTests.MY_EXTLIBRARY_RELATIVE_PATH,&nbsp;true);<br/>
+}<br/>
 </p>
 </div>
 </div>
@@ -131,28 +124,16 @@ for the retrieve of the collection.
 <div class="literallayout">
 <div class="incode">
 <p class="code">
-&nbsp;&nbsp;&nbsp;&nbsp;@Override
+@Override<br/>
+<span class="keyword">protected</span>&nbsp;EClass&nbsp;getEClass()&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;EXTLibraryPackage.Literals.BOOK;<br/>
+}&nbsp;&nbsp;&nbsp;&nbsp;<br/>
 <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;EClass&nbsp;getEClass()&nbsp;{
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;EXTLibraryPackage.Literals.BOOK;
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;
-<br/>
-
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;@Override
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;Object&nbsp;getContents(Resource&nbsp;resource)&nbsp;{
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Library&nbsp;library=(Library)&nbsp;resource.getContents().get(0);
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;library.getBooks();
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;}
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;
-<br/>
+@Override<br/>
+<span class="keyword">protected</span>&nbsp;Object&nbsp;getContents(Resource&nbsp;resource)&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Library&nbsp;library=(Library)&nbsp;resource.getContents().get(0);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;library.getBooks();<br/>
+}<br/>
 </p>
 </div>
 </div>
@@ -260,18 +241,11 @@ example). To use this view you must first implement the <span class="inlinecode"
 <div class="literallayout">
 <div class="incode">
 <p class="code">
-&nbsp;&nbsp;&nbsp;&nbsp;@Override
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;URI&nbsp;createResourceURI()&nbsp;{
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;URI.createPlatformResourceURI(
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EmfComponentsAbstractTests.MY_EXTLIBRARY_RELATIVE_PATH,&nbsp;true);
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;}
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;
-<br/>
+@Override<br/>
+<span class="keyword">protected</span>&nbsp;URI&nbsp;createResourceURI()&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;URI.createPlatformResourceURI(<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EmfComponentsAbstractTests.MY_EXTLIBRARY_RELATIVE_PATH,&nbsp;true);<br/>
+}<br/>
 </p>
 </div>
 </div>
@@ -341,18 +315,11 @@ The following code is an example based on ExtLibrary example, where you can see 
 <div class="literallayout">
 <div class="incode">
 <p class="code">
-&nbsp;&nbsp;&nbsp;&nbsp;@Override
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;URI&nbsp;createResourceURI()&nbsp;{
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;URI.createPlatformResourceURI(
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EmfComponentsAbstractTests.MY_EXTLIBRARY_RELATIVE_PATH,&nbsp;true);
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;}
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;
-<br/>
+@Override<br/>
+<span class="keyword">protected</span>&nbsp;URI&nbsp;createResourceURI()&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;URI.createPlatformResourceURI(<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EmfComponentsAbstractTests.MY_EXTLIBRARY_RELATIVE_PATH,&nbsp;true);<br/>
+}<br/>
 </p>
 </div>
 </div>

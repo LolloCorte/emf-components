@@ -50,31 +50,27 @@ The following code is an simple example of how it can be used to display a list 
 example). To use this view you must first implement the code[URI createResourceURI()] method to specify resource URI. 
 
 code[Java][
-
-	@Override
-	protected URI createResourceURI() {
-		return URI.createPlatformResourceURI(
-				EmfComponentsAbstractTests.MY_EXTLIBRARY_RELATIVE_PATH, true);
-	}
-
+@Override
+protected URI createResourceURI() {
+	return URI.createPlatformResourceURI(
+			EmfComponentsAbstractTests.MY_EXTLIBRARY_RELATIVE_PATH, true);
+}
 ]
 
 Therefore you have to implements code[EClass getEClass()] method to specify wich is the type to rapresent and code[Object getContents(Resource resource)]
 for the retrieve of the collection.
 
 code[Java][
+@Override
+protected EClass getEClass() {
+	return EXTLibraryPackage.Literals.BOOK;
+}	
 
-	@Override
-	protected EClass getEClass() {
-		return EXTLibraryPackage.Literals.BOOK;
-	}	
-
-	@Override
-	protected Object getContents(Resource resource) {
-		Library library=(Library) resource.getContents().get(0);
-		return library.getBooks();
-	}
-	
+@Override
+protected Object getContents(Resource resource) {
+	Library library=(Library) resource.getContents().get(0);
+	return library.getBooks();
+}
 ]
 
 Here a list of available customizations (see related links for examples):
@@ -129,13 +125,11 @@ The following code is an simple example of how it can be used to display a tree 
 example). To use this view you must first implement the code[URI createResourceURI()] method to specify resource URI. 
 
 code[Java][
-	
-	@Override
-	protected URI createResourceURI() {
-		return URI.createPlatformResourceURI(
-				EmfComponentsAbstractTests.MY_EXTLIBRARY_RELATIVE_PATH, true);
-	}
-	
+@Override
+protected URI createResourceURI() {
+	return URI.createPlatformResourceURI(
+			EmfComponentsAbstractTests.MY_EXTLIBRARY_RELATIVE_PATH, true);
+}
 ]
 
 Here a list of available customizations (see related links for examples):
@@ -172,13 +166,11 @@ As well as in the e[Tree Resource View], it can be used to display a tree but it
 The following code is an example based on ExtLibrary example, where you can see how to implement the code[URI createResourceURI()] method to specify resource URI. 
 
 code[Java][
-	
-	@Override
-	protected URI createResourceURI() {
-		return URI.createPlatformResourceURI(
-				EmfComponentsAbstractTests.MY_EXTLIBRARY_RELATIVE_PATH, true);
-	}
-	
+@Override
+protected URI createResourceURI() {
+	return URI.createPlatformResourceURI(
+			EmfComponentsAbstractTests.MY_EXTLIBRARY_RELATIVE_PATH, true);
+}
 ]
 
 Here a list of available customizations (see related links for examples):
