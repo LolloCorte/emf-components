@@ -22,7 +22,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_HEX", "RULE_INT", "RULE_DECIMAL", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'import'", "'.*'", "'module'", "'{'", "'parts'", "'}'", "'labelProvider'", "'text'", "'image'", "'->'", "'propertyDescriptionProvider'", "':'", "'featuresProvider'", "'features'", "','", "'formFeatureControlFactory'", "'control'", "'target'", "'viewerContentProvider'", "'children'", "'viewpart'", "'viewname'", "'viewclass'", "'viewcategory'", "'='", "'+='", "'||'", "'&&'", "'=='", "'!='", "'instanceof'", "'>='", "'<='", "'>'", "'<'", "'..'", "'=>'", "'<>'", "'?:'", "'<=>'", "'+'", "'-'", "'*'", "'**'", "'/'", "'%'", "'!'", "'as'", "'.'", "'?.'", "'*.'", "'('", "')'", "'['", "'|'", "']'", "';'", "'if'", "'else'", "'switch'", "'default'", "'case'", "'for'", "'while'", "'do'", "'var'", "'val'", "'super'", "'::'", "'new'", "'false'", "'true'", "'null'", "'typeof'", "'throw'", "'return'", "'try'", "'finally'", "'catch'", "'?'", "'extends'", "'&'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_HEX", "RULE_INT", "RULE_DECIMAL", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'import'", "'.*'", "'module'", "'{'", "'parts'", "'}'", "'labelProvider'", "'text'", "'image'", "'->'", "'propertyDescriptionProvider'", "':'", "'featuresProvider'", "'features'", "','", "'formControlFactory'", "'control'", "'target'", "'viewerContentProvider'", "'children'", "'viewpart'", "'viewname'", "'viewclass'", "'viewcategory'", "'='", "'+='", "'||'", "'&&'", "'=='", "'!='", "'instanceof'", "'>='", "'<='", "'>'", "'<'", "'..'", "'=>'", "'<>'", "'?:'", "'<=>'", "'+'", "'-'", "'*'", "'**'", "'/'", "'%'", "'!'", "'as'", "'.'", "'?.'", "'*.'", "'('", "')'", "'['", "'|'", "']'", "';'", "'if'", "'else'", "'switch'", "'default'", "'case'", "'for'", "'while'", "'do'", "'var'", "'val'", "'super'", "'::'", "'new'", "'false'", "'true'", "'null'", "'typeof'", "'throw'", "'return'", "'try'", "'finally'", "'catch'", "'?'", "'extends'", "'&'"
     };
     public static final int RULE_ID=8;
     public static final int T__29=29;
@@ -610,7 +610,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
 
 
     // $ANTLR start "ruleModule"
-    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:214:1: ruleModule returns [EObject current=null] : (otherlv_0= 'module' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featuresProvider_6_0= ruleFeaturesProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_formFeatureControlFactory_7_0= ruleFormFeatureControlFactory ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_viewerContentProvider_8_0= ruleViewerContentProvider ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'parts' otherlv_10= '{' ( (lv_parts_11_0= rulePartSpecification ) )* otherlv_12= '}' ) ) ) ) )* ) ) ) otherlv_13= '}' ) ;
+    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:214:1: ruleModule returns [EObject current=null] : (otherlv_0= 'module' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featuresProvider_6_0= ruleFeaturesProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_formControlFactory_7_0= ruleFormControlFactory ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_viewerContentProvider_8_0= ruleViewerContentProvider ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'parts' otherlv_10= '{' ( (lv_parts_11_0= rulePartSpecification ) )* otherlv_12= '}' ) ) ) ) )* ) ) ) otherlv_13= '}' ) ;
     public final EObject ruleModule() throws RecognitionException {
         EObject current = null;
 
@@ -628,7 +628,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
 
         EObject lv_featuresProvider_6_0 = null;
 
-        EObject lv_formFeatureControlFactory_7_0 = null;
+        EObject lv_formControlFactory_7_0 = null;
 
         EObject lv_viewerContentProvider_8_0 = null;
 
@@ -638,11 +638,11 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
          enterRule(); 
             
         try {
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:217:28: ( (otherlv_0= 'module' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featuresProvider_6_0= ruleFeaturesProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_formFeatureControlFactory_7_0= ruleFormFeatureControlFactory ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_viewerContentProvider_8_0= ruleViewerContentProvider ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'parts' otherlv_10= '{' ( (lv_parts_11_0= rulePartSpecification ) )* otherlv_12= '}' ) ) ) ) )* ) ) ) otherlv_13= '}' ) )
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:218:1: (otherlv_0= 'module' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featuresProvider_6_0= ruleFeaturesProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_formFeatureControlFactory_7_0= ruleFormFeatureControlFactory ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_viewerContentProvider_8_0= ruleViewerContentProvider ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'parts' otherlv_10= '{' ( (lv_parts_11_0= rulePartSpecification ) )* otherlv_12= '}' ) ) ) ) )* ) ) ) otherlv_13= '}' )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:217:28: ( (otherlv_0= 'module' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featuresProvider_6_0= ruleFeaturesProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_formControlFactory_7_0= ruleFormControlFactory ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_viewerContentProvider_8_0= ruleViewerContentProvider ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'parts' otherlv_10= '{' ( (lv_parts_11_0= rulePartSpecification ) )* otherlv_12= '}' ) ) ) ) )* ) ) ) otherlv_13= '}' ) )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:218:1: (otherlv_0= 'module' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featuresProvider_6_0= ruleFeaturesProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_formControlFactory_7_0= ruleFormControlFactory ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_viewerContentProvider_8_0= ruleViewerContentProvider ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'parts' otherlv_10= '{' ( (lv_parts_11_0= rulePartSpecification ) )* otherlv_12= '}' ) ) ) ) )* ) ) ) otherlv_13= '}' )
             {
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:218:1: (otherlv_0= 'module' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featuresProvider_6_0= ruleFeaturesProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_formFeatureControlFactory_7_0= ruleFormFeatureControlFactory ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_viewerContentProvider_8_0= ruleViewerContentProvider ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'parts' otherlv_10= '{' ( (lv_parts_11_0= rulePartSpecification ) )* otherlv_12= '}' ) ) ) ) )* ) ) ) otherlv_13= '}' )
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:218:3: otherlv_0= 'module' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featuresProvider_6_0= ruleFeaturesProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_formFeatureControlFactory_7_0= ruleFormFeatureControlFactory ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_viewerContentProvider_8_0= ruleViewerContentProvider ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'parts' otherlv_10= '{' ( (lv_parts_11_0= rulePartSpecification ) )* otherlv_12= '}' ) ) ) ) )* ) ) ) otherlv_13= '}'
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:218:1: (otherlv_0= 'module' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featuresProvider_6_0= ruleFeaturesProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_formControlFactory_7_0= ruleFormControlFactory ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_viewerContentProvider_8_0= ruleViewerContentProvider ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'parts' otherlv_10= '{' ( (lv_parts_11_0= rulePartSpecification ) )* otherlv_12= '}' ) ) ) ) )* ) ) ) otherlv_13= '}' )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:218:3: otherlv_0= 'module' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featuresProvider_6_0= ruleFeaturesProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_formControlFactory_7_0= ruleFormControlFactory ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_viewerContentProvider_8_0= ruleViewerContentProvider ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'parts' otherlv_10= '{' ( (lv_parts_11_0= rulePartSpecification ) )* otherlv_12= '}' ) ) ) ) )* ) ) ) otherlv_13= '}'
             {
             otherlv_0=(Token)match(input,15,FOLLOW_15_in_ruleModule460); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -691,17 +691,17 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
                   	newLeafNode(otherlv_2, grammarAccess.getModuleAccess().getLeftCurlyBracketKeyword_2());
                   
             }
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:244:1: ( ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featuresProvider_6_0= ruleFeaturesProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_formFeatureControlFactory_7_0= ruleFormFeatureControlFactory ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_viewerContentProvider_8_0= ruleViewerContentProvider ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'parts' otherlv_10= '{' ( (lv_parts_11_0= rulePartSpecification ) )* otherlv_12= '}' ) ) ) ) )* ) ) )
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:246:1: ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featuresProvider_6_0= ruleFeaturesProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_formFeatureControlFactory_7_0= ruleFormFeatureControlFactory ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_viewerContentProvider_8_0= ruleViewerContentProvider ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'parts' otherlv_10= '{' ( (lv_parts_11_0= rulePartSpecification ) )* otherlv_12= '}' ) ) ) ) )* ) )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:244:1: ( ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featuresProvider_6_0= ruleFeaturesProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_formControlFactory_7_0= ruleFormControlFactory ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_viewerContentProvider_8_0= ruleViewerContentProvider ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'parts' otherlv_10= '{' ( (lv_parts_11_0= rulePartSpecification ) )* otherlv_12= '}' ) ) ) ) )* ) ) )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:246:1: ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featuresProvider_6_0= ruleFeaturesProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_formControlFactory_7_0= ruleFormControlFactory ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_viewerContentProvider_8_0= ruleViewerContentProvider ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'parts' otherlv_10= '{' ( (lv_parts_11_0= rulePartSpecification ) )* otherlv_12= '}' ) ) ) ) )* ) )
             {
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:246:1: ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featuresProvider_6_0= ruleFeaturesProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_formFeatureControlFactory_7_0= ruleFormFeatureControlFactory ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_viewerContentProvider_8_0= ruleViewerContentProvider ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'parts' otherlv_10= '{' ( (lv_parts_11_0= rulePartSpecification ) )* otherlv_12= '}' ) ) ) ) )* ) )
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:247:2: ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featuresProvider_6_0= ruleFeaturesProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_formFeatureControlFactory_7_0= ruleFormFeatureControlFactory ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_viewerContentProvider_8_0= ruleViewerContentProvider ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'parts' otherlv_10= '{' ( (lv_parts_11_0= rulePartSpecification ) )* otherlv_12= '}' ) ) ) ) )* )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:246:1: ( ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featuresProvider_6_0= ruleFeaturesProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_formControlFactory_7_0= ruleFormControlFactory ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_viewerContentProvider_8_0= ruleViewerContentProvider ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'parts' otherlv_10= '{' ( (lv_parts_11_0= rulePartSpecification ) )* otherlv_12= '}' ) ) ) ) )* ) )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:247:2: ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featuresProvider_6_0= ruleFeaturesProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_formControlFactory_7_0= ruleFormControlFactory ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_viewerContentProvider_8_0= ruleViewerContentProvider ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'parts' otherlv_10= '{' ( (lv_parts_11_0= rulePartSpecification ) )* otherlv_12= '}' ) ) ) ) )* )
             {
             getUnorderedGroupHelper().enter(grammarAccess.getModuleAccess().getUnorderedGroup_3());
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:250:2: ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featuresProvider_6_0= ruleFeaturesProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_formFeatureControlFactory_7_0= ruleFormFeatureControlFactory ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_viewerContentProvider_8_0= ruleViewerContentProvider ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'parts' otherlv_10= '{' ( (lv_parts_11_0= rulePartSpecification ) )* otherlv_12= '}' ) ) ) ) )* )
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:251:3: ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featuresProvider_6_0= ruleFeaturesProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_formFeatureControlFactory_7_0= ruleFormFeatureControlFactory ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_viewerContentProvider_8_0= ruleViewerContentProvider ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'parts' otherlv_10= '{' ( (lv_parts_11_0= rulePartSpecification ) )* otherlv_12= '}' ) ) ) ) )*
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:250:2: ( ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featuresProvider_6_0= ruleFeaturesProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_formControlFactory_7_0= ruleFormControlFactory ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_viewerContentProvider_8_0= ruleViewerContentProvider ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'parts' otherlv_10= '{' ( (lv_parts_11_0= rulePartSpecification ) )* otherlv_12= '}' ) ) ) ) )* )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:251:3: ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featuresProvider_6_0= ruleFeaturesProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_formControlFactory_7_0= ruleFormControlFactory ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_viewerContentProvider_8_0= ruleViewerContentProvider ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'parts' otherlv_10= '{' ( (lv_parts_11_0= rulePartSpecification ) )* otherlv_12= '}' ) ) ) ) )*
             {
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:251:3: ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featuresProvider_6_0= ruleFeaturesProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_formFeatureControlFactory_7_0= ruleFormFeatureControlFactory ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_viewerContentProvider_8_0= ruleViewerContentProvider ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'parts' otherlv_10= '{' ( (lv_parts_11_0= rulePartSpecification ) )* otherlv_12= '}' ) ) ) ) )*
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:251:3: ( ({...}? => ( ({...}? => ( (lv_labelProvider_4_0= ruleLabelProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_propertyDescriptionProvider_5_0= rulePropertyDescriptionProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_featuresProvider_6_0= ruleFeaturesProvider ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_formControlFactory_7_0= ruleFormControlFactory ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_viewerContentProvider_8_0= ruleViewerContentProvider ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'parts' otherlv_10= '{' ( (lv_parts_11_0= rulePartSpecification ) )* otherlv_12= '}' ) ) ) ) )*
             loop4:
             do {
                 int alt4=7;
@@ -936,39 +936,39 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
             	    }
             	    break;
             	case 4 :
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:343:4: ({...}? => ( ({...}? => ( (lv_formFeatureControlFactory_7_0= ruleFormFeatureControlFactory ) ) ) ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:343:4: ({...}? => ( ({...}? => ( (lv_formControlFactory_7_0= ruleFormControlFactory ) ) ) ) )
             	    {
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:343:4: ({...}? => ( ({...}? => ( (lv_formFeatureControlFactory_7_0= ruleFormFeatureControlFactory ) ) ) ) )
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:344:5: {...}? => ( ({...}? => ( (lv_formFeatureControlFactory_7_0= ruleFormFeatureControlFactory ) ) ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:343:4: ({...}? => ( ({...}? => ( (lv_formControlFactory_7_0= ruleFormControlFactory ) ) ) ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:344:5: {...}? => ( ({...}? => ( (lv_formControlFactory_7_0= ruleFormControlFactory ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 3) ) {
             	        if (state.backtracking>0) {state.failed=true; return current;}
             	        throw new FailedPredicateException(input, "ruleModule", "getUnorderedGroupHelper().canSelect(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 3)");
             	    }
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:344:103: ( ({...}? => ( (lv_formFeatureControlFactory_7_0= ruleFormFeatureControlFactory ) ) ) )
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:345:6: ({...}? => ( (lv_formFeatureControlFactory_7_0= ruleFormFeatureControlFactory ) ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:344:103: ( ({...}? => ( (lv_formControlFactory_7_0= ruleFormControlFactory ) ) ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:345:6: ({...}? => ( (lv_formControlFactory_7_0= ruleFormControlFactory ) ) )
             	    {
             	    getUnorderedGroupHelper().select(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 3);
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:348:6: ({...}? => ( (lv_formFeatureControlFactory_7_0= ruleFormFeatureControlFactory ) ) )
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:348:7: {...}? => ( (lv_formFeatureControlFactory_7_0= ruleFormFeatureControlFactory ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:348:6: ({...}? => ( (lv_formControlFactory_7_0= ruleFormControlFactory ) ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:348:7: {...}? => ( (lv_formControlFactory_7_0= ruleFormControlFactory ) )
             	    {
             	    if ( !((true)) ) {
             	        if (state.backtracking>0) {state.failed=true; return current;}
             	        throw new FailedPredicateException(input, "ruleModule", "true");
             	    }
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:348:16: ( (lv_formFeatureControlFactory_7_0= ruleFormFeatureControlFactory ) )
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:349:1: (lv_formFeatureControlFactory_7_0= ruleFormFeatureControlFactory )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:348:16: ( (lv_formControlFactory_7_0= ruleFormControlFactory ) )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:349:1: (lv_formControlFactory_7_0= ruleFormControlFactory )
             	    {
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:349:1: (lv_formFeatureControlFactory_7_0= ruleFormFeatureControlFactory )
-            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:350:3: lv_formFeatureControlFactory_7_0= ruleFormFeatureControlFactory
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:349:1: (lv_formControlFactory_7_0= ruleFormControlFactory )
+            	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:350:3: lv_formControlFactory_7_0= ruleFormControlFactory
             	    {
             	    if ( state.backtracking==0 ) {
             	       
-            	      	        newCompositeNode(grammarAccess.getModuleAccess().getFormFeatureControlFactoryFormFeatureControlFactoryParserRuleCall_3_3_0()); 
+            	      	        newCompositeNode(grammarAccess.getModuleAccess().getFormControlFactoryFormControlFactoryParserRuleCall_3_3_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleFormFeatureControlFactory_in_ruleModule784);
-            	    lv_formFeatureControlFactory_7_0=ruleFormFeatureControlFactory();
+            	    pushFollow(FOLLOW_ruleFormControlFactory_in_ruleModule784);
+            	    lv_formControlFactory_7_0=ruleFormControlFactory();
 
             	    state._fsp--;
             	    if (state.failed) return current;
@@ -979,9 +979,9 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
             	      	        }
             	             		set(
             	             			current, 
-            	             			"formFeatureControlFactory",
-            	              		lv_formFeatureControlFactory_7_0, 
-            	              		"FormFeatureControlFactory");
+            	             			"formControlFactory",
+            	              		lv_formControlFactory_7_0, 
+            	              		"FormControlFactory");
             	      	        afterParserOrEnumRuleCall();
             	      	    
             	    }
@@ -2654,30 +2654,30 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
     // $ANTLR end "ruleFeatureSpecification"
 
 
-    // $ANTLR start "entryRuleFormFeatureControlFactory"
-    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:986:1: entryRuleFormFeatureControlFactory returns [EObject current=null] : iv_ruleFormFeatureControlFactory= ruleFormFeatureControlFactory EOF ;
-    public final EObject entryRuleFormFeatureControlFactory() throws RecognitionException {
+    // $ANTLR start "entryRuleFormControlFactory"
+    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:986:1: entryRuleFormControlFactory returns [EObject current=null] : iv_ruleFormControlFactory= ruleFormControlFactory EOF ;
+    public final EObject entryRuleFormControlFactory() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleFormFeatureControlFactory = null;
+        EObject iv_ruleFormControlFactory = null;
 
 
         try {
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:987:2: (iv_ruleFormFeatureControlFactory= ruleFormFeatureControlFactory EOF )
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:988:2: iv_ruleFormFeatureControlFactory= ruleFormFeatureControlFactory EOF
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:987:2: (iv_ruleFormControlFactory= ruleFormControlFactory EOF )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:988:2: iv_ruleFormControlFactory= ruleFormControlFactory EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getFormFeatureControlFactoryRule()); 
+               newCompositeNode(grammarAccess.getFormControlFactoryRule()); 
             }
-            pushFollow(FOLLOW_ruleFormFeatureControlFactory_in_entryRuleFormFeatureControlFactory2256);
-            iv_ruleFormFeatureControlFactory=ruleFormFeatureControlFactory();
+            pushFollow(FOLLOW_ruleFormControlFactory_in_entryRuleFormControlFactory2256);
+            iv_ruleFormControlFactory=ruleFormControlFactory();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleFormFeatureControlFactory; 
+               current =iv_ruleFormControlFactory; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFormFeatureControlFactory2266); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFormControlFactory2266); if (state.failed) return current;
 
             }
 
@@ -2691,12 +2691,12 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
         }
         return current;
     }
-    // $ANTLR end "entryRuleFormFeatureControlFactory"
+    // $ANTLR end "entryRuleFormControlFactory"
 
 
-    // $ANTLR start "ruleFormFeatureControlFactory"
-    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:995:1: ruleFormFeatureControlFactory returns [EObject current=null] : ( () otherlv_1= 'formFeatureControlFactory' otherlv_2= '{' (otherlv_3= 'control' otherlv_4= '{' ( (lv_controlSpecifications_5_0= ruleFormFeatureControlSpecification ) )* otherlv_6= '}' )? otherlv_7= '}' ) ;
-    public final EObject ruleFormFeatureControlFactory() throws RecognitionException {
+    // $ANTLR start "ruleFormControlFactory"
+    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:995:1: ruleFormControlFactory returns [EObject current=null] : ( () otherlv_1= 'formControlFactory' otherlv_2= '{' (otherlv_3= 'control' otherlv_4= '{' ( (lv_controlSpecifications_5_0= ruleFormControlSpecification ) )* otherlv_6= '}' )? otherlv_7= '}' ) ;
+    public final EObject ruleFormControlFactory() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
@@ -2711,11 +2711,11 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
          enterRule(); 
             
         try {
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:998:28: ( ( () otherlv_1= 'formFeatureControlFactory' otherlv_2= '{' (otherlv_3= 'control' otherlv_4= '{' ( (lv_controlSpecifications_5_0= ruleFormFeatureControlSpecification ) )* otherlv_6= '}' )? otherlv_7= '}' ) )
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:999:1: ( () otherlv_1= 'formFeatureControlFactory' otherlv_2= '{' (otherlv_3= 'control' otherlv_4= '{' ( (lv_controlSpecifications_5_0= ruleFormFeatureControlSpecification ) )* otherlv_6= '}' )? otherlv_7= '}' )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:998:28: ( ( () otherlv_1= 'formControlFactory' otherlv_2= '{' (otherlv_3= 'control' otherlv_4= '{' ( (lv_controlSpecifications_5_0= ruleFormControlSpecification ) )* otherlv_6= '}' )? otherlv_7= '}' ) )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:999:1: ( () otherlv_1= 'formControlFactory' otherlv_2= '{' (otherlv_3= 'control' otherlv_4= '{' ( (lv_controlSpecifications_5_0= ruleFormControlSpecification ) )* otherlv_6= '}' )? otherlv_7= '}' )
             {
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:999:1: ( () otherlv_1= 'formFeatureControlFactory' otherlv_2= '{' (otherlv_3= 'control' otherlv_4= '{' ( (lv_controlSpecifications_5_0= ruleFormFeatureControlSpecification ) )* otherlv_6= '}' )? otherlv_7= '}' )
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:999:2: () otherlv_1= 'formFeatureControlFactory' otherlv_2= '{' (otherlv_3= 'control' otherlv_4= '{' ( (lv_controlSpecifications_5_0= ruleFormFeatureControlSpecification ) )* otherlv_6= '}' )? otherlv_7= '}'
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:999:1: ( () otherlv_1= 'formControlFactory' otherlv_2= '{' (otherlv_3= 'control' otherlv_4= '{' ( (lv_controlSpecifications_5_0= ruleFormControlSpecification ) )* otherlv_6= '}' )? otherlv_7= '}' )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:999:2: () otherlv_1= 'formControlFactory' otherlv_2= '{' (otherlv_3= 'control' otherlv_4= '{' ( (lv_controlSpecifications_5_0= ruleFormControlSpecification ) )* otherlv_6= '}' )? otherlv_7= '}'
             {
             // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:999:2: ()
             // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:1000:5: 
@@ -2723,26 +2723,26 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
             if ( state.backtracking==0 ) {
 
                       current = forceCreateModelElement(
-                          grammarAccess.getFormFeatureControlFactoryAccess().getFormFeatureControlFactoryAction_0(),
+                          grammarAccess.getFormControlFactoryAccess().getFormControlFactoryAction_0(),
                           current);
                   
             }
 
             }
 
-            otherlv_1=(Token)match(input,28,FOLLOW_28_in_ruleFormFeatureControlFactory2312); if (state.failed) return current;
+            otherlv_1=(Token)match(input,28,FOLLOW_28_in_ruleFormControlFactory2312); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-                  	newLeafNode(otherlv_1, grammarAccess.getFormFeatureControlFactoryAccess().getFormFeatureControlFactoryKeyword_1());
+                  	newLeafNode(otherlv_1, grammarAccess.getFormControlFactoryAccess().getFormControlFactoryKeyword_1());
                   
             }
-            otherlv_2=(Token)match(input,16,FOLLOW_16_in_ruleFormFeatureControlFactory2324); if (state.failed) return current;
+            otherlv_2=(Token)match(input,16,FOLLOW_16_in_ruleFormControlFactory2324); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-                  	newLeafNode(otherlv_2, grammarAccess.getFormFeatureControlFactoryAccess().getLeftCurlyBracketKeyword_2());
+                  	newLeafNode(otherlv_2, grammarAccess.getFormControlFactoryAccess().getLeftCurlyBracketKeyword_2());
                   
             }
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:1013:1: (otherlv_3= 'control' otherlv_4= '{' ( (lv_controlSpecifications_5_0= ruleFormFeatureControlSpecification ) )* otherlv_6= '}' )?
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:1013:1: (otherlv_3= 'control' otherlv_4= '{' ( (lv_controlSpecifications_5_0= ruleFormControlSpecification ) )* otherlv_6= '}' )?
             int alt15=2;
             int LA15_0 = input.LA(1);
 
@@ -2751,21 +2751,21 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
             }
             switch (alt15) {
                 case 1 :
-                    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:1013:3: otherlv_3= 'control' otherlv_4= '{' ( (lv_controlSpecifications_5_0= ruleFormFeatureControlSpecification ) )* otherlv_6= '}'
+                    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:1013:3: otherlv_3= 'control' otherlv_4= '{' ( (lv_controlSpecifications_5_0= ruleFormControlSpecification ) )* otherlv_6= '}'
                     {
-                    otherlv_3=(Token)match(input,29,FOLLOW_29_in_ruleFormFeatureControlFactory2337); if (state.failed) return current;
+                    otherlv_3=(Token)match(input,29,FOLLOW_29_in_ruleFormControlFactory2337); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                          	newLeafNode(otherlv_3, grammarAccess.getFormFeatureControlFactoryAccess().getControlKeyword_3_0());
+                          	newLeafNode(otherlv_3, grammarAccess.getFormControlFactoryAccess().getControlKeyword_3_0());
                           
                     }
-                    otherlv_4=(Token)match(input,16,FOLLOW_16_in_ruleFormFeatureControlFactory2349); if (state.failed) return current;
+                    otherlv_4=(Token)match(input,16,FOLLOW_16_in_ruleFormControlFactory2349); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                          	newLeafNode(otherlv_4, grammarAccess.getFormFeatureControlFactoryAccess().getLeftCurlyBracketKeyword_3_1());
+                          	newLeafNode(otherlv_4, grammarAccess.getFormControlFactoryAccess().getLeftCurlyBracketKeyword_3_1());
                           
                     }
-                    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:1021:1: ( (lv_controlSpecifications_5_0= ruleFormFeatureControlSpecification ) )*
+                    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:1021:1: ( (lv_controlSpecifications_5_0= ruleFormControlSpecification ) )*
                     loop14:
                     do {
                         int alt14=2;
@@ -2778,31 +2778,31 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
 
                         switch (alt14) {
                     	case 1 :
-                    	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:1022:1: (lv_controlSpecifications_5_0= ruleFormFeatureControlSpecification )
+                    	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:1022:1: (lv_controlSpecifications_5_0= ruleFormControlSpecification )
                     	    {
-                    	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:1022:1: (lv_controlSpecifications_5_0= ruleFormFeatureControlSpecification )
-                    	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:1023:3: lv_controlSpecifications_5_0= ruleFormFeatureControlSpecification
+                    	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:1022:1: (lv_controlSpecifications_5_0= ruleFormControlSpecification )
+                    	    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:1023:3: lv_controlSpecifications_5_0= ruleFormControlSpecification
                     	    {
                     	    if ( state.backtracking==0 ) {
                     	       
-                    	      	        newCompositeNode(grammarAccess.getFormFeatureControlFactoryAccess().getControlSpecificationsFormFeatureControlSpecificationParserRuleCall_3_2_0()); 
+                    	      	        newCompositeNode(grammarAccess.getFormControlFactoryAccess().getControlSpecificationsFormControlSpecificationParserRuleCall_3_2_0()); 
                     	      	    
                     	    }
-                    	    pushFollow(FOLLOW_ruleFormFeatureControlSpecification_in_ruleFormFeatureControlFactory2370);
-                    	    lv_controlSpecifications_5_0=ruleFormFeatureControlSpecification();
+                    	    pushFollow(FOLLOW_ruleFormControlSpecification_in_ruleFormControlFactory2370);
+                    	    lv_controlSpecifications_5_0=ruleFormControlSpecification();
 
                     	    state._fsp--;
                     	    if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	      	        if (current==null) {
-                    	      	            current = createModelElementForParent(grammarAccess.getFormFeatureControlFactoryRule());
+                    	      	            current = createModelElementForParent(grammarAccess.getFormControlFactoryRule());
                     	      	        }
                     	             		add(
                     	             			current, 
                     	             			"controlSpecifications",
                     	              		lv_controlSpecifications_5_0, 
-                    	              		"FormFeatureControlSpecification");
+                    	              		"FormControlSpecification");
                     	      	        afterParserOrEnumRuleCall();
                     	      	    
                     	    }
@@ -2818,10 +2818,10 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
                         }
                     } while (true);
 
-                    otherlv_6=(Token)match(input,18,FOLLOW_18_in_ruleFormFeatureControlFactory2383); if (state.failed) return current;
+                    otherlv_6=(Token)match(input,18,FOLLOW_18_in_ruleFormControlFactory2383); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                          	newLeafNode(otherlv_6, grammarAccess.getFormFeatureControlFactoryAccess().getRightCurlyBracketKeyword_3_3());
+                          	newLeafNode(otherlv_6, grammarAccess.getFormControlFactoryAccess().getRightCurlyBracketKeyword_3_3());
                           
                     }
 
@@ -2830,10 +2830,10 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
 
             }
 
-            otherlv_7=(Token)match(input,18,FOLLOW_18_in_ruleFormFeatureControlFactory2397); if (state.failed) return current;
+            otherlv_7=(Token)match(input,18,FOLLOW_18_in_ruleFormControlFactory2397); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-                  	newLeafNode(otherlv_7, grammarAccess.getFormFeatureControlFactoryAccess().getRightCurlyBracketKeyword_4());
+                  	newLeafNode(otherlv_7, grammarAccess.getFormControlFactoryAccess().getRightCurlyBracketKeyword_4());
                   
             }
 
@@ -2855,33 +2855,33 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
         }
         return current;
     }
-    // $ANTLR end "ruleFormFeatureControlFactory"
+    // $ANTLR end "ruleFormControlFactory"
 
 
-    // $ANTLR start "entryRuleFormFeatureControlSpecification"
-    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:1055:1: entryRuleFormFeatureControlSpecification returns [EObject current=null] : iv_ruleFormFeatureControlSpecification= ruleFormFeatureControlSpecification EOF ;
-    public final EObject entryRuleFormFeatureControlSpecification() throws RecognitionException {
+    // $ANTLR start "entryRuleFormControlSpecification"
+    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:1055:1: entryRuleFormControlSpecification returns [EObject current=null] : iv_ruleFormControlSpecification= ruleFormControlSpecification EOF ;
+    public final EObject entryRuleFormControlSpecification() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleFormFeatureControlSpecification = null;
+        EObject iv_ruleFormControlSpecification = null;
 
 
         try {
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:1056:2: (iv_ruleFormFeatureControlSpecification= ruleFormFeatureControlSpecification EOF )
-            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:1057:2: iv_ruleFormFeatureControlSpecification= ruleFormFeatureControlSpecification EOF
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:1056:2: (iv_ruleFormControlSpecification= ruleFormControlSpecification EOF )
+            // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:1057:2: iv_ruleFormControlSpecification= ruleFormControlSpecification EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getFormFeatureControlSpecificationRule()); 
+               newCompositeNode(grammarAccess.getFormControlSpecificationRule()); 
             }
-            pushFollow(FOLLOW_ruleFormFeatureControlSpecification_in_entryRuleFormFeatureControlSpecification2433);
-            iv_ruleFormFeatureControlSpecification=ruleFormFeatureControlSpecification();
+            pushFollow(FOLLOW_ruleFormControlSpecification_in_entryRuleFormControlSpecification2433);
+            iv_ruleFormControlSpecification=ruleFormControlSpecification();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleFormFeatureControlSpecification; 
+               current =iv_ruleFormControlSpecification; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFormFeatureControlSpecification2443); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFormControlSpecification2443); if (state.failed) return current;
 
             }
 
@@ -2895,12 +2895,12 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
         }
         return current;
     }
-    // $ANTLR end "entryRuleFormFeatureControlSpecification"
+    // $ANTLR end "entryRuleFormControlSpecification"
 
 
-    // $ANTLR start "ruleFormFeatureControlSpecification"
-    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:1064:1: ruleFormFeatureControlSpecification returns [EObject current=null] : ( ( (lv_parameterType_0_0= ruleJvmTypeReference ) ) otherlv_1= ':' ( (lv_feature_2_0= ruleXFeatureCall ) ) otherlv_3= '->' ( (lv_expression_4_0= ruleXExpression ) ) (otherlv_5= 'target' ( (lv_target_6_0= ruleXExpression ) ) )? ) ;
-    public final EObject ruleFormFeatureControlSpecification() throws RecognitionException {
+    // $ANTLR start "ruleFormControlSpecification"
+    // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:1064:1: ruleFormControlSpecification returns [EObject current=null] : ( ( (lv_parameterType_0_0= ruleJvmTypeReference ) ) otherlv_1= ':' ( (lv_feature_2_0= ruleXFeatureCall ) ) otherlv_3= '->' ( (lv_expression_4_0= ruleXExpression ) ) (otherlv_5= 'target' ( (lv_target_6_0= ruleXExpression ) ) )? ) ;
+    public final EObject ruleFormControlSpecification() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
@@ -2932,10 +2932,10 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getFormFeatureControlSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); 
+              	        newCompositeNode(grammarAccess.getFormControlSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_ruleFormFeatureControlSpecification2489);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_ruleFormControlSpecification2489);
             lv_parameterType_0_0=ruleJvmTypeReference();
 
             state._fsp--;
@@ -2943,7 +2943,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
             if ( state.backtracking==0 ) {
 
               	        if (current==null) {
-              	            current = createModelElementForParent(grammarAccess.getFormFeatureControlSpecificationRule());
+              	            current = createModelElementForParent(grammarAccess.getFormControlSpecificationRule());
               	        }
                      		set(
                      			current, 
@@ -2959,10 +2959,10 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
 
             }
 
-            otherlv_1=(Token)match(input,24,FOLLOW_24_in_ruleFormFeatureControlSpecification2501); if (state.failed) return current;
+            otherlv_1=(Token)match(input,24,FOLLOW_24_in_ruleFormControlSpecification2501); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-                  	newLeafNode(otherlv_1, grammarAccess.getFormFeatureControlSpecificationAccess().getColonKeyword_1());
+                  	newLeafNode(otherlv_1, grammarAccess.getFormControlSpecificationAccess().getColonKeyword_1());
                   
             }
             // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:1090:1: ( (lv_feature_2_0= ruleXFeatureCall ) )
@@ -2973,10 +2973,10 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getFormFeatureControlSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0()); 
+              	        newCompositeNode(grammarAccess.getFormControlSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleXFeatureCall_in_ruleFormFeatureControlSpecification2522);
+            pushFollow(FOLLOW_ruleXFeatureCall_in_ruleFormControlSpecification2522);
             lv_feature_2_0=ruleXFeatureCall();
 
             state._fsp--;
@@ -2984,7 +2984,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
             if ( state.backtracking==0 ) {
 
               	        if (current==null) {
-              	            current = createModelElementForParent(grammarAccess.getFormFeatureControlSpecificationRule());
+              	            current = createModelElementForParent(grammarAccess.getFormControlSpecificationRule());
               	        }
                      		set(
                      			current, 
@@ -3000,10 +3000,10 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
 
             }
 
-            otherlv_3=(Token)match(input,22,FOLLOW_22_in_ruleFormFeatureControlSpecification2534); if (state.failed) return current;
+            otherlv_3=(Token)match(input,22,FOLLOW_22_in_ruleFormControlSpecification2534); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-                  	newLeafNode(otherlv_3, grammarAccess.getFormFeatureControlSpecificationAccess().getHyphenMinusGreaterThanSignKeyword_3());
+                  	newLeafNode(otherlv_3, grammarAccess.getFormControlSpecificationAccess().getHyphenMinusGreaterThanSignKeyword_3());
                   
             }
             // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:1112:1: ( (lv_expression_4_0= ruleXExpression ) )
@@ -3014,10 +3014,10 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getFormFeatureControlSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0()); 
+              	        newCompositeNode(grammarAccess.getFormControlSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleXExpression_in_ruleFormFeatureControlSpecification2555);
+            pushFollow(FOLLOW_ruleXExpression_in_ruleFormControlSpecification2555);
             lv_expression_4_0=ruleXExpression();
 
             state._fsp--;
@@ -3025,7 +3025,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
             if ( state.backtracking==0 ) {
 
               	        if (current==null) {
-              	            current = createModelElementForParent(grammarAccess.getFormFeatureControlSpecificationRule());
+              	            current = createModelElementForParent(grammarAccess.getFormControlSpecificationRule());
               	        }
                      		set(
                      			current, 
@@ -3052,10 +3052,10 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
                 case 1 :
                     // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:1130:4: otherlv_5= 'target' ( (lv_target_6_0= ruleXExpression ) )
                     {
-                    otherlv_5=(Token)match(input,30,FOLLOW_30_in_ruleFormFeatureControlSpecification2568); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,30,FOLLOW_30_in_ruleFormControlSpecification2568); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                          	newLeafNode(otherlv_5, grammarAccess.getFormFeatureControlSpecificationAccess().getTargetKeyword_5_0());
+                          	newLeafNode(otherlv_5, grammarAccess.getFormControlSpecificationAccess().getTargetKeyword_5_0());
                           
                     }
                     // ../it.rcpvision.emf.components.dsl/src-gen/it/rcpvision/emf/components/dsl/parser/antlr/internal/InternalEmfComponentsDsl.g:1134:1: ( (lv_target_6_0= ruleXExpression ) )
@@ -3066,10 +3066,10 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
                     {
                     if ( state.backtracking==0 ) {
                        
-                      	        newCompositeNode(grammarAccess.getFormFeatureControlSpecificationAccess().getTargetXExpressionParserRuleCall_5_1_0()); 
+                      	        newCompositeNode(grammarAccess.getFormControlSpecificationAccess().getTargetXExpressionParserRuleCall_5_1_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleXExpression_in_ruleFormFeatureControlSpecification2589);
+                    pushFollow(FOLLOW_ruleXExpression_in_ruleFormControlSpecification2589);
                     lv_target_6_0=ruleXExpression();
 
                     state._fsp--;
@@ -3077,7 +3077,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
                     if ( state.backtracking==0 ) {
 
                       	        if (current==null) {
-                      	            current = createModelElementForParent(grammarAccess.getFormFeatureControlSpecificationRule());
+                      	            current = createModelElementForParent(grammarAccess.getFormControlSpecificationRule());
                       	        }
                              		set(
                              			current, 
@@ -3118,7 +3118,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
         }
         return current;
     }
-    // $ANTLR end "ruleFormFeatureControlSpecification"
+    // $ANTLR end "ruleFormControlSpecification"
 
 
     // $ANTLR start "entryRuleViewerContentProvider"
@@ -21874,7 +21874,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
     public static final BitSet FOLLOW_ruleLabelProvider_in_ruleModule559 = new BitSet(new long[]{0x00000000928E0000L});
     public static final BitSet FOLLOW_rulePropertyDescriptionProvider_in_ruleModule634 = new BitSet(new long[]{0x00000000928E0000L});
     public static final BitSet FOLLOW_ruleFeaturesProvider_in_ruleModule709 = new BitSet(new long[]{0x00000000928E0000L});
-    public static final BitSet FOLLOW_ruleFormFeatureControlFactory_in_ruleModule784 = new BitSet(new long[]{0x00000000928E0000L});
+    public static final BitSet FOLLOW_ruleFormControlFactory_in_ruleModule784 = new BitSet(new long[]{0x00000000928E0000L});
     public static final BitSet FOLLOW_ruleViewerContentProvider_in_ruleModule859 = new BitSet(new long[]{0x00000000928E0000L});
     public static final BitSet FOLLOW_17_in_ruleModule926 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_16_in_ruleModule938 = new BitSet(new long[]{0x0000000200040000L});
@@ -21932,24 +21932,24 @@ public class InternalEmfComponentsDslParser extends AbstractInternalAntlrParser 
     public static final BitSet FOLLOW_ruleXFeatureCall_in_ruleFeatureSpecification2184 = new BitSet(new long[]{0x0000000008000002L});
     public static final BitSet FOLLOW_27_in_ruleFeatureSpecification2197 = new BitSet(new long[]{0x0000800000000100L,0x0000000000010000L});
     public static final BitSet FOLLOW_ruleXFeatureCall_in_ruleFeatureSpecification2218 = new BitSet(new long[]{0x0000000008000002L});
-    public static final BitSet FOLLOW_ruleFormFeatureControlFactory_in_entryRuleFormFeatureControlFactory2256 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFormFeatureControlFactory2266 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_ruleFormFeatureControlFactory2312 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleFormFeatureControlFactory2324 = new BitSet(new long[]{0x0000000020040000L});
-    public static final BitSet FOLLOW_29_in_ruleFormFeatureControlFactory2337 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleFormFeatureControlFactory2349 = new BitSet(new long[]{0x0002000000040100L,0x0000000000000001L});
-    public static final BitSet FOLLOW_ruleFormFeatureControlSpecification_in_ruleFormFeatureControlFactory2370 = new BitSet(new long[]{0x0002000000040100L,0x0000000000000001L});
-    public static final BitSet FOLLOW_18_in_ruleFormFeatureControlFactory2383 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleFormFeatureControlFactory2397 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFormFeatureControlSpecification_in_entryRuleFormFeatureControlSpecification2433 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFormFeatureControlSpecification2443 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleFormFeatureControlSpecification2489 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_24_in_ruleFormFeatureControlSpecification2501 = new BitSet(new long[]{0x0000800000000100L,0x0000000000010000L});
-    public static final BitSet FOLLOW_ruleXFeatureCall_in_ruleFormFeatureControlSpecification2522 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_22_in_ruleFormFeatureControlSpecification2534 = new BitSet(new long[]{0x08608000000101F0L,0x0000000003FD3945L});
-    public static final BitSet FOLLOW_ruleXExpression_in_ruleFormFeatureControlSpecification2555 = new BitSet(new long[]{0x0000000040000002L});
-    public static final BitSet FOLLOW_30_in_ruleFormFeatureControlSpecification2568 = new BitSet(new long[]{0x08608000000101F0L,0x0000000003FD3945L});
-    public static final BitSet FOLLOW_ruleXExpression_in_ruleFormFeatureControlSpecification2589 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFormControlFactory_in_entryRuleFormControlFactory2256 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFormControlFactory2266 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_ruleFormControlFactory2312 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleFormControlFactory2324 = new BitSet(new long[]{0x0000000020040000L});
+    public static final BitSet FOLLOW_29_in_ruleFormControlFactory2337 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleFormControlFactory2349 = new BitSet(new long[]{0x0002000000040100L,0x0000000000000001L});
+    public static final BitSet FOLLOW_ruleFormControlSpecification_in_ruleFormControlFactory2370 = new BitSet(new long[]{0x0002000000040100L,0x0000000000000001L});
+    public static final BitSet FOLLOW_18_in_ruleFormControlFactory2383 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleFormControlFactory2397 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFormControlSpecification_in_entryRuleFormControlSpecification2433 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFormControlSpecification2443 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_ruleFormControlSpecification2489 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_24_in_ruleFormControlSpecification2501 = new BitSet(new long[]{0x0000800000000100L,0x0000000000010000L});
+    public static final BitSet FOLLOW_ruleXFeatureCall_in_ruleFormControlSpecification2522 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_22_in_ruleFormControlSpecification2534 = new BitSet(new long[]{0x08608000000101F0L,0x0000000003FD3945L});
+    public static final BitSet FOLLOW_ruleXExpression_in_ruleFormControlSpecification2555 = new BitSet(new long[]{0x0000000040000002L});
+    public static final BitSet FOLLOW_30_in_ruleFormControlSpecification2568 = new BitSet(new long[]{0x08608000000101F0L,0x0000000003FD3945L});
+    public static final BitSet FOLLOW_ruleXExpression_in_ruleFormControlSpecification2589 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleViewerContentProvider_in_entryRuleViewerContentProvider2627 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleViewerContentProvider2637 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_31_in_ruleViewerContentProvider2683 = new BitSet(new long[]{0x0000000000010000L});

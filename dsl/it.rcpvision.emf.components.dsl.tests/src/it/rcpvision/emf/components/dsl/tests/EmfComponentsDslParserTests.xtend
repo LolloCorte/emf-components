@@ -67,8 +67,8 @@ class EmfComponentsDslParserTests extends EmfComponentsDslAbstractTests {
 	}
 
 	@Test
-	def void testFormFeatureControlSpecifications() {
-		inputs.formFeatureControlSpecifications.parseAndAssertNoError
+	def void testFormControlSpecifications() {
+		inputs.formControlSpecifications.parseAndAssertNoError
 	}
 
 	@Test

@@ -19,7 +19,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/labelProvider"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/propertyDescriptionProvider"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/featuresProvider"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/formFeatureControlFactory"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/formControlFactory"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/viewerContentProvider"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/parts"/>
     </genClasses>
@@ -45,13 +45,13 @@
     <genClasses ecoreClass="EmfComponentsDsl.ecore#//FeatureSpecification">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FeatureSpecification/features"/>
     </genClasses>
-    <genClasses ecoreClass="EmfComponentsDsl.ecore#//FormFeatureControlFactory">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FormFeatureControlFactory/controlSpecifications"/>
+    <genClasses ecoreClass="EmfComponentsDsl.ecore#//FormControlFactory">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FormControlFactory/controlSpecifications"/>
     </genClasses>
-    <genClasses ecoreClass="EmfComponentsDsl.ecore#//FormFeatureControlSpecification">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FormFeatureControlSpecification/feature"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FormFeatureControlSpecification/expression"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FormFeatureControlSpecification/target"/>
+    <genClasses ecoreClass="EmfComponentsDsl.ecore#//FormControlSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FormControlSpecification/feature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FormControlSpecification/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FormControlSpecification/target"/>
     </genClasses>
     <genClasses ecoreClass="EmfComponentsDsl.ecore#//ViewerContentProvider">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//ViewerContentProvider/childrenSpecifications"/>

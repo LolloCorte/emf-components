@@ -132,6 +132,7 @@ RULE_WS=11
 'featuresProvider'=25
 '-'=54
 '**'=56
+'formControlFactory'=28
 ','=27
 'default'=73
 'viewname'=34
@@ -159,7 +160,6 @@ RULE_WS=11
 'do'=77
 'target'=30
 'case'=74
-'formFeatureControlFactory'=28
 'parts'=17
 '}'=18
 '<='=45

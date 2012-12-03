@@ -3,10 +3,11 @@ package it.rcpvision.emf.components.dsl.jvmmodel
 import com.google.inject.Inject
 import it.rcpvision.emf.components.EmfComponentsGuiceModule
 import it.rcpvision.emf.components.binding.FormControlFactory
-import it.rcpvision.emf.components.dsl.model.FormFeatureControlSpecification
+import it.rcpvision.emf.components.dsl.model.FormControlSpecification
 import it.rcpvision.emf.components.dsl.model.Module
 import it.rcpvision.emf.components.dsl.model.PartSpecification
 import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider
+import it.rcpvision.emf.components.generator.common.EmfComponentsProjectFilesGenerator
 import it.rcpvision.emf.components.ui.provider.FeaturesProvider
 import it.rcpvision.emf.components.ui.provider.FeaturesProvider$EClassToEStructuralFeatureAsStringsMap
 import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider
@@ -28,7 +29,6 @@ import org.eclipse.xtext.xbase.XFeatureCall
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
-import it.rcpvision.emf.components.generator.common.EmfComponentsProjectFilesGenerator
 
 import static extension org.eclipse.xtext.EcoreUtil2.*
 
@@ -89,7 +89,7 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 		val labelProviderClass = element.inferLabelProvider(acceptor)
 		val propertyDescriptionProviderClass = element.inferPropertyDescriptionProvider(acceptor)
 		val featureProviderClass = element.inferFeatureProvider(acceptor)
-		val formFeatureControlFactoryClass = element.inferFormFeatureControlFactory(acceptor)
+		val formControlFactoryClass = element.inferFormControlFactory(acceptor)
 		val viewerContentProviderClass = element.inferViewerContentProvider(acceptor)
 		
 		acceptor.accept(moduleClass).initializeLater [
@@ -107,8 +107,8 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 				members += element.propertyDescriptionProvider.genBindMethod(propertyDescriptionProviderClass, typeof(PropertyDescriptionProvider))
 			if (featureProviderClass != null)
 				members += element.featuresProvider.genBindMethod(featureProviderClass, typeof(FeaturesProvider))
-			if (formFeatureControlFactoryClass != null)
-				members += element.formFeatureControlFactory.genBindMethod(formFeatureControlFactoryClass, typeof(FormControlFactory))
+			if (formControlFactoryClass != null)
+				members += element.formControlFactory.genBindMethod(formControlFactoryClass, typeof(FormControlFactory))
 			if (viewerContentProviderClass != null)
 				members += element.viewerContentProvider.genBindMethod(viewerContentProviderClass, typeof(ViewerContentProvider))
 		]
@@ -267,17 +267,17 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 		}
 	}
 
-	def inferFormFeatureControlFactory(Module e, IJvmDeclaredTypeAcceptor acceptor) {
-		if (e.formFeatureControlFactory == null)
+	def inferFormControlFactory(Module e, IJvmDeclaredTypeAcceptor acceptor) {
+		if (e.formControlFactory == null)
 			null
 		else {
-			val formFeatureControlFactoryClass = e.formFeatureControlFactory.toClass(e.formFeatureControlFactoryQN)
+			val formFeatureControlFactoryClass = e.formControlFactory.toClass(e.formFeatureControlFactoryQN)
 			acceptor.accept(formFeatureControlFactoryClass).initializeLater [
 				superTypes += e.newTypeRef(typeof(FormControlFactory))
 				
-				documentation = e.formFeatureControlFactory.documentation
+				documentation = e.formControlFactory.documentation
 				
-				e.formFeatureControlFactory.controlSpecifications.forEach [
+				e.formControlFactory.controlSpecifications.forEach [
 					spec |
 					if (spec.feature != null &&
 						(spec.feature as XFeatureCall).feature != null
@@ -369,7 +369,7 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 	}
 	
 	def control_EClass_EStructuralFeature(
-			FormFeatureControlSpecification spec, XExpression exp, (JvmOperation)=>void init
+			FormControlSpecification spec, XExpression exp, (JvmOperation)=>void init
 	) {
 		exp.toMethod
 			(spec.methodNameForFormFeatureSpecification("control_"), 
@@ -377,7 +377,7 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 			, init)
 	}
 	
-	def methodNameForFormFeatureSpecification(FormFeatureControlSpecification spec, String prefix) {
+	def methodNameForFormFeatureSpecification(FormControlSpecification spec, String prefix) {
 		prefix + 
 					spec.parameterType.simpleName + "_" +
 					(spec.feature as XFeatureCall).

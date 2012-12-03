@@ -10,7 +10,7 @@ module it.rcpvision.emf.components.examples.mail.messageview {
 			Mail -> "email.png"
 		}
 	}
-	formFeatureControlFactory {
+	formControlFactory {
 		control {
 			Mail : message ->
 				toolkit.createText(parent, "", 

@@ -244,7 +244,7 @@ public class TestInputs {
     return _builder;
   }
   
-  public CharSequence formFeatureControlSpecifications() {
+  public CharSequence formControlSpecifications() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("import java.util.*");
     _builder.newLine();
@@ -254,7 +254,7 @@ public class TestInputs {
     _builder.append("module my.empty {");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("formFeatureControlFactory {");
+    _builder.append("formControlFactory {");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("control {");

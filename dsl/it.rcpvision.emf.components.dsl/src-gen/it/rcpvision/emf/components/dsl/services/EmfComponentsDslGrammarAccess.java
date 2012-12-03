@@ -106,8 +106,8 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		private final RuleCall cPropertyDescriptionProviderPropertyDescriptionProviderParserRuleCall_3_1_0 = (RuleCall)cPropertyDescriptionProviderAssignment_3_1.eContents().get(0);
 		private final Assignment cFeaturesProviderAssignment_3_2 = (Assignment)cUnorderedGroup_3.eContents().get(2);
 		private final RuleCall cFeaturesProviderFeaturesProviderParserRuleCall_3_2_0 = (RuleCall)cFeaturesProviderAssignment_3_2.eContents().get(0);
-		private final Assignment cFormFeatureControlFactoryAssignment_3_3 = (Assignment)cUnorderedGroup_3.eContents().get(3);
-		private final RuleCall cFormFeatureControlFactoryFormFeatureControlFactoryParserRuleCall_3_3_0 = (RuleCall)cFormFeatureControlFactoryAssignment_3_3.eContents().get(0);
+		private final Assignment cFormControlFactoryAssignment_3_3 = (Assignment)cUnorderedGroup_3.eContents().get(3);
+		private final RuleCall cFormControlFactoryFormControlFactoryParserRuleCall_3_3_0 = (RuleCall)cFormControlFactoryAssignment_3_3.eContents().get(0);
 		private final Assignment cViewerContentProviderAssignment_3_4 = (Assignment)cUnorderedGroup_3.eContents().get(4);
 		private final RuleCall cViewerContentProviderViewerContentProviderParserRuleCall_3_4_0 = (RuleCall)cViewerContentProviderAssignment_3_4.eContents().get(0);
 		private final Group cGroup_3_5 = (Group)cUnorderedGroup_3.eContents().get(5);
@@ -121,12 +121,12 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		//Module:
 		//	"module" name=QualifiedName "{" (labelProvider=LabelProvider? &
 		//	propertyDescriptionProvider=PropertyDescriptionProvider? & featuresProvider=FeaturesProvider? &
-		//	formFeatureControlFactory=FormFeatureControlFactory? & viewerContentProvider=ViewerContentProvider? & ("parts" "{"
+		//	formControlFactory=FormControlFactory? & viewerContentProvider=ViewerContentProvider? & ("parts" "{"
 		//	parts+=PartSpecification* "}")?) "}";
 		public ParserRule getRule() { return rule; }
 
 		//"module" name=QualifiedName "{" (labelProvider=LabelProvider? & propertyDescriptionProvider=PropertyDescriptionProvider?
-		//& featuresProvider=FeaturesProvider? & formFeatureControlFactory=FormFeatureControlFactory? &
+		//& featuresProvider=FeaturesProvider? & formControlFactory=FormControlFactory? &
 		//viewerContentProvider=ViewerContentProvider? & ("parts" "{" parts+=PartSpecification* "}")?) "}"
 		public Group getGroup() { return cGroup; }
 
@@ -143,7 +143,7 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
 		//labelProvider=LabelProvider? & propertyDescriptionProvider=PropertyDescriptionProvider? &
-		//featuresProvider=FeaturesProvider? & formFeatureControlFactory=FormFeatureControlFactory? &
+		//featuresProvider=FeaturesProvider? & formControlFactory=FormControlFactory? &
 		//viewerContentProvider=ViewerContentProvider? & ("parts" "{" parts+=PartSpecification* "}")?
 		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
 
@@ -165,11 +165,11 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		//FeaturesProvider
 		public RuleCall getFeaturesProviderFeaturesProviderParserRuleCall_3_2_0() { return cFeaturesProviderFeaturesProviderParserRuleCall_3_2_0; }
 
-		//formFeatureControlFactory=FormFeatureControlFactory?
-		public Assignment getFormFeatureControlFactoryAssignment_3_3() { return cFormFeatureControlFactoryAssignment_3_3; }
+		//formControlFactory=FormControlFactory?
+		public Assignment getFormControlFactoryAssignment_3_3() { return cFormControlFactoryAssignment_3_3; }
 
-		//FormFeatureControlFactory
-		public RuleCall getFormFeatureControlFactoryFormFeatureControlFactoryParserRuleCall_3_3_0() { return cFormFeatureControlFactoryFormFeatureControlFactoryParserRuleCall_3_3_0; }
+		//FormControlFactory
+		public RuleCall getFormControlFactoryFormControlFactoryParserRuleCall_3_3_0() { return cFormControlFactoryFormControlFactoryParserRuleCall_3_3_0; }
 
 		//viewerContentProvider=ViewerContentProvider?
 		public Assignment getViewerContentProviderAssignment_3_4() { return cViewerContentProviderAssignment_3_4; }
@@ -519,39 +519,38 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		public RuleCall getFeaturesXFeatureCallParserRuleCall_3_1_0() { return cFeaturesXFeatureCallParserRuleCall_3_1_0; }
 	}
 
-	public class FormFeatureControlFactoryElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FormFeatureControlFactory");
+	public class FormControlFactoryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FormControlFactory");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cFormFeatureControlFactoryAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cFormFeatureControlFactoryKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Action cFormControlFactoryAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cFormControlFactoryKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cControlKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
 		private final Assignment cControlSpecificationsAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
-		private final RuleCall cControlSpecificationsFormFeatureControlSpecificationParserRuleCall_3_2_0 = (RuleCall)cControlSpecificationsAssignment_3_2.eContents().get(0);
+		private final RuleCall cControlSpecificationsFormControlSpecificationParserRuleCall_3_2_0 = (RuleCall)cControlSpecificationsAssignment_3_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		//FormFeatureControlFactory:
-		//	{FormFeatureControlFactory} "formFeatureControlFactory" "{" ("control" "{"
-		//	controlSpecifications+=FormFeatureControlSpecification* "}")? "}";
+		//FormControlFactory:
+		//	{FormControlFactory} "formControlFactory" "{" ("control" "{" controlSpecifications+=FormControlSpecification* "}")?
+		//	"}";
 		public ParserRule getRule() { return rule; }
 
-		//{FormFeatureControlFactory} "formFeatureControlFactory" "{" ("control" "{"
-		//controlSpecifications+=FormFeatureControlSpecification* "}")? "}"
+		//{FormControlFactory} "formControlFactory" "{" ("control" "{" controlSpecifications+=FormControlSpecification* "}")? "}"
 		public Group getGroup() { return cGroup; }
 
-		//{FormFeatureControlFactory}
-		public Action getFormFeatureControlFactoryAction_0() { return cFormFeatureControlFactoryAction_0; }
+		//{FormControlFactory}
+		public Action getFormControlFactoryAction_0() { return cFormControlFactoryAction_0; }
 
-		//"formFeatureControlFactory"
-		public Keyword getFormFeatureControlFactoryKeyword_1() { return cFormFeatureControlFactoryKeyword_1; }
+		//"formControlFactory"
+		public Keyword getFormControlFactoryKeyword_1() { return cFormControlFactoryKeyword_1; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//("control" "{" controlSpecifications+=FormFeatureControlSpecification* "}")?
+		//("control" "{" controlSpecifications+=FormControlSpecification* "}")?
 		public Group getGroup_3() { return cGroup_3; }
 
 		//"control"
@@ -560,11 +559,11 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3_1() { return cLeftCurlyBracketKeyword_3_1; }
 
-		//controlSpecifications+=FormFeatureControlSpecification*
+		//controlSpecifications+=FormControlSpecification*
 		public Assignment getControlSpecificationsAssignment_3_2() { return cControlSpecificationsAssignment_3_2; }
 
-		//FormFeatureControlSpecification
-		public RuleCall getControlSpecificationsFormFeatureControlSpecificationParserRuleCall_3_2_0() { return cControlSpecificationsFormFeatureControlSpecificationParserRuleCall_3_2_0; }
+		//FormControlSpecification
+		public RuleCall getControlSpecificationsFormControlSpecificationParserRuleCall_3_2_0() { return cControlSpecificationsFormControlSpecificationParserRuleCall_3_2_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_3_3() { return cRightCurlyBracketKeyword_3_3; }
@@ -573,8 +572,8 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 
-	public class FormFeatureControlSpecificationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FormFeatureControlSpecification");
+	public class FormControlSpecificationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FormControlSpecification");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cParameterTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cParameterTypeJvmTypeReferenceParserRuleCall_0_0 = (RuleCall)cParameterTypeAssignment_0.eContents().get(0);
@@ -589,7 +588,7 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		private final Assignment cTargetAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
 		private final RuleCall cTargetXExpressionParserRuleCall_5_1_0 = (RuleCall)cTargetAssignment_5_1.eContents().get(0);
 		
-		//FormFeatureControlSpecification:
+		//FormControlSpecification:
 		//	parameterType=JvmTypeReference ":" feature=XFeatureCall "->" expression=XExpression ("target" target=XExpression)?;
 		public ParserRule getRule() { return rule; }
 
@@ -692,14 +691,14 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cPropertyDescriptionSpecificationParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cFeatureSpecificationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cFormFeatureControlSpecificationParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cFormControlSpecificationParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//// a utility base class for rules which access features of an EClass
 		//EmfFeatureAccess:
-		//	PropertyDescriptionSpecification | FeatureSpecification | FormFeatureControlSpecification;
+		//	PropertyDescriptionSpecification | FeatureSpecification | FormControlSpecification;
 		public ParserRule getRule() { return rule; }
 
-		//PropertyDescriptionSpecification | FeatureSpecification | FormFeatureControlSpecification
+		//PropertyDescriptionSpecification | FeatureSpecification | FormControlSpecification
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//PropertyDescriptionSpecification
@@ -708,8 +707,8 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		//FeatureSpecification
 		public RuleCall getFeatureSpecificationParserRuleCall_1() { return cFeatureSpecificationParserRuleCall_1; }
 
-		//FormFeatureControlSpecification
-		public RuleCall getFormFeatureControlSpecificationParserRuleCall_2() { return cFormFeatureControlSpecificationParserRuleCall_2; }
+		//FormControlSpecification
+		public RuleCall getFormControlSpecificationParserRuleCall_2() { return cFormControlSpecificationParserRuleCall_2; }
 	}
 
 	public class PartSpecificationElements extends AbstractParserRuleElementFinder {
@@ -813,8 +812,8 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 	private PropertyDescriptionSpecificationElements pPropertyDescriptionSpecification;
 	private FeaturesProviderElements pFeaturesProvider;
 	private FeatureSpecificationElements pFeatureSpecification;
-	private FormFeatureControlFactoryElements pFormFeatureControlFactory;
-	private FormFeatureControlSpecificationElements pFormFeatureControlSpecification;
+	private FormControlFactoryElements pFormControlFactory;
+	private FormControlSpecificationElements pFormControlSpecification;
 	private ViewerContentProviderElements pViewerContentProvider;
 	private EmfFeatureAccessElements pEmfFeatureAccess;
 	private PartSpecificationElements pPartSpecification;
@@ -891,7 +890,7 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 	//Module:
 	//	"module" name=QualifiedName "{" (labelProvider=LabelProvider? &
 	//	propertyDescriptionProvider=PropertyDescriptionProvider? & featuresProvider=FeaturesProvider? &
-	//	formFeatureControlFactory=FormFeatureControlFactory? & viewerContentProvider=ViewerContentProvider? & ("parts" "{"
+	//	formControlFactory=FormControlFactory? & viewerContentProvider=ViewerContentProvider? & ("parts" "{"
 	//	parts+=PartSpecification* "}")?) "}";
 	public ModuleElements getModuleAccess() {
 		return (pModule != null) ? pModule : (pModule = new ModuleElements());
@@ -963,25 +962,25 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 		return getFeatureSpecificationAccess().getRule();
 	}
 
-	//FormFeatureControlFactory:
-	//	{FormFeatureControlFactory} "formFeatureControlFactory" "{" ("control" "{"
-	//	controlSpecifications+=FormFeatureControlSpecification* "}")? "}";
-	public FormFeatureControlFactoryElements getFormFeatureControlFactoryAccess() {
-		return (pFormFeatureControlFactory != null) ? pFormFeatureControlFactory : (pFormFeatureControlFactory = new FormFeatureControlFactoryElements());
+	//FormControlFactory:
+	//	{FormControlFactory} "formControlFactory" "{" ("control" "{" controlSpecifications+=FormControlSpecification* "}")?
+	//	"}";
+	public FormControlFactoryElements getFormControlFactoryAccess() {
+		return (pFormControlFactory != null) ? pFormControlFactory : (pFormControlFactory = new FormControlFactoryElements());
 	}
 	
-	public ParserRule getFormFeatureControlFactoryRule() {
-		return getFormFeatureControlFactoryAccess().getRule();
+	public ParserRule getFormControlFactoryRule() {
+		return getFormControlFactoryAccess().getRule();
 	}
 
-	//FormFeatureControlSpecification:
+	//FormControlSpecification:
 	//	parameterType=JvmTypeReference ":" feature=XFeatureCall "->" expression=XExpression ("target" target=XExpression)?;
-	public FormFeatureControlSpecificationElements getFormFeatureControlSpecificationAccess() {
-		return (pFormFeatureControlSpecification != null) ? pFormFeatureControlSpecification : (pFormFeatureControlSpecification = new FormFeatureControlSpecificationElements());
+	public FormControlSpecificationElements getFormControlSpecificationAccess() {
+		return (pFormControlSpecification != null) ? pFormControlSpecification : (pFormControlSpecification = new FormControlSpecificationElements());
 	}
 	
-	public ParserRule getFormFeatureControlSpecificationRule() {
-		return getFormFeatureControlSpecificationAccess().getRule();
+	public ParserRule getFormControlSpecificationRule() {
+		return getFormControlSpecificationAccess().getRule();
 	}
 
 	//ViewerContentProvider:
@@ -997,7 +996,7 @@ public class EmfComponentsDslGrammarAccess extends AbstractGrammarElementFinder 
 
 	//// a utility base class for rules which access features of an EClass
 	//EmfFeatureAccess:
-	//	PropertyDescriptionSpecification | FeatureSpecification | FormFeatureControlSpecification;
+	//	PropertyDescriptionSpecification | FeatureSpecification | FormControlSpecification;
 	public EmfFeatureAccessElements getEmfFeatureAccessAccess() {
 		return (pEmfFeatureAccess != null) ? pEmfFeatureAccess : (pEmfFeatureAccess = new EmfFeatureAccessElements());
 	}

@@ -4,8 +4,8 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 import it.rcpvision.emf.components.dsl.model.FeatureSpecification;
 import it.rcpvision.emf.components.dsl.model.FeaturesProvider;
-import it.rcpvision.emf.components.dsl.model.FormFeatureControlFactory;
-import it.rcpvision.emf.components.dsl.model.FormFeatureControlSpecification;
+import it.rcpvision.emf.components.dsl.model.FormControlFactory;
+import it.rcpvision.emf.components.dsl.model.FormControlSpecification;
 import it.rcpvision.emf.components.dsl.model.Import;
 import it.rcpvision.emf.components.dsl.model.LabelProvider;
 import it.rcpvision.emf.components.dsl.model.LabelSpecification;
@@ -87,16 +87,16 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 					return; 
 				}
 				else break;
-			case ModelPackage.FORM_FEATURE_CONTROL_FACTORY:
-				if(context == grammarAccess.getFormFeatureControlFactoryRule()) {
-					sequence_FormFeatureControlFactory(context, (FormFeatureControlFactory) semanticObject); 
+			case ModelPackage.FORM_CONTROL_FACTORY:
+				if(context == grammarAccess.getFormControlFactoryRule()) {
+					sequence_FormControlFactory(context, (FormControlFactory) semanticObject); 
 					return; 
 				}
 				else break;
-			case ModelPackage.FORM_FEATURE_CONTROL_SPECIFICATION:
+			case ModelPackage.FORM_CONTROL_SPECIFICATION:
 				if(context == grammarAccess.getEmfFeatureAccessRule() ||
-				   context == grammarAccess.getFormFeatureControlSpecificationRule()) {
-					sequence_FormFeatureControlSpecification(context, (FormFeatureControlSpecification) semanticObject); 
+				   context == grammarAccess.getFormControlSpecificationRule()) {
+					sequence_FormControlSpecification(context, (FormControlSpecification) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1036,9 +1036,9 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (controlSpecifications+=FormFeatureControlSpecification*)
+	 *     (controlSpecifications+=FormControlSpecification*)
 	 */
-	protected void sequence_FormFeatureControlFactory(EObject context, FormFeatureControlFactory semanticObject) {
+	protected void sequence_FormControlFactory(EObject context, FormControlFactory semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1047,7 +1047,7 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	 * Constraint:
 	 *     (parameterType=JvmTypeReference feature=XFeatureCall expression=XExpression target=XExpression?)
 	 */
-	protected void sequence_FormFeatureControlSpecification(EObject context, FormFeatureControlSpecification semanticObject) {
+	protected void sequence_FormControlSpecification(EObject context, FormControlSpecification semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1102,7 +1102,7 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	 *         labelProvider=LabelProvider? 
 	 *         propertyDescriptionProvider=PropertyDescriptionProvider? 
 	 *         featuresProvider=FeaturesProvider? 
-	 *         formFeatureControlFactory=FormFeatureControlFactory? 
+	 *         formControlFactory=FormControlFactory? 
 	 *         viewerContentProvider=ViewerContentProvider? 
 	 *         parts+=PartSpecification*
 	 *     )

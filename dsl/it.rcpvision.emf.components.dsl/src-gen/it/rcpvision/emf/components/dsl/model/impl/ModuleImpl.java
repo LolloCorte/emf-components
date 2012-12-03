@@ -3,7 +3,7 @@
 package it.rcpvision.emf.components.dsl.model.impl;
 
 import it.rcpvision.emf.components.dsl.model.FeaturesProvider;
-import it.rcpvision.emf.components.dsl.model.FormFeatureControlFactory;
+import it.rcpvision.emf.components.dsl.model.FormControlFactory;
 import it.rcpvision.emf.components.dsl.model.LabelProvider;
 import it.rcpvision.emf.components.dsl.model.ModelPackage;
 import it.rcpvision.emf.components.dsl.model.Module;
@@ -38,7 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getLabelProvider <em>Label Provider</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getPropertyDescriptionProvider <em>Property Description Provider</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getFeaturesProvider <em>Features Provider</em>}</li>
- *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getFormFeatureControlFactory <em>Form Feature Control Factory</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getFormControlFactory <em>Form Control Factory</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getViewerContentProvider <em>Viewer Content Provider</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getParts <em>Parts</em>}</li>
  * </ul>
@@ -99,14 +99,14 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
   protected FeaturesProvider featuresProvider;
 
   /**
-   * The cached value of the '{@link #getFormFeatureControlFactory() <em>Form Feature Control Factory</em>}' containment reference.
+   * The cached value of the '{@link #getFormControlFactory() <em>Form Control Factory</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFormFeatureControlFactory()
+   * @see #getFormControlFactory()
    * @generated
    * @ordered
    */
-  protected FormFeatureControlFactory formFeatureControlFactory;
+  protected FormControlFactory formControlFactory;
 
   /**
    * The cached value of the '{@link #getViewerContentProvider() <em>Viewer Content Provider</em>}' containment reference.
@@ -321,9 +321,9 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
    * <!-- end-user-doc -->
    * @generated
    */
-  public FormFeatureControlFactory getFormFeatureControlFactory()
+  public FormControlFactory getFormControlFactory()
   {
-    return formFeatureControlFactory;
+    return formControlFactory;
   }
 
   /**
@@ -331,13 +331,13 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetFormFeatureControlFactory(FormFeatureControlFactory newFormFeatureControlFactory, NotificationChain msgs)
+  public NotificationChain basicSetFormControlFactory(FormControlFactory newFormControlFactory, NotificationChain msgs)
   {
-    FormFeatureControlFactory oldFormFeatureControlFactory = formFeatureControlFactory;
-    formFeatureControlFactory = newFormFeatureControlFactory;
+    FormControlFactory oldFormControlFactory = formControlFactory;
+    formControlFactory = newFormControlFactory;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.MODULE__FORM_FEATURE_CONTROL_FACTORY, oldFormFeatureControlFactory, newFormFeatureControlFactory);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.MODULE__FORM_CONTROL_FACTORY, oldFormControlFactory, newFormControlFactory);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -348,20 +348,20 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFormFeatureControlFactory(FormFeatureControlFactory newFormFeatureControlFactory)
+  public void setFormControlFactory(FormControlFactory newFormControlFactory)
   {
-    if (newFormFeatureControlFactory != formFeatureControlFactory)
+    if (newFormControlFactory != formControlFactory)
     {
       NotificationChain msgs = null;
-      if (formFeatureControlFactory != null)
-        msgs = ((InternalEObject)formFeatureControlFactory).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.MODULE__FORM_FEATURE_CONTROL_FACTORY, null, msgs);
-      if (newFormFeatureControlFactory != null)
-        msgs = ((InternalEObject)newFormFeatureControlFactory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.MODULE__FORM_FEATURE_CONTROL_FACTORY, null, msgs);
-      msgs = basicSetFormFeatureControlFactory(newFormFeatureControlFactory, msgs);
+      if (formControlFactory != null)
+        msgs = ((InternalEObject)formControlFactory).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.MODULE__FORM_CONTROL_FACTORY, null, msgs);
+      if (newFormControlFactory != null)
+        msgs = ((InternalEObject)newFormControlFactory).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.MODULE__FORM_CONTROL_FACTORY, null, msgs);
+      msgs = basicSetFormControlFactory(newFormControlFactory, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MODULE__FORM_FEATURE_CONTROL_FACTORY, newFormFeatureControlFactory, newFormFeatureControlFactory));
+      eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MODULE__FORM_CONTROL_FACTORY, newFormControlFactory, newFormControlFactory));
   }
 
   /**
@@ -442,8 +442,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
         return basicSetPropertyDescriptionProvider(null, msgs);
       case ModelPackage.MODULE__FEATURES_PROVIDER:
         return basicSetFeaturesProvider(null, msgs);
-      case ModelPackage.MODULE__FORM_FEATURE_CONTROL_FACTORY:
-        return basicSetFormFeatureControlFactory(null, msgs);
+      case ModelPackage.MODULE__FORM_CONTROL_FACTORY:
+        return basicSetFormControlFactory(null, msgs);
       case ModelPackage.MODULE__VIEWER_CONTENT_PROVIDER:
         return basicSetViewerContentProvider(null, msgs);
       case ModelPackage.MODULE__PARTS:
@@ -470,8 +470,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
         return getPropertyDescriptionProvider();
       case ModelPackage.MODULE__FEATURES_PROVIDER:
         return getFeaturesProvider();
-      case ModelPackage.MODULE__FORM_FEATURE_CONTROL_FACTORY:
-        return getFormFeatureControlFactory();
+      case ModelPackage.MODULE__FORM_CONTROL_FACTORY:
+        return getFormControlFactory();
       case ModelPackage.MODULE__VIEWER_CONTENT_PROVIDER:
         return getViewerContentProvider();
       case ModelPackage.MODULE__PARTS:
@@ -503,8 +503,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
       case ModelPackage.MODULE__FEATURES_PROVIDER:
         setFeaturesProvider((FeaturesProvider)newValue);
         return;
-      case ModelPackage.MODULE__FORM_FEATURE_CONTROL_FACTORY:
-        setFormFeatureControlFactory((FormFeatureControlFactory)newValue);
+      case ModelPackage.MODULE__FORM_CONTROL_FACTORY:
+        setFormControlFactory((FormControlFactory)newValue);
         return;
       case ModelPackage.MODULE__VIEWER_CONTENT_PROVIDER:
         setViewerContentProvider((ViewerContentProvider)newValue);
@@ -539,8 +539,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
       case ModelPackage.MODULE__FEATURES_PROVIDER:
         setFeaturesProvider((FeaturesProvider)null);
         return;
-      case ModelPackage.MODULE__FORM_FEATURE_CONTROL_FACTORY:
-        setFormFeatureControlFactory((FormFeatureControlFactory)null);
+      case ModelPackage.MODULE__FORM_CONTROL_FACTORY:
+        setFormControlFactory((FormControlFactory)null);
         return;
       case ModelPackage.MODULE__VIEWER_CONTENT_PROVIDER:
         setViewerContentProvider((ViewerContentProvider)null);
@@ -570,8 +570,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
         return propertyDescriptionProvider != null;
       case ModelPackage.MODULE__FEATURES_PROVIDER:
         return featuresProvider != null;
-      case ModelPackage.MODULE__FORM_FEATURE_CONTROL_FACTORY:
-        return formFeatureControlFactory != null;
+      case ModelPackage.MODULE__FORM_CONTROL_FACTORY:
+        return formControlFactory != null;
       case ModelPackage.MODULE__VIEWER_CONTENT_PROVIDER:
         return viewerContentProvider != null;
       case ModelPackage.MODULE__PARTS:

@@ -73,8 +73,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
       case ModelPackage.PROPERTY_DESCRIPTION_SPECIFICATION: return createPropertyDescriptionSpecification();
       case ModelPackage.FEATURES_PROVIDER: return createFeaturesProvider();
       case ModelPackage.FEATURE_SPECIFICATION: return createFeatureSpecification();
-      case ModelPackage.FORM_FEATURE_CONTROL_FACTORY: return createFormFeatureControlFactory();
-      case ModelPackage.FORM_FEATURE_CONTROL_SPECIFICATION: return createFormFeatureControlSpecification();
+      case ModelPackage.FORM_CONTROL_FACTORY: return createFormControlFactory();
+      case ModelPackage.FORM_CONTROL_SPECIFICATION: return createFormControlSpecification();
       case ModelPackage.VIEWER_CONTENT_PROVIDER: return createViewerContentProvider();
       case ModelPackage.EMF_FEATURE_ACCESS: return createEmfFeatureAccess();
       case ModelPackage.PART_SPECIFICATION: return createPartSpecification();
@@ -188,10 +188,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public FormFeatureControlFactory createFormFeatureControlFactory()
+  public FormControlFactory createFormControlFactory()
   {
-    FormFeatureControlFactoryImpl formFeatureControlFactory = new FormFeatureControlFactoryImpl();
-    return formFeatureControlFactory;
+    FormControlFactoryImpl formControlFactory = new FormControlFactoryImpl();
+    return formControlFactory;
   }
 
   /**
@@ -199,10 +199,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public FormFeatureControlSpecification createFormFeatureControlSpecification()
+  public FormControlSpecification createFormControlSpecification()
   {
-    FormFeatureControlSpecificationImpl formFeatureControlSpecification = new FormFeatureControlSpecificationImpl();
-    return formFeatureControlSpecification;
+    FormControlSpecificationImpl formControlSpecification = new FormControlSpecificationImpl();
+    return formControlSpecification;
   }
 
   /**

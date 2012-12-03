@@ -5,8 +5,8 @@ package it.rcpvision.emf.components.dsl.model.impl;
 import it.rcpvision.emf.components.dsl.model.EmfFeatureAccess;
 import it.rcpvision.emf.components.dsl.model.FeatureSpecification;
 import it.rcpvision.emf.components.dsl.model.FeaturesProvider;
-import it.rcpvision.emf.components.dsl.model.FormFeatureControlFactory;
-import it.rcpvision.emf.components.dsl.model.FormFeatureControlSpecification;
+import it.rcpvision.emf.components.dsl.model.FormControlFactory;
+import it.rcpvision.emf.components.dsl.model.FormControlSpecification;
 import it.rcpvision.emf.components.dsl.model.Import;
 import it.rcpvision.emf.components.dsl.model.LabelProvider;
 import it.rcpvision.emf.components.dsl.model.LabelSpecification;
@@ -107,14 +107,14 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass formFeatureControlFactoryEClass = null;
+  private EClass formControlFactoryEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass formFeatureControlSpecificationEClass = null;
+  private EClass formControlSpecificationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -315,7 +315,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModule_FormFeatureControlFactory()
+  public EReference getModule_FormControlFactory()
   {
     return (EReference)moduleEClass.getEStructuralFeatures().get(4);
   }
@@ -505,9 +505,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getFormFeatureControlFactory()
+  public EClass getFormControlFactory()
   {
-    return formFeatureControlFactoryEClass;
+    return formControlFactoryEClass;
   }
 
   /**
@@ -515,9 +515,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFormFeatureControlFactory_ControlSpecifications()
+  public EReference getFormControlFactory_ControlSpecifications()
   {
-    return (EReference)formFeatureControlFactoryEClass.getEStructuralFeatures().get(0);
+    return (EReference)formControlFactoryEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -525,9 +525,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getFormFeatureControlSpecification()
+  public EClass getFormControlSpecification()
   {
-    return formFeatureControlSpecificationEClass;
+    return formControlSpecificationEClass;
   }
 
   /**
@@ -535,9 +535,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFormFeatureControlSpecification_Feature()
+  public EReference getFormControlSpecification_Feature()
   {
-    return (EReference)formFeatureControlSpecificationEClass.getEStructuralFeatures().get(0);
+    return (EReference)formControlSpecificationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -545,9 +545,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFormFeatureControlSpecification_Expression()
+  public EReference getFormControlSpecification_Expression()
   {
-    return (EReference)formFeatureControlSpecificationEClass.getEStructuralFeatures().get(1);
+    return (EReference)formControlSpecificationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -555,9 +555,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFormFeatureControlSpecification_Target()
+  public EReference getFormControlSpecification_Target()
   {
-    return (EReference)formFeatureControlSpecificationEClass.getEStructuralFeatures().get(2);
+    return (EReference)formControlSpecificationEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -702,7 +702,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     createEReference(moduleEClass, MODULE__LABEL_PROVIDER);
     createEReference(moduleEClass, MODULE__PROPERTY_DESCRIPTION_PROVIDER);
     createEReference(moduleEClass, MODULE__FEATURES_PROVIDER);
-    createEReference(moduleEClass, MODULE__FORM_FEATURE_CONTROL_FACTORY);
+    createEReference(moduleEClass, MODULE__FORM_CONTROL_FACTORY);
     createEReference(moduleEClass, MODULE__VIEWER_CONTENT_PROVIDER);
     createEReference(moduleEClass, MODULE__PARTS);
 
@@ -728,13 +728,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     featureSpecificationEClass = createEClass(FEATURE_SPECIFICATION);
     createEReference(featureSpecificationEClass, FEATURE_SPECIFICATION__FEATURES);
 
-    formFeatureControlFactoryEClass = createEClass(FORM_FEATURE_CONTROL_FACTORY);
-    createEReference(formFeatureControlFactoryEClass, FORM_FEATURE_CONTROL_FACTORY__CONTROL_SPECIFICATIONS);
+    formControlFactoryEClass = createEClass(FORM_CONTROL_FACTORY);
+    createEReference(formControlFactoryEClass, FORM_CONTROL_FACTORY__CONTROL_SPECIFICATIONS);
 
-    formFeatureControlSpecificationEClass = createEClass(FORM_FEATURE_CONTROL_SPECIFICATION);
-    createEReference(formFeatureControlSpecificationEClass, FORM_FEATURE_CONTROL_SPECIFICATION__FEATURE);
-    createEReference(formFeatureControlSpecificationEClass, FORM_FEATURE_CONTROL_SPECIFICATION__EXPRESSION);
-    createEReference(formFeatureControlSpecificationEClass, FORM_FEATURE_CONTROL_SPECIFICATION__TARGET);
+    formControlSpecificationEClass = createEClass(FORM_CONTROL_SPECIFICATION);
+    createEReference(formControlSpecificationEClass, FORM_CONTROL_SPECIFICATION__FEATURE);
+    createEReference(formControlSpecificationEClass, FORM_CONTROL_SPECIFICATION__EXPRESSION);
+    createEReference(formControlSpecificationEClass, FORM_CONTROL_SPECIFICATION__TARGET);
 
     viewerContentProviderEClass = createEClass(VIEWER_CONTENT_PROVIDER);
     createEReference(viewerContentProviderEClass, VIEWER_CONTENT_PROVIDER__CHILDREN_SPECIFICATIONS);
@@ -786,7 +786,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     // Add supertypes to classes
     propertyDescriptionSpecificationEClass.getESuperTypes().add(this.getEmfFeatureAccess());
     featureSpecificationEClass.getESuperTypes().add(this.getEmfFeatureAccess());
-    formFeatureControlSpecificationEClass.getESuperTypes().add(this.getEmfFeatureAccess());
+    formControlSpecificationEClass.getESuperTypes().add(this.getEmfFeatureAccess());
     viewSpecificationEClass.getESuperTypes().add(this.getPartSpecification());
 
     // Initialize classes and features; add operations and parameters
@@ -802,7 +802,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     initEReference(getModule_LabelProvider(), this.getLabelProvider(), null, "labelProvider", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_PropertyDescriptionProvider(), this.getPropertyDescriptionProvider(), null, "propertyDescriptionProvider", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_FeaturesProvider(), this.getFeaturesProvider(), null, "featuresProvider", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getModule_FormFeatureControlFactory(), this.getFormFeatureControlFactory(), null, "formFeatureControlFactory", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModule_FormControlFactory(), this.getFormControlFactory(), null, "formControlFactory", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_ViewerContentProvider(), this.getViewerContentProvider(), null, "viewerContentProvider", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_Parts(), this.getPartSpecification(), null, "parts", null, 0, -1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -828,13 +828,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     initEClass(featureSpecificationEClass, FeatureSpecification.class, "FeatureSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getFeatureSpecification_Features(), theXbasePackage.getXExpression(), null, "features", null, 0, -1, FeatureSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(formFeatureControlFactoryEClass, FormFeatureControlFactory.class, "FormFeatureControlFactory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFormFeatureControlFactory_ControlSpecifications(), this.getFormFeatureControlSpecification(), null, "controlSpecifications", null, 0, -1, FormFeatureControlFactory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(formControlFactoryEClass, FormControlFactory.class, "FormControlFactory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFormControlFactory_ControlSpecifications(), this.getFormControlSpecification(), null, "controlSpecifications", null, 0, -1, FormControlFactory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(formFeatureControlSpecificationEClass, FormFeatureControlSpecification.class, "FormFeatureControlSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFormFeatureControlSpecification_Feature(), theXbasePackage.getXExpression(), null, "feature", null, 0, 1, FormFeatureControlSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFormFeatureControlSpecification_Expression(), theXbasePackage.getXExpression(), null, "expression", null, 0, 1, FormFeatureControlSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFormFeatureControlSpecification_Target(), theXbasePackage.getXExpression(), null, "target", null, 0, 1, FormFeatureControlSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(formControlSpecificationEClass, FormControlSpecification.class, "FormControlSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFormControlSpecification_Feature(), theXbasePackage.getXExpression(), null, "feature", null, 0, 1, FormControlSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFormControlSpecification_Expression(), theXbasePackage.getXExpression(), null, "expression", null, 0, 1, FormControlSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFormControlSpecification_Target(), theXbasePackage.getXExpression(), null, "target", null, 0, 1, FormControlSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(viewerContentProviderEClass, ViewerContentProvider.class, "ViewerContentProvider", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getViewerContentProvider_ChildrenSpecifications(), this.getLabelSpecification(), null, "childrenSpecifications", null, 0, -1, ViewerContentProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

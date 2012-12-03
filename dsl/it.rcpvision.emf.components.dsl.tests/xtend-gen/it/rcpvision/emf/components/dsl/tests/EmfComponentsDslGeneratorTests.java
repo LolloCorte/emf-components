@@ -582,7 +582,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
   
   @Test
   public void testFormFeatureControlSpecifications() {
-    CharSequence _formFeatureControlSpecifications = this.inputs.formFeatureControlSpecifications();
+    CharSequence _formControlSpecifications = this.inputs.formControlSpecifications();
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package my.empty;");
     _builder.newLine();
@@ -838,7 +838,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_formFeatureControlSpecifications, _builder, null, null, null, _builder_1, null, null);
+    this.assertCorrectJavaCodeGeneration(_formControlSpecifications, _builder, null, null, null, _builder_1, null, null);
   }
   
   @Test

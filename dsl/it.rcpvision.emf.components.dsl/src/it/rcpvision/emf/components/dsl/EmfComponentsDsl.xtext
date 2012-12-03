@@ -26,7 +26,7 @@ Module:
 			&
 			(featuresProvider = FeaturesProvider)?
 			&
-			(formFeatureControlFactory = FormFeatureControlFactory)?
+			(formControlFactory = FormControlFactory)?
 			&
 			(viewerContentProvider = ViewerContentProvider)?
 			&
@@ -91,17 +91,17 @@ FeatureSpecification:
 	features += XFeatureCall (',' features += XFeatureCall)*
 ;
 
-FormFeatureControlFactory:
-	{FormFeatureControlFactory} 'formFeatureControlFactory' '{'
+FormControlFactory:
+	{FormControlFactory} 'formControlFactory' '{'
 		((
 		'control' '{'
-			controlSpecifications+=FormFeatureControlSpecification*
+			controlSpecifications+=FormControlSpecification*
 		'}'
 		)?)
 	'}'
 ;
 
-FormFeatureControlSpecification:
+FormControlSpecification:
 	parameterType=JvmTypeReference ':' feature=XFeatureCall
 	'->'
 	expression = XExpression
@@ -122,7 +122,7 @@ ViewerContentProvider:
 EmfFeatureAccess: 
 	PropertyDescriptionSpecification |
 	FeatureSpecification |
-	FormFeatureControlSpecification
+	FormControlSpecification
 ;
 
 PartSpecification: ViewSpecification;

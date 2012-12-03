@@ -120,14 +120,14 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
         return createFeatureSpecificationAdapter();
       }
       @Override
-      public Adapter caseFormFeatureControlFactory(FormFeatureControlFactory object)
+      public Adapter caseFormControlFactory(FormControlFactory object)
       {
-        return createFormFeatureControlFactoryAdapter();
+        return createFormControlFactoryAdapter();
       }
       @Override
-      public Adapter caseFormFeatureControlSpecification(FormFeatureControlSpecification object)
+      public Adapter caseFormControlSpecification(FormControlSpecification object)
       {
-        return createFormFeatureControlSpecificationAdapter();
+        return createFormControlSpecificationAdapter();
       }
       @Override
       public Adapter caseViewerContentProvider(ViewerContentProvider object)
@@ -307,31 +307,31 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.FormFeatureControlFactory <em>Form Feature Control Factory</em>}'.
+   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.FormControlFactory <em>Form Control Factory</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see it.rcpvision.emf.components.dsl.model.FormFeatureControlFactory
+   * @see it.rcpvision.emf.components.dsl.model.FormControlFactory
    * @generated
    */
-  public Adapter createFormFeatureControlFactoryAdapter()
+  public Adapter createFormControlFactoryAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.FormFeatureControlSpecification <em>Form Feature Control Specification</em>}'.
+   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.FormControlSpecification <em>Form Control Specification</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see it.rcpvision.emf.components.dsl.model.FormFeatureControlSpecification
+   * @see it.rcpvision.emf.components.dsl.model.FormControlSpecification
    * @generated
    */
-  public Adapter createFormFeatureControlSpecificationAdapter()
+  public Adapter createFormControlSpecificationAdapter()
   {
     return null;
   }

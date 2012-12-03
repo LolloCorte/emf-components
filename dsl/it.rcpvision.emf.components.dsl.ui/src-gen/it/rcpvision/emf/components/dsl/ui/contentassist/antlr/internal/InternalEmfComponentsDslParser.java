@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalEmfComponentsDslParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_HEX", "RULE_INT", "RULE_DECIMAL", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'='", "'+='", "'||'", "'&&'", "'=='", "'!='", "'>='", "'<='", "'>'", "'<'", "'->'", "'..'", "'=>'", "'<>'", "'?:'", "'<=>'", "'+'", "'-'", "'*'", "'**'", "'/'", "'%'", "'!'", "'.'", "'val'", "'super'", "'false'", "'import'", "'.*'", "'module'", "'{'", "'}'", "'parts'", "'labelProvider'", "'text'", "'image'", "'propertyDescriptionProvider'", "':'", "'featuresProvider'", "'features'", "','", "'formFeatureControlFactory'", "'control'", "'target'", "'viewerContentProvider'", "'children'", "'viewpart'", "'viewname'", "'viewclass'", "'viewcategory'", "'instanceof'", "'as'", "')'", "']'", "'['", "';'", "'('", "'if'", "'else'", "'switch'", "'default'", "'case'", "'for'", "'while'", "'do'", "'::'", "'new'", "'null'", "'typeof'", "'throw'", "'return'", "'try'", "'finally'", "'catch'", "'?'", "'extends'", "'&'", "'?.'", "'*.'", "'|'", "'var'", "'true'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_HEX", "RULE_INT", "RULE_DECIMAL", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'='", "'+='", "'||'", "'&&'", "'=='", "'!='", "'>='", "'<='", "'>'", "'<'", "'->'", "'..'", "'=>'", "'<>'", "'?:'", "'<=>'", "'+'", "'-'", "'*'", "'**'", "'/'", "'%'", "'!'", "'.'", "'val'", "'super'", "'false'", "'import'", "'.*'", "'module'", "'{'", "'}'", "'parts'", "'labelProvider'", "'text'", "'image'", "'propertyDescriptionProvider'", "':'", "'featuresProvider'", "'features'", "','", "'formControlFactory'", "'control'", "'target'", "'viewerContentProvider'", "'children'", "'viewpart'", "'viewname'", "'viewclass'", "'viewcategory'", "'instanceof'", "'as'", "')'", "']'", "'['", "';'", "'('", "'if'", "'else'", "'switch'", "'default'", "'case'", "'for'", "'while'", "'do'", "'::'", "'new'", "'null'", "'typeof'", "'throw'", "'return'", "'try'", "'finally'", "'catch'", "'?'", "'extends'", "'&'", "'?.'", "'*.'", "'|'", "'var'", "'true'"
     };
     public static final int RULE_ID=4;
     public static final int T__29=29;
@@ -1005,25 +1005,25 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
     // $ANTLR end "ruleFeatureSpecification"
 
 
-    // $ANTLR start "entryRuleFormFeatureControlFactory"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:341:1: entryRuleFormFeatureControlFactory : ruleFormFeatureControlFactory EOF ;
-    public final void entryRuleFormFeatureControlFactory() throws RecognitionException {
+    // $ANTLR start "entryRuleFormControlFactory"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:341:1: entryRuleFormControlFactory : ruleFormControlFactory EOF ;
+    public final void entryRuleFormControlFactory() throws RecognitionException {
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:342:1: ( ruleFormFeatureControlFactory EOF )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:343:1: ruleFormFeatureControlFactory EOF
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:342:1: ( ruleFormControlFactory EOF )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:343:1: ruleFormControlFactory EOF
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlFactoryRule()); 
+               before(grammarAccess.getFormControlFactoryRule()); 
             }
-            pushFollow(FOLLOW_ruleFormFeatureControlFactory_in_entryRuleFormFeatureControlFactory667);
-            ruleFormFeatureControlFactory();
+            pushFollow(FOLLOW_ruleFormControlFactory_in_entryRuleFormControlFactory667);
+            ruleFormControlFactory();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlFactoryRule()); 
+               after(grammarAccess.getFormControlFactoryRule()); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFormFeatureControlFactory674); if (state.failed) return ;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFormControlFactory674); if (state.failed) return ;
 
             }
 
@@ -1036,30 +1036,30 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "entryRuleFormFeatureControlFactory"
+    // $ANTLR end "entryRuleFormControlFactory"
 
 
-    // $ANTLR start "ruleFormFeatureControlFactory"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:350:1: ruleFormFeatureControlFactory : ( ( rule__FormFeatureControlFactory__Group__0 ) ) ;
-    public final void ruleFormFeatureControlFactory() throws RecognitionException {
+    // $ANTLR start "ruleFormControlFactory"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:350:1: ruleFormControlFactory : ( ( rule__FormControlFactory__Group__0 ) ) ;
+    public final void ruleFormControlFactory() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:354:2: ( ( ( rule__FormFeatureControlFactory__Group__0 ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:355:1: ( ( rule__FormFeatureControlFactory__Group__0 ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:354:2: ( ( ( rule__FormControlFactory__Group__0 ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:355:1: ( ( rule__FormControlFactory__Group__0 ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:355:1: ( ( rule__FormFeatureControlFactory__Group__0 ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:356:1: ( rule__FormFeatureControlFactory__Group__0 )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:355:1: ( ( rule__FormControlFactory__Group__0 ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:356:1: ( rule__FormControlFactory__Group__0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlFactoryAccess().getGroup()); 
+               before(grammarAccess.getFormControlFactoryAccess().getGroup()); 
             }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:357:1: ( rule__FormFeatureControlFactory__Group__0 )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:357:2: rule__FormFeatureControlFactory__Group__0
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:357:1: ( rule__FormControlFactory__Group__0 )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:357:2: rule__FormControlFactory__Group__0
             {
-            pushFollow(FOLLOW_rule__FormFeatureControlFactory__Group__0_in_ruleFormFeatureControlFactory700);
-            rule__FormFeatureControlFactory__Group__0();
+            pushFollow(FOLLOW_rule__FormControlFactory__Group__0_in_ruleFormControlFactory700);
+            rule__FormControlFactory__Group__0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -1067,7 +1067,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlFactoryAccess().getGroup()); 
+               after(grammarAccess.getFormControlFactoryAccess().getGroup()); 
             }
 
             }
@@ -1087,28 +1087,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "ruleFormFeatureControlFactory"
+    // $ANTLR end "ruleFormControlFactory"
 
 
-    // $ANTLR start "entryRuleFormFeatureControlSpecification"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:369:1: entryRuleFormFeatureControlSpecification : ruleFormFeatureControlSpecification EOF ;
-    public final void entryRuleFormFeatureControlSpecification() throws RecognitionException {
+    // $ANTLR start "entryRuleFormControlSpecification"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:369:1: entryRuleFormControlSpecification : ruleFormControlSpecification EOF ;
+    public final void entryRuleFormControlSpecification() throws RecognitionException {
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:370:1: ( ruleFormFeatureControlSpecification EOF )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:371:1: ruleFormFeatureControlSpecification EOF
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:370:1: ( ruleFormControlSpecification EOF )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:371:1: ruleFormControlSpecification EOF
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlSpecificationRule()); 
+               before(grammarAccess.getFormControlSpecificationRule()); 
             }
-            pushFollow(FOLLOW_ruleFormFeatureControlSpecification_in_entryRuleFormFeatureControlSpecification727);
-            ruleFormFeatureControlSpecification();
+            pushFollow(FOLLOW_ruleFormControlSpecification_in_entryRuleFormControlSpecification727);
+            ruleFormControlSpecification();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlSpecificationRule()); 
+               after(grammarAccess.getFormControlSpecificationRule()); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFormFeatureControlSpecification734); if (state.failed) return ;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFormControlSpecification734); if (state.failed) return ;
 
             }
 
@@ -1121,30 +1121,30 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "entryRuleFormFeatureControlSpecification"
+    // $ANTLR end "entryRuleFormControlSpecification"
 
 
-    // $ANTLR start "ruleFormFeatureControlSpecification"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:378:1: ruleFormFeatureControlSpecification : ( ( rule__FormFeatureControlSpecification__Group__0 ) ) ;
-    public final void ruleFormFeatureControlSpecification() throws RecognitionException {
+    // $ANTLR start "ruleFormControlSpecification"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:378:1: ruleFormControlSpecification : ( ( rule__FormControlSpecification__Group__0 ) ) ;
+    public final void ruleFormControlSpecification() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:382:2: ( ( ( rule__FormFeatureControlSpecification__Group__0 ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:383:1: ( ( rule__FormFeatureControlSpecification__Group__0 ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:382:2: ( ( ( rule__FormControlSpecification__Group__0 ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:383:1: ( ( rule__FormControlSpecification__Group__0 ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:383:1: ( ( rule__FormFeatureControlSpecification__Group__0 ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:384:1: ( rule__FormFeatureControlSpecification__Group__0 )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:383:1: ( ( rule__FormControlSpecification__Group__0 ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:384:1: ( rule__FormControlSpecification__Group__0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlSpecificationAccess().getGroup()); 
+               before(grammarAccess.getFormControlSpecificationAccess().getGroup()); 
             }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:385:1: ( rule__FormFeatureControlSpecification__Group__0 )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:385:2: rule__FormFeatureControlSpecification__Group__0
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:385:1: ( rule__FormControlSpecification__Group__0 )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:385:2: rule__FormControlSpecification__Group__0
             {
-            pushFollow(FOLLOW_rule__FormFeatureControlSpecification__Group__0_in_ruleFormFeatureControlSpecification760);
-            rule__FormFeatureControlSpecification__Group__0();
+            pushFollow(FOLLOW_rule__FormControlSpecification__Group__0_in_ruleFormControlSpecification760);
+            rule__FormControlSpecification__Group__0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -1152,7 +1152,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlSpecificationAccess().getGroup()); 
+               after(grammarAccess.getFormControlSpecificationAccess().getGroup()); 
             }
 
             }
@@ -1172,7 +1172,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "ruleFormFeatureControlSpecification"
+    // $ANTLR end "ruleFormControlSpecification"
 
 
     // $ANTLR start "entryRuleViewerContentProvider"
@@ -15586,23 +15586,23 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
     // $ANTLR end "rule__FeatureSpecification__Group_3__1__Impl"
 
 
-    // $ANTLR start "rule__FormFeatureControlFactory__Group__0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5123:1: rule__FormFeatureControlFactory__Group__0 : rule__FormFeatureControlFactory__Group__0__Impl rule__FormFeatureControlFactory__Group__1 ;
-    public final void rule__FormFeatureControlFactory__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__FormControlFactory__Group__0"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5123:1: rule__FormControlFactory__Group__0 : rule__FormControlFactory__Group__0__Impl rule__FormControlFactory__Group__1 ;
+    public final void rule__FormControlFactory__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5127:1: ( rule__FormFeatureControlFactory__Group__0__Impl rule__FormFeatureControlFactory__Group__1 )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5128:2: rule__FormFeatureControlFactory__Group__0__Impl rule__FormFeatureControlFactory__Group__1
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5127:1: ( rule__FormControlFactory__Group__0__Impl rule__FormControlFactory__Group__1 )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5128:2: rule__FormControlFactory__Group__0__Impl rule__FormControlFactory__Group__1
             {
-            pushFollow(FOLLOW_rule__FormFeatureControlFactory__Group__0__Impl_in_rule__FormFeatureControlFactory__Group__010700);
-            rule__FormFeatureControlFactory__Group__0__Impl();
+            pushFollow(FOLLOW_rule__FormControlFactory__Group__0__Impl_in_rule__FormControlFactory__Group__010700);
+            rule__FormControlFactory__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__FormFeatureControlFactory__Group__1_in_rule__FormFeatureControlFactory__Group__010703);
-            rule__FormFeatureControlFactory__Group__1();
+            pushFollow(FOLLOW_rule__FormControlFactory__Group__1_in_rule__FormControlFactory__Group__010703);
+            rule__FormControlFactory__Group__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15621,12 +15621,12 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlFactory__Group__0"
+    // $ANTLR end "rule__FormControlFactory__Group__0"
 
 
-    // $ANTLR start "rule__FormFeatureControlFactory__Group__0__Impl"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5135:1: rule__FormFeatureControlFactory__Group__0__Impl : ( () ) ;
-    public final void rule__FormFeatureControlFactory__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__FormControlFactory__Group__0__Impl"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5135:1: rule__FormControlFactory__Group__0__Impl : ( () ) ;
+    public final void rule__FormControlFactory__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -15638,7 +15638,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
             // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5141:1: ()
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlFactoryAccess().getFormFeatureControlFactoryAction_0()); 
+               before(grammarAccess.getFormControlFactoryAccess().getFormControlFactoryAction_0()); 
             }
             // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5142:1: ()
             // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5144:1: 
@@ -15646,7 +15646,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlFactoryAccess().getFormFeatureControlFactoryAction_0()); 
+               after(grammarAccess.getFormControlFactoryAccess().getFormControlFactoryAction_0()); 
             }
 
             }
@@ -15662,26 +15662,26 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlFactory__Group__0__Impl"
+    // $ANTLR end "rule__FormControlFactory__Group__0__Impl"
 
 
-    // $ANTLR start "rule__FormFeatureControlFactory__Group__1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5154:1: rule__FormFeatureControlFactory__Group__1 : rule__FormFeatureControlFactory__Group__1__Impl rule__FormFeatureControlFactory__Group__2 ;
-    public final void rule__FormFeatureControlFactory__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__FormControlFactory__Group__1"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5154:1: rule__FormControlFactory__Group__1 : rule__FormControlFactory__Group__1__Impl rule__FormControlFactory__Group__2 ;
+    public final void rule__FormControlFactory__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5158:1: ( rule__FormFeatureControlFactory__Group__1__Impl rule__FormFeatureControlFactory__Group__2 )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5159:2: rule__FormFeatureControlFactory__Group__1__Impl rule__FormFeatureControlFactory__Group__2
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5158:1: ( rule__FormControlFactory__Group__1__Impl rule__FormControlFactory__Group__2 )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5159:2: rule__FormControlFactory__Group__1__Impl rule__FormControlFactory__Group__2
             {
-            pushFollow(FOLLOW_rule__FormFeatureControlFactory__Group__1__Impl_in_rule__FormFeatureControlFactory__Group__110761);
-            rule__FormFeatureControlFactory__Group__1__Impl();
+            pushFollow(FOLLOW_rule__FormControlFactory__Group__1__Impl_in_rule__FormControlFactory__Group__110761);
+            rule__FormControlFactory__Group__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__FormFeatureControlFactory__Group__2_in_rule__FormFeatureControlFactory__Group__110764);
-            rule__FormFeatureControlFactory__Group__2();
+            pushFollow(FOLLOW_rule__FormControlFactory__Group__2_in_rule__FormControlFactory__Group__110764);
+            rule__FormControlFactory__Group__2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15700,28 +15700,28 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlFactory__Group__1"
+    // $ANTLR end "rule__FormControlFactory__Group__1"
 
 
-    // $ANTLR start "rule__FormFeatureControlFactory__Group__1__Impl"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5166:1: rule__FormFeatureControlFactory__Group__1__Impl : ( 'formFeatureControlFactory' ) ;
-    public final void rule__FormFeatureControlFactory__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__FormControlFactory__Group__1__Impl"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5166:1: rule__FormControlFactory__Group__1__Impl : ( 'formControlFactory' ) ;
+    public final void rule__FormControlFactory__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5170:1: ( ( 'formFeatureControlFactory' ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5171:1: ( 'formFeatureControlFactory' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5170:1: ( ( 'formControlFactory' ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5171:1: ( 'formControlFactory' )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5171:1: ( 'formFeatureControlFactory' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5172:1: 'formFeatureControlFactory'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5171:1: ( 'formControlFactory' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5172:1: 'formControlFactory'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlFactoryAccess().getFormFeatureControlFactoryKeyword_1()); 
+               before(grammarAccess.getFormControlFactoryAccess().getFormControlFactoryKeyword_1()); 
             }
-            match(input,54,FOLLOW_54_in_rule__FormFeatureControlFactory__Group__1__Impl10792); if (state.failed) return ;
+            match(input,54,FOLLOW_54_in_rule__FormControlFactory__Group__1__Impl10792); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlFactoryAccess().getFormFeatureControlFactoryKeyword_1()); 
+               after(grammarAccess.getFormControlFactoryAccess().getFormControlFactoryKeyword_1()); 
             }
 
             }
@@ -15741,26 +15741,26 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlFactory__Group__1__Impl"
+    // $ANTLR end "rule__FormControlFactory__Group__1__Impl"
 
 
-    // $ANTLR start "rule__FormFeatureControlFactory__Group__2"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5185:1: rule__FormFeatureControlFactory__Group__2 : rule__FormFeatureControlFactory__Group__2__Impl rule__FormFeatureControlFactory__Group__3 ;
-    public final void rule__FormFeatureControlFactory__Group__2() throws RecognitionException {
+    // $ANTLR start "rule__FormControlFactory__Group__2"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5185:1: rule__FormControlFactory__Group__2 : rule__FormControlFactory__Group__2__Impl rule__FormControlFactory__Group__3 ;
+    public final void rule__FormControlFactory__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5189:1: ( rule__FormFeatureControlFactory__Group__2__Impl rule__FormFeatureControlFactory__Group__3 )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5190:2: rule__FormFeatureControlFactory__Group__2__Impl rule__FormFeatureControlFactory__Group__3
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5189:1: ( rule__FormControlFactory__Group__2__Impl rule__FormControlFactory__Group__3 )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5190:2: rule__FormControlFactory__Group__2__Impl rule__FormControlFactory__Group__3
             {
-            pushFollow(FOLLOW_rule__FormFeatureControlFactory__Group__2__Impl_in_rule__FormFeatureControlFactory__Group__210823);
-            rule__FormFeatureControlFactory__Group__2__Impl();
+            pushFollow(FOLLOW_rule__FormControlFactory__Group__2__Impl_in_rule__FormControlFactory__Group__210823);
+            rule__FormControlFactory__Group__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__FormFeatureControlFactory__Group__3_in_rule__FormFeatureControlFactory__Group__210826);
-            rule__FormFeatureControlFactory__Group__3();
+            pushFollow(FOLLOW_rule__FormControlFactory__Group__3_in_rule__FormControlFactory__Group__210826);
+            rule__FormControlFactory__Group__3();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15779,12 +15779,12 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlFactory__Group__2"
+    // $ANTLR end "rule__FormControlFactory__Group__2"
 
 
-    // $ANTLR start "rule__FormFeatureControlFactory__Group__2__Impl"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5197:1: rule__FormFeatureControlFactory__Group__2__Impl : ( '{' ) ;
-    public final void rule__FormFeatureControlFactory__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__FormControlFactory__Group__2__Impl"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5197:1: rule__FormControlFactory__Group__2__Impl : ( '{' ) ;
+    public final void rule__FormControlFactory__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -15796,11 +15796,11 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
             // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5203:1: '{'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlFactoryAccess().getLeftCurlyBracketKeyword_2()); 
+               before(grammarAccess.getFormControlFactoryAccess().getLeftCurlyBracketKeyword_2()); 
             }
-            match(input,43,FOLLOW_43_in_rule__FormFeatureControlFactory__Group__2__Impl10854); if (state.failed) return ;
+            match(input,43,FOLLOW_43_in_rule__FormControlFactory__Group__2__Impl10854); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlFactoryAccess().getLeftCurlyBracketKeyword_2()); 
+               after(grammarAccess.getFormControlFactoryAccess().getLeftCurlyBracketKeyword_2()); 
             }
 
             }
@@ -15820,26 +15820,26 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlFactory__Group__2__Impl"
+    // $ANTLR end "rule__FormControlFactory__Group__2__Impl"
 
 
-    // $ANTLR start "rule__FormFeatureControlFactory__Group__3"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5216:1: rule__FormFeatureControlFactory__Group__3 : rule__FormFeatureControlFactory__Group__3__Impl rule__FormFeatureControlFactory__Group__4 ;
-    public final void rule__FormFeatureControlFactory__Group__3() throws RecognitionException {
+    // $ANTLR start "rule__FormControlFactory__Group__3"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5216:1: rule__FormControlFactory__Group__3 : rule__FormControlFactory__Group__3__Impl rule__FormControlFactory__Group__4 ;
+    public final void rule__FormControlFactory__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5220:1: ( rule__FormFeatureControlFactory__Group__3__Impl rule__FormFeatureControlFactory__Group__4 )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5221:2: rule__FormFeatureControlFactory__Group__3__Impl rule__FormFeatureControlFactory__Group__4
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5220:1: ( rule__FormControlFactory__Group__3__Impl rule__FormControlFactory__Group__4 )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5221:2: rule__FormControlFactory__Group__3__Impl rule__FormControlFactory__Group__4
             {
-            pushFollow(FOLLOW_rule__FormFeatureControlFactory__Group__3__Impl_in_rule__FormFeatureControlFactory__Group__310885);
-            rule__FormFeatureControlFactory__Group__3__Impl();
+            pushFollow(FOLLOW_rule__FormControlFactory__Group__3__Impl_in_rule__FormControlFactory__Group__310885);
+            rule__FormControlFactory__Group__3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__FormFeatureControlFactory__Group__4_in_rule__FormFeatureControlFactory__Group__310888);
-            rule__FormFeatureControlFactory__Group__4();
+            pushFollow(FOLLOW_rule__FormControlFactory__Group__4_in_rule__FormControlFactory__Group__310888);
+            rule__FormControlFactory__Group__4();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15858,26 +15858,26 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlFactory__Group__3"
+    // $ANTLR end "rule__FormControlFactory__Group__3"
 
 
-    // $ANTLR start "rule__FormFeatureControlFactory__Group__3__Impl"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5228:1: rule__FormFeatureControlFactory__Group__3__Impl : ( ( rule__FormFeatureControlFactory__Group_3__0 )? ) ;
-    public final void rule__FormFeatureControlFactory__Group__3__Impl() throws RecognitionException {
+    // $ANTLR start "rule__FormControlFactory__Group__3__Impl"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5228:1: rule__FormControlFactory__Group__3__Impl : ( ( rule__FormControlFactory__Group_3__0 )? ) ;
+    public final void rule__FormControlFactory__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5232:1: ( ( ( rule__FormFeatureControlFactory__Group_3__0 )? ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5233:1: ( ( rule__FormFeatureControlFactory__Group_3__0 )? )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5232:1: ( ( ( rule__FormControlFactory__Group_3__0 )? ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5233:1: ( ( rule__FormControlFactory__Group_3__0 )? )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5233:1: ( ( rule__FormFeatureControlFactory__Group_3__0 )? )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5234:1: ( rule__FormFeatureControlFactory__Group_3__0 )?
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5233:1: ( ( rule__FormControlFactory__Group_3__0 )? )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5234:1: ( rule__FormControlFactory__Group_3__0 )?
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlFactoryAccess().getGroup_3()); 
+               before(grammarAccess.getFormControlFactoryAccess().getGroup_3()); 
             }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5235:1: ( rule__FormFeatureControlFactory__Group_3__0 )?
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5235:1: ( rule__FormControlFactory__Group_3__0 )?
             int alt44=2;
             int LA44_0 = input.LA(1);
 
@@ -15886,10 +15886,10 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
             }
             switch (alt44) {
                 case 1 :
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5235:2: rule__FormFeatureControlFactory__Group_3__0
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5235:2: rule__FormControlFactory__Group_3__0
                     {
-                    pushFollow(FOLLOW_rule__FormFeatureControlFactory__Group_3__0_in_rule__FormFeatureControlFactory__Group__3__Impl10915);
-                    rule__FormFeatureControlFactory__Group_3__0();
+                    pushFollow(FOLLOW_rule__FormControlFactory__Group_3__0_in_rule__FormControlFactory__Group__3__Impl10915);
+                    rule__FormControlFactory__Group_3__0();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -15900,7 +15900,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlFactoryAccess().getGroup_3()); 
+               after(grammarAccess.getFormControlFactoryAccess().getGroup_3()); 
             }
 
             }
@@ -15920,21 +15920,21 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlFactory__Group__3__Impl"
+    // $ANTLR end "rule__FormControlFactory__Group__3__Impl"
 
 
-    // $ANTLR start "rule__FormFeatureControlFactory__Group__4"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5245:1: rule__FormFeatureControlFactory__Group__4 : rule__FormFeatureControlFactory__Group__4__Impl ;
-    public final void rule__FormFeatureControlFactory__Group__4() throws RecognitionException {
+    // $ANTLR start "rule__FormControlFactory__Group__4"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5245:1: rule__FormControlFactory__Group__4 : rule__FormControlFactory__Group__4__Impl ;
+    public final void rule__FormControlFactory__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5249:1: ( rule__FormFeatureControlFactory__Group__4__Impl )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5250:2: rule__FormFeatureControlFactory__Group__4__Impl
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5249:1: ( rule__FormControlFactory__Group__4__Impl )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5250:2: rule__FormControlFactory__Group__4__Impl
             {
-            pushFollow(FOLLOW_rule__FormFeatureControlFactory__Group__4__Impl_in_rule__FormFeatureControlFactory__Group__410946);
-            rule__FormFeatureControlFactory__Group__4__Impl();
+            pushFollow(FOLLOW_rule__FormControlFactory__Group__4__Impl_in_rule__FormControlFactory__Group__410946);
+            rule__FormControlFactory__Group__4__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15953,12 +15953,12 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlFactory__Group__4"
+    // $ANTLR end "rule__FormControlFactory__Group__4"
 
 
-    // $ANTLR start "rule__FormFeatureControlFactory__Group__4__Impl"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5256:1: rule__FormFeatureControlFactory__Group__4__Impl : ( '}' ) ;
-    public final void rule__FormFeatureControlFactory__Group__4__Impl() throws RecognitionException {
+    // $ANTLR start "rule__FormControlFactory__Group__4__Impl"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5256:1: rule__FormControlFactory__Group__4__Impl : ( '}' ) ;
+    public final void rule__FormControlFactory__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -15970,11 +15970,11 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
             // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5262:1: '}'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlFactoryAccess().getRightCurlyBracketKeyword_4()); 
+               before(grammarAccess.getFormControlFactoryAccess().getRightCurlyBracketKeyword_4()); 
             }
-            match(input,44,FOLLOW_44_in_rule__FormFeatureControlFactory__Group__4__Impl10974); if (state.failed) return ;
+            match(input,44,FOLLOW_44_in_rule__FormControlFactory__Group__4__Impl10974); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlFactoryAccess().getRightCurlyBracketKeyword_4()); 
+               after(grammarAccess.getFormControlFactoryAccess().getRightCurlyBracketKeyword_4()); 
             }
 
             }
@@ -15994,26 +15994,26 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlFactory__Group__4__Impl"
+    // $ANTLR end "rule__FormControlFactory__Group__4__Impl"
 
 
-    // $ANTLR start "rule__FormFeatureControlFactory__Group_3__0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5285:1: rule__FormFeatureControlFactory__Group_3__0 : rule__FormFeatureControlFactory__Group_3__0__Impl rule__FormFeatureControlFactory__Group_3__1 ;
-    public final void rule__FormFeatureControlFactory__Group_3__0() throws RecognitionException {
+    // $ANTLR start "rule__FormControlFactory__Group_3__0"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5285:1: rule__FormControlFactory__Group_3__0 : rule__FormControlFactory__Group_3__0__Impl rule__FormControlFactory__Group_3__1 ;
+    public final void rule__FormControlFactory__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5289:1: ( rule__FormFeatureControlFactory__Group_3__0__Impl rule__FormFeatureControlFactory__Group_3__1 )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5290:2: rule__FormFeatureControlFactory__Group_3__0__Impl rule__FormFeatureControlFactory__Group_3__1
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5289:1: ( rule__FormControlFactory__Group_3__0__Impl rule__FormControlFactory__Group_3__1 )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5290:2: rule__FormControlFactory__Group_3__0__Impl rule__FormControlFactory__Group_3__1
             {
-            pushFollow(FOLLOW_rule__FormFeatureControlFactory__Group_3__0__Impl_in_rule__FormFeatureControlFactory__Group_3__011015);
-            rule__FormFeatureControlFactory__Group_3__0__Impl();
+            pushFollow(FOLLOW_rule__FormControlFactory__Group_3__0__Impl_in_rule__FormControlFactory__Group_3__011015);
+            rule__FormControlFactory__Group_3__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__FormFeatureControlFactory__Group_3__1_in_rule__FormFeatureControlFactory__Group_3__011018);
-            rule__FormFeatureControlFactory__Group_3__1();
+            pushFollow(FOLLOW_rule__FormControlFactory__Group_3__1_in_rule__FormControlFactory__Group_3__011018);
+            rule__FormControlFactory__Group_3__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16032,12 +16032,12 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlFactory__Group_3__0"
+    // $ANTLR end "rule__FormControlFactory__Group_3__0"
 
 
-    // $ANTLR start "rule__FormFeatureControlFactory__Group_3__0__Impl"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5297:1: rule__FormFeatureControlFactory__Group_3__0__Impl : ( 'control' ) ;
-    public final void rule__FormFeatureControlFactory__Group_3__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__FormControlFactory__Group_3__0__Impl"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5297:1: rule__FormControlFactory__Group_3__0__Impl : ( 'control' ) ;
+    public final void rule__FormControlFactory__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -16049,11 +16049,11 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
             // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5303:1: 'control'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlFactoryAccess().getControlKeyword_3_0()); 
+               before(grammarAccess.getFormControlFactoryAccess().getControlKeyword_3_0()); 
             }
-            match(input,55,FOLLOW_55_in_rule__FormFeatureControlFactory__Group_3__0__Impl11046); if (state.failed) return ;
+            match(input,55,FOLLOW_55_in_rule__FormControlFactory__Group_3__0__Impl11046); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlFactoryAccess().getControlKeyword_3_0()); 
+               after(grammarAccess.getFormControlFactoryAccess().getControlKeyword_3_0()); 
             }
 
             }
@@ -16073,26 +16073,26 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlFactory__Group_3__0__Impl"
+    // $ANTLR end "rule__FormControlFactory__Group_3__0__Impl"
 
 
-    // $ANTLR start "rule__FormFeatureControlFactory__Group_3__1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5316:1: rule__FormFeatureControlFactory__Group_3__1 : rule__FormFeatureControlFactory__Group_3__1__Impl rule__FormFeatureControlFactory__Group_3__2 ;
-    public final void rule__FormFeatureControlFactory__Group_3__1() throws RecognitionException {
+    // $ANTLR start "rule__FormControlFactory__Group_3__1"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5316:1: rule__FormControlFactory__Group_3__1 : rule__FormControlFactory__Group_3__1__Impl rule__FormControlFactory__Group_3__2 ;
+    public final void rule__FormControlFactory__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5320:1: ( rule__FormFeatureControlFactory__Group_3__1__Impl rule__FormFeatureControlFactory__Group_3__2 )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5321:2: rule__FormFeatureControlFactory__Group_3__1__Impl rule__FormFeatureControlFactory__Group_3__2
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5320:1: ( rule__FormControlFactory__Group_3__1__Impl rule__FormControlFactory__Group_3__2 )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5321:2: rule__FormControlFactory__Group_3__1__Impl rule__FormControlFactory__Group_3__2
             {
-            pushFollow(FOLLOW_rule__FormFeatureControlFactory__Group_3__1__Impl_in_rule__FormFeatureControlFactory__Group_3__111077);
-            rule__FormFeatureControlFactory__Group_3__1__Impl();
+            pushFollow(FOLLOW_rule__FormControlFactory__Group_3__1__Impl_in_rule__FormControlFactory__Group_3__111077);
+            rule__FormControlFactory__Group_3__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__FormFeatureControlFactory__Group_3__2_in_rule__FormFeatureControlFactory__Group_3__111080);
-            rule__FormFeatureControlFactory__Group_3__2();
+            pushFollow(FOLLOW_rule__FormControlFactory__Group_3__2_in_rule__FormControlFactory__Group_3__111080);
+            rule__FormControlFactory__Group_3__2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16111,12 +16111,12 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlFactory__Group_3__1"
+    // $ANTLR end "rule__FormControlFactory__Group_3__1"
 
 
-    // $ANTLR start "rule__FormFeatureControlFactory__Group_3__1__Impl"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5328:1: rule__FormFeatureControlFactory__Group_3__1__Impl : ( '{' ) ;
-    public final void rule__FormFeatureControlFactory__Group_3__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__FormControlFactory__Group_3__1__Impl"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5328:1: rule__FormControlFactory__Group_3__1__Impl : ( '{' ) ;
+    public final void rule__FormControlFactory__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -16128,11 +16128,11 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
             // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5334:1: '{'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlFactoryAccess().getLeftCurlyBracketKeyword_3_1()); 
+               before(grammarAccess.getFormControlFactoryAccess().getLeftCurlyBracketKeyword_3_1()); 
             }
-            match(input,43,FOLLOW_43_in_rule__FormFeatureControlFactory__Group_3__1__Impl11108); if (state.failed) return ;
+            match(input,43,FOLLOW_43_in_rule__FormControlFactory__Group_3__1__Impl11108); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlFactoryAccess().getLeftCurlyBracketKeyword_3_1()); 
+               after(grammarAccess.getFormControlFactoryAccess().getLeftCurlyBracketKeyword_3_1()); 
             }
 
             }
@@ -16152,26 +16152,26 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlFactory__Group_3__1__Impl"
+    // $ANTLR end "rule__FormControlFactory__Group_3__1__Impl"
 
 
-    // $ANTLR start "rule__FormFeatureControlFactory__Group_3__2"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5347:1: rule__FormFeatureControlFactory__Group_3__2 : rule__FormFeatureControlFactory__Group_3__2__Impl rule__FormFeatureControlFactory__Group_3__3 ;
-    public final void rule__FormFeatureControlFactory__Group_3__2() throws RecognitionException {
+    // $ANTLR start "rule__FormControlFactory__Group_3__2"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5347:1: rule__FormControlFactory__Group_3__2 : rule__FormControlFactory__Group_3__2__Impl rule__FormControlFactory__Group_3__3 ;
+    public final void rule__FormControlFactory__Group_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5351:1: ( rule__FormFeatureControlFactory__Group_3__2__Impl rule__FormFeatureControlFactory__Group_3__3 )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5352:2: rule__FormFeatureControlFactory__Group_3__2__Impl rule__FormFeatureControlFactory__Group_3__3
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5351:1: ( rule__FormControlFactory__Group_3__2__Impl rule__FormControlFactory__Group_3__3 )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5352:2: rule__FormControlFactory__Group_3__2__Impl rule__FormControlFactory__Group_3__3
             {
-            pushFollow(FOLLOW_rule__FormFeatureControlFactory__Group_3__2__Impl_in_rule__FormFeatureControlFactory__Group_3__211139);
-            rule__FormFeatureControlFactory__Group_3__2__Impl();
+            pushFollow(FOLLOW_rule__FormControlFactory__Group_3__2__Impl_in_rule__FormControlFactory__Group_3__211139);
+            rule__FormControlFactory__Group_3__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__FormFeatureControlFactory__Group_3__3_in_rule__FormFeatureControlFactory__Group_3__211142);
-            rule__FormFeatureControlFactory__Group_3__3();
+            pushFollow(FOLLOW_rule__FormControlFactory__Group_3__3_in_rule__FormControlFactory__Group_3__211142);
+            rule__FormControlFactory__Group_3__3();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16190,26 +16190,26 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlFactory__Group_3__2"
+    // $ANTLR end "rule__FormControlFactory__Group_3__2"
 
 
-    // $ANTLR start "rule__FormFeatureControlFactory__Group_3__2__Impl"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5359:1: rule__FormFeatureControlFactory__Group_3__2__Impl : ( ( rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_2 )* ) ;
-    public final void rule__FormFeatureControlFactory__Group_3__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__FormControlFactory__Group_3__2__Impl"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5359:1: rule__FormControlFactory__Group_3__2__Impl : ( ( rule__FormControlFactory__ControlSpecificationsAssignment_3_2 )* ) ;
+    public final void rule__FormControlFactory__Group_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5363:1: ( ( ( rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_2 )* ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5364:1: ( ( rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_2 )* )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5363:1: ( ( ( rule__FormControlFactory__ControlSpecificationsAssignment_3_2 )* ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5364:1: ( ( rule__FormControlFactory__ControlSpecificationsAssignment_3_2 )* )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5364:1: ( ( rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_2 )* )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5365:1: ( rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_2 )*
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5364:1: ( ( rule__FormControlFactory__ControlSpecificationsAssignment_3_2 )* )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5365:1: ( rule__FormControlFactory__ControlSpecificationsAssignment_3_2 )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlFactoryAccess().getControlSpecificationsAssignment_3_2()); 
+               before(grammarAccess.getFormControlFactoryAccess().getControlSpecificationsAssignment_3_2()); 
             }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5366:1: ( rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_2 )*
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5366:1: ( rule__FormControlFactory__ControlSpecificationsAssignment_3_2 )*
             loop45:
             do {
                 int alt45=2;
@@ -16222,10 +16222,10 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
                 switch (alt45) {
             	case 1 :
-            	    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5366:2: rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_2
+            	    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5366:2: rule__FormControlFactory__ControlSpecificationsAssignment_3_2
             	    {
-            	    pushFollow(FOLLOW_rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_2_in_rule__FormFeatureControlFactory__Group_3__2__Impl11169);
-            	    rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_2();
+            	    pushFollow(FOLLOW_rule__FormControlFactory__ControlSpecificationsAssignment_3_2_in_rule__FormControlFactory__Group_3__2__Impl11169);
+            	    rule__FormControlFactory__ControlSpecificationsAssignment_3_2();
 
             	    state._fsp--;
             	    if (state.failed) return ;
@@ -16239,7 +16239,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlFactoryAccess().getControlSpecificationsAssignment_3_2()); 
+               after(grammarAccess.getFormControlFactoryAccess().getControlSpecificationsAssignment_3_2()); 
             }
 
             }
@@ -16259,21 +16259,21 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlFactory__Group_3__2__Impl"
+    // $ANTLR end "rule__FormControlFactory__Group_3__2__Impl"
 
 
-    // $ANTLR start "rule__FormFeatureControlFactory__Group_3__3"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5376:1: rule__FormFeatureControlFactory__Group_3__3 : rule__FormFeatureControlFactory__Group_3__3__Impl ;
-    public final void rule__FormFeatureControlFactory__Group_3__3() throws RecognitionException {
+    // $ANTLR start "rule__FormControlFactory__Group_3__3"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5376:1: rule__FormControlFactory__Group_3__3 : rule__FormControlFactory__Group_3__3__Impl ;
+    public final void rule__FormControlFactory__Group_3__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5380:1: ( rule__FormFeatureControlFactory__Group_3__3__Impl )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5381:2: rule__FormFeatureControlFactory__Group_3__3__Impl
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5380:1: ( rule__FormControlFactory__Group_3__3__Impl )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5381:2: rule__FormControlFactory__Group_3__3__Impl
             {
-            pushFollow(FOLLOW_rule__FormFeatureControlFactory__Group_3__3__Impl_in_rule__FormFeatureControlFactory__Group_3__311200);
-            rule__FormFeatureControlFactory__Group_3__3__Impl();
+            pushFollow(FOLLOW_rule__FormControlFactory__Group_3__3__Impl_in_rule__FormControlFactory__Group_3__311200);
+            rule__FormControlFactory__Group_3__3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16292,12 +16292,12 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlFactory__Group_3__3"
+    // $ANTLR end "rule__FormControlFactory__Group_3__3"
 
 
-    // $ANTLR start "rule__FormFeatureControlFactory__Group_3__3__Impl"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5387:1: rule__FormFeatureControlFactory__Group_3__3__Impl : ( '}' ) ;
-    public final void rule__FormFeatureControlFactory__Group_3__3__Impl() throws RecognitionException {
+    // $ANTLR start "rule__FormControlFactory__Group_3__3__Impl"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5387:1: rule__FormControlFactory__Group_3__3__Impl : ( '}' ) ;
+    public final void rule__FormControlFactory__Group_3__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -16309,11 +16309,11 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
             // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5393:1: '}'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlFactoryAccess().getRightCurlyBracketKeyword_3_3()); 
+               before(grammarAccess.getFormControlFactoryAccess().getRightCurlyBracketKeyword_3_3()); 
             }
-            match(input,44,FOLLOW_44_in_rule__FormFeatureControlFactory__Group_3__3__Impl11228); if (state.failed) return ;
+            match(input,44,FOLLOW_44_in_rule__FormControlFactory__Group_3__3__Impl11228); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlFactoryAccess().getRightCurlyBracketKeyword_3_3()); 
+               after(grammarAccess.getFormControlFactoryAccess().getRightCurlyBracketKeyword_3_3()); 
             }
 
             }
@@ -16333,26 +16333,26 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlFactory__Group_3__3__Impl"
+    // $ANTLR end "rule__FormControlFactory__Group_3__3__Impl"
 
 
-    // $ANTLR start "rule__FormFeatureControlSpecification__Group__0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5414:1: rule__FormFeatureControlSpecification__Group__0 : rule__FormFeatureControlSpecification__Group__0__Impl rule__FormFeatureControlSpecification__Group__1 ;
-    public final void rule__FormFeatureControlSpecification__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__FormControlSpecification__Group__0"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5414:1: rule__FormControlSpecification__Group__0 : rule__FormControlSpecification__Group__0__Impl rule__FormControlSpecification__Group__1 ;
+    public final void rule__FormControlSpecification__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5418:1: ( rule__FormFeatureControlSpecification__Group__0__Impl rule__FormFeatureControlSpecification__Group__1 )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5419:2: rule__FormFeatureControlSpecification__Group__0__Impl rule__FormFeatureControlSpecification__Group__1
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5418:1: ( rule__FormControlSpecification__Group__0__Impl rule__FormControlSpecification__Group__1 )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5419:2: rule__FormControlSpecification__Group__0__Impl rule__FormControlSpecification__Group__1
             {
-            pushFollow(FOLLOW_rule__FormFeatureControlSpecification__Group__0__Impl_in_rule__FormFeatureControlSpecification__Group__011267);
-            rule__FormFeatureControlSpecification__Group__0__Impl();
+            pushFollow(FOLLOW_rule__FormControlSpecification__Group__0__Impl_in_rule__FormControlSpecification__Group__011267);
+            rule__FormControlSpecification__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__FormFeatureControlSpecification__Group__1_in_rule__FormFeatureControlSpecification__Group__011270);
-            rule__FormFeatureControlSpecification__Group__1();
+            pushFollow(FOLLOW_rule__FormControlSpecification__Group__1_in_rule__FormControlSpecification__Group__011270);
+            rule__FormControlSpecification__Group__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16371,30 +16371,30 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlSpecification__Group__0"
+    // $ANTLR end "rule__FormControlSpecification__Group__0"
 
 
-    // $ANTLR start "rule__FormFeatureControlSpecification__Group__0__Impl"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5426:1: rule__FormFeatureControlSpecification__Group__0__Impl : ( ( rule__FormFeatureControlSpecification__ParameterTypeAssignment_0 ) ) ;
-    public final void rule__FormFeatureControlSpecification__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__FormControlSpecification__Group__0__Impl"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5426:1: rule__FormControlSpecification__Group__0__Impl : ( ( rule__FormControlSpecification__ParameterTypeAssignment_0 ) ) ;
+    public final void rule__FormControlSpecification__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5430:1: ( ( ( rule__FormFeatureControlSpecification__ParameterTypeAssignment_0 ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5431:1: ( ( rule__FormFeatureControlSpecification__ParameterTypeAssignment_0 ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5430:1: ( ( ( rule__FormControlSpecification__ParameterTypeAssignment_0 ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5431:1: ( ( rule__FormControlSpecification__ParameterTypeAssignment_0 ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5431:1: ( ( rule__FormFeatureControlSpecification__ParameterTypeAssignment_0 ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5432:1: ( rule__FormFeatureControlSpecification__ParameterTypeAssignment_0 )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5431:1: ( ( rule__FormControlSpecification__ParameterTypeAssignment_0 ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5432:1: ( rule__FormControlSpecification__ParameterTypeAssignment_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlSpecificationAccess().getParameterTypeAssignment_0()); 
+               before(grammarAccess.getFormControlSpecificationAccess().getParameterTypeAssignment_0()); 
             }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5433:1: ( rule__FormFeatureControlSpecification__ParameterTypeAssignment_0 )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5433:2: rule__FormFeatureControlSpecification__ParameterTypeAssignment_0
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5433:1: ( rule__FormControlSpecification__ParameterTypeAssignment_0 )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5433:2: rule__FormControlSpecification__ParameterTypeAssignment_0
             {
-            pushFollow(FOLLOW_rule__FormFeatureControlSpecification__ParameterTypeAssignment_0_in_rule__FormFeatureControlSpecification__Group__0__Impl11297);
-            rule__FormFeatureControlSpecification__ParameterTypeAssignment_0();
+            pushFollow(FOLLOW_rule__FormControlSpecification__ParameterTypeAssignment_0_in_rule__FormControlSpecification__Group__0__Impl11297);
+            rule__FormControlSpecification__ParameterTypeAssignment_0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16402,7 +16402,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlSpecificationAccess().getParameterTypeAssignment_0()); 
+               after(grammarAccess.getFormControlSpecificationAccess().getParameterTypeAssignment_0()); 
             }
 
             }
@@ -16422,26 +16422,26 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlSpecification__Group__0__Impl"
+    // $ANTLR end "rule__FormControlSpecification__Group__0__Impl"
 
 
-    // $ANTLR start "rule__FormFeatureControlSpecification__Group__1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5443:1: rule__FormFeatureControlSpecification__Group__1 : rule__FormFeatureControlSpecification__Group__1__Impl rule__FormFeatureControlSpecification__Group__2 ;
-    public final void rule__FormFeatureControlSpecification__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__FormControlSpecification__Group__1"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5443:1: rule__FormControlSpecification__Group__1 : rule__FormControlSpecification__Group__1__Impl rule__FormControlSpecification__Group__2 ;
+    public final void rule__FormControlSpecification__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5447:1: ( rule__FormFeatureControlSpecification__Group__1__Impl rule__FormFeatureControlSpecification__Group__2 )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5448:2: rule__FormFeatureControlSpecification__Group__1__Impl rule__FormFeatureControlSpecification__Group__2
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5447:1: ( rule__FormControlSpecification__Group__1__Impl rule__FormControlSpecification__Group__2 )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5448:2: rule__FormControlSpecification__Group__1__Impl rule__FormControlSpecification__Group__2
             {
-            pushFollow(FOLLOW_rule__FormFeatureControlSpecification__Group__1__Impl_in_rule__FormFeatureControlSpecification__Group__111327);
-            rule__FormFeatureControlSpecification__Group__1__Impl();
+            pushFollow(FOLLOW_rule__FormControlSpecification__Group__1__Impl_in_rule__FormControlSpecification__Group__111327);
+            rule__FormControlSpecification__Group__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__FormFeatureControlSpecification__Group__2_in_rule__FormFeatureControlSpecification__Group__111330);
-            rule__FormFeatureControlSpecification__Group__2();
+            pushFollow(FOLLOW_rule__FormControlSpecification__Group__2_in_rule__FormControlSpecification__Group__111330);
+            rule__FormControlSpecification__Group__2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16460,12 +16460,12 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlSpecification__Group__1"
+    // $ANTLR end "rule__FormControlSpecification__Group__1"
 
 
-    // $ANTLR start "rule__FormFeatureControlSpecification__Group__1__Impl"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5455:1: rule__FormFeatureControlSpecification__Group__1__Impl : ( ':' ) ;
-    public final void rule__FormFeatureControlSpecification__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__FormControlSpecification__Group__1__Impl"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5455:1: rule__FormControlSpecification__Group__1__Impl : ( ':' ) ;
+    public final void rule__FormControlSpecification__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -16477,11 +16477,11 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
             // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5461:1: ':'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlSpecificationAccess().getColonKeyword_1()); 
+               before(grammarAccess.getFormControlSpecificationAccess().getColonKeyword_1()); 
             }
-            match(input,50,FOLLOW_50_in_rule__FormFeatureControlSpecification__Group__1__Impl11358); if (state.failed) return ;
+            match(input,50,FOLLOW_50_in_rule__FormControlSpecification__Group__1__Impl11358); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlSpecificationAccess().getColonKeyword_1()); 
+               after(grammarAccess.getFormControlSpecificationAccess().getColonKeyword_1()); 
             }
 
             }
@@ -16501,26 +16501,26 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlSpecification__Group__1__Impl"
+    // $ANTLR end "rule__FormControlSpecification__Group__1__Impl"
 
 
-    // $ANTLR start "rule__FormFeatureControlSpecification__Group__2"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5474:1: rule__FormFeatureControlSpecification__Group__2 : rule__FormFeatureControlSpecification__Group__2__Impl rule__FormFeatureControlSpecification__Group__3 ;
-    public final void rule__FormFeatureControlSpecification__Group__2() throws RecognitionException {
+    // $ANTLR start "rule__FormControlSpecification__Group__2"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5474:1: rule__FormControlSpecification__Group__2 : rule__FormControlSpecification__Group__2__Impl rule__FormControlSpecification__Group__3 ;
+    public final void rule__FormControlSpecification__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5478:1: ( rule__FormFeatureControlSpecification__Group__2__Impl rule__FormFeatureControlSpecification__Group__3 )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5479:2: rule__FormFeatureControlSpecification__Group__2__Impl rule__FormFeatureControlSpecification__Group__3
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5478:1: ( rule__FormControlSpecification__Group__2__Impl rule__FormControlSpecification__Group__3 )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5479:2: rule__FormControlSpecification__Group__2__Impl rule__FormControlSpecification__Group__3
             {
-            pushFollow(FOLLOW_rule__FormFeatureControlSpecification__Group__2__Impl_in_rule__FormFeatureControlSpecification__Group__211389);
-            rule__FormFeatureControlSpecification__Group__2__Impl();
+            pushFollow(FOLLOW_rule__FormControlSpecification__Group__2__Impl_in_rule__FormControlSpecification__Group__211389);
+            rule__FormControlSpecification__Group__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__FormFeatureControlSpecification__Group__3_in_rule__FormFeatureControlSpecification__Group__211392);
-            rule__FormFeatureControlSpecification__Group__3();
+            pushFollow(FOLLOW_rule__FormControlSpecification__Group__3_in_rule__FormControlSpecification__Group__211392);
+            rule__FormControlSpecification__Group__3();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16539,30 +16539,30 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlSpecification__Group__2"
+    // $ANTLR end "rule__FormControlSpecification__Group__2"
 
 
-    // $ANTLR start "rule__FormFeatureControlSpecification__Group__2__Impl"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5486:1: rule__FormFeatureControlSpecification__Group__2__Impl : ( ( rule__FormFeatureControlSpecification__FeatureAssignment_2 ) ) ;
-    public final void rule__FormFeatureControlSpecification__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__FormControlSpecification__Group__2__Impl"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5486:1: rule__FormControlSpecification__Group__2__Impl : ( ( rule__FormControlSpecification__FeatureAssignment_2 ) ) ;
+    public final void rule__FormControlSpecification__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5490:1: ( ( ( rule__FormFeatureControlSpecification__FeatureAssignment_2 ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5491:1: ( ( rule__FormFeatureControlSpecification__FeatureAssignment_2 ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5490:1: ( ( ( rule__FormControlSpecification__FeatureAssignment_2 ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5491:1: ( ( rule__FormControlSpecification__FeatureAssignment_2 ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5491:1: ( ( rule__FormFeatureControlSpecification__FeatureAssignment_2 ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5492:1: ( rule__FormFeatureControlSpecification__FeatureAssignment_2 )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5491:1: ( ( rule__FormControlSpecification__FeatureAssignment_2 ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5492:1: ( rule__FormControlSpecification__FeatureAssignment_2 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlSpecificationAccess().getFeatureAssignment_2()); 
+               before(grammarAccess.getFormControlSpecificationAccess().getFeatureAssignment_2()); 
             }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5493:1: ( rule__FormFeatureControlSpecification__FeatureAssignment_2 )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5493:2: rule__FormFeatureControlSpecification__FeatureAssignment_2
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5493:1: ( rule__FormControlSpecification__FeatureAssignment_2 )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5493:2: rule__FormControlSpecification__FeatureAssignment_2
             {
-            pushFollow(FOLLOW_rule__FormFeatureControlSpecification__FeatureAssignment_2_in_rule__FormFeatureControlSpecification__Group__2__Impl11419);
-            rule__FormFeatureControlSpecification__FeatureAssignment_2();
+            pushFollow(FOLLOW_rule__FormControlSpecification__FeatureAssignment_2_in_rule__FormControlSpecification__Group__2__Impl11419);
+            rule__FormControlSpecification__FeatureAssignment_2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16570,7 +16570,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlSpecificationAccess().getFeatureAssignment_2()); 
+               after(grammarAccess.getFormControlSpecificationAccess().getFeatureAssignment_2()); 
             }
 
             }
@@ -16590,26 +16590,26 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlSpecification__Group__2__Impl"
+    // $ANTLR end "rule__FormControlSpecification__Group__2__Impl"
 
 
-    // $ANTLR start "rule__FormFeatureControlSpecification__Group__3"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5503:1: rule__FormFeatureControlSpecification__Group__3 : rule__FormFeatureControlSpecification__Group__3__Impl rule__FormFeatureControlSpecification__Group__4 ;
-    public final void rule__FormFeatureControlSpecification__Group__3() throws RecognitionException {
+    // $ANTLR start "rule__FormControlSpecification__Group__3"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5503:1: rule__FormControlSpecification__Group__3 : rule__FormControlSpecification__Group__3__Impl rule__FormControlSpecification__Group__4 ;
+    public final void rule__FormControlSpecification__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5507:1: ( rule__FormFeatureControlSpecification__Group__3__Impl rule__FormFeatureControlSpecification__Group__4 )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5508:2: rule__FormFeatureControlSpecification__Group__3__Impl rule__FormFeatureControlSpecification__Group__4
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5507:1: ( rule__FormControlSpecification__Group__3__Impl rule__FormControlSpecification__Group__4 )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5508:2: rule__FormControlSpecification__Group__3__Impl rule__FormControlSpecification__Group__4
             {
-            pushFollow(FOLLOW_rule__FormFeatureControlSpecification__Group__3__Impl_in_rule__FormFeatureControlSpecification__Group__311449);
-            rule__FormFeatureControlSpecification__Group__3__Impl();
+            pushFollow(FOLLOW_rule__FormControlSpecification__Group__3__Impl_in_rule__FormControlSpecification__Group__311449);
+            rule__FormControlSpecification__Group__3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__FormFeatureControlSpecification__Group__4_in_rule__FormFeatureControlSpecification__Group__311452);
-            rule__FormFeatureControlSpecification__Group__4();
+            pushFollow(FOLLOW_rule__FormControlSpecification__Group__4_in_rule__FormControlSpecification__Group__311452);
+            rule__FormControlSpecification__Group__4();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16628,12 +16628,12 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlSpecification__Group__3"
+    // $ANTLR end "rule__FormControlSpecification__Group__3"
 
 
-    // $ANTLR start "rule__FormFeatureControlSpecification__Group__3__Impl"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5515:1: rule__FormFeatureControlSpecification__Group__3__Impl : ( '->' ) ;
-    public final void rule__FormFeatureControlSpecification__Group__3__Impl() throws RecognitionException {
+    // $ANTLR start "rule__FormControlSpecification__Group__3__Impl"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5515:1: rule__FormControlSpecification__Group__3__Impl : ( '->' ) ;
+    public final void rule__FormControlSpecification__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -16645,11 +16645,11 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
             // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5521:1: '->'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlSpecificationAccess().getHyphenMinusGreaterThanSignKeyword_3()); 
+               before(grammarAccess.getFormControlSpecificationAccess().getHyphenMinusGreaterThanSignKeyword_3()); 
             }
-            match(input,23,FOLLOW_23_in_rule__FormFeatureControlSpecification__Group__3__Impl11480); if (state.failed) return ;
+            match(input,23,FOLLOW_23_in_rule__FormControlSpecification__Group__3__Impl11480); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlSpecificationAccess().getHyphenMinusGreaterThanSignKeyword_3()); 
+               after(grammarAccess.getFormControlSpecificationAccess().getHyphenMinusGreaterThanSignKeyword_3()); 
             }
 
             }
@@ -16669,110 +16669,26 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlSpecification__Group__3__Impl"
+    // $ANTLR end "rule__FormControlSpecification__Group__3__Impl"
 
 
-    // $ANTLR start "rule__FormFeatureControlSpecification__Group__4"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5534:1: rule__FormFeatureControlSpecification__Group__4 : rule__FormFeatureControlSpecification__Group__4__Impl rule__FormFeatureControlSpecification__Group__5 ;
-    public final void rule__FormFeatureControlSpecification__Group__4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5538:1: ( rule__FormFeatureControlSpecification__Group__4__Impl rule__FormFeatureControlSpecification__Group__5 )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5539:2: rule__FormFeatureControlSpecification__Group__4__Impl rule__FormFeatureControlSpecification__Group__5
-            {
-            pushFollow(FOLLOW_rule__FormFeatureControlSpecification__Group__4__Impl_in_rule__FormFeatureControlSpecification__Group__411511);
-            rule__FormFeatureControlSpecification__Group__4__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FOLLOW_rule__FormFeatureControlSpecification__Group__5_in_rule__FormFeatureControlSpecification__Group__411514);
-            rule__FormFeatureControlSpecification__Group__5();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FormFeatureControlSpecification__Group__4"
-
-
-    // $ANTLR start "rule__FormFeatureControlSpecification__Group__4__Impl"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5546:1: rule__FormFeatureControlSpecification__Group__4__Impl : ( ( rule__FormFeatureControlSpecification__ExpressionAssignment_4 ) ) ;
-    public final void rule__FormFeatureControlSpecification__Group__4__Impl() throws RecognitionException {
+    // $ANTLR start "rule__FormControlSpecification__Group__4"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5534:1: rule__FormControlSpecification__Group__4 : rule__FormControlSpecification__Group__4__Impl rule__FormControlSpecification__Group__5 ;
+    public final void rule__FormControlSpecification__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5550:1: ( ( ( rule__FormFeatureControlSpecification__ExpressionAssignment_4 ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5551:1: ( ( rule__FormFeatureControlSpecification__ExpressionAssignment_4 ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5538:1: ( rule__FormControlSpecification__Group__4__Impl rule__FormControlSpecification__Group__5 )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5539:2: rule__FormControlSpecification__Group__4__Impl rule__FormControlSpecification__Group__5
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5551:1: ( ( rule__FormFeatureControlSpecification__ExpressionAssignment_4 ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5552:1: ( rule__FormFeatureControlSpecification__ExpressionAssignment_4 )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlSpecificationAccess().getExpressionAssignment_4()); 
-            }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5553:1: ( rule__FormFeatureControlSpecification__ExpressionAssignment_4 )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5553:2: rule__FormFeatureControlSpecification__ExpressionAssignment_4
-            {
-            pushFollow(FOLLOW_rule__FormFeatureControlSpecification__ExpressionAssignment_4_in_rule__FormFeatureControlSpecification__Group__4__Impl11541);
-            rule__FormFeatureControlSpecification__ExpressionAssignment_4();
+            pushFollow(FOLLOW_rule__FormControlSpecification__Group__4__Impl_in_rule__FormControlSpecification__Group__411511);
+            rule__FormControlSpecification__Group__4__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlSpecificationAccess().getExpressionAssignment_4()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FormFeatureControlSpecification__Group__4__Impl"
-
-
-    // $ANTLR start "rule__FormFeatureControlSpecification__Group__5"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5563:1: rule__FormFeatureControlSpecification__Group__5 : rule__FormFeatureControlSpecification__Group__5__Impl ;
-    public final void rule__FormFeatureControlSpecification__Group__5() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5567:1: ( rule__FormFeatureControlSpecification__Group__5__Impl )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5568:2: rule__FormFeatureControlSpecification__Group__5__Impl
-            {
-            pushFollow(FOLLOW_rule__FormFeatureControlSpecification__Group__5__Impl_in_rule__FormFeatureControlSpecification__Group__511571);
-            rule__FormFeatureControlSpecification__Group__5__Impl();
+            pushFollow(FOLLOW_rule__FormControlSpecification__Group__5_in_rule__FormControlSpecification__Group__411514);
+            rule__FormControlSpecification__Group__5();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16791,26 +16707,110 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlSpecification__Group__5"
+    // $ANTLR end "rule__FormControlSpecification__Group__4"
 
 
-    // $ANTLR start "rule__FormFeatureControlSpecification__Group__5__Impl"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5574:1: rule__FormFeatureControlSpecification__Group__5__Impl : ( ( rule__FormFeatureControlSpecification__Group_5__0 )? ) ;
-    public final void rule__FormFeatureControlSpecification__Group__5__Impl() throws RecognitionException {
+    // $ANTLR start "rule__FormControlSpecification__Group__4__Impl"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5546:1: rule__FormControlSpecification__Group__4__Impl : ( ( rule__FormControlSpecification__ExpressionAssignment_4 ) ) ;
+    public final void rule__FormControlSpecification__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5578:1: ( ( ( rule__FormFeatureControlSpecification__Group_5__0 )? ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5579:1: ( ( rule__FormFeatureControlSpecification__Group_5__0 )? )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5550:1: ( ( ( rule__FormControlSpecification__ExpressionAssignment_4 ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5551:1: ( ( rule__FormControlSpecification__ExpressionAssignment_4 ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5579:1: ( ( rule__FormFeatureControlSpecification__Group_5__0 )? )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5580:1: ( rule__FormFeatureControlSpecification__Group_5__0 )?
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5551:1: ( ( rule__FormControlSpecification__ExpressionAssignment_4 ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5552:1: ( rule__FormControlSpecification__ExpressionAssignment_4 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlSpecificationAccess().getGroup_5()); 
+               before(grammarAccess.getFormControlSpecificationAccess().getExpressionAssignment_4()); 
             }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5581:1: ( rule__FormFeatureControlSpecification__Group_5__0 )?
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5553:1: ( rule__FormControlSpecification__ExpressionAssignment_4 )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5553:2: rule__FormControlSpecification__ExpressionAssignment_4
+            {
+            pushFollow(FOLLOW_rule__FormControlSpecification__ExpressionAssignment_4_in_rule__FormControlSpecification__Group__4__Impl11541);
+            rule__FormControlSpecification__ExpressionAssignment_4();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getFormControlSpecificationAccess().getExpressionAssignment_4()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FormControlSpecification__Group__4__Impl"
+
+
+    // $ANTLR start "rule__FormControlSpecification__Group__5"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5563:1: rule__FormControlSpecification__Group__5 : rule__FormControlSpecification__Group__5__Impl ;
+    public final void rule__FormControlSpecification__Group__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5567:1: ( rule__FormControlSpecification__Group__5__Impl )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5568:2: rule__FormControlSpecification__Group__5__Impl
+            {
+            pushFollow(FOLLOW_rule__FormControlSpecification__Group__5__Impl_in_rule__FormControlSpecification__Group__511571);
+            rule__FormControlSpecification__Group__5__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FormControlSpecification__Group__5"
+
+
+    // $ANTLR start "rule__FormControlSpecification__Group__5__Impl"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5574:1: rule__FormControlSpecification__Group__5__Impl : ( ( rule__FormControlSpecification__Group_5__0 )? ) ;
+    public final void rule__FormControlSpecification__Group__5__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5578:1: ( ( ( rule__FormControlSpecification__Group_5__0 )? ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5579:1: ( ( rule__FormControlSpecification__Group_5__0 )? )
+            {
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5579:1: ( ( rule__FormControlSpecification__Group_5__0 )? )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5580:1: ( rule__FormControlSpecification__Group_5__0 )?
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getFormControlSpecificationAccess().getGroup_5()); 
+            }
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5581:1: ( rule__FormControlSpecification__Group_5__0 )?
             int alt46=2;
             int LA46_0 = input.LA(1);
 
@@ -16819,10 +16819,10 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
             }
             switch (alt46) {
                 case 1 :
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5581:2: rule__FormFeatureControlSpecification__Group_5__0
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5581:2: rule__FormControlSpecification__Group_5__0
                     {
-                    pushFollow(FOLLOW_rule__FormFeatureControlSpecification__Group_5__0_in_rule__FormFeatureControlSpecification__Group__5__Impl11598);
-                    rule__FormFeatureControlSpecification__Group_5__0();
+                    pushFollow(FOLLOW_rule__FormControlSpecification__Group_5__0_in_rule__FormControlSpecification__Group__5__Impl11598);
+                    rule__FormControlSpecification__Group_5__0();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -16833,7 +16833,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlSpecificationAccess().getGroup_5()); 
+               after(grammarAccess.getFormControlSpecificationAccess().getGroup_5()); 
             }
 
             }
@@ -16853,26 +16853,26 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlSpecification__Group__5__Impl"
+    // $ANTLR end "rule__FormControlSpecification__Group__5__Impl"
 
 
-    // $ANTLR start "rule__FormFeatureControlSpecification__Group_5__0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5603:1: rule__FormFeatureControlSpecification__Group_5__0 : rule__FormFeatureControlSpecification__Group_5__0__Impl rule__FormFeatureControlSpecification__Group_5__1 ;
-    public final void rule__FormFeatureControlSpecification__Group_5__0() throws RecognitionException {
+    // $ANTLR start "rule__FormControlSpecification__Group_5__0"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5603:1: rule__FormControlSpecification__Group_5__0 : rule__FormControlSpecification__Group_5__0__Impl rule__FormControlSpecification__Group_5__1 ;
+    public final void rule__FormControlSpecification__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5607:1: ( rule__FormFeatureControlSpecification__Group_5__0__Impl rule__FormFeatureControlSpecification__Group_5__1 )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5608:2: rule__FormFeatureControlSpecification__Group_5__0__Impl rule__FormFeatureControlSpecification__Group_5__1
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5607:1: ( rule__FormControlSpecification__Group_5__0__Impl rule__FormControlSpecification__Group_5__1 )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5608:2: rule__FormControlSpecification__Group_5__0__Impl rule__FormControlSpecification__Group_5__1
             {
-            pushFollow(FOLLOW_rule__FormFeatureControlSpecification__Group_5__0__Impl_in_rule__FormFeatureControlSpecification__Group_5__011641);
-            rule__FormFeatureControlSpecification__Group_5__0__Impl();
+            pushFollow(FOLLOW_rule__FormControlSpecification__Group_5__0__Impl_in_rule__FormControlSpecification__Group_5__011641);
+            rule__FormControlSpecification__Group_5__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
-            pushFollow(FOLLOW_rule__FormFeatureControlSpecification__Group_5__1_in_rule__FormFeatureControlSpecification__Group_5__011644);
-            rule__FormFeatureControlSpecification__Group_5__1();
+            pushFollow(FOLLOW_rule__FormControlSpecification__Group_5__1_in_rule__FormControlSpecification__Group_5__011644);
+            rule__FormControlSpecification__Group_5__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16891,12 +16891,12 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlSpecification__Group_5__0"
+    // $ANTLR end "rule__FormControlSpecification__Group_5__0"
 
 
-    // $ANTLR start "rule__FormFeatureControlSpecification__Group_5__0__Impl"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5615:1: rule__FormFeatureControlSpecification__Group_5__0__Impl : ( 'target' ) ;
-    public final void rule__FormFeatureControlSpecification__Group_5__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__FormControlSpecification__Group_5__0__Impl"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5615:1: rule__FormControlSpecification__Group_5__0__Impl : ( 'target' ) ;
+    public final void rule__FormControlSpecification__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -16908,11 +16908,11 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
             // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5621:1: 'target'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlSpecificationAccess().getTargetKeyword_5_0()); 
+               before(grammarAccess.getFormControlSpecificationAccess().getTargetKeyword_5_0()); 
             }
-            match(input,56,FOLLOW_56_in_rule__FormFeatureControlSpecification__Group_5__0__Impl11672); if (state.failed) return ;
+            match(input,56,FOLLOW_56_in_rule__FormControlSpecification__Group_5__0__Impl11672); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlSpecificationAccess().getTargetKeyword_5_0()); 
+               after(grammarAccess.getFormControlSpecificationAccess().getTargetKeyword_5_0()); 
             }
 
             }
@@ -16932,21 +16932,21 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlSpecification__Group_5__0__Impl"
+    // $ANTLR end "rule__FormControlSpecification__Group_5__0__Impl"
 
 
-    // $ANTLR start "rule__FormFeatureControlSpecification__Group_5__1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5634:1: rule__FormFeatureControlSpecification__Group_5__1 : rule__FormFeatureControlSpecification__Group_5__1__Impl ;
-    public final void rule__FormFeatureControlSpecification__Group_5__1() throws RecognitionException {
+    // $ANTLR start "rule__FormControlSpecification__Group_5__1"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5634:1: rule__FormControlSpecification__Group_5__1 : rule__FormControlSpecification__Group_5__1__Impl ;
+    public final void rule__FormControlSpecification__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5638:1: ( rule__FormFeatureControlSpecification__Group_5__1__Impl )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5639:2: rule__FormFeatureControlSpecification__Group_5__1__Impl
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5638:1: ( rule__FormControlSpecification__Group_5__1__Impl )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5639:2: rule__FormControlSpecification__Group_5__1__Impl
             {
-            pushFollow(FOLLOW_rule__FormFeatureControlSpecification__Group_5__1__Impl_in_rule__FormFeatureControlSpecification__Group_5__111703);
-            rule__FormFeatureControlSpecification__Group_5__1__Impl();
+            pushFollow(FOLLOW_rule__FormControlSpecification__Group_5__1__Impl_in_rule__FormControlSpecification__Group_5__111703);
+            rule__FormControlSpecification__Group_5__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16965,30 +16965,30 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlSpecification__Group_5__1"
+    // $ANTLR end "rule__FormControlSpecification__Group_5__1"
 
 
-    // $ANTLR start "rule__FormFeatureControlSpecification__Group_5__1__Impl"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5645:1: rule__FormFeatureControlSpecification__Group_5__1__Impl : ( ( rule__FormFeatureControlSpecification__TargetAssignment_5_1 ) ) ;
-    public final void rule__FormFeatureControlSpecification__Group_5__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__FormControlSpecification__Group_5__1__Impl"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5645:1: rule__FormControlSpecification__Group_5__1__Impl : ( ( rule__FormControlSpecification__TargetAssignment_5_1 ) ) ;
+    public final void rule__FormControlSpecification__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5649:1: ( ( ( rule__FormFeatureControlSpecification__TargetAssignment_5_1 ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5650:1: ( ( rule__FormFeatureControlSpecification__TargetAssignment_5_1 ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5649:1: ( ( ( rule__FormControlSpecification__TargetAssignment_5_1 ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5650:1: ( ( rule__FormControlSpecification__TargetAssignment_5_1 ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5650:1: ( ( rule__FormFeatureControlSpecification__TargetAssignment_5_1 ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5651:1: ( rule__FormFeatureControlSpecification__TargetAssignment_5_1 )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5650:1: ( ( rule__FormControlSpecification__TargetAssignment_5_1 ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5651:1: ( rule__FormControlSpecification__TargetAssignment_5_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlSpecificationAccess().getTargetAssignment_5_1()); 
+               before(grammarAccess.getFormControlSpecificationAccess().getTargetAssignment_5_1()); 
             }
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5652:1: ( rule__FormFeatureControlSpecification__TargetAssignment_5_1 )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5652:2: rule__FormFeatureControlSpecification__TargetAssignment_5_1
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5652:1: ( rule__FormControlSpecification__TargetAssignment_5_1 )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:5652:2: rule__FormControlSpecification__TargetAssignment_5_1
             {
-            pushFollow(FOLLOW_rule__FormFeatureControlSpecification__TargetAssignment_5_1_in_rule__FormFeatureControlSpecification__Group_5__1__Impl11730);
-            rule__FormFeatureControlSpecification__TargetAssignment_5_1();
+            pushFollow(FOLLOW_rule__FormControlSpecification__TargetAssignment_5_1_in_rule__FormControlSpecification__Group_5__1__Impl11730);
+            rule__FormControlSpecification__TargetAssignment_5_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16996,7 +16996,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlSpecificationAccess().getTargetAssignment_5_1()); 
+               after(grammarAccess.getFormControlSpecificationAccess().getTargetAssignment_5_1()); 
             }
 
             }
@@ -17016,7 +17016,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlSpecification__Group_5__1__Impl"
+    // $ANTLR end "rule__FormControlSpecification__Group_5__1__Impl"
 
 
     // $ANTLR start "rule__ViewerContentProvider__Group__0"
@@ -47957,17 +47957,17 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Module__UnorderedGroup_3__Impl"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16966:1: rule__Module__UnorderedGroup_3__Impl : ( ({...}? => ( ( ( rule__Module__LabelProviderAssignment_3_0 ) ) ) ) | ({...}? => ( ( ( rule__Module__PropertyDescriptionProviderAssignment_3_1 ) ) ) ) | ({...}? => ( ( ( rule__Module__FeaturesProviderAssignment_3_2 ) ) ) ) | ({...}? => ( ( ( rule__Module__FormFeatureControlFactoryAssignment_3_3 ) ) ) ) | ({...}? => ( ( ( rule__Module__ViewerContentProviderAssignment_3_4 ) ) ) ) | ({...}? => ( ( ( rule__Module__Group_3_5__0 ) ) ) ) ) ;
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16966:1: rule__Module__UnorderedGroup_3__Impl : ( ({...}? => ( ( ( rule__Module__LabelProviderAssignment_3_0 ) ) ) ) | ({...}? => ( ( ( rule__Module__PropertyDescriptionProviderAssignment_3_1 ) ) ) ) | ({...}? => ( ( ( rule__Module__FeaturesProviderAssignment_3_2 ) ) ) ) | ({...}? => ( ( ( rule__Module__FormControlFactoryAssignment_3_3 ) ) ) ) | ({...}? => ( ( ( rule__Module__ViewerContentProviderAssignment_3_4 ) ) ) ) | ({...}? => ( ( ( rule__Module__Group_3_5__0 ) ) ) ) ) ;
     public final void rule__Module__UnorderedGroup_3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         		boolean selected = false;
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16971:1: ( ( ({...}? => ( ( ( rule__Module__LabelProviderAssignment_3_0 ) ) ) ) | ({...}? => ( ( ( rule__Module__PropertyDescriptionProviderAssignment_3_1 ) ) ) ) | ({...}? => ( ( ( rule__Module__FeaturesProviderAssignment_3_2 ) ) ) ) | ({...}? => ( ( ( rule__Module__FormFeatureControlFactoryAssignment_3_3 ) ) ) ) | ({...}? => ( ( ( rule__Module__ViewerContentProviderAssignment_3_4 ) ) ) ) | ({...}? => ( ( ( rule__Module__Group_3_5__0 ) ) ) ) ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16972:3: ( ({...}? => ( ( ( rule__Module__LabelProviderAssignment_3_0 ) ) ) ) | ({...}? => ( ( ( rule__Module__PropertyDescriptionProviderAssignment_3_1 ) ) ) ) | ({...}? => ( ( ( rule__Module__FeaturesProviderAssignment_3_2 ) ) ) ) | ({...}? => ( ( ( rule__Module__FormFeatureControlFactoryAssignment_3_3 ) ) ) ) | ({...}? => ( ( ( rule__Module__ViewerContentProviderAssignment_3_4 ) ) ) ) | ({...}? => ( ( ( rule__Module__Group_3_5__0 ) ) ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16971:1: ( ( ({...}? => ( ( ( rule__Module__LabelProviderAssignment_3_0 ) ) ) ) | ({...}? => ( ( ( rule__Module__PropertyDescriptionProviderAssignment_3_1 ) ) ) ) | ({...}? => ( ( ( rule__Module__FeaturesProviderAssignment_3_2 ) ) ) ) | ({...}? => ( ( ( rule__Module__FormControlFactoryAssignment_3_3 ) ) ) ) | ({...}? => ( ( ( rule__Module__ViewerContentProviderAssignment_3_4 ) ) ) ) | ({...}? => ( ( ( rule__Module__Group_3_5__0 ) ) ) ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16972:3: ( ({...}? => ( ( ( rule__Module__LabelProviderAssignment_3_0 ) ) ) ) | ({...}? => ( ( ( rule__Module__PropertyDescriptionProviderAssignment_3_1 ) ) ) ) | ({...}? => ( ( ( rule__Module__FeaturesProviderAssignment_3_2 ) ) ) ) | ({...}? => ( ( ( rule__Module__FormControlFactoryAssignment_3_3 ) ) ) ) | ({...}? => ( ( ( rule__Module__ViewerContentProviderAssignment_3_4 ) ) ) ) | ({...}? => ( ( ( rule__Module__Group_3_5__0 ) ) ) ) )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16972:3: ( ({...}? => ( ( ( rule__Module__LabelProviderAssignment_3_0 ) ) ) ) | ({...}? => ( ( ( rule__Module__PropertyDescriptionProviderAssignment_3_1 ) ) ) ) | ({...}? => ( ( ( rule__Module__FeaturesProviderAssignment_3_2 ) ) ) ) | ({...}? => ( ( ( rule__Module__FormFeatureControlFactoryAssignment_3_3 ) ) ) ) | ({...}? => ( ( ( rule__Module__ViewerContentProviderAssignment_3_4 ) ) ) ) | ({...}? => ( ( ( rule__Module__Group_3_5__0 ) ) ) ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:16972:3: ( ({...}? => ( ( ( rule__Module__LabelProviderAssignment_3_0 ) ) ) ) | ({...}? => ( ( ( rule__Module__PropertyDescriptionProviderAssignment_3_1 ) ) ) ) | ({...}? => ( ( ( rule__Module__FeaturesProviderAssignment_3_2 ) ) ) ) | ({...}? => ( ( ( rule__Module__FormControlFactoryAssignment_3_3 ) ) ) ) | ({...}? => ( ( ( rule__Module__ViewerContentProviderAssignment_3_4 ) ) ) ) | ({...}? => ( ( ( rule__Module__Group_3_5__0 ) ) ) ) )
             int alt109=6;
             int LA109_0 = input.LA(1);
 
@@ -48139,31 +48139,31 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
                     }
                     break;
                 case 4 :
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17025:4: ({...}? => ( ( ( rule__Module__FormFeatureControlFactoryAssignment_3_3 ) ) ) )
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17025:4: ({...}? => ( ( ( rule__Module__FormControlFactoryAssignment_3_3 ) ) ) )
                     {
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17025:4: ({...}? => ( ( ( rule__Module__FormFeatureControlFactoryAssignment_3_3 ) ) ) )
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17026:5: {...}? => ( ( ( rule__Module__FormFeatureControlFactoryAssignment_3_3 ) ) )
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17025:4: ({...}? => ( ( ( rule__Module__FormControlFactoryAssignment_3_3 ) ) ) )
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17026:5: {...}? => ( ( ( rule__Module__FormControlFactoryAssignment_3_3 ) ) )
                     {
                     if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 3) ) {
                         if (state.backtracking>0) {state.failed=true; return ;}
                         throw new FailedPredicateException(input, "rule__Module__UnorderedGroup_3__Impl", "getUnorderedGroupHelper().canSelect(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 3)");
                     }
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17026:103: ( ( ( rule__Module__FormFeatureControlFactoryAssignment_3_3 ) ) )
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17027:6: ( ( rule__Module__FormFeatureControlFactoryAssignment_3_3 ) )
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17026:103: ( ( ( rule__Module__FormControlFactoryAssignment_3_3 ) ) )
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17027:6: ( ( rule__Module__FormControlFactoryAssignment_3_3 ) )
                     {
                     getUnorderedGroupHelper().select(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 3);
                     selected = true;
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17033:6: ( ( rule__Module__FormFeatureControlFactoryAssignment_3_3 ) )
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17035:7: ( rule__Module__FormFeatureControlFactoryAssignment_3_3 )
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17033:6: ( ( rule__Module__FormControlFactoryAssignment_3_3 ) )
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17035:7: ( rule__Module__FormControlFactoryAssignment_3_3 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getModuleAccess().getFormFeatureControlFactoryAssignment_3_3()); 
+                       before(grammarAccess.getModuleAccess().getFormControlFactoryAssignment_3_3()); 
                     }
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17036:7: ( rule__Module__FormFeatureControlFactoryAssignment_3_3 )
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17036:8: rule__Module__FormFeatureControlFactoryAssignment_3_3
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17036:7: ( rule__Module__FormControlFactoryAssignment_3_3 )
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17036:8: rule__Module__FormControlFactoryAssignment_3_3
                     {
-                    pushFollow(FOLLOW_rule__Module__FormFeatureControlFactoryAssignment_3_3_in_rule__Module__UnorderedGroup_3__Impl34291);
-                    rule__Module__FormFeatureControlFactoryAssignment_3_3();
+                    pushFollow(FOLLOW_rule__Module__FormControlFactoryAssignment_3_3_in_rule__Module__UnorderedGroup_3__Impl34291);
+                    rule__Module__FormControlFactoryAssignment_3_3();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -48171,7 +48171,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getModuleAccess().getFormFeatureControlFactoryAssignment_3_3()); 
+                       after(grammarAccess.getModuleAccess().getFormControlFactoryAssignment_3_3()); 
                     }
 
                     }
@@ -49292,29 +49292,29 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
     // $ANTLR end "rule__Module__FeaturesProviderAssignment_3_2"
 
 
-    // $ANTLR start "rule__Module__FormFeatureControlFactoryAssignment_3_3"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17375:1: rule__Module__FormFeatureControlFactoryAssignment_3_3 : ( ruleFormFeatureControlFactory ) ;
-    public final void rule__Module__FormFeatureControlFactoryAssignment_3_3() throws RecognitionException {
+    // $ANTLR start "rule__Module__FormControlFactoryAssignment_3_3"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17375:1: rule__Module__FormControlFactoryAssignment_3_3 : ( ruleFormControlFactory ) ;
+    public final void rule__Module__FormControlFactoryAssignment_3_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17379:1: ( ( ruleFormFeatureControlFactory ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17380:1: ( ruleFormFeatureControlFactory )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17379:1: ( ( ruleFormControlFactory ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17380:1: ( ruleFormControlFactory )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17380:1: ( ruleFormFeatureControlFactory )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17381:1: ruleFormFeatureControlFactory
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17380:1: ( ruleFormControlFactory )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17381:1: ruleFormControlFactory
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getModuleAccess().getFormFeatureControlFactoryFormFeatureControlFactoryParserRuleCall_3_3_0()); 
+               before(grammarAccess.getModuleAccess().getFormControlFactoryFormControlFactoryParserRuleCall_3_3_0()); 
             }
-            pushFollow(FOLLOW_ruleFormFeatureControlFactory_in_rule__Module__FormFeatureControlFactoryAssignment_3_335222);
-            ruleFormFeatureControlFactory();
+            pushFollow(FOLLOW_ruleFormControlFactory_in_rule__Module__FormControlFactoryAssignment_3_335222);
+            ruleFormControlFactory();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getModuleAccess().getFormFeatureControlFactoryFormFeatureControlFactoryParserRuleCall_3_3_0()); 
+               after(grammarAccess.getModuleAccess().getFormControlFactoryFormControlFactoryParserRuleCall_3_3_0()); 
             }
 
             }
@@ -49334,7 +49334,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__Module__FormFeatureControlFactoryAssignment_3_3"
+    // $ANTLR end "rule__Module__FormControlFactoryAssignment_3_3"
 
 
     // $ANTLR start "rule__Module__ViewerContentProviderAssignment_3_4"
@@ -50012,29 +50012,29 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
     // $ANTLR end "rule__FeatureSpecification__FeaturesAssignment_3_1"
 
 
-    // $ANTLR start "rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_2"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17615:1: rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_2 : ( ruleFormFeatureControlSpecification ) ;
-    public final void rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_2() throws RecognitionException {
+    // $ANTLR start "rule__FormControlFactory__ControlSpecificationsAssignment_3_2"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17615:1: rule__FormControlFactory__ControlSpecificationsAssignment_3_2 : ( ruleFormControlSpecification ) ;
+    public final void rule__FormControlFactory__ControlSpecificationsAssignment_3_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17619:1: ( ( ruleFormFeatureControlSpecification ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17620:1: ( ruleFormFeatureControlSpecification )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17619:1: ( ( ruleFormControlSpecification ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17620:1: ( ruleFormControlSpecification )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17620:1: ( ruleFormFeatureControlSpecification )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17621:1: ruleFormFeatureControlSpecification
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17620:1: ( ruleFormControlSpecification )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17621:1: ruleFormControlSpecification
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlFactoryAccess().getControlSpecificationsFormFeatureControlSpecificationParserRuleCall_3_2_0()); 
+               before(grammarAccess.getFormControlFactoryAccess().getControlSpecificationsFormControlSpecificationParserRuleCall_3_2_0()); 
             }
-            pushFollow(FOLLOW_ruleFormFeatureControlSpecification_in_rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_235718);
-            ruleFormFeatureControlSpecification();
+            pushFollow(FOLLOW_ruleFormControlSpecification_in_rule__FormControlFactory__ControlSpecificationsAssignment_3_235718);
+            ruleFormControlSpecification();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlFactoryAccess().getControlSpecificationsFormFeatureControlSpecificationParserRuleCall_3_2_0()); 
+               after(grammarAccess.getFormControlFactoryAccess().getControlSpecificationsFormControlSpecificationParserRuleCall_3_2_0()); 
             }
 
             }
@@ -50054,12 +50054,12 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_2"
+    // $ANTLR end "rule__FormControlFactory__ControlSpecificationsAssignment_3_2"
 
 
-    // $ANTLR start "rule__FormFeatureControlSpecification__ParameterTypeAssignment_0"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17630:1: rule__FormFeatureControlSpecification__ParameterTypeAssignment_0 : ( ruleJvmTypeReference ) ;
-    public final void rule__FormFeatureControlSpecification__ParameterTypeAssignment_0() throws RecognitionException {
+    // $ANTLR start "rule__FormControlSpecification__ParameterTypeAssignment_0"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17630:1: rule__FormControlSpecification__ParameterTypeAssignment_0 : ( ruleJvmTypeReference ) ;
+    public final void rule__FormControlSpecification__ParameterTypeAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -50071,15 +50071,15 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
             // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17636:1: ruleJvmTypeReference
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); 
+               before(grammarAccess.getFormControlSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); 
             }
-            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__FormFeatureControlSpecification__ParameterTypeAssignment_035749);
+            pushFollow(FOLLOW_ruleJvmTypeReference_in_rule__FormControlSpecification__ParameterTypeAssignment_035749);
             ruleJvmTypeReference();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); 
+               after(grammarAccess.getFormControlSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0()); 
             }
 
             }
@@ -50099,12 +50099,12 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlSpecification__ParameterTypeAssignment_0"
+    // $ANTLR end "rule__FormControlSpecification__ParameterTypeAssignment_0"
 
 
-    // $ANTLR start "rule__FormFeatureControlSpecification__FeatureAssignment_2"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17645:1: rule__FormFeatureControlSpecification__FeatureAssignment_2 : ( ruleXFeatureCall ) ;
-    public final void rule__FormFeatureControlSpecification__FeatureAssignment_2() throws RecognitionException {
+    // $ANTLR start "rule__FormControlSpecification__FeatureAssignment_2"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17645:1: rule__FormControlSpecification__FeatureAssignment_2 : ( ruleXFeatureCall ) ;
+    public final void rule__FormControlSpecification__FeatureAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -50116,15 +50116,15 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
             // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17651:1: ruleXFeatureCall
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0()); 
+               before(grammarAccess.getFormControlSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleXFeatureCall_in_rule__FormFeatureControlSpecification__FeatureAssignment_235780);
+            pushFollow(FOLLOW_ruleXFeatureCall_in_rule__FormControlSpecification__FeatureAssignment_235780);
             ruleXFeatureCall();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0()); 
+               after(grammarAccess.getFormControlSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0()); 
             }
 
             }
@@ -50144,12 +50144,12 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlSpecification__FeatureAssignment_2"
+    // $ANTLR end "rule__FormControlSpecification__FeatureAssignment_2"
 
 
-    // $ANTLR start "rule__FormFeatureControlSpecification__ExpressionAssignment_4"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17660:1: rule__FormFeatureControlSpecification__ExpressionAssignment_4 : ( ruleXExpression ) ;
-    public final void rule__FormFeatureControlSpecification__ExpressionAssignment_4() throws RecognitionException {
+    // $ANTLR start "rule__FormControlSpecification__ExpressionAssignment_4"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17660:1: rule__FormControlSpecification__ExpressionAssignment_4 : ( ruleXExpression ) ;
+    public final void rule__FormControlSpecification__ExpressionAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -50161,15 +50161,15 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
             // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17666:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0()); 
+               before(grammarAccess.getFormControlSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__FormFeatureControlSpecification__ExpressionAssignment_435811);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__FormControlSpecification__ExpressionAssignment_435811);
             ruleXExpression();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0()); 
+               after(grammarAccess.getFormControlSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0()); 
             }
 
             }
@@ -50189,12 +50189,12 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlSpecification__ExpressionAssignment_4"
+    // $ANTLR end "rule__FormControlSpecification__ExpressionAssignment_4"
 
 
-    // $ANTLR start "rule__FormFeatureControlSpecification__TargetAssignment_5_1"
-    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17675:1: rule__FormFeatureControlSpecification__TargetAssignment_5_1 : ( ruleXExpression ) ;
-    public final void rule__FormFeatureControlSpecification__TargetAssignment_5_1() throws RecognitionException {
+    // $ANTLR start "rule__FormControlSpecification__TargetAssignment_5_1"
+    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17675:1: rule__FormControlSpecification__TargetAssignment_5_1 : ( ruleXExpression ) ;
+    public final void rule__FormControlSpecification__TargetAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -50206,15 +50206,15 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
             // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17681:1: ruleXExpression
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getFormFeatureControlSpecificationAccess().getTargetXExpressionParserRuleCall_5_1_0()); 
+               before(grammarAccess.getFormControlSpecificationAccess().getTargetXExpressionParserRuleCall_5_1_0()); 
             }
-            pushFollow(FOLLOW_ruleXExpression_in_rule__FormFeatureControlSpecification__TargetAssignment_5_135842);
+            pushFollow(FOLLOW_ruleXExpression_in_rule__FormControlSpecification__TargetAssignment_5_135842);
             ruleXExpression();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getFormFeatureControlSpecificationAccess().getTargetXExpressionParserRuleCall_5_1_0()); 
+               after(grammarAccess.getFormControlSpecificationAccess().getTargetXExpressionParserRuleCall_5_1_0()); 
             }
 
             }
@@ -50234,7 +50234,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__FormFeatureControlSpecification__TargetAssignment_5_1"
+    // $ANTLR end "rule__FormControlSpecification__TargetAssignment_5_1"
 
 
     // $ANTLR start "rule__ViewerContentProvider__ChildrenSpecificationsAssignment_3_2"
@@ -56399,31 +56399,31 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
 
     // $ANTLR start synpred139_InternalEmfComponentsDsl
     public final void synpred139_InternalEmfComponentsDsl_fragment() throws RecognitionException {   
-        // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17025:4: ( ({...}? => ( ( ( rule__Module__FormFeatureControlFactoryAssignment_3_3 ) ) ) ) )
-        // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17025:4: ({...}? => ( ( ( rule__Module__FormFeatureControlFactoryAssignment_3_3 ) ) ) )
+        // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17025:4: ( ({...}? => ( ( ( rule__Module__FormControlFactoryAssignment_3_3 ) ) ) ) )
+        // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17025:4: ({...}? => ( ( ( rule__Module__FormControlFactoryAssignment_3_3 ) ) ) )
         {
-        // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17025:4: ({...}? => ( ( ( rule__Module__FormFeatureControlFactoryAssignment_3_3 ) ) ) )
-        // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17026:5: {...}? => ( ( ( rule__Module__FormFeatureControlFactoryAssignment_3_3 ) ) )
+        // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17025:4: ({...}? => ( ( ( rule__Module__FormControlFactoryAssignment_3_3 ) ) ) )
+        // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17026:5: {...}? => ( ( ( rule__Module__FormControlFactoryAssignment_3_3 ) ) )
         {
         if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 3) ) {
             if (state.backtracking>0) {state.failed=true; return ;}
             throw new FailedPredicateException(input, "synpred139_InternalEmfComponentsDsl", "getUnorderedGroupHelper().canSelect(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 3)");
         }
-        // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17026:103: ( ( ( rule__Module__FormFeatureControlFactoryAssignment_3_3 ) ) )
-        // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17027:6: ( ( rule__Module__FormFeatureControlFactoryAssignment_3_3 ) )
+        // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17026:103: ( ( ( rule__Module__FormControlFactoryAssignment_3_3 ) ) )
+        // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17027:6: ( ( rule__Module__FormControlFactoryAssignment_3_3 ) )
         {
         getUnorderedGroupHelper().select(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 3);
-        // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17033:6: ( ( rule__Module__FormFeatureControlFactoryAssignment_3_3 ) )
-        // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17035:7: ( rule__Module__FormFeatureControlFactoryAssignment_3_3 )
+        // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17033:6: ( ( rule__Module__FormControlFactoryAssignment_3_3 ) )
+        // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17035:7: ( rule__Module__FormControlFactoryAssignment_3_3 )
         {
         if ( state.backtracking==0 ) {
-           before(grammarAccess.getModuleAccess().getFormFeatureControlFactoryAssignment_3_3()); 
+           before(grammarAccess.getModuleAccess().getFormControlFactoryAssignment_3_3()); 
         }
-        // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17036:7: ( rule__Module__FormFeatureControlFactoryAssignment_3_3 )
-        // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17036:8: rule__Module__FormFeatureControlFactoryAssignment_3_3
+        // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17036:7: ( rule__Module__FormControlFactoryAssignment_3_3 )
+        // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:17036:8: rule__Module__FormControlFactoryAssignment_3_3
         {
-        pushFollow(FOLLOW_rule__Module__FormFeatureControlFactoryAssignment_3_3_in_synpred139_InternalEmfComponentsDsl34291);
-        rule__Module__FormFeatureControlFactoryAssignment_3_3();
+        pushFollow(FOLLOW_rule__Module__FormControlFactoryAssignment_3_3_in_synpred139_InternalEmfComponentsDsl34291);
+        rule__Module__FormControlFactoryAssignment_3_3();
 
         state._fsp--;
         if (state.failed) return ;
@@ -59642,12 +59642,12 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
     public static final BitSet FOLLOW_ruleFeatureSpecification_in_entryRuleFeatureSpecification607 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleFeatureSpecification614 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__FeatureSpecification__Group__0_in_ruleFeatureSpecification640 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFormFeatureControlFactory_in_entryRuleFormFeatureControlFactory667 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFormFeatureControlFactory674 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group__0_in_ruleFormFeatureControlFactory700 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFormFeatureControlSpecification_in_entryRuleFormFeatureControlSpecification727 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFormFeatureControlSpecification734 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlSpecification__Group__0_in_ruleFormFeatureControlSpecification760 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFormControlFactory_in_entryRuleFormControlFactory667 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFormControlFactory674 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormControlFactory__Group__0_in_ruleFormControlFactory700 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFormControlSpecification_in_entryRuleFormControlSpecification727 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFormControlSpecification734 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormControlSpecification__Group__0_in_ruleFormControlSpecification760 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleViewerContentProvider_in_entryRuleViewerContentProvider787 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleViewerContentProvider794 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ViewerContentProvider__Group__0_in_ruleViewerContentProvider820 = new BitSet(new long[]{0x0000000000000002L});
@@ -60100,52 +60100,52 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
     public static final BitSet FOLLOW_53_in_rule__FeatureSpecification__Group_3__0__Impl10608 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__FeatureSpecification__Group_3__1__Impl_in_rule__FeatureSpecification__Group_3__110639 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__FeatureSpecification__FeaturesAssignment_3_1_in_rule__FeatureSpecification__Group_3__1__Impl10666 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group__0__Impl_in_rule__FormFeatureControlFactory__Group__010700 = new BitSet(new long[]{0x0040000000000000L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group__1_in_rule__FormFeatureControlFactory__Group__010703 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group__1__Impl_in_rule__FormFeatureControlFactory__Group__110761 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group__2_in_rule__FormFeatureControlFactory__Group__110764 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_rule__FormFeatureControlFactory__Group__1__Impl10792 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group__2__Impl_in_rule__FormFeatureControlFactory__Group__210823 = new BitSet(new long[]{0x0080100000000000L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group__3_in_rule__FormFeatureControlFactory__Group__210826 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_43_in_rule__FormFeatureControlFactory__Group__2__Impl10854 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group__3__Impl_in_rule__FormFeatureControlFactory__Group__310885 = new BitSet(new long[]{0x0080100000000000L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group__4_in_rule__FormFeatureControlFactory__Group__310888 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group_3__0_in_rule__FormFeatureControlFactory__Group__3__Impl10915 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group__4__Impl_in_rule__FormFeatureControlFactory__Group__410946 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_rule__FormFeatureControlFactory__Group__4__Impl10974 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group_3__0__Impl_in_rule__FormFeatureControlFactory__Group_3__011015 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group_3__1_in_rule__FormFeatureControlFactory__Group_3__011018 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_rule__FormFeatureControlFactory__Group_3__0__Impl11046 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group_3__1__Impl_in_rule__FormFeatureControlFactory__Group_3__111077 = new BitSet(new long[]{0x0000100002000010L,0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group_3__2_in_rule__FormFeatureControlFactory__Group_3__111080 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_43_in_rule__FormFeatureControlFactory__Group_3__1__Impl11108 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group_3__2__Impl_in_rule__FormFeatureControlFactory__Group_3__211139 = new BitSet(new long[]{0x0000100002000010L,0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group_3__3_in_rule__FormFeatureControlFactory__Group_3__211142 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_2_in_rule__FormFeatureControlFactory__Group_3__2__Impl11169 = new BitSet(new long[]{0x0000000002000012L,0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlFactory__Group_3__3__Impl_in_rule__FormFeatureControlFactory__Group_3__311200 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_rule__FormFeatureControlFactory__Group_3__3__Impl11228 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlSpecification__Group__0__Impl_in_rule__FormFeatureControlSpecification__Group__011267 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlSpecification__Group__1_in_rule__FormFeatureControlSpecification__Group__011270 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlSpecification__ParameterTypeAssignment_0_in_rule__FormFeatureControlSpecification__Group__0__Impl11297 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlSpecification__Group__1__Impl_in_rule__FormFeatureControlSpecification__Group__111327 = new BitSet(new long[]{0x0000004000400010L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlSpecification__Group__2_in_rule__FormFeatureControlSpecification__Group__111330 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_rule__FormFeatureControlSpecification__Group__1__Impl11358 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlSpecification__Group__2__Impl_in_rule__FormFeatureControlSpecification__Group__211389 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlSpecification__Group__3_in_rule__FormFeatureControlSpecification__Group__211392 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlSpecification__FeatureAssignment_2_in_rule__FormFeatureControlSpecification__Group__2__Impl11419 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlSpecification__Group__3__Impl_in_rule__FormFeatureControlSpecification__Group__311449 = new BitSet(new long[]{0x000008C8604001F0L,0x00000000401FB968L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlSpecification__Group__4_in_rule__FormFeatureControlSpecification__Group__311452 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_23_in_rule__FormFeatureControlSpecification__Group__3__Impl11480 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlSpecification__Group__4__Impl_in_rule__FormFeatureControlSpecification__Group__411511 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlSpecification__Group__5_in_rule__FormFeatureControlSpecification__Group__411514 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlSpecification__ExpressionAssignment_4_in_rule__FormFeatureControlSpecification__Group__4__Impl11541 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlSpecification__Group__5__Impl_in_rule__FormFeatureControlSpecification__Group__511571 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlSpecification__Group_5__0_in_rule__FormFeatureControlSpecification__Group__5__Impl11598 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlSpecification__Group_5__0__Impl_in_rule__FormFeatureControlSpecification__Group_5__011641 = new BitSet(new long[]{0x000008C8604001F0L,0x00000000401FB968L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlSpecification__Group_5__1_in_rule__FormFeatureControlSpecification__Group_5__011644 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_56_in_rule__FormFeatureControlSpecification__Group_5__0__Impl11672 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlSpecification__Group_5__1__Impl_in_rule__FormFeatureControlSpecification__Group_5__111703 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FormFeatureControlSpecification__TargetAssignment_5_1_in_rule__FormFeatureControlSpecification__Group_5__1__Impl11730 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormControlFactory__Group__0__Impl_in_rule__FormControlFactory__Group__010700 = new BitSet(new long[]{0x0040000000000000L});
+    public static final BitSet FOLLOW_rule__FormControlFactory__Group__1_in_rule__FormControlFactory__Group__010703 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormControlFactory__Group__1__Impl_in_rule__FormControlFactory__Group__110761 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_rule__FormControlFactory__Group__2_in_rule__FormControlFactory__Group__110764 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_54_in_rule__FormControlFactory__Group__1__Impl10792 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormControlFactory__Group__2__Impl_in_rule__FormControlFactory__Group__210823 = new BitSet(new long[]{0x0080100000000000L});
+    public static final BitSet FOLLOW_rule__FormControlFactory__Group__3_in_rule__FormControlFactory__Group__210826 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_rule__FormControlFactory__Group__2__Impl10854 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormControlFactory__Group__3__Impl_in_rule__FormControlFactory__Group__310885 = new BitSet(new long[]{0x0080100000000000L});
+    public static final BitSet FOLLOW_rule__FormControlFactory__Group__4_in_rule__FormControlFactory__Group__310888 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormControlFactory__Group_3__0_in_rule__FormControlFactory__Group__3__Impl10915 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormControlFactory__Group__4__Impl_in_rule__FormControlFactory__Group__410946 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_rule__FormControlFactory__Group__4__Impl10974 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormControlFactory__Group_3__0__Impl_in_rule__FormControlFactory__Group_3__011015 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_rule__FormControlFactory__Group_3__1_in_rule__FormControlFactory__Group_3__011018 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_rule__FormControlFactory__Group_3__0__Impl11046 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormControlFactory__Group_3__1__Impl_in_rule__FormControlFactory__Group_3__111077 = new BitSet(new long[]{0x0000100002000010L,0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__FormControlFactory__Group_3__2_in_rule__FormControlFactory__Group_3__111080 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_rule__FormControlFactory__Group_3__1__Impl11108 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormControlFactory__Group_3__2__Impl_in_rule__FormControlFactory__Group_3__211139 = new BitSet(new long[]{0x0000100002000010L,0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__FormControlFactory__Group_3__3_in_rule__FormControlFactory__Group_3__211142 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormControlFactory__ControlSpecificationsAssignment_3_2_in_rule__FormControlFactory__Group_3__2__Impl11169 = new BitSet(new long[]{0x0000000002000012L,0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__FormControlFactory__Group_3__3__Impl_in_rule__FormControlFactory__Group_3__311200 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_rule__FormControlFactory__Group_3__3__Impl11228 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormControlSpecification__Group__0__Impl_in_rule__FormControlSpecification__Group__011267 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_rule__FormControlSpecification__Group__1_in_rule__FormControlSpecification__Group__011270 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormControlSpecification__ParameterTypeAssignment_0_in_rule__FormControlSpecification__Group__0__Impl11297 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormControlSpecification__Group__1__Impl_in_rule__FormControlSpecification__Group__111327 = new BitSet(new long[]{0x0000004000400010L});
+    public static final BitSet FOLLOW_rule__FormControlSpecification__Group__2_in_rule__FormControlSpecification__Group__111330 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_rule__FormControlSpecification__Group__1__Impl11358 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormControlSpecification__Group__2__Impl_in_rule__FormControlSpecification__Group__211389 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_rule__FormControlSpecification__Group__3_in_rule__FormControlSpecification__Group__211392 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormControlSpecification__FeatureAssignment_2_in_rule__FormControlSpecification__Group__2__Impl11419 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormControlSpecification__Group__3__Impl_in_rule__FormControlSpecification__Group__311449 = new BitSet(new long[]{0x000008C8604001F0L,0x00000000401FB968L});
+    public static final BitSet FOLLOW_rule__FormControlSpecification__Group__4_in_rule__FormControlSpecification__Group__311452 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_23_in_rule__FormControlSpecification__Group__3__Impl11480 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormControlSpecification__Group__4__Impl_in_rule__FormControlSpecification__Group__411511 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_rule__FormControlSpecification__Group__5_in_rule__FormControlSpecification__Group__411514 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormControlSpecification__ExpressionAssignment_4_in_rule__FormControlSpecification__Group__4__Impl11541 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormControlSpecification__Group__5__Impl_in_rule__FormControlSpecification__Group__511571 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormControlSpecification__Group_5__0_in_rule__FormControlSpecification__Group__5__Impl11598 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormControlSpecification__Group_5__0__Impl_in_rule__FormControlSpecification__Group_5__011641 = new BitSet(new long[]{0x000008C8604001F0L,0x00000000401FB968L});
+    public static final BitSet FOLLOW_rule__FormControlSpecification__Group_5__1_in_rule__FormControlSpecification__Group_5__011644 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_56_in_rule__FormControlSpecification__Group_5__0__Impl11672 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormControlSpecification__Group_5__1__Impl_in_rule__FormControlSpecification__Group_5__111703 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FormControlSpecification__TargetAssignment_5_1_in_rule__FormControlSpecification__Group_5__1__Impl11730 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ViewerContentProvider__Group__0__Impl_in_rule__ViewerContentProvider__Group__011764 = new BitSet(new long[]{0x0200000000000000L});
     public static final BitSet FOLLOW_rule__ViewerContentProvider__Group__1_in_rule__ViewerContentProvider__Group__011767 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ViewerContentProvider__Group__1__Impl_in_rule__ViewerContentProvider__Group__111825 = new BitSet(new long[]{0x0000080000000000L});
@@ -61047,7 +61047,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
     public static final BitSet FOLLOW_rule__Module__LabelProviderAssignment_3_0_in_rule__Module__UnorderedGroup_3__Impl34018 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Module__PropertyDescriptionProviderAssignment_3_1_in_rule__Module__UnorderedGroup_3__Impl34109 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Module__FeaturesProviderAssignment_3_2_in_rule__Module__UnorderedGroup_3__Impl34200 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Module__FormFeatureControlFactoryAssignment_3_3_in_rule__Module__UnorderedGroup_3__Impl34291 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Module__FormControlFactoryAssignment_3_3_in_rule__Module__UnorderedGroup_3__Impl34291 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Module__ViewerContentProviderAssignment_3_4_in_rule__Module__UnorderedGroup_3__Impl34382 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Module__Group_3_5__0_in_rule__Module__UnorderedGroup_3__Impl34473 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Module__UnorderedGroup_3__Impl_in_rule__Module__UnorderedGroup_3__034532 = new BitSet(new long[]{0x024A600000000002L});
@@ -61074,7 +61074,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
     public static final BitSet FOLLOW_ruleLabelProvider_in_rule__Module__LabelProviderAssignment_3_035129 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulePropertyDescriptionProvider_in_rule__Module__PropertyDescriptionProviderAssignment_3_135160 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleFeaturesProvider_in_rule__Module__FeaturesProviderAssignment_3_235191 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFormFeatureControlFactory_in_rule__Module__FormFeatureControlFactoryAssignment_3_335222 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFormControlFactory_in_rule__Module__FormControlFactoryAssignment_3_335222 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleViewerContentProvider_in_rule__Module__ViewerContentProviderAssignment_3_435253 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulePartSpecification_in_rule__Module__PartsAssignment_3_5_235284 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleLabelSpecification_in_rule__LabelProvider__LabelSpecificationsAssignment_3_0_235315 = new BitSet(new long[]{0x0000000000000002L});
@@ -61090,11 +61090,11 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
     public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__FeatureSpecification__ParameterTypeAssignment_035625 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXFeatureCall_in_rule__FeatureSpecification__FeaturesAssignment_235656 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXFeatureCall_in_rule__FeatureSpecification__FeaturesAssignment_3_135687 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFormFeatureControlSpecification_in_rule__FormFeatureControlFactory__ControlSpecificationsAssignment_3_235718 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__FormFeatureControlSpecification__ParameterTypeAssignment_035749 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXFeatureCall_in_rule__FormFeatureControlSpecification__FeatureAssignment_235780 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__FormFeatureControlSpecification__ExpressionAssignment_435811 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXExpression_in_rule__FormFeatureControlSpecification__TargetAssignment_5_135842 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFormControlSpecification_in_rule__FormControlFactory__ControlSpecificationsAssignment_3_235718 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleJvmTypeReference_in_rule__FormControlSpecification__ParameterTypeAssignment_035749 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXFeatureCall_in_rule__FormControlSpecification__FeatureAssignment_235780 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__FormControlSpecification__ExpressionAssignment_435811 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXExpression_in_rule__FormControlSpecification__TargetAssignment_5_135842 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleLabelSpecification_in_rule__ViewerContentProvider__ChildrenSpecificationsAssignment_3_235873 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleQualifiedName_in_rule__ViewSpecification__IdAssignment_235904 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__ViewSpecification__ViewNameAssignment_535935 = new BitSet(new long[]{0x0000000000000002L});
@@ -61245,7 +61245,7 @@ public class InternalEmfComponentsDslParser extends AbstractInternalContentAssis
     public static final BitSet FOLLOW_rule__Module__LabelProviderAssignment_3_0_in_synpred136_InternalEmfComponentsDsl34018 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Module__PropertyDescriptionProviderAssignment_3_1_in_synpred137_InternalEmfComponentsDsl34109 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Module__FeaturesProviderAssignment_3_2_in_synpred138_InternalEmfComponentsDsl34200 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Module__FormFeatureControlFactoryAssignment_3_3_in_synpred139_InternalEmfComponentsDsl34291 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Module__FormControlFactoryAssignment_3_3_in_synpred139_InternalEmfComponentsDsl34291 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Module__ViewerContentProviderAssignment_3_4_in_synpred140_InternalEmfComponentsDsl34382 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Module__UnorderedGroup_3__1_in_synpred141_InternalEmfComponentsDsl34535 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Module__UnorderedGroup_3__2_in_synpred142_InternalEmfComponentsDsl34563 = new BitSet(new long[]{0x0000000000000002L});

@@ -294,7 +294,7 @@ public class FeaturesProviderGen extends FeaturesProvider {
 
 	@Test
 	def testFormFeatureControlSpecifications() {
-		inputs.formFeatureControlSpecifications.assertCorrectJavaCodeGeneration(
+		inputs.formControlSpecifications.assertCorrectJavaCodeGeneration(
 '''
 package my.empty;
 

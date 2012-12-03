@@ -113,13 +113,13 @@ module my.empty {
 }
 '''
 
-	def formFeatureControlSpecifications()
+	def formControlSpecifications()
 '''
 import java.util.*
 import it.rcpvision.emf.components.examples.library.*
 
 module my.empty {
-	formFeatureControlFactory {
+	formControlFactory {
 		control {
 			Library : name -> { }
 			Writer : books -> 

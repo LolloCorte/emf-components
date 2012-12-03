@@ -2,8 +2,8 @@
  */
 package it.rcpvision.emf.components.dsl.model.impl;
 
-import it.rcpvision.emf.components.dsl.model.FormFeatureControlFactory;
-import it.rcpvision.emf.components.dsl.model.FormFeatureControlSpecification;
+import it.rcpvision.emf.components.dsl.model.FormControlFactory;
+import it.rcpvision.emf.components.dsl.model.FormControlSpecification;
 import it.rcpvision.emf.components.dsl.model.ModelPackage;
 
 import java.util.Collection;
@@ -22,18 +22,18 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Form Feature Control Factory</b></em>'.
+ * An implementation of the model object '<em><b>Form Control Factory</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.FormFeatureControlFactoryImpl#getControlSpecifications <em>Control Specifications</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.FormControlFactoryImpl#getControlSpecifications <em>Control Specifications</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class FormFeatureControlFactoryImpl extends MinimalEObjectImpl.Container implements FormFeatureControlFactory
+public class FormControlFactoryImpl extends MinimalEObjectImpl.Container implements FormControlFactory
 {
   /**
    * The cached value of the '{@link #getControlSpecifications() <em>Control Specifications</em>}' containment reference list.
@@ -43,14 +43,14 @@ public class FormFeatureControlFactoryImpl extends MinimalEObjectImpl.Container 
    * @generated
    * @ordered
    */
-  protected EList<FormFeatureControlSpecification> controlSpecifications;
+  protected EList<FormControlSpecification> controlSpecifications;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected FormFeatureControlFactoryImpl()
+  protected FormControlFactoryImpl()
   {
     super();
   }
@@ -63,7 +63,7 @@ public class FormFeatureControlFactoryImpl extends MinimalEObjectImpl.Container 
   @Override
   protected EClass eStaticClass()
   {
-    return ModelPackage.Literals.FORM_FEATURE_CONTROL_FACTORY;
+    return ModelPackage.Literals.FORM_CONTROL_FACTORY;
   }
 
   /**
@@ -71,11 +71,11 @@ public class FormFeatureControlFactoryImpl extends MinimalEObjectImpl.Container 
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<FormFeatureControlSpecification> getControlSpecifications()
+  public EList<FormControlSpecification> getControlSpecifications()
   {
     if (controlSpecifications == null)
     {
-      controlSpecifications = new EObjectContainmentEList<FormFeatureControlSpecification>(FormFeatureControlSpecification.class, this, ModelPackage.FORM_FEATURE_CONTROL_FACTORY__CONTROL_SPECIFICATIONS);
+      controlSpecifications = new EObjectContainmentEList<FormControlSpecification>(FormControlSpecification.class, this, ModelPackage.FORM_CONTROL_FACTORY__CONTROL_SPECIFICATIONS);
     }
     return controlSpecifications;
   }
@@ -90,7 +90,7 @@ public class FormFeatureControlFactoryImpl extends MinimalEObjectImpl.Container 
   {
     switch (featureID)
     {
-      case ModelPackage.FORM_FEATURE_CONTROL_FACTORY__CONTROL_SPECIFICATIONS:
+      case ModelPackage.FORM_CONTROL_FACTORY__CONTROL_SPECIFICATIONS:
         return ((InternalEList<?>)getControlSpecifications()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -106,7 +106,7 @@ public class FormFeatureControlFactoryImpl extends MinimalEObjectImpl.Container 
   {
     switch (featureID)
     {
-      case ModelPackage.FORM_FEATURE_CONTROL_FACTORY__CONTROL_SPECIFICATIONS:
+      case ModelPackage.FORM_CONTROL_FACTORY__CONTROL_SPECIFICATIONS:
         return getControlSpecifications();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -123,9 +123,9 @@ public class FormFeatureControlFactoryImpl extends MinimalEObjectImpl.Container 
   {
     switch (featureID)
     {
-      case ModelPackage.FORM_FEATURE_CONTROL_FACTORY__CONTROL_SPECIFICATIONS:
+      case ModelPackage.FORM_CONTROL_FACTORY__CONTROL_SPECIFICATIONS:
         getControlSpecifications().clear();
-        getControlSpecifications().addAll((Collection<? extends FormFeatureControlSpecification>)newValue);
+        getControlSpecifications().addAll((Collection<? extends FormControlSpecification>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -141,7 +141,7 @@ public class FormFeatureControlFactoryImpl extends MinimalEObjectImpl.Container 
   {
     switch (featureID)
     {
-      case ModelPackage.FORM_FEATURE_CONTROL_FACTORY__CONTROL_SPECIFICATIONS:
+      case ModelPackage.FORM_CONTROL_FACTORY__CONTROL_SPECIFICATIONS:
         getControlSpecifications().clear();
         return;
     }
@@ -158,10 +158,10 @@ public class FormFeatureControlFactoryImpl extends MinimalEObjectImpl.Container 
   {
     switch (featureID)
     {
-      case ModelPackage.FORM_FEATURE_CONTROL_FACTORY__CONTROL_SPECIFICATIONS:
+      case ModelPackage.FORM_CONTROL_FACTORY__CONTROL_SPECIFICATIONS:
         return controlSpecifications != null && !controlSpecifications.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //FormFeatureControlFactoryImpl
+} //FormControlFactoryImpl

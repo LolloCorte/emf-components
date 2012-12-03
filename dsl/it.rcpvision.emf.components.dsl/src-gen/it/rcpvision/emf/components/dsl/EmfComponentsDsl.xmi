@@ -60,7 +60,7 @@
           <elements xsi:type="xtext:Assignment" cardinality="?" feature="featuresProvider" operator="=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
           </elements>
-          <elements xsi:type="xtext:Assignment" cardinality="?" feature="formFeatureControlFactory" operator="=">
+          <elements xsi:type="xtext:Assignment" cardinality="?" feature="formControlFactory" operator="=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.10"/>
           </elements>
           <elements xsi:type="xtext:Assignment" cardinality="?" feature="viewerContentProvider" operator="=">
@@ -212,17 +212,17 @@
         </elements>
       </alternatives>
     </rules>
-    <rules xsi:type="xtext:ParserRule" name="FormFeatureControlFactory">
+    <rules xsi:type="xtext:ParserRule" name="FormControlFactory">
       <type metamodel="/0/@metamodelDeclarations.1">
-        <classifier xsi:type="ecore:EClass" href="http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl#//FormFeatureControlFactory"/>
+        <classifier xsi:type="ecore:EClass" href="http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl#//FormControlFactory"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Action">
           <type metamodel="/0/@metamodelDeclarations.1">
-            <classifier xsi:type="ecore:EClass" href="http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl#//FormFeatureControlFactory"/>
+            <classifier xsi:type="ecore:EClass" href="http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl#//FormControlFactory"/>
           </type>
         </elements>
-        <elements xsi:type="xtext:Keyword" value="formFeatureControlFactory"/>
+        <elements xsi:type="xtext:Keyword" value="formControlFactory"/>
         <elements xsi:type="xtext:Keyword" value="{"/>
         <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Keyword" value="control"/>
@@ -235,9 +235,9 @@
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
     </rules>
-    <rules xsi:type="xtext:ParserRule" name="FormFeatureControlSpecification">
+    <rules xsi:type="xtext:ParserRule" name="FormControlSpecification">
       <type metamodel="/0/@metamodelDeclarations.1">
-        <classifier xsi:type="ecore:EClass" href="http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl#//FormFeatureControlSpecification"/>
+        <classifier xsi:type="ecore:EClass" href="http://www.rcpvision.it/emf/components/dsl/EmfComponentsDsl#//FormControlSpecification"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Assignment" feature="parameterType" operator="=">

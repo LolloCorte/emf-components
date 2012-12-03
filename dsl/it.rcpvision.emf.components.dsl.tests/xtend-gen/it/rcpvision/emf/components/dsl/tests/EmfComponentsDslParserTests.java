@@ -77,9 +77,9 @@ public class EmfComponentsDslParserTests extends EmfComponentsDslAbstractTests {
   }
   
   @Test
-  public void testFormFeatureControlSpecifications() {
-    CharSequence _formFeatureControlSpecifications = this.inputs.formFeatureControlSpecifications();
-    this.parseAndAssertNoError(_formFeatureControlSpecifications);
+  public void testFormControlSpecifications() {
+    CharSequence _formControlSpecifications = this.inputs.formControlSpecifications();
+    this.parseAndAssertNoError(_formControlSpecifications);
   }
   
   @Test
