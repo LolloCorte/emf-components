@@ -1,6 +1,7 @@
-The target-platform.cquery is used to materialize the target platform
+The build.cquery is used to materialize the target platform and the
+projects in the workspace.
 
-The target-platform-local.cquery is an example to materialize the target platform
+The build-local.cquery is an example to materialize the target platform
 using a local eclipse mirror; it relies on local-mirror.properties which defines
 the base URL for eclipse repositories as eclipse.download=file:${user.home}/eclipsemirror
 thus, it assumes that the local mirror is in your home in the directory eclipsemirror
