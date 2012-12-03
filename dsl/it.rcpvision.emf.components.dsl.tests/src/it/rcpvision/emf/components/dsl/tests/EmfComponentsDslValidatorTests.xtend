@@ -26,4 +26,15 @@ class EmfComponentsDslValidatorTests extends EmfComponentsDslAbstractTests {
 				"Must be an IViewPart"
 			)
 	}
+
+	@Test
+	def void testNotAnEObjectInEmfFeatureAccess() {
+		val model = inputsWithErrors.notAnEObjectInEmfFeatureAccess.parseModel
+		model.
+			assertError(
+				ModelPackage::eINSTANCE.emfFeatureAccess,
+				NOT_EOBJECT,
+				"Must be an EObject derived class"
+			)
+	}
 }

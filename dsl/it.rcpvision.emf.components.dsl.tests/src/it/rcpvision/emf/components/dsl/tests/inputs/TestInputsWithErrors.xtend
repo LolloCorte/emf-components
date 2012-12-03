@@ -25,6 +25,7 @@ module my.empty {
 import java.util.*
 import it.rcpvision.emf.components.examples.library.*
 
+
 module my.empty {
 	propertyDescriptionProvider {
 		text {
@@ -47,6 +48,22 @@ module my.empty {
 		viewpart my.view.part {
 			viewname "My View"
 			viewclass Library // not an IViewPart!
+		}
+	}
+}
+'''
+
+	def notAnEObjectInEmfFeatureAccess() 
+'''
+import java.util.*
+import it.rcpvision.emf.components.examples.library.*
+import it.rcpvision.emf.components.views.*
+
+module my.empty {
+	propertyDescriptionProvider {
+		text {
+			List:publicationDate -> 'Publication Date'
+			AbstractSaveableTreeView:lastName -> null
 		}
 	}
 }

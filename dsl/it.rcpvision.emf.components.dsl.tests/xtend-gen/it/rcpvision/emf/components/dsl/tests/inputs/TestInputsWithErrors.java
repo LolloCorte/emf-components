@@ -51,6 +51,7 @@ public class TestInputsWithErrors {
     _builder.append("import it.rcpvision.emf.components.examples.library.*");
     _builder.newLine();
     _builder.newLine();
+    _builder.newLine();
     _builder.append("module my.empty {");
     _builder.newLine();
     _builder.append("\t");
@@ -102,6 +103,40 @@ public class TestInputsWithErrors {
     _builder.newLine();
     _builder.append("\t\t\t");
     _builder.append("viewclass Library // not an IViewPart!");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence notAnEObjectInEmfFeatureAccess() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("import java.util.*");
+    _builder.newLine();
+    _builder.append("import it.rcpvision.emf.components.examples.library.*");
+    _builder.newLine();
+    _builder.append("import it.rcpvision.emf.components.views.*");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("module my.empty {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("propertyDescriptionProvider {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("text {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("List:publicationDate -> \'Publication Date\'");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("AbstractSaveableTreeView:lastName -> null");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("}");

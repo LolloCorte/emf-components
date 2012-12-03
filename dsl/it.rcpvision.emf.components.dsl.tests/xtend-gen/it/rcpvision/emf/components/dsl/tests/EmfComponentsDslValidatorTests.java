@@ -29,4 +29,14 @@ public class EmfComponentsDslValidatorTests extends EmfComponentsDslAbstractTest
       EmfComponentsDslJavaValidator.NOT_I_VIEW_PART, 
       "Must be an IViewPart");
   }
+  
+  @Test
+  public void testNotAnEObjectInEmfFeatureAccess() {
+    CharSequence _notAnEObjectInEmfFeatureAccess = this.inputsWithErrors.notAnEObjectInEmfFeatureAccess();
+    final Model model = this.parseModel(_notAnEObjectInEmfFeatureAccess);
+    EClass _emfFeatureAccess = ModelPackage.eINSTANCE.getEmfFeatureAccess();
+    this._validationTestHelper.assertError(model, _emfFeatureAccess, 
+      EmfComponentsDslJavaValidator.NOT_EOBJECT, 
+      "Must be an EObject derived class");
+  }
 }
