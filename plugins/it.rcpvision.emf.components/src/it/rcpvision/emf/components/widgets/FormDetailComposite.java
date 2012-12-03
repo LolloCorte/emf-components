@@ -1,6 +1,6 @@
 package it.rcpvision.emf.components.widgets;
 
-import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
+import it.rcpvision.emf.components.binding.FormControlFactory;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FormPropertyDescriptionProvider;
@@ -22,7 +22,7 @@ public class FormDetailComposite extends Composite {
 
 	protected FormPropertyDescriptionProvider formPropertyDescriptionProvider;
 
-	protected FormFeatureControlFactory formFeatureControlFactory;
+	protected FormControlFactory formControlFactory;
 
 	protected EditingDomainFinder editingDomainFinder;
 
@@ -38,13 +38,13 @@ public class FormDetailComposite extends Composite {
 
 	public FormDetailComposite(Composite parent, int style,
 			FormPropertyDescriptionProvider formPropertyDescriptionProvider,
-			FormFeatureControlFactory formFeatureControlFactory,
+			FormControlFactory formControlFactory,
 			EditingDomainFinder editingDomainFinder,
 			ILabelProvider labelProvider,
 			FeaturesProvider eClassFeatureProvider) {
 		super(parent, style);
 		this.formPropertyDescriptionProvider = formPropertyDescriptionProvider;
-		this.formFeatureControlFactory = formFeatureControlFactory;
+		this.formControlFactory = formControlFactory;
 		this.editingDomainFinder = editingDomainFinder;
 		this.labelProvider = labelProvider;
 		this.eClassFeatureProvider = eClassFeatureProvider;
@@ -74,7 +74,7 @@ public class FormDetailComposite extends Composite {
 		scrolledForm.setText(labelProvider.getText(model));
 		scrolledForm.setImage(labelProvider.getImage(model));
 
-		formFeatureControlFactory.init(
+		formControlFactory.init(
 				editingDomainFinder.getEditingDomainFor(model), model, main,
 				toolkit);
 
@@ -89,7 +89,7 @@ public class FormDetailComposite extends Composite {
 
 				formPropertyDescriptionProvider.getLabel(main, feature);
 
-				formFeatureControlFactory.create(feature);
+				formControlFactory.create(feature);
 			}
 		}
 
@@ -113,13 +113,13 @@ public class FormDetailComposite extends Composite {
 		this.formPropertyDescriptionProvider = formPropertyDescriptionProvider;
 	}
 
-	public FormFeatureControlFactory getEmfSwtBindingFactory() {
-		return formFeatureControlFactory;
+	public FormControlFactory getFormControlFactory() {
+		return formControlFactory;
 	}
 
-	public void setEmfSwtBindingFactory(
-			FormFeatureControlFactory formFeatureControlFactory) {
-		this.formFeatureControlFactory = formFeatureControlFactory;
+	public void setFormControlFactory(
+			FormControlFactory formControlFactory) {
+		this.formControlFactory = formControlFactory;
 	}
 
 	public EditingDomainFinder getEditingDomainFinder() {

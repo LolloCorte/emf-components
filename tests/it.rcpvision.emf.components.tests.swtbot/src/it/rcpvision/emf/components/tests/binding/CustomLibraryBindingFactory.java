@@ -5,7 +5,7 @@ package it.rcpvision.emf.components.tests.binding;
 
 import static org.eclipse.xtext.xbase.lib.IterableExtensions.join;
 import static org.eclipse.xtext.xbase.lib.IterableExtensions.map;
-import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
+import it.rcpvision.emf.components.binding.FormControlFactory;
 import it.rcpvision.emf.components.examples.library.Book;
 import it.rcpvision.emf.components.examples.library.Writer;
 
@@ -23,7 +23,7 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
  * @author bettini
  * 
  */
-public class CustomLibraryBindingFactory extends FormFeatureControlFactory {
+public class CustomLibraryBindingFactory extends FormControlFactory {
 
 //	public ControlObservablePair control_Writer_name(EStructuralFeature feature) {
 //		Text t = getToolkit().createText(getParent(), "");

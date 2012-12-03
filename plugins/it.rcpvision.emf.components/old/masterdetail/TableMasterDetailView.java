@@ -2,7 +2,7 @@ package it.rcpvision.emf.components.view.masterdetail;
 
 import it.rcpvision.emf.components.factories.FormFactory;
 import it.rcpvision.emf.components.factories.ViewerFactory;
-import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
+import it.rcpvision.emf.components.binding.FormControlFactory;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelFactory;
 import it.rcpvision.emf.components.builders.EObjectManager;
 import it.rcpvision.emf.components.builders.GenericDetailComposite;

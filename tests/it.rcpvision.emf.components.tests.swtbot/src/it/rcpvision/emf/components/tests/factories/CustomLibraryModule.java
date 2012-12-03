@@ -1,7 +1,7 @@
 package it.rcpvision.emf.components.tests.factories;
 
 import it.rcpvision.emf.components.EmfComponentsGuiceModule;
-import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
+import it.rcpvision.emf.components.binding.FormControlFactory;
 import it.rcpvision.emf.components.resource.EmptyResourceInitializer;
 import it.rcpvision.emf.components.tests.binding.CustomLibraryBindingFactory;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryFeatureLabelProvider;
@@ -42,7 +42,7 @@ public class CustomLibraryModule extends
 	}
 
 	@Override
-	public Class<? extends FormFeatureControlFactory> bindFormFeatureControlFactory() {
+	public Class<? extends FormControlFactory> bindFormControlFactory() {
 		return CustomLibraryBindingFactory.class;
 	}
 

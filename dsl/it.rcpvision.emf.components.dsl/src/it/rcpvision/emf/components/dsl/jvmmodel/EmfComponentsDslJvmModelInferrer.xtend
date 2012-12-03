@@ -2,7 +2,7 @@ package it.rcpvision.emf.components.dsl.jvmmodel
 
 import com.google.inject.Inject
 import it.rcpvision.emf.components.EmfComponentsGuiceModule
-import it.rcpvision.emf.components.binding.FormFeatureControlFactory
+import it.rcpvision.emf.components.binding.FormControlFactory
 import it.rcpvision.emf.components.dsl.model.FormFeatureControlSpecification
 import it.rcpvision.emf.components.dsl.model.Module
 import it.rcpvision.emf.components.dsl.model.PartSpecification
@@ -28,9 +28,9 @@ import org.eclipse.xtext.xbase.XFeatureCall
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
+import it.rcpvision.emf.components.generator.common.EmfComponentsProjectFilesGenerator
 
 import static extension org.eclipse.xtext.EcoreUtil2.*
-import it.rcpvision.emf.components.generator.common.EmfComponentsProjectFilesGenerator
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -108,7 +108,7 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 			if (featureProviderClass != null)
 				members += element.featuresProvider.genBindMethod(featureProviderClass, typeof(FeaturesProvider))
 			if (formFeatureControlFactoryClass != null)
-				members += element.formFeatureControlFactory.genBindMethod(formFeatureControlFactoryClass, typeof(FormFeatureControlFactory))
+				members += element.formFeatureControlFactory.genBindMethod(formFeatureControlFactoryClass, typeof(FormControlFactory))
 			if (viewerContentProviderClass != null)
 				members += element.viewerContentProvider.genBindMethod(viewerContentProviderClass, typeof(ViewerContentProvider))
 		]
@@ -273,7 +273,7 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 		else {
 			val formFeatureControlFactoryClass = e.formFeatureControlFactory.toClass(e.formFeatureControlFactoryQN)
 			acceptor.accept(formFeatureControlFactoryClass).initializeLater [
-				superTypes += e.newTypeRef(typeof(FormFeatureControlFactory))
+				superTypes += e.newTypeRef(typeof(FormControlFactory))
 				
 				documentation = e.formFeatureControlFactory.documentation
 				

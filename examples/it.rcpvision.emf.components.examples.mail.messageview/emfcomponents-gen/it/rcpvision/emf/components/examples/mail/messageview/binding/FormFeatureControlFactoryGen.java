@@ -1,6 +1,6 @@
 package it.rcpvision.emf.components.examples.mail.messageview.binding;
 
-import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
+import it.rcpvision.emf.components.binding.FormControlFactory;
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.jface.databinding.swt.ISWTObservableValue;
@@ -11,7 +11,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 
-public class FormFeatureControlFactoryGen extends FormFeatureControlFactory {
+public class FormFeatureControlFactoryGen extends FormControlFactory {
   public Control control_Mail_message(final DataBindingContext dataBindingContext, final IObservableValue observableValue) {
     Control control = createControl_Mail_message();
     dataBindingContext.bindValue(

@@ -7,7 +7,7 @@ import static it.rcpvision.emf.components.examples.library.EXTLibraryPackage.Lit
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
-import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
+import it.rcpvision.emf.components.binding.FormControlFactory;
 import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider;
 import it.rcpvision.emf.components.examples.library.Book;
 import it.rcpvision.emf.components.examples.library.EXTLibraryFactory;
@@ -94,8 +94,8 @@ public class EmfComponentsProvidersTests extends EmfComponentsCustomLibraryAbstr
 
 	@Test
 	public void testFormFeatureControlFactoryMethodWithTwoParams() {
-		final FormFeatureControlFactory bindingFactory = getInjector().getInstance(
-				FormFeatureControlFactory.class);
+		final FormControlFactory bindingFactory = getInjector().getInstance(
+				FormControlFactory.class);
 		final Writer writer = createTestResourceAndWriter();
 		final SWTBotView view = openTestView(LIBRARY_EMF_VIEW);
 		Display.getDefault().syncExec(new Runnable() {
@@ -121,8 +121,8 @@ public class EmfComponentsProvidersTests extends EmfComponentsCustomLibraryAbstr
 
 	@Test
 	public void testFormFeatureControlFactoryMethodWithOneParam() {
-		final FormFeatureControlFactory bindingFactory = getInjector().getInstance(
-				FormFeatureControlFactory.class);
+		final FormControlFactory bindingFactory = getInjector().getInstance(
+				FormControlFactory.class);
 		final Writer writer = createTestResourceAndWriter();
 		final SWTBotView view = openTestView(LIBRARY_EMF_VIEW);
 		Display.getDefault().syncExec(new Runnable() {

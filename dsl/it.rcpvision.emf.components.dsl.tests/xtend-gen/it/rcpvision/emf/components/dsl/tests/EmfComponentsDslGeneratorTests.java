@@ -589,7 +589,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.newLine();
     _builder.append("import it.rcpvision.emf.components.EmfComponentsGuiceModule;");
     _builder.newLine();
-    _builder.append("import it.rcpvision.emf.components.binding.FormFeatureControlFactory;");
+    _builder.append("import it.rcpvision.emf.components.binding.FormControlFactory;");
     _builder.newLine();
     _builder.append("import my.empty.binding.FormFeatureControlFactoryGen;");
     _builder.newLine();
@@ -613,7 +613,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("@Override");
     _builder.newLine();
     _builder.append("  ");
-    _builder.append("public Class<? extends FormFeatureControlFactory> bindFormFeatureControlFactory() {");
+    _builder.append("public Class<? extends FormControlFactory> bindFormControlFactory() {");
     _builder.newLine();
     _builder.append("    ");
     _builder.append("return FormFeatureControlFactoryGen.class;");
@@ -627,7 +627,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.append("package my.empty.binding;");
     _builder_1.newLine();
     _builder_1.newLine();
-    _builder_1.append("import it.rcpvision.emf.components.binding.FormFeatureControlFactory;");
+    _builder_1.append("import it.rcpvision.emf.components.binding.FormControlFactory;");
     _builder_1.newLine();
     _builder_1.append("import it.rcpvision.emf.components.examples.library.Book;");
     _builder_1.newLine();
@@ -664,7 +664,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.append("import org.eclipse.xtext.xbase.lib.ListExtensions;");
     _builder_1.newLine();
     _builder_1.newLine();
-    _builder_1.append("public class FormFeatureControlFactoryGen extends FormFeatureControlFactory {");
+    _builder_1.append("public class FormFeatureControlFactoryGen extends FormControlFactory {");
     _builder_1.newLine();
     _builder_1.append("  ");
     _builder_1.append("public Control control_Library_name(final Library it) {");

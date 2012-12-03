@@ -1,7 +1,7 @@
 package it.rcpvision.emf.components.examples.mail.messageview;
 
 import it.rcpvision.emf.components.EmfComponentsGuiceModule;
-import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
+import it.rcpvision.emf.components.binding.FormControlFactory;
 import it.rcpvision.emf.components.examples.mail.messageview.binding.FormFeatureControlFactoryGen;
 import it.rcpvision.emf.components.examples.mail.messageview.ui.provider.FeaturesProviderGen;
 import it.rcpvision.emf.components.examples.mail.messageview.ui.provider.LabelProviderGen;
@@ -35,7 +35,7 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
   }
   
   @Override
-  public Class<? extends FormFeatureControlFactory> bindFormFeatureControlFactory() {
+  public Class<? extends FormControlFactory> bindFormControlFactory() {
     return FormFeatureControlFactoryGen.class;
   }
 }

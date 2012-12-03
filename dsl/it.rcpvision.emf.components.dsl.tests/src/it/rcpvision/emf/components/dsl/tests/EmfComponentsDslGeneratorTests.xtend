@@ -299,7 +299,7 @@ public class FeaturesProviderGen extends FeaturesProvider {
 package my.empty;
 
 import it.rcpvision.emf.components.EmfComponentsGuiceModule;
-import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
+import it.rcpvision.emf.components.binding.FormControlFactory;
 import my.empty.binding.FormFeatureControlFactoryGen;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
@@ -309,7 +309,7 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
   }
   
   @Override
-  public Class<? extends FormFeatureControlFactory> bindFormFeatureControlFactory() {
+  public Class<? extends FormControlFactory> bindFormControlFactory() {
     return FormFeatureControlFactoryGen.class;
   }
 }
@@ -317,7 +317,7 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
 '''
 package my.empty.binding;
 
-import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
+import it.rcpvision.emf.components.binding.FormControlFactory;
 import it.rcpvision.emf.components.examples.library.Book;
 import it.rcpvision.emf.components.examples.library.Library;
 import it.rcpvision.emf.components.examples.library.Writer;
@@ -336,7 +336,7 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
 
-public class FormFeatureControlFactoryGen extends FormFeatureControlFactory {
+public class FormFeatureControlFactoryGen extends FormControlFactory {
   public Control control_Library_name(final Library it) {
     return null;
   }

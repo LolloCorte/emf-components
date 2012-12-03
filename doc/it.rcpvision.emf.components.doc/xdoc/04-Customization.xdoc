@@ -276,7 +276,7 @@ ul[
 
 section2:FormFeatureControlFactory[Form Feature Control Factory]
 
-codeRef[it.rcpvision.emf.components.binding.FormFeatureControlFactory]
+codeRef[it.rcpvision.emf.components.binding.FormControlFactory]
 
 ul[
 	item[ref:JfaceProviderFactory[JfaceProviderFactory]]

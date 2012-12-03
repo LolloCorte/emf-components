@@ -40,4 +40,4 @@ public interface FormFeatureControlFactory extends EObject
    */
   EList<FormFeatureControlSpecification> getControlSpecifications();
 
-} // FormFeatureControlFactory
+} // FormControlFactory

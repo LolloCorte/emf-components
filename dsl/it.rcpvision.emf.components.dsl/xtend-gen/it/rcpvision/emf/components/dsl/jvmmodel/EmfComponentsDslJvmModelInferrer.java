@@ -3,6 +3,7 @@ package it.rcpvision.emf.components.dsl.jvmmodel;
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import it.rcpvision.emf.components.EmfComponentsGuiceModule;
+import it.rcpvision.emf.components.binding.FormControlFactory;
 import it.rcpvision.emf.components.dsl.jvmmodel.GeneratorUtils;
 import it.rcpvision.emf.components.dsl.model.FeatureSpecification;
 import it.rcpvision.emf.components.dsl.model.FeaturesProvider;
@@ -175,7 +176,7 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
           if (_notEquals_3) {
             EList<JvmMember> _members_4 = it.getMembers();
             FormFeatureControlFactory _formFeatureControlFactory = element.getFormFeatureControlFactory();
-            JvmOperation _genBindMethod_3 = EmfComponentsDslJvmModelInferrer.this.genBindMethod(_formFeatureControlFactory, formFeatureControlFactoryClass, it.rcpvision.emf.components.binding.FormFeatureControlFactory.class);
+            JvmOperation _genBindMethod_3 = EmfComponentsDslJvmModelInferrer.this.genBindMethod(_formFeatureControlFactory, formFeatureControlFactoryClass, FormControlFactory.class);
             EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_4, _genBindMethod_3);
           }
           boolean _notEquals_4 = (!Objects.equal(viewerContentProviderClass, null));
@@ -515,7 +516,7 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
         final Procedure1<JvmGenericType> _function = new Procedure1<JvmGenericType>() {
             public void apply(final JvmGenericType it) {
               EList<JvmTypeReference> _superTypes = it.getSuperTypes();
-              JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(e, it.rcpvision.emf.components.binding.FormFeatureControlFactory.class);
+              JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(e, FormControlFactory.class);
               EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _newTypeRef);
               FormFeatureControlFactory _formFeatureControlFactory = e.getFormFeatureControlFactory();
               String _documentation = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.getDocumentation(_formFeatureControlFactory);

@@ -70,7 +70,7 @@ import com.google.inject.Inject;
  * @author Lorenzo Bettini refactoring for EmfComponents
  * 
  */
-public class FormFeatureControlFactory {
+public class FormControlFactory {
 	@Inject
 	protected JfaceProviderFactory jfaceProviderFactory;
 
@@ -94,7 +94,7 @@ public class FormFeatureControlFactory {
 
 	private PolymorphicDispatcher.ErrorHandler<List<?>> proposals_errorHandler = new PolymorphicDispatcher.NullErrorHandler<List<?>>();
 	
-	public FormFeatureControlFactory() {
+	public FormControlFactory() {
 
 	}
 
@@ -312,8 +312,8 @@ public class FormFeatureControlFactory {
 			c.setEnabled(f.isChangeable()
 					&& (!(f.getEType() instanceof EDataType && !((EDataType) f
 							.getEType()).isSerializable())));
-			c.setData(FormFeatureControlFactory.ESTRUCTURALFEATURE_KEY, f);
-			c.setData(FormFeatureControlFactory.EOBJECT_KEY, owner);
+			c.setData(FormControlFactory.ESTRUCTURALFEATURE_KEY, f);
+			c.setData(FormControlFactory.EOBJECT_KEY, owner);
 			c.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 		}
 	}

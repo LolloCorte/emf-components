@@ -1,7 +1,7 @@
 package it.rcpvision.emf.components.builders;
 
 import it.rcpvision.emf.components.factories.ViewerFactory;
-import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
+import it.rcpvision.emf.components.binding.FormControlFactory;
 import it.rcpvision.emf.components.ui.provider.FormFeatureLabelFactory;
 
 import java.util.Collections;

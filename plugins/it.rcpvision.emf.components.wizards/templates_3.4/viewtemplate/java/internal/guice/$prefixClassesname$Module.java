@@ -6,7 +6,7 @@ import $packageName$.$prefixClassesname$CDOSessionManager;
 import it.rcpvision.emf.components.cdo.CDOEmfComponentsModule;
 import it.rcpvision.emf.components.cdo.CDOSessionManager;
 import it.rcpvision.emf.components.view.masterdetail.ViewConfigurator;
-import it.rcpvision.emf.components.binding.FormFeatureControlFactory;
+import it.rcpvision.emf.components.binding.FormControlFactory;
 import it.rcpvision.emf.components.ui.provider.FormPropertyDescriptionProvider;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
