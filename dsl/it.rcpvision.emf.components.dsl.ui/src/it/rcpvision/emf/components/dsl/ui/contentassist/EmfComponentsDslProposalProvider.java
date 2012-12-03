@@ -40,6 +40,33 @@ public class EmfComponentsDslProposalProvider extends
 				ModelPackage.Literals.VIEW_SPECIFICATION__TYPE);
 	}
 
+	@Override
+	public void completePropertyDescriptionSpecification_ParameterType(
+			EObject model, Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		showSubtypesOfEObjectForEmfFeatureAccess(model, context, acceptor);
+	}
+
+	@Override
+	public void completeFeatureSpecification_ParameterType(EObject model,
+			Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		showSubtypesOfEObjectForEmfFeatureAccess(model, context, acceptor);
+	}
+
+	@Override
+	public void completeFormControlSpecification_ParameterType(EObject model,
+			Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		showSubtypesOfEObjectForEmfFeatureAccess(model, context, acceptor);
+	}
+
+	protected void showSubtypesOfEObjectForEmfFeatureAccess(EObject model,
+			ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		showOnlySubtypesOf(model, context, acceptor, EObject.class,
+				ModelPackage.Literals.EMF_FEATURE_ACCESS__PARAMETER_TYPE);
+	}
+
 	protected void showOnlySubtypesOf(EObject model,
 			ContentAssistContext context, ICompletionProposalAcceptor acceptor,
 			Class<?> superType, EReference reference) {

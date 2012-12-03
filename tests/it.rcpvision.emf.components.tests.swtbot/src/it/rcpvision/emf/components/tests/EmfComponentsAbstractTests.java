@@ -625,6 +625,7 @@ public class EmfComponentsAbstractTests {
 		shell.activate();
 		bot.tree().expandNode(EMF_COMPONENTS_CATEGORY).select(libraryView);
 		bot.button("OK").click();
+		bot.waitUntil(shellCloses(shell), 50000);
 		return getLibraryView(libraryView);
 	}
 
