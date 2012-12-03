@@ -2,6 +2,15 @@ import it.rcpvision.emf.components.examples.mail.*
 
 /* it.rcpvision.emf.components.examples.mail.messageview Emf Components Dsl Module file */
 module it.rcpvision.emf.components.examples.mail.messageview {
+	
+	parts {
+		viewpart it.rcpvision.emf.components.examples.mail.messageview.views.MessageView {
+			viewname "Mail Message View"
+			viewclass it.rcpvision.emf.components.examples.mail.messageview.views.MessageView
+			viewcategory it.rcpvision.emf.components.examples.mail.messageview
+		}
+	}
+	
 	labelProvider {
 		text {
 			Mail -> subject

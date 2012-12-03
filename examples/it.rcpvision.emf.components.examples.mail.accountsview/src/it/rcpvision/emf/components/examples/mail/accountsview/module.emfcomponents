@@ -4,6 +4,14 @@ import it.rcpvision.emf.components.examples.mail.*
 /* it.rcpvision.emf.components.examples.mail.accountsview Emf Components Dsl Module file */
 module it.rcpvision.emf.components.examples.mail.accountsview {
 	
+	parts {
+		viewpart it.rcpvision.emf.components.examples.mail.accountsview.views.AccountsView {
+			viewname "Mail Accounts View"
+			viewclass it.rcpvision.emf.components.examples.mail.accountsview.views.AccountsView
+			viewcategory it.rcpvision.emf.components.examples.mail.accountsview
+		}
+	}
+	
 	labelProvider {
 		image {
 			Account -> "account.gif"
