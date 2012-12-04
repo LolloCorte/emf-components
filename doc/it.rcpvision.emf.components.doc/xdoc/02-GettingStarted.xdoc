@@ -49,6 +49,77 @@ Let's start by adding a e[Dependency] from the model plug-in: so open e[MANIFEST
 tab, press e["Add..."] button in e["Required Plug-ins"] section and insert e["org.eclipse.emf.examples.library"]
 among dependencies.
  
+Let's create a e["View"] in the usual Eclipse RCP way (except for one thing):
+ol[
+	item[open e["MANIFEST.MF"] file]
+	item[go to e["Extensions"] tab]
+	item[click e["Add..."] button]
+	item[select e["org.eclipse.ui.views"] extension and click e["Finish"]]
+	item[right-click e["org.eclipse.ui.views"] extension and select e["New"-> category]]
+	item[give the category a e["name"], e.g. e["Library"]]
+	item[right-click e["org.eclipse.ui.views"] extension and select e["New"-> view]]
+	item[give the view a e["name"], e.g. e["Authors"]]
+	item[set the e["category"] to the value defined above, 
+		e.g. e["org.eclipse.emf.examples.library.firstexample.category1"]]
+	item[click on e["class"] hyperlink]
+	item[set the e["Package"] for the new class, e.g. e["org.eclipse.emf.examples.library.firstexample.views"]]
+	item[give a e["Name"] to the new class, e.g. e["AuthorsView"]]
+	item[and click e["Finish"]]
+	item[now modify the e["class"] field adding the prefix 
+		code["org.eclipse.emf.examples.library.firstexample.FirstexampleExecutableExtensionFactory:"]
+		so to obtain the following the e["class"]
+		code["org.eclipse.emf.examples.library.firstexample.FirstexampleExecutableExtensionFactory:org.eclipse.emf.examples.library.firstexample.views.AuthorsView"]
+		]
+]
+
+It's important to notice carefully the last step: in practice, instead of setting the View qualified name
+as usual, we are asking a e[factory] to do this. The character ':' separates the qualified names of the
+factory and the view respectively.
+The factory that has to be used is one of the classes that the wizard generated at first; just check
+for a class with pattern e["*ExecutableExtensioFactory"].
+
+Now modify the View source code in this way:
+
+code[Java][
+package org.eclipse.emf.examples.library.firstexample.views;
+
+import it.rcpvision.emf.components.views.AbstractSaveableTableView;
+
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.examples.extlibrary.EXTLibraryPackage;
+import org.eclipse.emf.examples.extlibrary.Library;
+
+public class AuthorsView extends AbstractSaveableTableView {
+
+	public static final String ID = "org.eclipse.emf.examples.library.firstexample.view1";
+
+	@Override
+	protected URI createResourceURI() {
+		return URI.createFileURI(System.getProperty("user.home")
+				+ "/examples/library/LibraryA.library");
+	}
+
+	@Override
+	protected Object getContents(Resource resource) {
+		Library library = (Library) resource.getContents().get(0);
+		return library.getWriters();
+	}
+
+	@Override
+	protected EClass getEClass() {
+		return EXTLibraryPackage.Literals.WRITER;
+	}
+
+}
+]
+
+now get back to the e[MANIFEST.MF] and run the example
+img[images/first-example-launch.png][][ ][]
+
+
+
 
 section:RCPMail[RCP Mail Example]
 
