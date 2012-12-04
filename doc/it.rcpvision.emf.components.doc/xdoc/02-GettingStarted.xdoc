@@ -44,32 +44,29 @@ ol[
 	item[and then click on "Finish"]
 ]
  
-The generated project has some classes and a e[module.emfcomponents] file, which you will quickly learn to manage.
+The generated project has some classes and a e[module.emfcomponents] file, which you will quickly learn how to manage.
 Let's start by adding a e[Dependency] from the model plug-in: so open e[MANIFEST.MF] file, go to e[Dependencies]
 tab, press e["Add..."] button in e["Required Plug-ins"] section and insert e["org.eclipse.emf.examples.library"]
 among dependencies.
- 
-Let's create a e["View"] in the usual Eclipse RCP way (except for one thing):
+
+Now open the e[module.emfcomponents] file and type the following content into the {} block (note that context assist is available)
+
+code[
+	parts{
+		viewpart org.eclipse.emf.examples.library.firstexample.view.writers {
+			viewname "Writers" 
+			viewclass org.eclipse.emf.examples.library.firstexample.views.AuthorsView
+		}
+	}
+]
+
+Let's explain what we have done here above:
 ol[
-	item[open e["MANIFEST.MF"] file]
-	item[go to e["Extensions"] tab]
-	item[click e["Add..."] button]
-	item[select e["org.eclipse.ui.views"] extension and click e["Finish"]]
-	item[right-click e["org.eclipse.ui.views"] extension and select e["New"-> category]]
-	item[give the category a e["name"], e.g. e["Library"]]
-	item[right-click e["org.eclipse.ui.views"] extension and select e["New"-> view]]
-	item[give the view a e["name"], e.g. e["Authors"]]
-	item[set the e["category"] to the value defined above, 
-		e.g. e["org.eclipse.emf.examples.library.firstexample.category1"]]
-	item[click on e["class"] hyperlink]
-	item[set the e["Package"] for the new class, e.g. e["org.eclipse.emf.examples.library.firstexample.views"]]
-	item[give a e["Name"] to the new class, e.g. e["AuthorsView"]]
-	item[and click e["Finish"]]
-	item[now modify the e["class"] field adding the prefix 
-		code["org.eclipse.emf.examples.library.firstexample.FirstexampleExecutableExtensionFactory:"]
-		so to obtain the following the e["class"]
-		code["org.eclipse.emf.examples.library.firstexample.FirstexampleExecutableExtensionFactory:org.eclipse.emf.examples.library.firstexample.views.AuthorsView"]
-		]
+	item[]
+	item[then, under the category "Emf Components" select "Emf Components Dsl based Project"]
+	item[and click "Next"]
+	item[give a name to the project (e.g. "org.eclipse.emf.examples.library.firstexample")]
+	item[and then click on "Finish"]
 ]
 
 It's important to notice carefully the last step: in practice, instead of setting the View qualified name
@@ -81,39 +78,14 @@ for a class with pattern e["*ExecutableExtensioFactory"].
 Now modify the View source code in this way:
 
 code[Java][
-package org.eclipse.emf.examples.library.firstexample.views;
-
-import it.rcpvision.emf.components.views.AbstractSaveableTableView;
-
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.examples.extlibrary.EXTLibraryPackage;
-import org.eclipse.emf.examples.extlibrary.Library;
-
-public class AuthorsView extends AbstractSaveableTableView {
-
-	public static final String ID = "org.eclipse.emf.examples.library.firstexample.view1";
+public class AuthorsView extends AbstractSaveableTreeFormView {
 
 	@Override
 	protected URI createResourceURI() {
-		return URI.createFileURI(System.getProperty("user.home")
-				+ "/examples/library/LibraryA.library");
+		return URI.createFileURI( System.getProperty("user.home") + "/MyLibrary.library" );
 	}
 
-	@Override
-	protected Object getContents(Resource resource) {
-		Library library = (Library) resource.getContents().get(0);
-		return library.getWriters();
-	}
-
-	@Override
-	protected EClass getEClass() {
-		return EXTLibraryPackage.Literals.WRITER;
-	}
-
-}
-]
+}]
 
 This example is intended to show the EMF Components basics with the minimum amount of code.
 
@@ -127,14 +99,8 @@ ol[
 	item[finally we declare the EClass that represent the single item in the list]
 ]
 
-Before executing this code we need to do some more work.
+Before executing this code we need to do some more work in order to initialize the Resource.
 
-First of all we have to ensure that the path specified in the first step exists. So you may have to create
-the folders 
-
-code[<user.home>/examples/library]
-
-More important however is the fact that the Resource has never been initialized yet.
 An easy way to overcome this issue can be the following:
 
 ol[
@@ -148,19 +114,9 @@ ol[
 			}
 		]
 	]
-	item[create a new class e[LibraryEmptyResourceInitializer] for Resource initialization
+	item[create a new class e[LibraryEmptyResourceInitializer] extending from e[EmptyResourceInitializer] for Resource initialization
 		code[Java][
-			package org.eclipse.emf.examples.library.firstexample;
-			
-			import java.io.IOException;
-			
-			import it.rcpvision.emf.components.resource.EmptyResourceInitializer;
-			
-			import org.eclipse.emf.ecore.resource.Resource;
-			import org.eclipse.emf.examples.extlibrary.EXTLibraryFactory;
-			import org.eclipse.emf.examples.extlibrary.Library;
-			import org.eclipse.emf.examples.extlibrary.Writer;
-			
+
 			public class LibraryEmptyResourceInitializer  extends EmptyResourceInitializer {
 				
 				@Override
@@ -175,12 +131,6 @@ ol[
 					library.getWriters().add(createWriter("Ralf", "Sternberg"));
 					resource.getContents().add(library);
 					
-					try {
-						resource.save(null);
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
 				}
 			
 				protected Writer createWriter(String firstName, String lastName) {
