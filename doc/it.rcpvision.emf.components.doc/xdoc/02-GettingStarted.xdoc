@@ -115,10 +115,103 @@ public class AuthorsView extends AbstractSaveableTableView {
 }
 ]
 
+This example is intended to show the EMF Components basics with the minimum amount of code.
+
+Our goal is to show the writers list of a library object which has been persisted on a EMF Resource.
+Here are the steps:
+
+ol[
+	item[first we define the EMF URI where to load and save Resouces; in this example we choose to use
+	the EMF default persistence (XMI), but here you can provide any URI (e.g. using Teneo, CDO or any other EMF Resource Persistence implementation)]
+	item[then we specify how to extract, from the Resource, the objects we want to show]
+	item[finally we declare the EClass that represent the single item in the list]
+]
+
+Before executing this code we need to do some more work.
+
+First of all we have to ensure that the path specified in the first step exists. So you may have to create
+the folders 
+
+code[<user.home>/examples/library]
+
+More important however is the fact that the Resource has never been initialized yet.
+An easy way to overcome this issue can be the following:
+
+ol[
+	item[open the class *GuiceModule (FirstexampleGuiceModule in this example). Note that this is a key	class for all customizations; it allows to override several methods in order to provide custom behaviours
+	and implementations.]
+	item[override method e[bindEmptyResourceInitializer()] providing a class for Resource initialization
+		code[Java][
+			@Override
+			public Class<? extends EmptyResourceInitializer> bindEmptyResourceInitializer() {
+				return LibraryEmptyResourceInitializer.class;
+			}
+		]
+	]
+	item[create a new class e[LibraryEmptyResourceInitializer] for Resource initialization
+		code[Java][
+			package org.eclipse.emf.examples.library.firstexample;
+			
+			import java.io.IOException;
+			
+			import it.rcpvision.emf.components.resource.EmptyResourceInitializer;
+			
+			import org.eclipse.emf.ecore.resource.Resource;
+			import org.eclipse.emf.examples.extlibrary.EXTLibraryFactory;
+			import org.eclipse.emf.examples.extlibrary.Library;
+			import org.eclipse.emf.examples.extlibrary.Writer;
+			
+			public class LibraryEmptyResourceInitializer  extends EmptyResourceInitializer {
+				
+				@Override
+				public void initialize(Resource resource) {
+					super.initialize(resource);
+			
+					Library library = EXTLibraryFactory.eINSTANCE.createLibrary();
+					library.getWriters().add(createWriter("Ed", "Merks"));
+					library.getWriters().add(createWriter("Eike", "Stepper"));
+					library.getWriters().add(createWriter("Lars", "Vogel"));
+					library.getWriters().add(createWriter("Tom", "Schindl"));
+					library.getWriters().add(createWriter("Ralf", "Sternberg"));
+					resource.getContents().add(library);
+					
+					try {
+						resource.save(null);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			
+				protected Writer createWriter(String firstName, String lastName) {
+					Writer writer = EXTLibraryFactory.eINSTANCE.createWriter();
+					writer.setFirstName(firstName);
+					writer.setLastName(lastName);
+					return writer;
+				}
+			
+			}
+		]
+		The method e[initialize()] will be executed just the first time, when the Resource is not present.
+		The method ends with a call to e[save()], so that the Resource is persisted. Notice that this
+		call can be omitted if you want to start every time from scratch without persisting.
+	]
+]
+
 now get back to the e[MANIFEST.MF] and run the example
 img[images/first-example-launch.png][][ ][]
 
+As an Eclipse RCP developer you know, of course, that this will start another Eclipse instance, unless
+you add an Application plug-in to the launch or define an Application in the current plug-in. 
 
+In this second Eclipse instance you can show the View in this way:
+ol[
+	item[e[Window -> Show View -> Other...]]
+	item[from Category "Library", select "Authors"]
+	item[press e[OK]]
+]
+
+img[images/first-example-run.png][][ ][]
 
 
 section:RCPMail[RCP Mail Example]
