@@ -1,12 +1,42 @@
 chapter:GettingStarted[Getting Started]
 
-To get started, you should first download Eclipse Modeling Tools from link[http://www.eclipse.org/downloads/][Eclipse
+To get started, you should first download "Eclipse Modeling Tools" from link[http://www.eclipse.org/downloads/][Eclipse
 Downloads]
 img[images/eclipseModelingTools.png][][ ][]
+This will ensure you have EMF and related Tools installed and ready to go.
+
 
 section:Installation[Installation]
 
+Now select "Help" -> "Install New Software..." and in the "Work with:" field insert the EMF Components update
+site link[http://www.rcp-vision.com/emf-components/updates/][http://www.rcp-vision.com/emf-components/updates/]
+and install all features.
+
+img[images/emf-components-update-site.png][][ ][]
+
+
 section:FirstExample[First Example]
+
+The purpose of this first example is to make use of the classical EMF Library Model example and manage
+it from an EMF Components enabled plug-in.
+So let's start by creating this model plug-in with File -> New... -> Example... and, from Category "Eclipse
+Modeling Framework", select "Extended Library Model Example", press Next and Finish. You will end up
+with three plug-ins: 
+ul[
+item[org.eclipse.emf.examples.library (the model plug-in)]
+item[org.eclipse.emf.examples.library.edit (the edit plug-in)]
+item[org.eclipse.emf.examples.library.editor (the editor plug-in)]
+]
+Now you can create your first example with the appropriate wizard.
+Select "File" -> "New" -> "Project..."; then, under the category "Emf Components" select "Emf Components
+Dsl based Project" and click "Next". 
+Give a name to the project (e.g. "org.eclipse.emf.examples.library.firstexample") and then
+click on "Finish".
+The generated project has some classes and a module.emfcomponents file, which you will quickly learn to manage.
+Let's start by adding a Dependency from the model plug-in: so open MANIFEST.MF file, go to Dependencies
+tab, press "Add..." button in "Required Plug-ins" section and insert "org.eclipse.emf.examples.library"
+among dependencies.
+ 
 
 section:RCPMail[RCP Mail Example]
 
