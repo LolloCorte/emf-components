@@ -19,8 +19,15 @@ section:FirstExample[First Example]
 
 The purpose of this first example is to make use of the classical EMF Library Model example and manage
 it from an EMF Components enabled plug-in.
-So let's start by creating this model plug-in with File -> New... -> Example... and, from Category "Eclipse
-Modeling Framework", select "Extended Library Model Example", press Next and Finish. You will end up
+
+So let's start by creating the model plug-in with 
+ol[
+	item[File -> New... -> Example...]
+	item[from Category "Eclipse Modeling Framework", select "Extended Library Model Example"]
+	item[press Next and Finish]
+]
+
+You will end up
 with three plug-ins: 
 ul[
 item[org.eclipse.emf.examples.library (the model plug-in)]
@@ -28,13 +35,18 @@ item[org.eclipse.emf.examples.library.edit (the edit plug-in)]
 item[org.eclipse.emf.examples.library.editor (the editor plug-in)]
 ]
 Now you can create your first example with the appropriate wizard.
-Select "File" -> "New" -> "Project..."; then, under the category "Emf Components" select "Emf Components
-Dsl based Project" and click "Next". 
-Give a name to the project (e.g. "org.eclipse.emf.examples.library.firstexample") and then
-click on "Finish".
-The generated project has some classes and a module.emfcomponents file, which you will quickly learn to manage.
-Let's start by adding a Dependency from the model plug-in: so open MANIFEST.MF file, go to Dependencies
-tab, press "Add..." button in "Required Plug-ins" section and insert "org.eclipse.emf.examples.library"
+
+ol[
+	item[select "File" -> "New" -> "Project..."]
+	item[then, under the category "Emf Components" select "Emf Components Dsl based Project"]
+	item[and click "Next"]
+	item[give a name to the project (e.g. "org.eclipse.emf.examples.library.firstexample")]
+	item[and then click on "Finish"]
+]
+ 
+The generated project has some classes and a e[module.emfcomponents] file, which you will quickly learn to manage.
+Let's start by adding a e[Dependency] from the model plug-in: so open e[MANIFEST.MF] file, go to e[Dependencies]
+tab, press e["Add..."] button in e["Required Plug-ins"] section and insert e["org.eclipse.emf.examples.library"]
 among dependencies.
  
 
