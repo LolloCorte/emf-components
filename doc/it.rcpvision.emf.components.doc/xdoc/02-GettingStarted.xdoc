@@ -27,84 +27,92 @@ ol[
 	item[press Next and Finish]
 ]
 
-You will end up
-with three plug-ins: 
+You will end up with three plug-ins: 
 ul[
 item[org.eclipse.emf.examples.library (the model plug-in)]
 item[org.eclipse.emf.examples.library.edit (the edit plug-in)]
 item[org.eclipse.emf.examples.library.editor (the editor plug-in)]
 ]
+
 Now you can create your first example with the appropriate wizard.
 
 ol[
 	item[select "File" -> "New" -> "Project..."]
-	item[then, under the category "Emf Components" select "Emf Components Dsl based Project"]
-	item[and click "Next"]
-	item[give a name to the project (e.g. "org.eclipse.emf.examples.library.firstexample")]
-	item[and then click on "Finish"]
+	item[from the "Emf Components" category select "Emf Components Dsl based Project"]
+	item[click "Next"]
+	item[give a name to the project (e.g. "it.rcpvision.emf.components.firstexample")]
+	item[click "Finish"]
 ]
  
-The generated project has some classes and a e[module.emfcomponents] file, which you will quickly learn how to manage.
-Let's start by adding a e[Dependency] from the model plug-in: so open e[MANIFEST.MF] file, go to e[Dependencies]
-tab, press e["Add..."] button in e["Required Plug-ins"] section and insert e["org.eclipse.emf.examples.library"]
-among dependencies.
-
-Now open the e[module.emfcomponents] file and type the following content into the {} block (note that context assist is available)
+The generated project has some classes and a e[module.emfcomponents] file, which opens automatically.
+Just type the following content into the {} block (note that context assist is available)
 
 code[
-	parts{
-		viewpart org.eclipse.emf.examples.library.firstexample.view.writers {
-			viewname "Writers" 
-			viewclass org.eclipse.emf.examples.library.firstexample.views.AuthorsView
+	parts{ 
+		viewpart it.rcpvision.emf.components.firstexample.view.library.treeform {
+			viewname "My Library Tree Form"
+			viewclass 
 		}
 	}
 ]
 
-Let's explain what we have done here above:
+Here above we have just declared a view part with
+ 
 ol[
-	item[]
-	item[then, under the category "Emf Components" select "Emf Components Dsl based Project"]
-	item[and click "Next"]
-	item[give a name to the project (e.g. "org.eclipse.emf.examples.library.firstexample")]
-	item[and then click on "Finish"]
+	item[id e["it.rcpvision.emf.components.firstexample.view.library.treeform"]]
+	item[name e["Library Tree Form"]]
+	item[class: not yet set, we are going to create
+		 e["it.rcpvision.emf.components.firstexample.views.LibraryTreeFormView"]]
 ]
 
-It's important to notice carefully the last step: in practice, instead of setting the View qualified name
-as usual, we are asking a e[factory] to do this. The character ':' separates the qualified names of the
-factory and the view respectively.
-The factory that has to be used is one of the classes that the wizard generated at first; just check
-for a class with pattern e["*ExecutableExtensioFactory"].
+So there is still an error, in fact we need to create the declared class. 
+e[Suggestion:] Just copy the above qualified class name (e["it.rcpvision.emf.components.firstexample.views.LibraryTreeFormView"]), 
+select the project, right-click and select File -> New -> Class. Now paste the clipboard content into e["Name:"] field: the
+package and class name will be automatically splitted into right fields. Then click e["Finish"].
 
-Now modify the View source code in this way:
+Now modify the view class code with this content:
 
 code[Java][
-public class AuthorsView extends AbstractSaveableTreeFormView {
+import it.rcpvision.emf.components.views.AbstractSaveableTreeFormView;
+import org.eclipse.emf.common.util.URI;
+
+public class LibraryTreeFormView extends AbstractSaveableTreeFormView {
 
 	@Override
 	protected URI createResourceURI() {
 		return URI.createFileURI( System.getProperty("user.home") + "/MyLibrary.library" );
 	}
 
-}]
-
-This example is intended to show the EMF Components basics with the minimum amount of code.
-
-Our goal is to show the writers list of a library object which has been persisted on a EMF Resource.
-Here are the steps:
-
-ol[
-	item[first we define the EMF URI where to load and save Resouces; in this example we choose to use
-	the EMF default persistence (XMI), but here you can provide any URI (e.g. using Teneo, CDO or any other EMF Resource Persistence implementation)]
-	item[then we specify how to extract, from the Resource, the objects we want to show]
-	item[finally we declare the EClass that represent the single item in the list]
+}
 ]
 
-Before executing this code we need to do some more work in order to initialize the Resource.
+then get back to e[module.emfcomponents] file, go just after viewclass keyword, type e["LibraryTreeFormView"]
+and e[Ctrl-Space]: the content assist will set automatically the correct qualified name
+code[
+	viewclass viewclass it.rcpvision.emf.components.firstexample.views.LibraryTreeFormView
+]
+
+when you save the above file you will notice that a new file (e["plugin.xml.emfcomponents_gen"]) 
+is generated into e["emfcomponents-gen"] source folder. Just copy this file into the project root and
+rename it to e["plugin.xml"].
+
+Let's focus briefly on the above e[createResourceURI()] method: our goal is allowing to manage 
+a library model instance which persists on a EMF Resource.
+In this example we choose to use the EMF default persistence (XMI), but you can provide any URI 
+(e.g. using Teneo, CDO or any other EMF Resource Persistence implementation)
+In particular here we choose to persist the Resource in a XMI file named e["MyLibrary.library"] into the user home
+folder (you might want to change it with any other path). 
+
+We need a e[Dependency] from the model plug-in: so open e[MANIFEST.MF] file, go to e[Dependencies]
+tab, press e["Add..."] button in e["Required Plug-ins"] section and insert e["org.eclipse.emf.examples.library"]
+among dependencies.
+
+Before executing this code we need to do some little more work in order to initialize the Resource.
 
 An easy way to overcome this issue can be the following:
 
 ol[
-	item[open the class *GuiceModule (FirstexampleGuiceModule in this example). Note that this is a key	class for all customizations; it allows to override several methods in order to provide custom behaviours
+	item[open the class *GuiceModule (FirstexampleGuiceModule in thris example). Note that this is a key	class for all customizations; it allows to override several methods in order to provide custom behaviours
 	and implementations.]
 	item[override method e[bindEmptyResourceInitializer()] providing a class for Resource initialization
 		code[Java][
@@ -116,31 +124,21 @@ ol[
 	]
 	item[create a new class e[LibraryEmptyResourceInitializer] extending from e[EmptyResourceInitializer] for Resource initialization
 		code[Java][
-
-			public class LibraryEmptyResourceInitializer  extends EmptyResourceInitializer {
-				
-				@Override
-				public void initialize(Resource resource) {
-					super.initialize(resource);
+			import it.rcpvision.emf.components.resource.EmptyResourceInitializer;
+			import org.eclipse.emf.ecore.resource.Resource;
+			import org.eclipse.emf.examples.extlibrary.EXTLibraryFactory;
+			import org.eclipse.emf.examples.extlibrary.Library;
 			
-					Library library = EXTLibraryFactory.eINSTANCE.createLibrary();
-					library.getWriters().add(createWriter("Ed", "Merks"));
-					library.getWriters().add(createWriter("Eike", "Stepper"));
-					library.getWriters().add(createWriter("Lars", "Vogel"));
-					library.getWriters().add(createWriter("Tom", "Schindl"));
-					library.getWriters().add(createWriter("Ralf", "Sternberg"));
-					resource.getContents().add(library);
-					
-				}
+			public class LibraryEmptyResourceInitializer  extends EmptyResourceInitializer { 
+			    
+			   @Override 
+			   public void initialize(Resource resource) { 
+			       super.initialize(resource); 
+			       Library library = EXTLibraryFactory.eINSTANCE.createLibrary(); 
+			       resource.getContents().add(library); 
+			   } 
 			
-				protected Writer createWriter(String firstName, String lastName) {
-					Writer writer = EXTLibraryFactory.eINSTANCE.createWriter();
-					writer.setFirstName(firstName);
-					writer.setLastName(lastName);
-					return writer;
-				}
-			
-			}
+			} 
 		]
 		The method e[initialize()] will be executed just the first time, when the Resource is not present.
 		The method ends with a call to e[save()], so that the Resource is persisted. Notice that this
@@ -157,7 +155,7 @@ you add an Application plug-in to the launch or define an Application in the cur
 In this second Eclipse instance you can show the View in this way:
 ol[
 	item[e[Window -> Show View -> Other...]]
-	item[from Category "Library", select "Authors"]
+	item[from Category "Emf Components", select "My Library Tree Form"]
 	item[press e[OK]]
 ]
 
