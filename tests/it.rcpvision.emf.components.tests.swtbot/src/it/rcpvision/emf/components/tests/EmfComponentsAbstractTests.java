@@ -209,6 +209,8 @@ public class EmfComponentsAbstractTests {
 
 	protected static final String NEW_EMF_COMPONENTS_DSL_PROJECT = "Emf Components Dsl Based Project";
 
+	protected static final String EMF_COMPONENTS_MAIL_RCP_EXAMPLE = "Emf Components Mail RCP Example";
+
 	protected static SWTWorkbenchBot bot;
 
 	protected static Map<String, String> editorNamesToId;
@@ -448,6 +450,25 @@ public class EmfComponentsAbstractTests {
 		bot.button("Finish").click();
 		assertProjectIsCreated(projectName, shell);
 	}
+	
+	protected void createExampleProjectsInWorkspace(String exampleDescription,
+			String... expectedProjects) {
+		bot.menu("File").menu("New").menu("Project...").click();
+
+		SWTBotShell shell = bot.shell("New Project");
+		shell.activate();
+		bot.tree().expandNode(EMF_COMPONENTS_CATEGORY, "Examples")
+				.select(exampleDescription);
+		bot.button("Next >").click();
+
+		bot.button("Finish").click();
+		
+		bot.waitUntil(shellCloses(shell), 50000);
+		
+		for (String projectName : expectedProjects) {
+			assertProjectIsCreated(projectName, shell);
+		}
+	}
 
 	protected void createProjectInWorkspaceWithView(String category,
 			String projectType, String projectName, String viewToSelect) {
@@ -477,9 +498,26 @@ public class EmfComponentsAbstractTests {
 		return shell;
 	}
 
+	protected SWTBotShell createNewProjectWizard(String category,
+			String subCategory, String projectType, String projectName) {
+		bot.menu("File").menu("New").menu("Project...").click();
+
+		SWTBotShell shell = bot.shell("New Project");
+		shell.activate();
+		bot.tree().expandNode(category, subCategory).select(projectType);
+		bot.button("Next >").click();
+
+		bot.textWithLabel("Project name:").setText(projectName);
+		return shell;
+	}
+
 	protected void assertProjectIsCreated(String projectName, SWTBotShell shell) {
 		// creation of a project might require some time
 		bot.waitUntil(shellCloses(shell), 50000);
+		assertProjectIsCreated(projectName);
+	}
+
+	protected void assertProjectIsCreated(String projectName) {
 		assertTrue("Project doesn't exist", isProjectCreated(projectName));
 	}
 

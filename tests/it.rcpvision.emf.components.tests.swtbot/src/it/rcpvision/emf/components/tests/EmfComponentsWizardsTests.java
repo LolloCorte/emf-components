@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 /**
- * @author bettini
+ * @author Lorenzo Bettini
  * 
  */
 @RunWith(SWTBotJunit4ClassRunner.class)
