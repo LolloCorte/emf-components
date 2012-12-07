@@ -11,16 +11,19 @@ section:Installation[Installation]
 Now select "Help" -> "Install New Software..." and in the "Work with:" field insert the EMF Components update
 site link[http://www.rcp-vision.com/emf-components/updates/][http://www.rcp-vision.com/emf-components/updates/]
 and install all features.
+Although sources are not strictly required, it might help when using EMF Components
+to have a look at its sources.
 
 img[images/emf-components-update-site.png][][ ][]
 
 
 section:FirstExample[First Example]
 
-The purpose of this first example is to make use of the classical EMF Library Model example and manage
-it from an EMF Components enabled plug-in.
+The purpose of this first example is to make use of the classical EMF Library Model example and
+create a view for editing such models using an EMF Components enabled plug-in.
 
-So let's start by creating the model plug-in with 
+So let's start by creating the model plug-in with
+
 ol[
 	item[File -> New... -> Example...]
 	item[from Category "Eclipse Modeling Framework", select "Extended Library Model Example"]
@@ -28,11 +31,14 @@ ol[
 ]
 
 You will end up with three plug-ins: 
+
 ul[
 item[org.eclipse.emf.examples.library (the model plug-in)]
 item[org.eclipse.emf.examples.library.edit (the edit plug-in)]
 item[org.eclipse.emf.examples.library.editor (the editor plug-in)]
 ]
+
+We only need the first plugin, so you might want to remove the .edit and .editor plugins.
 
 Now you can create your first example with the appropriate wizard.
 
@@ -86,8 +92,9 @@ public class LibraryTreeFormView extends AbstractSaveableTreeFormView {
 }
 ]
 
-then get back to e[module.emfcomponents] file, go just after viewclass keyword, type e["LibraryTreeFormView"]
+Now get back to e[module.emfcomponents] file, go just after viewclass keyword, type e["LibraryTreeFormView"]
 and e[Ctrl-Space]: the content assist will set automatically the correct qualified name
+
 code[EmfComponents][
 	viewclass it.rcpvision.emf.components.firstexample.views.LibraryTreeFormView
 ]
@@ -112,9 +119,11 @@ Before executing this code we need to do some little more work in order to initi
 An easy way to overcome this issue can be the following:
 
 ol[
-	item[open the class *GuiceModule (FirstexampleGuiceModule in thris example). Note that this is a key	class for all customizations; it allows to override several methods in order to provide custom behaviours
+	item[open the class *GuiceModule (FirstexampleGuiceModule in this example) that the wizard created for you.
+	Note that this is a key	class for all customizations; it allows to override several methods in order to provide custom behaviors
 	and implementations.]
 	item[override method e[bindEmptyResourceInitializer()] providing a class for Resource initialization
+	
 		code[Java][
 			@Override
 			public Class<? extends EmptyResourceInitializer> bindEmptyResourceInitializer() {
@@ -140,13 +149,15 @@ ol[
 			
 			} 
 		]
-		The method e[initialize()] will be executed just the first time, when the Resource is not present.
+		The method e[initialize()] will be executed only when the Resource is empty
+		(i.e., it has no contents).
 		The method ends with a call to e[save()], so that the Resource is persisted. Notice that this
 		call can be omitted if you want to start every time from scratch without persisting.
 	]
 ]
 
 now get back to the e[MANIFEST.MF] and run the example
+
 img[images/first-example-launch.png][][ ][]
 
 As an Eclipse RCP developer you know, of course, that this will start another Eclipse instance (unless
@@ -193,13 +204,15 @@ Well, it's indeed very easy to obtain this: just edit the e[module.emfcomponents
 adding the following import (without ending line with ";")
 
 code[EmfComponents][
-	import org.eclipse.emf.examples.extlibrary.*
+import org.eclipse.emf.examples.extlibrary.*
 ]
 
 and then defining the features to show
 
 code[EmfComponents][
-	import org.eclipse.emf.examples.extlibrary.*
+import org.eclipse.emf.examples.extlibrary.*
+
+module ... {
 
 	parts { 
 		...	
@@ -212,12 +225,13 @@ code[EmfComponents][
             Book -> author, title, category
         }
     }
+}
 ]
 
 Remeber that code completion is available, just exploit it since it help so much.
 
 If you restart now the application you will see that, when selecting an object, only the declared attributes
-will be shown. Further they are shown in the specified order.
+will be shown. Furthermore, they are shown in the specified order.
 
 Did you run the application in Debug mode? Well, then you can change fields and order, save and see the
 changes without even restarting the application.
@@ -233,15 +247,15 @@ code[EmfComponents][
 	}
 ]
  
-Or want to change the label shown on the tree nodes on the upper side and as detail title? 
+Or do you want to change the label shown on the tree nodes on the upper side and as detail title? 
 Maybe want to format the book label like this?
  
 code[EmfComponents][
 	labelProvider {
 		text {
-            Book -> '"'+title+'"' +' (by '+author.name+')'
-        }
-    }
+			Book b -> '"' + b.title + '"' +' (by '+ b.author.name + ')'
+		}
+	}
 ]
  
 img[images/labelCustomization.png][][ ][]

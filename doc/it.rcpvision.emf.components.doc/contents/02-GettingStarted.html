@@ -28,6 +28,8 @@ This will ensure you have EMF and related Tools installed and ready to go.
 Now select "Help" -&gt; "Install New Software..." and in the "Work with:" field insert the EMF Components update
 site <a href="http://www.rcp-vision.com/emf-components/updates/">http://www.rcp-vision.com/emf-components/updates/</a>
 and install all features.
+Although sources are not strictly required, it might help when using EMF Components
+to have a look at its sources.
 </p>
 <p>
 <div class="image" >
@@ -40,11 +42,13 @@ and install all features.
 <a name="FirstExample"></a>
 <h2>First Example</h2>
 <p>
-The purpose of this first example is to make use of the classical EMF Library Model example and manage
-it from an EMF Components enabled plug-in.
+The purpose of this first example is to make use of the classical EMF Library Model example and
+create a view for editing such models using an EMF Components enabled plug-in.
 </p>
 <p>
-So let&apos;s start by creating the model plug-in with 
+So let&apos;s start by creating the model plug-in with
+</p>
+<p>
 <ol>
 	<li>
 		File -&gt; New... -&gt; Example...
@@ -59,6 +63,8 @@ So let&apos;s start by creating the model plug-in with
 </p>
 <p>
 You will end up with three plug-ins: 
+</p>
+<p>
 <ul>
 	<li>
 		org.eclipse.emf.examples.library (the model plug-in)
@@ -70,6 +76,9 @@ You will end up with three plug-ins:
 		org.eclipse.emf.examples.library.editor (the editor plug-in)
 	</li>
 </ul>
+</p>
+<p>
+We only need the first plugin, so you might want to remove the .edit and .editor plugins.
 </p>
 <p>
 Now you can create your first example with the appropriate wizard.
@@ -156,8 +165,10 @@ Now modify the view class code with this content:
 </div>
 </p>
 <p>
-then get back to <em>module.emfcomponents</em> file, go just after viewclass keyword, type <em>"LibraryTreeFormView"</em>
+Now get back to <em>module.emfcomponents</em> file, go just after viewclass keyword, type <em>"LibraryTreeFormView"</em>
 and <em>Ctrl-Space</em>: the content assist will set automatically the correct qualified name
+</p>
+<p>
 <div class="literallayout">
 <div class="incode">
 <p class="code">
@@ -193,11 +204,13 @@ An easy way to overcome this issue can be the following:
 <p>
 <ol>
 	<li>
-		open the class *GuiceModule (FirstexampleGuiceModule in thris example). Note that this is a key	class for all customizations; it allows to override several methods in order to provide custom behaviours
+		open the class *GuiceModule (FirstexampleGuiceModule in this example) that the wizard created for you.
+			Note that this is a key	class for all customizations; it allows to override several methods in order to provide custom behaviors
 			and implementations.
 	</li>
 	<li>
 		override method <em>bindEmptyResourceInitializer()</em> providing a class for Resource initialization
+			
 				<div class="literallayout">
 		<div class="incode">
 		<p class="code">
@@ -234,7 +247,8 @@ An easy way to overcome this issue can be the following:
 		</div>
 		</div>
 		
-				The method <em>initialize()</em> will be executed just the first time, when the Resource is not present.
+				The method <em>initialize()</em> will be executed only when the Resource is empty
+				(i.e., it has no contents).
 				The method ends with a call to <em>save()</em>, so that the Resource is persisted. Notice that this
 				call can be omitted if you want to start every time from scratch without persisting.
 	</li>
@@ -242,6 +256,8 @@ An easy way to overcome this issue can be the following:
 </p>
 <p>
 now get back to the <em>MANIFEST.MF</em> and run the example
+</p>
+<p>
 <div class="image" >
 <img src="images/first-example-launch.png" class=" " 
 />
@@ -342,17 +358,21 @@ and then defining the features to show
 <div class="incode">
 <p class="code">
 <span class="keyword">import</span>&nbsp;org.eclipse.emf.examples.extlibrary.*<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">parts</span>&nbsp;{&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-}<br/>
 <br/>
-<span class="keyword">featuresProvider</span>&nbsp;{<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">features</span>&nbsp;{<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Library&nbsp;-&gt;&nbsp;name<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Writer&nbsp;-&gt;&nbsp;name,&nbsp;address,&nbsp;books<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Book&nbsp;-&gt;&nbsp;author,&nbsp;title,&nbsp;category<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-&nbsp;&nbsp;&nbsp;}<br/>
+<span class="keyword">module</span>&nbsp;...&nbsp;{<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">parts</span>&nbsp;{&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">featuresProvider</span>&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">features</span>&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Library&nbsp;-&gt;&nbsp;name<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Writer&nbsp;-&gt;&nbsp;name,&nbsp;address,&nbsp;books<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Book&nbsp;-&gt;&nbsp;author,&nbsp;title,&nbsp;category<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+}<br/>
 </p>
 </div>
 </div>
@@ -362,7 +382,7 @@ Remeber that code completion is available, just exploit it since it help so much
 </p>
 <p>
 If you restart now the application you will see that, when selecting an object, only the declared attributes
-will be shown. Further they are shown in the specified order.
+will be shown. Furthermore, they are shown in the specified order.
 </p>
 <p>
 Did you run the application in Debug mode? Well, then you can change fields and order, save and see the
@@ -386,7 +406,7 @@ Do you want to change text used for attribute labels in the detail? Just add the
 </div>
 
  
-Or want to change the label shown on the tree nodes on the upper side and as detail title? 
+Or do you want to change the label shown on the tree nodes on the upper side and as detail title? 
 Maybe want to format the book label like this?
  
 <div class="literallayout">
@@ -394,9 +414,9 @@ Maybe want to format the book label like this?
 <p class="code">
 <span class="keyword">labelProvider</span>&nbsp;{<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">text</span>&nbsp;{<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Book&nbsp;-&gt;&nbsp;<span class="string">&apos;"&apos;</span>+title+<span class="string">&apos;"&apos;</span>&nbsp;+<span class="string">&apos;&nbsp;(by&nbsp;&apos;</span>+author.name+<span class="string">&apos;)&apos;</span><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-&nbsp;&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Book&nbsp;b&nbsp;-&gt;&nbsp;<span class="string">&apos;"&apos;</span>&nbsp;+&nbsp;b.title&nbsp;+&nbsp;<span class="string">&apos;"&apos;</span>&nbsp;+<span class="string">&apos;&nbsp;(by&nbsp;&apos;</span>+&nbsp;b.author.name&nbsp;+&nbsp;<span class="string">&apos;)&apos;</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+}<br/>
 </p>
 </div>
 </div>
