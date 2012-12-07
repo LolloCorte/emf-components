@@ -101,10 +101,10 @@ Just type the following content into the {} block (note that context assist is a
 <div class="literallayout">
 <div class="incode">
 <p class="code">
-parts{&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;viewpart&nbsp;it.rcpvision.emf.components.firstexample.view.library.treeform&nbsp;{<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;viewname&nbsp;<span class="string">"My&nbsp;Library&nbsp;Tree&nbsp;Form"</span><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;viewclass&nbsp;<br/>
+<span class="keyword">parts</span>&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">viewpart</span>&nbsp;it.rcpvision.emf.components.firstexample.view.library.treeform&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">viewname</span>&nbsp;<span class="string">"My&nbsp;Library&nbsp;Tree&nbsp;Form"</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">viewclass</span>&nbsp;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
 }<br/>
 </p>
@@ -161,7 +161,7 @@ and <em>Ctrl-Space</em>: the content assist will set automatically the correct q
 <div class="literallayout">
 <div class="incode">
 <p class="code">
-viewclass&nbsp;viewclass&nbsp;it.rcpvision.emf.components.firstexample.views.LibraryTreeFormView<br/>
+<span class="keyword">viewclass</span>&nbsp;it.rcpvision.emf.components.firstexample.views.LibraryTreeFormView<br/>
 </p>
 </div>
 </div>
@@ -329,7 +329,7 @@ adding the following import (without ending line with ";")
 <div class="literallayout">
 <div class="incode">
 <p class="code">
-import&nbsp;org.eclipse.emf.examples.extlibrary.*<br/>
+<span class="keyword">import</span>&nbsp;org.eclipse.emf.examples.extlibrary.*<br/>
 </p>
 </div>
 </div>
@@ -341,13 +341,13 @@ and then defining the features to show
 <div class="literallayout">
 <div class="incode">
 <p class="code">
-import&nbsp;org.eclipse.emf.examples.extlibrary.*<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;parts{&nbsp;<br/>
+<span class="keyword">import</span>&nbsp;org.eclipse.emf.examples.extlibrary.*<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">parts</span>&nbsp;{&nbsp;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;&nbsp;<br/>
 }<br/>
 <br/>
-featuresProvider{<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;features{<br/>
+<span class="keyword">featuresProvider</span>&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">features</span>&nbsp;{<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Library&nbsp;-&gt;&nbsp;name<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Writer&nbsp;-&gt;&nbsp;name,&nbsp;address,&nbsp;books<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Book&nbsp;-&gt;&nbsp;author,&nbsp;title,&nbsp;category<br/>
@@ -375,8 +375,8 @@ Do you want to change text used for attribute labels in the detail? Just add the
 <div class="literallayout">
 <div class="incode">
 <p class="code">
-propertyDescriptionProvider&nbsp;{<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;text&nbsp;{<br/>
+<span class="keyword">propertyDescriptionProvider</span>&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">text</span>&nbsp;{<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Book&nbsp;:&nbsp;author&nbsp;-&gt;&nbsp;<span class="string">&apos;Wrote&nbsp;by:&apos;</span><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Writer&nbsp;:&nbsp;name&nbsp;-&gt;&nbsp;<span class="string">&apos;Name:&apos;</span><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
@@ -392,8 +392,8 @@ Maybe want to format the book label like this?
 <div class="literallayout">
 <div class="incode">
 <p class="code">
-labelProvider{<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;text&nbsp;{<br/>
+<span class="keyword">labelProvider</span>&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">text</span>&nbsp;{<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Book&nbsp;-&gt;&nbsp;<span class="string">&apos;"&apos;</span>+title+<span class="string">&apos;"&apos;</span>&nbsp;+<span class="string">&apos;&nbsp;(by&nbsp;&apos;</span>+author.name+<span class="string">&apos;)&apos;</span><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
 &nbsp;&nbsp;&nbsp;}<br/>

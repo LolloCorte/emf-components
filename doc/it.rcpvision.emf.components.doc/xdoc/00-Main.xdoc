@@ -16,6 +16,14 @@ codelanguage-def[Java]
 	float,native,super,while
 ]
 
+codelanguage-def[EmfComponents]
+[
+	import,module,parts,labelProvider,text,image,
+	propertyDescriptionProvider,featuresProvider,features,
+	formControlFactory,control,target,viewerContentProvider,
+	children,viewpart,viewname,viewclass,viewcategory
+]
+
 part[Documentation]
 
 chapter-ref[Introduction]

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <toc topic="contents/00-Main.html" label="Emf Components Guide" >
-	<topic href="contents/00-Main_3.html#Emf%20Components%20Guide_3" label="Documentation" >
+	<topic href="contents/00-Main_4.html#Emf%20Components%20Guide_4" label="Documentation" >
 		<topic href="contents/01-Introduction.html#Introduction" label="Introduction" >
 			<topic href="contents/01-Introduction.html#reflectiveComponents" label="Reflective Components" >
 			</topic>
@@ -120,7 +120,7 @@
 		<topic href="contents/06-AdvancedComponents.html#AdvancedComponents" label="Advanced Components" >
 		</topic>
 	</topic>
-	<topic href="contents/00-Main_4.html#Emf%20Components%20Guide_4" label="Appendix" >
+	<topic href="contents/00-Main_5.html#Emf%20Components%20Guide_5" label="Appendix" >
 		<topic href="contents/GettingSources.html#GettingSources" label="Getting Sources" >
 			<topic href="contents/GettingSources.html#InstallBuckminster" label="Install Buckminster in the IDE" >
 			</topic>
