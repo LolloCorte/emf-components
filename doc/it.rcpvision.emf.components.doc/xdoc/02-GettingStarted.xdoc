@@ -148,8 +148,6 @@ ol[
 		]
 		The method e[initialize()] will be executed only when the Resource is empty
 		(i.e., it has no contents).
-		The method ends with a call to e[save()], so that the Resource is persisted. Notice that this
-		call can be omitted if you want to start every time from scratch without persisting.
 	]
 ]
 
