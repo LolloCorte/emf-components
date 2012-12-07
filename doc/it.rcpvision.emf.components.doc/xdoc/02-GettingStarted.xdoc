@@ -149,8 +149,8 @@ ol[
 now get back to the e[MANIFEST.MF] and run the example
 img[images/first-example-launch.png][][ ][]
 
-As an Eclipse RCP developer you know, of course, that this will start another Eclipse instance, unless
-you add an Application plug-in to the launch or define an Application in the current plug-in. 
+As an Eclipse RCP developer you know, of course, that this will start another Eclipse instance (unless
+you add an Application plug-in to the launch or define an Application in the current plug-in). 
 
 In this second Eclipse instance you can show the View in this way:
 ol[
@@ -160,6 +160,96 @@ ol[
 ]
 
 img[images/first-example-run.png][][ ][]
+
+With this simple view you can start editing the model instance. For example you can set the e["name"]
+field; as soon as you start typing characters into this field you will notice that:
+ol[
+	item[the View turns to a e["dirty"] state (an asterisk symbol appears on the view tab)]
+	item[the e["Save"] toolbar button is enabled]
+	item[the typed characters are reflected into the label correspondent to the Library icon]
+]
+
+if you now perform a e["Save"] action the persistence mechanism will trigger and you will see that file 
+code[<user.home>/MyLibrary.library]
+is being created on the file system. From now on, this file will keep the state of the model object whenever
+you change and save it. 
+
+To create a Writer into the Library just right-click on the Library object and select e[New Child -> Writer]
+
+img[images/createWriter.png][][ ][]
+
+set for instance the writer e["name"] field and save.
+Now just play around creating Books, associating them to Writers and so on.
+As you can see you can entirely manage the EMF model instance: creating, modifying and deleting elements.
+
+Whenever the current selection on the upper side of the view changes, then the lower side shows the detail
+of this selection.
+
+However, up to this point, you have no control over the field to be shown and its order; for example
+you may want just the e["name"] attribute for the Library and e["name", "address" and "books"] attributes
+for Writers and maybe e["title", "authors" and "category"] for Books.
+
+Well, it's indeed very easy to obtain this: just edit the e[module.emfcomponents] file, 
+adding the following import (without ending line with ";")
+
+code[
+	import org.eclipse.emf.examples.extlibrary.*
+]
+
+and then defining the features to show
+
+code[
+	import org.eclipse.emf.examples.extlibrary.*
+
+	parts{ 
+		...	
+	}
+	
+	featuresProvider{
+        features{
+            Library -> name
+            Writer -> name, address, books
+            Book -> author, title, category
+        }
+    }
+]
+
+Remeber that code completion is available, just exploit it since it help so much.
+
+If you restart now the application you will see that, when selecting an object, only the declared attributes
+will be shown. Further they are shown in the specified order.
+
+Did you run the application in Debug mode? Well, then you can change fields and order, save and see the
+changes without even restarting the application.
+
+Do you want to change text used for attribute labels in the detail? Just add the following:
+
+code[
+	propertyDescriptionProvider {
+		text {
+			Book : author -> 'Wrote by:'
+			Writer : name -> 'Name:'
+		}
+	}
+]
+ 
+Or want to change the label shown on the tree nodes on the upper side and as detail title? 
+Maybe want to format the book label like this?
+ 
+code[
+	labelProvider{
+		text {
+            Book -> '"'+title+'"' +' (by '+author.name+')'
+        }
+    }
+]
+ 
+img[images/labelCustomization.png][][ ][]
+ 
+  
+ 
+ 
+ 
 
 
 section:RCPMail[RCP Mail Example]
