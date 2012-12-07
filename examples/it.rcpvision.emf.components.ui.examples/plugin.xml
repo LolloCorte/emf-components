@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension point="org.eclipse.ui.newWizards">
+		<category id="it.rcpvision.emf.components.ui.Examples" 
+				  name="Emf Components Examples" 
+				  parentCategory="org.eclipse.ui.Examples" />
+	</extension>
+	<extension point="org.eclipse.ui.newWizards">
+		<category id="it.rcpvision.emf.components.project.Examples" 
+				  name="Examples" 
+				  parentCategory="it.rcpvision.emf.components.wizards" />
+	</extension>
+	<extension point="org.eclipse.ui.newWizards">
+		<wizard	id="it.rcpvision.emf.components.examples.MailExampleWizard" 
+			name="Emf Components Mail RCP Example" 
+			class="org.eclipse.emf.common.ui.wizard.ExampleInstallerWizard" 
+			category="org.eclipse.ui.Examples/it.rcpvision.emf.components.ui.Examples"
+			icon="icons/genproject.gif" 
+			project="true">
+			<description>Mail RCP implemented with Emf Components</description>
+		</wizard>
+	</extension>
+	<extension point="org.eclipse.ui.newWizards">
+		<wizard	id="it.rcpvision.emf.components.examples.MailExampleWizard" 
+			name="Emf Components Mail RCP Example" 
+			class="org.eclipse.emf.common.ui.wizard.ExampleInstallerWizard" 
+			category="it.rcpvision.emf.components.wizards/it.rcpvision.emf.components.project.Examples"
+			icon="icons/genproject.gif" 
+			project="true">
+			<description>Mail RCP implemented with Emf Components</description>
+		</wizard>
+	</extension>
+   <extension
+         point="org.eclipse.emf.common.ui.examples">
+      <example
+            pageImage="icons/genproject.gif"
+            wizardID="it.rcpvision.emf.components.examples.MailExampleWizard">
+         <projectDescriptor
+               contentURI="contents/it.rcpvision.emf.components.examples.mail.model.zip"
+               description="Mail Model"
+               name="it.rcpvision.emf.components.examples.mail.model">
+         </projectDescriptor>
+         <projectDescriptor
+               contentURI="contents/it.rcpvision.emf.components.examples.mail.rcp.zip"
+               description="Mail RCP"
+               name="it.rcpvision.emf.components.examples.mail.rcp">
+         </projectDescriptor>
+         <projectDescriptor
+               contentURI="contents/it.rcpvision.emf.components.examples.mail.accountsview.zip"
+               description="Mail Accounts View"
+               name="it.rcpvision.emf.components.examples.mail.accountsview">
+         </projectDescriptor>
+         <projectDescriptor
+               contentURI="contents/it.rcpvision.emf.components.examples.mail.mailsview.zip"
+               description="Mail Emails View"
+               name="it.rcpvision.emf.components.examples.mail.mailsview">
+         </projectDescriptor>
+         <projectDescriptor
+               contentURI="contents/it.rcpvision.emf.components.examples.mail.messageview.zip"
+               description="Mail Message View"
+               name="it.rcpvision.emf.components.examples.mail.messageview">
+         </projectDescriptor>
+         <projectDescriptor
+               contentURI="contents/it.rcpvision.emf.components.examples.mail.feature.zip"
+               description="Mail Feature"
+               name="it.rcpvision.emf.components.examples.mail.feature">
+         </projectDescriptor>
+         <projectDescriptor
+               contentURI="contents/it.rcpvision.emf.components.examples.mail.product.feature.zip"
+               description="Mail Product Feature"
+               name="it.rcpvision.emf.components.examples.mail.product.feature">
+         </projectDescriptor>
+         <projectDescriptor
+               contentURI="contents/it.rcpvision.emf.components.examples.mail.product.site.zip"
+               description="Mail Product Site Feature"
+               name="it.rcpvision.emf.components.examples.mail.product.site">
+         </projectDescriptor>
+      </example>
+   </extension>
+
+</plugin>
