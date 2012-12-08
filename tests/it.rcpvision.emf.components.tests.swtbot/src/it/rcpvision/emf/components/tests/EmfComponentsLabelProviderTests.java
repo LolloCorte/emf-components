@@ -1,40 +1,38 @@
 package it.rcpvision.emf.components.tests;
 
-import static it.rcpvision.emf.components.examples.library.EXTLibraryPackage.Literals.WRITER__NAME;
 import static org.junit.Assert.assertEquals;
 import it.rcpvision.emf.components.examples.library.EXTLibraryFactory;
 import it.rcpvision.emf.components.examples.library.Library;
 import it.rcpvision.emf.components.examples.library.Writer;
 import it.rcpvision.emf.components.factories.JfaceProviderFactory;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.jface.viewers.ColumnLabelProvider;
+import org.eclipse.emf.ecore.util.FeatureMap.Entry;
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 /**
- * @author Francesco Guidieri
+ * @author bettini
  * 
  */
 @RunWith(SWTBotJunit4ClassRunner.class)
-public class EmfColumnLabelProviderTests extends
+public class EmfComponentsLabelProviderTests extends
 		EmfComponentsCustomLibraryAbstractTests {
 
 	@Test
-	public void testLabelProviderForAuthorName() {
-		ColumnLabelProvider labelProvider = createLabelProvider(WRITER__NAME);
+	public void testFeatureMapEntryLabelProvider() {
+		ILabelProvider labelProvider = createLabelProvider();
 
 		Library library = createTestLibraryWithPeople();
-		Writer writer = library.getWriters().get(0);
+		Entry person = library.getPeople().get(0);
 
-		assertEquals("Writer My Writer", labelProvider.getText(writer));
+		assertEquals("Writer My Writer", labelProvider.getText(person));
 	}
 
-	protected ColumnLabelProvider createLabelProvider(
-			EStructuralFeature eStructuralFeature) {
+	protected ILabelProvider createLabelProvider() {
 		return getInjector().getInstance(JfaceProviderFactory.class)
-				.createColumnLabelProvider(eStructuralFeature);
+				.createLabelProvider();
 	}
 
 	protected Library createTestLibraryWithPeople() {
