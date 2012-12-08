@@ -6,8 +6,6 @@ import static it.rcpvision.emf.components.examples.library.EXTLibraryPackage.Lit
 import static it.rcpvision.emf.components.examples.library.EXTLibraryPackage.Literals.PERIODICAL;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.fail;
-import it.rcpvision.emf.components.binding.FormControlFactory;
 import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider;
 import it.rcpvision.emf.components.examples.library.Book;
 import it.rcpvision.emf.components.examples.library.EXTLibraryFactory;
@@ -35,12 +33,8 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
-import org.eclipse.ui.forms.IFormColors;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -66,85 +60,6 @@ public class EmfComponentsProvidersTests extends EmfComponentsCustomLibraryAbstr
 				EXTLibraryPackage.Literals.PERSON__LAST_NAME);
 	}
 
-	@Test
-	public void testLibraryFeatureLabelProviderForLabelWidget() {
-		final FormPropertyDescriptionProvider formPropertyDescriptionProvider = getInjector()
-				.getInstance(CustomLibraryFormFeatureLabelProvider.class);
-		final SWTBotView view = openTestView(LIBRARY_EMF_VIEW);
-		Display.getDefault().syncExec(new Runnable() {
-			public void run() {
-				try {
-					// we need a non-null display and parent so we use
-					// those in the view and in the tree
-					FormToolkit formToolkit = createFormToolkit(view);
-					formPropertyDescriptionProvider.setFormToolkit(formToolkit);
-					Label label = formPropertyDescriptionProvider.getLabel(
-							createCompositeParent(view),
-							EXTLibraryPackage.Literals.WRITER__NAME);
-					assertEquals(
-							formToolkit.getColors().getColor(IFormColors.TITLE),
-							label.getBackground());
-				} catch (Exception ex) {
-					fail(ex.getMessage());
-				}
-			}
-		});
-		closeLibraryView(LIBRARY_EMF_VIEW);
-	}
-
-	@Test
-	public void testFormFeatureControlFactoryMethodWithTwoParams() {
-		final FormControlFactory bindingFactory = getInjector().getInstance(
-				FormControlFactory.class);
-		final Writer writer = createTestResourceAndWriter();
-		final SWTBotView view = openTestView(LIBRARY_EMF_VIEW);
-		Display.getDefault().syncExec(new Runnable() {
-			public void run() {
-				try {
-					// we need a non-null display and parent so we use
-					// those in the view and in the tree
-					FormToolkit formToolkit = createFormToolkit(view);
-					bindingFactory.init(null, writer,
-							createCompositeParent(view), formToolkit);
-					Control control = bindingFactory
-							.create(EXTLibraryPackage.Literals.WRITER__NAME);
-					assertEquals(
-							formToolkit.getColors().getColor(IFormColors.TITLE),
-							control.getBackground());
-				} catch (Exception ex) {
-					fail(ex.getMessage());
-				}
-			}
-		});
-		closeLibraryView(LIBRARY_EMF_VIEW);
-	}
-
-	@Test
-	public void testFormFeatureControlFactoryMethodWithOneParam() {
-		final FormControlFactory bindingFactory = getInjector().getInstance(
-				FormControlFactory.class);
-		final Writer writer = createTestResourceAndWriter();
-		final SWTBotView view = openTestView(LIBRARY_EMF_VIEW);
-		Display.getDefault().syncExec(new Runnable() {
-			public void run() {
-				try {
-					// we need a non-null display and parent so we use
-					// those in the view and in the tree
-					FormToolkit formToolkit = createFormToolkit(view);
-					bindingFactory.init(null, writer,
-							createCompositeParent(view), formToolkit);
-					Control control = bindingFactory
-							.create(EXTLibraryPackage.Literals.WRITER__BOOKS);
-					assertEquals("Test Book 1, Test Book 1",
-							((Label)control).getText());
-				} catch (Exception ex) {
-					fail(ex.getMessage());
-				}
-			}
-		});
-		closeLibraryView(LIBRARY_EMF_VIEW);
-	}
-	
 	protected Writer createTestResourceAndWriter() {
 		ResourceSet resourceSet = new ResourceSetImpl();
 		Resource resource = resourceSet.createResource(URI
