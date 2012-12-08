@@ -110,18 +110,12 @@ Just type the following content into the {} block (note that context assist is a
 <div class="literallayout">
 <div class="incode">
 <p class="code">
-<span class="keyword">parts</span>&nbsp;{
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">viewpart</span>&nbsp;it.rcpvision.emf.components.firstexample.view.library.treeform&nbsp;{
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">viewname</span>&nbsp;<span class="string">"My&nbsp;Library&nbsp;Tree&nbsp;Form"</span>
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">viewclass</span>&nbsp;
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;}
-<br/>
-}
-<br/>
+<span class="keyword">parts</span>&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">viewpart</span>&nbsp;it.rcpvision.emf.components.firstexample.view.library.treeform&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">viewname</span>&nbsp;<span class="string">"My&nbsp;Library&nbsp;Tree&nbsp;Form"</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">viewclass</span>&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+}<br/>
 </p>
 </div>
 </div>
@@ -155,26 +149,16 @@ Now modify the view class code with this content:
 <div class="literallayout">
 <div class="incode">
 <p class="code">
-<span class="keyword">import</span>&nbsp;it.rcpvision.emf.components.views.AbstractSaveableTreeFormView;
+<span class="keyword">import</span>&nbsp;it.rcpvision.emf.components.views.AbstractSaveableTreeFormView;<br/>
+<span class="keyword">import</span>&nbsp;org.eclipse.emf.common.util.URI;<br/>
 <br/>
-<span class="keyword">import</span>&nbsp;org.eclipse.emf.common.util.URI;
+<span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;LibraryTreeFormView&nbsp;<span class="keyword">extends</span>&nbsp;AbstractSaveableTreeFormView&nbsp;{<br/>
 <br/>
-
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;URI&nbsp;createResourceURI()&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;URI.createFileURI(&nbsp;System.getProperty(<span class="string">"user.home"</span>)&nbsp;+&nbsp;<span class="string">"/MyLibrary.library"</span>&nbsp;);<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
 <br/>
-<span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;LibraryTreeFormView&nbsp;<span class="keyword">extends</span>&nbsp;AbstractSaveableTreeFormView&nbsp;{
-<br/>
-
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;URI&nbsp;createResourceURI()&nbsp;{
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;URI.createFileURI(&nbsp;System.getProperty(<span class="string">"user.home"</span>)&nbsp;+&nbsp;<span class="string">"/MyLibrary.library"</span>&nbsp;);
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;}
-<br/>
-
-<br/>
-}
-<br/>
+}<br/>
 </p>
 </div>
 </div>
@@ -187,8 +171,7 @@ and <em>Ctrl-Space</em>: the content assist will set automatically the correct q
 <div class="literallayout">
 <div class="incode">
 <p class="code">
-<span class="keyword">viewclass</span>&nbsp;it.rcpvision.emf.components.firstexample.views.LibraryTreeFormView
-<br/>
+<span class="keyword">viewclass</span>&nbsp;it.rcpvision.emf.components.firstexample.views.LibraryTreeFormView<br/>
 </p>
 </div>
 </div>
@@ -230,12 +213,9 @@ An easy way to overcome this issue can be the following:
 				<div class="literallayout">
 		<div class="incode">
 		<p class="code">
-		<span class="keyword">public</span>&nbsp;Class&lt;?&nbsp;<span class="keyword">extends</span>&nbsp;EmptyResourceInitializer&gt;&nbsp;bindEmptyResourceInitializer()&nbsp;{
-		<br/>
-		&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;LibraryEmptyResourceInitializer.<span class="keyword">class</span>;
-		<br/>
-		}
-		<br/>
+		<span class="keyword">public</span>&nbsp;Class&lt;?&nbsp;<span class="keyword">extends</span>&nbsp;EmptyResourceInitializer&gt;&nbsp;bindEmptyResourceInitializer()&nbsp;{<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;LibraryEmptyResourceInitializer.<span class="keyword">class</span>;<br/>
+		}<br/>
 		</p>
 		</div>
 		</div>
@@ -246,42 +226,26 @@ An easy way to overcome this issue can be the following:
 				<div class="literallayout">
 		<div class="incode">
 		<p class="code">
-		<span class="keyword">import</span>&nbsp;it.rcpvision.emf.components.resource.EmptyResourceInitializer;
+		<span class="keyword">import</span>&nbsp;it.rcpvision.emf.components.resource.EmptyResourceInitializer;<br/>
+		<span class="keyword">import</span>&nbsp;org.eclipse.emf.ecore.resource.Resource;<br/>
+		<span class="keyword">import</span>&nbsp;org.eclipse.emf.examples.extlibrary.EXTLibraryFactory;<br/>
+		<span class="keyword">import</span>&nbsp;org.eclipse.emf.examples.extlibrary.Library;<br/>
 		<br/>
-		<span class="keyword">import</span>&nbsp;org.eclipse.emf.ecore.resource.Resource;
+		<span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;LibraryEmptyResourceInitializer&nbsp;&nbsp;<span class="keyword">extends</span>&nbsp;EmptyResourceInitializer&nbsp;{&nbsp;<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+		&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;<span class="keyword">void</span>&nbsp;initialize(Resource&nbsp;resource)&nbsp;{&nbsp;<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">super</span>.initialize(resource);&nbsp;<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Library&nbsp;library&nbsp;=&nbsp;EXTLibraryFactory.eINSTANCE.createLibrary();&nbsp;<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resource.getContents().add(library);&nbsp;<br/>
+		&nbsp;&nbsp;&nbsp;}&nbsp;<br/>
 		<br/>
-		<span class="keyword">import</span>&nbsp;org.eclipse.emf.examples.extlibrary.EXTLibraryFactory;
-		<br/>
-		<span class="keyword">import</span>&nbsp;org.eclipse.emf.examples.extlibrary.Library;
-		<br/>
-		
-		<br/>
-		<span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;LibraryEmptyResourceInitializer&nbsp;&nbsp;<span class="keyword">extends</span>&nbsp;EmptyResourceInitializer&nbsp;{&nbsp;
-		<br/>
-		&nbsp;&nbsp;&nbsp;&nbsp;
-		<br/>
-		&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;<span class="keyword">void</span>&nbsp;initialize(Resource&nbsp;resource)&nbsp;{&nbsp;
-		<br/>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">super</span>.initialize(resource);&nbsp;
-		<br/>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Library&nbsp;library&nbsp;=&nbsp;EXTLibraryFactory.eINSTANCE.createLibrary();&nbsp;
-		<br/>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resource.getContents().add(library);&nbsp;
-		<br/>
-		&nbsp;&nbsp;&nbsp;}&nbsp;
-		<br/>
-		
-		<br/>
-		}&nbsp;
-		<br/>
+		}&nbsp;<br/>
 		</p>
 		</div>
 		</div>
 		
 				The method <em>initialize()</em> will be executed only when the Resource is empty
 				(i.e., it has no contents).
-				The method ends with a call to <em>save()</em>, so that the Resource is persisted. Notice that this
-				call can be omitted if you want to start every time from scratch without persisting.
 	</li>
 </ol>
 </p>
@@ -376,8 +340,7 @@ adding the following import (without ending line with ";")
 <div class="literallayout">
 <div class="incode">
 <p class="code">
-<span class="keyword">import</span>&nbsp;org.eclipse.emf.examples.extlibrary.*
-<br/>
+<span class="keyword">import</span>&nbsp;org.eclipse.emf.examples.extlibrary.*<br/>
 </p>
 </div>
 </div>
@@ -389,34 +352,20 @@ and then defining the features to show
 <div class="literallayout">
 <div class="incode">
 <p class="code">
-<span class="keyword">module</span>&nbsp;...&nbsp;{
+<span class="keyword">module</span>&nbsp;...&nbsp;{<br/>
 <br/>
-
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">parts</span>&nbsp;{&nbsp;
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;&nbsp;
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;}
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">featuresProvider</span>&nbsp;{
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">features</span>&nbsp;{
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Library&nbsp;-&gt;&nbsp;name
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Writer&nbsp;-&gt;&nbsp;name,&nbsp;address,&nbsp;books
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Book&nbsp;-&gt;&nbsp;author,&nbsp;title,&nbsp;category
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;}
-<br/>
-}
-<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">parts</span>&nbsp;{&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">featuresProvider</span>&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">features</span>&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Library&nbsp;-&gt;&nbsp;name<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Writer&nbsp;-&gt;&nbsp;name,&nbsp;address,&nbsp;books<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Book&nbsp;-&gt;&nbsp;author,&nbsp;title,&nbsp;category<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+}<br/>
 </p>
 </div>
 </div>
@@ -439,18 +388,12 @@ Do you want to change text used for attribute labels in the detail? Just add the
 <div class="literallayout">
 <div class="incode">
 <p class="code">
-<span class="keyword">propertyDescriptionProvider</span>&nbsp;{
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">text</span>&nbsp;{
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Book&nbsp;:&nbsp;author&nbsp;-&gt;&nbsp;<span class="string">&apos;Wrote&nbsp;by:&apos;</span>
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Writer&nbsp;:&nbsp;name&nbsp;-&gt;&nbsp;<span class="string">&apos;Name:&apos;</span>
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;}
-<br/>
-}
-<br/>
+<span class="keyword">propertyDescriptionProvider</span>&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">text</span>&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Book&nbsp;:&nbsp;author&nbsp;-&gt;&nbsp;<span class="string">&apos;Wrote&nbsp;by:&apos;</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Writer&nbsp;:&nbsp;name&nbsp;-&gt;&nbsp;<span class="string">&apos;Name:&apos;</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+}<br/>
 </p>
 </div>
 </div>
@@ -462,16 +405,11 @@ Maybe want to format the book label like this?
 <div class="literallayout">
 <div class="incode">
 <p class="code">
-<span class="keyword">labelProvider</span>&nbsp;{
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">text</span>&nbsp;{
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Book&nbsp;b&nbsp;-&gt;&nbsp;<span class="string">&apos;"&apos;</span>&nbsp;+&nbsp;b.title&nbsp;+&nbsp;<span class="string">&apos;"&apos;</span>&nbsp;+<span class="string">&apos;&nbsp;(by&nbsp;&apos;</span>+&nbsp;b.author.name&nbsp;+&nbsp;<span class="string">&apos;)&apos;</span>
-<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;}
-<br/>
-}
-<br/>
+<span class="keyword">labelProvider</span>&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">text</span>&nbsp;{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Book&nbsp;b&nbsp;-&gt;&nbsp;<span class="string">&apos;"&apos;</span>&nbsp;+&nbsp;b.title&nbsp;+&nbsp;<span class="string">&apos;"&apos;</span>&nbsp;+<span class="string">&apos;&nbsp;(by&nbsp;&apos;</span>+&nbsp;b.author.name&nbsp;+&nbsp;<span class="string">&apos;)&apos;</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+}<br/>
 </p>
 </div>
 </div>
