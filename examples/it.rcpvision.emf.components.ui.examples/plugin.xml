@@ -31,6 +31,26 @@
 			<description>Mail RCP implemented with Emf Components</description>
 		</wizard>
 	</extension>
+		<extension point="org.eclipse.ui.newWizards">
+		<wizard	id="it.rcpvision.emf.components.examples.FirstExampleWizard" 
+			name="Emf Components First Example" 
+			class="org.eclipse.emf.common.ui.wizard.ExampleInstallerWizard" 
+			category="org.eclipse.ui.Examples/it.rcpvision.emf.components.ui.Examples"
+			icon="icons/genproject.gif" 
+			project="true">
+			<description>Emf Components First Example</description>
+		</wizard>
+	</extension>
+	<extension point="org.eclipse.ui.newWizards">
+		<wizard	id="it.rcpvision.emf.components.examples.FirstExampleWizard" 
+			name="Emf Components First Example" 
+			class="org.eclipse.emf.common.ui.wizard.ExampleInstallerWizard" 
+			category="it.rcpvision.emf.components.wizards/it.rcpvision.emf.components.project.Examples"
+			icon="icons/genproject.gif" 
+			project="true">
+			<description>Emf Components First Example</description>
+		</wizard>
+	</extension>
    <extension
          point="org.eclipse.emf.common.ui.examples">
       <example
@@ -75,6 +95,23 @@
                contentURI="contents/it.rcpvision.emf.components.examples.mail.product.site.zip"
                description="Mail Product Site Feature"
                name="it.rcpvision.emf.components.examples.mail.product.site">
+         </projectDescriptor>
+      </example>
+   </extension>
+   <extension
+         point="org.eclipse.emf.common.ui.examples">
+      <example
+            pageImage="icons/genproject.gif"
+            wizardID="it.rcpvision.emf.components.examples.FirstExampleWizard">
+         <projectDescriptor
+               contentURI="contents/org.eclipse.emf.examples.library.zip"
+               description="Library Model"
+               name="org.eclipse.emf.examples.library">
+         </projectDescriptor>
+         <projectDescriptor
+               contentURI="contents/it.rcpvision.emf.components.examples.firstexample.zip"
+               description="Emf Components First Example"
+               name="it.rcpvision.emf.components.examples.firstexample">
          </projectDescriptor>
       </example>
    </extension>

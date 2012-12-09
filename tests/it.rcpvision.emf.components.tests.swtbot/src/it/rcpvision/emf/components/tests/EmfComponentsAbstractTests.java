@@ -210,6 +210,8 @@ public class EmfComponentsAbstractTests {
 	protected static final String NEW_EMF_COMPONENTS_DSL_PROJECT = "Emf Components Dsl Based Project";
 
 	protected static final String EMF_COMPONENTS_MAIL_RCP_EXAMPLE = "Emf Components Mail RCP Example";
+	
+	protected static final String EMF_COMPONENTS_FIRST_EXAMPLE = "Emf Components First Example";
 
 	protected static SWTWorkbenchBot bot;
 
