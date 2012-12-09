@@ -18,6 +18,8 @@
 		searchPathRef="emfcomponents" />
 	<rm:locator pattern="^org\.eclipse\.xtext\.xdoc(?:\..+)?$"
 		searchPathRef="emfcomponents" />
+	<rm:locator pattern="^org\.eclipse\.emf\.examples\.library$"
+		searchPathRef="emfcomponents" />
 
 	<rm:locator
 		pattern="^org\.eclipse\.(?:xtext|xpand|xtend|xtend2|emf\.mwe|emf\.mwe2)(?:\..+)?$"

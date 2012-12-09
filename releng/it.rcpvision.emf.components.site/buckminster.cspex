@@ -12,6 +12,8 @@
 			componentType="eclipse.feature" />
 		<dependency name="it.rcpvision.emf.components.examples.mail.product.site" 
 			componentType="eclipse.feature" />
+		<dependency name="it.rcpvision.emf.components.examples.firstexample" 
+			componentType="osgi.bundle" />
 	</dependencies>
 	<generators>
 		<!-- Place your Generators here -->
