@@ -32,6 +32,14 @@
          id="it.rcpvision.emf.components.dsl.feature"
          version="0.0.0"/>
 
+   <includes
+         id="org.eclipse.xtext.sdk"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.xtend.sdk"
+         version="0.0.0"/>
+
    <requires>
       <import plugin="org.eclipse.swtbot.go"/>
       <import plugin="org.eclipse.xtext.ui.junit" version="2.0.0" match="greaterOrEqual"/>
@@ -112,6 +120,13 @@
 
    <plugin
          id="it.rcpvision.emf.components.ui.examples"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.xtext.smap"
          download-size="0"
          install-size="0"
          version="0.0.0"
