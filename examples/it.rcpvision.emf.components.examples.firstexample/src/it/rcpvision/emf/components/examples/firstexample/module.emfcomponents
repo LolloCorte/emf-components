@@ -1,0 +1,41 @@
+import java.util.*
+import org.eclipse.emf.examples.extlibrary.* 
+
+
+
+/* it.rcpvision.emf.components.examples.firstexample Emf Components Dsl Module file */
+module it.rcpvision.emf.components.examples.firstexample {
+
+	parts { 
+	    viewpart it.rcpvision.emf.components.examples.firstexample.view.library.treeform { 
+	        viewname "My Library Tree Form" 
+	        viewclass it.rcpvision.emf.components.examples.firstexample.views.LibraryTreeFormView
+	    } 
+	} 
+	
+	 featuresProvider { 
+        features { 
+            Library -> name 
+            Writer -> name, address, books 
+            Book -> author, title, category 
+        } 
+    } 
+    
+    propertyDescriptionProvider { 
+	    text { 
+	        Book : author -> 'Wrote by:' 
+	        Writer : name -> 'Name:' 
+	    } 
+	}
+	
+	labelProvider { 
+	    text { 
+	        Book b -> {
+	        	'"' + b.title + '"' +
+	        	if (b.author != null)
+	        		' (by '+ b.author.name + ')'
+	        	else ''
+	        }
+	    } 
+	} 
+}
