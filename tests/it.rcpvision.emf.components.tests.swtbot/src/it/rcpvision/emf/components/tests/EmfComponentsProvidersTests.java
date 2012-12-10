@@ -13,6 +13,7 @@ import it.rcpvision.emf.components.examples.library.EXTLibraryPackage;
 import it.rcpvision.emf.components.examples.library.Library;
 import it.rcpvision.emf.components.examples.library.Writer;
 import it.rcpvision.emf.components.factories.JfaceProviderFactory;
+import it.rcpvision.emf.components.guice.ComposedAdapterFactoryProvider;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryFormFeatureLabelProvider;
 import it.rcpvision.emf.components.tests.providers.CustomLibraryViewerContentProvider;
 import it.rcpvision.emf.components.tests.providers.LibraryEStructuralFeaturesAsStringsProvider;
@@ -155,8 +156,12 @@ public class EmfComponentsProvidersTests extends EmfComponentsCustomLibraryAbstr
 	@Test
 	public void testCustomViewerContentProvider() throws IOException {
 		Library library = localLibrary("My2.extlibrary");
+		ComposedAdapterFactoryProvider composedAdapterFactoryProvider = 
+				getInjector()
+				.getInstance(ComposedAdapterFactoryProvider.class);
 		ViewerContentProvider viewerContentProvider = getInjector()
 				.getInstance(CustomLibraryViewerContentProvider.class);
+		viewerContentProvider.setAdapterFactory(composedAdapterFactoryProvider.get());
 		Object[] libraryChildren = viewerContentProvider.getChildren(library);
 		assertLabels(
 				"Book: Without Author; Book: First Author's Book; Book: Empty Book; ",

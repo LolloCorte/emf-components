@@ -88,6 +88,8 @@ public class ViewerInitializer {
 			AdapterFactory adapterFactory) {
 		ViewerContentProvider contentProvider = viewerContentProviderFactory
 				.create(adapterFactory);
+//		AdapterFactoryContentProvider contentProvider = new AdapterFactoryContentProvider(
+//				adapterFactory);
 		initialize(viewer, input, contentProvider,
 				jfaceProviderFactory
 						.createLabelProvider(new AdapterFactoryLabelProvider(
