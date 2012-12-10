@@ -89,6 +89,7 @@ public class EmfComponentsSaveableViewTests extends EmfComponentsAbstractTests {
 	@Test
 	public void canPerformDeleteActionOnSaveableTableView() throws Exception {
 		SWTBotTable table = prepareSaveableTableView();
+		table.select(0); // otherwise context menu might not be created
 		clickOnContextMenu(table, ACTION_DELETE);
 		assertDirtyThenSaveAndAssertNotDirty(TEST_SAVEABLE_TABLE_VIEW);
 	}
@@ -98,6 +99,7 @@ public class EmfComponentsSaveableViewTests extends EmfComponentsAbstractTests {
 			throws Exception {
 		SWTBotTable table = prepareSaveableTableView();
 		assertTableItemsSize(table, 2);
+		table.select(0); // otherwise context menu might not be created
 		clickOnContextMenu(table, NEW_SIBLING, "Book");
 		assertTableItemsSize(table, 3);
 		assertDirtyThenSaveAndAssertNotDirty(TEST_SAVEABLE_TABLE_VIEW);
