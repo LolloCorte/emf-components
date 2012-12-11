@@ -46,7 +46,7 @@ ol[
 	item[select "File" -> "New" -> "Project..."]
 	item[from the "Emf Components" category select "Emf Components Dsl based Project"]
 	item[click "Next"]
-	item[give a name to the project (e.g. "it.rcpvision.emf.components.firstexample")]
+	item[give a name to the project (e.g. "it.rcpvision.emf.components.examples.firstexample")]
 	item[click "Finish"]
 ]
  
@@ -55,7 +55,7 @@ Just type the following content into the {} block (note that context assist is a
 
 code[EmfComponents][
 	parts {
-		viewpart it.rcpvision.emf.components.firstexample.view.library.treeform {
+		viewpart it.rcpvision.emf.components.examples.firstexample.view.library.treeform {
 			viewname "My Library Tree Form"
 			viewclass 
 		}
@@ -65,14 +65,14 @@ code[EmfComponents][
 Here above we have just declared a view part with
  
 ol[
-	item[id e["it.rcpvision.emf.components.firstexample.view.library.treeform"]]
+	item[id e["it.rcpvision.emf.components.examples.firstexample.view.library.treeform"]]
 	item[name e["Library Tree Form"]]
 	item[class: not yet set, we are going to create
-		 e["it.rcpvision.emf.components.firstexample.views.LibraryTreeFormView"]]
+		 e["it.rcpvision.emf.components.examples.firstexample.views.LibraryTreeFormView"]]
 ]
 
 So there is still an error, in fact we need to create the declared class. 
-e[Suggestion:] Just copy the above qualified class name (e["it.rcpvision.emf.components.firstexample.views.LibraryTreeFormView"]), 
+e[Suggestion:] Just copy the above qualified class name (e["it.rcpvision.emf.components.examples.firstexample.views.LibraryTreeFormView"]), 
 select the project, right-click and select File -> New -> Class. Now paste the clipboard content into e["Name:"] field: the
 package and class name will be automatically splitted into right fields. Then click e["Finish"].
 
@@ -91,11 +91,11 @@ public class LibraryTreeFormView extends AbstractSaveableTreeFormView {
 }
 ]
 
-Now get back to e[module.emfcomponents] file, go just after viewclass keyword, type e["LibraryTreeFormView"]
+Now get back to e[module.emfcomponents] file, go just after e["viewclass"] keyword, type e["LibraryTreeFormView"]
 and e[Ctrl-Space]: the content assist will set automatically the correct qualified name
 
 code[EmfComponents][
-	viewclass it.rcpvision.emf.components.firstexample.views.LibraryTreeFormView
+	viewclass it.rcpvision.emf.components.examples.firstexample.views.LibraryTreeFormView
 ]
 
 when you save the above file you will notice that a new file (e["plugin.xml.emfcomponents_gen"]) 
@@ -184,7 +184,11 @@ To create a Writer into the Library just right-click on the Library object and s
 
 img[images/createWriter.png][][ ][]
 
-set for instance the writer e["name"] field and save.
+Please note that you might see a slightly different content in the above context-menu in case you deleted
+the .edit plugin when creating the model (e.g. e["Writers Writer"] instead of e["Writer"], e["Stock Book"] instead of e["Book"] and
+similar (this is because with EMF it is possible to customize labels also via .edit plugin).
+
+Now set for instance the writer e["name"] field and save.
 Now just play around creating Books, associating them to Writers and so on.
 As you can see you can entirely manage the EMF model instance: creating, modifying and deleting elements.
 
