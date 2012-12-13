@@ -22,7 +22,9 @@ public class EmfComponentsExamplesWizardsTests extends
 	@Test
 	public void canCreateFirstExampleProjectWithWizard() throws Exception {
 		createExampleProjectsInWorkspace(EMF_COMPONENTS_FIRST_EXAMPLE,
-				"it.rcpvision.emf.components.examples.firstexample");
+				"it.rcpvision.emf.components.examples.firstexample",
+				"org.eclipse.emf.examples.library",
+				"org.eclipse.emf.examples.library.edit");
 		assertNoErrorsInProjectAfterAutoBuild();
 	}
 

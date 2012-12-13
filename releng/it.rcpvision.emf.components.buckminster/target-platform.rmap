@@ -16,7 +16,7 @@
 		href="project.rmap" />
 	<rm:redirect pattern="^org\.eclipse\.xtext\.xdoc(?:\..+)?$"
 		href="project.rmap" />
-	<rm:redirect pattern="^org\.eclipse\.emf\.examples\.library$"
+	<rm:redirect pattern="^org\.eclipse\.emf\.examples\.library(?:\..+)?$"
 		href="project.rmap" />
 
 	<rm:locator

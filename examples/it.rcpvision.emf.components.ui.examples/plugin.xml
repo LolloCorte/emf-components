@@ -109,6 +109,11 @@
                name="org.eclipse.emf.examples.library">
          </projectDescriptor>
          <projectDescriptor
+               contentURI="contents/org.eclipse.emf.examples.library.edit.zip"
+               description="Library Edit Plugin"
+               name="org.eclipse.emf.examples.library.edit">
+         </projectDescriptor>
+         <projectDescriptor
                contentURI="contents/it.rcpvision.emf.components.examples.firstexample.zip"
                description="Emf Components First Example"
                name="it.rcpvision.emf.components.examples.firstexample">
