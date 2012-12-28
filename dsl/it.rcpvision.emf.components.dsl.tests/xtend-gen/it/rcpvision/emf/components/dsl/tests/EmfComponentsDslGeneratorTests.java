@@ -54,6 +54,34 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
   }
   
   @Test
+  public void testModuleWithExtends() {
+    CharSequence _moduleWithExtends = this.inputs.moduleWithExtends();
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package my.empty;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("import it.rcpvision.emf.components.dsl.tests.additional.MyTestGuiceModule;");
+    _builder.newLine();
+    _builder.append("import org.eclipse.ui.plugin.AbstractUIPlugin;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public class EmfComponentsGuiceModuleGen extends MyTestGuiceModule {");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("public EmfComponentsGuiceModuleGen(final AbstractUIPlugin plugin) {");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("super(plugin);");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    this.assertCorrectJavaCodeGeneration(_moduleWithExtends, _builder, null, null, null, null, null, null);
+  }
+  
+  @Test
   public void testEmptyLabelProvider() {
     CharSequence _emptyLabelProvider = this.inputs.emptyLabelProvider();
     StringConcatenation _builder = new StringConcatenation();

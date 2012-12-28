@@ -68,4 +68,15 @@ module my.empty {
 	}
 }
 '''
+
+	def notValidModuleExtends() 
+'''
+import java.util.*
+import it.rcpvision.emf.components.examples.library.*
+import it.rcpvision.emf.components.views.*
+
+module my.empty extends Library {
+
+}
+'''
 }

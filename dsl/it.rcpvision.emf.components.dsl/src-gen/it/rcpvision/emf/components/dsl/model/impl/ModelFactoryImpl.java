@@ -67,6 +67,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
       case ModelPackage.MODEL: return createModel();
       case ModelPackage.IMPORT: return createImport();
       case ModelPackage.MODULE: return createModule();
+      case ModelPackage.EXTENDS_CLAUSE: return createExtendsClause();
       case ModelPackage.LABEL_PROVIDER: return createLabelProvider();
       case ModelPackage.LABEL_SPECIFICATION: return createLabelSpecification();
       case ModelPackage.PROPERTY_DESCRIPTION_PROVIDER: return createPropertyDescriptionProvider();
@@ -77,6 +78,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
       case ModelPackage.FORM_CONTROL_SPECIFICATION: return createFormControlSpecification();
       case ModelPackage.VIEWER_CONTENT_PROVIDER: return createViewerContentProvider();
       case ModelPackage.EMF_FEATURE_ACCESS: return createEmfFeatureAccess();
+      case ModelPackage.WITH_EXTENDS_CLAUSE: return createWithExtendsClause();
       case ModelPackage.PART_SPECIFICATION: return createPartSpecification();
       case ModelPackage.VIEW_SPECIFICATION: return createViewSpecification();
       default:
@@ -115,6 +117,17 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
   {
     ModuleImpl module = new ModuleImpl();
     return module;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExtendsClause createExtendsClause()
+  {
+    ExtendsClauseImpl extendsClause = new ExtendsClauseImpl();
+    return extendsClause;
   }
 
   /**
@@ -225,6 +238,17 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
   {
     EmfFeatureAccessImpl emfFeatureAccess = new EmfFeatureAccessImpl();
     return emfFeatureAccess;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WithExtendsClause createWithExtendsClause()
+  {
+    WithExtendsClauseImpl withExtendsClause = new WithExtendsClauseImpl();
+    return withExtendsClause;
   }
 
   /**

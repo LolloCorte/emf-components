@@ -4,8 +4,6 @@ package it.rcpvision.emf.components.dsl.model;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Module</b></em>'.
@@ -15,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getName <em>Name</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getExtendsClause <em>Extends Clause</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getLabelProvider <em>Label Provider</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getPropertyDescriptionProvider <em>Property Description Provider</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getFeaturesProvider <em>Features Provider</em>}</li>
@@ -28,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Module extends EObject
+public interface Module extends WithExtendsClause
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -55,6 +54,32 @@ public interface Module extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Extends Clause</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Extends Clause</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Extends Clause</em>' containment reference.
+   * @see #setExtendsClause(ExtendsClause)
+   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getModule_ExtendsClause()
+   * @model containment="true"
+   * @generated
+   */
+  ExtendsClause getExtendsClause();
+
+  /**
+   * Sets the value of the '{@link it.rcpvision.emf.components.dsl.model.Module#getExtendsClause <em>Extends Clause</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Extends Clause</em>' containment reference.
+   * @see #getExtendsClause()
+   * @generated
+   */
+  void setExtendsClause(ExtendsClause value);
 
   /**
    * Returns the value of the '<em><b>Label Provider</b></em>' containment reference.

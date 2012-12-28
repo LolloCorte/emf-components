@@ -22,6 +22,11 @@ class EmfComponentsDslParserTests extends EmfComponentsDslAbstractTests {
 	}
 
 	@Test
+	def void testModuleWithExtends() {
+		inputs.moduleWithExtends.parseAndAssertNoError
+	}
+
+	@Test
 	def void testEmptyLabelProvider() {
 		inputs.emptyLabelProvider.parseAndAssertNoError
 	}

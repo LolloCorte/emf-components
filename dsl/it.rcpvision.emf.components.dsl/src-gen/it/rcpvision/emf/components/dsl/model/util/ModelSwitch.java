@@ -90,6 +90,14 @@ public class ModelSwitch<T> extends Switch<T>
       {
         Module module = (Module)theEObject;
         T result = caseModule(module);
+        if (result == null) result = caseWithExtendsClause(module);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ModelPackage.EXTENDS_CLAUSE:
+      {
+        ExtendsClause extendsClause = (ExtendsClause)theEObject;
+        T result = caseExtendsClause(extendsClause);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -166,6 +174,13 @@ public class ModelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ModelPackage.WITH_EXTENDS_CLAUSE:
+      {
+        WithExtendsClause withExtendsClause = (WithExtendsClause)theEObject;
+        T result = caseWithExtendsClause(withExtendsClause);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ModelPackage.PART_SPECIFICATION:
       {
         PartSpecification partSpecification = (PartSpecification)theEObject;
@@ -229,6 +244,22 @@ public class ModelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseModule(Module object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Extends Clause</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Extends Clause</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExtendsClause(ExtendsClause object)
   {
     return null;
   }
@@ -389,6 +420,22 @@ public class ModelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseEmfFeatureAccess(EmfFeatureAccess object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>With Extends Clause</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>With Extends Clause</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWithExtendsClause(WithExtendsClause object)
   {
     return null;
   }

@@ -2,6 +2,7 @@
  */
 package it.rcpvision.emf.components.dsl.model.impl;
 
+import it.rcpvision.emf.components.dsl.model.ExtendsClause;
 import it.rcpvision.emf.components.dsl.model.FeaturesProvider;
 import it.rcpvision.emf.components.dsl.model.FormControlFactory;
 import it.rcpvision.emf.components.dsl.model.LabelProvider;
@@ -22,7 +23,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getName <em>Name</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getExtendsClause <em>Extends Clause</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getLabelProvider <em>Label Provider</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getPropertyDescriptionProvider <em>Property Description Provider</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getFeaturesProvider <em>Features Provider</em>}</li>
@@ -46,7 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
+public class ModuleImpl extends WithExtendsClauseImpl implements Module
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -67,6 +68,16 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getExtendsClause() <em>Extends Clause</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExtendsClause()
+   * @generated
+   * @ordered
+   */
+  protected ExtendsClause extendsClause;
 
   /**
    * The cached value of the '{@link #getLabelProvider() <em>Label Provider</em>}' containment reference.
@@ -170,6 +181,54 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MODULE__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExtendsClause getExtendsClause()
+  {
+    return extendsClause;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExtendsClause(ExtendsClause newExtendsClause, NotificationChain msgs)
+  {
+    ExtendsClause oldExtendsClause = extendsClause;
+    extendsClause = newExtendsClause;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.MODULE__EXTENDS_CLAUSE, oldExtendsClause, newExtendsClause);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExtendsClause(ExtendsClause newExtendsClause)
+  {
+    if (newExtendsClause != extendsClause)
+    {
+      NotificationChain msgs = null;
+      if (extendsClause != null)
+        msgs = ((InternalEObject)extendsClause).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.MODULE__EXTENDS_CLAUSE, null, msgs);
+      if (newExtendsClause != null)
+        msgs = ((InternalEObject)newExtendsClause).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.MODULE__EXTENDS_CLAUSE, null, msgs);
+      msgs = basicSetExtendsClause(newExtendsClause, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MODULE__EXTENDS_CLAUSE, newExtendsClause, newExtendsClause));
   }
 
   /**
@@ -436,6 +495,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
   {
     switch (featureID)
     {
+      case ModelPackage.MODULE__EXTENDS_CLAUSE:
+        return basicSetExtendsClause(null, msgs);
       case ModelPackage.MODULE__LABEL_PROVIDER:
         return basicSetLabelProvider(null, msgs);
       case ModelPackage.MODULE__PROPERTY_DESCRIPTION_PROVIDER:
@@ -464,6 +525,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
     {
       case ModelPackage.MODULE__NAME:
         return getName();
+      case ModelPackage.MODULE__EXTENDS_CLAUSE:
+        return getExtendsClause();
       case ModelPackage.MODULE__LABEL_PROVIDER:
         return getLabelProvider();
       case ModelPackage.MODULE__PROPERTY_DESCRIPTION_PROVIDER:
@@ -493,6 +556,9 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
     {
       case ModelPackage.MODULE__NAME:
         setName((String)newValue);
+        return;
+      case ModelPackage.MODULE__EXTENDS_CLAUSE:
+        setExtendsClause((ExtendsClause)newValue);
         return;
       case ModelPackage.MODULE__LABEL_PROVIDER:
         setLabelProvider((LabelProvider)newValue);
@@ -530,6 +596,9 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
       case ModelPackage.MODULE__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case ModelPackage.MODULE__EXTENDS_CLAUSE:
+        setExtendsClause((ExtendsClause)null);
+        return;
       case ModelPackage.MODULE__LABEL_PROVIDER:
         setLabelProvider((LabelProvider)null);
         return;
@@ -564,6 +633,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements Module
     {
       case ModelPackage.MODULE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case ModelPackage.MODULE__EXTENDS_CLAUSE:
+        return extendsClause != null;
       case ModelPackage.MODULE__LABEL_PROVIDER:
         return labelProvider != null;
       case ModelPackage.MODULE__PROPERTY_DESCRIPTION_PROVIDER:

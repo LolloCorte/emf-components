@@ -37,4 +37,15 @@ class EmfComponentsDslValidatorTests extends EmfComponentsDslAbstractTests {
 				"Must be an EObject derived class"
 			)
 	}
+
+	@Test
+	def void testValidModuleExtends() {
+		val model = inputsWithErrors.notValidModuleExtends.parseModel
+		model.
+			assertError(
+				ModelPackage::eINSTANCE.extendsClause,
+				NOT_EMFCOMPONENTS_MODULE,
+				"Must be an EmfComponentsGuiceModule derived class"
+			)
+	}
 }

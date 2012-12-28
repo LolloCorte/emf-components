@@ -50,6 +50,15 @@ public interface ModelFactory extends EFactory
   Module createModule();
 
   /**
+   * Returns a new object of class '<em>Extends Clause</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Extends Clause</em>'.
+   * @generated
+   */
+  ExtendsClause createExtendsClause();
+
+  /**
    * Returns a new object of class '<em>Label Provider</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -138,6 +147,15 @@ public interface ModelFactory extends EFactory
    * @generated
    */
   EmfFeatureAccess createEmfFeatureAccess();
+
+  /**
+   * Returns a new object of class '<em>With Extends Clause</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>With Extends Clause</em>'.
+   * @generated
+   */
+  WithExtendsClause createWithExtendsClause();
 
   /**
    * Returns a new object of class '<em>Part Specification</em>'.

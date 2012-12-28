@@ -2,6 +2,7 @@ package it.rcpvision.emf.components.dsl.validation;
 
 import it.rcpvision.emf.components.dsl.model.EmfFeatureAccess;
 import it.rcpvision.emf.components.dsl.model.ModelPackage;
+import it.rcpvision.emf.components.dsl.model.Module;
 import it.rcpvision.emf.components.dsl.model.ViewSpecification;
 
 import org.eclipse.xtext.validation.Check;
@@ -14,6 +15,8 @@ public class EmfComponentsDslJavaValidator extends
 	public static final String NOT_I_VIEW_PART = "it.rcpvision.emf.components.dsl.NotIViewPart";
 
 	public static final String NOT_EOBJECT = "it.rcpvision.emf.components.dsl.NotEObject";
+
+	public static final String NOT_EMFCOMPONENTS_MODULE = "it.rcpvision.emf.components.dsl.NotEmfComponentsGuiceModule";
 
 	@Inject
 	private EmfComponentsDslTypeSystem typeSystem;
@@ -37,6 +40,19 @@ public class EmfComponentsDslJavaValidator extends
 			error("Must be an EObject derived class",
 					ModelPackage.Literals.EMF_FEATURE_ACCESS__PARAMETER_TYPE,
 					NOT_EOBJECT);
+		}
+	}
+
+	@Check
+	public void checkModuleExtends(Module module) {
+		if (module.getExtendsClause() != null
+				&& module.getExtendsClause().getSuperType() != null
+				&& !typeSystem.isEmfComponentsGuiceModule(module
+						.getExtendsClause().getSuperType(), module)) {
+			error("Must be an EmfComponentsGuiceModule derived class",
+					module.getExtendsClause(),
+					ModelPackage.Literals.EXTENDS_CLAUSE__SUPER_TYPE,
+					NOT_EMFCOMPONENTS_MODULE);
 		}
 	}
 }

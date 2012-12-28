@@ -11,6 +11,15 @@ module my.empty {
 }
 '''
 
+	def moduleWithExtends() 
+'''
+import java.util.*
+
+module my.empty extends it.rcpvision.emf.components.dsl.tests.additional.MyTestGuiceModule {
+	
+}
+'''
+
 	def emptyLabelProvider() 
 '''
 import java.util.*

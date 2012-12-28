@@ -804,10 +804,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:44:7: ( 'labelProvider' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:44:9: 'labelProvider'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:44:7: ( 'extends' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:44:9: 'extends'
             {
-            match("labelProvider"); 
+            match("extends"); 
 
 
             }
@@ -825,10 +825,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:45:7: ( 'text' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:45:9: 'text'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:45:7: ( 'labelProvider' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:45:9: 'labelProvider'
             {
-            match("text"); 
+            match("labelProvider"); 
 
 
             }
@@ -846,10 +846,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:46:7: ( 'image' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:46:9: 'image'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:46:7: ( 'text' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:46:9: 'text'
             {
-            match("image"); 
+            match("text"); 
 
 
             }
@@ -867,10 +867,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:47:7: ( 'propertyDescriptionProvider' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:47:9: 'propertyDescriptionProvider'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:47:7: ( 'image' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:47:9: 'image'
             {
-            match("propertyDescriptionProvider"); 
+            match("image"); 
 
 
             }
@@ -888,10 +888,11 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:48:7: ( ':' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:48:9: ':'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:48:7: ( 'propertyDescriptionProvider' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:48:9: 'propertyDescriptionProvider'
             {
-            match(':'); 
+            match("propertyDescriptionProvider"); 
+
 
             }
 
@@ -908,11 +909,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:49:7: ( 'featuresProvider' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:49:9: 'featuresProvider'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:49:7: ( ':' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:49:9: ':'
             {
-            match("featuresProvider"); 
-
+            match(':'); 
 
             }
 
@@ -929,10 +929,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:50:7: ( 'features' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:50:9: 'features'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:50:7: ( 'featuresProvider' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:50:9: 'featuresProvider'
             {
-            match("features"); 
+            match("featuresProvider"); 
 
 
             }
@@ -950,10 +950,11 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:51:7: ( ',' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:51:9: ','
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:51:7: ( 'features' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:51:9: 'features'
             {
-            match(','); 
+            match("features"); 
+
 
             }
 
@@ -970,11 +971,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:52:7: ( 'formControlFactory' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:52:9: 'formControlFactory'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:52:7: ( ',' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:52:9: ','
             {
-            match("formControlFactory"); 
-
+            match(','); 
 
             }
 
@@ -991,10 +991,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:53:7: ( 'control' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:53:9: 'control'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:53:7: ( 'formControlFactory' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:53:9: 'formControlFactory'
             {
-            match("control"); 
+            match("formControlFactory"); 
 
 
             }
@@ -1012,10 +1012,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:54:7: ( 'target' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:54:9: 'target'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:54:7: ( 'control' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:54:9: 'control'
             {
-            match("target"); 
+            match("control"); 
 
 
             }
@@ -1033,10 +1033,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:55:7: ( 'viewerContentProvider' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:55:9: 'viewerContentProvider'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:55:7: ( 'target' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:55:9: 'target'
             {
-            match("viewerContentProvider"); 
+            match("target"); 
 
 
             }
@@ -1054,10 +1054,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__58;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:56:7: ( 'children' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:56:9: 'children'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:56:7: ( 'viewerContentProvider' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:56:9: 'viewerContentProvider'
             {
-            match("children"); 
+            match("viewerContentProvider"); 
 
 
             }
@@ -1075,10 +1075,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:57:7: ( 'viewpart' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:57:9: 'viewpart'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:57:7: ( 'children' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:57:9: 'children'
             {
-            match("viewpart"); 
+            match("children"); 
 
 
             }
@@ -1096,10 +1096,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:58:7: ( 'viewname' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:58:9: 'viewname'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:58:7: ( 'viewpart' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:58:9: 'viewpart'
             {
-            match("viewname"); 
+            match("viewpart"); 
 
 
             }
@@ -1117,10 +1117,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__61;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:59:7: ( 'viewclass' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:59:9: 'viewclass'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:59:7: ( 'viewname' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:59:9: 'viewname'
             {
-            match("viewclass"); 
+            match("viewname"); 
 
 
             }
@@ -1138,10 +1138,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__62;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:60:7: ( 'viewcategory' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:60:9: 'viewcategory'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:60:7: ( 'viewclass' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:60:9: 'viewclass'
             {
-            match("viewcategory"); 
+            match("viewclass"); 
 
 
             }
@@ -1159,10 +1159,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__63;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:61:7: ( 'instanceof' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:61:9: 'instanceof'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:61:7: ( 'viewcategory' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:61:9: 'viewcategory'
             {
-            match("instanceof"); 
+            match("viewcategory"); 
 
 
             }
@@ -1180,10 +1180,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__64;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:62:7: ( 'as' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:62:9: 'as'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:62:7: ( 'instanceof' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:62:9: 'instanceof'
             {
-            match("as"); 
+            match("instanceof"); 
 
 
             }
@@ -1201,10 +1201,11 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__65;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:63:7: ( ')' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:63:9: ')'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:63:7: ( 'as' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:63:9: 'as'
             {
-            match(')'); 
+            match("as"); 
+
 
             }
 
@@ -1221,10 +1222,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__66;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:64:7: ( ']' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:64:9: ']'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:64:7: ( ')' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:64:9: ')'
             {
-            match(']'); 
+            match(')'); 
 
             }
 
@@ -1241,10 +1242,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__67;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:65:7: ( '[' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:65:9: '['
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:65:7: ( ']' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:65:9: ']'
             {
-            match('['); 
+            match(']'); 
 
             }
 
@@ -1261,10 +1262,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__68;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:66:7: ( ';' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:66:9: ';'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:66:7: ( '[' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:66:9: '['
             {
-            match(';'); 
+            match('['); 
 
             }
 
@@ -1281,10 +1282,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__69;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:67:7: ( '(' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:67:9: '('
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:67:7: ( ';' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:67:9: ';'
             {
-            match('('); 
+            match(';'); 
 
             }
 
@@ -1301,11 +1302,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__70;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:68:7: ( 'if' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:68:9: 'if'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:68:7: ( '(' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:68:9: '('
             {
-            match("if"); 
-
+            match('('); 
 
             }
 
@@ -1322,10 +1322,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__71;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:69:7: ( 'else' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:69:9: 'else'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:69:7: ( 'if' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:69:9: 'if'
             {
-            match("else"); 
+            match("if"); 
 
 
             }
@@ -1343,10 +1343,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__72;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:70:7: ( 'switch' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:70:9: 'switch'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:70:7: ( 'else' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:70:9: 'else'
             {
-            match("switch"); 
+            match("else"); 
 
 
             }
@@ -1364,10 +1364,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__73;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:71:7: ( 'default' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:71:9: 'default'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:71:7: ( 'switch' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:71:9: 'switch'
             {
-            match("default"); 
+            match("switch"); 
 
 
             }
@@ -1385,10 +1385,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__74;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:72:7: ( 'case' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:72:9: 'case'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:72:7: ( 'default' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:72:9: 'default'
             {
-            match("case"); 
+            match("default"); 
 
 
             }
@@ -1406,10 +1406,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__75;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:73:7: ( 'for' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:73:9: 'for'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:73:7: ( 'case' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:73:9: 'case'
             {
-            match("for"); 
+            match("case"); 
 
 
             }
@@ -1427,10 +1427,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__76;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:74:7: ( 'while' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:74:9: 'while'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:74:7: ( 'for' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:74:9: 'for'
             {
-            match("while"); 
+            match("for"); 
 
 
             }
@@ -1448,10 +1448,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__77;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:75:7: ( 'do' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:75:9: 'do'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:75:7: ( 'while' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:75:9: 'while'
             {
-            match("do"); 
+            match("while"); 
 
 
             }
@@ -1469,10 +1469,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__78;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:76:7: ( '::' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:76:9: '::'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:76:7: ( 'do' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:76:9: 'do'
             {
-            match("::"); 
+            match("do"); 
 
 
             }
@@ -1490,10 +1490,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__79;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:77:7: ( 'new' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:77:9: 'new'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:77:7: ( '::' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:77:9: '::'
             {
-            match("new"); 
+            match("::"); 
 
 
             }
@@ -1511,10 +1511,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__80;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:78:7: ( 'null' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:78:9: 'null'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:78:7: ( 'new' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:78:9: 'new'
             {
-            match("null"); 
+            match("new"); 
 
 
             }
@@ -1532,10 +1532,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__81;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:79:7: ( 'typeof' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:79:9: 'typeof'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:79:7: ( 'null' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:79:9: 'null'
             {
-            match("typeof"); 
+            match("null"); 
 
 
             }
@@ -1553,10 +1553,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__82;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:80:7: ( 'throw' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:80:9: 'throw'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:80:7: ( 'typeof' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:80:9: 'typeof'
             {
-            match("throw"); 
+            match("typeof"); 
 
 
             }
@@ -1574,10 +1574,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__83;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:81:7: ( 'return' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:81:9: 'return'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:81:7: ( 'throw' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:81:9: 'throw'
             {
-            match("return"); 
+            match("throw"); 
 
 
             }
@@ -1595,10 +1595,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__84;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:82:7: ( 'try' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:82:9: 'try'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:82:7: ( 'return' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:82:9: 'return'
             {
-            match("try"); 
+            match("return"); 
 
 
             }
@@ -1616,10 +1616,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__85;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:83:7: ( 'finally' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:83:9: 'finally'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:83:7: ( 'try' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:83:9: 'try'
             {
-            match("finally"); 
+            match("try"); 
 
 
             }
@@ -1637,10 +1637,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__86;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:84:7: ( 'catch' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:84:9: 'catch'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:84:7: ( 'finally' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:84:9: 'finally'
             {
-            match("catch"); 
+            match("finally"); 
 
 
             }
@@ -1658,10 +1658,11 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__87;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:85:7: ( '?' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:85:9: '?'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:85:7: ( 'catch' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:85:9: 'catch'
             {
-            match('?'); 
+            match("catch"); 
+
 
             }
 
@@ -1678,11 +1679,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = T__88;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:86:7: ( 'extends' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:86:9: 'extends'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:86:7: ( '?' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:86:9: '?'
             {
-            match("extends"); 
-
+            match('?'); 
 
             }
 
@@ -1823,10 +1823,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = RULE_HEX;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19567:10: ( ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )? )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19567:12: ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19721:10: ( ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )? )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19721:12: ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19567:12: ( '0x' | '0X' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19721:12: ( '0x' | '0X' )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -1854,7 +1854,7 @@ public class InternalEmfComponentsDslLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19567:13: '0x'
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19721:13: '0x'
                     {
                     match("0x"); 
 
@@ -1862,7 +1862,7 @@ public class InternalEmfComponentsDslLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19567:18: '0X'
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19721:18: '0X'
                     {
                     match("0X"); 
 
@@ -1872,7 +1872,7 @@ public class InternalEmfComponentsDslLexer extends Lexer {
 
             }
 
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19567:24: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19721:24: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+
             int cnt2=0;
             loop2:
             do {
@@ -1910,7 +1910,7 @@ public class InternalEmfComponentsDslLexer extends Lexer {
                 cnt2++;
             } while (true);
 
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19567:58: ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19721:58: ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -1919,10 +1919,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19567:59: '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19721:59: '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
                     {
                     match('#'); 
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19567:63: ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19721:63: ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
                     int alt3=2;
                     int LA3_0 = input.LA(1);
 
@@ -1940,7 +1940,7 @@ public class InternalEmfComponentsDslLexer extends Lexer {
                     }
                     switch (alt3) {
                         case 1 :
-                            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19567:64: ( 'b' | 'B' ) ( 'i' | 'I' )
+                            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19721:64: ( 'b' | 'B' ) ( 'i' | 'I' )
                             {
                             if ( input.LA(1)=='B'||input.LA(1)=='b' ) {
                                 input.consume();
@@ -1964,7 +1964,7 @@ public class InternalEmfComponentsDslLexer extends Lexer {
                             }
                             break;
                         case 2 :
-                            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19567:84: ( 'l' | 'L' )
+                            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19721:84: ( 'l' | 'L' )
                             {
                             if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
                                 input.consume();
@@ -2003,11 +2003,11 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19569:10: ( '0' .. '9' ( '0' .. '9' | '_' )* )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19569:12: '0' .. '9' ( '0' .. '9' | '_' )*
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19723:10: ( '0' .. '9' ( '0' .. '9' | '_' )* )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19723:12: '0' .. '9' ( '0' .. '9' | '_' )*
             {
             matchRange('0','9'); 
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19569:21: ( '0' .. '9' | '_' )*
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19723:21: ( '0' .. '9' | '_' )*
             loop5:
             do {
                 int alt5=2;
@@ -2056,11 +2056,11 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = RULE_DECIMAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19571:14: ( RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )? )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19571:16: RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19725:14: ( RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )? )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19725:16: RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
             {
             mRULE_INT(); 
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19571:25: ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )?
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19725:25: ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -2069,7 +2069,7 @@ public class InternalEmfComponentsDslLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19571:26: ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19725:26: ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT
                     {
                     if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                         input.consume();
@@ -2080,7 +2080,7 @@ public class InternalEmfComponentsDslLexer extends Lexer {
                         recover(mse);
                         throw mse;}
 
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19571:36: ( '+' | '-' )?
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19725:36: ( '+' | '-' )?
                     int alt6=2;
                     int LA6_0 = input.LA(1);
 
@@ -2113,7 +2113,7 @@ public class InternalEmfComponentsDslLexer extends Lexer {
 
             }
 
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19571:58: ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19725:58: ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
             int alt8=3;
             int LA8_0 = input.LA(1);
 
@@ -2125,7 +2125,7 @@ public class InternalEmfComponentsDslLexer extends Lexer {
             }
             switch (alt8) {
                 case 1 :
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19571:59: ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' )
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19725:59: ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' )
                     {
                     if ( input.LA(1)=='B'||input.LA(1)=='b' ) {
                         input.consume();
@@ -2149,7 +2149,7 @@ public class InternalEmfComponentsDslLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19571:87: ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' )
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19725:87: ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' )
                     {
                     if ( input.LA(1)=='D'||input.LA(1)=='F'||input.LA(1)=='L'||input.LA(1)=='d'||input.LA(1)=='f'||input.LA(1)=='l' ) {
                         input.consume();
@@ -2182,10 +2182,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19573:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )* )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19573:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19727:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )* )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19727:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19573:11: ( '^' )?
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19727:11: ( '^' )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -2194,7 +2194,7 @@ public class InternalEmfComponentsDslLexer extends Lexer {
             }
             switch (alt9) {
                 case 1 :
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19573:11: '^'
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19727:11: '^'
                     {
                     match('^'); 
 
@@ -2212,7 +2212,7 @@ public class InternalEmfComponentsDslLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19573:44: ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19727:44: ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
             loop10:
             do {
                 int alt10=2;
@@ -2261,10 +2261,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19575:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19575:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19729:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19729:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19575:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19729:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -2282,10 +2282,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
             }
             switch (alt13) {
                 case 1 :
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19575:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19729:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19575:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19729:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop11:
                     do {
                         int alt11=3;
@@ -2301,7 +2301,7 @@ public class InternalEmfComponentsDslLexer extends Lexer {
 
                         switch (alt11) {
                     	case 1 :
-                    	    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19575:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19729:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -2317,7 +2317,7 @@ public class InternalEmfComponentsDslLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19575:66: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19729:66: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2342,10 +2342,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19575:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19729:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19575:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19729:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop12:
                     do {
                         int alt12=3;
@@ -2361,7 +2361,7 @@ public class InternalEmfComponentsDslLexer extends Lexer {
 
                         switch (alt12) {
                     	case 1 :
-                    	    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19575:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19729:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -2377,7 +2377,7 @@ public class InternalEmfComponentsDslLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19575:137: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19729:137: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2420,12 +2420,12 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19577:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19577:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19731:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19731:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19577:24: ( options {greedy=false; } : . )*
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19731:24: ( options {greedy=false; } : . )*
             loop14:
             do {
                 int alt14=2;
@@ -2450,7 +2450,7 @@ public class InternalEmfComponentsDslLexer extends Lexer {
 
                 switch (alt14) {
             	case 1 :
-            	    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19577:52: .
+            	    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19731:52: .
             	    {
             	    matchAny(); 
 
@@ -2480,12 +2480,12 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19579:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19579:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19733:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19733:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19579:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19733:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop15:
             do {
                 int alt15=2;
@@ -2498,7 +2498,7 @@ public class InternalEmfComponentsDslLexer extends Lexer {
 
                 switch (alt15) {
             	case 1 :
-            	    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19579:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19733:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2518,7 +2518,7 @@ public class InternalEmfComponentsDslLexer extends Lexer {
                 }
             } while (true);
 
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19579:40: ( ( '\\r' )? '\\n' )?
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19733:40: ( ( '\\r' )? '\\n' )?
             int alt17=2;
             int LA17_0 = input.LA(1);
 
@@ -2527,9 +2527,9 @@ public class InternalEmfComponentsDslLexer extends Lexer {
             }
             switch (alt17) {
                 case 1 :
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19579:41: ( '\\r' )? '\\n'
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19733:41: ( '\\r' )? '\\n'
                     {
-                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19579:41: ( '\\r' )?
+                    // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19733:41: ( '\\r' )?
                     int alt16=2;
                     int LA16_0 = input.LA(1);
 
@@ -2538,7 +2538,7 @@ public class InternalEmfComponentsDslLexer extends Lexer {
                     }
                     switch (alt16) {
                         case 1 :
-                            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19579:41: '\\r'
+                            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19733:41: '\\r'
                             {
                             match('\r'); 
 
@@ -2570,10 +2570,10 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19581:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19581:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19735:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19735:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19581:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19735:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt18=0;
             loop18:
             do {
@@ -2627,8 +2627,8 @@ public class InternalEmfComponentsDslLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19583:16: ( . )
-            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19583:18: .
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19737:16: ( . )
+            // ../it.rcpvision.emf.components.dsl.ui/src-gen/it/rcpvision/emf/components/dsl/ui/contentassist/antlr/internal/InternalEmfComponentsDsl.g:19737:18: .
             {
             matchAny(); 
 
@@ -3293,112 +3293,112 @@ public class InternalEmfComponentsDslLexer extends Lexer {
     protected DFA19 dfa19 = new DFA19(this);
     static final String DFA19_eotS =
         "\1\uffff\1\60\1\62\1\64\1\66\1\70\1\72\1\75\1\77\1\102\1\105\1\110"+
-        "\1\113\1\uffff\5\117\2\uffff\3\117\1\145\1\uffff\2\117\5\uffff\5"+
+        "\1\113\1\uffff\5\117\2\uffff\4\117\1\147\1\uffff\2\117\5\uffff\4"+
         "\117\2\172\1\55\1\uffff\2\55\17\uffff\1\177\21\uffff\2\117\1\uffff"+
-        "\10\117\1\u008c\1\117\2\uffff\10\117\3\uffff\3\117\1\u009b\5\uffff"+
-        "\3\117\1\u009f\4\117\1\uffff\1\172\6\uffff\1\u00a4\1\u00a5\5\117"+
-        "\1\u00ac\4\117\1\uffff\10\117\1\u00b9\5\117\1\uffff\3\117\1\uffff"+
-        "\1\117\1\u00c3\2\117\2\uffff\6\117\1\uffff\10\117\1\u00d7\3\117"+
-        "\1\uffff\1\u00db\2\117\1\u00de\1\117\1\u00e0\3\117\1\uffff\1\u00e4"+
+        "\10\117\1\u008c\1\117\2\uffff\12\117\3\uffff\3\117\1\u009d\5\uffff"+
+        "\1\117\1\u009f\4\117\1\uffff\1\172\6\uffff\1\u00a4\1\u00a5\5\117"+
+        "\1\u00ac\4\117\1\uffff\12\117\1\u00bb\5\117\1\uffff\1\117\1\uffff"+
+        "\1\117\1\u00c3\2\117\2\uffff\6\117\1\uffff\10\117\1\u00d7\1\117"+
+        "\1\u00d9\3\117\1\uffff\1\u00dd\2\117\1\u00e0\3\117\1\uffff\1\u00e4"+
         "\5\117\1\u00eb\1\117\1\u00ed\4\117\1\u00f2\2\117\1\u00f5\2\117\1"+
-        "\uffff\2\117\1\u00fa\1\uffff\2\117\1\uffff\1\u00fd\1\uffff\2\117"+
-        "\1\u0100\1\uffff\6\117\1\uffff\1\u0107\1\uffff\3\117\1\u010b\1\uffff"+
-        "\1\117\1\u010d\1\uffff\2\117\1\u0110\1\u0111\1\uffff\2\117\1\uffff"+
-        "\2\117\1\uffff\1\u0116\5\117\1\uffff\2\117\1\u011e\1\uffff\1\117"+
-        "\1\uffff\2\117\2\uffff\1\u0122\1\117\1\u0124\1\u0125\1\uffff\1\117"+
-        "\1\u0127\1\u0128\2\117\1\u012c\1\117\1\uffff\3\117\1\uffff\1\u0131"+
-        "\2\uffff\1\117\2\uffff\1\u0133\2\117\1\uffff\4\117\1\uffff\1\117"+
-        "\1\uffff\3\117\1\u013e\6\117\1\uffff\3\117\1\u0148\5\117\1\uffff"+
-        "\3\117\1\u0151\4\117\1\uffff\5\117\1\u015b\3\117\1\uffff\3\117\1"+
-        "\u0162\2\117\1\uffff\3\117\1\u0168\1\117\1\uffff\5\117\1\u016f\1"+
-        "\uffff";
+        "\uffff\1\117\1\uffff\2\117\1\u00fb\1\uffff\2\117\1\uffff\1\u00fe"+
+        "\1\117\1\u0100\1\uffff\6\117\1\uffff\1\u0107\1\uffff\3\117\1\u010b"+
+        "\1\uffff\1\117\1\u010d\1\uffff\3\117\1\u0111\1\u0112\1\uffff\2\117"+
+        "\1\uffff\1\117\1\uffff\1\u0116\5\117\1\uffff\2\117\1\u011e\1\uffff"+
+        "\1\117\1\uffff\1\117\1\u0121\1\117\2\uffff\1\u0123\1\117\1\u0125"+
+        "\1\uffff\1\117\1\u0127\1\u0128\2\117\1\u012c\1\117\1\uffff\2\117"+
+        "\1\uffff\1\117\1\uffff\1\u0131\1\uffff\1\117\2\uffff\1\u0133\2\117"+
+        "\1\uffff\4\117\1\uffff\1\117\1\uffff\3\117\1\u013e\6\117\1\uffff"+
+        "\3\117\1\u0148\5\117\1\uffff\3\117\1\u0151\4\117\1\uffff\5\117\1"+
+        "\u015b\3\117\1\uffff\3\117\1\u0162\2\117\1\uffff\3\117\1\u0168\1"+
+        "\117\1\uffff\5\117\1\u016f\1\uffff";
     static final String DFA19_eofS =
         "\u0170\uffff";
     static final String DFA19_minS =
         "\1\0\2\75\1\174\1\46\3\75\1\76\1\52\1\56\2\52\1\uffff\1\141\1\165"+
-        "\1\141\1\146\1\157\2\uffff\3\141\1\72\1\uffff\1\141\1\163\5\uffff"+
-        "\1\154\1\145\1\150\2\145\2\60\1\44\1\uffff\2\0\17\uffff\1\76\21"+
-        "\uffff\1\154\1\145\1\uffff\1\160\1\151\1\154\1\141\1\162\1\156\1"+
-        "\141\1\163\1\44\1\144\2\uffff\1\162\1\157\1\142\1\170\1\162\1\160"+
-        "\1\162\1\165\3\uffff\1\156\1\151\1\163\1\44\5\uffff\1\163\1\164"+
-        "\1\146\1\44\1\151\1\167\1\154\1\164\1\uffff\1\60\6\uffff\2\44\1"+
-        "\167\1\145\1\164\1\163\1\164\1\44\1\141\1\157\1\147\1\164\1\uffff"+
-        "\1\165\1\164\1\160\1\145\1\164\1\147\1\145\1\157\1\44\1\145\1\164"+
-        "\1\154\1\145\1\143\1\uffff\2\145\1\141\1\uffff\1\154\1\44\1\154"+
-        "\1\165\2\uffff\1\143\1\162\1\143\1\145\1\165\1\103\1\uffff\1\154"+
-        "\1\162\1\145\1\141\1\154\1\163\1\145\1\154\1\44\1\145\1\157\1\167"+
-        "\1\uffff\1\44\1\162\1\144\1\44\1\150\1\44\1\156\1\165\1\145\1\uffff"+
-        "\1\44\2\162\3\141\1\44\1\150\1\44\1\162\1\157\1\154\1\164\1\44\1"+
-        "\156\1\145\1\44\1\162\1\120\1\uffff\1\164\1\146\1\44\1\uffff\1\157"+
-        "\1\162\1\uffff\1\44\1\uffff\1\144\1\154\1\44\1\uffff\1\156\1\103"+
-        "\1\162\1\155\1\141\1\164\1\uffff\1\44\1\uffff\1\145\1\156\1\171"+
-        "\1\44\1\uffff\1\143\1\44\1\uffff\1\164\1\162\2\44\1\uffff\1\154"+
-        "\1\145\1\uffff\1\163\1\164\1\uffff\1\44\1\157\1\164\1\145\1\163"+
-        "\1\145\1\uffff\1\163\1\164\1\44\1\uffff\1\145\1\uffff\1\171\1\157"+
-        "\2\uffff\1\44\1\156\2\44\1\uffff\1\156\2\44\1\163\1\147\1\44\1\162"+
-        "\1\uffff\1\157\1\104\1\166\1\uffff\1\44\2\uffff\1\164\2\uffff\1"+
-        "\44\1\157\1\162\1\uffff\1\157\1\146\1\145\1\151\1\uffff\1\145\1"+
-        "\uffff\1\162\1\157\1\154\1\44\1\163\1\144\1\156\1\171\1\166\1\106"+
-        "\1\uffff\1\143\1\145\1\164\1\44\1\151\1\141\2\162\1\120\1\uffff"+
-        "\1\144\1\143\1\151\1\44\1\162\1\145\1\164\1\160\1\uffff\1\157\1"+
-        "\162\1\157\1\164\1\166\1\44\1\162\2\151\1\uffff\1\171\1\157\1\144"+
-        "\1\44\1\156\1\145\1\uffff\1\120\2\162\1\44\1\157\1\uffff\1\166\1"+
-        "\151\1\144\1\145\1\162\1\44\1\uffff";
+        "\1\141\1\146\1\157\2\uffff\1\141\1\154\2\141\1\72\1\uffff\1\141"+
+        "\1\163\5\uffff\1\145\1\150\2\145\2\60\1\44\1\uffff\2\0\17\uffff"+
+        "\1\76\21\uffff\1\154\1\145\1\uffff\1\160\1\151\1\154\1\141\1\162"+
+        "\1\156\1\141\1\163\1\44\1\144\2\uffff\1\162\1\157\1\164\1\163\1"+
+        "\142\1\170\1\162\1\160\1\162\1\165\3\uffff\1\156\1\151\1\163\1\44"+
+        "\5\uffff\1\146\1\44\1\151\1\167\1\154\1\164\1\uffff\1\60\6\uffff"+
+        "\2\44\1\167\1\145\1\164\1\163\1\164\1\44\1\141\1\157\1\147\1\164"+
+        "\1\uffff\1\165\1\164\1\160\3\145\1\164\1\147\1\145\1\157\1\44\1"+
+        "\145\1\164\1\154\1\145\1\143\1\uffff\1\141\1\uffff\1\154\1\44\1"+
+        "\154\1\165\2\uffff\1\143\1\162\1\143\1\145\1\165\1\103\1\uffff\1"+
+        "\154\1\162\1\145\1\141\1\154\1\163\1\145\1\156\1\44\1\154\1\44\1"+
+        "\145\1\157\1\167\1\uffff\1\44\1\162\1\144\1\44\1\150\1\165\1\145"+
+        "\1\uffff\1\44\2\162\3\141\1\44\1\150\1\44\1\162\1\157\1\154\1\164"+
+        "\1\44\1\156\1\145\1\44\1\162\1\144\1\uffff\1\120\1\uffff\1\164\1"+
+        "\146\1\44\1\uffff\1\157\1\162\1\uffff\1\44\1\154\1\44\1\uffff\1"+
+        "\156\1\103\1\162\1\155\1\141\1\164\1\uffff\1\44\1\uffff\1\145\1"+
+        "\156\1\171\1\44\1\uffff\1\143\1\44\1\uffff\1\164\1\163\1\162\2\44"+
+        "\1\uffff\1\154\1\145\1\uffff\1\164\1\uffff\1\44\1\157\1\164\1\145"+
+        "\1\163\1\145\1\uffff\1\163\1\164\1\44\1\uffff\1\145\1\uffff\1\171"+
+        "\1\44\1\157\2\uffff\1\44\1\156\1\44\1\uffff\1\156\2\44\1\163\1\147"+
+        "\1\44\1\162\1\uffff\1\157\1\104\1\uffff\1\166\1\uffff\1\44\1\uffff"+
+        "\1\164\2\uffff\1\44\1\157\1\162\1\uffff\1\157\1\146\1\145\1\151"+
+        "\1\uffff\1\145\1\uffff\1\162\1\157\1\154\1\44\1\163\1\144\1\156"+
+        "\1\171\1\166\1\106\1\uffff\1\143\1\145\1\164\1\44\1\151\1\141\2"+
+        "\162\1\120\1\uffff\1\144\1\143\1\151\1\44\1\162\1\145\1\164\1\160"+
+        "\1\uffff\1\157\1\162\1\157\1\164\1\166\1\44\1\162\2\151\1\uffff"+
+        "\1\171\1\157\1\144\1\44\1\156\1\145\1\uffff\1\120\2\162\1\44\1\157"+
+        "\1\uffff\1\166\1\151\1\144\1\145\1\162\1\44\1\uffff";
     static final String DFA19_maxS =
         "\1\uffff\1\76\1\75\1\174\1\46\2\75\2\76\1\56\1\72\1\56\1\57\1\uffff"+
-        "\1\151\1\167\1\157\1\156\1\157\2\uffff\1\162\1\141\1\171\1\72\1"+
-        "\uffff\1\157\1\163\5\uffff\1\170\1\157\1\150\1\165\1\145\1\170\1"+
+        "\1\151\1\167\1\157\1\156\1\157\2\uffff\1\162\1\170\1\141\1\171\1"+
+        "\72\1\uffff\1\157\1\163\5\uffff\1\157\1\150\1\165\1\145\1\170\1"+
         "\154\1\172\1\uffff\2\uffff\17\uffff\1\76\21\uffff\1\162\1\145\1"+
         "\uffff\1\160\1\151\1\154\1\141\1\162\1\156\1\160\1\163\1\172\1\144"+
-        "\2\uffff\1\162\1\157\1\142\1\170\1\162\1\160\1\162\1\171\3\uffff"+
-        "\1\156\1\151\1\164\1\172\5\uffff\1\163\1\164\1\146\1\172\1\151\1"+
+        "\2\uffff\1\162\1\157\1\164\1\163\1\142\1\170\1\162\1\160\1\162\1"+
+        "\171\3\uffff\1\156\1\151\1\164\1\172\5\uffff\1\146\1\172\1\151\1"+
         "\167\1\154\1\164\1\uffff\1\154\6\uffff\2\172\1\167\1\145\1\164\1"+
         "\163\1\164\1\172\1\141\1\157\1\147\1\164\1\uffff\1\165\1\164\1\160"+
-        "\1\145\1\164\1\147\1\145\1\157\1\172\1\145\1\164\1\154\1\145\1\143"+
-        "\1\uffff\2\145\1\141\1\uffff\1\154\1\172\1\154\1\165\2\uffff\1\160"+
-        "\1\162\1\143\1\145\1\165\1\103\1\uffff\1\154\1\162\1\145\1\141\1"+
-        "\154\1\163\1\145\1\154\1\172\1\145\1\157\1\167\1\uffff\1\172\1\162"+
-        "\1\144\1\172\1\150\1\172\1\156\1\165\1\145\1\uffff\1\172\2\162\2"+
-        "\141\1\154\1\172\1\150\1\172\1\162\1\157\1\154\1\164\1\172\1\156"+
-        "\1\145\1\172\1\162\1\120\1\uffff\1\164\1\146\1\172\1\uffff\1\157"+
-        "\1\162\1\uffff\1\172\1\uffff\1\144\1\154\1\172\1\uffff\1\156\1\103"+
-        "\1\162\1\155\1\141\1\164\1\uffff\1\172\1\uffff\1\145\1\156\1\171"+
-        "\1\172\1\uffff\1\143\1\172\1\uffff\1\164\1\162\2\172\1\uffff\1\154"+
-        "\1\145\1\uffff\1\163\1\164\1\uffff\1\172\1\157\1\164\1\145\1\163"+
-        "\1\145\1\uffff\1\163\1\164\1\172\1\uffff\1\145\1\uffff\1\171\1\157"+
-        "\2\uffff\1\172\1\156\2\172\1\uffff\1\156\2\172\1\163\1\147\1\172"+
-        "\1\162\1\uffff\1\157\1\104\1\166\1\uffff\1\172\2\uffff\1\164\2\uffff"+
-        "\1\172\1\157\1\162\1\uffff\1\157\1\146\1\145\1\151\1\uffff\1\145"+
-        "\1\uffff\1\162\1\157\1\154\1\172\1\163\1\144\1\156\1\171\1\166\1"+
-        "\106\1\uffff\1\143\1\145\1\164\1\172\1\151\1\141\2\162\1\120\1\uffff"+
-        "\1\144\1\143\1\151\1\172\1\162\1\145\1\164\1\160\1\uffff\1\157\1"+
-        "\162\1\157\1\164\1\166\1\172\1\162\2\151\1\uffff\1\171\1\157\1\144"+
-        "\1\172\1\156\1\145\1\uffff\1\120\2\162\1\172\1\157\1\uffff\1\166"+
-        "\1\151\1\144\1\145\1\162\1\172\1\uffff";
+        "\3\145\1\164\1\147\1\145\1\157\1\172\1\145\1\164\1\154\1\145\1\143"+
+        "\1\uffff\1\141\1\uffff\1\154\1\172\1\154\1\165\2\uffff\1\160\1\162"+
+        "\1\143\1\145\1\165\1\103\1\uffff\1\154\1\162\1\145\1\141\1\154\1"+
+        "\163\1\145\1\156\1\172\1\154\1\172\1\145\1\157\1\167\1\uffff\1\172"+
+        "\1\162\1\144\1\172\1\150\1\165\1\145\1\uffff\1\172\2\162\2\141\1"+
+        "\154\1\172\1\150\1\172\1\162\1\157\1\154\1\164\1\172\1\156\1\145"+
+        "\1\172\1\162\1\144\1\uffff\1\120\1\uffff\1\164\1\146\1\172\1\uffff"+
+        "\1\157\1\162\1\uffff\1\172\1\154\1\172\1\uffff\1\156\1\103\1\162"+
+        "\1\155\1\141\1\164\1\uffff\1\172\1\uffff\1\145\1\156\1\171\1\172"+
+        "\1\uffff\1\143\1\172\1\uffff\1\164\1\163\1\162\2\172\1\uffff\1\154"+
+        "\1\145\1\uffff\1\164\1\uffff\1\172\1\157\1\164\1\145\1\163\1\145"+
+        "\1\uffff\1\163\1\164\1\172\1\uffff\1\145\1\uffff\1\171\1\172\1\157"+
+        "\2\uffff\1\172\1\156\1\172\1\uffff\1\156\2\172\1\163\1\147\1\172"+
+        "\1\162\1\uffff\1\157\1\104\1\uffff\1\166\1\uffff\1\172\1\uffff\1"+
+        "\164\2\uffff\1\172\1\157\1\162\1\uffff\1\157\1\146\1\145\1\151\1"+
+        "\uffff\1\145\1\uffff\1\162\1\157\1\154\1\172\1\163\1\144\1\156\1"+
+        "\171\1\166\1\106\1\uffff\1\143\1\145\1\164\1\172\1\151\1\141\2\162"+
+        "\1\120\1\uffff\1\144\1\143\1\151\1\172\1\162\1\145\1\164\1\160\1"+
+        "\uffff\1\157\1\162\1\157\1\164\1\166\1\172\1\162\2\151\1\uffff\1"+
+        "\171\1\157\1\144\1\172\1\156\1\145\1\uffff\1\120\2\162\1\172\1\157"+
+        "\1\uffff\1\166\1\151\1\144\1\145\1\162\1\172\1\uffff";
     static final String DFA19_acceptS =
-        "\15\uffff\1\26\5\uffff\1\37\1\40\4\uffff\1\51\2\uffff\1\65\1\66"+
-        "\1\67\1\70\1\71\10\uffff\1\126\2\uffff\1\132\1\133\1\5\1\15\1\1"+
-        "\1\2\1\21\1\3\1\120\1\4\1\115\1\6\1\27\1\7\1\11\1\uffff\1\16\1\12"+
-        "\1\13\1\22\1\14\1\35\1\30\1\17\1\116\1\113\1\24\1\117\1\23\1\130"+
-        "\1\131\1\25\1\26\2\uffff\1\126\12\uffff\1\37\1\40\10\uffff\1\102"+
-        "\1\46\1\51\4\uffff\1\65\1\66\1\67\1\70\1\71\10\uffff\1\123\1\uffff"+
-        "\1\124\1\125\1\127\1\132\1\20\1\10\14\uffff\1\72\16\uffff\1\64\3"+
-        "\uffff\1\101\4\uffff\1\31\1\121\6\uffff\1\77\14\uffff\1\110\11\uffff"+
-        "\1\103\23\uffff\1\43\3\uffff\1\122\2\uffff\1\76\1\uffff\1\73\3\uffff"+
-        "\1\104\6\uffff\1\32\1\uffff\1\33\4\uffff\1\44\2\uffff\1\41\4\uffff"+
-        "\1\106\2\uffff\1\112\2\uffff\1\100\6\uffff\1\74\3\uffff\1\34\1\uffff"+
-        "\1\36\2\uffff\1\54\1\105\4\uffff\1\107\7\uffff\1\111\3\uffff\1\53"+
-        "\1\uffff\1\114\1\75\1\uffff\1\57\1\60\3\uffff\1\50\4\uffff\1\56"+
-        "\1\uffff\1\61\12\uffff\1\63\11\uffff\1\62\10\uffff\1\42\11\uffff"+
-        "\1\47\6\uffff\1\52\5\uffff\1\55\6\uffff\1\45";
+        "\15\uffff\1\26\5\uffff\1\37\1\40\5\uffff\1\52\2\uffff\1\66\1\67"+
+        "\1\70\1\71\1\72\7\uffff\1\126\2\uffff\1\132\1\133\1\5\1\15\1\1\1"+
+        "\2\1\21\1\3\1\120\1\4\1\115\1\6\1\27\1\7\1\11\1\uffff\1\16\1\12"+
+        "\1\13\1\22\1\14\1\35\1\30\1\17\1\116\1\114\1\24\1\117\1\23\1\130"+
+        "\1\131\1\25\1\26\2\uffff\1\126\12\uffff\1\37\1\40\12\uffff\1\103"+
+        "\1\47\1\52\4\uffff\1\66\1\67\1\70\1\71\1\72\6\uffff\1\123\1\uffff"+
+        "\1\124\1\125\1\127\1\132\1\20\1\10\14\uffff\1\73\20\uffff\1\65\1"+
+        "\uffff\1\102\4\uffff\1\31\1\121\6\uffff\1\100\16\uffff\1\111\7\uffff"+
+        "\1\104\23\uffff\1\74\1\uffff\1\44\3\uffff\1\122\2\uffff\1\77\3\uffff"+
+        "\1\105\6\uffff\1\32\1\uffff\1\33\4\uffff\1\45\2\uffff\1\41\5\uffff"+
+        "\1\107\2\uffff\1\113\1\uffff\1\101\6\uffff\1\75\3\uffff\1\34\1\uffff"+
+        "\1\36\3\uffff\1\55\1\106\3\uffff\1\110\7\uffff\1\112\2\uffff\1\42"+
+        "\1\uffff\1\54\1\uffff\1\76\1\uffff\1\60\1\61\3\uffff\1\51\4\uffff"+
+        "\1\57\1\uffff\1\62\12\uffff\1\64\11\uffff\1\63\10\uffff\1\43\11"+
+        "\uffff\1\50\6\uffff\1\53\5\uffff\1\56\6\uffff\1\46";
     static final String DFA19_specialS =
-        "\1\1\51\uffff\1\2\1\0\u0144\uffff}>";
+        "\1\2\51\uffff\1\1\1\0\u0144\uffff}>";
     static final String[] DFA19_transitionS = {
             "\11\55\2\54\2\55\1\54\22\55\1\54\1\5\1\52\1\55\1\51\1\15\1\4"+
-            "\1\53\1\40\1\34\1\13\1\2\1\31\1\10\1\11\1\14\1\46\11\47\1\30"+
-            "\1\37\1\7\1\1\1\6\1\12\1\55\32\51\1\36\1\55\1\35\1\50\1\51\1"+
-            "\55\1\33\1\51\1\32\1\42\1\41\1\20\2\51\1\21\2\51\1\26\1\22\1"+
-            "\44\1\51\1\25\1\51\1\45\1\17\1\27\1\51\1\16\1\43\3\51\1\23\1"+
+            "\1\53\1\41\1\35\1\13\1\2\1\32\1\10\1\11\1\14\1\46\11\47\1\31"+
+            "\1\40\1\7\1\1\1\6\1\12\1\55\32\51\1\37\1\55\1\36\1\50\1\51\1"+
+            "\55\1\34\1\51\1\33\1\42\1\26\1\20\2\51\1\21\2\51\1\27\1\22\1"+
+            "\44\1\51\1\25\1\51\1\45\1\17\1\30\1\51\1\16\1\43\3\51\1\23\1"+
             "\3\1\24\uff82\55",
             "\1\56\1\57",
             "\1\61",
@@ -3421,19 +3421,19 @@ public class InternalEmfComponentsDslLexer extends Lexer {
             "",
             "",
             "\1\134\20\uffff\1\135",
-            "\1\136",
-            "\1\140\3\uffff\1\137\2\uffff\1\142\11\uffff\1\143\6\uffff\1"+
-            "\141",
-            "\1\144",
+            "\1\137\13\uffff\1\136",
+            "\1\140",
+            "\1\142\3\uffff\1\141\2\uffff\1\144\11\uffff\1\145\6\uffff\1"+
+            "\143",
+            "\1\146",
             "",
-            "\1\151\6\uffff\1\150\6\uffff\1\147",
-            "\1\152",
-            "",
-            "",
-            "",
+            "\1\153\6\uffff\1\152\6\uffff\1\151",
+            "\1\154",
             "",
             "",
-            "\1\160\13\uffff\1\161",
+            "",
+            "",
+            "",
             "\1\162\11\uffff\1\163",
             "\1\164",
             "\1\165\17\uffff\1\166",
@@ -3503,13 +3503,15 @@ public class InternalEmfComponentsDslLexer extends Lexer {
             "\1\u0092",
             "\1\u0093",
             "\1\u0094",
-            "\1\u0096\3\uffff\1\u0095",
+            "\1\u0095",
+            "\1\u0096",
+            "\1\u0098\3\uffff\1\u0097",
             "",
             "",
             "",
-            "\1\u0097",
-            "\1\u0098",
-            "\1\u0099\1\u009a",
+            "\1\u0099",
+            "\1\u009a",
+            "\1\u009b\1\u009c",
             "\1\117\13\uffff\12\117\7\uffff\32\117\4\uffff\1\117\1\uffff"+
             "\32\117",
             "",
@@ -3517,8 +3519,6 @@ public class InternalEmfComponentsDslLexer extends Lexer {
             "",
             "",
             "",
-            "\1\u009c",
-            "\1\u009d",
             "\1\u009e",
             "\1\117\13\uffff\12\117\7\uffff\32\117\4\uffff\1\117\1\uffff"+
             "\32\117",
@@ -3559,16 +3559,16 @@ public class InternalEmfComponentsDslLexer extends Lexer {
             "\1\u00b6",
             "\1\u00b7",
             "\1\u00b8",
+            "\1\u00b9",
+            "\1\u00ba",
             "\1\117\13\uffff\12\117\7\uffff\32\117\4\uffff\1\117\1\uffff"+
             "\32\117",
-            "\1\u00ba",
-            "\1\u00bb",
             "\1\u00bc",
             "\1\u00bd",
             "\1\u00be",
-            "",
             "\1\u00bf",
             "\1\u00c0",
+            "",
             "\1\u00c1",
             "",
             "\1\u00c2",
@@ -3596,15 +3596,15 @@ public class InternalEmfComponentsDslLexer extends Lexer {
             "\1\117\13\uffff\12\117\7\uffff\32\117\4\uffff\1\117\1\uffff"+
             "\32\117",
             "\1\u00d8",
-            "\1\u00d9",
+            "\1\117\13\uffff\12\117\7\uffff\32\117\4\uffff\1\117\1\uffff"+
+            "\32\117",
             "\1\u00da",
+            "\1\u00db",
+            "\1\u00dc",
             "",
             "\1\117\13\uffff\12\117\7\uffff\32\117\4\uffff\1\117\1\uffff"+
             "\32\117",
-            "\1\u00dc",
-            "\1\u00dd",
-            "\1\117\13\uffff\12\117\7\uffff\32\117\4\uffff\1\117\1\uffff"+
-            "\32\117",
+            "\1\u00de",
             "\1\u00df",
             "\1\117\13\uffff\12\117\7\uffff\32\117\4\uffff\1\117\1\uffff"+
             "\32\117",
@@ -3638,17 +3638,17 @@ public class InternalEmfComponentsDslLexer extends Lexer {
             "\1\u00f7",
             "",
             "\1\u00f8",
+            "",
             "\1\u00f9",
+            "\1\u00fa",
             "\1\117\13\uffff\12\117\7\uffff\32\117\4\uffff\1\117\1\uffff"+
             "\32\117",
             "",
-            "\1\u00fb",
             "\1\u00fc",
+            "\1\u00fd",
             "",
             "\1\117\13\uffff\12\117\7\uffff\32\117\4\uffff\1\117\1\uffff"+
             "\32\117",
-            "",
-            "\1\u00fe",
             "\1\u00ff",
             "\1\117\13\uffff\12\117\7\uffff\32\117\4\uffff\1\117\1\uffff"+
             "\32\117",
@@ -3675,15 +3675,15 @@ public class InternalEmfComponentsDslLexer extends Lexer {
             "",
             "\1\u010e",
             "\1\u010f",
+            "\1\u0110",
             "\1\117\13\uffff\12\117\7\uffff\32\117\4\uffff\1\117\1\uffff"+
             "\32\117",
             "\1\117\13\uffff\12\117\7\uffff\32\117\4\uffff\1\117\1\uffff"+
             "\32\117",
             "",
-            "\1\u0112",
             "\1\u0113",
-            "",
             "\1\u0114",
+            "",
             "\1\u0115",
             "",
             "\1\117\13\uffff\12\117\7\uffff\32\117\4\uffff\1\117\1\uffff"+
@@ -3702,14 +3702,14 @@ public class InternalEmfComponentsDslLexer extends Lexer {
             "\1\u011f",
             "",
             "\1\u0120",
-            "\1\u0121",
+            "\1\117\13\uffff\12\117\7\uffff\32\117\4\uffff\1\117\1\uffff"+
+            "\32\117",
+            "\1\u0122",
             "",
             "",
             "\1\117\13\uffff\12\117\7\uffff\32\117\4\uffff\1\117\1\uffff"+
             "\32\117",
-            "\1\u0123",
-            "\1\117\13\uffff\12\117\7\uffff\32\117\4\uffff\1\117\1\uffff"+
-            "\32\117",
+            "\1\u0124",
             "\1\117\13\uffff\12\117\7\uffff\32\117\4\uffff\1\117\1\uffff"+
             "\32\117",
             "",
@@ -3726,11 +3726,11 @@ public class InternalEmfComponentsDslLexer extends Lexer {
             "",
             "\1\u012e",
             "\1\u012f",
+            "",
             "\1\u0130",
             "",
             "\1\117\13\uffff\12\117\7\uffff\32\117\4\uffff\1\117\1\uffff"+
             "\32\117",
-            "",
             "",
             "\1\u0132",
             "",
@@ -3863,6 +3863,16 @@ public class InternalEmfComponentsDslLexer extends Lexer {
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
+                        int LA19_42 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA19_42>='\u0000' && LA19_42<='\uFFFF')) ) {s = 124;}
+
+                        else s = 45;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
                         int LA19_0 = input.LA(1);
 
                         s = -1;
@@ -3908,29 +3918,29 @@ public class InternalEmfComponentsDslLexer extends Lexer {
 
                         else if ( (LA19_0=='p') ) {s = 21;}
 
-                        else if ( (LA19_0=='l') ) {s = 22;}
+                        else if ( (LA19_0=='e') ) {s = 22;}
 
-                        else if ( (LA19_0=='t') ) {s = 23;}
+                        else if ( (LA19_0=='l') ) {s = 23;}
 
-                        else if ( (LA19_0==':') ) {s = 24;}
+                        else if ( (LA19_0=='t') ) {s = 24;}
 
-                        else if ( (LA19_0==',') ) {s = 25;}
+                        else if ( (LA19_0==':') ) {s = 25;}
 
-                        else if ( (LA19_0=='c') ) {s = 26;}
+                        else if ( (LA19_0==',') ) {s = 26;}
 
-                        else if ( (LA19_0=='a') ) {s = 27;}
+                        else if ( (LA19_0=='c') ) {s = 27;}
 
-                        else if ( (LA19_0==')') ) {s = 28;}
+                        else if ( (LA19_0=='a') ) {s = 28;}
 
-                        else if ( (LA19_0==']') ) {s = 29;}
+                        else if ( (LA19_0==')') ) {s = 29;}
 
-                        else if ( (LA19_0=='[') ) {s = 30;}
+                        else if ( (LA19_0==']') ) {s = 30;}
 
-                        else if ( (LA19_0==';') ) {s = 31;}
+                        else if ( (LA19_0=='[') ) {s = 31;}
 
-                        else if ( (LA19_0=='(') ) {s = 32;}
+                        else if ( (LA19_0==';') ) {s = 32;}
 
-                        else if ( (LA19_0=='e') ) {s = 33;}
+                        else if ( (LA19_0=='(') ) {s = 33;}
 
                         else if ( (LA19_0=='d') ) {s = 34;}
 
@@ -3955,16 +3965,6 @@ public class InternalEmfComponentsDslLexer extends Lexer {
                         else if ( ((LA19_0>='\t' && LA19_0<='\n')||LA19_0=='\r'||LA19_0==' ') ) {s = 44;}
 
                         else if ( ((LA19_0>='\u0000' && LA19_0<='\b')||(LA19_0>='\u000B' && LA19_0<='\f')||(LA19_0>='\u000E' && LA19_0<='\u001F')||LA19_0=='#'||LA19_0=='@'||LA19_0=='\\'||LA19_0=='`'||(LA19_0>='~' && LA19_0<='\uFFFF')) ) {s = 45;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA19_42 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA19_42>='\u0000' && LA19_42<='\uFFFF')) ) {s = 124;}
-
-                        else s = 45;
 
                         if ( s>=0 ) return s;
                         break;

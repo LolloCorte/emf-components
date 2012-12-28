@@ -94,7 +94,7 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 		
 		acceptor.accept(moduleClass).initializeLater [
 			documentation = element.documentation
-			superTypes += element.newTypeRef(typeof(EmfComponentsGuiceModule))
+			moduleClass.setSuperClassType(element, typeof(EmfComponentsGuiceModule))
 			
 			members += element.toConstructor() [
 				parameters += element.toParameter("plugin", element.newTypeRef(typeof(AbstractUIPlugin)))
@@ -113,6 +113,13 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 				members += element.viewerContentProvider.genBindMethod(viewerContentProviderClass, typeof(ViewerContentProvider))
 		]
    	}
+
+	def setSuperClassType(JvmGenericType e, Module dslElement, Class<?> defaultSuperClass) {
+		if (dslElement.extendsClause != null)
+			e.superTypes += dslElement.extendsClause.superType.cloneWithProxies
+		else
+			e.superTypes += e.newTypeRef(defaultSuperClass)
+	}
    	
    	def activatorQN(Module element) {
    		element.fullyQualifiedName + ".Activator"

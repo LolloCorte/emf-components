@@ -1,6 +1,7 @@
 package it.rcpvision.emf.components.dsl.validation;
 
 import com.google.inject.Inject;
+import it.rcpvision.emf.components.EmfComponentsGuiceModule;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.ui.IViewPart;
@@ -37,6 +38,13 @@ public class EmfComponentsDslTypeSystem {
   public boolean isViewPart(final JvmTypeReference type, final EObject context) {
     JvmTypeReference _typeForName = this.typeReferences.getTypeForName(
       IViewPart.class, context);
+    boolean _isConformant = this.isConformant(_typeForName, type);
+    return _isConformant;
+  }
+  
+  public boolean isEmfComponentsGuiceModule(final JvmTypeReference type, final EObject context) {
+    JvmTypeReference _typeForName = this.typeReferences.getTypeForName(
+      EmfComponentsGuiceModule.class, context);
     boolean _isConformant = this.isConformant(_typeForName, type);
     return _isConformant;
   }

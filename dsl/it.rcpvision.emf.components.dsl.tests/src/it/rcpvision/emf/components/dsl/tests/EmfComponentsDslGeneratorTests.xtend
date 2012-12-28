@@ -35,6 +35,24 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
 	}
 
 	@Test
+	def testModuleWithExtends() {
+		inputs.moduleWithExtends.assertCorrectJavaCodeGeneration(
+'''
+package my.empty;
+
+import it.rcpvision.emf.components.dsl.tests.additional.MyTestGuiceModule;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
+
+public class EmfComponentsGuiceModuleGen extends MyTestGuiceModule {
+  public EmfComponentsGuiceModuleGen(final AbstractUIPlugin plugin) {
+    super(plugin);
+  }
+}
+''', null, null, null, null, null, null
+		)
+	}
+
+	@Test
 	def testEmptyLabelProvider() {
 		inputs.emptyLabelProvider.assertCorrectJavaCodeGeneration(
 '''

@@ -90,6 +90,11 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
         return createModuleAdapter();
       }
       @Override
+      public Adapter caseExtendsClause(ExtendsClause object)
+      {
+        return createExtendsClauseAdapter();
+      }
+      @Override
       public Adapter caseLabelProvider(LabelProvider object)
       {
         return createLabelProviderAdapter();
@@ -138,6 +143,11 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
       public Adapter caseEmfFeatureAccess(EmfFeatureAccess object)
       {
         return createEmfFeatureAccessAdapter();
+      }
+      @Override
+      public Adapter caseWithExtendsClause(WithExtendsClause object)
+      {
+        return createWithExtendsClauseAdapter();
       }
       @Override
       public Adapter casePartSpecification(PartSpecification object)
@@ -212,6 +222,21 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createModuleAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.ExtendsClause <em>Extends Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see it.rcpvision.emf.components.dsl.model.ExtendsClause
+   * @generated
+   */
+  public Adapter createExtendsClauseAdapter()
   {
     return null;
   }
@@ -362,6 +387,21 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEmfFeatureAccessAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.WithExtendsClause <em>With Extends Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see it.rcpvision.emf.components.dsl.model.WithExtendsClause
+   * @generated
+   */
+  public Adapter createWithExtendsClauseAdapter()
   {
     return null;
   }

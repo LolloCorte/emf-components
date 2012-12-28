@@ -3,6 +3,7 @@
  */
 package it.rcpvision.emf.components.dsl.ui.contentassist;
 
+import it.rcpvision.emf.components.EmfComponentsGuiceModule;
 import it.rcpvision.emf.components.dsl.model.EmfFeatureAccess;
 import it.rcpvision.emf.components.dsl.model.LabelSpecification;
 import it.rcpvision.emf.components.dsl.model.ModelPackage;
@@ -59,6 +60,15 @@ public class EmfComponentsDslProposalProvider extends
 			Assignment assignment, ContentAssistContext context,
 			ICompletionProposalAcceptor acceptor) {
 		showSubtypesOfEObjectForEmfFeatureAccess(model, context, acceptor);
+	}
+
+	@Override
+	public void completeExtendsClause_SuperType(EObject model,
+			Assignment assignment, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		showOnlySubtypesOf(model, context, acceptor,
+				EmfComponentsGuiceModule.class,
+				ModelPackage.Literals.EXTENDS_CLAUSE__SUPER_TYPE);
 	}
 
 	protected void showSubtypesOfEObjectForEmfFeatureAccess(EObject model,

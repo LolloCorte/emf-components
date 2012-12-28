@@ -148,4 +148,21 @@ public class TestInputsWithErrors {
     _builder.newLine();
     return _builder;
   }
+  
+  public CharSequence notValidModuleExtends() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("import java.util.*");
+    _builder.newLine();
+    _builder.append("import it.rcpvision.emf.components.examples.library.*");
+    _builder.newLine();
+    _builder.append("import it.rcpvision.emf.components.views.*");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("module my.empty extends Library {");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
 }

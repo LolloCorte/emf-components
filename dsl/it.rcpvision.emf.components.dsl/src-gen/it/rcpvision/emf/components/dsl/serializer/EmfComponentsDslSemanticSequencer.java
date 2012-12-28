@@ -2,6 +2,7 @@ package it.rcpvision.emf.components.dsl.serializer;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import it.rcpvision.emf.components.dsl.model.ExtendsClause;
 import it.rcpvision.emf.components.dsl.model.FeatureSpecification;
 import it.rcpvision.emf.components.dsl.model.FeaturesProvider;
 import it.rcpvision.emf.components.dsl.model.FormControlFactory;
@@ -74,6 +75,12 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == ModelPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case ModelPackage.EXTENDS_CLAUSE:
+				if(context == grammarAccess.getExtendsClauseRule()) {
+					sequence_ExtendsClause(context, (ExtendsClause) semanticObject); 
+					return; 
+				}
+				else break;
 			case ModelPackage.FEATURE_SPECIFICATION:
 				if(context == grammarAccess.getEmfFeatureAccessRule() ||
 				   context == grammarAccess.getFeatureSpecificationRule()) {
@@ -125,7 +132,8 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 				}
 				else break;
 			case ModelPackage.MODULE:
-				if(context == grammarAccess.getModuleRule()) {
+				if(context == grammarAccess.getModuleRule() ||
+				   context == grammarAccess.getWithExtendsClauseRule()) {
 					sequence_Module(context, (Module) semanticObject); 
 					return; 
 				}
@@ -1018,6 +1026,22 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     superType=JvmTypeReference
+	 */
+	protected void sequence_ExtendsClause(EObject context, ExtendsClause semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.EXTENDS_CLAUSE__SUPER_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.EXTENDS_CLAUSE__SUPER_TYPE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getExtendsClauseAccess().getSuperTypeJvmTypeReferenceParserRuleCall_1_0(), semanticObject.getSuperType());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (parameterType=JvmTypeReference features+=XFeatureCall features+=XFeatureCall*)
 	 */
 	protected void sequence_FeatureSpecification(EObject context, FeatureSpecification semanticObject) {
@@ -1099,6 +1123,7 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=QualifiedName 
+	 *         extendsClause=ExtendsClause? 
 	 *         labelProvider=LabelProvider? 
 	 *         propertyDescriptionProvider=PropertyDescriptionProvider? 
 	 *         featuresProvider=FeaturesProvider? 

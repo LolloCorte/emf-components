@@ -4,6 +4,7 @@ import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import it.rcpvision.emf.components.EmfComponentsGuiceModule;
 import it.rcpvision.emf.components.dsl.jvmmodel.GeneratorUtils;
+import it.rcpvision.emf.components.dsl.model.ExtendsClause;
 import it.rcpvision.emf.components.dsl.model.FeatureSpecification;
 import it.rcpvision.emf.components.dsl.model.FeaturesProvider;
 import it.rcpvision.emf.components.dsl.model.FormControlFactory;
@@ -130,9 +131,7 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
         public void apply(final JvmGenericType it) {
           String _documentation = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.getDocumentation(element);
           EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.setDocumentation(it, _documentation);
-          EList<JvmTypeReference> _superTypes = it.getSuperTypes();
-          JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, EmfComponentsGuiceModule.class);
-          EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _newTypeRef);
+          EmfComponentsDslJvmModelInferrer.this.setSuperClassType(moduleClass, element, EmfComponentsGuiceModule.class);
           EList<JvmMember> _members = it.getMembers();
           final Procedure1<JvmConstructor> _function = new Procedure1<JvmConstructor>() {
               public void apply(final JvmConstructor it) {
@@ -188,6 +187,26 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
         }
       };
     _accept.initializeLater(_function);
+  }
+  
+  public boolean setSuperClassType(final JvmGenericType e, final Module dslElement, final Class<? extends Object> defaultSuperClass) {
+    boolean _xifexpression = false;
+    ExtendsClause _extendsClause = dslElement.getExtendsClause();
+    boolean _notEquals = (!Objects.equal(_extendsClause, null));
+    if (_notEquals) {
+      EList<JvmTypeReference> _superTypes = e.getSuperTypes();
+      ExtendsClause _extendsClause_1 = dslElement.getExtendsClause();
+      JvmTypeReference _superType = _extendsClause_1.getSuperType();
+      JvmTypeReference _cloneWithProxies = this._jvmTypesBuilder.cloneWithProxies(_superType);
+      boolean _add = this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _cloneWithProxies);
+      _xifexpression = _add;
+    } else {
+      EList<JvmTypeReference> _superTypes_1 = e.getSuperTypes();
+      JvmTypeReference _newTypeRef = this._jvmTypesBuilder.newTypeRef(e, defaultSuperClass);
+      boolean _add_1 = this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes_1, _newTypeRef);
+      _xifexpression = _add_1;
+    }
+    return _xifexpression;
   }
   
   public String activatorQN(final Module element) {

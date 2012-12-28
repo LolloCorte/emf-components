@@ -122,6 +122,25 @@ public interface ModelPackage extends EPackage
   int IMPORT_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.WithExtendsClauseImpl <em>With Extends Clause</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see it.rcpvision.emf.components.dsl.model.impl.WithExtendsClauseImpl
+   * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getWithExtendsClause()
+   * @generated
+   */
+  int WITH_EXTENDS_CLAUSE = 14;
+
+  /**
+   * The number of structural features of the '<em>With Extends Clause</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WITH_EXTENDS_CLAUSE_FEATURE_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl <em>Module</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -138,7 +157,16 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODULE__NAME = 0;
+  int MODULE__NAME = WITH_EXTENDS_CLAUSE_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Extends Clause</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODULE__EXTENDS_CLAUSE = WITH_EXTENDS_CLAUSE_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Label Provider</b></em>' containment reference.
@@ -147,7 +175,7 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODULE__LABEL_PROVIDER = 1;
+  int MODULE__LABEL_PROVIDER = WITH_EXTENDS_CLAUSE_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Property Description Provider</b></em>' containment reference.
@@ -156,7 +184,7 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODULE__PROPERTY_DESCRIPTION_PROVIDER = 2;
+  int MODULE__PROPERTY_DESCRIPTION_PROVIDER = WITH_EXTENDS_CLAUSE_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Features Provider</b></em>' containment reference.
@@ -165,7 +193,7 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODULE__FEATURES_PROVIDER = 3;
+  int MODULE__FEATURES_PROVIDER = WITH_EXTENDS_CLAUSE_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Form Control Factory</b></em>' containment reference.
@@ -174,7 +202,7 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODULE__FORM_CONTROL_FACTORY = 4;
+  int MODULE__FORM_CONTROL_FACTORY = WITH_EXTENDS_CLAUSE_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>Viewer Content Provider</b></em>' containment reference.
@@ -183,7 +211,7 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODULE__VIEWER_CONTENT_PROVIDER = 5;
+  int MODULE__VIEWER_CONTENT_PROVIDER = WITH_EXTENDS_CLAUSE_FEATURE_COUNT + 6;
 
   /**
    * The feature id for the '<em><b>Parts</b></em>' containment reference list.
@@ -192,7 +220,7 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODULE__PARTS = 6;
+  int MODULE__PARTS = WITH_EXTENDS_CLAUSE_FEATURE_COUNT + 7;
 
   /**
    * The number of structural features of the '<em>Module</em>' class.
@@ -201,7 +229,35 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODULE_FEATURE_COUNT = 7;
+  int MODULE_FEATURE_COUNT = WITH_EXTENDS_CLAUSE_FEATURE_COUNT + 8;
+
+  /**
+   * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.ExtendsClauseImpl <em>Extends Clause</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see it.rcpvision.emf.components.dsl.model.impl.ExtendsClauseImpl
+   * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getExtendsClause()
+   * @generated
+   */
+  int EXTENDS_CLAUSE = 3;
+
+  /**
+   * The feature id for the '<em><b>Super Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTENDS_CLAUSE__SUPER_TYPE = 0;
+
+  /**
+   * The number of structural features of the '<em>Extends Clause</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTENDS_CLAUSE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.LabelProviderImpl <em>Label Provider</em>}' class.
@@ -211,7 +267,7 @@ public interface ModelPackage extends EPackage
    * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getLabelProvider()
    * @generated
    */
-  int LABEL_PROVIDER = 3;
+  int LABEL_PROVIDER = 4;
 
   /**
    * The feature id for the '<em><b>Label Specifications</b></em>' containment reference list.
@@ -248,7 +304,7 @@ public interface ModelPackage extends EPackage
    * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getLabelSpecification()
    * @generated
    */
-  int LABEL_SPECIFICATION = 4;
+  int LABEL_SPECIFICATION = 5;
 
   /**
    * The feature id for the '<em><b>Parameter Type</b></em>' containment reference.
@@ -294,7 +350,7 @@ public interface ModelPackage extends EPackage
    * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getPropertyDescriptionProvider()
    * @generated
    */
-  int PROPERTY_DESCRIPTION_PROVIDER = 5;
+  int PROPERTY_DESCRIPTION_PROVIDER = 6;
 
   /**
    * The feature id for the '<em><b>Label Specifications</b></em>' containment reference list.
@@ -322,7 +378,7 @@ public interface ModelPackage extends EPackage
    * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getEmfFeatureAccess()
    * @generated
    */
-  int EMF_FEATURE_ACCESS = 12;
+  int EMF_FEATURE_ACCESS = 13;
 
   /**
    * The feature id for the '<em><b>Parameter Type</b></em>' containment reference.
@@ -350,7 +406,7 @@ public interface ModelPackage extends EPackage
    * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getPropertyDescriptionSpecification()
    * @generated
    */
-  int PROPERTY_DESCRIPTION_SPECIFICATION = 6;
+  int PROPERTY_DESCRIPTION_SPECIFICATION = 7;
 
   /**
    * The feature id for the '<em><b>Parameter Type</b></em>' containment reference.
@@ -396,7 +452,7 @@ public interface ModelPackage extends EPackage
    * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getFeaturesProvider()
    * @generated
    */
-  int FEATURES_PROVIDER = 7;
+  int FEATURES_PROVIDER = 8;
 
   /**
    * The feature id for the '<em><b>Feature Specifications</b></em>' containment reference list.
@@ -424,7 +480,7 @@ public interface ModelPackage extends EPackage
    * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getFeatureSpecification()
    * @generated
    */
-  int FEATURE_SPECIFICATION = 8;
+  int FEATURE_SPECIFICATION = 9;
 
   /**
    * The feature id for the '<em><b>Parameter Type</b></em>' containment reference.
@@ -461,7 +517,7 @@ public interface ModelPackage extends EPackage
    * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getFormControlFactory()
    * @generated
    */
-  int FORM_CONTROL_FACTORY = 9;
+  int FORM_CONTROL_FACTORY = 10;
 
   /**
    * The feature id for the '<em><b>Control Specifications</b></em>' containment reference list.
@@ -489,7 +545,7 @@ public interface ModelPackage extends EPackage
    * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getFormControlSpecification()
    * @generated
    */
-  int FORM_CONTROL_SPECIFICATION = 10;
+  int FORM_CONTROL_SPECIFICATION = 11;
 
   /**
    * The feature id for the '<em><b>Parameter Type</b></em>' containment reference.
@@ -544,7 +600,7 @@ public interface ModelPackage extends EPackage
    * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getViewerContentProvider()
    * @generated
    */
-  int VIEWER_CONTENT_PROVIDER = 11;
+  int VIEWER_CONTENT_PROVIDER = 12;
 
   /**
    * The feature id for the '<em><b>Children Specifications</b></em>' containment reference list.
@@ -572,7 +628,7 @@ public interface ModelPackage extends EPackage
    * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getPartSpecification()
    * @generated
    */
-  int PART_SPECIFICATION = 13;
+  int PART_SPECIFICATION = 15;
 
   /**
    * The number of structural features of the '<em>Part Specification</em>' class.
@@ -591,7 +647,7 @@ public interface ModelPackage extends EPackage
    * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getViewSpecification()
    * @generated
    */
-  int VIEW_SPECIFICATION = 14;
+  int VIEW_SPECIFICATION = 16;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -714,6 +770,17 @@ public interface ModelPackage extends EPackage
   EAttribute getModule_Name();
 
   /**
+   * Returns the meta object for the containment reference '{@link it.rcpvision.emf.components.dsl.model.Module#getExtendsClause <em>Extends Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Extends Clause</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.Module#getExtendsClause()
+   * @see #getModule()
+   * @generated
+   */
+  EReference getModule_ExtendsClause();
+
+  /**
    * Returns the meta object for the containment reference '{@link it.rcpvision.emf.components.dsl.model.Module#getLabelProvider <em>Label Provider</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -778,6 +845,27 @@ public interface ModelPackage extends EPackage
    * @generated
    */
   EReference getModule_Parts();
+
+  /**
+   * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.ExtendsClause <em>Extends Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Extends Clause</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.ExtendsClause
+   * @generated
+   */
+  EClass getExtendsClause();
+
+  /**
+   * Returns the meta object for the containment reference '{@link it.rcpvision.emf.components.dsl.model.ExtendsClause#getSuperType <em>Super Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Super Type</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.ExtendsClause#getSuperType()
+   * @see #getExtendsClause()
+   * @generated
+   */
+  EReference getExtendsClause_SuperType();
 
   /**
    * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.LabelProvider <em>Label Provider</em>}'.
@@ -1056,6 +1144,16 @@ public interface ModelPackage extends EPackage
   EReference getEmfFeatureAccess_ParameterType();
 
   /**
+   * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.WithExtendsClause <em>With Extends Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>With Extends Clause</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.WithExtendsClause
+   * @generated
+   */
+  EClass getWithExtendsClause();
+
+  /**
    * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.PartSpecification <em>Part Specification</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1205,6 +1303,14 @@ public interface ModelPackage extends EPackage
     EAttribute MODULE__NAME = eINSTANCE.getModule_Name();
 
     /**
+     * The meta object literal for the '<em><b>Extends Clause</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODULE__EXTENDS_CLAUSE = eINSTANCE.getModule_ExtendsClause();
+
+    /**
      * The meta object literal for the '<em><b>Label Provider</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1251,6 +1357,24 @@ public interface ModelPackage extends EPackage
      * @generated
      */
     EReference MODULE__PARTS = eINSTANCE.getModule_Parts();
+
+    /**
+     * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.ExtendsClauseImpl <em>Extends Clause</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see it.rcpvision.emf.components.dsl.model.impl.ExtendsClauseImpl
+     * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getExtendsClause()
+     * @generated
+     */
+    EClass EXTENDS_CLAUSE = eINSTANCE.getExtendsClause();
+
+    /**
+     * The meta object literal for the '<em><b>Super Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXTENDS_CLAUSE__SUPER_TYPE = eINSTANCE.getExtendsClause_SuperType();
 
     /**
      * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.LabelProviderImpl <em>Label Provider</em>}' class.
@@ -1479,6 +1603,16 @@ public interface ModelPackage extends EPackage
      * @generated
      */
     EReference EMF_FEATURE_ACCESS__PARAMETER_TYPE = eINSTANCE.getEmfFeatureAccess_ParameterType();
+
+    /**
+     * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.WithExtendsClauseImpl <em>With Extends Clause</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see it.rcpvision.emf.components.dsl.model.impl.WithExtendsClauseImpl
+     * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getWithExtendsClause()
+     * @generated
+     */
+    EClass WITH_EXTENDS_CLAUSE = eINSTANCE.getWithExtendsClause();
 
     /**
      * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.PartSpecificationImpl <em>Part Specification</em>}' class.

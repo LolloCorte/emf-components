@@ -237,37 +237,55 @@ ruleModule returns [EObject current=null]
 	    }
 
 )
-)	otherlv_2='{' 
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getModuleAccess().getExtendsClauseExtendsClauseParserRuleCall_2_0()); 
+	    }
+		lv_extendsClause_2_0=ruleExtendsClause		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getModuleRule());
+	        }
+       		set(
+       			$current, 
+       			"extendsClause",
+        		lv_extendsClause_2_0, 
+        		"ExtendsClause");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?	otherlv_3='{' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getModuleAccess().getLeftCurlyBracketKeyword_2());
+    	newLeafNode(otherlv_3, grammarAccess.getModuleAccess().getLeftCurlyBracketKeyword_3());
     }
 (
 
 (
 	{ 
-	  getUnorderedGroupHelper().enter(grammarAccess.getModuleAccess().getUnorderedGroup_3());
+	  getUnorderedGroupHelper().enter(grammarAccess.getModuleAccess().getUnorderedGroup_4());
 	}
 	(
 		(
 
 			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 0)}?=>(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getModuleAccess().getUnorderedGroup_4(), 0)}?=>(
 					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 0);
+	 				  getUnorderedGroupHelper().select(grammarAccess.getModuleAccess().getUnorderedGroup_4(), 0);
 	 				}
 					({true}?=>(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModuleAccess().getLabelProviderLabelProviderParserRuleCall_3_0_0()); 
+	        newCompositeNode(grammarAccess.getModuleAccess().getLabelProviderLabelProviderParserRuleCall_4_0_0()); 
 	    }
-		lv_labelProvider_4_0=ruleLabelProvider		{
+		lv_labelProvider_5_0=ruleLabelProvider		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getModuleRule());
 	        }
        		set(
        			$current, 
        			"labelProvider",
-        		lv_labelProvider_4_0, 
+        		lv_labelProvider_5_0, 
         		"LabelProvider");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -275,29 +293,29 @@ ruleModule returns [EObject current=null]
 )
 ))
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getModuleAccess().getUnorderedGroup_3());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getModuleAccess().getUnorderedGroup_4());
 	 				}
  				)
 			)  |
 
 			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 1)}?=>(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getModuleAccess().getUnorderedGroup_4(), 1)}?=>(
 					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 1);
+	 				  getUnorderedGroupHelper().select(grammarAccess.getModuleAccess().getUnorderedGroup_4(), 1);
 	 				}
 					({true}?=>(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModuleAccess().getPropertyDescriptionProviderPropertyDescriptionProviderParserRuleCall_3_1_0()); 
+	        newCompositeNode(grammarAccess.getModuleAccess().getPropertyDescriptionProviderPropertyDescriptionProviderParserRuleCall_4_1_0()); 
 	    }
-		lv_propertyDescriptionProvider_5_0=rulePropertyDescriptionProvider		{
+		lv_propertyDescriptionProvider_6_0=rulePropertyDescriptionProvider		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getModuleRule());
 	        }
        		set(
        			$current, 
        			"propertyDescriptionProvider",
-        		lv_propertyDescriptionProvider_5_0, 
+        		lv_propertyDescriptionProvider_6_0, 
         		"PropertyDescriptionProvider");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -305,29 +323,29 @@ ruleModule returns [EObject current=null]
 )
 ))
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getModuleAccess().getUnorderedGroup_3());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getModuleAccess().getUnorderedGroup_4());
 	 				}
  				)
 			)  |
 
 			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 2)}?=>(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getModuleAccess().getUnorderedGroup_4(), 2)}?=>(
 					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 2);
+	 				  getUnorderedGroupHelper().select(grammarAccess.getModuleAccess().getUnorderedGroup_4(), 2);
 	 				}
 					({true}?=>(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModuleAccess().getFeaturesProviderFeaturesProviderParserRuleCall_3_2_0()); 
+	        newCompositeNode(grammarAccess.getModuleAccess().getFeaturesProviderFeaturesProviderParserRuleCall_4_2_0()); 
 	    }
-		lv_featuresProvider_6_0=ruleFeaturesProvider		{
+		lv_featuresProvider_7_0=ruleFeaturesProvider		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getModuleRule());
 	        }
        		set(
        			$current, 
        			"featuresProvider",
-        		lv_featuresProvider_6_0, 
+        		lv_featuresProvider_7_0, 
         		"FeaturesProvider");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -335,29 +353,29 @@ ruleModule returns [EObject current=null]
 )
 ))
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getModuleAccess().getUnorderedGroup_3());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getModuleAccess().getUnorderedGroup_4());
 	 				}
  				)
 			)  |
 
 			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 3)}?=>(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getModuleAccess().getUnorderedGroup_4(), 3)}?=>(
 					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 3);
+	 				  getUnorderedGroupHelper().select(grammarAccess.getModuleAccess().getUnorderedGroup_4(), 3);
 	 				}
 					({true}?=>(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModuleAccess().getFormControlFactoryFormControlFactoryParserRuleCall_3_3_0()); 
+	        newCompositeNode(grammarAccess.getModuleAccess().getFormControlFactoryFormControlFactoryParserRuleCall_4_3_0()); 
 	    }
-		lv_formControlFactory_7_0=ruleFormControlFactory		{
+		lv_formControlFactory_8_0=ruleFormControlFactory		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getModuleRule());
 	        }
        		set(
        			$current, 
        			"formControlFactory",
-        		lv_formControlFactory_7_0, 
+        		lv_formControlFactory_8_0, 
         		"FormControlFactory");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -365,29 +383,29 @@ ruleModule returns [EObject current=null]
 )
 ))
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getModuleAccess().getUnorderedGroup_3());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getModuleAccess().getUnorderedGroup_4());
 	 				}
  				)
 			)  |
 
 			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 4)}?=>(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getModuleAccess().getUnorderedGroup_4(), 4)}?=>(
 					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 4);
+	 				  getUnorderedGroupHelper().select(grammarAccess.getModuleAccess().getUnorderedGroup_4(), 4);
 	 				}
 					({true}?=>(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModuleAccess().getViewerContentProviderViewerContentProviderParserRuleCall_3_4_0()); 
+	        newCompositeNode(grammarAccess.getModuleAccess().getViewerContentProviderViewerContentProviderParserRuleCall_4_4_0()); 
 	    }
-		lv_viewerContentProvider_8_0=ruleViewerContentProvider		{
+		lv_viewerContentProvider_9_0=ruleViewerContentProvider		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getModuleRule());
 	        }
        		set(
        			$current, 
        			"viewerContentProvider",
-        		lv_viewerContentProvider_8_0, 
+        		lv_viewerContentProvider_9_0, 
         		"ViewerContentProvider");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -395,49 +413,49 @@ ruleModule returns [EObject current=null]
 )
 ))
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getModuleAccess().getUnorderedGroup_3());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getModuleAccess().getUnorderedGroup_4());
 	 				}
  				)
 			)  |
 
 			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 5)}?=>(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getModuleAccess().getUnorderedGroup_4(), 5)}?=>(
 					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getModuleAccess().getUnorderedGroup_3(), 5);
+	 				  getUnorderedGroupHelper().select(grammarAccess.getModuleAccess().getUnorderedGroup_4(), 5);
 	 				}
-					({true}?=>(	otherlv_9='parts' 
+					({true}?=>(	otherlv_10='parts' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getModuleAccess().getPartsKeyword_3_5_0());
+    	newLeafNode(otherlv_10, grammarAccess.getModuleAccess().getPartsKeyword_4_5_0());
     }
-	otherlv_10='{' 
+	otherlv_11='{' 
     {
-    	newLeafNode(otherlv_10, grammarAccess.getModuleAccess().getLeftCurlyBracketKeyword_3_5_1());
+    	newLeafNode(otherlv_11, grammarAccess.getModuleAccess().getLeftCurlyBracketKeyword_4_5_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModuleAccess().getPartsPartSpecificationParserRuleCall_3_5_2_0()); 
+	        newCompositeNode(grammarAccess.getModuleAccess().getPartsPartSpecificationParserRuleCall_4_5_2_0()); 
 	    }
-		lv_parts_11_0=rulePartSpecification		{
+		lv_parts_12_0=rulePartSpecification		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getModuleRule());
 	        }
        		add(
        			$current, 
        			"parts",
-        		lv_parts_11_0, 
+        		lv_parts_12_0, 
         		"PartSpecification");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*	otherlv_12='}' 
+)*	otherlv_13='}' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getModuleAccess().getRightCurlyBracketKeyword_3_5_3());
+    	newLeafNode(otherlv_13, grammarAccess.getModuleAccess().getRightCurlyBracketKeyword_4_5_3());
     }
 ))
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getModuleAccess().getUnorderedGroup_3());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getModuleAccess().getUnorderedGroup_4());
 	 				}
  				)
 			)  
@@ -446,14 +464,57 @@ ruleModule returns [EObject current=null]
 	)
 )
 	{ 
-	  getUnorderedGroupHelper().leave(grammarAccess.getModuleAccess().getUnorderedGroup_3());
+	  getUnorderedGroupHelper().leave(grammarAccess.getModuleAccess().getUnorderedGroup_4());
 	}
 
-)	otherlv_13='}' 
+)	otherlv_14='}' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getModuleAccess().getRightCurlyBracketKeyword_4());
+    	newLeafNode(otherlv_14, grammarAccess.getModuleAccess().getRightCurlyBracketKeyword_5());
     }
 )
+;
+
+
+
+
+
+// Entry rule entryRuleExtendsClause
+entryRuleExtendsClause returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getExtendsClauseRule()); }
+	 iv_ruleExtendsClause=ruleExtendsClause 
+	 { $current=$iv_ruleExtendsClause.current; } 
+	 EOF 
+;
+
+// Rule ExtendsClause
+ruleExtendsClause returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='extends' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getExtendsClauseAccess().getExtendsKeyword_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getExtendsClauseAccess().getSuperTypeJvmTypeReferenceParserRuleCall_1_0()); 
+	    }
+		lv_superType_1_0=ruleJvmTypeReference		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getExtendsClauseRule());
+	        }
+       		set(
+       			$current, 
+       			"superType",
+        		lv_superType_1_0, 
+        		"JvmTypeReference");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
 ;
 
 
@@ -1220,6 +1281,8 @@ ruleViewerContentProvider returns [EObject current=null]
     }
 )
 ;
+
+
 
 
 

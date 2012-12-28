@@ -18,7 +18,7 @@ QualifiedNameWithWildcard:
 ;
 
 Module:
-	'module' name=QualifiedName '{'
+	'module' name=QualifiedName (extendsClause=ExtendsClause)? '{'
 		(
 			(labelProvider = LabelProvider)?
 			&
@@ -36,6 +36,8 @@ Module:
 		)
 	'}'
 ;
+
+ExtendsClause: 'extends' superType=JvmTypeReference;
 
 LabelProvider:
 	{LabelProvider} 'labelProvider' '{'
@@ -123,6 +125,11 @@ EmfFeatureAccess:
 	PropertyDescriptionSpecification |
 	FeatureSpecification |
 	FormControlSpecification
+;
+
+// a utility base class for rules with 'extends' clause
+WithExtendsClause:
+	Module
 ;
 
 PartSpecification: ViewSpecification;

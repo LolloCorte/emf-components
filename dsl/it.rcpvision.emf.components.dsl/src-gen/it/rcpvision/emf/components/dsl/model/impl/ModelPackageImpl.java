@@ -3,6 +3,7 @@
 package it.rcpvision.emf.components.dsl.model.impl;
 
 import it.rcpvision.emf.components.dsl.model.EmfFeatureAccess;
+import it.rcpvision.emf.components.dsl.model.ExtendsClause;
 import it.rcpvision.emf.components.dsl.model.FeatureSpecification;
 import it.rcpvision.emf.components.dsl.model.FeaturesProvider;
 import it.rcpvision.emf.components.dsl.model.FormControlFactory;
@@ -19,6 +20,7 @@ import it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification;
 import it.rcpvision.emf.components.dsl.model.ViewSpecification;
 import it.rcpvision.emf.components.dsl.model.ViewerContentProvider;
+import it.rcpvision.emf.components.dsl.model.WithExtendsClause;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -59,6 +61,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * @generated
    */
   private EClass moduleEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass extendsClauseEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -129,6 +138,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * @generated
    */
   private EClass emfFeatureAccessEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass withExtendsClauseEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -285,7 +301,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModule_LabelProvider()
+  public EReference getModule_ExtendsClause()
   {
     return (EReference)moduleEClass.getEStructuralFeatures().get(1);
   }
@@ -295,7 +311,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModule_PropertyDescriptionProvider()
+  public EReference getModule_LabelProvider()
   {
     return (EReference)moduleEClass.getEStructuralFeatures().get(2);
   }
@@ -305,7 +321,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModule_FeaturesProvider()
+  public EReference getModule_PropertyDescriptionProvider()
   {
     return (EReference)moduleEClass.getEStructuralFeatures().get(3);
   }
@@ -315,7 +331,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModule_FormControlFactory()
+  public EReference getModule_FeaturesProvider()
   {
     return (EReference)moduleEClass.getEStructuralFeatures().get(4);
   }
@@ -325,7 +341,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModule_ViewerContentProvider()
+  public EReference getModule_FormControlFactory()
   {
     return (EReference)moduleEClass.getEStructuralFeatures().get(5);
   }
@@ -335,9 +351,39 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModule_Parts()
+  public EReference getModule_ViewerContentProvider()
   {
     return (EReference)moduleEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModule_Parts()
+  {
+    return (EReference)moduleEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getExtendsClause()
+  {
+    return extendsClauseEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExtendsClause_SuperType()
+  {
+    return (EReference)extendsClauseEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -605,6 +651,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getWithExtendsClause()
+  {
+    return withExtendsClauseEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPartSpecification()
   {
     return partSpecificationEClass;
@@ -699,12 +755,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
 
     moduleEClass = createEClass(MODULE);
     createEAttribute(moduleEClass, MODULE__NAME);
+    createEReference(moduleEClass, MODULE__EXTENDS_CLAUSE);
     createEReference(moduleEClass, MODULE__LABEL_PROVIDER);
     createEReference(moduleEClass, MODULE__PROPERTY_DESCRIPTION_PROVIDER);
     createEReference(moduleEClass, MODULE__FEATURES_PROVIDER);
     createEReference(moduleEClass, MODULE__FORM_CONTROL_FACTORY);
     createEReference(moduleEClass, MODULE__VIEWER_CONTENT_PROVIDER);
     createEReference(moduleEClass, MODULE__PARTS);
+
+    extendsClauseEClass = createEClass(EXTENDS_CLAUSE);
+    createEReference(extendsClauseEClass, EXTENDS_CLAUSE__SUPER_TYPE);
 
     labelProviderEClass = createEClass(LABEL_PROVIDER);
     createEReference(labelProviderEClass, LABEL_PROVIDER__LABEL_SPECIFICATIONS);
@@ -741,6 +801,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
 
     emfFeatureAccessEClass = createEClass(EMF_FEATURE_ACCESS);
     createEReference(emfFeatureAccessEClass, EMF_FEATURE_ACCESS__PARAMETER_TYPE);
+
+    withExtendsClauseEClass = createEClass(WITH_EXTENDS_CLAUSE);
 
     partSpecificationEClass = createEClass(PART_SPECIFICATION);
 
@@ -784,6 +846,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    moduleEClass.getESuperTypes().add(this.getWithExtendsClause());
     propertyDescriptionSpecificationEClass.getESuperTypes().add(this.getEmfFeatureAccess());
     featureSpecificationEClass.getESuperTypes().add(this.getEmfFeatureAccess());
     formControlSpecificationEClass.getESuperTypes().add(this.getEmfFeatureAccess());
@@ -799,12 +862,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
 
     initEClass(moduleEClass, Module.class, "Module", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getModule_Name(), ecorePackage.getEString(), "name", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModule_ExtendsClause(), this.getExtendsClause(), null, "extendsClause", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_LabelProvider(), this.getLabelProvider(), null, "labelProvider", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_PropertyDescriptionProvider(), this.getPropertyDescriptionProvider(), null, "propertyDescriptionProvider", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_FeaturesProvider(), this.getFeaturesProvider(), null, "featuresProvider", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_FormControlFactory(), this.getFormControlFactory(), null, "formControlFactory", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_ViewerContentProvider(), this.getViewerContentProvider(), null, "viewerContentProvider", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_Parts(), this.getPartSpecification(), null, "parts", null, 0, -1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(extendsClauseEClass, ExtendsClause.class, "ExtendsClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExtendsClause_SuperType(), theTypesPackage.getJvmTypeReference(), null, "superType", null, 0, 1, ExtendsClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(labelProviderEClass, LabelProvider.class, "LabelProvider", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getLabelProvider_LabelSpecifications(), this.getLabelSpecification(), null, "labelSpecifications", null, 0, -1, LabelProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -841,6 +908,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
 
     initEClass(emfFeatureAccessEClass, EmfFeatureAccess.class, "EmfFeatureAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEmfFeatureAccess_ParameterType(), theTypesPackage.getJvmTypeReference(), null, "parameterType", null, 0, 1, EmfFeatureAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(withExtendsClauseEClass, WithExtendsClause.class, "WithExtendsClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(partSpecificationEClass, PartSpecification.class, "PartSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

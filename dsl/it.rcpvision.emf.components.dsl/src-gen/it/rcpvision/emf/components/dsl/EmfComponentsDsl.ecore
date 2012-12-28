@@ -11,8 +11,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="Import">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Module">
+  <eClassifiers xsi:type="ecore:EClass" name="Module" eSuperTypes="#//WithExtendsClause">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extendsClause" eType="#//ExtendsClause"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="labelProvider" eType="#//LabelProvider"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertyDescriptionProvider"
@@ -25,6 +27,10 @@
         eType="#//ViewerContentProvider" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parts" upperBound="-1"
         eType="#//PartSpecification" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtendsClause">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="superType" eType="ecore:EClass ../../../../../../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LabelProvider">
     <eStructuralFeatures xsi:type="ecore:EReference" name="labelSpecifications" upperBound="-1"
@@ -78,6 +84,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameterType" eType="ecore:EClass ../../../../../../../org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WithExtendsClause"/>
   <eClassifiers xsi:type="ecore:EClass" name="PartSpecification"/>
   <eClassifiers xsi:type="ecore:EClass" name="ViewSpecification" eSuperTypes="#//PartSpecification">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

@@ -39,4 +39,14 @@ public class EmfComponentsDslValidatorTests extends EmfComponentsDslAbstractTest
       EmfComponentsDslJavaValidator.NOT_EOBJECT, 
       "Must be an EObject derived class");
   }
+  
+  @Test
+  public void testValidModuleExtends() {
+    CharSequence _notValidModuleExtends = this.inputsWithErrors.notValidModuleExtends();
+    final Model model = this.parseModel(_notValidModuleExtends);
+    EClass _extendsClause = ModelPackage.eINSTANCE.getExtendsClause();
+    this._validationTestHelper.assertError(model, _extendsClause, 
+      EmfComponentsDslJavaValidator.NOT_EMFCOMPONENTS_MODULE, 
+      "Must be an EmfComponentsGuiceModule derived class");
+  }
 }

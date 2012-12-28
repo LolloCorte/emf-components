@@ -7,6 +7,7 @@ import org.eclipse.xtext.common.types.JvmTypeReference
 import org.eclipse.xtext.common.types.util.TypeReferences
 import org.eclipse.xtext.xbase.typing.XbaseTypeConformanceComputer
 import org.eclipse.ui.IViewPart
+import it.rcpvision.emf.components.EmfComponentsGuiceModule
 
 class EmfComponentsDslTypeSystem {
 	@Inject
@@ -33,5 +34,10 @@ class EmfComponentsDslTypeSystem {
 	def isViewPart(JvmTypeReference type, EObject context) {
 		isConformant(typeReferences.getTypeForName(
 				typeof(IViewPart), context), type);
+	}
+
+	def isEmfComponentsGuiceModule(JvmTypeReference type, EObject context) {
+		isConformant(typeReferences.getTypeForName(
+				typeof(EmfComponentsGuiceModule), context), type);
 	}
 }

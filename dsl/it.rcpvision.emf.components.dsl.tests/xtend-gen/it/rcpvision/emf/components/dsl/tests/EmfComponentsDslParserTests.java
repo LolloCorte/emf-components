@@ -27,6 +27,12 @@ public class EmfComponentsDslParserTests extends EmfComponentsDslAbstractTests {
   }
   
   @Test
+  public void testModuleWithExtends() {
+    CharSequence _moduleWithExtends = this.inputs.moduleWithExtends();
+    this.parseAndAssertNoError(_moduleWithExtends);
+  }
+  
+  @Test
   public void testEmptyLabelProvider() {
     CharSequence _emptyLabelProvider = this.inputs.emptyLabelProvider();
     this.parseAndAssertNoError(_emptyLabelProvider);

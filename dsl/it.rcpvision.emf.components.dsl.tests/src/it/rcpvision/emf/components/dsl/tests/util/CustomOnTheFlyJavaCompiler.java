@@ -176,7 +176,7 @@ public class CustomOnTheFlyJavaCompiler extends OnTheFlyJavaCompiler {
 			URLClassLoader loader = new URLClassLoader(new URL[] { url },
 					parentClassLoader);
 			Class<?> class1 = loader.loadClass(classname);
-			loader.close();
+			// loader.close(); in Java 1.7
 			return class1;
 		} catch (RuntimeException e) {
 			throw e;
