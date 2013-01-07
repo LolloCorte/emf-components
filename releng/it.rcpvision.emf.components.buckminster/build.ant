@@ -18,17 +18,18 @@
 <project name="Buckminster Headless" default="buckminster">
 	<import file="common.ant" as="common" />
 
-	<target name="buckminster" depends="common.cleanup" description="description">
+	<target name="buckminster" depends="common.cleanup,install.buckminster.headless" description="description">
 
 		<fail unless="buckminster.home" message="buckminster.home must be specified." />
 
 		<property name="perform.commands.file" location="${projects.location}/releng/it.rcpvision.emf.components.buckminster/headless-perform-commands.txt" />
-
+		<property name="perform.properties.file" location="${projects.location}/releng/it.rcpvision.emf.components.buckminster/perform.properties" />
+		
 		<echo message="IMPORTANT: Populating an empty target platform may took over 10 minutes." />
 		<echo message="eclipse.download: ${eclipse.download}" />
 
-		<run_buckminster commandsfile="${resolve.commands.file}" />
-		<run_buckminster commandsfile="${perform.commands.file}" />
+		<run_buckminster commandsfile="${resolve.commands.file}" propertiesfile="${perform.properties.file}" />
+		<run_buckminster commandsfile="${perform.commands.file}" propertiesfile="${perform.properties.file}" />
 
 		<echo message=" " />
 		<echo message="Updatesite output in: ${build.root}/buckminster.output/it.rcpvision.emf.components.site_*-eclipse.feature/site.p2/" />
