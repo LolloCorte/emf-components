@@ -25,22 +25,6 @@ It aims at providing a set of Components like Trees, Tables and Detail Forms tha
          id="it.rcpvision.emf.components.feature"
          version="0.0.0"/>
 
-   <requires>
-      <import plugin="org.eclipse.ui"/>
-      <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="it.rcpvision.emf.components" version="0.1.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf" version="2.6.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.common.ui" version="2.6.0" match="greaterOrEqual"/>
-      <import plugin="org.junit4" version="4.8.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.cdo.net4j" version="3.0.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.net4j.tcp" version="3.0.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.net4j.util.ui" version="3.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.query" version="1.2.100" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.ecore.change" version="2.5.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.edit" version="2.6.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.core.databinding.property" version="1.4.0" match="greaterOrEqual"/>
-   </requires>
-
    <plugin
          id="it.rcpvision.emf.components.cdo"
          download-size="0"
