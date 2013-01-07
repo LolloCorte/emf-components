@@ -11,5 +11,5 @@ Export-Package: it.rcpvision.emf.components.examples.mail,
  it.rcpvision.emf.components.examples.mail.impl,
  it.rcpvision.emf.components.examples.mail.util
 Require-Bundle: org.eclipse.core.runtime;bundle-version="3.5.0",
- org.eclipse.emf.ecore;visibility:=reexport
+ org.eclipse.emf.ecore;bundle-version="2.7.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy
