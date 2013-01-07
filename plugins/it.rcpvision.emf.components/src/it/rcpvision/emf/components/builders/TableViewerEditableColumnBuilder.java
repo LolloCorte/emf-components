@@ -34,9 +34,9 @@ public class TableViewerEditableColumnBuilder extends TableViewerColumnBuilder {
 	@Override
 	protected TableViewerColumn buildTableViewerColumn(TableViewer tableViewer,
 			TableLayout layout, EStructuralFeature eStructuralFeature,
-			IStructuredContentProvider contentProvider) {
+			IStructuredContentProvider contentProvider, int weight) {
 		TableViewerColumn viewerColumn= super.buildTableViewerColumn(tableViewer, layout, eStructuralFeature,
-				contentProvider);
+				contentProvider, weight);
 
 		if(eStructuralFeature instanceof EAttribute){
 			if(isPredefinedValueEditing((EAttribute)eStructuralFeature)){
