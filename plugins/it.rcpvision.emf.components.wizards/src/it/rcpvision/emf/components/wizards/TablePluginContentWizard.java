@@ -12,7 +12,8 @@ public class TablePluginContentWizard extends NewPluginTemplateWizard {
 	public void init(IFieldData data) {
 	   super.init(data);
 	   fData = data;
-	   setWindowTitle("Simple View Wizard");      
+	   // not available in Indigo
+	   // setWindowTitle("Simple View Wizard");      
 	}
 
 	public ITemplateSection[] createTemplateSections() {
