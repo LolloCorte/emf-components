@@ -17,7 +17,7 @@ import it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification;
 import it.rcpvision.emf.components.dsl.model.ViewerContentProvider;
 import it.rcpvision.emf.components.generator.common.EmfComponentsProjectFilesGenerator;
-import it.rcpvision.emf.components.ui.provider.FeaturesProvider.EClassToEStructuralFeatureAsStringsMap;
+import it.rcpvision.emf.components.ui.provider.EClassToEStructuralFeatureAsStringsMap;
 import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 import java.util.Arrays;
 import java.util.List;

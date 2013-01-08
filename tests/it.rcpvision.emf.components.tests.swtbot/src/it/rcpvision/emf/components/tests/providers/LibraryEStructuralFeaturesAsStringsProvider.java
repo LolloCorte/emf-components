@@ -4,6 +4,7 @@
 package it.rcpvision.emf.components.tests.providers;
 
 import static it.rcpvision.emf.components.examples.library.EXTLibraryPackage.Literals.*;
+import it.rcpvision.emf.components.ui.provider.EClassToEStructuralFeatureAsStringsMap;
 import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
 
 /**

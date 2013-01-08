@@ -570,9 +570,9 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.append("package my.empty.ui.provider;");
     _builder_1.newLine();
     _builder_1.newLine();
-    _builder_1.append("import it.rcpvision.emf.components.ui.provider.FeaturesProvider;");
+    _builder_1.append("import it.rcpvision.emf.components.ui.provider.EClassToEStructuralFeatureAsStringsMap;");
     _builder_1.newLine();
-    _builder_1.append("import it.rcpvision.emf.components.ui.provider.FeaturesProvider.EClassToEStructuralFeatureAsStringsMap;");
+    _builder_1.append("import it.rcpvision.emf.components.ui.provider.FeaturesProvider;");
     _builder_1.newLine();
     _builder_1.newLine();
     _builder_1.append("public class FeaturesProviderGen extends FeaturesProvider {");

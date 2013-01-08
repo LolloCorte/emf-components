@@ -8,8 +8,8 @@ import it.rcpvision.emf.components.dsl.model.Module
 import it.rcpvision.emf.components.dsl.model.PartSpecification
 import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider
 import it.rcpvision.emf.components.generator.common.EmfComponentsProjectFilesGenerator
+import it.rcpvision.emf.components.ui.provider.EClassToEStructuralFeatureAsStringsMap
 import it.rcpvision.emf.components.ui.provider.FeaturesProvider
-import it.rcpvision.emf.components.ui.provider.FeaturesProvider$EClassToEStructuralFeatureAsStringsMap
 import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider
 import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider
 import org.eclipse.core.databinding.DataBindingContext
@@ -248,7 +248,7 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 					annotations += element.toAnnotation(typeof(Override))
 					parameters += element.featuresProvider.toParameter("stringMap",
 							element.newTypeRef(
-								typeof(FeaturesProvider$EClassToEStructuralFeatureAsStringsMap)
+								typeof(EClassToEStructuralFeatureAsStringsMap)
 							)
 					)
 					body = [

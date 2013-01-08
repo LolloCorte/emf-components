@@ -1,7 +1,7 @@
 package it.rcpvision.emf.components.examples.mail.mailsview.ui.provider;
 
+import it.rcpvision.emf.components.ui.provider.EClassToEStructuralFeatureAsStringsMap;
 import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
-import it.rcpvision.emf.components.ui.provider.FeaturesProvider.EClassToEStructuralFeatureAsStringsMap;
 
 public class FeaturesProviderGen extends FeaturesProvider {
   @Override

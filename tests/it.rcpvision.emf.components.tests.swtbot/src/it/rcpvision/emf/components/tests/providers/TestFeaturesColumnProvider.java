@@ -6,6 +6,7 @@ package it.rcpvision.emf.components.tests.providers;
 import static it.rcpvision.emf.components.examples.library.EXTLibraryPackage.Literals.AUDIO_VISUAL_ITEM;
 import static it.rcpvision.emf.components.examples.library.EXTLibraryPackage.Literals.AUDIO_VISUAL_ITEM__DAMAGED;
 import it.rcpvision.emf.components.examples.library.BookOnTape;
+import it.rcpvision.emf.components.ui.provider.EClassToEStructuralFeatureAsStringsMap;
 import it.rcpvision.emf.components.ui.provider.FeaturesColumnProvider;
 
 /**

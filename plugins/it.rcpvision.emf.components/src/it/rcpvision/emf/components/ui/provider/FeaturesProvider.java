@@ -40,17 +40,6 @@ public class FeaturesProvider {
 
 	}
 
-	public static class EClassToEStructuralFeatureAsStringsMap extends
-			HashMap<String, List<String>> {
-
-		private static final long serialVersionUID = -5838485782229839444L;
-
-		public void mapTo(String eClass, String... features) {
-			put(eClass, Lists.newArrayList(features));
-		}
-
-	}
-
 	protected EClassToEStructuralFeatureMap map = null;
 
 	protected EClassToEStructuralFeatureAsStringsMap stringMap = null;
