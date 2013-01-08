@@ -5,8 +5,8 @@ Bundle-SymbolicName: it.rcpvision.emf.components.examples.mail.rcp; singleton:=t
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: it.rcpvision.emf.components.examples.mail.rcp.Activator
 Bundle-Vendor: Rcp-Vision
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
+Require-Bundle: org.eclipse.ui;bundle-version="3.5.0",
+ org.eclipse.core.runtime;bundle-version="3.5.0",
  it.rcpvision.emf.components.examples.mail.accountsview;bundle-version="1.0.0",
  it.rcpvision.emf.components.examples.mail.mailsview;bundle-version="1.0.0",
  it.rcpvision.emf.components.examples.mail.messageview;bundle-version="1.0.0",
