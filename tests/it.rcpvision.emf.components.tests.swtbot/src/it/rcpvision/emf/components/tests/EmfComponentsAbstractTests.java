@@ -780,6 +780,13 @@ public class EmfComponentsAbstractTests {
 				"expected no error markers: " + printMarkers(errorMarkers), 0,
 				errorMarkers.size());
 	}
+	
+	protected void setEditorContentsSaveAndWaitForAutoBuild(
+			SWTBotEditor editor, CharSequence contents) throws CoreException {
+		editor.toTextEditor().setText(contents.toString());
+		editor.save();
+		assertNoErrorsInProjectAfterAutoBuild();
+	}
 
 	private String printMarkers(List<IMarker> errorMarkers) {
 		StringBuffer buffer = new StringBuffer();
