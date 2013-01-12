@@ -98,9 +98,8 @@ code[EmfComponents][
 	viewclass it.rcpvision.emf.components.examples.firstexample.views.LibraryTreeFormView
 ]
 
-when you save the above file you will notice that a new file (e["plugin.xml.emfcomponents_gen"]) 
-is generated into e["emfcomponents-gen"] source folder. Just copy this file into the project root and
-rename it to e["plugin.xml"].
+when you save the above file you will notice that a new file (e["plugin.xml_emfcomponents_gen"]) 
+is generated into the root folder of your project. Just copy this file into e["plugin.xml"].
 
 Let's focus briefly on the above e[createResourceURI()] method: our goal is allowing to manage 
 a library model instance which persists on a EMF Resource.
