@@ -8,6 +8,7 @@ import it.rcpvision.emf.components.dsl.jvmmodel.EmfComponentsDslJvmModelInferrer
 import it.rcpvision.emf.components.dsl.model.ViewSpecification
 import it.rcpvision.emf.components.dsl.model.Module
 import it.rcpvision.emf.components.dsl.model.PartSpecification
+import static it.rcpvision.emf.components.dsl.generator.EmfComponentsDslOutputConfigurationProvider.*
 
 class EmfComponentsDslPluginXmlGenerator implements IGenerator {
 	
@@ -18,7 +19,8 @@ class EmfComponentsDslPluginXmlGenerator implements IGenerator {
 			val contents = module.generatePluginXml
 			if (contents?.length > 0)
 				fsa.generateFile(
-	            	EmfComponentsDslOutputConfigurationProvider::PLUGIN_XML_EMFCOMPONENTS_GEN,
+	            	PLUGIN_XML_EMFCOMPONENTS_GEN_PATH,
+					PROJECT_ROOT_OUTPUT,
 	            	contents)
 		}
 	}

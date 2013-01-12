@@ -3,9 +3,11 @@
  */
 package it.rcpvision.emf.components.dsl.ui;
 
+import it.rcpvision.emf.components.dsl.ui.builder.EmfComponentsDslDerivedResourceMarkers;
 import it.rcpvision.emf.components.dsl.ui.wizard.EmfComponentsDslProjectCreatorCustom;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.generator.IDerivedResourceMarkers;
 import org.eclipse.xtext.ui.wizard.IProjectCreator;
 
 /**
@@ -20,5 +22,9 @@ public class EmfComponentsDslUiModule extends
 	@Override
 	public Class<? extends IProjectCreator> bindIProjectCreator() {
 		return EmfComponentsDslProjectCreatorCustom.class;
+	}
+	
+	public Class<? extends IDerivedResourceMarkers> bindIDerivedResourceMarkers() {
+		return EmfComponentsDslDerivedResourceMarkers.class;
 	}
 }

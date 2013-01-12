@@ -267,7 +267,9 @@ public class EmfComponentsDslPluginXmlGeneratorTests extends EmfComponentsDslAbs
     this.assertEqualsStrings(Integer.valueOf(1), Integer.valueOf(_size));
     final Entry<String,CharSequence> e = IterableExtensions.<Entry<String,CharSequence>>head(entrySet);
     String _key = e.getKey();
-    int _length = "DEFAULT_OUTPUT".length();
+    String _plus = (EmfComponentsDslOutputConfigurationProvider.PROJECT_ROOT_OUTPUT + 
+      EmfComponentsDslOutputConfigurationProvider.PLUGIN_XML_EMFCOMPONENTS_REL_GEN_PATH);
+    int _length = _plus.length();
     final String name = _key.substring(_length);
     this.assertEqualsStrings(
       EmfComponentsDslOutputConfigurationProvider.PLUGIN_XML_EMFCOMPONENTS_GEN, name);

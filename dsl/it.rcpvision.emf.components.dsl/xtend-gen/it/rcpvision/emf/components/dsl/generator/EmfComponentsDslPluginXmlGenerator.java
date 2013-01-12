@@ -39,7 +39,8 @@ public class EmfComponentsDslPluginXmlGenerator implements IGenerator {
         boolean _greaterThan = (_length > 0);
         if (_greaterThan) {
           fsa.generateFile(
-            EmfComponentsDslOutputConfigurationProvider.PLUGIN_XML_EMFCOMPONENTS_GEN, contents);
+            EmfComponentsDslOutputConfigurationProvider.PLUGIN_XML_EMFCOMPONENTS_GEN_PATH, 
+            EmfComponentsDslOutputConfigurationProvider.PROJECT_ROOT_OUTPUT, contents);
         }
       }
     }

@@ -548,7 +548,7 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
 					// check the expected Java code for the module
 					if (expectedViewerContentProvider != null)
 						assertEqualsStrings(expectedViewerContentProvider, e.value)
-				} else if (e.key.endsWith(".xml.emfcomponents_gen")) {
+				} else if (e.key.endsWith(".xml_emfcomponents_gen")) {
 					// check the expected Java code for the module
 					if (expectedPluginXmlGen != null)
 						assertEqualsStrings(expectedPluginXmlGen, e.value)

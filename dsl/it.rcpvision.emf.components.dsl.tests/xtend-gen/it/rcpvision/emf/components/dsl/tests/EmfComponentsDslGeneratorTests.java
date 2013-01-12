@@ -1133,7 +1133,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
                         }
                       } else {
                         String _key_6 = e.getKey();
-                        boolean _endsWith_6 = _key_6.endsWith(".xml.emfcomponents_gen");
+                        boolean _endsWith_6 = _key_6.endsWith(".xml_emfcomponents_gen");
                         if (_endsWith_6) {
                           boolean _notEquals_6 = (!Objects.equal(expectedPluginXmlGen, null));
                           if (_notEquals_6) {
