@@ -42,6 +42,7 @@
 				<filterchain>
 					<tokenfilter>
 						<replaceregex pattern="\\" replace="/" flags="g" />
+						<replaceregex pattern=" " replace="\\ " flags="g" />
 					</tokenfilter>
 				</filterchain>
 			</loadfile>
