@@ -19,14 +19,15 @@ public class Perspective implements IPerspectiveFactory {
 		layout.setEditorAreaVisible(false);
 		
 		//layout.addStandaloneView(NavigationView.ID,  false, IPageLayout.LEFT, 0.25f, editorArea);
-		layout.addStandaloneView(AccountsView.ID, true, IPageLayout.LEFT, 0.25f, editorArea);
-		layout.addStandaloneView(MailsView.ID, true, IPageLayout.TOP, 0.25f, editorArea);
-		layout.addStandaloneView(MessageView.ID, true, IPageLayout.BOTTOM, 0.25f, editorArea);
+		// don't show the view tabs
+//		layout.addStandaloneView(AccountsView.ID, true, IPageLayout.LEFT, 0.25f, editorArea);
+//		layout.addStandaloneView(MailsView.ID, true, IPageLayout.TOP, 0.25f, editorArea);
+//		layout.addStandaloneView(MessageView.ID, true, IPageLayout.BOTTOM, 0.25f, editorArea);
 
 		// if you want to show the view tabs
-//		layout.addView(AccountsView.ID, IPageLayout.LEFT, 0.25f, editorArea);
-//		layout.addView(MailsView.ID, IPageLayout.TOP, 0.25f, editorArea);
-//		layout.addView(MessageView.ID, IPageLayout.BOTTOM, 0.25f, editorArea);
+		layout.addView(AccountsView.ID, IPageLayout.LEFT, 0.25f, editorArea);
+		layout.addView(MailsView.ID, IPageLayout.TOP, 0.25f, editorArea);
+		layout.addView(MessageView.ID, IPageLayout.BOTTOM, 0.25f, editorArea);
 		
 //		IFolderLayout folder = layout.createFolder("messages", IPageLayout.TOP, 0.5f, editorArea);
 //		folder.addPlaceholder(View.ID + ":*");
