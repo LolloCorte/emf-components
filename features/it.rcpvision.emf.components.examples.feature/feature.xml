@@ -30,38 +30,6 @@ It aims at providing a set of Components like Trees, Tables and Detail Forms tha
          version="0.0.0"/>
 
    <plugin
-         id="it.rcpvision.emf.components.examples.library"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
-
-   <plugin
-         id="it.rcpvision.emf.components.examples.library.edit"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
-
-   <plugin
-         id="it.rcpvision.emf.components.examples.library.editor"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
-
-   <plugin
-         id="it.rcpvision.emf.components.examples.fowlerdsl"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="it.rcpvision.emf.components.examples.fowlerdsl.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="it.rcpvision.emf.components.examples"
          download-size="0"
          install-size="0"
