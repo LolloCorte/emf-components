@@ -1,33 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-   <extension
-         point="org.eclipse.ui.views">
-       <view
-               class="it.rcpvision.emf.components.examples.EmfComponentsExamplesExecutableExtensionFactory:it.rcpvision.emf.components.examples.views.ResourceTreeFormView"
-               id="it.rcpvision.emf.components.examples.resourcetreeformview"
-               name="Resource Tree Form View"
-               restorable="true">
-         </view> 
-       <view
-               class="it.rcpvision.emf.components.examples.EmfComponentsExamplesExecutableExtensionFactory:it.rcpvision.emf.components.examples.views.SaveableResourceTreeFormView"
-               id="it.rcpvision.emf.components.examples.views.saveableresourcetreeformview"
-               name="Saveable Resource Tree Form View"
-               restorable="true">
-         </view>
-          <view
-               class="it.rcpvision.emf.components.examples.EmfComponentsExamplesExecutableExtensionFactory:it.rcpvision.emf.components.examples.views.SaveableResourceTableView"
-               id="it.rcpvision.emf.components.examples.views.saveableresourcetableview"
-               name="Saveable Resource Table View"
-               restorable="true">
-         </view>
-          <view
-               class="it.rcpvision.emf.components.examples.EmfComponentsExamplesExecutableExtensionFactory:it.rcpvision.emf.components.examples.views.ResourceQueryView"
-               id="it.rcpvision.emf.components.examples.views.resourcequeryview"
-               name="Resource Query View"
-               restorable="true">
-         </view>
-   </extension>
    
     <extension
          point="org.eclipse.ui.views">
