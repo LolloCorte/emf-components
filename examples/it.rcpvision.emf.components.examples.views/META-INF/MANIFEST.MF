@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Emf Components Examples
-Bundle-SymbolicName: it.rcpvision.emf.components.examples;singleton:=true
+Bundle-SymbolicName: it.rcpvision.emf.components.examples.views;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: it.rcpvision.emf.components.examples.Activator
 Require-Bundle: org.eclipse.ui;bundle-version="3.5.0",

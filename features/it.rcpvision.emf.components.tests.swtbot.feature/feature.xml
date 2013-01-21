@@ -112,13 +112,6 @@
          unpack="false"/>
 
    <plugin
-         id="it.rcpvision.emf.components.examples"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="it.rcpvision.emf.components.ui.examples"
          download-size="0"
          install-size="0"
@@ -160,6 +153,12 @@
 
    <plugin
          id="it.rcpvision.emf.components.examples.library.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="it.rcpvision.emf.components.examples.views"
          download-size="0"
          install-size="0"
          version="0.0.0"/>
