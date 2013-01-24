@@ -2,6 +2,6 @@
 build
 #perform -D target.os=* -D target.ws=* -D target.arch=* it.rcpvision.emf.components.site#buckminster.clean
 perform -D target.os=* -D target.ws=* -D target.arch=* it.rcpvision.emf.components.site#site.p2
-junit -l "it.rcpvision.emf.components.cdo.tests/CDOUriTests.launch" --stderr -o "${buckminster.output.root}/test.results/CDOUriTests_junit_result.xml"
-junit -l "it.rcpvision.emf.components.dsl.tests/EmfComponentsDslAllTests.launch" --stderr -o "${buckminster.output.root}/test.results/EmfComponentsDslAllTests_junit_result.xml"
-junit -l "it.rcpvision.emf.components.tests.swtbot/EmfComponentsSwtBotAllTests.launch" --stderr -o "${buckminster.output.root}/test.results/EmfComponentsSwtBotAllTests_junit_result.xml"
+junit -l "it.rcpvision.emf.components.cdo.tests/CDOUriTests.launch" --flatXML -o "${buckminster.output.root}/test.results/CDOUriTests_junit_result.xml"
+junit -l "it.rcpvision.emf.components.dsl.tests/EmfComponentsDslAllTests.launch" --flatXML -o "${buckminster.output.root}/test.results/EmfComponentsDslAllTests_junit_result.xml"
+junit -l "it.rcpvision.emf.components.tests.swtbot/EmfComponentsSwtBotAllTests.launch" --flatXML -o "${buckminster.output.root}/test.results/EmfComponentsSwtBotAllTests_junit_result.xml"
