@@ -2,9 +2,13 @@ The build.cquery is used to materialize the target platform and the
 projects in the workspace.
 
 The build-local.cquery is an example to materialize the target platform
-using a local eclipse mirror; it relies on local-mirror.properties which defines
-the base URL for eclipse repositories as eclipse.download=file:${user.home}/eclipsemirror
-thus, it assumes that the local mirror is in your home in the directory eclipsemirror
+using a local eclipse mirror obtained using the b3 aggregator on the
+file aggregator/target-platform-mirror.b3aggr; 
+
+it relies on build-local.properties which maps
+the URLs for eclipse repositories (used in the RMAP) to the
+local aggregated mirror which by default is stored into
+file:/${user.home}/mirror/emf-components-tp/final
 
 build.ant can be used to run an headless build, together with all the test suites.
 You must pass the location of your buckminster headless installation, e.g.,
@@ -12,9 +16,8 @@ You must pass the location of your buckminster headless installation, e.g.,
 -Dbuckminster.home=/path/to/buckminster 
 
 You can also pass additional properties as -D<key>=<value>, for instance, if you
-want to use a local eclipse mirror to materialize the target platform (see also target-platform-local.cquery
-above), you can specify
+want to use the local aggregated mirror, you must pass
 
--Declipse.download=file:/path/to/my/local/eclipse/mirror
+-Dbuild.properties=file:/path/to/build-local.properties
 
 Happy building with Bucky! :)

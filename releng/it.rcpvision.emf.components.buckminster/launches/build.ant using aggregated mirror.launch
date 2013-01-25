@@ -13,6 +13,6 @@
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="it.rcpvision.emf.components.buckminster"/>
 <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.ant.ui.AntClasspathProvider"/>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="${workspace_loc:/it.rcpvision.emf.components.buckminster/build.ant}"/>
-<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-Dbuckminster.home=${system_property:user.home}/buckminster -Dperform.properties.file=${container_loc}/local-mirror.properties"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-Dbuckminster.home=${system_property:user.home}/buckminster -Dbuild.properties=${project_loc:it.rcpvision.emf.components.buckminster}/build-local.properties"/>
 <stringAttribute key="process_factory_id" value="org.eclipse.ant.ui.remoteAntProcessFactory"/>
 </launchConfiguration>
