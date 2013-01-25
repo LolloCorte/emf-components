@@ -25,6 +25,7 @@
 	<property name="resolve.commands.file" location="${projects.location}/releng/it.rcpvision.emf.components.buckminster/headless-resolve-commands.txt" />
 
 	<property name="buckminster.home" location="${user.home}/buckminster" />
+	<property name="b3.home" location="${user.home}/b3" />
 		
 	<property name="director.install.dest" location="${user.home}" />
 	<property name="director.dir" location="${director.install.dest}/director" />
@@ -81,6 +82,27 @@
 			</java>
 		</sequential>
 	</macrodef>
+	
+	<!-- = = = = = = = = = = = = = = = = =
+          macrodef: run_b3_aggregator
+          pass the commandsfile to execute      
+         = = = = = = = = = = = = = = = = = -->
+	<macrodef name="run_b3_aggregator">
+		<attribute name="buildmodel" default="default" />
+		<sequential>
+			<java fork="true" dir="${b3.home}" logError="true" classname="org.eclipse.core.launcher.Main" failonerror="true">
+				<classpath>
+					<fileset dir="${b3.home}/plugins">
+						<include name="org.eclipse.equinox.launcher_*.jar" />
+					</fileset>
+				</classpath>
+				<arg line='aggregate' />
+				<arg line='--buildModel "@{buildmodel}"' />
+				<!-- <arg line='-L DEBUG' /> -->
+				<jvmarg line=" -Xms256m -Xmx512m" />
+			</java>
+		</sequential>
+	</macrodef>
 
 	<target name="cleanup">
 		<delete failonerror="false" includeemptydirs="true">
@@ -127,6 +149,33 @@
 			<arg line="-i org.eclipse.buckminster.core.headless.feature.feature.group" />
 			<arg line="-i org.eclipse.buckminster.pde.headless.feature.feature.group" />
 			<arg line="-i org.eclipse.buckminster.git.headless.feature.feature.group" />
+		</java>
+	</target>
+	
+	<target name="install.b3.headless">
+		<condition property="b3.headless.installed">
+			<available file="${b3.home}/b3" />
+		</condition>
+		<antcall target="install.b3.headless.internal" />
+	</target>
+
+	<target name="install.b3.headless.internal" unless="b3.headless.installed" >
+		<antcall target="install.p2.director" />
+		<echo message="" />
+		<echo message="Installing B3 Headless into ${b3.home}..." />
+		<java fork="true" dir="${director.dir}" logError="true" classname="org.eclipse.core.launcher.Main" failonerror="true">
+			<sysproperty key="eclipse.p2.mirrors" value="false" />
+			<classpath>
+				<fileset dir="${director.dir}/plugins">
+					<include name="org.eclipse.equinox.launcher_*.jar" />
+				</fileset>
+			</classpath>
+			<arg line='-data "${director.dir}/workspace"' />
+			<arg line="-r ${eclipse-download}/modeling/emft/b3/headless-4.2" />
+			<arg line='-d "${b3.home}"' />
+			<arg line="-p b3" />
+			<arg line="-i org.eclipse.b3.cli.product" />
+			<arg line="-i org.eclipse.b3.aggregator.engine.feature.feature.group" />
 		</java>
 	</target>
 

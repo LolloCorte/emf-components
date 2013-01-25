@@ -27,6 +27,7 @@
 		
 		<echo message="IMPORTANT: Populating an empty target platform may took over 10 minutes." />
 		<echo message="eclipse.download: ${eclipse.download}" />
+		<echo message="perform.properties.file: ${perform.properties.file}" />
 
 		<run_buckminster commandsfile="${resolve.commands.file}" propertiesfile="${perform.properties.file}" />
 		<run_buckminster commandsfile="${perform.commands.file}" propertiesfile="${perform.properties.file}" />
@@ -34,4 +35,18 @@
 		<echo message=" " />
 		<echo message="Updatesite output in: ${build.root}/buckminster.output/it.rcpvision.emf.components.site_*-eclipse.feature/site.p2/" />
 	</target>
+
+	<target name="b3_aggregation" depends="install.b3.headless" description="description">
+
+		<property name="build.model" location="${projects.location}/releng/it.rcpvision.emf.components.buckminster/aggregator/target-platform-mirror.b3aggr" />
+		
+		<echo message="IMPORTANT: Mirror sggregation may took over 10 minutes." />
+		<echo message="build.model: ${build.model}" />
+
+		<run_b3_aggregator buildmodel="${build.model}" />
+
+		<echo message=" " />
+		<echo message="Aggregated mirror in: ${user.home}/mirror/emf-components-tp/final" />
+	</target>
+
 </project>
