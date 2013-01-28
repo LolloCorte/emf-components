@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Emf Components Xtext Minimal Parts
+Bundle-Name: Emf Components Runtime Functionalities
 Bundle-SymbolicName: it.rcpvision.emf.components.runtime.common
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: RCP-VISION
