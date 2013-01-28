@@ -213,6 +213,8 @@ public class EmfComponentsAbstractTests {
 	
 	protected static final String EMF_COMPONENTS_FIRST_EXAMPLE = "Emf Components First Example";
 
+	protected static final String EMF_COMPONENTS_VIEWS_EXAMPLES = "Emf Components Views Examples";
+
 	protected static SWTWorkbenchBot bot;
 
 	protected static Map<String, String> editorNamesToId;

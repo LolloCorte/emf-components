@@ -51,6 +51,34 @@
 			<description>Emf Components First Example</description>
 		</wizard>
 	</extension>
+ <extension
+       point="org.eclipse.ui.newWizards">
+    <wizard
+          category="it.rcpvision.emf.components.wizards/it.rcpvision.emf.components.project.Examples"
+          class="org.eclipse.emf.common.ui.wizard.ExampleInstallerWizard"
+          icon="icons/genproject.gif"
+          id="it.rcpvision.emf.components.examples.ViewsExamples"
+          name="Emf Components Views Examples"
+          project="true">
+       <description>
+          Emf Components First Example
+       </description>
+    </wizard>
+ </extension>
+ <extension
+       point="org.eclipse.ui.newWizards">
+    <wizard
+          category="org.eclipse.ui.Examples/it.rcpvision.emf.components.ui.Examples"
+          class="org.eclipse.emf.common.ui.wizard.ExampleInstallerWizard"
+          icon="icons/genproject.gif"
+          id="it.rcpvision.emf.components.examples.ViewsExamples"
+          name="Emf Components Views Examples"
+          project="true">
+       <description>
+          Emf Components First Example
+       </description>
+    </wizard>
+ </extension>
    <extension
          point="org.eclipse.emf.common.ui.examples">
       <example
@@ -117,6 +145,18 @@
                contentURI="contents/it.rcpvision.emf.components.examples.firstexample.zip"
                description="Emf Components First Example"
                name="it.rcpvision.emf.components.examples.firstexample">
+         </projectDescriptor>
+      </example>
+   </extension>
+   <extension
+         point="org.eclipse.emf.common.ui.examples">
+      <example
+            pageImage="icons/genproject.gif"
+            wizardID="it.rcpvision.emf.components.examples.ViewsExamples">
+         <projectDescriptor
+               contentURI="contents/it.rcpvision.emf.components.examples.views.zip"
+               description="Emf Components Views Examples"
+               name="it.rcpvision.emf.components.examples.views">
          </projectDescriptor>
       </example>
    </extension>

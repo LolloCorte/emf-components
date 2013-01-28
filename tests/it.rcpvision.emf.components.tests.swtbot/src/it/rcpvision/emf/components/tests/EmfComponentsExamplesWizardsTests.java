@@ -28,4 +28,11 @@ public class EmfComponentsExamplesWizardsTests extends
 		assertNoErrorsInProjectAfterAutoBuild();
 	}
 
+	@Test
+	public void canCreateViewsExamplesProjectWithWizard() throws Exception {
+		createExampleProjectsInWorkspace(EMF_COMPONENTS_VIEWS_EXAMPLES,
+				"it.rcpvision.emf.components.examples.views");
+		assertNoErrorsInProjectAfterAutoBuild();
+	}
+
 }
