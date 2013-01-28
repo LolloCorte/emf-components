@@ -1,7 +1,7 @@
 /**
  * 
  */
-package it.rcpvision.emf.components.xtext.service;
+package it.rcpvision.emf.components.runtime.service;
 
 import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.ui.plugin.AbstractUIPlugin;

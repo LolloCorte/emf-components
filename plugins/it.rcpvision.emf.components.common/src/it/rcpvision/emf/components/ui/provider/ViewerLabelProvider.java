@@ -3,8 +3,8 @@
  */
 package it.rcpvision.emf.components.ui.provider;
 
-import it.rcpvision.emf.components.xtext.ui.IImageHelper;
-import it.rcpvision.emf.components.xtext.util.PolymorphicDispatcher;
+import it.rcpvision.emf.components.runtime.ui.IImageHelper;
+import it.rcpvision.emf.components.runtime.util.PolymorphicDispatcher;
 
 import org.eclipse.emf.ecore.util.FeatureMap.Entry;
 import org.eclipse.jface.resource.ImageDescriptor;

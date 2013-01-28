@@ -247,7 +247,7 @@
          unpack="false"/>
 
    <plugin
-         id="it.rcpvision.emf.components.xtext"
+         id="it.rcpvision.emf.components.runtime"
          download-size="0"
          install-size="0"
          version="0.0.0"

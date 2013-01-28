@@ -5,7 +5,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *******************************************************************************/
-package it.rcpvision.emf.components.xtext.service;
+package it.rcpvision.emf.components.runtime.service;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

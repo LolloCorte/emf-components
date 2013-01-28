@@ -4,8 +4,8 @@
 package it.rcpvision.emf.components.edit.ui.provider;
 
 import it.rcpvision.emf.components.factories.ViewerContentProviderFactory;
+import it.rcpvision.emf.components.runtime.util.PolymorphicDispatcher;
 import it.rcpvision.emf.components.util.EmfComponentsUtil;
-import it.rcpvision.emf.components.xtext.util.PolymorphicDispatcher;
 
 import java.util.List;
 

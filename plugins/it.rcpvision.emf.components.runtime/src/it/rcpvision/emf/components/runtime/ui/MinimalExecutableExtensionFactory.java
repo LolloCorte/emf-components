@@ -1,9 +1,9 @@
 /**
  * 
  */
-package it.rcpvision.emf.components.xtext.ui;
+package it.rcpvision.emf.components.runtime.ui;
 
-import it.rcpvision.emf.components.xtext.service.AbstractGenericModule;
+import it.rcpvision.emf.components.runtime.service.AbstractGenericModule;
 
 import com.google.inject.Injector;
 import static com.google.inject.Guice.createInjector;

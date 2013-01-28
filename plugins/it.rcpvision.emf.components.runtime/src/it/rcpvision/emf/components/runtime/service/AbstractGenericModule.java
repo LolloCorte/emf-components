@@ -1,4 +1,4 @@
-package it.rcpvision.emf.components.xtext.service;
+package it.rcpvision.emf.components.runtime.service;
 
 /*******************************************************************************
  * Copyright (c) 2008 itemis AG (http://www.itemis.eu) and others.

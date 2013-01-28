@@ -115,7 +115,7 @@ Just type the following content into the {} block (note that context assist is a
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">viewname</span>&nbsp;<span class="string">"My&nbsp;Library&nbsp;Tree&nbsp;Form"</span><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">viewclass</span>&nbsp;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-}<br/>
+}
 </p>
 </div>
 </div>
@@ -158,7 +158,7 @@ Now modify the view class code with this content:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;URI.createFileURI(&nbsp;System.getProperty(<span class="string">"user.home"</span>)&nbsp;+&nbsp;<span class="string">"/MyLibrary.library"</span>&nbsp;);<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
 <br/>
-}<br/>
+}
 </p>
 </div>
 </div>
@@ -168,13 +168,7 @@ Now get back to <em>module.emfcomponents</em> file, go just after <em>"viewclass
 and <em>Ctrl-Space</em>: the content assist will set automatically the correct qualified name
 </p>
 <p>
-<div class="literallayout">
-<div class="incode">
-<p class="code">
-<span class="keyword">viewclass</span>&nbsp;it.rcpvision.emf.components.examples.firstexample.views.LibraryTreeFormView<br/>
-</p>
-</div>
-</div>
+<span class="inlinecode"><span class="keyword">viewclass</span>&nbsp;it.rcpvision.emf.components.examples.firstexample.views.LibraryTreeFormView</span>
 </p>
 <p>
 when you save the above file you will notice that a new file (<em>"plugin.xml_emfcomponents_gen"</em>) 
@@ -214,7 +208,7 @@ An easy way to overcome this issue can be the following:
 		<p class="code">
 		<span class="keyword">public</span>&nbsp;Class&lt;?&nbsp;<span class="keyword">extends</span>&nbsp;EmptyResourceInitializer&gt;&nbsp;bindEmptyResourceInitializer()&nbsp;{<br/>
 		&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;LibraryEmptyResourceInitializer.<span class="keyword">class</span>;<br/>
-		}<br/>
+		}
 		</p>
 		</div>
 		</div>
@@ -238,7 +232,7 @@ An easy way to overcome this issue can be the following:
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resource.getContents().add(library);&nbsp;<br/>
 		&nbsp;&nbsp;&nbsp;}&nbsp;<br/>
 		<br/>
-		}&nbsp;<br/>
+		}
 		</p>
 		</div>
 		</div>
@@ -341,13 +335,7 @@ Well, it&apos;s indeed very easy to obtain this: just edit the <em>module.emfcom
 adding the following import (without ending line with ";")
 </p>
 <p>
-<div class="literallayout">
-<div class="incode">
-<p class="code">
-<span class="keyword">import</span>&nbsp;org.eclipse.emf.examples.extlibrary.*<br/>
-</p>
-</div>
-</div>
+<span class="inlinecode"><span class="keyword">import</span>&nbsp;org.eclipse.emf.examples.extlibrary.*</span>
 </p>
 <p>
 and then defining the features to show
@@ -369,7 +357,7 @@ and then defining the features to show
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Book&nbsp;-&gt;&nbsp;author,&nbsp;title,&nbsp;category<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-}<br/>
+}
 </p>
 </div>
 </div>
@@ -397,7 +385,7 @@ Do you want to change text used for attribute labels in the detail? Just add the
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Book&nbsp;:&nbsp;author&nbsp;-&gt;&nbsp;<span class="string">&apos;Wrote&nbsp;by:&apos;</span><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Writer&nbsp;:&nbsp;name&nbsp;-&gt;&nbsp;<span class="string">&apos;Name:&apos;</span><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-}<br/>
+}
 </p>
 </div>
 </div>
@@ -413,7 +401,7 @@ Maybe want to format the book label like this?
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">text</span>&nbsp;{<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Book&nbsp;b&nbsp;-&gt;&nbsp;<span class="string">&apos;"&apos;</span>&nbsp;+&nbsp;b.title&nbsp;+&nbsp;<span class="string">&apos;"&apos;</span>&nbsp;+<span class="string">&apos;&nbsp;(by&nbsp;&apos;</span>+&nbsp;b.author.name&nbsp;+&nbsp;<span class="string">&apos;)&apos;</span><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-}<br/>
+}
 </p>
 </div>
 </div>

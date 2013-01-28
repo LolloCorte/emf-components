@@ -17,7 +17,7 @@ package it.rcpvision.emf.components.binding;
 
 import it.rcpvision.emf.components.EmfComponentsActivator;
 import it.rcpvision.emf.components.factories.JfaceProviderFactory;
-import it.rcpvision.emf.components.xtext.util.PolymorphicDispatcher;
+import it.rcpvision.emf.components.runtime.util.PolymorphicDispatcher;
 
 import java.lang.reflect.Method;
 import java.util.Collections;

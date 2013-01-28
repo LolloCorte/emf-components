@@ -1,4 +1,4 @@
-package it.rcpvision.emf.components.xtext.ui;
+package it.rcpvision.emf.components.runtime.ui;
 
 /*******************************************************************************
  * Copyright (c) 2009 itemis AG (http://www.itemis.eu) and others.
