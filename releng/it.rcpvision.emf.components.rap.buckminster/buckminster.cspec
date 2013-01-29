@@ -3,9 +3,10 @@
     <cs:dependencies>
         <cs:dependency name="it.rcpvision.emf.components.rap.site" componentType="eclipse.feature"/>
         <cs:dependency name="org.apache.log4j" componentType="osgi.bundle"/>
+        <cs:dependency name="org.eclipse.emf.databinding.edit" componentType="eclipse.feature"/>
         <cs:dependency name="org.eclipse.emf.rap.sdk" componentType="eclipse.feature"/>
         <cs:dependency name="org.eclipse.rap.runtime" componentType="eclipse.feature"/>
         <cs:dependency name="org.eclipse.rap.runtime.requirements" componentType="eclipse.feature"/>
-        <cs:dependency name="org.eclipse.emf.databinding.edit" componentType="eclipse.feature"/>
+        <cs:dependency name="it.rcpvision.emf.components.buckminster.common" componentType="buckminster"/>
     </cs:dependencies>
 </cs:cspec>

@@ -1,0 +1,3 @@
+build
+
+perform -D target.os=* -D target.ws=* -D target.arch=* it.rcpvision.emf.components.rap.site#site.p2
