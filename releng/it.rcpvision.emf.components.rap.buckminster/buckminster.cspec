@@ -2,5 +2,7 @@
 <cs:cspec xmlns:cs="http://www.eclipse.org/buckminster/CSpec-1.0" name="it.rcpvision.emf.components.rap.buckminster" componentType="buckminster" version="1.0.0">
     <cs:dependencies>
         <cs:dependency name="org.eclipse.emf.rap.sdk" componentType="eclipse.feature"/>
+        <cs:dependency name="it.rcpvision.emf.components.rap.site" componentType="eclipse.feature"/>
+        <cs:dependency name="org.apache.log4j" componentType="osgi.bundle"/>
     </cs:dependencies>
 </cs:cspec>
