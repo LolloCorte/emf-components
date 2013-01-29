@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="it.rcpvision.emf.components.rap.site"
-      label="Emf Components RAP Site"
+      id="it.rcpvision.emf.components.rap.sdk"
+      label="Emf Components RAP SDK"
       version="0.1.0.qualifier">
 
    <description url="http://code.google.com/a/eclipselabs.org/p/emf-components/">
@@ -20,8 +20,11 @@ It aims at providing a set of Components like Trees, Tables and Detail Forms tha
       Made available under Eclipse Public License v 1.0
    </license>
 
-   <includes
-         id="it.rcpvision.emf.components.rap.sdk"
-         version="0.0.0"/>
+   <plugin
+         id="it.rcpvision.emf.components.runtime.common"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
 </feature>
