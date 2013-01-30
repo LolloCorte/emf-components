@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cs:cspec xmlns:cs="http://www.eclipse.org/buckminster/CSpec-1.0" name="it.rcpvision.emf.components.buckminster" componentType="buckminster" version="1.0.0">
     <cs:dependencies>
+        <cs:dependency name="it.rcpvision.emf.components.site" componentType="eclipse.feature"/>
         <cs:dependency name="org.eclipse.emf.cdo.sdk" componentType="eclipse.feature"/>
         <cs:dependency name="org.eclipse.emf.query.sdk" componentType="eclipse.feature"/>
         <cs:dependency name="org.eclipse.emf.sdk" componentType="eclipse.feature"/>
@@ -14,6 +15,6 @@
         <cs:dependency name="org.eclipse.swtbot.ide" componentType="eclipse.feature"/>
         <cs:dependency name="org.eclipse.xtext.sdk" componentType="eclipse.feature"/>
         <cs:dependency name="org.eclipse.xtext.xdoc.feature" componentType="eclipse.feature"/>
-        <cs:dependency name="it.rcpvision.emf.components.site" componentType="eclipse.feature"/>
+        <cs:dependency name="it.rcpvision.emf.components.buckminster.common" componentType="buckminster"/>
     </cs:dependencies>
 </cs:cspec>

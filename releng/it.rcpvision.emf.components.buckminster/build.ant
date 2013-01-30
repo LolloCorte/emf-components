@@ -16,7 +16,7 @@
 							Default: http://download.eclipse.org
 -->
 <project name="Buckminster Headless" default="buckminster">
-	<import file="common.ant" as="common" />
+	<import file="${ant.file}/../../it.rcpvision.emf.components.buckminster.common/common.ant" as="common" />
 
 	<target name="buckminster" depends="common.cleanup,install.buckminster.headless" description="description">
 
