@@ -150,14 +150,28 @@
          unpack="false"/>
 
    <plugin
-         id="it.rcpvision.emf.components"
+         id="it.rcpvision.emf.components.examples.rap.model"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="it.rcpvision.emf.components.xtext"
+         id="it.rcpvision.emf.components.rap"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="it.rcpvision.emf.components.rap.runtime"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="it.rcpvision.emf.components.rap.views"
          download-size="0"
          install-size="0"
          version="0.0.0"
