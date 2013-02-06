@@ -12,7 +12,6 @@ import it.rcpvision.emf.components.examples.library.EXTLibraryFactory;
 import it.rcpvision.emf.components.examples.library.EXTLibraryPackage;
 import it.rcpvision.emf.components.examples.library.Library;
 import it.rcpvision.emf.components.examples.library.Writer;
-import it.rcpvision.emf.components.factories.JfaceProviderFactory;
 import it.rcpvision.emf.components.guice.ComposedAdapterFactoryProvider;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryFormFeatureLabelProvider;
 import it.rcpvision.emf.components.tests.providers.CustomLibraryViewerContentProvider;
@@ -32,7 +31,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
@@ -174,16 +172,6 @@ public class EmfComponentsProvidersTests extends EmfComponentsCustomLibraryAbstr
 				viewerContentProvider.getChildren(libraryChildren[1]));
 		// the third book has neither an author nor s borrower
 		assertFalse(viewerContentProvider.hasChildren(libraryChildren[2]));
-	}
-
-	private void assertLabels(String expected, Object[] libraryChildren) {
-		ILabelProvider labelProvider = getInjector().getInstance(
-				JfaceProviderFactory.class).createLabelProvider();
-		StringBuffer buffer = new StringBuffer();
-		for (int i = 0; i < libraryChildren.length; i++) {
-			buffer.append(labelProvider.getText(libraryChildren[i]) + "; ");
-		}
-		assertEquals(expected, buffer.toString());
 	}
 
 	protected void assertFeatureNames(Iterable<EStructuralFeature> expected,

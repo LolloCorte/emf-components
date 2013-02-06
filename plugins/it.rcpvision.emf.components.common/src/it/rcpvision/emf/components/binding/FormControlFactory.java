@@ -241,7 +241,7 @@ public class FormControlFactory {
 		}
 	}
 
-	protected List<?> createProposals(EStructuralFeature feature) {
+	public List<?> createProposals(EStructuralFeature feature) {
 		List<?> proposals  = polymorphicCreateProposals(owner, feature);
 		if(proposals==null){
 			proposals = proposalcreator.proposals(feature);
@@ -447,7 +447,7 @@ public class FormControlFactory {
 			}
 		};
 
-		return dispatcher.invoke(domain, element);
+		return dispatcher.invoke(element);
 	}
 
 	protected Predicate<Method> getCreateProposalsPredicate(
@@ -455,6 +455,6 @@ public class FormControlFactory {
 		String methodName = "proposals_"
 				+ feature.getEContainingClass().getName() + "_"
 				+ feature.getName();
-		return PolymorphicDispatcher.Predicates.forName(methodName, 2);
+		return PolymorphicDispatcher.Predicates.forName(methodName, 1);
 	}
 }

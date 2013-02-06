@@ -7,7 +7,11 @@ import static org.eclipse.xtext.xbase.lib.IterableExtensions.join;
 import static org.eclipse.xtext.xbase.lib.IterableExtensions.map;
 import it.rcpvision.emf.components.binding.FormControlFactory;
 import it.rcpvision.emf.components.examples.library.Book;
+import it.rcpvision.emf.components.examples.library.EXTLibraryFactory;
 import it.rcpvision.emf.components.examples.library.Writer;
+
+import java.util.LinkedList;
+import java.util.List;
 
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
@@ -20,10 +24,10 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 
 /**
- * @author bettini
+ * @author Lorenzo Bettini
  * 
  */
-public class CustomLibraryBindingFactory extends FormControlFactory {
+public class CustomLibraryFormControlFactory extends FormControlFactory {
 
 //	public ControlObservablePair control_Writer_name(EStructuralFeature feature) {
 //		Text t = getToolkit().createText(getParent(), "");
@@ -50,5 +54,18 @@ public class CustomLibraryBindingFactory extends FormControlFactory {
 						return book.getTitle();
 					}
 				}), ", "));
+	}
+
+	public List<?> proposals_Book_author(Book book) {
+		List<Object> proposals = new LinkedList<Object>();
+		Writer writer = EXTLibraryFactory.eINSTANCE.createWriter();
+		writer.setFirstName("Fake");
+		writer.setLastName("Writer");
+		proposals.add(writer);
+		writer = EXTLibraryFactory.eINSTANCE.createWriter();
+		writer.setFirstName("Fake");
+		writer.setLastName("Writer2");
+		proposals.add(writer);
+		return proposals;
 	}
 }

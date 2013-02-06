@@ -3,7 +3,7 @@ package it.rcpvision.emf.components.tests.factories;
 import it.rcpvision.emf.components.EmfComponentsGuiceModule;
 import it.rcpvision.emf.components.binding.FormControlFactory;
 import it.rcpvision.emf.components.resource.EmptyResourceInitializer;
-import it.rcpvision.emf.components.tests.binding.CustomLibraryBindingFactory;
+import it.rcpvision.emf.components.tests.binding.CustomLibraryFormControlFactory;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryFeatureLabelProvider;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryFormFeatureLabelProvider;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryLabelProvider;
@@ -43,7 +43,7 @@ public class CustomLibraryModule extends
 
 	@Override
 	public Class<? extends FormControlFactory> bindFormControlFactory() {
-		return CustomLibraryBindingFactory.class;
+		return CustomLibraryFormControlFactory.class;
 	}
 
 	@Override

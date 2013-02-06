@@ -11,6 +11,8 @@ import it.rcpvision.emf.components.tests.labeling.CustomLibraryFormFeatureLabelP
 import it.rcpvision.emf.components.tests.utils.EmfComponentsTestsUtils;
 import it.rcpvision.emf.components.ui.provider.FormPropertyDescriptionProvider;
 
+import java.util.List;
+
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -116,22 +118,77 @@ public class EmfComponentsProvidersBasedOnViewTests extends EmfComponentsCustomL
 		});
 		closeLibraryView(LIBRARY_EMF_VIEW);
 	}
+
+	@Test
+	public void testFormControlFactoryDefaultProposals() {
+		final FormControlFactory bindingFactory = getInjector().getInstance(
+				FormControlFactory.class);
+		final Writer writer = createTestResourceAndWriter();
+		final SWTBotView view = openTestView(LIBRARY_EMF_VIEW);
+		Display.getDefault().syncExec(new Runnable() {
+			public void run() {
+				try {
+					// we need a non-null display and parent so we use
+					// those in the view and in the tree
+					FormToolkit formToolkit = createFormToolkit(view);
+					bindingFactory.init(null, writer,
+							createCompositeParent(view), formToolkit);
+					List<?> proposals = bindingFactory
+							.createProposals(EXTLibraryPackage.Literals.WRITER__BOOKS);
+					assertEquals("Book: Test Book 1, Book: Test Book 1", 
+							utils.toStringRep(proposals));
+				} catch (Exception ex) {
+					fail(ex.getMessage());
+				}
+			}
+		});
+		closeLibraryView(LIBRARY_EMF_VIEW);
+	}
+
+	@Test
+	public void testFormControlFactoryCustomProposals() {
+		final FormControlFactory bindingFactory = getInjector().getInstance(
+				FormControlFactory.class);
+		final Writer writer = createTestResourceAndWriter();
+		final SWTBotView view = openTestView(LIBRARY_EMF_VIEW);
+		Display.getDefault().syncExec(new Runnable() {
+			public void run() {
+				try {
+					// we need a non-null display and parent so we use
+					// those in the view and in the tree
+					FormToolkit formToolkit = createFormToolkit(view);
+					bindingFactory.init(null, writer.getBooks().get(0),
+							createCompositeParent(view), formToolkit);
+					List<?> proposals = bindingFactory
+							.createProposals(EXTLibraryPackage.Literals.BOOK__AUTHOR);
+					assertEquals("Writer: Fake Writer, Writer: Fake Writer2", 
+							utils.toStringRep(proposals));
+				} catch (Exception ex) {
+					fail(ex.getMessage());
+				}
+			}
+		});
+		closeLibraryView(LIBRARY_EMF_VIEW);
+	}
 	
 	protected Writer createTestResourceAndWriter() {
 		ResourceSet resourceSet = new ResourceSetImpl();
 		Resource resource = resourceSet.createResource(URI
 				.createURI("http:///My.extlibrary"));
 		final Writer writer = EXTLibraryFactory.eINSTANCE.createWriter();
-		createTestBook(writer);
-		createTestBook(writer);
+		writer.setFirstName("Test");
+		writer.setLastName("Writer");
+		createTestBook(resource, writer);
+		createTestBook(resource, writer);
 		resource.getContents().add(writer);
 		return writer;
 	}
 
-	protected void createTestBook(Writer writer) {
+	protected void createTestBook(Resource resource, Writer writer) {
 		Book book = EXTLibraryFactory.eINSTANCE.createBook();
 		book.setTitle("Test Book 1");
 		writer.getBooks().add(book);
+		resource.getContents().add(book);
 	}
 
 	protected void assertFeatureNames(Iterable<EStructuralFeature> expected,
