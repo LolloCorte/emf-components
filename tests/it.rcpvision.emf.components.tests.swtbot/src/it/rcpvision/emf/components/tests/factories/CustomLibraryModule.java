@@ -2,8 +2,10 @@ package it.rcpvision.emf.components.tests.factories;
 
 import it.rcpvision.emf.components.EmfComponentsGuiceModule;
 import it.rcpvision.emf.components.binding.FormControlFactory;
+import it.rcpvision.emf.components.binding.ProposalCreator;
 import it.rcpvision.emf.components.resource.EmptyResourceInitializer;
 import it.rcpvision.emf.components.tests.binding.CustomLibraryFormControlFactory;
+import it.rcpvision.emf.components.tests.binding.CustomLibraryProposalCreator;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryFeatureLabelProvider;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryFormFeatureLabelProvider;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryLabelProvider;
@@ -20,8 +22,7 @@ import it.rcpvision.emf.components.ui.provider.TableColumnLabelProvider;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
-public class CustomLibraryModule extends
-		EmfComponentsGuiceModule {
+public class CustomLibraryModule extends EmfComponentsGuiceModule {
 	public CustomLibraryModule(AbstractUIPlugin plugin) {
 		super(plugin);
 	}
@@ -47,20 +48,25 @@ public class CustomLibraryModule extends
 	}
 
 	@Override
+	public Class<? extends ProposalCreator> bindProposalCreator() {
+		return CustomLibraryProposalCreator.class;
+	}
+
+	@Override
 	public Class<? extends TableColumnLabelProvider> bindTableColumnLabelProvider() {
 		return CustomLibraryTableColumnLabelProvider.class;
 	}
-	
+
 	@Override
 	public Class<? extends EmptyResourceInitializer> bindEmptyResourceInitializer() {
 		return TestEmptyLibraryResourceInitializer.class;
 	}
-	
+
 	@Override
 	public Class<? extends FeaturesProvider> bindFeaturesProvider() {
 		return TestFeaturesProvider.class;
 	}
-	
+
 	@Override
 	public Class<? extends FeaturesColumnProvider> bindFeaturesColumnProvider() {
 		return TestFeaturesColumnProvider.class;

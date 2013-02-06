@@ -4,6 +4,7 @@
 package it.rcpvision.emf.components;
 
 import it.rcpvision.emf.components.binding.FormControlFactory;
+import it.rcpvision.emf.components.binding.ProposalCreator;
 import it.rcpvision.emf.components.builders.TableViewerBuilder;
 import it.rcpvision.emf.components.builders.TableViewerColumnBuilder;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
@@ -188,5 +189,9 @@ public class EmfComponentsGuiceModule extends AbstractGenericModule {
 
 	public Class<? extends ViewerContentProvider> bindViewerContentProvider() {
 		return ViewerContentProvider.class;
+	}
+
+	public Class<? extends ProposalCreator> bindProposalCreator() {
+		return ProposalCreator.class;
 	}
 }

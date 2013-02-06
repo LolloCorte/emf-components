@@ -74,13 +74,15 @@ public class FormControlFactory {
 	@Inject
 	protected JfaceProviderFactory jfaceProviderFactory;
 
+	@Inject
+	private ProposalCreator proposalcreator;
+
 	private Composite parent = null;
 
 	private FormToolkit toolkit = null;
 	private EObject owner;
 	protected EditingDomain domain;
 	protected EMFDataBindingContext edbc;
-	private ProposalCreator proposalcreator;
 	public static final String EOBJECT_KEY = EcorePackage.Literals.EOBJECT
 			.getName();
 	public static final String ESTRUCTURALFEATURE_KEY = EcorePackage.Literals.ESTRUCTURAL_FEATURE
@@ -92,8 +94,6 @@ public class FormControlFactory {
 
 	private PolymorphicDispatcher.ErrorHandler<IObservableValue> observeable_errorHandler = new PolymorphicDispatcher.NullErrorHandler<IObservableValue>();
 
-	private PolymorphicDispatcher.ErrorHandler<List<?>> proposals_errorHandler = new PolymorphicDispatcher.NullErrorHandler<List<?>>();
-	
 	public FormControlFactory() {
 
 	}
@@ -102,8 +102,6 @@ public class FormControlFactory {
 			FormToolkit toolkit) {
 		this.edbc = new EMFDataBindingContext();
 		this.domain = domain;
-		this.proposalcreator = new ProposalCreator(
-				getResourceSet(domain, owner));
 		this.owner = owner;
 		this.parent = parent;
 		this.toolkit = toolkit;
@@ -242,11 +240,8 @@ public class FormControlFactory {
 	}
 
 	public List<?> createProposals(EStructuralFeature feature) {
-		List<?> proposals  = polymorphicCreateProposals(owner, feature);
-		if(proposals==null){
-			proposals = proposalcreator.proposals(feature);
-		}
-		return proposals;
+		proposalcreator.setResourceSet(getResourceSet(domain, owner));
+		return proposalcreator.proposals(owner, feature);
 	}
 
 	protected ControlObservablePair createControlAndObservableWithPredefinedProposals(
@@ -431,30 +426,5 @@ public class FormControlFactory {
 				+ feature.getName();
 		return PolymorphicDispatcher.Predicates.forName(methodName, 2);
 	}
-	
-	
-	private List<?> polymorphicCreateProposals(EObject element,	EStructuralFeature feature) {
-		PolymorphicDispatcher<List<?>> dispatcher = new PolymorphicDispatcher<List<?>>(
-				Collections.singletonList(this),
-				getCreateProposalsPredicate(feature),
-				new PolymorphicDispatcher.NullErrorHandler<List<?>>()) {
-			@Override
-			protected List<?> handleNoSuchMethod(Object... params) {
-				if (PolymorphicDispatcher.NullErrorHandler.class
-						.equals(proposals_errorHandler.getClass()))
-					return null;
-				return super.handleNoSuchMethod(params);
-			}
-		};
 
-		return dispatcher.invoke(element);
-	}
-
-	protected Predicate<Method> getCreateProposalsPredicate(
-			EStructuralFeature feature) {
-		String methodName = "proposals_"
-				+ feature.getEContainingClass().getName() + "_"
-				+ feature.getName();
-		return PolymorphicDispatcher.Predicates.forName(methodName, 1);
-	}
 }

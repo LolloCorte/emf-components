@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.ui.celleditor.FeatureEditorDialog;
 import org.eclipse.jface.viewers.ILabelProvider;
@@ -63,7 +64,7 @@ public class MultipleFeatureControl extends Composite {
 	private boolean beQueit;
 
 	public MultipleFeatureControl(final Composite parent, FormToolkit toolkit, final ILabelProvider labelProvider,
-			final Object object, final EStructuralFeature feature, final ProposalCreator proposalcreator) {
+			final EObject object, final EStructuralFeature feature, final ProposalCreator proposalcreator) {
 		super(parent, SWT.NONE);
 		this.labelProvider = labelProvider;
 		toolkit.adapt(this);
@@ -86,7 +87,7 @@ public class MultipleFeatureControl extends Composite {
 				List<?> oldValue = unwrapSelection();
 				//TODO (dennis) load choice of values in a runnable with status bar
 				dialog = new FeatureEditorDialog(parent.getShell(), new CachedLabelProvider(labelProvider), object,
-						feature.getEType(), oldValue, "Display Name", proposalcreator.proposals(feature), false,
+						feature.getEType(), oldValue, "Display Name", proposalcreator.proposals(object, feature), false,
 						feature.isOrdered());
 				dialog.setBlockOnOpen(true);
 				if (dialog.open() == Window.OK) {
