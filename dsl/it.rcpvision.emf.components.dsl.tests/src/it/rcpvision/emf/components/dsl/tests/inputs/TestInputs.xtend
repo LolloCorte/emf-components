@@ -144,6 +144,30 @@ module my.empty {
 }
 '''
 
+	def proposalsSpecifications()
+'''
+import java.util.*
+import it.rcpvision.emf.components.examples.library.*
+
+module my.empty {
+	proposals {
+		Library : name -> { newArrayList('foo', 'bar') }
+		Writer : books -> 
+			{ books } // it.books
+		Book : author -> {
+			newArrayList(
+				EXTLibraryFactory::eINSTANCE.createWriter => [
+					name = "Foo"
+				],
+				EXTLibraryFactory::eINSTANCE.createWriter => [
+					name = "Bar"
+				]
+			)
+		}
+	}
+}
+'''
+
 	def viewerContentProviderSpecifications() 
 '''
 import java.util.*

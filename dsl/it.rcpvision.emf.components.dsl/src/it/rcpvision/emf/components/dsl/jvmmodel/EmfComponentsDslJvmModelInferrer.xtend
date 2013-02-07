@@ -29,8 +29,10 @@ import org.eclipse.xtext.xbase.XFeatureCall
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
+import it.rcpvision.emf.components.binding.ProposalCreator
 
 import static extension org.eclipse.xtext.EcoreUtil2.*
+import java.util.List
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -91,6 +93,7 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 		val featureProviderClass = element.inferFeatureProvider(acceptor)
 		val formControlFactoryClass = element.inferFormControlFactory(acceptor)
 		val viewerContentProviderClass = element.inferViewerContentProvider(acceptor)
+		val proposalCreatorClass = element.inferProposalCreator(acceptor)
 		
 		acceptor.accept(moduleClass).initializeLater [
 			documentation = element.documentation
@@ -111,6 +114,8 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 				members += element.formControlFactory.genBindMethod(formControlFactoryClass, typeof(FormControlFactory))
 			if (viewerContentProviderClass != null)
 				members += element.viewerContentProvider.genBindMethod(viewerContentProviderClass, typeof(ViewerContentProvider))
+			if (proposalCreatorClass != null)
+				members += element.proposalCreator.genBindMethod(proposalCreatorClass, typeof(ProposalCreator))
 		]
    	}
 
@@ -156,6 +161,10 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 
 	def viewerContentProviderQN(Module element) {
 		element.fullyQualifiedName + ".edit.ui.provider.ViewerContentProviderGen"
+	}
+
+	def proposalCreatorQN(Module element) {
+		element.fullyQualifiedName + ".binding.ProposalCreatorGen"
 	}
 
 	def inferLabelProvider(Module element, IJvmDeclaredTypeAcceptor acceptor) {
@@ -372,6 +381,42 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 				]
 			]
 			viewerContentProviderClass
+		}
+	}
+
+	def inferProposalCreator(Module element, IJvmDeclaredTypeAcceptor acceptor) {
+		if (element.proposalCreator == null)
+			null
+		else {
+			val proposalCreatorClass = element.proposalCreator.toClass(element.proposalCreatorQN)
+			acceptor.accept(proposalCreatorClass).initializeLater [
+				superTypes += element.newTypeRef(typeof(ProposalCreator))
+				
+				element.proposalCreator.proposalsSpecifications.forEach [
+					spec |
+					if (spec.feature != null &&
+						(spec.feature as XFeatureCall).feature != null
+					) {
+						// associate the method to the expression, not to the whole
+						// specification, otherwise the 'feature' is logically
+						// contained in a method which should return a string
+						// and the validator would complain
+						members += spec.expression.toMethod
+						("proposals_" + 
+								spec.parameterType.simpleName + "_" +
+								(spec.feature as XFeatureCall).
+									feature.simpleName.propertyNameForGetterSetterMethod, 
+							element.newTypeRef(typeof(List)).type.createTypeRef(wildCard)
+						) [
+							parameters += spec.toParameter(
+								"it", spec.parameterType
+							)
+							body = spec.expression
+						]
+					}
+				]
+			]
+			proposalCreatorClass
 		}
 	}
 	

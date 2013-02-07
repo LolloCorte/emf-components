@@ -131,6 +131,24 @@ public interface ModelFactory extends EFactory
   FormControlSpecification createFormControlSpecification();
 
   /**
+   * Returns a new object of class '<em>Proposal Creator</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Proposal Creator</em>'.
+   * @generated
+   */
+  ProposalCreator createProposalCreator();
+
+  /**
+   * Returns a new object of class '<em>Proposal Specification</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Proposal Specification</em>'.
+   * @generated
+   */
+  ProposalSpecification createProposalSpecification();
+
+  /**
    * Returns a new object of class '<em>Viewer Content Provider</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

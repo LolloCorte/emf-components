@@ -50,7 +50,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
-    this.assertCorrectJavaCodeGeneration(_emptyModule, _builder, null, null, null, null, null, null);
+    this.assertCorrectJavaCodeGeneration(_emptyModule, _builder, null, null, null, null, null, null, null);
   }
   
   @Test
@@ -78,7 +78,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
-    this.assertCorrectJavaCodeGeneration(_moduleWithExtends, _builder, null, null, null, null, null, null);
+    this.assertCorrectJavaCodeGeneration(_moduleWithExtends, _builder, null, null, null, null, null, null, null);
   }
   
   @Test
@@ -135,7 +135,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_emptyLabelProvider, _builder, _builder_1, null, null, null, null, null);
+    this.assertCorrectJavaCodeGeneration(_emptyLabelProvider, _builder, _builder_1, null, null, null, null, null, null);
   }
   
   @Test
@@ -192,7 +192,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_emptyPropertyDescriptionProvider, _builder, _builder_1, null, null, null, null, null);
+    this.assertCorrectJavaCodeGeneration(_emptyPropertyDescriptionProvider, _builder, _builder_1, null, null, null, null, null, null);
   }
   
   @Test
@@ -210,7 +210,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("}");
     _builder.newLine();
     this.assertCorrectJavaCodeGeneration(_emptyLabelSpecifications, 
-      null, _builder, null, null, null, null, null);
+      null, _builder, null, null, null, null, null, null);
   }
   
   @Test
@@ -422,7 +422,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("}");
     _builder.newLine();
     this.assertCorrectJavaCodeGeneration(_labelSpecifications, 
-      null, _builder, null, null, null, null, null);
+      null, _builder, null, null, null, null, null, null);
   }
   
   @Test
@@ -520,7 +520,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_propertyDescriptionSpecifications, _builder, null, _builder_1, null, null, null, null);
+    this.assertCorrectJavaCodeGeneration(_propertyDescriptionSpecifications, _builder, null, _builder_1, null, null, null, null, null);
   }
   
   @Test
@@ -605,7 +605,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_featuresSpecifications, _builder, null, null, _builder_1, null, null, null);
+    this.assertCorrectJavaCodeGeneration(_featuresSpecifications, _builder, null, null, _builder_1, null, null, null, null);
   }
   
   @Test
@@ -866,7 +866,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_formControlSpecifications, _builder, null, null, null, _builder_1, null, null);
+    this.assertCorrectJavaCodeGeneration(_formControlSpecifications, _builder, null, null, null, _builder_1, null, null, null);
   }
   
   @Test
@@ -981,7 +981,166 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_viewerContentProviderSpecifications, _builder, null, null, null, null, _builder_1, null);
+    this.assertCorrectJavaCodeGeneration(_viewerContentProviderSpecifications, _builder, null, null, null, null, _builder_1, null, null);
+  }
+  
+  @Test
+  public void testProposalSpecifications() {
+    CharSequence _proposalsSpecifications = this.inputs.proposalsSpecifications();
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package my.empty;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("import it.rcpvision.emf.components.EmfComponentsGuiceModule;");
+    _builder.newLine();
+    _builder.append("import it.rcpvision.emf.components.binding.ProposalCreator;");
+    _builder.newLine();
+    _builder.append("import my.empty.binding.ProposalCreatorGen;");
+    _builder.newLine();
+    _builder.append("import org.eclipse.ui.plugin.AbstractUIPlugin;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("public EmfComponentsGuiceModuleGen(final AbstractUIPlugin plugin) {");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("super(plugin);");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("@Override");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("public Class<? extends ProposalCreator> bindProposalCreator() {");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("return ProposalCreatorGen.class;");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.append("package my.empty.binding;");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("import it.rcpvision.emf.components.binding.ProposalCreator;");
+    _builder_1.newLine();
+    _builder_1.append("import it.rcpvision.emf.components.examples.library.Book;");
+    _builder_1.newLine();
+    _builder_1.append("import it.rcpvision.emf.components.examples.library.EXTLibraryFactory;");
+    _builder_1.newLine();
+    _builder_1.append("import it.rcpvision.emf.components.examples.library.Library;");
+    _builder_1.newLine();
+    _builder_1.append("import it.rcpvision.emf.components.examples.library.Writer;");
+    _builder_1.newLine();
+    _builder_1.append("import java.util.ArrayList;");
+    _builder_1.newLine();
+    _builder_1.append("import java.util.List;");
+    _builder_1.newLine();
+    _builder_1.append("import org.eclipse.emf.common.util.EList;");
+    _builder_1.newLine();
+    _builder_1.append("import org.eclipse.xtext.xbase.lib.CollectionLiterals;");
+    _builder_1.newLine();
+    _builder_1.append("import org.eclipse.xtext.xbase.lib.ObjectExtensions;");
+    _builder_1.newLine();
+    _builder_1.append("import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("public class ProposalCreatorGen extends ProposalCreator {");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("public List<? extends Object> proposals_Library_name(final Library it) {");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("ArrayList<String> _newArrayList = CollectionLiterals.<String>newArrayList(\"foo\", \"bar\");");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("return _newArrayList;");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("public List<? extends Object> proposals_Writer_books(final Writer it) {");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("EList<Book> _books = it.getBooks();");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("return _books;");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("public List<? extends Object> proposals_Book_author(final Book it) {");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("Writer _createWriter = EXTLibraryFactory.eINSTANCE.createWriter();");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("final Procedure1<Writer> _function = new Procedure1<Writer>() {");
+    _builder_1.newLine();
+    _builder_1.append("        ");
+    _builder_1.append("public void apply(final Writer it) {");
+    _builder_1.newLine();
+    _builder_1.append("          ");
+    _builder_1.append("it.setName(\"Foo\");");
+    _builder_1.newLine();
+    _builder_1.append("        ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("      ");
+    _builder_1.append("};");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("Writer _doubleArrow = ObjectExtensions.<Writer>operator_doubleArrow(_createWriter, _function);");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("Writer _createWriter_1 = EXTLibraryFactory.eINSTANCE.createWriter();");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("final Procedure1<Writer> _function_1 = new Procedure1<Writer>() {");
+    _builder_1.newLine();
+    _builder_1.append("        ");
+    _builder_1.append("public void apply(final Writer it) {");
+    _builder_1.newLine();
+    _builder_1.append("          ");
+    _builder_1.append("it.setName(\"Bar\");");
+    _builder_1.newLine();
+    _builder_1.append("        ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("      ");
+    _builder_1.append("};");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("Writer _doubleArrow_1 = ObjectExtensions.<Writer>operator_doubleArrow(_createWriter_1, _function_1);");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("ArrayList<Writer> _newArrayList = CollectionLiterals.<Writer>newArrayList(_doubleArrow, _doubleArrow_1);");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("return _newArrayList;");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("}");
+    _builder_1.newLine();
+    this.assertCorrectJavaCodeGeneration(_proposalsSpecifications, _builder, null, null, null, null, null, _builder_1, null);
   }
   
   @Test
@@ -1069,10 +1228,10 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder_1.newLine();
     _builder_1.append("</plugin>");
     _builder_1.newLine();
-    this.assertCorrectJavaCodeGeneration(_multipleViewsSpecifications, _builder, null, null, null, null, null, _builder_1);
+    this.assertCorrectJavaCodeGeneration(_multipleViewsSpecifications, _builder, null, null, null, null, null, null, _builder_1);
   }
   
-  private void assertCorrectJavaCodeGeneration(final CharSequence input, final CharSequence expectedModule, final CharSequence expectedLabelProvider, final CharSequence expectedPropertyDescriptionProvider, final CharSequence expectedFeatureProvider, final CharSequence expectedFormFeatureControlFactory, final CharSequence expectedViewerContentProvider, final CharSequence expectedPluginXmlGen) {
+  private void assertCorrectJavaCodeGeneration(final CharSequence input, final CharSequence expectedModule, final CharSequence expectedLabelProvider, final CharSequence expectedPropertyDescriptionProvider, final CharSequence expectedFeatureProvider, final CharSequence expectedFormFeatureControlFactory, final CharSequence expectedViewerContentProvider, final CharSequence expectedProposalCreator, final CharSequence expectedPluginXmlGen) {
     final Procedure1<Result> _function = new Procedure1<Result>() {
         public void apply(final Result it) {
           Map<String,CharSequence> _allGeneratedResources = it.getAllGeneratedResources();
@@ -1133,17 +1292,27 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
                         }
                       } else {
                         String _key_6 = e.getKey();
-                        boolean _endsWith_6 = _key_6.endsWith(".xml_emfcomponents_gen");
+                        boolean _endsWith_6 = _key_6.endsWith("ProposalCreatorGen.java");
                         if (_endsWith_6) {
-                          boolean _notEquals_6 = (!Objects.equal(expectedPluginXmlGen, null));
+                          boolean _notEquals_6 = (!Objects.equal(expectedProposalCreator, null));
                           if (_notEquals_6) {
                             CharSequence _value_6 = e.getValue();
-                            EmfComponentsDslGeneratorTests.this.assertEqualsStrings(expectedPluginXmlGen, _value_6);
+                            EmfComponentsDslGeneratorTests.this.assertEqualsStrings(expectedProposalCreator, _value_6);
                           }
                         } else {
-                          CharSequence _value_7 = e.getValue();
-                          String _plus = ("unexpected generated code: " + _value_7);
-                          Assert.fail(_plus);
+                          String _key_7 = e.getKey();
+                          boolean _endsWith_7 = _key_7.endsWith(".xml_emfcomponents_gen");
+                          if (_endsWith_7) {
+                            boolean _notEquals_7 = (!Objects.equal(expectedPluginXmlGen, null));
+                            if (_notEquals_7) {
+                              CharSequence _value_7 = e.getValue();
+                              EmfComponentsDslGeneratorTests.this.assertEqualsStrings(expectedPluginXmlGen, _value_7);
+                            }
+                          } else {
+                            CharSequence _value_8 = e.getValue();
+                            String _plus = ("unexpected generated code: " + _value_8);
+                            Assert.fail(_plus);
+                          }
                         }
                       }
                     }

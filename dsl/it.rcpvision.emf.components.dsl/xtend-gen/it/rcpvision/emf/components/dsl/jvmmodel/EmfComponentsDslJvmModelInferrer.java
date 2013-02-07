@@ -15,6 +15,8 @@ import it.rcpvision.emf.components.dsl.model.Module;
 import it.rcpvision.emf.components.dsl.model.PartSpecification;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification;
+import it.rcpvision.emf.components.dsl.model.ProposalCreator;
+import it.rcpvision.emf.components.dsl.model.ProposalSpecification;
 import it.rcpvision.emf.components.dsl.model.ViewerContentProvider;
 import it.rcpvision.emf.components.generator.common.EmfComponentsProjectFilesGenerator;
 import it.rcpvision.emf.components.ui.provider.EClassToEStructuralFeatureAsStringsMap;
@@ -37,6 +39,7 @@ import org.eclipse.xtext.common.types.JvmGenericType;
 import org.eclipse.xtext.common.types.JvmIdentifiableElement;
 import org.eclipse.xtext.common.types.JvmMember;
 import org.eclipse.xtext.common.types.JvmOperation;
+import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
 import org.eclipse.xtext.common.types.JvmType;
 import org.eclipse.xtext.common.types.JvmTypeConstraint;
 import org.eclipse.xtext.common.types.JvmTypeReference;
@@ -126,6 +129,7 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
     final JvmGenericType featureProviderClass = this.inferFeatureProvider(element, acceptor);
     final JvmGenericType formControlFactoryClass = this.inferFormControlFactory(element, acceptor);
     final JvmGenericType viewerContentProviderClass = this.inferViewerContentProvider(element, acceptor);
+    final JvmGenericType proposalCreatorClass = this.inferProposalCreator(element, acceptor);
     IPostIndexingInitializing<JvmGenericType> _accept = acceptor.<JvmGenericType>accept(moduleClass);
     final Procedure1<JvmGenericType> _function = new Procedure1<JvmGenericType>() {
         public void apply(final JvmGenericType it) {
@@ -183,6 +187,13 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
             ViewerContentProvider _viewerContentProvider = element.getViewerContentProvider();
             JvmOperation _genBindMethod_4 = EmfComponentsDslJvmModelInferrer.this.genBindMethod(_viewerContentProvider, viewerContentProviderClass, it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider.class);
             EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_5, _genBindMethod_4);
+          }
+          boolean _notEquals_5 = (!Objects.equal(proposalCreatorClass, null));
+          if (_notEquals_5) {
+            EList<JvmMember> _members_6 = it.getMembers();
+            ProposalCreator _proposalCreator = element.getProposalCreator();
+            JvmOperation _genBindMethod_5 = EmfComponentsDslJvmModelInferrer.this.genBindMethod(_proposalCreator, proposalCreatorClass, it.rcpvision.emf.components.binding.ProposalCreator.class);
+            EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_6, _genBindMethod_5);
           }
         }
       };
@@ -265,6 +276,12 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
   public String viewerContentProviderQN(final Module element) {
     QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(element);
     String _plus = (_fullyQualifiedName + ".edit.ui.provider.ViewerContentProviderGen");
+    return _plus;
+  }
+  
+  public String proposalCreatorQN(final Module element) {
+    QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(element);
+    String _plus = (_fullyQualifiedName + ".binding.ProposalCreatorGen");
     return _plus;
   }
   
@@ -717,6 +734,82 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
           };
         _accept.initializeLater(_function);
         _xblockexpression = (viewerContentProviderClass);
+      }
+      _xifexpression = _xblockexpression;
+    }
+    return _xifexpression;
+  }
+  
+  public JvmGenericType inferProposalCreator(final Module element, final IJvmDeclaredTypeAcceptor acceptor) {
+    JvmGenericType _xifexpression = null;
+    ProposalCreator _proposalCreator = element.getProposalCreator();
+    boolean _equals = Objects.equal(_proposalCreator, null);
+    if (_equals) {
+      _xifexpression = null;
+    } else {
+      JvmGenericType _xblockexpression = null;
+      {
+        ProposalCreator _proposalCreator_1 = element.getProposalCreator();
+        String _proposalCreatorQN = this.proposalCreatorQN(element);
+        final JvmGenericType proposalCreatorClass = this._jvmTypesBuilder.toClass(_proposalCreator_1, _proposalCreatorQN);
+        IPostIndexingInitializing<JvmGenericType> _accept = acceptor.<JvmGenericType>accept(proposalCreatorClass);
+        final Procedure1<JvmGenericType> _function = new Procedure1<JvmGenericType>() {
+            public void apply(final JvmGenericType it) {
+              EList<JvmTypeReference> _superTypes = it.getSuperTypes();
+              JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, it.rcpvision.emf.components.binding.ProposalCreator.class);
+              EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _newTypeRef);
+              ProposalCreator _proposalCreator = element.getProposalCreator();
+              EList<ProposalSpecification> _proposalsSpecifications = _proposalCreator.getProposalsSpecifications();
+              final Procedure1<ProposalSpecification> _function = new Procedure1<ProposalSpecification>() {
+                  public void apply(final ProposalSpecification spec) {
+                    boolean _and = false;
+                    XExpression _feature = spec.getFeature();
+                    boolean _notEquals = (!Objects.equal(_feature, null));
+                    if (!_notEquals) {
+                      _and = false;
+                    } else {
+                      XExpression _feature_1 = spec.getFeature();
+                      JvmIdentifiableElement _feature_2 = ((XFeatureCall) _feature_1).getFeature();
+                      boolean _notEquals_1 = (!Objects.equal(_feature_2, null));
+                      _and = (_notEquals && _notEquals_1);
+                    }
+                    if (_and) {
+                      EList<JvmMember> _members = it.getMembers();
+                      XExpression _expression = spec.getExpression();
+                      JvmTypeReference _parameterType = spec.getParameterType();
+                      String _simpleName = _parameterType.getSimpleName();
+                      String _plus = ("proposals_" + _simpleName);
+                      String _plus_1 = (_plus + "_");
+                      XExpression _feature_3 = spec.getFeature();
+                      JvmIdentifiableElement _feature_4 = ((XFeatureCall) _feature_3).getFeature();
+                      String _simpleName_1 = _feature_4.getSimpleName();
+                      String _propertyNameForGetterSetterMethod = EmfComponentsDslJvmModelInferrer.this._generatorUtils.getPropertyNameForGetterSetterMethod(_simpleName_1);
+                      String _plus_2 = (_plus_1 + _propertyNameForGetterSetterMethod);
+                      JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, List.class);
+                      JvmType _type = _newTypeRef.getType();
+                      JvmWildcardTypeReference _wildCard = EmfComponentsDslJvmModelInferrer.this._typeReferences.wildCard();
+                      JvmParameterizedTypeReference _createTypeRef = EmfComponentsDslJvmModelInferrer.this._typeReferences.createTypeRef(_type, _wildCard);
+                      final Procedure1<JvmOperation> _function = new Procedure1<JvmOperation>() {
+                          public void apply(final JvmOperation it) {
+                            EList<JvmFormalParameter> _parameters = it.getParameters();
+                            JvmTypeReference _parameterType = spec.getParameterType();
+                            JvmFormalParameter _parameter = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.toParameter(spec, 
+                              "it", _parameterType);
+                            EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+                            XExpression _expression = spec.getExpression();
+                            EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _expression);
+                          }
+                        };
+                      JvmOperation _method = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.toMethod(_expression, _plus_2, _createTypeRef, _function);
+                      EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members, _method);
+                    }
+                  }
+                };
+              IterableExtensions.<ProposalSpecification>forEach(_proposalsSpecifications, _function);
+            }
+          };
+        _accept.initializeLater(_function);
+        _xblockexpression = (proposalCreatorClass);
       }
       _xifexpression = _xblockexpression;
     }

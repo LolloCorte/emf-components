@@ -15,6 +15,8 @@ import it.rcpvision.emf.components.dsl.model.ModelPackage;
 import it.rcpvision.emf.components.dsl.model.Module;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification;
+import it.rcpvision.emf.components.dsl.model.ProposalCreator;
+import it.rcpvision.emf.components.dsl.model.ProposalSpecification;
 import it.rcpvision.emf.components.dsl.model.ViewSpecification;
 import it.rcpvision.emf.components.dsl.model.ViewerContentProvider;
 import it.rcpvision.emf.components.dsl.services.EmfComponentsDslGrammarAccess;
@@ -148,6 +150,19 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 				if(context == grammarAccess.getEmfFeatureAccessRule() ||
 				   context == grammarAccess.getPropertyDescriptionSpecificationRule()) {
 					sequence_PropertyDescriptionSpecification(context, (PropertyDescriptionSpecification) semanticObject); 
+					return; 
+				}
+				else break;
+			case ModelPackage.PROPOSAL_CREATOR:
+				if(context == grammarAccess.getProposalCreatorRule()) {
+					sequence_ProposalCreator(context, (ProposalCreator) semanticObject); 
+					return; 
+				}
+				else break;
+			case ModelPackage.PROPOSAL_SPECIFICATION:
+				if(context == grammarAccess.getEmfFeatureAccessRule() ||
+				   context == grammarAccess.getProposalSpecificationRule()) {
+					sequence_ProposalSpecification(context, (ProposalSpecification) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1128,6 +1143,7 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 	 *         propertyDescriptionProvider=PropertyDescriptionProvider? 
 	 *         featuresProvider=FeaturesProvider? 
 	 *         formControlFactory=FormControlFactory? 
+	 *         proposalCreator=ProposalCreator? 
 	 *         viewerContentProvider=ViewerContentProvider? 
 	 *         parts+=PartSpecification*
 	 *     )
@@ -1164,6 +1180,37 @@ public class EmfComponentsDslSemanticSequencer extends XbaseSemanticSequencer {
 		feeder.accept(grammarAccess.getPropertyDescriptionSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0(), semanticObject.getParameterType());
 		feeder.accept(grammarAccess.getPropertyDescriptionSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0(), semanticObject.getFeature());
 		feeder.accept(grammarAccess.getPropertyDescriptionSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0(), semanticObject.getExpression());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (proposalsSpecifications+=ProposalSpecification*)
+	 */
+	protected void sequence_ProposalCreator(EObject context, ProposalCreator semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (parameterType=JvmTypeReference feature=XFeatureCall expression=XExpression)
+	 */
+	protected void sequence_ProposalSpecification(EObject context, ProposalSpecification semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.EMF_FEATURE_ACCESS__PARAMETER_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.EMF_FEATURE_ACCESS__PARAMETER_TYPE));
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.PROPOSAL_SPECIFICATION__FEATURE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.PROPOSAL_SPECIFICATION__FEATURE));
+			if(transientValues.isValueTransient(semanticObject, ModelPackage.Literals.PROPOSAL_SPECIFICATION__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelPackage.Literals.PROPOSAL_SPECIFICATION__EXPRESSION));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getProposalSpecificationAccess().getParameterTypeJvmTypeReferenceParserRuleCall_0_0(), semanticObject.getParameterType());
+		feeder.accept(grammarAccess.getProposalSpecificationAccess().getFeatureXFeatureCallParserRuleCall_2_0(), semanticObject.getFeature());
+		feeder.accept(grammarAccess.getProposalSpecificationAccess().getExpressionXExpressionParserRuleCall_4_0(), semanticObject.getExpression());
 		feeder.finish();
 	}
 	

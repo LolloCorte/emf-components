@@ -85,4 +85,11 @@ class EmfComponentsDslJvmModelInferrerTests extends EmfComponentsDslAbstractTest
         	inferrer.viewerContentProviderQN(inputs.emptyModule.module)
         )
     }
+
+	@Test
+	def void testProposalCreatorName() {
+        "my.empty.binding.ProposalCreatorGen".assertEqualsStrings(
+        	inferrer.proposalCreatorQN(inputs.proposalsSpecifications.module)
+        )
+    }
 }

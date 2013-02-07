@@ -89,6 +89,12 @@ public class EmfComponentsDslParserTests extends EmfComponentsDslAbstractTests {
   }
   
   @Test
+  public void testProposalsSpecifications() {
+    CharSequence _proposalsSpecifications = this.inputs.proposalsSpecifications();
+    this.parseAndAssertNoError(_proposalsSpecifications);
+  }
+  
+  @Test
   public void testViewerContentProviderSpecifications() {
     CharSequence _viewerContentProviderSpecifications = this.inputs.viewerContentProviderSpecifications();
     this.parseAndAssertNoError(_viewerContentProviderSpecifications);

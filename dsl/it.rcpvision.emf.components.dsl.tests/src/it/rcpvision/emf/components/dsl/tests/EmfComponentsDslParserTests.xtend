@@ -77,6 +77,11 @@ class EmfComponentsDslParserTests extends EmfComponentsDslAbstractTests {
 	}
 
 	@Test
+	def void testProposalsSpecifications() {
+		inputs.proposalsSpecifications.parseAndAssertNoError
+	}
+
+	@Test
 	def void testViewerContentProviderSpecifications() {
 		inputs.viewerContentProviderSpecifications.parseAndAssertNoError
 	}

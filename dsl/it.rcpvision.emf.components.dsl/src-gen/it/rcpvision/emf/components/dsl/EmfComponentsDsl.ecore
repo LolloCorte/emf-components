@@ -23,6 +23,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="formControlFactory" eType="#//FormControlFactory"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proposalCreator" eType="#//ProposalCreator"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="viewerContentProvider"
         eType="#//ViewerContentProvider" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parts" upperBound="-1"
@@ -74,6 +76,16 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass ../../../../../../../org.eclipse.xtext.xbase/model/Xbase.ecore#//XExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass ../../../../../../../org.eclipse.xtext.xbase/model/Xbase.ecore#//XExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProposalCreator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proposalsSpecifications"
+        upperBound="-1" eType="#//ProposalSpecification" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProposalSpecification" eSuperTypes="#//EmfFeatureAccess">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" eType="ecore:EClass ../../../../../../../org.eclipse.xtext.xbase/model/Xbase.ecore#//XExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass ../../../../../../../org.eclipse.xtext.xbase/model/Xbase.ecore#//XExpression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ViewerContentProvider">

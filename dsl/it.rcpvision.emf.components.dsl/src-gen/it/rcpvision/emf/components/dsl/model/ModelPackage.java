@@ -129,7 +129,7 @@ public interface ModelPackage extends EPackage
    * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getWithExtendsClause()
    * @generated
    */
-  int WITH_EXTENDS_CLAUSE = 14;
+  int WITH_EXTENDS_CLAUSE = 16;
 
   /**
    * The number of structural features of the '<em>With Extends Clause</em>' class.
@@ -205,13 +205,22 @@ public interface ModelPackage extends EPackage
   int MODULE__FORM_CONTROL_FACTORY = WITH_EXTENDS_CLAUSE_FEATURE_COUNT + 5;
 
   /**
+   * The feature id for the '<em><b>Proposal Creator</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODULE__PROPOSAL_CREATOR = WITH_EXTENDS_CLAUSE_FEATURE_COUNT + 6;
+
+  /**
    * The feature id for the '<em><b>Viewer Content Provider</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODULE__VIEWER_CONTENT_PROVIDER = WITH_EXTENDS_CLAUSE_FEATURE_COUNT + 6;
+  int MODULE__VIEWER_CONTENT_PROVIDER = WITH_EXTENDS_CLAUSE_FEATURE_COUNT + 7;
 
   /**
    * The feature id for the '<em><b>Parts</b></em>' containment reference list.
@@ -220,7 +229,7 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODULE__PARTS = WITH_EXTENDS_CLAUSE_FEATURE_COUNT + 7;
+  int MODULE__PARTS = WITH_EXTENDS_CLAUSE_FEATURE_COUNT + 8;
 
   /**
    * The number of structural features of the '<em>Module</em>' class.
@@ -229,7 +238,7 @@ public interface ModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODULE_FEATURE_COUNT = WITH_EXTENDS_CLAUSE_FEATURE_COUNT + 8;
+  int MODULE_FEATURE_COUNT = WITH_EXTENDS_CLAUSE_FEATURE_COUNT + 9;
 
   /**
    * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.ExtendsClauseImpl <em>Extends Clause</em>}' class.
@@ -378,7 +387,7 @@ public interface ModelPackage extends EPackage
    * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getEmfFeatureAccess()
    * @generated
    */
-  int EMF_FEATURE_ACCESS = 13;
+  int EMF_FEATURE_ACCESS = 15;
 
   /**
    * The feature id for the '<em><b>Parameter Type</b></em>' containment reference.
@@ -593,6 +602,80 @@ public interface ModelPackage extends EPackage
   int FORM_CONTROL_SPECIFICATION_FEATURE_COUNT = EMF_FEATURE_ACCESS_FEATURE_COUNT + 3;
 
   /**
+   * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.ProposalCreatorImpl <em>Proposal Creator</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see it.rcpvision.emf.components.dsl.model.impl.ProposalCreatorImpl
+   * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getProposalCreator()
+   * @generated
+   */
+  int PROPOSAL_CREATOR = 12;
+
+  /**
+   * The feature id for the '<em><b>Proposals Specifications</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROPOSAL_CREATOR__PROPOSALS_SPECIFICATIONS = 0;
+
+  /**
+   * The number of structural features of the '<em>Proposal Creator</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROPOSAL_CREATOR_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.ProposalSpecificationImpl <em>Proposal Specification</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see it.rcpvision.emf.components.dsl.model.impl.ProposalSpecificationImpl
+   * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getProposalSpecification()
+   * @generated
+   */
+  int PROPOSAL_SPECIFICATION = 13;
+
+  /**
+   * The feature id for the '<em><b>Parameter Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROPOSAL_SPECIFICATION__PARAMETER_TYPE = EMF_FEATURE_ACCESS__PARAMETER_TYPE;
+
+  /**
+   * The feature id for the '<em><b>Feature</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROPOSAL_SPECIFICATION__FEATURE = EMF_FEATURE_ACCESS_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROPOSAL_SPECIFICATION__EXPRESSION = EMF_FEATURE_ACCESS_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Proposal Specification</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROPOSAL_SPECIFICATION_FEATURE_COUNT = EMF_FEATURE_ACCESS_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link it.rcpvision.emf.components.dsl.model.impl.ViewerContentProviderImpl <em>Viewer Content Provider</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -600,7 +683,7 @@ public interface ModelPackage extends EPackage
    * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getViewerContentProvider()
    * @generated
    */
-  int VIEWER_CONTENT_PROVIDER = 12;
+  int VIEWER_CONTENT_PROVIDER = 14;
 
   /**
    * The feature id for the '<em><b>Children Specifications</b></em>' containment reference list.
@@ -628,7 +711,7 @@ public interface ModelPackage extends EPackage
    * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getPartSpecification()
    * @generated
    */
-  int PART_SPECIFICATION = 15;
+  int PART_SPECIFICATION = 17;
 
   /**
    * The number of structural features of the '<em>Part Specification</em>' class.
@@ -647,7 +730,7 @@ public interface ModelPackage extends EPackage
    * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getViewSpecification()
    * @generated
    */
-  int VIEW_SPECIFICATION = 16;
+  int VIEW_SPECIFICATION = 18;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -823,6 +906,17 @@ public interface ModelPackage extends EPackage
    * @generated
    */
   EReference getModule_FormControlFactory();
+
+  /**
+   * Returns the meta object for the containment reference '{@link it.rcpvision.emf.components.dsl.model.Module#getProposalCreator <em>Proposal Creator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Proposal Creator</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.Module#getProposalCreator()
+   * @see #getModule()
+   * @generated
+   */
+  EReference getModule_ProposalCreator();
 
   /**
    * Returns the meta object for the containment reference '{@link it.rcpvision.emf.components.dsl.model.Module#getViewerContentProvider <em>Viewer Content Provider</em>}'.
@@ -1102,6 +1196,59 @@ public interface ModelPackage extends EPackage
   EReference getFormControlSpecification_Target();
 
   /**
+   * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.ProposalCreator <em>Proposal Creator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Proposal Creator</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.ProposalCreator
+   * @generated
+   */
+  EClass getProposalCreator();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link it.rcpvision.emf.components.dsl.model.ProposalCreator#getProposalsSpecifications <em>Proposals Specifications</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Proposals Specifications</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.ProposalCreator#getProposalsSpecifications()
+   * @see #getProposalCreator()
+   * @generated
+   */
+  EReference getProposalCreator_ProposalsSpecifications();
+
+  /**
+   * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.ProposalSpecification <em>Proposal Specification</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Proposal Specification</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.ProposalSpecification
+   * @generated
+   */
+  EClass getProposalSpecification();
+
+  /**
+   * Returns the meta object for the containment reference '{@link it.rcpvision.emf.components.dsl.model.ProposalSpecification#getFeature <em>Feature</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Feature</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.ProposalSpecification#getFeature()
+   * @see #getProposalSpecification()
+   * @generated
+   */
+  EReference getProposalSpecification_Feature();
+
+  /**
+   * Returns the meta object for the containment reference '{@link it.rcpvision.emf.components.dsl.model.ProposalSpecification#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see it.rcpvision.emf.components.dsl.model.ProposalSpecification#getExpression()
+   * @see #getProposalSpecification()
+   * @generated
+   */
+  EReference getProposalSpecification_Expression();
+
+  /**
    * Returns the meta object for class '{@link it.rcpvision.emf.components.dsl.model.ViewerContentProvider <em>Viewer Content Provider</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1343,6 +1490,14 @@ public interface ModelPackage extends EPackage
     EReference MODULE__FORM_CONTROL_FACTORY = eINSTANCE.getModule_FormControlFactory();
 
     /**
+     * The meta object literal for the '<em><b>Proposal Creator</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODULE__PROPOSAL_CREATOR = eINSTANCE.getModule_ProposalCreator();
+
+    /**
      * The meta object literal for the '<em><b>Viewer Content Provider</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1567,6 +1722,50 @@ public interface ModelPackage extends EPackage
      * @generated
      */
     EReference FORM_CONTROL_SPECIFICATION__TARGET = eINSTANCE.getFormControlSpecification_Target();
+
+    /**
+     * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.ProposalCreatorImpl <em>Proposal Creator</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see it.rcpvision.emf.components.dsl.model.impl.ProposalCreatorImpl
+     * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getProposalCreator()
+     * @generated
+     */
+    EClass PROPOSAL_CREATOR = eINSTANCE.getProposalCreator();
+
+    /**
+     * The meta object literal for the '<em><b>Proposals Specifications</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROPOSAL_CREATOR__PROPOSALS_SPECIFICATIONS = eINSTANCE.getProposalCreator_ProposalsSpecifications();
+
+    /**
+     * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.ProposalSpecificationImpl <em>Proposal Specification</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see it.rcpvision.emf.components.dsl.model.impl.ProposalSpecificationImpl
+     * @see it.rcpvision.emf.components.dsl.model.impl.ModelPackageImpl#getProposalSpecification()
+     * @generated
+     */
+    EClass PROPOSAL_SPECIFICATION = eINSTANCE.getProposalSpecification();
+
+    /**
+     * The meta object literal for the '<em><b>Feature</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROPOSAL_SPECIFICATION__FEATURE = eINSTANCE.getProposalSpecification_Feature();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROPOSAL_SPECIFICATION__EXPRESSION = eINSTANCE.getProposalSpecification_Expression();
 
     /**
      * The meta object literal for the '{@link it.rcpvision.emf.components.dsl.model.impl.ViewerContentProviderImpl <em>Viewer Content Provider</em>}' class.

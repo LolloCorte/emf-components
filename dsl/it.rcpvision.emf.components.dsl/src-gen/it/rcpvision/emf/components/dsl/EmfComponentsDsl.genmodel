@@ -21,6 +21,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/propertyDescriptionProvider"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/featuresProvider"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/formControlFactory"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/proposalCreator"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/viewerContentProvider"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//Module/parts"/>
     </genClasses>
@@ -56,6 +57,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FormControlSpecification/feature"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FormControlSpecification/expression"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//FormControlSpecification/target"/>
+    </genClasses>
+    <genClasses ecoreClass="EmfComponentsDsl.ecore#//ProposalCreator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//ProposalCreator/proposalsSpecifications"/>
+    </genClasses>
+    <genClasses ecoreClass="EmfComponentsDsl.ecore#//ProposalSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//ProposalSpecification/feature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//ProposalSpecification/expression"/>
     </genClasses>
     <genClasses ecoreClass="EmfComponentsDsl.ecore#//ViewerContentProvider">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EmfComponentsDsl.ecore#//ViewerContentProvider/childrenSpecifications"/>

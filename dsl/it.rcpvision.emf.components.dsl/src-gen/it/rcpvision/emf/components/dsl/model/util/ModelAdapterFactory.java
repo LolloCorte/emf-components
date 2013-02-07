@@ -135,6 +135,16 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
         return createFormControlSpecificationAdapter();
       }
       @Override
+      public Adapter caseProposalCreator(ProposalCreator object)
+      {
+        return createProposalCreatorAdapter();
+      }
+      @Override
+      public Adapter caseProposalSpecification(ProposalSpecification object)
+      {
+        return createProposalSpecificationAdapter();
+      }
+      @Override
       public Adapter caseViewerContentProvider(ViewerContentProvider object)
       {
         return createViewerContentProviderAdapter();
@@ -357,6 +367,36 @@ public class ModelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFormControlSpecificationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.ProposalCreator <em>Proposal Creator</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see it.rcpvision.emf.components.dsl.model.ProposalCreator
+   * @generated
+   */
+  public Adapter createProposalCreatorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link it.rcpvision.emf.components.dsl.model.ProposalSpecification <em>Proposal Specification</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see it.rcpvision.emf.components.dsl.model.ProposalSpecification
+   * @generated
+   */
+  public Adapter createProposalSpecificationAdapter()
   {
     return null;
   }

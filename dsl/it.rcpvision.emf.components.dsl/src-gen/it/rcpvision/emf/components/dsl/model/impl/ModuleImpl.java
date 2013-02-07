@@ -10,6 +10,7 @@ import it.rcpvision.emf.components.dsl.model.ModelPackage;
 import it.rcpvision.emf.components.dsl.model.Module;
 import it.rcpvision.emf.components.dsl.model.PartSpecification;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider;
+import it.rcpvision.emf.components.dsl.model.ProposalCreator;
 import it.rcpvision.emf.components.dsl.model.ViewerContentProvider;
 
 import java.util.Collection;
@@ -40,6 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getPropertyDescriptionProvider <em>Property Description Provider</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getFeaturesProvider <em>Features Provider</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getFormControlFactory <em>Form Control Factory</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getProposalCreator <em>Proposal Creator</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getViewerContentProvider <em>Viewer Content Provider</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.impl.ModuleImpl#getParts <em>Parts</em>}</li>
  * </ul>
@@ -118,6 +120,16 @@ public class ModuleImpl extends WithExtendsClauseImpl implements Module
    * @ordered
    */
   protected FormControlFactory formControlFactory;
+
+  /**
+   * The cached value of the '{@link #getProposalCreator() <em>Proposal Creator</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getProposalCreator()
+   * @generated
+   * @ordered
+   */
+  protected ProposalCreator proposalCreator;
 
   /**
    * The cached value of the '{@link #getViewerContentProvider() <em>Viewer Content Provider</em>}' containment reference.
@@ -428,6 +440,54 @@ public class ModuleImpl extends WithExtendsClauseImpl implements Module
    * <!-- end-user-doc -->
    * @generated
    */
+  public ProposalCreator getProposalCreator()
+  {
+    return proposalCreator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetProposalCreator(ProposalCreator newProposalCreator, NotificationChain msgs)
+  {
+    ProposalCreator oldProposalCreator = proposalCreator;
+    proposalCreator = newProposalCreator;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelPackage.MODULE__PROPOSAL_CREATOR, oldProposalCreator, newProposalCreator);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setProposalCreator(ProposalCreator newProposalCreator)
+  {
+    if (newProposalCreator != proposalCreator)
+    {
+      NotificationChain msgs = null;
+      if (proposalCreator != null)
+        msgs = ((InternalEObject)proposalCreator).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelPackage.MODULE__PROPOSAL_CREATOR, null, msgs);
+      if (newProposalCreator != null)
+        msgs = ((InternalEObject)newProposalCreator).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelPackage.MODULE__PROPOSAL_CREATOR, null, msgs);
+      msgs = basicSetProposalCreator(newProposalCreator, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.MODULE__PROPOSAL_CREATOR, newProposalCreator, newProposalCreator));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ViewerContentProvider getViewerContentProvider()
   {
     return viewerContentProvider;
@@ -505,6 +565,8 @@ public class ModuleImpl extends WithExtendsClauseImpl implements Module
         return basicSetFeaturesProvider(null, msgs);
       case ModelPackage.MODULE__FORM_CONTROL_FACTORY:
         return basicSetFormControlFactory(null, msgs);
+      case ModelPackage.MODULE__PROPOSAL_CREATOR:
+        return basicSetProposalCreator(null, msgs);
       case ModelPackage.MODULE__VIEWER_CONTENT_PROVIDER:
         return basicSetViewerContentProvider(null, msgs);
       case ModelPackage.MODULE__PARTS:
@@ -535,6 +597,8 @@ public class ModuleImpl extends WithExtendsClauseImpl implements Module
         return getFeaturesProvider();
       case ModelPackage.MODULE__FORM_CONTROL_FACTORY:
         return getFormControlFactory();
+      case ModelPackage.MODULE__PROPOSAL_CREATOR:
+        return getProposalCreator();
       case ModelPackage.MODULE__VIEWER_CONTENT_PROVIDER:
         return getViewerContentProvider();
       case ModelPackage.MODULE__PARTS:
@@ -571,6 +635,9 @@ public class ModuleImpl extends WithExtendsClauseImpl implements Module
         return;
       case ModelPackage.MODULE__FORM_CONTROL_FACTORY:
         setFormControlFactory((FormControlFactory)newValue);
+        return;
+      case ModelPackage.MODULE__PROPOSAL_CREATOR:
+        setProposalCreator((ProposalCreator)newValue);
         return;
       case ModelPackage.MODULE__VIEWER_CONTENT_PROVIDER:
         setViewerContentProvider((ViewerContentProvider)newValue);
@@ -611,6 +678,9 @@ public class ModuleImpl extends WithExtendsClauseImpl implements Module
       case ModelPackage.MODULE__FORM_CONTROL_FACTORY:
         setFormControlFactory((FormControlFactory)null);
         return;
+      case ModelPackage.MODULE__PROPOSAL_CREATOR:
+        setProposalCreator((ProposalCreator)null);
+        return;
       case ModelPackage.MODULE__VIEWER_CONTENT_PROVIDER:
         setViewerContentProvider((ViewerContentProvider)null);
         return;
@@ -643,6 +713,8 @@ public class ModuleImpl extends WithExtendsClauseImpl implements Module
         return featuresProvider != null;
       case ModelPackage.MODULE__FORM_CONTROL_FACTORY:
         return formControlFactory != null;
+      case ModelPackage.MODULE__PROPOSAL_CREATOR:
+        return proposalCreator != null;
       case ModelPackage.MODULE__VIEWER_CONTENT_PROVIDER:
         return viewerContentProvider != null;
       case ModelPackage.MODULE__PARTS:

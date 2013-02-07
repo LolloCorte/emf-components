@@ -95,4 +95,12 @@ public class EmfComponentsDslJvmModelInferrerTests extends EmfComponentsDslAbstr
     String _viewerContentProviderQN = this.inferrer.viewerContentProviderQN(_module);
     this.assertEqualsStrings("my.empty.edit.ui.provider.ViewerContentProviderGen", _viewerContentProviderQN);
   }
+  
+  @Test
+  public void testProposalCreatorName() {
+    CharSequence _proposalsSpecifications = this.inputs.proposalsSpecifications();
+    Module _module = this.module(_proposalsSpecifications);
+    String _proposalCreatorQN = this.inferrer.proposalCreatorQN(_module);
+    this.assertEqualsStrings("my.empty.binding.ProposalCreatorGen", _proposalCreatorQN);
+  }
 }

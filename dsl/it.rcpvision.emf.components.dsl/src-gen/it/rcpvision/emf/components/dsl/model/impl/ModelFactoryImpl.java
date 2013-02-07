@@ -76,6 +76,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
       case ModelPackage.FEATURE_SPECIFICATION: return createFeatureSpecification();
       case ModelPackage.FORM_CONTROL_FACTORY: return createFormControlFactory();
       case ModelPackage.FORM_CONTROL_SPECIFICATION: return createFormControlSpecification();
+      case ModelPackage.PROPOSAL_CREATOR: return createProposalCreator();
+      case ModelPackage.PROPOSAL_SPECIFICATION: return createProposalSpecification();
       case ModelPackage.VIEWER_CONTENT_PROVIDER: return createViewerContentProvider();
       case ModelPackage.EMF_FEATURE_ACCESS: return createEmfFeatureAccess();
       case ModelPackage.WITH_EXTENDS_CLAUSE: return createWithExtendsClause();
@@ -216,6 +218,28 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory
   {
     FormControlSpecificationImpl formControlSpecification = new FormControlSpecificationImpl();
     return formControlSpecification;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ProposalCreator createProposalCreator()
+  {
+    ProposalCreatorImpl proposalCreator = new ProposalCreatorImpl();
+    return proposalCreator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ProposalSpecification createProposalSpecification()
+  {
+    ProposalSpecificationImpl proposalSpecification = new ProposalSpecificationImpl();
+    return proposalSpecification;
   }
 
   /**

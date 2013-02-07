@@ -18,6 +18,8 @@ import it.rcpvision.emf.components.dsl.model.Module;
 import it.rcpvision.emf.components.dsl.model.PartSpecification;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionProvider;
 import it.rcpvision.emf.components.dsl.model.PropertyDescriptionSpecification;
+import it.rcpvision.emf.components.dsl.model.ProposalCreator;
+import it.rcpvision.emf.components.dsl.model.ProposalSpecification;
 import it.rcpvision.emf.components.dsl.model.ViewSpecification;
 import it.rcpvision.emf.components.dsl.model.ViewerContentProvider;
 import it.rcpvision.emf.components.dsl.model.WithExtendsClause;
@@ -124,6 +126,20 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * @generated
    */
   private EClass formControlSpecificationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass proposalCreatorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass proposalSpecificationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -351,7 +367,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModule_ViewerContentProvider()
+  public EReference getModule_ProposalCreator()
   {
     return (EReference)moduleEClass.getEStructuralFeatures().get(6);
   }
@@ -361,9 +377,19 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModule_Parts()
+  public EReference getModule_ViewerContentProvider()
   {
     return (EReference)moduleEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModule_Parts()
+  {
+    return (EReference)moduleEClass.getEStructuralFeatures().get(8);
   }
 
   /**
@@ -611,6 +637,56 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getProposalCreator()
+  {
+    return proposalCreatorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getProposalCreator_ProposalsSpecifications()
+  {
+    return (EReference)proposalCreatorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getProposalSpecification()
+  {
+    return proposalSpecificationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getProposalSpecification_Feature()
+  {
+    return (EReference)proposalSpecificationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getProposalSpecification_Expression()
+  {
+    return (EReference)proposalSpecificationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getViewerContentProvider()
   {
     return viewerContentProviderEClass;
@@ -760,6 +836,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     createEReference(moduleEClass, MODULE__PROPERTY_DESCRIPTION_PROVIDER);
     createEReference(moduleEClass, MODULE__FEATURES_PROVIDER);
     createEReference(moduleEClass, MODULE__FORM_CONTROL_FACTORY);
+    createEReference(moduleEClass, MODULE__PROPOSAL_CREATOR);
     createEReference(moduleEClass, MODULE__VIEWER_CONTENT_PROVIDER);
     createEReference(moduleEClass, MODULE__PARTS);
 
@@ -795,6 +872,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     createEReference(formControlSpecificationEClass, FORM_CONTROL_SPECIFICATION__FEATURE);
     createEReference(formControlSpecificationEClass, FORM_CONTROL_SPECIFICATION__EXPRESSION);
     createEReference(formControlSpecificationEClass, FORM_CONTROL_SPECIFICATION__TARGET);
+
+    proposalCreatorEClass = createEClass(PROPOSAL_CREATOR);
+    createEReference(proposalCreatorEClass, PROPOSAL_CREATOR__PROPOSALS_SPECIFICATIONS);
+
+    proposalSpecificationEClass = createEClass(PROPOSAL_SPECIFICATION);
+    createEReference(proposalSpecificationEClass, PROPOSAL_SPECIFICATION__FEATURE);
+    createEReference(proposalSpecificationEClass, PROPOSAL_SPECIFICATION__EXPRESSION);
 
     viewerContentProviderEClass = createEClass(VIEWER_CONTENT_PROVIDER);
     createEReference(viewerContentProviderEClass, VIEWER_CONTENT_PROVIDER__CHILDREN_SPECIFICATIONS);
@@ -850,6 +934,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     propertyDescriptionSpecificationEClass.getESuperTypes().add(this.getEmfFeatureAccess());
     featureSpecificationEClass.getESuperTypes().add(this.getEmfFeatureAccess());
     formControlSpecificationEClass.getESuperTypes().add(this.getEmfFeatureAccess());
+    proposalSpecificationEClass.getESuperTypes().add(this.getEmfFeatureAccess());
     viewSpecificationEClass.getESuperTypes().add(this.getPartSpecification());
 
     // Initialize classes and features; add operations and parameters
@@ -867,6 +952,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     initEReference(getModule_PropertyDescriptionProvider(), this.getPropertyDescriptionProvider(), null, "propertyDescriptionProvider", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_FeaturesProvider(), this.getFeaturesProvider(), null, "featuresProvider", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_FormControlFactory(), this.getFormControlFactory(), null, "formControlFactory", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModule_ProposalCreator(), this.getProposalCreator(), null, "proposalCreator", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_ViewerContentProvider(), this.getViewerContentProvider(), null, "viewerContentProvider", null, 0, 1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModule_Parts(), this.getPartSpecification(), null, "parts", null, 0, -1, Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -902,6 +988,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage
     initEReference(getFormControlSpecification_Feature(), theXbasePackage.getXExpression(), null, "feature", null, 0, 1, FormControlSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFormControlSpecification_Expression(), theXbasePackage.getXExpression(), null, "expression", null, 0, 1, FormControlSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFormControlSpecification_Target(), theXbasePackage.getXExpression(), null, "target", null, 0, 1, FormControlSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(proposalCreatorEClass, ProposalCreator.class, "ProposalCreator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getProposalCreator_ProposalsSpecifications(), this.getProposalSpecification(), null, "proposalsSpecifications", null, 0, -1, ProposalCreator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(proposalSpecificationEClass, ProposalSpecification.class, "ProposalSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getProposalSpecification_Feature(), theXbasePackage.getXExpression(), null, "feature", null, 0, 1, ProposalSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProposalSpecification_Expression(), theXbasePackage.getXExpression(), null, "expression", null, 0, 1, ProposalSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(viewerContentProviderEClass, ViewerContentProvider.class, "ViewerContentProvider", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getViewerContentProvider_ChildrenSpecifications(), this.getLabelSpecification(), null, "childrenSpecifications", null, 0, -1, ViewerContentProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

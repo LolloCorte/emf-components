@@ -30,7 +30,7 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
     super(plugin);
   }
 }
-''', null, null, null, null, null, null
+''', null, null, null, null, null, null, null
 		)
 	}
 
@@ -48,7 +48,7 @@ public class EmfComponentsGuiceModuleGen extends MyTestGuiceModule {
     super(plugin);
   }
 }
-''', null, null, null, null, null, null
+''', null, null, null, null, null, null, null
 		)
 	}
 
@@ -81,7 +81,7 @@ import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 
 public class LabelProviderGen extends ViewerLabelProvider {
 }
-''', null, null, null, null, null
+''', null, null, null, null, null, null
 		)
 	}
 
@@ -114,7 +114,7 @@ import it.rcpvision.emf.components.ui.provider.FeatureLabelProvider;
 
 public class PropertyDescriptionProviderGen extends PropertyDescriptionProvider {
 }
-''', null, null, null, null, null
+''', null, null, null, null, null, null
 		)
 	}
 
@@ -129,7 +129,7 @@ import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 
 public class LabelProviderGen extends ViewerLabelProvider {
 }
-''', null, null, null, null, null
+''', null, null, null, null, null, null
 		)
 	}
 
@@ -215,7 +215,7 @@ public class LabelProviderGen extends ViewerLabelProvider {
     return _xifexpression;
   }
 }
-''', null, null, null, null, null
+''', null, null, null, null, null, null
 		)
 	}
 
@@ -263,7 +263,7 @@ public class PropertyDescriptionProviderGen extends PropertyDescriptionProvider 
     return _firstUpper;
   }
 }
-''', null, null, null, null
+''', null, null, null, null, null
 		)
 	}
 
@@ -306,7 +306,7 @@ public class FeaturesProviderGen extends FeaturesProvider {
       "firstName", "lastName", "books");
   }
 }
-''', null, null, null
+''', null, null, null, null
 		)
 	}
 
@@ -415,7 +415,7 @@ public class FormFeatureControlFactoryGen extends FormControlFactory {
     return _observeText;
   }
 }
-''', null, null
+''', null, null, null
 		)
 	}
 
@@ -470,6 +470,77 @@ public class ViewerContentProviderGen extends ViewerContentProvider {
     return _author;
   }
 }
+''', null, null
+		)
+	}
+
+	@Test
+	def testProposalSpecifications() {
+		inputs.proposalsSpecifications.assertCorrectJavaCodeGeneration(
+'''
+package my.empty;
+
+import it.rcpvision.emf.components.EmfComponentsGuiceModule;
+import it.rcpvision.emf.components.binding.ProposalCreator;
+import my.empty.binding.ProposalCreatorGen;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
+
+public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
+  public EmfComponentsGuiceModuleGen(final AbstractUIPlugin plugin) {
+    super(plugin);
+  }
+  
+  @Override
+  public Class<? extends ProposalCreator> bindProposalCreator() {
+    return ProposalCreatorGen.class;
+  }
+}
+''', null, null, null, null, null,
+'''
+package my.empty.binding;
+
+import it.rcpvision.emf.components.binding.ProposalCreator;
+import it.rcpvision.emf.components.examples.library.Book;
+import it.rcpvision.emf.components.examples.library.EXTLibraryFactory;
+import it.rcpvision.emf.components.examples.library.Library;
+import it.rcpvision.emf.components.examples.library.Writer;
+import java.util.ArrayList;
+import java.util.List;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
+import org.eclipse.xtext.xbase.lib.ObjectExtensions;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+
+public class ProposalCreatorGen extends ProposalCreator {
+  public List<? extends Object> proposals_Library_name(final Library it) {
+    ArrayList<String> _newArrayList = CollectionLiterals.<String>newArrayList("foo", "bar");
+    return _newArrayList;
+  }
+  
+  public List<? extends Object> proposals_Writer_books(final Writer it) {
+    EList<Book> _books = it.getBooks();
+    return _books;
+  }
+  
+  public List<? extends Object> proposals_Book_author(final Book it) {
+    Writer _createWriter = EXTLibraryFactory.eINSTANCE.createWriter();
+    final Procedure1<Writer> _function = new Procedure1<Writer>() {
+        public void apply(final Writer it) {
+          it.setName("Foo");
+        }
+      };
+    Writer _doubleArrow = ObjectExtensions.<Writer>operator_doubleArrow(_createWriter, _function);
+    Writer _createWriter_1 = EXTLibraryFactory.eINSTANCE.createWriter();
+    final Procedure1<Writer> _function_1 = new Procedure1<Writer>() {
+        public void apply(final Writer it) {
+          it.setName("Bar");
+        }
+      };
+    Writer _doubleArrow_1 = ObjectExtensions.<Writer>operator_doubleArrow(_createWriter_1, _function_1);
+    ArrayList<Writer> _newArrayList = CollectionLiterals.<Writer>newArrayList(_doubleArrow, _doubleArrow_1);
+    return _newArrayList;
+  }
+}
 ''', null
 		)
 	}
@@ -488,7 +559,7 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
     super(plugin);
   }
 }
-''', null, null, null, null, null,
+''', null, null, null, null, null, null,
 '''
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
@@ -521,6 +592,7 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
 			CharSequence expectedFeatureProvider,
 			CharSequence expectedFormFeatureControlFactory,
 			CharSequence expectedViewerContentProvider,
+			CharSequence expectedProposalCreator,
 			CharSequence expectedPluginXmlGen) {
 		input.compileAll [
 			for (e : allGeneratedResources.entrySet) {
@@ -548,6 +620,10 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
 					// check the expected Java code for the module
 					if (expectedViewerContentProvider != null)
 						assertEqualsStrings(expectedViewerContentProvider, e.value)
+				} else if (e.key.endsWith("ProposalCreatorGen.java")) {
+					// check the expected Java code for the module
+					if (expectedProposalCreator != null)
+						assertEqualsStrings(expectedProposalCreator, e.value)
 				} else if (e.key.endsWith(".xml_emfcomponents_gen")) {
 					// check the expected Java code for the module
 					if (expectedPluginXmlGen != null)

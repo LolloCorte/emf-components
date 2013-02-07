@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class CustomLibraryProposalCreator extends ProposalCreator {
 
-	public List<?> proposals_Book_author(Book book) {
+	public List<? extends Object> proposals_Book_author(Book book) {
 		List<Object> proposals = new LinkedList<Object>();
 		Writer writer = EXTLibraryFactory.eINSTANCE.createWriter();
 		writer.setFirstName("Fake");

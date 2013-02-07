@@ -311,6 +311,65 @@ public class TestInputs {
     return _builder;
   }
   
+  public CharSequence proposalsSpecifications() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("import java.util.*");
+    _builder.newLine();
+    _builder.append("import it.rcpvision.emf.components.examples.library.*");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("module my.empty {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("proposals {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("Library : name -> { newArrayList(\'foo\', \'bar\') }");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("Writer : books -> ");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("{ books } // it.books");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("Book : author -> {");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("newArrayList(");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("EXTLibraryFactory::eINSTANCE.createWriter => [");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("name = \"Foo\"");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("],");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("EXTLibraryFactory::eINSTANCE.createWriter => [");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("name = \"Bar\"");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("]");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append(")");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
   public CharSequence viewerContentProviderSpecifications() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("import java.util.*");

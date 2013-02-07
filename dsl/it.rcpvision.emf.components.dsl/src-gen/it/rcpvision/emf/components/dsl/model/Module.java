@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getPropertyDescriptionProvider <em>Property Description Provider</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getFeaturesProvider <em>Features Provider</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getFormControlFactory <em>Form Control Factory</em>}</li>
+ *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getProposalCreator <em>Proposal Creator</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getViewerContentProvider <em>Viewer Content Provider</em>}</li>
  *   <li>{@link it.rcpvision.emf.components.dsl.model.Module#getParts <em>Parts</em>}</li>
  * </ul>
@@ -184,6 +185,32 @@ public interface Module extends WithExtendsClause
    * @generated
    */
   void setFormControlFactory(FormControlFactory value);
+
+  /**
+   * Returns the value of the '<em><b>Proposal Creator</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Proposal Creator</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Proposal Creator</em>' containment reference.
+   * @see #setProposalCreator(ProposalCreator)
+   * @see it.rcpvision.emf.components.dsl.model.ModelPackage#getModule_ProposalCreator()
+   * @model containment="true"
+   * @generated
+   */
+  ProposalCreator getProposalCreator();
+
+  /**
+   * Sets the value of the '{@link it.rcpvision.emf.components.dsl.model.Module#getProposalCreator <em>Proposal Creator</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Proposal Creator</em>' containment reference.
+   * @see #getProposalCreator()
+   * @generated
+   */
+  void setProposalCreator(ProposalCreator value);
 
   /**
    * Returns the value of the '<em><b>Viewer Content Provider</b></em>' containment reference.
