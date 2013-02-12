@@ -164,6 +164,8 @@ public class EmfComponentsAbstractTests {
 
 	protected static final String ADDRESS_LABEL = "address";
 	
+	protected static final String BORROWERS_LABEL = "borrowers";
+	
 	protected static final String AUTHOR_LABEL = "author";
 
 	protected static final String FIRSTNAME_LABEL = "firstName";

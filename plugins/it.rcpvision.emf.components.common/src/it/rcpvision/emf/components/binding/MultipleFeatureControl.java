@@ -49,6 +49,7 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
  * Shows values comma separated as label.
  * 
  * @author Dennis Huebner
+ * @author Lorenzo Bettini (modifications)
  * 
  */
 public class MultipleFeatureControl extends Composite {
@@ -61,7 +62,7 @@ public class MultipleFeatureControl extends Composite {
 
 	private Button button;
 
-	private boolean beQueit;
+	private boolean beQuiet;
 
 	public MultipleFeatureControl(final Composite parent, FormToolkit toolkit, final ILabelProvider labelProvider,
 			final EObject object, final EStructuralFeature feature, final ProposalCreator proposalcreator) {
@@ -86,9 +87,10 @@ public class MultipleFeatureControl extends Composite {
 			public void widgetSelected(SelectionEvent e) {
 				List<?> oldValue = unwrapSelection();
 				//TODO (dennis) load choice of values in a runnable with status bar
+				List<Object> proposals = proposalcreator.proposals(object, feature);
 				dialog = new FeatureEditorDialog(parent.getShell(), new CachedLabelProvider(labelProvider), object,
-						feature.getEType(), oldValue, "Display Name", proposalcreator.proposals(object, feature), false,
-						feature.isOrdered());
+						feature.getEType(), oldValue, "Select", proposals, false,
+						feature.isOrdered(), proposals != null);
 				dialog.setBlockOnOpen(true);
 				if (dialog.open() == Window.OK) {
 					setSelection(new StructuredSelection(dialog.getResult().toArray()));
@@ -176,7 +178,7 @@ public class MultipleFeatureControl extends Composite {
 		public void setSelection(ISelection selection) {
 			this.selection = selection;
 			recalculateLabelText();
-			if (!beQueit) {
+			if (!beQuiet) {
 				// notify
 				// SelectionProviderMultipleSelectionObservableList$SelectionListener
 				for (ISelectionChangedListener currListener : listeners) {
@@ -208,12 +210,12 @@ public class MultipleFeatureControl extends Composite {
 	}
 
 	public void quietClearSelection() {
-		beQueit = true;
+		beQuiet = true;
 		try {
 			this.setSelection(new StructuredSelection());
 		}
 		finally {
-			beQueit = false;
+			beQuiet = false;
 		}
 	}
 
