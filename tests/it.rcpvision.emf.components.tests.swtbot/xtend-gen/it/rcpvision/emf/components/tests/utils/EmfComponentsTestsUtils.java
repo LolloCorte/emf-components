@@ -1,6 +1,8 @@
 package it.rcpvision.emf.components.tests.utils;
 
+import com.google.common.base.Objects;
 import it.rcpvision.emf.components.examples.library.Book;
+import it.rcpvision.emf.components.examples.library.Borrower;
 import it.rcpvision.emf.components.examples.library.Writer;
 import java.util.Arrays;
 import java.util.List;
@@ -52,9 +54,28 @@ public class EmfComponentsTestsUtils {
     return _plus;
   }
   
+  protected String _stringRep(final Borrower b) {
+    String _firstName = b.getFirstName();
+    String _plus = ("Borrower: " + _firstName);
+    String _xifexpression = null;
+    String _lastName = b.getLastName();
+    boolean _notEquals = (!Objects.equal(_lastName, null));
+    if (_notEquals) {
+      String _lastName_1 = b.getLastName();
+      String _plus_1 = (" " + _lastName_1);
+      _xifexpression = _plus_1;
+    } else {
+      _xifexpression = "";
+    }
+    String _plus_2 = (_plus + _xifexpression);
+    return _plus_2;
+  }
+  
   public String stringRep(final Object book) {
     if (book instanceof Book) {
       return _stringRep((Book)book);
+    } else if (book instanceof Borrower) {
+      return _stringRep((Borrower)book);
     } else if (book instanceof Writer) {
       return _stringRep((Writer)book);
     } else if (book != null) {

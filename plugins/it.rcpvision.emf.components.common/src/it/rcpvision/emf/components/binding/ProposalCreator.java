@@ -129,16 +129,16 @@ public class ProposalCreator {
 	private List<Object> polymorphicCreateProposals(EObject element,
 			EStructuralFeature feature) {
 
-		// first try with a method with two params
+		// first try with a method with two parameters
 		// (EObject, EStructurealFeature)...
 		PolymorphicDispatcher<List<Object>> dispatcher = createPolymorphicDispatcher(
-				feature, 2);
+				element, feature, 2);
 
 		List<Object> invoke = dispatcher.invoke(element, feature);
 
 		if (invoke == null) {
-			// ...then with a methow with only EObject
-			dispatcher = createPolymorphicDispatcher(feature, 1);
+			// ...then with a method with only EObject
+			dispatcher = createPolymorphicDispatcher(element, feature, 1);
 			invoke = dispatcher.invoke(element);
 		}
 
@@ -146,10 +146,10 @@ public class ProposalCreator {
 	}
 
 	private PolymorphicDispatcher<List<Object>> createPolymorphicDispatcher(
-			EStructuralFeature feature, int numOfParams) {
+			EObject object, EStructuralFeature feature, int numOfParams) {
 		return new PolymorphicDispatcher<List<Object>>(
-				Collections.singletonList(this),
-				getCreateProposalsPredicate(feature, numOfParams),
+				Collections.singletonList(this), getCreateProposalsPredicate(
+						object, feature, numOfParams),
 				new PolymorphicDispatcher.NullErrorHandler<List<Object>>()) {
 			@Override
 			protected List<Object> handleNoSuchMethod(Object... params) {
@@ -162,9 +162,9 @@ public class ProposalCreator {
 	}
 
 	protected Predicate<Method> getCreateProposalsPredicate(
-			EStructuralFeature feature, int numOfParams) {
+			EObject object, EStructuralFeature feature, int numOfParams) {
 		String methodName = "proposals_"
-				+ feature.getEContainingClass().getName() + "_"
+				+ object.eClass().getName() + "_"
 				+ feature.getName();
 		return PolymorphicDispatcher.Predicates.forName(methodName, numOfParams);
 	}

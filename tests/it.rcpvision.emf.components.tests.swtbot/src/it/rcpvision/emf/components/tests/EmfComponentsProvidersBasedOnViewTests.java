@@ -202,6 +202,32 @@ public class EmfComponentsProvidersBasedOnViewTests extends EmfComponentsCustomL
 		});
 		closeLibraryView(LIBRARY_EMF_VIEW);
 	}
+
+	@Test
+	public void testFormControlFactoryCustomProposalsForFeatureDefinedInBaseClass() {
+		final FormControlFactory bindingFactory = getInjector().getInstance(
+				FormControlFactory.class);
+		final Writer writer = createTestResourceAndWriter();
+		final SWTBotView view = openTestView(LIBRARY_EMF_VIEW);
+		Display.getDefault().syncExec(new Runnable() {
+			public void run() {
+				try {
+					// we need a non-null display and parent so we use
+					// those in the view and in the tree
+					FormToolkit formToolkit = createFormToolkit(view);
+					bindingFactory.init(null, writer.getBooks().get(0),
+							createCompositeParent(view), formToolkit);
+					List<?> proposals = bindingFactory
+							.createProposals(EXTLibraryPackage.Literals.LENDABLE__BORROWERS);
+					assertEquals("Borrower: Fake Borrower", 
+							utils.toStringRep(proposals));
+				} catch (Exception ex) {
+					fail(ex.getMessage());
+				}
+			}
+		});
+		closeLibraryView(LIBRARY_EMF_VIEW);
+	}
 	
 	protected Writer createTestResourceAndWriter() {
 		ResourceSet resourceSet = new ResourceSetImpl();

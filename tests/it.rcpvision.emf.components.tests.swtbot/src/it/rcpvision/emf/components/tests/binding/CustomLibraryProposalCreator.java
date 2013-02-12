@@ -43,4 +43,15 @@ public class CustomLibraryProposalCreator extends ProposalCreator {
 
 		return proposals;
 	}
+
+	public List<?> proposals_Book_borrowers(Book b,
+			EStructuralFeature feature) {
+		List<Object> proposals = defaultProposals(feature);
+
+		Borrower fakeBorrower = EXTLibraryFactory.eINSTANCE.createBorrower();
+		fakeBorrower.setFirstName("Fake Borrower");
+		proposals.add(fakeBorrower);
+
+		return proposals;
+	}
 }

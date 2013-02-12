@@ -113,6 +113,10 @@ public class EmfComponentsFormTests extends EmfComponentsAbstractTests {
 		// simulate the addition of a borrower in the dialog
 		bot.table(0).select("Borrower: Foo"); // left table
 		bot.button("Add").click();
+		
+		// is the additional proposal there?
+		bot.table(0).select("Borrower: Fake Borrower"); // left table
+		
 		// now the borrower should be in the right table
 		bot.table(1).select("Borrower: Foo"); // right table
 		bot.button("OK").click();
