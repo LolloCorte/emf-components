@@ -31,7 +31,6 @@ import org.eclipse.emf.ecore.EEnumLiteral;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EEnumImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -69,9 +68,9 @@ public class ProposalCreator {
 	 * @param feature
 	 * @return possible values
 	 */
-	public List<?> proposals(EObject eObject, EStructuralFeature feature) {
+	public List<Object> proposals(EObject eObject, EStructuralFeature feature) {
 		
-		List<?> proposals  = polymorphicCreateProposals(eObject, feature);
+		List<Object> proposals  = polymorphicCreateProposals(eObject, feature);
 		if(proposals != null){
 			return proposals;
 		}
@@ -79,13 +78,17 @@ public class ProposalCreator {
 		if (resourceSet == null)
 			retrieveResourceSet(eObject);
 
-		List<?> retVal = null;
+		return defaultProposals(feature);
+	}
+
+	protected List<Object> defaultProposals(EStructuralFeature feature) {
+		List<Object> retVal = null;
 		// TODO Reference[] handle
 		if (feature instanceof EReference) {
 			retVal = findAllInstances(feature.getEType());
 		} else if (feature.getEType() instanceof EEnumImpl) {
 			EEnum eEnum = (EEnum) feature.getEType();
-			List<Enumerator> enumerators = new ArrayList<Enumerator>();
+			List<Object> enumerators = new ArrayList<Object>();
 			for (Iterator<?> iter = eEnum.getELiterals().iterator(); iter
 					.hasNext();) {
 				Enumerator instance = ((EEnumLiteral) iter.next())
@@ -97,7 +100,7 @@ public class ProposalCreator {
 		return retVal;
 	}
 
-	private List<Object> findAllInstances(EClassifier type) {
+	protected List<Object> findAllInstances(EClassifier type) {
 		List<Object> objects = new ArrayList<Object>();
 		
 		if (resourceSet == null)
@@ -110,39 +113,59 @@ public class ProposalCreator {
 			if (type.isInstance(o))
 				objects.add(o);
 		}
-		for (TreeIterator<Object> iter = EcoreUtil
-				.getAllContents(EcoreUtil.getRootContainer(
-						EcorePackage.eINSTANCE, true), false); iter.hasNext();) {
-			Object next = iter.next();
-			if ((type.isInstance(next)) && !objects.contains(next)) {
-				objects.add(next);
-			}
-		}
+		// the following does not seem to be necessary
+		// since it iterates on Ecore stuff... Lorenzo
+//		for (TreeIterator<Object> iter = EcoreUtil
+//				.getAllContents(EcoreUtil.getRootContainer(
+//						EcorePackage.eINSTANCE, true), false); iter.hasNext();) {
+//			Object next = iter.next();
+//			if ((type.isInstance(next)) && !objects.contains(next)) {
+//				objects.add(next);
+//			}
+//		}
 		return objects;
 	}
 	
-	private List<?> polymorphicCreateProposals(EObject element,	EStructuralFeature feature) {
-		PolymorphicDispatcher<List<?>> dispatcher = new PolymorphicDispatcher<List<?>>(
+	private List<Object> polymorphicCreateProposals(EObject element,
+			EStructuralFeature feature) {
+
+		// first try with a method with two params
+		// (EObject, EStructurealFeature)...
+		PolymorphicDispatcher<List<Object>> dispatcher = createPolymorphicDispatcher(
+				feature, 2);
+
+		List<Object> invoke = dispatcher.invoke(element, feature);
+
+		if (invoke == null) {
+			// ...then with a methow with only EObject
+			dispatcher = createPolymorphicDispatcher(feature, 1);
+			invoke = dispatcher.invoke(element);
+		}
+
+		return invoke;
+	}
+
+	private PolymorphicDispatcher<List<Object>> createPolymorphicDispatcher(
+			EStructuralFeature feature, int numOfParams) {
+		return new PolymorphicDispatcher<List<Object>>(
 				Collections.singletonList(this),
-				getCreateProposalsPredicate(feature),
-				new PolymorphicDispatcher.NullErrorHandler<List<?>>()) {
+				getCreateProposalsPredicate(feature, numOfParams),
+				new PolymorphicDispatcher.NullErrorHandler<List<Object>>()) {
 			@Override
-			protected List<?> handleNoSuchMethod(Object... params) {
+			protected List<Object> handleNoSuchMethod(Object... params) {
 				if (PolymorphicDispatcher.NullErrorHandler.class
 						.equals(proposals_errorHandler.getClass()))
 					return null;
 				return super.handleNoSuchMethod(params);
 			}
 		};
-
-		return dispatcher.invoke(element);
 	}
 
 	protected Predicate<Method> getCreateProposalsPredicate(
-			EStructuralFeature feature) {
+			EStructuralFeature feature, int numOfParams) {
 		String methodName = "proposals_"
 				+ feature.getEContainingClass().getName() + "_"
 				+ feature.getName();
-		return PolymorphicDispatcher.Predicates.forName(methodName, 1);
+		return PolymorphicDispatcher.Predicates.forName(methodName, numOfParams);
 	}
 }

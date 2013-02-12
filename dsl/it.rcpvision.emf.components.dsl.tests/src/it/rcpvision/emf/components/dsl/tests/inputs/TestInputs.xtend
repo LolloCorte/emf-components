@@ -164,6 +164,13 @@ module my.empty {
 				]
 			)
 		}
+		Borrower : borrowed -> {
+			defaultProposals(feature) => [
+				add(EXTLibraryFactory::eINSTANCE.createBook => [
+					title = "Fake Book"
+				])
+			]
+		}
 	}
 }
 '''

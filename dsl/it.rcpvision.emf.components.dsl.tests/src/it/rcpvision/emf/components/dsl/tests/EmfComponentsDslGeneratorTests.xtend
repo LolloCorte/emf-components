@@ -501,28 +501,30 @@ package my.empty.binding;
 
 import it.rcpvision.emf.components.binding.ProposalCreator;
 import it.rcpvision.emf.components.examples.library.Book;
+import it.rcpvision.emf.components.examples.library.Borrower;
 import it.rcpvision.emf.components.examples.library.EXTLibraryFactory;
 import it.rcpvision.emf.components.examples.library.Library;
 import it.rcpvision.emf.components.examples.library.Writer;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 public class ProposalCreatorGen extends ProposalCreator {
-  public List<? extends Object> proposals_Library_name(final Library it) {
+  public List<? extends Object> proposals_Library_name(final Library it, final EStructuralFeature feature) {
     ArrayList<String> _newArrayList = CollectionLiterals.<String>newArrayList("foo", "bar");
     return _newArrayList;
   }
   
-  public List<? extends Object> proposals_Writer_books(final Writer it) {
+  public List<? extends Object> proposals_Writer_books(final Writer it, final EStructuralFeature feature) {
     EList<Book> _books = it.getBooks();
     return _books;
   }
   
-  public List<? extends Object> proposals_Book_author(final Book it) {
+  public List<? extends Object> proposals_Book_author(final Book it, final EStructuralFeature feature) {
     Writer _createWriter = EXTLibraryFactory.eINSTANCE.createWriter();
     final Procedure1<Writer> _function = new Procedure1<Writer>() {
         public void apply(final Writer it) {
@@ -539,6 +541,24 @@ public class ProposalCreatorGen extends ProposalCreator {
     Writer _doubleArrow_1 = ObjectExtensions.<Writer>operator_doubleArrow(_createWriter_1, _function_1);
     ArrayList<Writer> _newArrayList = CollectionLiterals.<Writer>newArrayList(_doubleArrow, _doubleArrow_1);
     return _newArrayList;
+  }
+  
+  public List<? extends Object> proposals_Borrower_borrowed(final Borrower it, final EStructuralFeature feature) {
+    List<Object> _defaultProposals = this.defaultProposals(feature);
+    final Procedure1<List<Object>> _function = new Procedure1<List<Object>>() {
+        public void apply(final List<Object> it) {
+          Book _createBook = EXTLibraryFactory.eINSTANCE.createBook();
+          final Procedure1<Book> _function = new Procedure1<Book>() {
+              public void apply(final Book it) {
+                it.setTitle("Fake Book");
+              }
+            };
+          Book _doubleArrow = ObjectExtensions.<Book>operator_doubleArrow(_createBook, _function);
+          it.add(_doubleArrow);
+        }
+      };
+    List<Object> _doubleArrow = ObjectExtensions.<List<Object>>operator_doubleArrow(_defaultProposals, _function);
+    return _doubleArrow;
   }
 }
 ''', null

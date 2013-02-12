@@ -796,6 +796,11 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
                             JvmFormalParameter _parameter = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.toParameter(spec, 
                               "it", _parameterType);
                             EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+                            EList<JvmFormalParameter> _parameters_1 = it.getParameters();
+                            JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(spec, EStructuralFeature.class);
+                            JvmFormalParameter _parameter_1 = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.toParameter(spec, 
+                              "feature", _newTypeRef);
+                            EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters_1, _parameter_1);
                             XExpression _expression = spec.getExpression();
                             EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _expression);
                           }

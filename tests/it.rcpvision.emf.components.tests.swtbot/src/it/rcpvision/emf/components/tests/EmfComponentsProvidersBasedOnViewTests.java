@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 import it.rcpvision.emf.components.binding.FormControlFactory;
 import it.rcpvision.emf.components.examples.library.Book;
+import it.rcpvision.emf.components.examples.library.Borrower;
 import it.rcpvision.emf.components.examples.library.EXTLibraryFactory;
 import it.rcpvision.emf.components.examples.library.EXTLibraryPackage;
 import it.rcpvision.emf.components.examples.library.Writer;
@@ -162,6 +163,37 @@ public class EmfComponentsProvidersBasedOnViewTests extends EmfComponentsCustomL
 					List<?> proposals = bindingFactory
 							.createProposals(EXTLibraryPackage.Literals.BOOK__AUTHOR);
 					assertEquals("Writer: Fake Writer, Writer: Fake Writer2", 
+							utils.toStringRep(proposals));
+				} catch (Exception ex) {
+					fail(ex.getMessage());
+				}
+			}
+		});
+		closeLibraryView(LIBRARY_EMF_VIEW);
+	}
+
+	@Test
+	public void testFormControlFactoryCustomAndDefaultProposals() {
+		final FormControlFactory bindingFactory = getInjector().getInstance(
+				FormControlFactory.class);
+		final Writer writer = createTestResourceAndWriter();
+		final SWTBotView view = openTestView(LIBRARY_EMF_VIEW);
+		Display.getDefault().syncExec(new Runnable() {
+			public void run() {
+				try {
+					// we need a non-null display and parent so we use
+					// those in the view and in the tree
+					FormToolkit formToolkit = createFormToolkit(view);
+
+					Borrower borrower = EXTLibraryFactory.eINSTANCE
+							.createBorrower();
+					writer.eResource().getContents().add(borrower);
+
+					bindingFactory.init(null, borrower,
+							createCompositeParent(view), formToolkit);
+					List<?> proposals = bindingFactory
+							.createProposals(EXTLibraryPackage.Literals.BORROWER__BORROWED);
+					assertEquals("Book: Test Book 1, Book: Test Book 1, Book: Fake Book",
 							utils.toStringRep(proposals));
 				} catch (Exception ex) {
 					fail(ex.getMessage());
