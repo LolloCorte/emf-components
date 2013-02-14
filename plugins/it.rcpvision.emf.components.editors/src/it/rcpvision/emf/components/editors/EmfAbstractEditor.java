@@ -25,7 +25,6 @@ import it.rcpvision.emf.components.factories.ViewerFactory;
 import it.rcpvision.emf.components.handlers.OutlineSelectionHandler;
 import it.rcpvision.emf.components.listeners.ViewerMouseAdapter;
 import it.rcpvision.emf.components.menus.ViewerContextMenuFactory;
-import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
 import it.rcpvision.emf.components.util.EmfComponentsUtil;
 
@@ -451,7 +450,7 @@ protected EmfEditorContentOutlineFactory emfContentOutlineFactory;
 protected OutlineSelectionHandler outlineSelectionHandler;
 
 @Inject
-protected EditingDomainFactory editingDomainFactory;
+protected Provider<AdapterFactoryEditingDomain> editingDomainProvider;
 
 @Inject
 protected EditingDomainResourceLoader resourceLoader;
@@ -643,7 +642,7 @@ protected ViewerContextMenuFactory viewerContextMenuFactory;
   }
 
 	protected void initializeEditingDomain() {
-		editingDomain = editingDomainFactory.create();
+		editingDomain = editingDomainProvider.get();
 		adapterFactory = (ComposedAdapterFactory) editingDomain
 				.getAdapterFactory();
 		// Add a listener to set the most recent command's affected objects to

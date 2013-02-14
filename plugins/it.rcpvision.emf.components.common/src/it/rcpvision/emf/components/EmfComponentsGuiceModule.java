@@ -9,6 +9,7 @@ import it.rcpvision.emf.components.builders.TableViewerBuilder;
 import it.rcpvision.emf.components.builders.TableViewerColumnBuilder;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.edit.ResourceSaveManager;
+import it.rcpvision.emf.components.edit.domain.InjectableAdapterFactoryEditingDomain;
 import it.rcpvision.emf.components.edit.provider.InjectableAdapterFactory;
 import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider;
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
@@ -20,7 +21,6 @@ import it.rcpvision.emf.components.factories.ViewerFactory;
 import it.rcpvision.emf.components.handlers.OutlineSelectionHandler;
 import it.rcpvision.emf.components.listeners.ViewerMouseAdapter;
 import it.rcpvision.emf.components.menus.ViewerContextMenuFactory;
-import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
 import it.rcpvision.emf.components.resource.EmptyResourceInitializer;
 import it.rcpvision.emf.components.resource.ResourceLoader;
@@ -38,6 +38,7 @@ import it.rcpvision.emf.components.viewers.ViewerInitializer;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.util.Diagnostician;
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -96,10 +97,6 @@ public class EmfComponentsGuiceModule extends AbstractGenericModule {
 
 	public Class<? extends OutlineSelectionHandler> bindOutlineSelectionHandler() {
 		return OutlineSelectionHandler.class;
-	}
-
-	public Class<? extends EditingDomainFactory> bindEditingDomainFactory() {
-		return EditingDomainFactory.class;
 	}
 
 	public Class<? extends ViewerFactory> bindViewerFactory() {
@@ -184,6 +181,10 @@ public class EmfComponentsGuiceModule extends AbstractGenericModule {
 
 	public Class<? extends ProposalCreator> bindProposalCreator() {
 		return ProposalCreator.class;
+	}
+
+	public Class<? extends AdapterFactoryEditingDomain> bindAdapterFactoryEditingDomain() {
+		return InjectableAdapterFactoryEditingDomain.class;
 	}
 	
 	public Class<? extends AdapterFactory> bindAdapterFactory() {

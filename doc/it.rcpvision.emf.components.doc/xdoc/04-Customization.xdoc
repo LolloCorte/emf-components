@@ -47,11 +47,6 @@ section2:EmptyResourceInitializer[Empty Resource Initializer]
 
 codeRef[it.rcpvision.emf.components.resource.EmptyResourceInitializer]
 
-section2:EditingDomainFactory[Editing Domain Factory]
-
-Per la creazione dell'editing domain
-codeRef[it.rcpvision.emf.components.resource.EditingDomainFactory]
-
 section2:EditingDomainResourceLoader[Editing Domain Resource Loader]
 
 ul[
@@ -316,7 +311,6 @@ ul[
 			item[ref:EmptyResourceInitializer[EmptyResourceInitializer]]
 			item[ref:FeaturesProvider[FeaturesProvider]]
 		]]
-		item[ref:EditingDomainFactory[EditingDomainFactory]]
 		item[ref:JfaceProviderFactory[JfaceProviderFactory]
 		ul[
 			item[ref:ViewerLabelProvider[ViewerLabelProvider]]
@@ -342,7 +336,6 @@ ul[
 		item[ref:EmptyResourceInitializer[EmptyResourceInitializer]]
 		item[ref:FeaturesProvider[FeaturesProvider]]
 	]]
-	item[ref:EditingDomainFactory[EditingDomainFactory]]
 	item[ref:JfaceProviderFactory[JfaceProviderFactory]
 	ul[
 		item[ref:ViewerLabelProvider[ViewerLabelProvider]]

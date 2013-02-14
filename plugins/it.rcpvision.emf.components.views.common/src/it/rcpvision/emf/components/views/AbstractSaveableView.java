@@ -2,7 +2,6 @@ package it.rcpvision.emf.components.views;
 
 import it.rcpvision.emf.components.edit.ResourceSaveManager;
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
-import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
 import it.rcpvision.emf.components.util.EmfCommandsUtil;
 import it.rcpvision.emf.components.viewers.ViewerInitializer;
@@ -31,11 +30,12 @@ import org.eclipse.ui.ISaveablePart;
 import org.eclipse.ui.part.ViewPart;
 
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 
 public abstract class AbstractSaveableView extends ViewPart implements
 		ISaveablePart, IEditingDomainProvider, IMenuListener, IViewerProvider {
 	@Inject
-	protected EditingDomainFactory editingDomainFactory;
+	protected Provider<AdapterFactoryEditingDomain> editingDomainProvider;
 
 	@Inject
 	protected EditingDomainResourceLoader resourceLoader;
@@ -70,7 +70,7 @@ public abstract class AbstractSaveableView extends ViewPart implements
 	}
 
 	protected void initializeEditingDomain() {
-		editingDomain = editingDomainFactory.create();
+		editingDomain = editingDomainProvider.get();
 		editingDomain.getCommandStack().addCommandStackListener(
 				new CommandStackListener() {
 					public void commandStackChanged(final EventObject event) {

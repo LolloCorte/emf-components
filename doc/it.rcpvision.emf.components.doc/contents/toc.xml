@@ -51,8 +51,6 @@
 				</topic>
 				<topic href="contents/04-Customization.html#EmptyResourceInitializer" label="Empty Resource Initializer" >
 				</topic>
-				<topic href="contents/04-Customization.html#EditingDomainFactory" label="Editing Domain Factory" >
-				</topic>
 				<topic href="contents/04-Customization.html#EditingDomainResourceLoader" label="Editing Domain Resource Loader" >
 				</topic>
 				<topic href="contents/04-Customization.html#ResourceLoader" label="Resource Loader" >

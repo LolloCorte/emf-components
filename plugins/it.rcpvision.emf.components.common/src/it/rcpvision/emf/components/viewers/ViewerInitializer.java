@@ -7,7 +7,6 @@ import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider;
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
 import it.rcpvision.emf.components.factories.JfaceProviderFactory;
 import it.rcpvision.emf.components.menus.ViewerContextMenuFactory;
-import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -39,7 +38,7 @@ public class ViewerInitializer {
 	protected EditingDomainResourceLoader resourceLoader;
 
 	@Inject
-	protected EditingDomainFactory editingDomainFactory;
+	protected Provider<AdapterFactoryEditingDomain> editingDomainProvider;
 
 	@Inject
 	protected Provider<AdapterFactory> adapterFactoryProvider;
@@ -149,8 +148,7 @@ public class ViewerInitializer {
 	}
 
 	protected AdapterFactoryEditingDomain loadResource(URI resourceURI) {
-		AdapterFactoryEditingDomain editingDomain = editingDomainFactory
-				.create();
+		AdapterFactoryEditingDomain editingDomain = editingDomainProvider.get();
 		resourceLoader.getResource(editingDomain, resourceURI);
 		return editingDomain;
 	}

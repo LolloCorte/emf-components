@@ -7,7 +7,6 @@ Since all of them specialize the abstract class codeRef[it.rcpvision.emf.compone
 they are all customizable via the following common features:
 
 ul[
-	item[ref:EditingDomainFactory[EditingDomainFactory]]
 	item[ref:EditingDomainResourceLoader[EditingDomainResourceLoader]
 	ul[item[ref:ResourceLoader[ResourceLoader]
 		ul[
@@ -29,7 +28,6 @@ ul[
 			item[ref:EmptyResourceInitializer[EmptyResourceInitializer]]
 			item[ref:FeaturesProvider[FeaturesProvider]]
 		]]
-		item[ref:EditingDomainFactory[EditingDomainFactory]]
 		item[ref:JfaceProviderFactory[JfaceProviderFactory]
 		ul[
 			item[ref:ViewerLabelProvider[ViewerLabelProvider]]
@@ -94,7 +92,6 @@ ul[
 				item[ref:EmptyResourceInitializer[EmptyResourceInitializer]]
 				item[ref:FeaturesProvider[FeaturesProvider]]
 			]]
-			item[ref:EditingDomainFactory[EditingDomainFactory]]
 			item[ref:JfaceProviderFactory[JfaceProviderFactory]
 			ul[
 				item[ref:ViewerLabelProvider[ViewerLabelProvider]]
@@ -144,7 +141,6 @@ ul[
 				item[ref:EmptyResourceInitializer[EmptyResourceInitializer]]
 				item[ref:FeaturesProvider[FeaturesProvider]]
 			]]
-			item[ref:EditingDomainFactory[EditingDomainFactory]]
 			item[ref:JfaceProviderFactory[JfaceProviderFactory]
 			ul[
 				item[ref:ViewerLabelProvider[ViewerLabelProvider]]
@@ -186,7 +182,6 @@ ul[
 				item[ref:EmptyResourceInitializer[EmptyResourceInitializer]]
 				item[ref:FeaturesProvider[FeaturesProvider]]
 			]]
-			item[ref:EditingDomainFactory[EditingDomainFactory]]
 			item[ref:JfaceProviderFactory[JfaceProviderFactory]
 			ul[
 				item[ref:ViewerLabelProvider[ViewerLabelProvider]]
@@ -255,7 +250,6 @@ ul[
 				item[ref:EmptyResourceInitializer[EmptyResourceInitializer]]
 				item[ref:FeaturesProvider[FeaturesProvider]]
 			]]
-			item[ref:EditingDomainFactory[EditingDomainFactory]]
 			item[ref:JfaceProviderFactory[JfaceProviderFactory]
 			ul[
 				item[ref:ViewerLabelProvider[ViewerLabelProvider]]
@@ -293,7 +287,6 @@ ul[
 				item[ref:EmptyResourceInitializer[EmptyResourceInitializer]]
 				item[ref:FeaturesProvider[FeaturesProvider]]
 			]]
-			item[ref:EditingDomainFactory[EditingDomainFactory]]
 			item[ref:JfaceProviderFactory[JfaceProviderFactory]
 			ul[
 				item[ref:ViewerLabelProvider[ViewerLabelProvider]]
@@ -320,7 +313,6 @@ ul[
 			item[ref:EmptyResourceInitializer[EmptyResourceInitializer]]
 			item[ref:FeaturesProvider[FeaturesProvider]]
 		]]
-		item[ref:EditingDomainFactory[EditingDomainFactory]]
 		item[ref:JfaceProviderFactory[JfaceProviderFactory]
 		ul[
 			item[ref:ViewerLabelProvider[ViewerLabelProvider]]
@@ -346,7 +338,6 @@ ul[
 			item[ref:EmptyResourceInitializer[EmptyResourceInitializer]]
 			item[ref:FeaturesProvider[FeaturesProvider]]
 		]]
-		item[ref:EditingDomainFactory[EditingDomainFactory]]
 		item[ref:JfaceProviderFactory[JfaceProviderFactory]
 		ul[
 			item[ref:ViewerLabelProvider[ViewerLabelProvider]]
@@ -374,7 +365,6 @@ ul[
 				item[ref:EmptyResourceInitializer[EmptyResourceInitializer]]
 				item[ref:FeaturesProvider[FeaturesProvider]]
 			]]
-			item[ref:EditingDomainFactory[EditingDomainFactory]]
 			item[ref:JfaceProviderFactory[JfaceProviderFactory]
 			ul[
 				item[ref:ViewerLabelProvider[ViewerLabelProvider]]
