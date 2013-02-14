@@ -19,10 +19,12 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 
 /**
- * @author bettini
+ * @author Lorenzo Bettini
+ * 
+ * factory for ColumnLabelProvider
  * 
  */
-public class JfaceProviderFactory {
+public class ColumnLabelProviderFactory {
 
 	@Inject
 	protected Provider<ILabelProvider> labelProviderProvider;

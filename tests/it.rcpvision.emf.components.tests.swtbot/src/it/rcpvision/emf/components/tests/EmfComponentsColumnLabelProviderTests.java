@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import it.rcpvision.emf.components.examples.library.EXTLibraryFactory;
 import it.rcpvision.emf.components.examples.library.Library;
 import it.rcpvision.emf.components.examples.library.Writer;
-import it.rcpvision.emf.components.factories.JfaceProviderFactory;
+import it.rcpvision.emf.components.factories.ColumnLabelProviderFactory;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
@@ -33,7 +33,7 @@ public class EmfComponentsColumnLabelProviderTests extends
 
 	protected ColumnLabelProvider createLabelProvider(
 			EStructuralFeature eStructuralFeature) {
-		return getInjector().getInstance(JfaceProviderFactory.class)
+		return getInjector().getInstance(ColumnLabelProviderFactory.class)
 				.createColumnLabelProvider(eStructuralFeature);
 	}
 

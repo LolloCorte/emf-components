@@ -16,7 +16,7 @@ import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider;
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
 import it.rcpvision.emf.components.factories.EmfActionFactory;
 import it.rcpvision.emf.components.factories.FormFactory;
-import it.rcpvision.emf.components.factories.JfaceProviderFactory;
+import it.rcpvision.emf.components.factories.ColumnLabelProviderFactory;
 import it.rcpvision.emf.components.factories.TreeFormFactory;
 import it.rcpvision.emf.components.factories.ViewerFactory;
 import it.rcpvision.emf.components.handlers.OutlineSelectionHandler;
@@ -127,8 +127,8 @@ public class EmfComponentsGuiceModule extends AbstractGenericModule {
 		return ViewerContextMenuFactory.class;
 	}
 
-	public Class<? extends JfaceProviderFactory> bindJfaceProviderFactory() {
-		return JfaceProviderFactory.class;
+	public Class<? extends ColumnLabelProviderFactory> bindColumnLabelProviderFactory() {
+		return ColumnLabelProviderFactory.class;
 	}
 
 	public Class<? extends TableColumnLabelProvider> bindTableColumnLabelProvider() {

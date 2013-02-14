@@ -261,7 +261,7 @@ ul[
 
 section2:JfaceProviderFactory[Jface Provider Factory]
 
-codeRef[it.rcpvision.emf.components.factories.JfaceProviderFactory]
+codeRef[it.rcpvision.emf.components.factories.ColumnLabelProviderFactory]
 
 ul[
 	item[ref:ViewerLabelProvider[ViewerLabelProvider]]

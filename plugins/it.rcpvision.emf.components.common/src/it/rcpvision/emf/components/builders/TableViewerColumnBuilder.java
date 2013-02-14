@@ -3,7 +3,7 @@
  */
 package it.rcpvision.emf.components.builders;
 
-import it.rcpvision.emf.components.factories.JfaceProviderFactory;
+import it.rcpvision.emf.components.factories.ColumnLabelProviderFactory;
 import it.rcpvision.emf.components.ui.provider.FeaturesColumnProvider;
 import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
 
@@ -34,7 +34,7 @@ public class TableViewerColumnBuilder {
 	private static final int DEFAULT_WEIGHT = 3;
 
 	@Inject
-	protected JfaceProviderFactory jfaceProviderFactory;
+	protected ColumnLabelProviderFactory columnLabelProviderFactory;
 
 	@Inject
 	protected PropertyDescriptionProvider propertyDescriptionProvider;
@@ -98,11 +98,11 @@ public class TableViewerColumnBuilder {
 		TableViewerColumn tableViewerColumn = new TableViewerColumn(
 				tableViewer, SWT.NONE);
 		if (contentProvider != null) {
-			tableViewerColumn.setLabelProvider(jfaceProviderFactory
+			tableViewerColumn.setLabelProvider(columnLabelProviderFactory
 					.createColumnLabelProvider(eStructuralFeature,
 							contentProvider));
 		} else {
-			tableViewerColumn.setLabelProvider(jfaceProviderFactory
+			tableViewerColumn.setLabelProvider(columnLabelProviderFactory
 					.createColumnLabelProvider(eStructuralFeature));
 		}
 		return tableViewerColumn;
