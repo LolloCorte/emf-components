@@ -323,16 +323,7 @@ ul[
 			item[ref:TableColumnLabelProvider[TableColumnLabelProvider]]
 		]]	
 		item[ref:ViewerContextMenuFactory[ViewerContextMenuFactory]]
-		item[ref:ViewerContentProviderFactory[ViewerContentProviderFactory]]
 	]]
-]
-
-section2:ViewerContentProviderFactory[Viewer Content Provider Factory]
-
-codeRef[it.rcpvision.emf.components.factories.ViewerContentProviderFactory]
-
-ul[
-	item[ref:ViewerContentProvider[ViewerContentProvider]]
 ]
 
 section:Viewers[Viewers]
@@ -358,5 +349,4 @@ ul[
 		item[ref:TableColumnLabelProvider[TableColumnLabelProvider]]
 	]]	
 	item[ref:ViewerContextMenuFactory[ViewerContextMenuFactory]]
-	item[ref:ViewerContentProviderFactory[ViewerContentProviderFactory]]
 ]

@@ -6,7 +6,6 @@ package it.rcpvision.emf.components.viewers;
 import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider;
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
 import it.rcpvision.emf.components.factories.JfaceProviderFactory;
-import it.rcpvision.emf.components.factories.ViewerContentProviderFactory;
 import it.rcpvision.emf.components.menus.ViewerContextMenuFactory;
 import it.rcpvision.emf.components.resource.EditingDomainFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
@@ -52,7 +51,7 @@ public class ViewerInitializer {
 	protected ViewerContextMenuFactory viewerContextMenuFactory;
 
 	@Inject
-	protected ViewerContentProviderFactory viewerContentProviderFactory;
+	protected Provider<ViewerContentProvider> viewerContentProviderProvider;
 
 	public void initialize(StructuredViewer viewer, URI resourceURI) {
 		initialize(viewer, loadResource(resourceURI));
@@ -85,8 +84,7 @@ public class ViewerInitializer {
 	 */
 	public void initialize(StructuredViewer viewer, Object input,
 			AdapterFactory adapterFactory) {
-		ViewerContentProvider contentProvider = viewerContentProviderFactory
-				.create(adapterFactory);
+		ViewerContentProvider contentProvider = viewerContentProviderProvider.get();
 //		AdapterFactoryContentProvider contentProvider = new AdapterFactoryContentProvider(
 //				adapterFactory);
 		initialize(viewer, input, contentProvider,

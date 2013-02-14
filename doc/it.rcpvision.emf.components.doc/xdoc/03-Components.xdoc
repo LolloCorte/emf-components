@@ -36,7 +36,6 @@ ul[
 			item[ref:TableColumnLabelProvider[TableColumnLabelProvider]]
 		]]	
 		item[ref:ViewerContextMenuFactory[ViewerContextMenuFactory]]
-		item[ref:ViewerContentProviderFactory[ViewerContentProviderFactory]]
 	]]
 ]
 
@@ -102,7 +101,6 @@ ul[
 				item[ref:TableColumnLabelProvider[TableColumnLabelProvider]]
 			]]	
 			item[ref:ViewerContextMenuFactory[ViewerContextMenuFactory]]
-			item[ref:ViewerContentProviderFactory[ViewerContentProviderFactory]]
 		]]
 	]]
 	item[ref:EditingDomainResourceLoader[EditingDomainResourceLoader]
@@ -153,7 +151,6 @@ ul[
 				item[ref:TableColumnLabelProvider[TableColumnLabelProvider]]
 			]]	
 			item[ref:ViewerContextMenuFactory[ViewerContextMenuFactory]]
-			item[ref:ViewerContentProviderFactory[ViewerContentProviderFactory]]
 		]]
 ]
 
@@ -195,8 +192,7 @@ ul[
 				item[ref:ViewerLabelProvider[ViewerLabelProvider]]
 				item[ref:TableColumnLabelProvider[TableColumnLabelProvider]]
 			]]	
-			item[ref:ViewerContextMenuFactory[ViewerContextMenuFactory]]
-			item[ref:ViewerContentProviderFactory[ViewerContentProviderFactory]
+			item[ref:ViewerContextMenuFactory[ViewerContextMenuFactory]
 			ul[
 				item[ref:ViewerContentProvider[ViewerContentProvider]]
 			]]
@@ -266,7 +262,6 @@ ul[
 				item[ref:TableColumnLabelProvider[TableColumnLabelProvider]]
 			]]	
 			item[ref:ViewerContextMenuFactory[ViewerContextMenuFactory]]
-			item[ref:ViewerContentProviderFactory[ViewerContentProviderFactory]]
 		]]
 	]]
 ]
@@ -305,7 +300,6 @@ ul[
 				item[ref:TableColumnLabelProvider[TableColumnLabelProvider]]
 			]]	
 			item[ref:ViewerContextMenuFactory[ViewerContextMenuFactory]]
-			item[ref:ViewerContentProviderFactory[ViewerContentProviderFactory]]
 		]]
 	]]
 ]
@@ -333,7 +327,6 @@ ul[
 			item[ref:TableColumnLabelProvider[TableColumnLabelProvider]]
 		]]	
 		item[ref:ViewerContextMenuFactory[ViewerContextMenuFactory]]
-		item[ref:ViewerContentProviderFactory[ViewerContentProviderFactory]]
 	]]
 ]
 
@@ -360,7 +353,6 @@ ul[
 			item[ref:TableColumnLabelProvider[TableColumnLabelProvider]]
 		]]	
 		item[ref:ViewerContextMenuFactory[ViewerContextMenuFactory]]
-		item[ref:ViewerContentProviderFactory[ViewerContentProviderFactory]]
 	]]
 ]
 
@@ -388,8 +380,7 @@ ul[
 				item[ref:ViewerLabelProvider[ViewerLabelProvider]]
 				item[ref:TableColumnLabelProvider[TableColumnLabelProvider]]
 			]]	
-			item[ref:ViewerContextMenuFactory[ViewerContextMenuFactory]]
-			item[ref:ViewerContentProviderFactory[ViewerContentProviderFactory]
+			item[ref:ViewerContextMenuFactory[ViewerContextMenuFactory]
 			ul[
 				item[ref:ViewerContentProvider[ViewerContentProvider]]
 			]]

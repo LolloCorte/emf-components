@@ -33,6 +33,7 @@ import it.rcpvision.emf.components.binding.ProposalCreator
 
 import static extension org.eclipse.xtext.EcoreUtil2.*
 import java.util.List
+import org.eclipse.emf.common.notify.AdapterFactory
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -365,6 +366,15 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 			val viewerContentProviderClass = element.viewerContentProvider.toClass(element.viewerContentProviderQN)
 			acceptor.accept(viewerContentProviderClass).initializeLater [
 				superTypes += element.newTypeRef(typeof(ViewerContentProvider))
+				
+				members += element.viewerContentProvider.toConstructor() [
+					parameters += element.viewerContentProvider.
+						toParameter("adapterFactory", 
+							element.newTypeRef(typeof(AdapterFactory))
+						)
+					body = [it.append("super(adapterFactory);")]
+					annotations += element.toAnnotation(typeof(Inject))
+				]
 				
 				element.viewerContentProvider.childrenSpecifications.forEach [
 					specification |

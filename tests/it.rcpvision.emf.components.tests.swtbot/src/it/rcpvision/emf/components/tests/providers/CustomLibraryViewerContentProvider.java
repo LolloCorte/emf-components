@@ -10,6 +10,10 @@ import it.rcpvision.emf.components.examples.library.Writer;
 
 import java.util.ArrayList;
 
+import org.eclipse.emf.common.notify.AdapterFactory;
+
+import com.google.inject.Inject;
+
 /**
  * A custom content provider for Library
  * 
@@ -17,6 +21,11 @@ import java.util.ArrayList;
  * 
  */
 public class CustomLibraryViewerContentProvider extends ViewerContentProvider {
+
+	@Inject
+	public CustomLibraryViewerContentProvider(AdapterFactory adapterFactory) {
+		super(adapterFactory);
+	}
 
 	public Object children(Library library) {
 		return library.getBooks();

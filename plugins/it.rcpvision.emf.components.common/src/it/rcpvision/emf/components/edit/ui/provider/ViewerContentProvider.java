@@ -3,7 +3,6 @@
  */
 package it.rcpvision.emf.components.edit.ui.provider;
 
-import it.rcpvision.emf.components.factories.ViewerContentProviderFactory;
 import it.rcpvision.emf.components.runtime.util.PolymorphicDispatcher;
 import it.rcpvision.emf.components.util.EmfComponentsUtil;
 
@@ -11,6 +10,8 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
+
+import com.google.inject.Inject;
 
 /**
  * Declarative ContentProvider based on {@link AdapterFactoryContentProvider},
@@ -22,10 +23,7 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
  */
 public class ViewerContentProvider extends AdapterFactoryContentProvider {
 
-	public ViewerContentProvider() {
-		super(null);
-	}
-
+	@Inject
 	public ViewerContentProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}

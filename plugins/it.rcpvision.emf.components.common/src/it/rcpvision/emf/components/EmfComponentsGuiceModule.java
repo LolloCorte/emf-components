@@ -16,7 +16,6 @@ import it.rcpvision.emf.components.factories.EmfActionFactory;
 import it.rcpvision.emf.components.factories.FormFactory;
 import it.rcpvision.emf.components.factories.JfaceProviderFactory;
 import it.rcpvision.emf.components.factories.TreeFormFactory;
-import it.rcpvision.emf.components.factories.ViewerContentProviderFactory;
 import it.rcpvision.emf.components.factories.ViewerFactory;
 import it.rcpvision.emf.components.handlers.OutlineSelectionHandler;
 import it.rcpvision.emf.components.listeners.ViewerMouseAdapter;
@@ -177,10 +176,6 @@ public class EmfComponentsGuiceModule extends AbstractGenericModule {
 
 	public Class<? extends EmptyResourceInitializer> bindEmptyResourceInitializer() {
 		return EmptyResourceInitializer.class;
-	}
-
-	public Class<? extends ViewerContentProviderFactory> bindViewerContentProviderFactory() {
-		return ViewerContentProviderFactory.class;
 	}
 
 	public Class<? extends ViewerContentProvider> bindViewerContentProvider() {

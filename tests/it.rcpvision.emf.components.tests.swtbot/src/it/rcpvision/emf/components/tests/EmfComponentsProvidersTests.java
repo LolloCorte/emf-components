@@ -24,7 +24,6 @@ import it.rcpvision.emf.components.ui.provider.FormPropertyDescriptionProvider;
 
 import java.io.IOException;
 
-import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -156,8 +155,6 @@ public class EmfComponentsProvidersTests extends EmfComponentsCustomLibraryAbstr
 		Library library = localLibrary("My2.extlibrary");
 		ViewerContentProvider viewerContentProvider = getInjector()
 				.getInstance(CustomLibraryViewerContentProvider.class);
-		viewerContentProvider.setAdapterFactory(getInjector().getInstance(
-				AdapterFactory.class));
 		Object[] libraryChildren = viewerContentProvider.getChildren(library);
 		assertLabels(
 				"Book: Without Author; Book: First Author's Book; Book: Empty Book; ",

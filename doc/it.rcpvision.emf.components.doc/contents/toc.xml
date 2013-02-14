@@ -105,8 +105,6 @@
 				</topic>
 				<topic href="contents/04-Customization.html#ViewerFactory" label="Viewer Factory" >
 				</topic>
-				<topic href="contents/04-Customization.html#ViewerContentProviderFactory" label="Viewer Content Provider Factory" >
-				</topic>
 			</topic>
 			<topic href="contents/04-Customization.html#Viewers" label="Viewers" >
 				<topic href="contents/04-Customization.html#ViewerInitializer" label="Viewer Initializer" >

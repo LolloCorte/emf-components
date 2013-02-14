@@ -445,14 +445,21 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
 package my.empty.edit.ui.provider;
 
 import com.google.common.collect.Iterables;
+import com.google.inject.Inject;
 import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider;
 import it.rcpvision.emf.components.examples.library.Book;
 import it.rcpvision.emf.components.examples.library.Library;
 import it.rcpvision.emf.components.examples.library.Writer;
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 public class ViewerContentProviderGen extends ViewerContentProvider {
+  @Inject
+  public ViewerContentProviderGen(final AdapterFactory adapterFactory) {
+    super(adapterFactory);
+  }
+  
   public Object children(final Library it) {
     EList<Book> _books = it.getBooks();
     EList<Writer> _writers = it.getWriters();
