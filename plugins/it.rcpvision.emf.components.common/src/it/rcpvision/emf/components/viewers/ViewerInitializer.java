@@ -3,7 +3,6 @@
  */
 package it.rcpvision.emf.components.viewers;
 
-import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider;
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
 import it.rcpvision.emf.components.menus.ViewerContextMenuFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
@@ -17,8 +16,8 @@ import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.viewers.IBaseLabelProvider;
+import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
-import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.ui.IWorkbenchPart;
 
@@ -46,7 +45,7 @@ public class ViewerInitializer {
 	protected ViewerContextMenuFactory viewerContextMenuFactory;
 
 	@Inject
-	protected Provider<ViewerContentProvider> viewerContentProviderProvider;
+	protected Provider<IContentProvider> contentProviderProvider;
 	
 	@Inject
 	protected Provider<ILabelProvider> labelProviderProvider;
@@ -82,10 +81,9 @@ public class ViewerInitializer {
 	 */
 	public void initialize(StructuredViewer viewer, Object input,
 			AdapterFactory adapterFactory) {
-		ViewerContentProvider contentProvider = viewerContentProviderProvider.get();
 //		AdapterFactoryContentProvider contentProvider = new AdapterFactoryContentProvider(
 //				adapterFactory);
-		initialize(viewer, input, contentProvider,
+		initialize(viewer, input, contentProviderProvider.get(),
 				labelProviderProvider.get());
 	}
 
@@ -97,7 +95,7 @@ public class ViewerInitializer {
 	 *            can be null (in that case it is not set)
 	 */
 	public void initialize(StructuredViewer viewer, Object input,
-			IStructuredContentProvider contentProvider,
+			IContentProvider contentProvider,
 			IBaseLabelProvider labelProvider) {
 		viewer.setContentProvider(contentProvider);
 		if (labelProvider != null)

@@ -30,6 +30,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -188,7 +189,7 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
           if (_notEquals_4) {
             EList<JvmMember> _members_5 = it.getMembers();
             ViewerContentProvider _viewerContentProvider = element.getViewerContentProvider();
-            JvmOperation _genBindMethod_4 = EmfComponentsDslJvmModelInferrer.this.genBindMethod(_viewerContentProvider, viewerContentProviderClass, it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider.class);
+            JvmOperation _genBindMethod_4 = EmfComponentsDslJvmModelInferrer.this.genBindMethod(_viewerContentProvider, viewerContentProviderClass, IContentProvider.class);
             EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_5, _genBindMethod_4);
           }
           boolean _notEquals_5 = (!Objects.equal(proposalCreatorClass, null));

@@ -928,9 +928,9 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.newLine();
     _builder.append("import it.rcpvision.emf.components.EmfComponentsGuiceModule;");
     _builder.newLine();
-    _builder.append("import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider;");
-    _builder.newLine();
     _builder.append("import my.empty.edit.ui.provider.ViewerContentProviderGen;");
+    _builder.newLine();
+    _builder.append("import org.eclipse.jface.viewers.IContentProvider;");
     _builder.newLine();
     _builder.append("import org.eclipse.ui.plugin.AbstractUIPlugin;");
     _builder.newLine();
@@ -952,7 +952,7 @@ public class EmfComponentsDslGeneratorTests extends EmfComponentsDslAbstractTest
     _builder.append("@Override");
     _builder.newLine();
     _builder.append("  ");
-    _builder.append("public Class<? extends ViewerContentProvider> bindViewerContentProvider() {");
+    _builder.append("public Class<? extends IContentProvider> bindIContentProvider() {");
     _builder.newLine();
     _builder.append("    ");
     _builder.append("return ViewerContentProviderGen.class;");

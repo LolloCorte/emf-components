@@ -43,6 +43,7 @@ import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.dialogs.IDialogSettings;
+import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
@@ -178,7 +179,7 @@ public class EmfComponentsGuiceModule extends AbstractGenericModule {
 		return EmptyResourceInitializer.class;
 	}
 
-	public Class<? extends ViewerContentProvider> bindViewerContentProvider() {
+	public Class<? extends IContentProvider> bindIContentProvider() {
 		return ViewerContentProvider.class;
 	}
 

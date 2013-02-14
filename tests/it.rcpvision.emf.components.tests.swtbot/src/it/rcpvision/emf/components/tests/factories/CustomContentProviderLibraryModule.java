@@ -1,8 +1,8 @@
 package it.rcpvision.emf.components.tests.factories;
 
-import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider;
 import it.rcpvision.emf.components.tests.providers.CustomLibraryViewerContentProvider;
 
+import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 public final class CustomContentProviderLibraryModule extends
@@ -12,7 +12,7 @@ public final class CustomContentProviderLibraryModule extends
 	}
 
 	@Override
-	public Class<? extends ViewerContentProvider> bindViewerContentProvider() {
+	public Class<? extends IContentProvider> bindIContentProvider() {
 		return CustomLibraryViewerContentProvider.class;
 	}
 }

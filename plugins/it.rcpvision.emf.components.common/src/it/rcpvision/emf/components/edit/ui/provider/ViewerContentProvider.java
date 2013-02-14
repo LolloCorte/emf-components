@@ -14,9 +14,7 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import com.google.inject.Inject;
 
 /**
- * Declarative ContentProvider based on {@link AdapterFactoryContentProvider},
- * this should be created only using a {@link ViewerContentProviderFactory},
- * passing an {@link AdapterFactory}.
+ * Declarative ContentProvider based on {@link AdapterFactoryContentProvider}.
  * 
  * @author Lorenzo Bettini
  * 

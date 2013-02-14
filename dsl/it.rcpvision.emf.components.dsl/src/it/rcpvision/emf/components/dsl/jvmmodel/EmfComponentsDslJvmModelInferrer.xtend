@@ -36,6 +36,7 @@ import java.util.List
 import org.eclipse.emf.common.notify.AdapterFactory
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.jface.viewers.ILabelProvider
+import org.eclipse.jface.viewers.IContentProvider
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -116,7 +117,7 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 			if (formControlFactoryClass != null)
 				members += element.formControlFactory.genBindMethod(formControlFactoryClass, typeof(FormControlFactory))
 			if (viewerContentProviderClass != null)
-				members += element.viewerContentProvider.genBindMethod(viewerContentProviderClass, typeof(ViewerContentProvider))
+				members += element.viewerContentProvider.genBindMethod(viewerContentProviderClass, typeof(IContentProvider))
 			if (proposalCreatorClass != null)
 				members += element.proposalCreator.genBindMethod(proposalCreatorClass, typeof(ProposalCreator))
 		]

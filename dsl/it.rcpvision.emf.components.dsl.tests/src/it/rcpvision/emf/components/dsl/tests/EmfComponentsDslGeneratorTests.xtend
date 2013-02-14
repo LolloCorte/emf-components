@@ -445,8 +445,8 @@ public class FormFeatureControlFactoryGen extends FormControlFactory {
 package my.empty;
 
 import it.rcpvision.emf.components.EmfComponentsGuiceModule;
-import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider;
 import my.empty.edit.ui.provider.ViewerContentProviderGen;
+import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
@@ -455,7 +455,7 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
   }
   
   @Override
-  public Class<? extends ViewerContentProvider> bindViewerContentProvider() {
+  public Class<? extends IContentProvider> bindIContentProvider() {
     return ViewerContentProviderGen.class;
   }
 }
