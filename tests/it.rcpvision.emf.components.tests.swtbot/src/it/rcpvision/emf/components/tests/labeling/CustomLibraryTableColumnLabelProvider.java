@@ -7,9 +7,9 @@ public class CustomLibraryTableColumnLabelProvider extends
 		TableColumnLabelProvider {
 
 	public String text_Writer_name(Object element) {
-		if(element instanceof Writer){
-			Writer writer=(Writer)element;
-			return "Writer " + writer.getName();	
+		if (element instanceof Writer) {
+			Writer writer = (Writer) element;
+			return "Writer " + writer.getName();
 		}
 		return null;
 	}

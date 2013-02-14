@@ -7,7 +7,6 @@ import it.rcpvision.emf.components.ui.provider.AdapterMapCellLabelProvider;
 import it.rcpvision.emf.components.ui.provider.TableColumnLabelProvider;
 
 import org.eclipse.core.databinding.observable.map.IObservableMap;
-import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.databinding.viewers.ObservableListContentProvider;
@@ -26,21 +25,16 @@ import com.google.inject.Provider;
 public class JfaceProviderFactory {
 
 	@Inject
-	protected Provider<AdapterFactory> adapterFactoryProvider;
-	
-	@Inject
 	protected Provider<ILabelProvider> labelProviderProvider;
 
 	@Inject
-	protected Provider<TableColumnLabelProvider> eStructuralFeatureColumnProviderProvider;
+	protected Provider<TableColumnLabelProvider> tableColumnProviderProvider;
 
 	public ColumnLabelProvider createColumnLabelProvider(
 			EStructuralFeature eStructuralFeature) {
-		TableColumnLabelProvider columnProvider = eStructuralFeatureColumnProviderProvider
+		TableColumnLabelProvider columnProvider = tableColumnProviderProvider
 				.get();
 		columnProvider.seteStructuralFeature(eStructuralFeature);
-
-		columnProvider.setLabelProvider(labelProviderProvider.get());
 		return columnProvider;
 	}
 
@@ -58,7 +52,7 @@ public class JfaceProviderFactory {
 	public CellLabelProvider createColumnLabelProvider(
 			EStructuralFeature eStructuralFeature,
 			ObservableListContentProvider cp) {
-		TableColumnLabelProvider columnProvider = eStructuralFeatureColumnProviderProvider
+		TableColumnLabelProvider columnProvider = tableColumnProviderProvider
 				.get();
 		columnProvider.seteStructuralFeature(eStructuralFeature);
 

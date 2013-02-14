@@ -12,6 +12,7 @@ import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.swt.graphics.Image;
 
 import com.google.common.base.Predicate;
+import com.google.inject.Inject;
 
 /**
  * A column provider based on an Emf feature.
@@ -27,6 +28,11 @@ public class TableColumnLabelProvider extends ColumnLabelProvider {
 	
 	protected ILabelProvider labelProvider;
 
+	@Inject
+	public TableColumnLabelProvider() {
+		
+	}
+
 	public EStructuralFeature geteStructuralFeature() {
 		return eStructuralFeature;
 	}
@@ -39,6 +45,7 @@ public class TableColumnLabelProvider extends ColumnLabelProvider {
 		return labelProvider;
 	}
 
+	@Inject
 	public void setLabelProvider(ILabelProvider labelProvider) {
 		this.labelProvider = labelProvider;
 	}
