@@ -12,7 +12,6 @@ import it.rcpvision.emf.components.examples.library.EXTLibraryFactory;
 import it.rcpvision.emf.components.examples.library.EXTLibraryPackage;
 import it.rcpvision.emf.components.examples.library.Library;
 import it.rcpvision.emf.components.examples.library.Writer;
-import it.rcpvision.emf.components.guice.ComposedAdapterFactoryProvider;
 import it.rcpvision.emf.components.tests.labeling.CustomLibraryFormFeatureLabelProvider;
 import it.rcpvision.emf.components.tests.providers.CustomLibraryViewerContentProvider;
 import it.rcpvision.emf.components.tests.providers.LibraryEStructuralFeaturesAsStringsProvider;
@@ -25,6 +24,7 @@ import it.rcpvision.emf.components.ui.provider.FormPropertyDescriptionProvider;
 
 import java.io.IOException;
 
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -154,12 +154,10 @@ public class EmfComponentsProvidersTests extends EmfComponentsCustomLibraryAbstr
 	@Test
 	public void testCustomViewerContentProvider() throws IOException {
 		Library library = localLibrary("My2.extlibrary");
-		ComposedAdapterFactoryProvider composedAdapterFactoryProvider = 
-				getInjector()
-				.getInstance(ComposedAdapterFactoryProvider.class);
 		ViewerContentProvider viewerContentProvider = getInjector()
 				.getInstance(CustomLibraryViewerContentProvider.class);
-		viewerContentProvider.setAdapterFactory(composedAdapterFactoryProvider.get());
+		viewerContentProvider.setAdapterFactory(getInjector().getInstance(
+				AdapterFactory.class));
 		Object[] libraryChildren = viewerContentProvider.getChildren(library);
 		assertLabels(
 				"Book: Without Author; Book: First Author's Book; Book: Empty Book; ",

@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.MenuManager;
@@ -44,7 +43,7 @@ public class ViewerInitializer {
 	protected EditingDomainFactory editingDomainFactory;
 
 	@Inject
-	protected Provider<ComposedAdapterFactory> composedAdapterFactoryProvider;
+	protected Provider<AdapterFactory> adapterFactoryProvider;
 
 	@Inject
 	protected JfaceProviderFactory jfaceProviderFactory;
@@ -60,15 +59,15 @@ public class ViewerInitializer {
 	}
 
 	public void initialize(StructuredViewer viewer, Resource resource) {
-		initialize(viewer, resource, createComposedAdapterFactory());
+		initialize(viewer, resource, createAdapterFactory());
 	}
 
 	public void initialize(StructuredViewer viewer, EObject eObject) {
-		initialize(viewer, eObject, createComposedAdapterFactory());
+		initialize(viewer, eObject, createAdapterFactory());
 	}
 
-	protected ComposedAdapterFactory createComposedAdapterFactory() {
-		return composedAdapterFactoryProvider.get();
+	protected AdapterFactory createAdapterFactory() {
+		return adapterFactoryProvider.get();
 	}
 
 	public void initialize(StructuredViewer viewer,

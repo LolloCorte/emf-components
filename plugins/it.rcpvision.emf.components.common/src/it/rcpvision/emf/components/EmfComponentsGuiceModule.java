@@ -9,15 +9,15 @@ import it.rcpvision.emf.components.builders.TableViewerBuilder;
 import it.rcpvision.emf.components.builders.TableViewerColumnBuilder;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.edit.ResourceSaveManager;
+import it.rcpvision.emf.components.edit.provider.InjectableAdapterFactory;
 import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider;
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
 import it.rcpvision.emf.components.factories.EmfActionFactory;
-import it.rcpvision.emf.components.factories.ViewerContentProviderFactory;
-import it.rcpvision.emf.components.factories.ViewerFactory;
 import it.rcpvision.emf.components.factories.FormFactory;
 import it.rcpvision.emf.components.factories.JfaceProviderFactory;
 import it.rcpvision.emf.components.factories.TreeFormFactory;
-import it.rcpvision.emf.components.guice.ComposedAdapterFactoryProvider;
+import it.rcpvision.emf.components.factories.ViewerContentProviderFactory;
+import it.rcpvision.emf.components.factories.ViewerFactory;
 import it.rcpvision.emf.components.handlers.OutlineSelectionHandler;
 import it.rcpvision.emf.components.listeners.ViewerMouseAdapter;
 import it.rcpvision.emf.components.menus.ViewerContextMenuFactory;
@@ -28,22 +28,22 @@ import it.rcpvision.emf.components.resource.ResourceLoader;
 import it.rcpvision.emf.components.runtime.service.AbstractGenericModule;
 import it.rcpvision.emf.components.runtime.ui.IImageHelper;
 import it.rcpvision.emf.components.runtime.ui.PluginImageHelper;
-import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 import it.rcpvision.emf.components.ui.provider.FeaturesColumnProvider;
 import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FormPropertyDescriptionProvider;
 import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
 import it.rcpvision.emf.components.ui.provider.TableColumnLabelProvider;
+import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 import it.rcpvision.emf.components.util.EmfSelectionHelper;
 import it.rcpvision.emf.components.viewers.ViewerInitializer;
 
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 import com.google.inject.Binder;
-import com.google.inject.Provider;
 
 /**
  * Default Google Guice bindings.
@@ -123,10 +123,6 @@ public class EmfComponentsGuiceModule extends AbstractGenericModule {
 		return FormControlFactory.class;
 	}
 
-	public Class<? extends Provider<ComposedAdapterFactory>> provideComposedAdapterFactory() {
-		return ComposedAdapterFactoryProvider.class;
-	}
-
 	public Class<? extends ViewerContextMenuFactory> bindViewerContextMenuFactory() {
 		return ViewerContextMenuFactory.class;
 	}
@@ -193,5 +189,13 @@ public class EmfComponentsGuiceModule extends AbstractGenericModule {
 
 	public Class<? extends ProposalCreator> bindProposalCreator() {
 		return ProposalCreator.class;
+	}
+	
+	public Class<? extends AdapterFactory> bindAdapterFactory() {
+		return InjectableAdapterFactory.class;
+	}
+
+	public ComposedAdapterFactory.Descriptor.Registry bindComposedAdapterFactory$Descriptor$RegistryToInstance() {
+		return ComposedAdapterFactory.Descriptor.Registry.INSTANCE;
 	}
 }

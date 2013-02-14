@@ -6,10 +6,10 @@ package it.rcpvision.emf.components.resource;
 import java.util.HashMap;
 
 import org.eclipse.emf.common.command.BasicCommandStack;
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -21,10 +21,10 @@ import com.google.inject.Provider;
 public class EditingDomainFactory {
 
 	@Inject
-	protected Provider<ComposedAdapterFactory> composedAdapterFactoryProvider;
+	protected Provider<AdapterFactory> adapterFactoryProvider;
 
 	public AdapterFactoryEditingDomain create() {
-		ComposedAdapterFactory adapterFactory = composedAdapterFactoryProvider
+		AdapterFactory adapterFactory = adapterFactoryProvider
 				.get();
 
 		BasicCommandStack commandStack = new BasicCommandStack();
