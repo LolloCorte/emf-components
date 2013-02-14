@@ -2,6 +2,7 @@ package it.rcpvision.emf.components.widgets;
 
 import it.rcpvision.emf.components.binding.FormControlFactory;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
+import it.rcpvision.emf.components.factories.JfaceProviderFactory;
 import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FormPropertyDescriptionProvider;
 
@@ -18,6 +19,8 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 
+import com.google.inject.Inject;
+
 public class FormDetailComposite extends Composite {
 
 	protected FormPropertyDescriptionProvider formPropertyDescriptionProvider;
@@ -26,9 +29,11 @@ public class FormDetailComposite extends Composite {
 
 	protected EditingDomainFinder editingDomainFinder;
 
-	protected FeaturesProvider eClassFeatureProvider;
+	protected FeaturesProvider featuresProvider;
 
 	protected ILabelProvider labelProvider;
+	
+	protected JfaceProviderFactory jfaceProviderFactory;
 
 	private final Composite main;
 
@@ -36,18 +41,8 @@ public class FormDetailComposite extends Composite {
 
 	private final ScrolledForm scrolledForm;
 
-	public FormDetailComposite(Composite parent, int style,
-			FormPropertyDescriptionProvider formPropertyDescriptionProvider,
-			FormControlFactory formControlFactory,
-			EditingDomainFinder editingDomainFinder,
-			ILabelProvider labelProvider,
-			FeaturesProvider eClassFeatureProvider) {
+	public FormDetailComposite(Composite parent, int style) {
 		super(parent, style);
-		this.formPropertyDescriptionProvider = formPropertyDescriptionProvider;
-		this.formControlFactory = formControlFactory;
-		this.editingDomainFinder = editingDomainFinder;
-		this.labelProvider = labelProvider;
-		this.eClassFeatureProvider = eClassFeatureProvider;
 
 		toolkit = new FormToolkit(parent.getDisplay());
 
@@ -62,17 +57,15 @@ public class FormDetailComposite extends Composite {
 		//toolkit.paintBordersFor(scrolledForm);
 		scrolledForm.getBody().setLayout(new GridLayout(2, false));
 
-		formPropertyDescriptionProvider.setFormToolkit(toolkit);
-
 		main = scrolledForm.getBody();
 	}
 
 	public void init(EObject model) {
-		List<EStructuralFeature> features = eClassFeatureProvider
+		List<EStructuralFeature> features = featuresProvider
 				.getFeatures(model);
 
-		scrolledForm.setText(labelProvider.getText(model));
-		scrolledForm.setImage(labelProvider.getImage(model));
+		scrolledForm.setText(getLabelProvider().getText(model));
+		scrolledForm.setImage(getLabelProvider().getImage(model));
 
 		formControlFactory.init(
 				editingDomainFinder.getEditingDomainFor(model), model, main,
@@ -104,19 +97,22 @@ public class FormDetailComposite extends Composite {
 		toolkit.dispose();
 	}
 
-	public FormPropertyDescriptionProvider getFormFeatureLabelProvider() {
+	public FormPropertyDescriptionProvider getFormPropertyDescriptionProvider() {
 		return formPropertyDescriptionProvider;
 	}
 
-	public void setFormFeatureLabelProvider(
+	@Inject
+	public void setFormPropertyDescriptionProvider(
 			FormPropertyDescriptionProvider formPropertyDescriptionProvider) {
 		this.formPropertyDescriptionProvider = formPropertyDescriptionProvider;
+		this.formPropertyDescriptionProvider.setFormToolkit(toolkit);
 	}
 
 	public FormControlFactory getFormControlFactory() {
 		return formControlFactory;
 	}
 
+	@Inject
 	public void setFormControlFactory(
 			FormControlFactory formControlFactory) {
 		this.formControlFactory = formControlFactory;
@@ -126,25 +122,38 @@ public class FormDetailComposite extends Composite {
 		return editingDomainFinder;
 	}
 
+	@Inject
 	public void setEditingDomainFinder(EditingDomainFinder editingDomainFinder) {
 		this.editingDomainFinder = editingDomainFinder;
 	}
 
-	public FeaturesProvider geteClassFeatureProvider() {
-		return eClassFeatureProvider;
+	public FeaturesProvider getFeaturesProvider() {
+		return featuresProvider;
 	}
 
-	public void seteClassFeatureProvider(
+	@Inject
+	public void setFeaturesProvider(
 			FeaturesProvider eClassFeatureProvider) {
-		this.eClassFeatureProvider = eClassFeatureProvider;
+		this.featuresProvider = eClassFeatureProvider;
 	}
 
 	public ILabelProvider getLabelProvider() {
+		if (labelProvider == null)
+			labelProvider = jfaceProviderFactory.createLabelProvider();
 		return labelProvider;
 	}
 
 	public void setLabelProvider(ILabelProvider labelProvider) {
 		this.labelProvider = labelProvider;
+	}
+
+	public JfaceProviderFactory getJfaceProviderFactory() {
+		return jfaceProviderFactory;
+	}
+
+	@Inject
+	public void setJfaceProviderFactory(JfaceProviderFactory jfaceProviderFactory) {
+		this.jfaceProviderFactory = jfaceProviderFactory;
 	}
 
 }

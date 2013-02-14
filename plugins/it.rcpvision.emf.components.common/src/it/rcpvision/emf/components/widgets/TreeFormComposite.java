@@ -17,6 +17,8 @@ import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.PageBook;
 
+import com.google.inject.Inject;
+
 /**
  * A generic composite with a Tree and a Form with details of the selected
  * object in the tree.
@@ -51,23 +53,13 @@ public class TreeFormComposite extends Composite implements IViewerProvider {
 
 	protected FormDetailComposite detailForm;
 
-	public TreeFormComposite(Composite parent, int style,
-			ViewerInitializer viewerInitializer,
-			FormFactory formFactory,
-			EmfSelectionHelper emfSelectionHelper) {
-		this(parent, style, SWT.VERTICAL, new int[0], viewerInitializer, formFactory, emfSelectionHelper);
+	public TreeFormComposite(Composite parent, int style) {
+		this(parent, style, SWT.VERTICAL, new int[0]);
 	}
 	
-	
-	public TreeFormComposite(Composite parent, int style, int sashStyle, int[] weights,
-			ViewerInitializer viewerInitializer,
-			FormFactory formFactory,
-			EmfSelectionHelper emfSelectionHelper) {
+	public TreeFormComposite(Composite parent, int style, int sashStyle, int[] weights) {
 		super(parent, style);
 		setLayout(new FillLayout());
-		this.viewerInitializer = viewerInitializer;
-		this.formFactory = formFactory;
-		this.emfSelectionHelper = emfSelectionHelper;
 
 		SashForm sashForm = new SashForm(this, sashStyle);
 		// Lorenzo: these do not seem to be necessary, and they throw an exception
@@ -127,6 +119,33 @@ public class TreeFormComposite extends Composite implements IViewerProvider {
 	protected FormDetailComposite createFormDetailComposite() {
 		return formFactory.createFormDetailComposite(detail,
 				SWT.BORDER);
+	}
+
+	public ViewerInitializer getViewerInitializer() {
+		return viewerInitializer;
+	}
+
+	@Inject
+	public void setViewerInitializer(ViewerInitializer viewerInitializer) {
+		this.viewerInitializer = viewerInitializer;
+	}
+
+	public FormFactory getFormFactory() {
+		return formFactory;
+	}
+
+	@Inject
+	public void setFormFactory(FormFactory formFactory) {
+		this.formFactory = formFactory;
+	}
+
+	public EmfSelectionHelper getEmfSelectionHelper() {
+		return emfSelectionHelper;
+	}
+
+	@Inject
+	public void setEmfSelectionHelper(EmfSelectionHelper emfSelectionHelper) {
+		this.emfSelectionHelper = emfSelectionHelper;
 	}
 
 }

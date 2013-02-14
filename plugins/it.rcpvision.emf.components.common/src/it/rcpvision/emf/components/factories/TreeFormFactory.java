@@ -3,14 +3,12 @@
  */
 package it.rcpvision.emf.components.factories;
 
-import it.rcpvision.emf.components.util.EmfSelectionHelper;
-import it.rcpvision.emf.components.viewers.ViewerInitializer;
 import it.rcpvision.emf.components.widgets.TreeFormComposite;
 
 import org.eclipse.swt.widgets.Composite;
 
 import com.google.inject.Inject;
-import com.google.inject.Provider;
+import com.google.inject.MembersInjector;
 
 /**
  * @author bettini
@@ -19,21 +17,18 @@ import com.google.inject.Provider;
 public class TreeFormFactory {
 
 	@Inject
-	protected Provider<EmfSelectionHelper> emfSelectionHelperProvider;
-
-	@Inject
-	protected ViewerInitializer viewerInitializer;
-
-	@Inject
-	protected FormFactory formFactory;
+	protected MembersInjector<TreeFormComposite> treeFormCompositeMembersInjector;
 
 	@Inject
 	public TreeFormFactory() {
 
 	}
 
-	public TreeFormComposite createTreeFormMasterDetailComposite(Composite parent, int style) {
-		return new TreeFormComposite(parent, style, viewerInitializer,
-				formFactory, emfSelectionHelperProvider.get());
+	public TreeFormComposite createTreeFormMasterDetailComposite(
+			Composite parent, int style) {
+		TreeFormComposite treeFormComposite = new TreeFormComposite(parent,
+				style);
+		treeFormCompositeMembersInjector.injectMembers(treeFormComposite);
+		return treeFormComposite;
 	}
 }
