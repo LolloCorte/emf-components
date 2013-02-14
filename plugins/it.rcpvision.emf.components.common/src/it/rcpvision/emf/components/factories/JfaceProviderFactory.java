@@ -5,13 +5,11 @@ package it.rcpvision.emf.components.factories;
 
 import it.rcpvision.emf.components.ui.provider.AdapterMapCellLabelProvider;
 import it.rcpvision.emf.components.ui.provider.TableColumnLabelProvider;
-import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 
 import org.eclipse.core.databinding.observable.map.IObservableMap;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.databinding.viewers.ObservableListContentProvider;
 import org.eclipse.jface.viewers.CellLabelProvider;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
@@ -28,26 +26,13 @@ import com.google.inject.Provider;
 public class JfaceProviderFactory {
 
 	@Inject
-	protected Provider<ViewerLabelProvider> compositeLabelProviderProvider;
-
-	@Inject
 	protected Provider<AdapterFactory> adapterFactoryProvider;
+	
+	@Inject
+	protected Provider<ILabelProvider> labelProviderProvider;
 
 	@Inject
 	protected Provider<TableColumnLabelProvider> eStructuralFeatureColumnProviderProvider;
-
-	public ILabelProvider createLabelProvider(
-			ILabelProvider delegateLabelProvider) {
-		ViewerLabelProvider viewerLabelProvider = compositeLabelProviderProvider
-				.get();
-		viewerLabelProvider.setDelegateLabelProvider(delegateLabelProvider);
-		return viewerLabelProvider;
-	}
-
-	public ILabelProvider createLabelProvider() {
-		return createLabelProvider(new AdapterFactoryLabelProvider(
-				adapterFactoryProvider.get()));
-	}
 
 	public ColumnLabelProvider createColumnLabelProvider(
 			EStructuralFeature eStructuralFeature) {
@@ -55,7 +40,7 @@ public class JfaceProviderFactory {
 				.get();
 		columnProvider.seteStructuralFeature(eStructuralFeature);
 
-		columnProvider.setLabelProvider(createLabelProvider());
+		columnProvider.setLabelProvider(labelProviderProvider.get());
 		return columnProvider;
 	}
 
@@ -81,7 +66,7 @@ public class JfaceProviderFactory {
 				.observeDetail(cp.getKnownElements());
 		// IObservableMap[] observableMaps=new IObservableMap[]{observableMap};
 		return new AdapterMapCellLabelProvider(observableMap,
-				createLabelProvider());
+				labelProviderProvider.get());
 	}
 
 }

@@ -11,6 +11,7 @@ import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.edit.ResourceSaveManager;
 import it.rcpvision.emf.components.edit.domain.InjectableAdapterFactoryEditingDomain;
 import it.rcpvision.emf.components.edit.provider.InjectableAdapterFactory;
+import it.rcpvision.emf.components.edit.ui.provider.InjectableAdapterFactoryLabelProvider;
 import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider;
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
 import it.rcpvision.emf.components.factories.EmfActionFactory;
@@ -40,7 +41,9 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.dialogs.IDialogSettings;
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 import com.google.inject.Binder;
@@ -83,7 +86,7 @@ public class EmfComponentsGuiceModule extends AbstractGenericModule {
 		return ViewerMouseAdapter.class;
 	}
 
-	public Class<? extends ViewerLabelProvider> bindViewerLabelProvider() {
+	public Class<? extends ILabelProvider> bindILabelProvider() {
 		return ViewerLabelProvider.class;
 	}
 
@@ -189,6 +192,10 @@ public class EmfComponentsGuiceModule extends AbstractGenericModule {
 	
 	public Class<? extends AdapterFactory> bindAdapterFactory() {
 		return InjectableAdapterFactory.class;
+	}
+
+	public Class<? extends AdapterFactoryLabelProvider> bindAdapterFactoryLabelProvider() {
+		return InjectableAdapterFactoryLabelProvider.class;
 	}
 
 	public ComposedAdapterFactory.Descriptor.Registry bindComposedAdapterFactory$Descriptor$RegistryToInstance() {

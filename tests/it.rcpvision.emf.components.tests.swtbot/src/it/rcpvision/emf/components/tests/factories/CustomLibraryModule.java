@@ -15,11 +15,11 @@ import it.rcpvision.emf.components.tests.providers.TestFeaturesProvider;
 import it.rcpvision.emf.components.tests.resource.TestEmptyLibraryResourceInitializer;
 import it.rcpvision.emf.components.ui.provider.FeaturesColumnProvider;
 import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
-import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
-import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
 import it.rcpvision.emf.components.ui.provider.FormPropertyDescriptionProvider;
+import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
 import it.rcpvision.emf.components.ui.provider.TableColumnLabelProvider;
 
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 public class CustomLibraryModule extends EmfComponentsGuiceModule {
@@ -28,7 +28,7 @@ public class CustomLibraryModule extends EmfComponentsGuiceModule {
 	}
 
 	@Override
-	public Class<? extends ViewerLabelProvider> bindViewerLabelProvider() {
+	public Class<? extends ILabelProvider> bindILabelProvider() {
 		return CustomLibraryLabelProvider.class;
 	}
 

@@ -5,7 +5,6 @@ package it.rcpvision.emf.components.viewers;
 
 import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider;
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
-import it.rcpvision.emf.components.factories.JfaceProviderFactory;
 import it.rcpvision.emf.components.menus.ViewerContextMenuFactory;
 import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
 
@@ -15,10 +14,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.viewers.IBaseLabelProvider;
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.ui.IWorkbenchPart;
@@ -44,13 +43,13 @@ public class ViewerInitializer {
 	protected Provider<AdapterFactory> adapterFactoryProvider;
 
 	@Inject
-	protected JfaceProviderFactory jfaceProviderFactory;
-
-	@Inject
 	protected ViewerContextMenuFactory viewerContextMenuFactory;
 
 	@Inject
 	protected Provider<ViewerContentProvider> viewerContentProviderProvider;
+	
+	@Inject
+	protected Provider<ILabelProvider> labelProviderProvider;
 
 	public void initialize(StructuredViewer viewer, URI resourceURI) {
 		initialize(viewer, loadResource(resourceURI));
@@ -87,9 +86,7 @@ public class ViewerInitializer {
 //		AdapterFactoryContentProvider contentProvider = new AdapterFactoryContentProvider(
 //				adapterFactory);
 		initialize(viewer, input, contentProvider,
-				jfaceProviderFactory
-						.createLabelProvider(new AdapterFactoryLabelProvider(
-								adapterFactory)));
+				labelProviderProvider.get());
 	}
 
 	/**

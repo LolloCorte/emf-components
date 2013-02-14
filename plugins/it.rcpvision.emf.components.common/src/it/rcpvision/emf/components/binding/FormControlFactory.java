@@ -16,7 +16,6 @@
 package it.rcpvision.emf.components.binding;
 
 import it.rcpvision.emf.components.EmfComponentsActivator;
-import it.rcpvision.emf.components.factories.JfaceProviderFactory;
 import it.rcpvision.emf.components.runtime.util.PolymorphicDispatcher;
 
 import java.lang.reflect.Method;
@@ -51,6 +50,7 @@ import org.eclipse.jface.fieldassist.SimpleContentProposalProvider;
 import org.eclipse.jface.fieldassist.TextContentAdapter;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ComboViewer;
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Button;
@@ -61,6 +61,7 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 
 import com.google.common.base.Predicate;
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 
 /**
  * 
@@ -72,7 +73,7 @@ import com.google.inject.Inject;
  */
 public class FormControlFactory {
 	@Inject
-	protected JfaceProviderFactory jfaceProviderFactory;
+	protected Provider<ILabelProvider> labelProviderProvider;
 
 	@Inject
 	private ProposalCreator proposalcreator;
@@ -167,7 +168,7 @@ public class FormControlFactory {
 			return result;
 
 		MultipleFeatureControl mfc = new MultipleFeatureControl(parent,
-				toolkit, jfaceProviderFactory.createLabelProvider(), owner,
+				toolkit, labelProviderProvider.get(), owner,
 				feature, proposalcreator);
 		IObservableValue target = new MultipleFeatureControlObservable(mfc);
 		ControlObservablePair retValAndTargetPair = new ControlObservablePair(
@@ -249,7 +250,7 @@ public class FormControlFactory {
 		ComboViewer combo = new ComboViewer(parent, SWT.READ_ONLY);
 		toolkit.adapt(combo.getCombo());
 		combo.setContentProvider(new ArrayContentProvider());
-		combo.setLabelProvider(jfaceProviderFactory.createLabelProvider());
+		combo.setLabelProvider(labelProviderProvider.get());
 		combo.setInput(proposals);
 		ControlObservablePair retValAndTargetPair = new ControlObservablePair();
 		retValAndTargetPair.setControl(combo.getCombo());

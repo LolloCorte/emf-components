@@ -2,7 +2,6 @@ package it.rcpvision.emf.components.widgets;
 
 import it.rcpvision.emf.components.binding.FormControlFactory;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
-import it.rcpvision.emf.components.factories.JfaceProviderFactory;
 import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.FormPropertyDescriptionProvider;
 
@@ -32,8 +31,6 @@ public class FormDetailComposite extends Composite {
 	protected FeaturesProvider featuresProvider;
 
 	protected ILabelProvider labelProvider;
-	
-	protected JfaceProviderFactory jfaceProviderFactory;
 
 	private final Composite main;
 
@@ -138,22 +135,12 @@ public class FormDetailComposite extends Composite {
 	}
 
 	public ILabelProvider getLabelProvider() {
-		if (labelProvider == null)
-			labelProvider = jfaceProviderFactory.createLabelProvider();
 		return labelProvider;
 	}
 
+	@Inject
 	public void setLabelProvider(ILabelProvider labelProvider) {
 		this.labelProvider = labelProvider;
-	}
-
-	public JfaceProviderFactory getJfaceProviderFactory() {
-		return jfaceProviderFactory;
-	}
-
-	@Inject
-	public void setJfaceProviderFactory(JfaceProviderFactory jfaceProviderFactory) {
-		this.jfaceProviderFactory = jfaceProviderFactory;
 	}
 
 }

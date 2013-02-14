@@ -8,6 +8,10 @@ import it.rcpvision.emf.components.tests.EmfComponentsTestsActivator;
 import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 
 import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.jface.viewers.ILabelProvider;
+
+import com.google.inject.Inject;
 
 /**
  * Uses a custom label provider
@@ -19,6 +23,11 @@ public class CustomLabelExecutableExtensionFactory extends
 		EmfComponentsTestsExecutableExtensionFactory {
 
 	public static class CustomLabelProvider extends ViewerLabelProvider {
+		@Inject
+		public CustomLabelProvider(AdapterFactoryLabelProvider delegate) {
+			super(delegate);
+		}
+
 		@Override
 		public String getText(Object element) {
 			if (element instanceof XMLResource) {
@@ -33,7 +42,7 @@ public class CustomLabelExecutableExtensionFactory extends
 		return new EmfComponentsGuiceModule(EmfComponentsTestsActivator.getDefault()) {
 
 			@Override
-			public Class<? extends ViewerLabelProvider> bindViewerLabelProvider() {
+			public Class<? extends ILabelProvider> bindILabelProvider() {
 				return CustomLabelProvider.class;
 			}
 

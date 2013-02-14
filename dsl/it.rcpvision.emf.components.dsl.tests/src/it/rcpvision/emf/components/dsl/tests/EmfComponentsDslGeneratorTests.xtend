@@ -59,8 +59,8 @@ public class EmfComponentsGuiceModuleGen extends MyTestGuiceModule {
 package my.empty;
 
 import it.rcpvision.emf.components.EmfComponentsGuiceModule;
-import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 import my.empty.ui.provider.LabelProviderGen;
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
@@ -69,7 +69,7 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
   }
   
   @Override
-  public Class<? extends ViewerLabelProvider> bindViewerLabelProvider() {
+  public Class<? extends ILabelProvider> bindILabelProvider() {
     return LabelProviderGen.class;
   }
 }
@@ -77,9 +77,15 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
 '''
 package my.empty.ui.provider;
 
+import com.google.inject.Inject;
 import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 
 public class LabelProviderGen extends ViewerLabelProvider {
+  @Inject
+  public LabelProviderGen(final AdapterFactoryLabelProvider delegate) {
+    super(delegate);
+  }
 }
 ''', null, null, null, null, null, null
 		)
@@ -125,9 +131,15 @@ null,
 '''
 package my.empty.ui.provider;
 
+import com.google.inject.Inject;
 import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 
 public class LabelProviderGen extends ViewerLabelProvider {
+  @Inject
+  public LabelProviderGen(final AdapterFactoryLabelProvider delegate) {
+    super(delegate);
+  }
 }
 ''', null, null, null, null, null, null
 		)
@@ -140,6 +152,7 @@ null,
 '''
 package my.empty.ui.provider;
 
+import com.google.inject.Inject;
 import it.rcpvision.emf.components.examples.library.Book;
 import it.rcpvision.emf.components.examples.library.BookOnTape;
 import it.rcpvision.emf.components.examples.library.Borrower;
@@ -149,12 +162,18 @@ import it.rcpvision.emf.components.examples.library.Writer;
 import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 public class LabelProviderGen extends ViewerLabelProvider {
+  @Inject
+  public LabelProviderGen(final AdapterFactoryLabelProvider delegate) {
+    super(delegate);
+  }
+  
   public String text(final Library it) {
     return "foo";
   }

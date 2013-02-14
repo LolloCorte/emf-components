@@ -34,6 +34,8 @@ import it.rcpvision.emf.components.binding.ProposalCreator
 import static extension org.eclipse.xtext.EcoreUtil2.*
 import java.util.List
 import org.eclipse.emf.common.notify.AdapterFactory
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
+import org.eclipse.jface.viewers.ILabelProvider
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -106,7 +108,7 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 			]
 			
 			if (labelProviderClass != null)
-				members += element.labelProvider.genBindMethod(labelProviderClass, typeof(ViewerLabelProvider))
+				members += element.labelProvider.genBindMethod(labelProviderClass, typeof(ILabelProvider))
 			if (propertyDescriptionProviderClass != null)
 				members += element.propertyDescriptionProvider.genBindMethod(propertyDescriptionProviderClass, typeof(PropertyDescriptionProvider))
 			if (featureProviderClass != null)
@@ -175,6 +177,15 @@ class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
 			val labelProviderClass = element.labelProvider.toClass(element.labelProviderQN)
 			acceptor.accept(labelProviderClass).initializeLater [
 				superTypes += element.newTypeRef(typeof(ViewerLabelProvider))
+				
+				members += element.labelProvider.toConstructor() [
+					parameters += element.labelProvider.
+						toParameter("delegate", 
+							element.newTypeRef(typeof(AdapterFactoryLabelProvider))
+						)
+					body = [it.append("super(delegate);")]
+					annotations += element.toAnnotation(typeof(Inject))
+				]
 				
 				element.labelProvider.labelSpecifications.forEach [
 					labelSpecification |

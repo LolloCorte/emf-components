@@ -6,7 +6,7 @@ import it.rcpvision.emf.components.examples.firstexample.ui.provider.LabelProvid
 import it.rcpvision.emf.components.examples.firstexample.ui.provider.PropertyDescriptionProviderGen;
 import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
-import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 /**
@@ -18,7 +18,7 @@ public class EmfComponentsGuiceModuleGen extends EmfComponentsGuiceModule {
   }
   
   @Override
-  public Class<? extends ViewerLabelProvider> bindViewerLabelProvider() {
+  public Class<? extends ILabelProvider> bindILabelProvider() {
     return LabelProviderGen.class;
   }
   

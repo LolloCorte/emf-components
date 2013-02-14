@@ -1,11 +1,18 @@
 package it.rcpvision.emf.components.examples.firstexample.ui.provider;
 
 import com.google.common.base.Objects;
+import com.google.inject.Inject;
 import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.examples.extlibrary.Book;
 import org.eclipse.emf.examples.extlibrary.Writer;
 
 public class LabelProviderGen extends ViewerLabelProvider {
+  @Inject
+  public LabelProviderGen(final AdapterFactoryLabelProvider delegate) {
+    super(delegate);
+  }
+  
   public String text(final Book b) {
     String _title = b.getTitle();
     String _plus = ("\"" + _title);

@@ -29,6 +29,8 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -158,7 +160,7 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
           if (_notEquals) {
             EList<JvmMember> _members_1 = it.getMembers();
             LabelProvider _labelProvider = element.getLabelProvider();
-            JvmOperation _genBindMethod = EmfComponentsDslJvmModelInferrer.this.genBindMethod(_labelProvider, labelProviderClass, ViewerLabelProvider.class);
+            JvmOperation _genBindMethod = EmfComponentsDslJvmModelInferrer.this.genBindMethod(_labelProvider, labelProviderClass, ILabelProvider.class);
             EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members_1, _genBindMethod);
           }
           boolean _notEquals_1 = (!Objects.equal(propertyDescriptionProviderClass, null));
@@ -304,9 +306,31 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
               EList<JvmTypeReference> _superTypes = it.getSuperTypes();
               JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, ViewerLabelProvider.class);
               EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmTypeReference>operator_add(_superTypes, _newTypeRef);
+              EList<JvmMember> _members = it.getMembers();
               LabelProvider _labelProvider = element.getLabelProvider();
-              EList<LabelSpecification> _labelSpecifications = _labelProvider.getLabelSpecifications();
-              final Procedure1<LabelSpecification> _function = new Procedure1<LabelSpecification>() {
+              final Procedure1<JvmConstructor> _function = new Procedure1<JvmConstructor>() {
+                  public void apply(final JvmConstructor it) {
+                    EList<JvmFormalParameter> _parameters = it.getParameters();
+                    LabelProvider _labelProvider = element.getLabelProvider();
+                    JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, AdapterFactoryLabelProvider.class);
+                    JvmFormalParameter _parameter = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.toParameter(_labelProvider, "delegate", _newTypeRef);
+                    EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmFormalParameter>operator_add(_parameters, _parameter);
+                    final Procedure1<ITreeAppendable> _function = new Procedure1<ITreeAppendable>() {
+                        public void apply(final ITreeAppendable it) {
+                          it.append("super(delegate);");
+                        }
+                      };
+                    EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.setBody(it, _function);
+                    EList<JvmAnnotationReference> _annotations = it.getAnnotations();
+                    JvmAnnotationReference _annotation = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.toAnnotation(element, Inject.class);
+                    EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmAnnotationReference>operator_add(_annotations, _annotation);
+                  }
+                };
+              JvmConstructor _constructor = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.toConstructor(_labelProvider, _function);
+              EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmConstructor>operator_add(_members, _constructor);
+              LabelProvider _labelProvider_1 = element.getLabelProvider();
+              EList<LabelSpecification> _labelSpecifications = _labelProvider_1.getLabelSpecifications();
+              final Procedure1<LabelSpecification> _function_1 = new Procedure1<LabelSpecification>() {
                   public void apply(final LabelSpecification labelSpecification) {
                     EList<JvmMember> _members = it.getMembers();
                     JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, String.class);
@@ -333,10 +357,10 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
                     EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members, _method);
                   }
                 };
-              IterableExtensions.<LabelSpecification>forEach(_labelSpecifications, _function);
-              LabelProvider _labelProvider_1 = element.getLabelProvider();
-              EList<LabelSpecification> _imageSpecifications = _labelProvider_1.getImageSpecifications();
-              final Procedure1<LabelSpecification> _function_1 = new Procedure1<LabelSpecification>() {
+              IterableExtensions.<LabelSpecification>forEach(_labelSpecifications, _function_1);
+              LabelProvider _labelProvider_2 = element.getLabelProvider();
+              EList<LabelSpecification> _imageSpecifications = _labelProvider_2.getImageSpecifications();
+              final Procedure1<LabelSpecification> _function_2 = new Procedure1<LabelSpecification>() {
                   public void apply(final LabelSpecification imageSpecification) {
                     EList<JvmMember> _members = it.getMembers();
                     JvmTypeReference _newTypeRef = EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(element, Object.class);
@@ -363,7 +387,7 @@ public class EmfComponentsDslJvmModelInferrer extends AbstractModelInferrer {
                     EmfComponentsDslJvmModelInferrer.this._jvmTypesBuilder.<JvmOperation>operator_add(_members, _method);
                   }
                 };
-              IterableExtensions.<LabelSpecification>forEach(_imageSpecifications, _function_1);
+              IterableExtensions.<LabelSpecification>forEach(_imageSpecifications, _function_2);
             }
           };
         _accept.initializeLater(_function);

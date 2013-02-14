@@ -1,11 +1,18 @@
 package it.rcpvision.emf.components.examples.mail.accountsview.ui.provider;
 
 import com.google.common.base.Objects;
+import com.google.inject.Inject;
 import it.rcpvision.emf.components.examples.mail.Account;
 import it.rcpvision.emf.components.examples.mail.Folder;
 import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 
 public class LabelProviderGen extends ViewerLabelProvider {
+  @Inject
+  public LabelProviderGen(final AdapterFactoryLabelProvider delegate) {
+    super(delegate);
+  }
+  
   public String text(final Account it) {
     String _email = it.getEmail();
     return _email;

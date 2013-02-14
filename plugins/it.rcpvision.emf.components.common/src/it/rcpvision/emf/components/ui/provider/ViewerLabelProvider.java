@@ -7,6 +7,7 @@ import it.rcpvision.emf.components.runtime.ui.IImageHelper;
 import it.rcpvision.emf.components.runtime.util.PolymorphicDispatcher;
 
 import org.eclipse.emf.ecore.util.FeatureMap.Entry;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
@@ -30,6 +31,11 @@ public class ViewerLabelProvider implements ILabelProvider {
 			.createForSingleTarget("image", 1, 1, this);
 
 	protected ILabelProvider delegateLabelProvider;
+	
+	@Inject
+	public ViewerLabelProvider(AdapterFactoryLabelProvider delegate) {
+		delegateLabelProvider = delegate;
+	}
 
 	public String getText(Object element) {
 		String text = textDispatcher.invoke(element);

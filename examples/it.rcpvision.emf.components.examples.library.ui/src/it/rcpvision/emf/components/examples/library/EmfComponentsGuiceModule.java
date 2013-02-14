@@ -1,10 +1,10 @@
 package it.rcpvision.emf.components.examples.library;
 
-import org.eclipse.ui.plugin.AbstractUIPlugin;
-
-import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 import it.rcpvision.emf.components.ui.provider.FeaturesProvider;
 import it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider;
+
+import org.eclipse.jface.viewers.ILabelProvider;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 public class EmfComponentsGuiceModule extends it.rcpvision.emf.components.EmfComponentsGuiceModule {
 
@@ -13,7 +13,7 @@ public class EmfComponentsGuiceModule extends it.rcpvision.emf.components.EmfCom
 	}
 
 	@Override
-	public Class<? extends ViewerLabelProvider> bindViewerLabelProvider() {
+	public Class<? extends ILabelProvider> bindILabelProvider() {
 		return CustomLabelProvider.class;
 	}
 

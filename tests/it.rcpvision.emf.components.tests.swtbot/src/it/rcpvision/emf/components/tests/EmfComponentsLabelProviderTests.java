@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 import it.rcpvision.emf.components.examples.library.EXTLibraryFactory;
 import it.rcpvision.emf.components.examples.library.Library;
 import it.rcpvision.emf.components.examples.library.Writer;
-import it.rcpvision.emf.components.factories.JfaceProviderFactory;
 
 import org.eclipse.emf.ecore.util.FeatureMap.Entry;
 import org.eclipse.jface.viewers.ILabelProvider;
@@ -31,8 +30,7 @@ public class EmfComponentsLabelProviderTests extends
 	}
 
 	protected ILabelProvider createLabelProvider() {
-		return getInjector().getInstance(JfaceProviderFactory.class)
-				.createLabelProvider();
+		return getInjector().getInstance(ILabelProvider.class);
 	}
 
 	protected Library createTestLibraryWithPeople() {
