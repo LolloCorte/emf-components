@@ -2,7 +2,7 @@ package it.rcpvision.emf.components.views;
 
 import it.rcpvision.emf.components.edit.ResourceSaveManager;
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
-import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
+import it.rcpvision.emf.components.resource.ResourceLoader;
 import it.rcpvision.emf.components.util.EmfCommandsUtil;
 import it.rcpvision.emf.components.viewers.ViewerInitializer;
 
@@ -38,7 +38,7 @@ public abstract class AbstractSaveableView extends ViewPart implements
 	protected Provider<AdapterFactoryEditingDomain> editingDomainProvider;
 
 	@Inject
-	protected EditingDomainResourceLoader resourceLoader;
+	protected ResourceLoader resourceLoader;
 
 	@Inject
 	protected ResourceSaveManager resourceSaveManager;

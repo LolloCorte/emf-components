@@ -14,15 +14,14 @@ import it.rcpvision.emf.components.edit.provider.InjectableAdapterFactory;
 import it.rcpvision.emf.components.edit.ui.provider.InjectableAdapterFactoryLabelProvider;
 import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider;
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
+import it.rcpvision.emf.components.factories.ColumnLabelProviderFactory;
 import it.rcpvision.emf.components.factories.EmfActionFactory;
 import it.rcpvision.emf.components.factories.FormFactory;
-import it.rcpvision.emf.components.factories.ColumnLabelProviderFactory;
 import it.rcpvision.emf.components.factories.TreeFormFactory;
 import it.rcpvision.emf.components.factories.ViewerFactory;
 import it.rcpvision.emf.components.handlers.OutlineSelectionHandler;
 import it.rcpvision.emf.components.listeners.ViewerMouseAdapter;
 import it.rcpvision.emf.components.menus.ViewerContextMenuFactory;
-import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
 import it.rcpvision.emf.components.resource.EmptyResourceInitializer;
 import it.rcpvision.emf.components.resource.ResourceLoader;
 import it.rcpvision.emf.components.runtime.service.AbstractGenericModule;
@@ -77,10 +76,6 @@ public class EmfComponentsGuiceModule extends AbstractGenericModule {
 
 	public Class<? extends ResourceLoader> bindResourceLoader() {
 		return ResourceLoader.class;
-	}
-
-	public Class<? extends EditingDomainResourceLoader> bindEditingDomainResourceLoader() {
-		return EditingDomainResourceLoader.class;
 	}
 
 	public Class<? extends ViewerMouseAdapter> bindViewerMouseAdapter() {

@@ -1,7 +1,7 @@
 package it.rcpvision.emf.components.views;
 
 import it.rcpvision.emf.components.builders.TableViewerBuilder;
-import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
+import it.rcpvision.emf.components.resource.ResourceLoader;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EClass;
@@ -18,7 +18,7 @@ public abstract class AbstractSaveableTableView extends AbstractSaveableView {
 	protected TableViewerBuilder tableViewerBuilder;
 
 	@Inject
-	protected EditingDomainResourceLoader resourceLoader;
+	protected ResourceLoader resourceLoader;
 
 	protected TableViewer tableViewer;
 

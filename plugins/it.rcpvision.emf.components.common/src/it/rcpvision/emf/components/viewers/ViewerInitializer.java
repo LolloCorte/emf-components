@@ -5,7 +5,7 @@ package it.rcpvision.emf.components.viewers;
 
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
 import it.rcpvision.emf.components.menus.ViewerContextMenuFactory;
-import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
+import it.rcpvision.emf.components.resource.ResourceLoader;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.URI;
@@ -33,7 +33,7 @@ import com.google.inject.Provider;
 public class ViewerInitializer {
 
 	@Inject
-	protected EditingDomainResourceLoader resourceLoader;
+	protected ResourceLoader resourceLoader;
 
 	@Inject
 	protected Provider<AdapterFactoryEditingDomain> editingDomainProvider;

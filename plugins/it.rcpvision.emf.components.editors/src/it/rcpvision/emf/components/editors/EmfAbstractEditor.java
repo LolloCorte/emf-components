@@ -25,7 +25,7 @@ import it.rcpvision.emf.components.factories.ViewerFactory;
 import it.rcpvision.emf.components.handlers.OutlineSelectionHandler;
 import it.rcpvision.emf.components.listeners.ViewerMouseAdapter;
 import it.rcpvision.emf.components.menus.ViewerContextMenuFactory;
-import it.rcpvision.emf.components.resource.EditingDomainResourceLoader;
+import it.rcpvision.emf.components.resource.ResourceLoader;
 import it.rcpvision.emf.components.util.EmfComponentsUtil;
 
 import java.io.IOException;
@@ -453,7 +453,7 @@ protected OutlineSelectionHandler outlineSelectionHandler;
 protected Provider<AdapterFactoryEditingDomain> editingDomainProvider;
 
 @Inject
-protected EditingDomainResourceLoader resourceLoader;
+protected ResourceLoader resourceLoader;
 
 @Inject
 protected ViewerContextMenuFactory viewerContextMenuFactory;
