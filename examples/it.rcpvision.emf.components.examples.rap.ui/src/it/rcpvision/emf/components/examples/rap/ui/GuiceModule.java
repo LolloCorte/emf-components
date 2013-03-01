@@ -8,7 +8,11 @@ import it.rcpvision.emf.components.examples.rap.model.ModelFactory;
 import it.rcpvision.emf.components.resource.EmptyResourceInitializer;
 import it.rcpvision.emf.components.ui.provider.ViewerLabelProvider;
 
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+
+import com.google.inject.Inject;
 
 public class GuiceModule extends EmfComponentsGuiceModule {
 
@@ -53,6 +57,11 @@ public class GuiceModule extends EmfComponentsGuiceModule {
 
 	public static class CustomLabelProvider extends ViewerLabelProvider {
 
+		@Inject
+		public CustomLabelProvider(AdapterFactoryLabelProvider delegate) {
+			super(delegate);
+		}
+
 		public String text(Model o) {
 			return "Model: " + (o.getName() != null ? o.getName() : "NO NAME");
 		}
@@ -81,7 +90,7 @@ public class GuiceModule extends EmfComponentsGuiceModule {
 	}
 
 	@Override
-	public Class<? extends ViewerLabelProvider> bindViewerLabelProvider() {
+	public Class<? extends ILabelProvider> bindILabelProvider() {
 		return CustomLabelProvider.class;
 	}
 
