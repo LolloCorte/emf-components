@@ -8,18 +8,18 @@ import org.osgi.framework.BundleContext;
 /**
  * The activator class controls the plug-in life cycle
  */
-public class EmfComponentsActivator extends AbstractUIPlugin {
+public class EmfComponentsCommonActivator extends AbstractUIPlugin {
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "it.rcpvision.emf.components"; //$NON-NLS-1$
 
 	// The shared instance
-	private static EmfComponentsActivator plugin;
+	private static EmfComponentsCommonActivator plugin;
 
 	/**
 	 * The constructor
 	 */
-	public EmfComponentsActivator() {
+	public EmfComponentsCommonActivator() {
 	}
 
 	/*
@@ -51,7 +51,7 @@ public class EmfComponentsActivator extends AbstractUIPlugin {
 	 * 
 	 * @return the shared instance
 	 */
-	public static EmfComponentsActivator getDefault() {
+	public static EmfComponentsCommonActivator getDefault() {
 		return plugin;
 	}
 
@@ -60,12 +60,12 @@ public class EmfComponentsActivator extends AbstractUIPlugin {
 	}
 
 	public static void logError(String errorMessage) {
-		log(new Status(IStatus.ERROR, EmfComponentsActivator.PLUGIN_ID,
+		log(new Status(IStatus.ERROR, EmfComponentsCommonActivator.PLUGIN_ID,
 				errorMessage));
 	}
 
 	public static void log(Throwable exception) {
-		log(new Status(IStatus.ERROR, EmfComponentsActivator.PLUGIN_ID,
+		log(new Status(IStatus.ERROR, EmfComponentsCommonActivator.PLUGIN_ID,
 				exception.getMessage(),
 				exception));
 	}

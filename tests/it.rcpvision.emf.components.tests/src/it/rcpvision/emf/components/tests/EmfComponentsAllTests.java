@@ -12,7 +12,8 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-	FeatureNamePathTest.class
+	FeatureNamePathTest.class,
+	FeatureResolverTest.class
 })
 public class EmfComponentsAllTests {
 

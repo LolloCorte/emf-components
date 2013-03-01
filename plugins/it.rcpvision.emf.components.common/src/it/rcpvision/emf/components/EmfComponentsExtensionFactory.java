@@ -28,7 +28,7 @@ public class EmfComponentsExtensionFactory extends
 	 */
 	@Override
 	protected Bundle getBundle() {
-		return EmfComponentsActivator.getDefault().getBundle();
+		return EmfComponentsCommonActivator.getDefault().getBundle();
 	}
 
 	/*
@@ -44,7 +44,7 @@ public class EmfComponentsExtensionFactory extends
 	}
 
 	protected EmfComponentsGuiceModule getModule() {
-		return new EmfComponentsGuiceModule(EmfComponentsActivator.getDefault());
+		return new EmfComponentsGuiceModule(EmfComponentsCommonActivator.getDefault());
 	}
 
 }

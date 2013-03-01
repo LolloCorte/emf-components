@@ -3,7 +3,7 @@
  */
 package it.rcpvision.emf.components.ui.provider;
 
-import it.rcpvision.emf.components.EmfComponentsActivator;
+import it.rcpvision.emf.components.EmfComponentsCommonActivator;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -91,7 +91,7 @@ public class FeaturesProvider {
 			if (feature != null)
 				result.add(feature);
 			else
-				EmfComponentsActivator.logError("cannot find feature '"
+				EmfComponentsCommonActivator.logError("cannot find feature '"
 						+ featureName + "' in EClass '" + eClass.getName()
 						+ "'");
 		}

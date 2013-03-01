@@ -1,6 +1,6 @@
 package it.rcpvision.emf.components.listeners;
 
-import it.rcpvision.emf.components.EmfComponentsActivator;
+import it.rcpvision.emf.components.EmfComponentsCommonActivator;
 
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
@@ -22,7 +22,7 @@ public class ViewerMouseAdapter extends MouseAdapter {
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
 						.showView("org.eclipse.ui.views.PropertySheet");
 			} catch (PartInitException exception) {
-				EmfComponentsActivator.log(exception);
+				EmfComponentsCommonActivator.log(exception);
 			}
 		}
 	}

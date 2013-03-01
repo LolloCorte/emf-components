@@ -1,6 +1,6 @@
 package it.rcpvision.emf.components.editors;
 
-import it.rcpvision.emf.components.EmfComponentsActivator;
+import it.rcpvision.emf.components.EmfComponentsCommonActivator;
 import it.rcpvision.emf.components.edit.action.EditingActionBarContributor;
 
 import java.util.ArrayList;
@@ -83,7 +83,7 @@ public class EmfActionBarContributor
         }
         catch (PartInitException exception)
         {
-          EmfComponentsActivator.log(exception);
+          EmfComponentsCommonActivator.log(exception);
         }
       }
     };
@@ -187,7 +187,7 @@ public class EmfActionBarContributor
     super(ADDITIONS_LAST_STYLE);
     
     showGenericsAction.setChecked
-      (Boolean.parseBoolean(EmfComponentsActivator.getDefault().getDialogSettings().get("showGenericsAction")));    
+      (Boolean.parseBoolean(EmfComponentsCommonActivator.getDefault().getDialogSettings().get("showGenericsAction")));    
   }
 
 	@Override
@@ -209,7 +209,7 @@ public class EmfActionBarContributor
   @Override
   public void dispose()
   {
-    EmfComponentsActivator.getDefault().getDialogSettings().put(
+    EmfComponentsCommonActivator.getDefault().getDialogSettings().put(
       "showGenericsAction", Boolean.toString(showGenericsAction.isChecked()));
     
     super.dispose();

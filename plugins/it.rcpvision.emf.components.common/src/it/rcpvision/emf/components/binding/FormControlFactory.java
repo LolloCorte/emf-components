@@ -15,7 +15,7 @@
  */
 package it.rcpvision.emf.components.binding;
 
-import it.rcpvision.emf.components.EmfComponentsActivator;
+import it.rcpvision.emf.components.EmfComponentsCommonActivator;
 import it.rcpvision.emf.components.runtime.util.PolymorphicDispatcher;
 
 import java.lang.reflect.Method;
@@ -288,11 +288,11 @@ public class FormControlFactory {
 			try {
 				keyStroke = KeyStroke.getInstance(string);
 			} catch (ParseException e) {
-				EmfComponentsActivator
+				EmfComponentsCommonActivator
 						.getDefault()
 						.getLog()
 						.log(new Status(IStatus.ERROR,
-								EmfComponentsActivator.PLUGIN_ID,
+								EmfComponentsCommonActivator.PLUGIN_ID,
 								"Error while parse: " + string, e));
 			}
 			new ContentProposalAdapter(t, new TextContentAdapter(),
