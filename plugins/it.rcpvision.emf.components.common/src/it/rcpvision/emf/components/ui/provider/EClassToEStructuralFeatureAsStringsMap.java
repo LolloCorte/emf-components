@@ -14,4 +14,12 @@ public class EClassToEStructuralFeatureAsStringsMap extends
 		put(eClass, Lists.newArrayList(features));
 	}
 
+//	put(eClass, Lists.newArrayList(Iterables.transform(
+//			Lists.newArrayList(features),
+//			new Function<String, FeatureNamePath>() {
+//
+//				public FeatureNamePath apply(String input) {
+//					return new FeatureNameSinglePath(input);
+//				}
+//			})));
 }
