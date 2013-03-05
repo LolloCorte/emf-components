@@ -27,8 +27,8 @@ import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.databinding.EMFDataBindingContext;
-import org.eclipse.emf.databinding.EMFObservables;
-import org.eclipse.emf.databinding.edit.EditingDomainEObjectObservableValue;
+import org.eclipse.emf.databinding.EMFProperties;
+import org.eclipse.emf.databinding.edit.EMFEditProperties;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -153,9 +153,9 @@ public class FormControlFactory {
 		IObservableValue source=polymorphicCreateObserveable(domain, owner, feature);
 		if(source==null){	
 			if (domain != null){
-				source = new EditingDomainEObjectObservableValue(domain, owner, feature);
+				source = EMFEditProperties.value(domain, feature).observe(owner);
 			}else{
-				source = EMFObservables.observeValue(owner, feature);
+				source = EMFProperties.value(feature).observe(owner);
 			}
 		}
 		return source;
