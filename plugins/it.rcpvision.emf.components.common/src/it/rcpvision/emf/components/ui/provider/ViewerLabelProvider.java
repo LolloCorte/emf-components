@@ -38,6 +38,9 @@ public class ViewerLabelProvider implements ILabelProvider {
 	}
 
 	public String getText(Object element) {
+		if (element == null)
+			return "";
+		
 		String text = textDispatcher.invoke(element);
 		if (text != null) {
 			return text;
@@ -50,6 +53,9 @@ public class ViewerLabelProvider implements ILabelProvider {
 	}
 
 	public Image getImage(Object element) {
+		if (element == null)
+			return null;
+		
 		Object imageObject = imageDispatcher.invoke(element);
 		if (imageObject != null) {
 			Image image = convertToImage(imageObject);
