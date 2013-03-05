@@ -41,7 +41,7 @@
 
 		<property name="build.model" location="${projects.location}/releng/it.rcpvision.emf.components.buckminster/aggregator/target-platform-mirror.b3aggr" />
 		
-		<echo message="IMPORTANT: Mirror sggregation may took over 10 minutes." />
+		<echo message="IMPORTANT: Mirror aggregation may took over 10 minutes." />
 		<echo message="build.model: ${build.model}" />
 
 		<run_b3_aggregator buildmodel="${build.model}" />
