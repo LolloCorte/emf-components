@@ -32,26 +32,42 @@ we show here only relevant parts to give an example:
 <div class="literallayout">
 <div class="incode">
 <p class="code">
-<span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;ValidateResourceSaveManager&nbsp;<span class="keyword">extends</span>&nbsp;ResourceSaveManager&nbsp;{<br/>
+<span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;ValidateResourceSaveManager&nbsp;<span class="keyword">extends</span>&nbsp;ResourceSaveManager&nbsp;{
 <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;@Override<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;<span class="keyword">boolean</span>&nbsp;precondition(Resource&nbsp;resource)&nbsp;{<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;<span class="keyword">super</span>.precondition(resource)&nbsp;&amp;&amp;&nbsp;validateModel(resource);<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;@Override
 <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;<span class="keyword">boolean</span>&nbsp;validateModel(Resource&nbsp;resource)&nbsp;{<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span>&nbsp;(EObject&nbsp;eObject&nbsp;:&nbsp;resource.getContents())&nbsp;{<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Diagnostic&nbsp;diagnostic&nbsp;=&nbsp;Diagnostician.INSTANCE.validate(eObject);<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;(diagnostic.getSeverity()&nbsp;==&nbsp;Diagnostic.ERROR)&nbsp;{<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;SKIPPED:&nbsp;present&nbsp;the&nbsp;errors<br/>
-</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;false;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span class="keyword">else</span>&nbsp;<span class="keyword">if</span>&nbsp;(diagnostic.getSeverity()&nbsp;==&nbsp;Diagnostic.WARNING)&nbsp;{<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;SKIPPED:&nbsp;present&nbsp;the&nbsp;warnings<br/>
-</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;true;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-}<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;<span class="keyword">boolean</span>&nbsp;precondition(Resource&nbsp;resource)&nbsp;{
+<br/>
+<span class="keyword">return</span>&nbsp;<span class="keyword">super</span>.precondition(resource)&nbsp;&amp;&amp;&nbsp;validateModel(resource);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;<span class="keyword">boolean</span>&nbsp;validateModel(Resource&nbsp;resource)&nbsp;{
+<br/>
+<span class="keyword">for</span>&nbsp;(EObject&nbsp;eObject&nbsp;:&nbsp;resource.getContents())&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Diagnostic&nbsp;diagnostic&nbsp;=&nbsp;Diagnostician.INSTANCE.validate(eObject);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;(diagnostic.getSeverity()&nbsp;==&nbsp;Diagnostic.ERROR)&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;SKIPPED:&nbsp;present&nbsp;the&nbsp;errors
+<br/>
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;false;
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span class="keyword">else</span>&nbsp;<span class="keyword">if</span>&nbsp;(diagnostic.getSeverity()&nbsp;==&nbsp;Diagnostic.WARNING)&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;SKIPPED:&nbsp;present&nbsp;the&nbsp;warnings
+<br/>
+</span>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+}
+<br/>
+<span class="keyword">return</span>&nbsp;true;
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+}
+<br/>
 </p>
 </div>
 </div>
@@ -116,20 +132,31 @@ for instance by returning the features ordered according to their name
 <div class="literallayout">
 <div class="incode">
 <p class="code">
-<span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;OrderedEStructuralFeaturesProvider&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">extends</span>&nbsp;FeaturesProvider&nbsp;{<br/>
+<span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;OrderedEStructuralFeaturesProvider&nbsp;
 <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;@Inject<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;EStructuralFeatureNameComparator&nbsp;comparator;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;@Override<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;List&lt;EStructuralFeature&gt;&nbsp;getFeatures(EClass&nbsp;eClass)&nbsp;{<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List&lt;EStructuralFeature&gt;&nbsp;features&nbsp;=&nbsp;<span class="keyword">super</span>.getFeatures(eClass);<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Collections.sort(features,&nbsp;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">new</span>&nbsp;EStructuralFeatureNameComparator());<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;features;<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-}<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">extends</span>&nbsp;FeaturesProvider&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;@Inject
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;EStructuralFeatureNameComparator&nbsp;comparator;
+<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;@Override
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;List&lt;EStructuralFeature&gt;&nbsp;getFeatures(EClass&nbsp;eClass)&nbsp;{
+<br/>
+List&lt;EStructuralFeature&gt;&nbsp;features&nbsp;=&nbsp;<span class="keyword">super</span>.getFeatures(eClass);
+<br/>
+Collections.sort(features,&nbsp;
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">new</span>&nbsp;EStructuralFeatureNameComparator());
+<br/>
+<span class="keyword">return</span>&nbsp;features;
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+}
+<br/>
 </p>
 </div>
 </div>
@@ -150,25 +177,40 @@ not <em>address</em>) for <span class="inlinecode">Writer</span> (which inherits
 <div class="literallayout">
 <div class="incode">
 <p class="code">
-<span class="keyword">import</span>&nbsp;<span class="keyword">static</span>&nbsp;org.eclipse.emf.examples.extlibrary.EXTLibraryPackage.Literals.*;<br/>
-<span class="keyword">import</span>&nbsp;it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;<br/>
+<span class="keyword">import</span>&nbsp;<span class="keyword">static</span>&nbsp;org.eclipse.emf.examples.extlibrary.EXTLibraryPackage.Literals.*;
 <br/>
-<span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;LibraryEStructuralFeaturesProvider&nbsp;<span class="keyword">extends</span><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FeaturesProvider&nbsp;{<br/>
+<span class="keyword">import</span>&nbsp;it.rcpvision.emf.components.ui.provider.EStructuralFeaturesProvider;
 <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;@Override<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;<span class="keyword">void</span>&nbsp;buildMap(EClassToEStructuralFeatureMap&nbsp;map)&nbsp;{<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">super</span>.buildMap(map);<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map.mapTo(LIBRARY,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LIBRARY__NAME,&nbsp;ADDRESSABLE__ADDRESS);<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map.mapTo(PERSON,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERSON__FIRST_NAME,&nbsp;PERSON__LAST_NAME,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADDRESSABLE__ADDRESS);<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map.mapTo(WRITER,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERSON__FIRST_NAME,&nbsp;PERSON__LAST_NAME,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WRITER__BOOKS);<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-}<br/>
+<span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;LibraryEStructuralFeaturesProvider&nbsp;<span class="keyword">extends</span>
+<br/>
+FeaturesProvider&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;@Override
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;<span class="keyword">void</span>&nbsp;buildMap(EClassToEStructuralFeatureMap&nbsp;map)&nbsp;{
+<br/>
+<span class="keyword">super</span>.buildMap(map);
+<br/>
+map.mapTo(LIBRARY,
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LIBRARY__NAME,&nbsp;ADDRESSABLE__ADDRESS);
+<br/>
+map.mapTo(PERSON,
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERSON__FIRST_NAME,&nbsp;PERSON__LAST_NAME,
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ADDRESSABLE__ADDRESS);
+<br/>
+map.mapTo(WRITER,
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERSON__FIRST_NAME,&nbsp;PERSON__LAST_NAME,
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WRITER__BOOKS);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+}
+<br/>
 </p>
 </div>
 </div>
@@ -186,29 +228,44 @@ combine the two approaches (in that case the map built with
 <div class="literallayout">
 <div class="incode">
 <p class="code">
-<span class="keyword">import</span>&nbsp;<span class="keyword">static</span>&nbsp;org.eclipse.emf.examples.extlibrary.EXTLibraryPackage.Literals.*;<br/>
-<span class="keyword">import</span>&nbsp;it.rcpvision.emf.components.ui.provider.FeaturesProvider;<br/>
+<span class="keyword">import</span>&nbsp;<span class="keyword">static</span>&nbsp;org.eclipse.emf.examples.extlibrary.EXTLibraryPackage.Literals.*;
 <br/>
-<span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;LibraryEStructuralFeaturesAsStringsProvider&nbsp;<span class="keyword">extends</span><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FeaturesProvider&nbsp;{<br/>
+<span class="keyword">import</span>&nbsp;it.rcpvision.emf.components.ui.provider.FeaturesProvider;
 <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;@Override<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;<span class="keyword">void</span>&nbsp;buildMap(EClassToEStructuralFeatureMap&nbsp;map)&nbsp;{<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">super</span>.buildMap(map);<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map.mapTo(LIBRARY,&nbsp;LIBRARY__NAME,&nbsp;ADDRESSABLE__ADDRESS);<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+<span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;LibraryEStructuralFeaturesAsStringsProvider&nbsp;<span class="keyword">extends</span>
 <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;@Override<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;<span class="keyword">void</span>&nbsp;buildStringMap(<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EClassToEStructuralFeatureAsStringsMap&nbsp;stringMap)&nbsp;{<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">super</span>.buildStringMap(stringMap);<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stringMap.mapTo(PERSON.getInstanceClassName(),&nbsp;<span class="string">"firstName"</span>,&nbsp;<span class="string">"lastName"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"address"</span>);<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stringMap.mapTo(WRITER.getInstanceClassName(),&nbsp;<span class="string">"firstName"</span>,&nbsp;<span class="string">"lastName"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"books"</span>);<br/>
+FeaturesProvider&nbsp;{
 <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-}<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;@Override
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;<span class="keyword">void</span>&nbsp;buildMap(EClassToEStructuralFeatureMap&nbsp;map)&nbsp;{
+<br/>
+<span class="keyword">super</span>.buildMap(map);
+<br/>
+map.mapTo(LIBRARY,&nbsp;LIBRARY__NAME,&nbsp;ADDRESSABLE__ADDRESS);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;@Override
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;<span class="keyword">void</span>&nbsp;buildStringMap(
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;EClassToEStructuralFeatureAsStringsMap&nbsp;stringMap)&nbsp;{
+<br/>
+<span class="keyword">super</span>.buildStringMap(stringMap);
+<br/>
+stringMap.mapTo(PERSON.getInstanceClassName(),&nbsp;<span class="string">"firstName"</span>,&nbsp;<span class="string">"lastName"</span>,
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"address"</span>);
+<br/>
+stringMap.mapTo(WRITER.getInstanceClassName(),&nbsp;<span class="string">"firstName"</span>,&nbsp;<span class="string">"lastName"</span>,
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"books"</span>);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+}
+<br/>
 </p>
 </div>
 </div>
