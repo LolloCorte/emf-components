@@ -1,0 +1,20 @@
+chapter:Eclipse4[Eclipse 4]
+
+Instead of using the Extension Point mechanism, EMF Components leverages from DSL and Google Guice Injection.
+
+Because of this, it is very easy to use it with Eclipse 4.
+
+Just be sure to start (as illustrated in section ref:GettingStarted[Getting Started]) with a "Eclipse Modeling Tools" package from link[http://www.eclipse.org/downloads/][Eclipse
+Downloads]
+img[images/eclipseModelingTools.png][][ ][]
+
+of course you will have to install the e[E4 Tools], e.g. from the following update site:
+
+link[http://download.vogella.com/juno/e4tools][http://download.vogella.com/juno/e4tools]
+
+
+
+
+
+
+
