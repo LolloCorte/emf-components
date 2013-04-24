@@ -10,15 +10,349 @@
 <body>
 <a name="Components"></a>
 <h1>Components</h1>
-<a name="ResourceBased"></a>
-<h2>Resource Based Components</h2>
+<a name="FormComponent"></a>
+<h2>Form Component</h2>
 <p>
-These components are used to access and manipulate resource based models.
+The <em>Form Component</em> can be used to rapresent an <a class="jdoc" href="http://download.eclipse.org/modeling/emf/emf/javadoc/2.6.0/org/eclipse/emf/ecore/EObject.html" title="View JavaDoc"><abbr title="org.eclipse.emf.ecore.EObject" >EObject</abbr></a> <a class="srcLink" href="https://github.com/eclipse/emf/blob/R2_8_0/plugins/org.eclipse.emf.ecore/src/org/eclipse/emf/ecore/EObject.java" title="View Source Code" >(src)</a> in a row-oriented form,
+like in the image above.
+</p>
+<p>
+<div class="image" >
+<img src="images/03-components-form.png" class=" " 
+/>
+<div class="caption">
+</div>
+</div>
+</p>
+<p>
+For each <a class="jdoc" href="http://download.eclipse.org/modeling/emf/emf/javadoc/2.6.0/org/eclipse/emf/ecore/EStructuralFeature.html" title="View JavaDoc"><abbr title="org.eclipse.emf.ecore.EStructuralFeature" >EStructuralFeature</abbr></a> <a class="srcLink" href="https://github.com/eclipse/emf/blob/R2_8_0/plugins/org.eclipse.emf.ecore/src/org/eclipse/emf/ecore/EStructuralFeature.java" title="View Source Code" >(src)</a> defined for the <a class="jdoc" href="http://download.eclipse.org/modeling/emf/emf/javadoc/2.6.0/org/eclipse/emf/ecore/EClass.html" title="View JavaDoc"><abbr title="org.eclipse.emf.ecore.EClass" >EClass</abbr></a> <a class="srcLink" href="https://github.com/eclipse/emf/blob/R2_8_0/plugins/org.eclipse.emf.ecore/src/org/eclipse/emf/ecore/EClass.java" title="View Source Code" >(src)</a>
+(that is the type of the object to rapresent), the component builds a row with a 
+<em>label</em> with the name of the feature and a <em>control</em> to access the data. It can be used the factory
+to create such a component, like in the code below.
+</p>
+<p>
+<div class="literallayout">
+<div class="incode">
+<p class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;formComposite&nbsp;=&nbsp;formFactory.createFormDetailComposite(parent,&nbsp;SWT.NONE);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;formComposite.init(eObject);
+<br/>
+</p>
+</div>
+</div>
+</p>
+<p>
+The <em>form component</em> can be customized in many way, in particular the feature list, the labels and the controls.  
+</p>
+<a name="Form_FeatureList"></a>
+<h3>Form Customization: Feature List</h3>
+<p>
+To customize the <em>feature list</em> it can be injected a <abbr title="it.rcpvision.emf.components.ui.provider.FeaturesProvider" >FeaturesProvider</abbr>.
+The default is to return the list of all the features in the EClass, but the programmer can customize it (for instance,
+by returning only a superset, or using a different order) on an EClass-based strategy. The customization can be done 
+redefining buildMap and adding mappings.
+</p>
+<p>
+<div class="literallayout">
+<div class="incode">
+<p class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;<span class="keyword">void</span>&nbsp;buildMap(EClassToEStructuralFeatureMap&nbsp;map)&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">super</span>.buildMap(map);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map.mapTo(LIBRARY,LIBRARY__NAME,&nbsp;ADDRESSABLE__ADDRESS);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+</p>
+</div>
+</div>
+</p>
+<p>
+In the example we specify that for the EClass <em>Library</em> the feature that are to be displayed are <em>name</em>
+and <em>address</em>.
+</p>
+<a name="Form_FeatureDescription"></a>
+<h3>Form Customization: Property Description</h3>
+<p>
+The <abbr title="it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider" >PropertyDescriptionProvider</abbr> provides labels for
+the features. It can be customized, with injection (see Injection paragraph), to customize the label on the
+left of each control. The framework use a polimorphic mechanism to find customizations, so that It can
+be written a method with a specific signature build by the keyword <em>&apos;text&apos;</em> followed by the EClass and the EStructuralFeature.
+All parts of the name are separated by an underscore character and the method must accept a parameter of type EStructuralFeature.
+</p>
+<p>
+In the following example we specify the label text for the feature &apos;Author&apos; of Book and the feature &apos;Name&apos; for
+Writer.
+</p>
+<p>
+<div class="literallayout">
+<div class="incode">
+<p class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;String&nbsp;text_Book_author(<span class="keyword">final</span>&nbsp;EStructuralFeature&nbsp;feature)&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;<span class="string">"Wrote&nbsp;by:"</span>;
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;String&nbsp;text_Writer_name(<span class="keyword">final</span>&nbsp;EStructuralFeature&nbsp;feature)&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;<span class="string">"Name:"</span>;
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+</p>
+</div>
+</div>
+</p>
+<p>
+Another chance of customization is to define a method the returns directly the control, like in the example
+below. In this case there is another parameter that is the parent composite.
+</p>
+<p>
+<div class="literallayout">
+<div class="incode">
+<p class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;Label&nbsp;label_Writer_name(Composite&nbsp;parent,&nbsp;EStructuralFeature&nbsp;feature)&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Label&nbsp;label&nbsp;=&nbsp;defaultLabel(parent,&nbsp;feature);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label.setBackground(getFormToolkit().getColors().getColor(IFormColors.TITLE));
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;label;
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+</p>
+</div>
+</div>
+</p>
+<a name="Form_FormControlFactory"></a>
+<h3>Form Customization: Form Control Factory</h3>
+<p>
+If you want to customize the controls on the right, it can be injected a specification of the class <abbr title="it.rcpvision.emf.components.binding.FormControlFactory" >FormControlFactory</abbr>.
+Using the same polimorphic mechanism of the labels, the programmer can write a method with the keyword <em>&apos;control&apos;</em>
+followed by the EClass and EStructuralFeature undescore-character-separated. In the signature of the
+method must be both the <em>DataBinding Context</em> and the <em>Feature Observable</em> that can be used for databinding. 
+</p>
+<p>
+<div class="literallayout">
+<div class="incode">
+<p class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;Control&nbsp;control_Writer_name(DataBindingContext&nbsp;dbc,IObservableValue&nbsp;featureObservable)&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//Creating&nbsp;the&nbsp;control
+<br/>
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Text&nbsp;text&nbsp;=&nbsp;getToolkit().createText(getParent(),&nbsp;<span class="string">""</span>);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text.setData(FormToolkit.KEY_DRAW_BORDER,&nbsp;FormToolkit.TREE_BORDER);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text.setBackground(getToolkit().getColors().getColor(IFormColors.TITLE));
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//Binding&nbsp;the&nbsp;control&nbsp;to&nbsp;the&nbsp;feature&nbsp;observable
+<br/>
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dbc.bindValue(SWTObservables.observeText(text,&nbsp;SWT.Modify),&nbsp;&nbsp;&nbsp;&nbsp;featureObservable);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;text;
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>
+</p>
+</div>
+</div>
+</p>
+<a name="Form_ProposalProvider"></a>
+<h3>Form Customization: Proposal Provider</h3>
+<p>
+Some controls use a list of proposal to help the end user experince: for example the combo box has a
+list of proposal, but also the simple text can use the proposal to assist and correct the hand-writed
+values. For each feature it can be specified a list of proposals using a method that starts with the
+keyword <em>&apos;proposals&apos;</em> followed byt the EClass and Feature undescore-character-separated. 
+</p>
+<p>
+<div class="literallayout">
+<div class="incode">
+<p class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;List&lt;?&gt;&nbsp;proposals_Book_author(Book&nbsp;book)&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List&lt;Object&gt;&nbsp;proposals&nbsp;=&nbsp;<span class="keyword">new</span>&nbsp;LinkedList&lt;Object&gt;();
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Writer&nbsp;writer&nbsp;=&nbsp;EXTLibraryFactory.eINSTANCE.createWriter();
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;writer.setFirstName(<span class="string">"Fake"</span>);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;writer.setLastName(<span class="string">"Writer"</span>);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proposals.add(writer);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;writer&nbsp;=&nbsp;EXTLibraryFactory.eINSTANCE.createWriter();
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;writer.setFirstName(<span class="string">"Fake"</span>);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;writer.setLastName(<span class="string">"Writer2"</span>);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proposals.add(writer);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;proposals;
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+</p>
+</div>
+</div>
+</p>
+<p>
+In this example we provides two Writer for the Feature &apos;Author&apos; of the EClass &apos;Book&apos;.
+</p>
+<a name="TreeComponent"></a>
+<h2>Tree Component</h2>
+<p>
+The <em>Tree Component</em> provides a tree rapresentation of data that can be <em>TODO(alimentato in inglese)</em> with an EResource, a
+Resource URI, and a simple EObject. This component use the EMF Meta-Model information to display objects in the tree. 
+This visualization can be customized in several way via the standard EMF Edit facilities or with the EMF Components codeinjection based mechanism.
+</p>
+<a name="Tree_LabelProvider"></a>
+<h3>Tree Customization: Label Provider</h3>
+<p>
+The Label Provider can be customized by providing a specific implementation of <a class="jdoc" href="http://help.eclipse.org/helios/topic/org.eclipse.platform.doc.isv/reference/api/org/eclipse/jface/viewers/ILabelProvider.html" title="View JavaDoc"><abbr title="org.eclipse.jface.viewers.ILabelProvider" >ILabelProvider</abbr></a>
+and injecting it in the spefic module <em>(TODO)</em>.
+EMF Components provides such an implementation with the class <abbr title="it.rcpvision.emf.components.ui.provider.ViewerLabelProvider" >ViewerLabelProvider</abbr>
+that is inteded to be surclassed by the programmer to provides specific implementations like in the example below.
+</p>
+<p>
+<div class="literallayout">
+<div class="incode">
+<p class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;CustomLibraryLabelProvider&nbsp;<span class="keyword">extends</span>&nbsp;ViewerLabelProvider&nbsp;{
+<br/>
+
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Inject
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;CustomLibraryLabelProvider(AdapterFactoryLabelProvider&nbsp;delegate)&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">super</span>(delegate);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;String&nbsp;text(Book&nbsp;book)&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;<span class="string">"Book:&nbsp;"</span>&nbsp;+&nbsp;book.getTitle();
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;String&nbsp;image(Book&nbsp;book)&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;<span class="string">"book2.png"</span>;
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;String&nbsp;text(Borrower&nbsp;b)&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;<span class="string">"Borrower:&nbsp;"</span>&nbsp;+&nbsp;b.getFirstName();
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+</p>
+</div>
+</div>
+</p>
+<a name="Tree_ContentProvider"></a>
+<h3>Tree Customization: Content Provider</h3>
+<p>
+The programmer can provide a specific implementation of <a class="jdoc" href="http://help.eclipse.org/helios/topic/org.eclipse.platform.doc.isv/reference/api/org/eclipse/jface/viewers/IContentProvider.html" title="View JavaDoc"><abbr title="org.eclipse.jface.viewers.IContentProvider" >IContentProvider</abbr></a>
+by injecting it in the spefic module <em>(TODO)</em>. EMF Components provides an implementation with the class
+<abbr title="it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider" >ViewerContentProvider</abbr> that can be easily used to
+specify the children of all object on the tree, like in the example below.
+</p>
+<p>
+<div class="literallayout">
+<div class="incode">
+<p class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;CustomLibraryViewerContentProvider&nbsp;<span class="keyword">extends</span>&nbsp;ViewerContentProvider&nbsp;{
+<br/>
+
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Inject
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;CustomLibraryViewerContentProvider(AdapterFactory&nbsp;adapterFactory)&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">super</span>(adapterFactory);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;Object&nbsp;children(Library&nbsp;library)&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;library.getBooks();
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;Object&nbsp;children(Book&nbsp;book)&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ArrayList&lt;Object&gt;&nbsp;children&nbsp;=&nbsp;<span class="keyword">new</span>&nbsp;ArrayList&lt;Object&gt;();
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Writer&nbsp;author&nbsp;=&nbsp;book.getAuthor();
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;(author&nbsp;!=&nbsp;null)&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;children.add(author);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;children.addAll(book.getBorrowers());
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;children;
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+</p>
+</div>
+</div>
+</p>
+<a name="Tree_ContextMenuFactory"></a>
+<h3>Tree Customization: Context Menu Factory</h3>
+<p>
+<em>TODO</em>
+</p>
+<a name="TreeFormComponent"></a>
+<h2>Tree FormComponent</h2>
+<a name="TableComponent"></a>
+<h2>Table Component</h2>
+<a name="SampleImplementation"></a>
+<h2>Sample Implementations</h2>
+<p>
+This section describes some view that are developed using EMF Components as a reference implementation to understand how it can be used.
+</p>
+<a name="ResourceBased"></a>
+<h3>Resource Based Components</h3>
+<p>
+These components are used to access and manipulate resource based models. 
 Since all of them specialize the abstract class <abbr title="it.rcpvision.emf.components.views.AbstractSaveableView" >AbstractSaveableView</abbr>, 
 they are all customizable via the following common features:
 </p>
+<a name="Resource_ResourceLoader"></a>
+<h3>Resource Customization: Context Menu Factory</h3>
+<a name="Resource_AdapterFactoryEditingDomain"></a>
+<h3>Resource Customization: Adapter Factory Editing Domain</h3>
 <a name="TableResourceView"></a>
-<h3>Table Resource View</h3>
+<h4>Table Resource View</h4>
 <p>
 The <em>Table Resource View</em> is implemented by <abbr title="it.rcpvision.emf.components.views.AbstractSaveableTableView" >AbstractSaveableTableView</abbr>
 class that is intended to be subclassed bu user. It aims to provide a ready-to-use view containing a table that visualizes homogeneous objects.
@@ -31,11 +365,16 @@ example). To use this view you must first implement the <span class="inlinecode"
 <div class="literallayout">
 <div class="incode">
 <p class="code">
-@Override<br/>
-<span class="keyword">protected</span>&nbsp;URI&nbsp;createResourceURI()&nbsp;{<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;URI.createPlatformResourceURI(<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EmfComponentsAbstractTests.MY_EXTLIBRARY_RELATIVE_PATH,&nbsp;true);<br/>
-}<br/>
+@Override
+<br/>
+<span class="keyword">protected</span>&nbsp;URI&nbsp;createResourceURI()&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;URI.createPlatformResourceURI(
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;EmfComponentsAbstractTests.MY_EXTLIBRARY_RELATIVE_PATH,&nbsp;true);
+<br/>
+}
+<br/>
 </p>
 </div>
 </div>
@@ -48,16 +387,24 @@ for the retrieve of the collection.
 <div class="literallayout">
 <div class="incode">
 <p class="code">
-@Override<br/>
-<span class="keyword">protected</span>&nbsp;EClass&nbsp;getEClass()&nbsp;{<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;EXTLibraryPackage.Literals.BOOK;<br/>
-}&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+@Override
 <br/>
-@Override<br/>
-<span class="keyword">protected</span>&nbsp;Object&nbsp;getContents(Resource&nbsp;resource)&nbsp;{<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;Library&nbsp;library=(Library)&nbsp;resource.getContents().get(0);<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;library.getBooks();<br/>
-}<br/>
+<span class="keyword">protected</span>&nbsp;EClass&nbsp;getEClass()&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;EXTLibraryPackage.Literals.BOOK;
+<br/>
+}&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>
+@Override
+<br/>
+<span class="keyword">protected</span>&nbsp;Object&nbsp;getContents(Resource&nbsp;resource)&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Library&nbsp;library=(Library)&nbsp;resource.getContents().get(0);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;library.getBooks();
+<br/>
+}
+<br/>
 </p>
 </div>
 </div>
@@ -66,7 +413,7 @@ for the retrieve of the collection.
 Here a list of available customizations (see related links for examples):
 </p>
 <a name="TreeResourceView"></a>
-<h3>Tree Resource View</h3>
+<h4>Tree Resource View</h4>
 <p>
 The <em>Tree Resource View</em> is implemented by class <abbr title="it.rcpvision.emf.components.views.AbstractSaveableTreeView" >AbstractSaveableTreeView</abbr>,
 that is intented to be subclassed by user.
@@ -79,11 +426,16 @@ example). To use this view you must first implement the <span class="inlinecode"
 <div class="literallayout">
 <div class="incode">
 <p class="code">
-@Override<br/>
-<span class="keyword">protected</span>&nbsp;URI&nbsp;createResourceURI()&nbsp;{<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;URI.createPlatformResourceURI(<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EmfComponentsAbstractTests.MY_EXTLIBRARY_RELATIVE_PATH,&nbsp;true);<br/>
-}<br/>
+@Override
+<br/>
+<span class="keyword">protected</span>&nbsp;URI&nbsp;createResourceURI()&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;URI.createPlatformResourceURI(
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;EmfComponentsAbstractTests.MY_EXTLIBRARY_RELATIVE_PATH,&nbsp;true);
+<br/>
+}
+<br/>
 </p>
 </div>
 </div>
@@ -92,7 +444,7 @@ example). To use this view you must first implement the <span class="inlinecode"
 Here a list of available customizations (see related links for examples):
 </p>
 <a name="AbstractSaveableTreeFormView"></a>
-<h3>Tree Form Resource View</h3>
+<h4>Tree Form Resource View</h4>
 <p>
 The <em>Tree Form Resource View</em> is implemented by class <abbr title="it.rcpvision.emf.components.views.AbstractSaveableTreeFormView" >AbstractSaveableTreeFormView</abbr>,
 that is inteded to be subclassed by user.
@@ -105,11 +457,16 @@ The following code is an example based on ExtLibrary example, where you can see 
 <div class="literallayout">
 <div class="incode">
 <p class="code">
-@Override<br/>
-<span class="keyword">protected</span>&nbsp;URI&nbsp;createResourceURI()&nbsp;{<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;URI.createPlatformResourceURI(<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EmfComponentsAbstractTests.MY_EXTLIBRARY_RELATIVE_PATH,&nbsp;true);<br/>
-}<br/>
+@Override
+<br/>
+<span class="keyword">protected</span>&nbsp;URI&nbsp;createResourceURI()&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;URI.createPlatformResourceURI(
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;EmfComponentsAbstractTests.MY_EXTLIBRARY_RELATIVE_PATH,&nbsp;true);
+<br/>
+}
+<br/>
 </p>
 </div>
 </div>
@@ -118,7 +475,7 @@ The following code is an example based on ExtLibrary example, where you can see 
 Here a list of available customizations (see related links for examples):
 </p>
 <a name="SelectionChange"></a>
-<h2>Selection Change Components</h2>
+<h3>Selection Change Components</h3>
 <p>
 In this section we presents some components that are based on selection. These components extends the
 class <abbr title="it.rcpvision.emf.components.views.AbstractOnSelectionView" >AbstractOnSelectionView</abbr>.
@@ -131,31 +488,31 @@ class <abbr title="it.rcpvision.emf.components.views.AbstractOnSelectionView" >A
 </ul>
 </p>
 <a name="AbstractOnSelectionTableView"></a>
-<h3>On Selection Table View (Abstract)</h3>
+<h4>On Selection Table View (Abstract)</h4>
 <p>
 <abbr title="it.rcpvision.emf.components.views.AbstractOnSelectionTableView" >AbstractOnSelectionTableView</abbr>
 </p>
 <a name="OnSelectionFormView"></a>
-<h3>On Selection Form View</h3>
+<h4>On Selection Form View</h4>
 <p>
 <abbr title="it.rcpvision.emf.components.views.OnSelectionFormView" >OnSelectionFormView</abbr>
 </p>
 <a name="OnSelectionListView"></a>
-<h3>On Selection List View</h3>
+<h4>On Selection List View</h4>
 <p>
 <abbr title="it.rcpvision.emf.components.views.OnSelectionListView" >OnSelectionListView</abbr>
 </p>
 <a name="OnSelectionTreeView"></a>
-<h3>On Selection Tree View</h3>
+<h4>On Selection Tree View</h4>
 <p>
 <abbr title="it.rcpvision.emf.components.views.OnSelectionTreeView" >OnSelectionTreeView</abbr>
 </p>
 <a name="OnSelectionTreeFormView"></a>
-<h3>On Selection Tree Form View</h3>
+<h4>On Selection Tree Form View</h4>
 <p>
 <abbr title="it.rcpvision.emf.components.views.OnSelectionTreeFormView" >OnSelectionTreeFormView</abbr>
 </p>
 <a name="Editor"></a>
-<h2>Editor component</h2>
+<h3>Editor component</h3>
 </body>
 </html>

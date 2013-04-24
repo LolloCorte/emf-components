@@ -1,0 +1,78 @@
+chapter:Eclipse4[Eclipse 4]
+
+Instead of using the Extension Point mechanism, EMF Components leverages from DSL and Google Guice Injection.
+
+Because of this, it is very easy to use it with Eclipse 4.
+
+section:GetFirstExample[First Example Setup]
+
+If you followed the steps described in section ref:GettingStarted[Getting Started] you will have already
+what we need to begin. Otherwise the following wizard will bring you to that point.
+
+ol[
+	item[File -> New... -> Example...]
+	item[from Category "Emf Components Examples", select "Emf Components First Example"]
+	item[press Next and Finish]
+]
+
+You will end up with three plug-ins: 
+
+ul[
+item[it.rcpvision.emf.components.examples.firstexample (the EMF Components example plug-in)]
+item[org.eclipse.emf.examples.library (the model plug-in)]
+item[org.eclipse.emf.examples.library.edit (the model.edit plug-in)]
+]
+
+Let's export the e["it.rcpvision.emf.components.examples.firstexample"] package from the first plug-in.
+
+/it.rcpvision.emf.components.examples.firstexample/src/it/rcpvision/emf/components/examples/firstexample/FirstexampleActivator.java
+
+section:CreateEclipse4Application[Create an Eclipse 4 Application]
+
+Now let's create a new Eclipse 4 application, e.g. e["it.rcpvision.emf.components.examples.firstexample.application"]
+(you can find details on how to create Eclipse 4 applications in link[http://www.rcp-vision.com/?p=4694&lang=en][our
+tutorials]).
+
+Create a Part and ensure that the application starts. Please note that you may need to check the launch
+and add required dependencies: this is due to a temporary bug in the Modeling package.
+
+section:Eclipse4ApplicationAndEMFComponents[Make them work together]
+
+We need e[Dependencies] from the previous plug-ins: so open e[MANIFEST.MF] file, go to e[Dependencies]
+tab and add them. Add also e["it.rcpvision.emf.components"] plug-in. Don't forget to add them, and the
+required plug-ins, also to the Product.
+
+Open the Part java class and, put the following code in the e[@PostConstruct] method.
+
+
+code[EmfComponents][
+	@PostConstruct
+	public void createComposite(Composite parent) {
+	
+		parent.setLayout(new FillLayout());
+	
+		TreeFormFactory treeFormFactory = FirstexampleActivator.getDefault()
+				.getInjector().getInstance(TreeFormFactory.class);
+	
+		ResourceLoader resourceLoader = FirstexampleActivator.getDefault()
+				.getInjector().getInstance(ResourceLoader.class);
+		
+		TreeFormComposite treeFormComposite = treeFormFactory
+				.createTreeFormMasterDetailComposite(parent, SWT.BORDER);
+		
+		URI uri = URI.createFileURI(System.getProperty("user.home")
+				+ "/MyLibrary.library");
+	
+		AdapterFactoryEditingDomain editingDomain = FirstexampleActivator
+				.getDefault().getInjector()
+				.getInstance(AdapterFactoryEditingDomain.class);
+	
+		Resource resource = resourceLoader.getResource(editingDomain, uri)
+				.getResource();
+	
+		treeFormComposite.update(resource);
+	}
+]
+
+
+

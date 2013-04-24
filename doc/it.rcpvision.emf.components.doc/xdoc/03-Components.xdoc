@@ -1,10 +1,215 @@
 chapter:Components[Components]
 
-section:ResourceBased[Resource Based Components]
+section:FormComponent[Form Component]
 
-These components are used to access and manipulate resource based models.
+The e[Form Component] can be used to rapresent an codeRef[org.eclipse.emf.ecore.EObject] in a row-oriented form,
+like in the image above.
+
+img[images/03-components-form.png][][ ][]
+
+For each codeRef[org.eclipse.emf.ecore.EStructuralFeature] defined for the codeRef[org.eclipse.emf.ecore.EClass]
+(that is the type of the object to rapresent), the component builds a row with a 
+e[label] with the name of the feature and a e[control] to access the data. It can be used the factory
+to create such a component, like in the code below.
+
+code[Java][
+	formComposite = formFactory.createFormDetailComposite(parent, SWT.NONE);
+	formComposite.init(eObject);
+]
+
+The e[form component] can be customized in many way, in particular the feature list, the labels and the controls.  
+
+
+section2:Form_FeatureList[Form Customization: Feature List]
+
+To customize the e[feature list] it can be injected a codeRef[it.rcpvision.emf.components.ui.provider.FeaturesProvider].
+The default is to return the list of all the features in the EClass, but the programmer can customize it (for instance,
+by returning only a superset, or using a different order) on an EClass-based strategy. The customization can be done 
+redefining buildMap and adding mappings.
+
+code[Java][
+	protected void buildMap(EClassToEStructuralFeatureMap map) {
+		super.buildMap(map);
+		map.mapTo(LIBRARY,LIBRARY__NAME, ADDRESSABLE__ADDRESS);
+	}
+]
+
+In the example we specify that for the EClass e[Library] the feature that are to be displayed are e[name]
+and e[address].
+
+
+section2:Form_FeatureDescription[Form Customization: Property Description]
+
+The codeRef[it.rcpvision.emf.components.ui.provider.PropertyDescriptionProvider] provides labels for
+the features. It can be customized, with injection (see Injection paragraph), to customize the label on the
+left of each control. The framework use a polimorphic mechanism to find customizations, so that It can
+be written a method with a specific signature build by the keyword e['text'] followed by the EClass and the EStructuralFeature.
+All parts of the name are separated by an underscore character and the method must accept a parameter of type EStructuralFeature.
+
+In the following example we specify the label text for the feature 'Author' of Book and the feature 'Name' for
+Writer.
+
+code[Java][
+
+	public String text_Book_author(final EStructuralFeature feature) {
+		return "Wrote by:";
+	}
+
+	public String text_Writer_name(final EStructuralFeature feature) {
+		return "Name:";
+	}
+] 
+
+Another chance of customization is to define a method the returns directly the control, like in the example
+below. In this case there is another parameter that is the parent composite.
+
+code[Java][
+
+	public Label label_Writer_name(Composite parent, EStructuralFeature feature) {
+		Label label = defaultLabel(parent, feature);
+		label.setBackground(getFormToolkit().getColors().getColor(IFormColors.TITLE));
+		return label;
+	}
+]
+
+
+section2:Form_FormControlFactory[Form Customization: Form Control Factory]
+
+If you want to customize the controls on the right, it can be injected a specification of the class codeRef[it.rcpvision.emf.components.binding.FormControlFactory].
+Using the same polimorphic mechanism of the labels, the programmer can write a method with the keyword e['control']
+followed by the EClass and EStructuralFeature undescore-character-separated. In the signature of the
+method must be both the e[DataBinding Context] and the e[Feature Observable] that can be used for databinding. 
+
+code[Java][
+
+	public Control control_Writer_name(DataBindingContext dbc,IObservableValue featureObservable) {
+		//Creating the control
+		Text text = getToolkit().createText(getParent(), "");
+		text.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TREE_BORDER);
+		text.setBackground(getToolkit().getColors().getColor(IFormColors.TITLE));
+		//Binding the control to the feature observable
+		dbc.bindValue(SWTObservables.observeText(text, SWT.Modify),	featureObservable);
+		return text;
+	}	
+]
+
+
+section2:Form_ProposalProvider[Form Customization: Proposal Provider]
+
+Some controls use a list of proposal to help the end user experince: for example the combo box has a
+list of proposal, but also the simple text can use the proposal to assist and correct the hand-writed
+values. For each feature it can be specified a list of proposals using a method that starts with the
+keyword e['proposals'] followed byt the EClass and Feature undescore-character-separated. 
+
+code[Java][
+
+	public List<?> proposals_Book_author(Book book) {
+		List<Object> proposals = new LinkedList<Object>();
+		Writer writer = EXTLibraryFactory.eINSTANCE.createWriter();
+		writer.setFirstName("Fake");
+		writer.setLastName("Writer");
+		proposals.add(writer);
+		writer = EXTLibraryFactory.eINSTANCE.createWriter();
+		writer.setFirstName("Fake");
+		writer.setLastName("Writer2");
+		proposals.add(writer);
+		return proposals;
+	}
+]
+
+In this example we provides two Writer for the Feature 'Author' of the EClass 'Book'.
+
+section:TreeComponent[Tree Component]
+
+The e[Tree Component] provides a tree rapresentation of data that can be e[TODO(alimentato in inglese)] with an EResource, a
+Resource URI, and a simple EObject. This component use the EMF Meta-Model information to display objects in the tree. 
+This visualization can be customized in several way via the standard EMF Edit facilities or with the EMF Components codeinjection based mechanism.
+
+section2:Tree_LabelProvider[Tree Customization: Label Provider]
+
+The Label Provider can be customized by providing a specific implementation of codeRef[org.eclipse.jface.viewers.ILabelProvider]
+and injecting it in the spefic module e[(TODO)].
+EMF Components provides such an implementation with the class codeRef[it.rcpvision.emf.components.ui.provider.ViewerLabelProvider]
+that is inteded to be surclassed by the programmer to provides specific implementations like in the example below.
+
+code[Java][
+
+	public class CustomLibraryLabelProvider extends ViewerLabelProvider {
+
+		@Inject
+		public CustomLibraryLabelProvider(AdapterFactoryLabelProvider delegate) {
+			super(delegate);
+		}
+
+		public String text(Book book) {
+			return "Book: " + book.getTitle();
+		}
+
+		public String image(Book book) {
+			return "book2.png";
+		}
+
+		public String text(Borrower b) {
+			return "Borrower: " + b.getFirstName();
+		}
+	}
+]
+
+section2:Tree_ContentProvider[Tree Customization: Content Provider]
+
+The programmer can provide a specific implementation of codeRef[org.eclipse.jface.viewers.IContentProvider]
+by injecting it in the spefic module e[(TODO)]. EMF Components provides an implementation with the class
+codeRef[it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider] that can be easily used to
+specify the children of all object on the tree, like in the example below.
+
+code[Java][
+
+	public class CustomLibraryViewerContentProvider extends ViewerContentProvider {
+
+		@Inject
+		public CustomLibraryViewerContentProvider(AdapterFactory adapterFactory) {
+			super(adapterFactory);
+		}
+
+		public Object children(Library library) {
+			return library.getBooks();
+		}
+
+		public Object children(Book book) {
+			ArrayList<Object> children = new ArrayList<Object>();
+			Writer author = book.getAuthor();
+			if (author != null) {
+				children.add(author);
+			}
+			children.addAll(book.getBorrowers());
+			return children;
+		}
+	}
+]
+
+section2:Tree_ContextMenuFactory[Tree Customization: Context Menu Factory]
+
+e[TODO]
+
+section:TreeFormComponent[Tree FormComponent]
+
+section:TableComponent[Table Component]
+
+section:SampleImplementation[Sample Implementations]
+
+This section describes some view that are developed using EMF Components as a reference implementation to understand how it can be used.
+
+
+section2:ResourceBased[Resource Based Components]
+
+These components are used to access and manipulate resource based models. 
 Since all of them specialize the abstract class codeRef[it.rcpvision.emf.components.views.AbstractSaveableView], 
 they are all customizable via the following common features:
+
+section2:Resource_ResourceLoader[Resource Customization: Context Menu Factory]
+
+section2:Resource_AdapterFactoryEditingDomain[Resource Customization: Adapter Factory Editing Domain]
+
 
 %%ul[
 %%	item[ref:EditingDomainResourceLoader[EditingDomainResourceLoader]
@@ -36,7 +241,7 @@ they are all customizable via the following common features:
 %%		item[ref:ViewerContextMenuFactory[ViewerContextMenuFactory]]
 %%	]]
 %%]
-section2:TableResourceView[Table Resource View]
+section3:TableResourceView[Table Resource View]
 
 The e[Table Resource View] is implemented by codeRef[it.rcpvision.emf.components.views.AbstractSaveableTableView]
 class that is intended to be subclassed bu user. It aims to provide a ready-to-use view containing a table that visualizes homogeneous objects.
@@ -109,7 +314,7 @@ Here a list of available customizations (see related links for examples):
 %%		item[ref:FeaturesProvider[FeaturesProvider]]
 %%	]]
 %%]
-section2:TreeResourceView[Tree Resource View]
+section3:TreeResourceView[Tree Resource View]
 
 The e[Tree Resource View] is implemented by class codeRef[it.rcpvision.emf.components.views.AbstractSaveableTreeView],
 that is intented to be subclassed by user.
@@ -147,7 +352,7 @@ Here a list of available customizations (see related links for examples):
 %%			item[ref:ViewerContextMenuFactory[ViewerContextMenuFactory]]
 %%		]]
 %%]
-section2:AbstractSaveableTreeFormView[Tree Form Resource View]
+section3:AbstractSaveableTreeFormView[Tree Form Resource View]
 
 The e[Tree Form Resource View] is implemented by class codeRef[it.rcpvision.emf.components.views.AbstractSaveableTreeFormView],
 that is inteded to be subclassed by user.
@@ -209,7 +414,7 @@ Here a list of available customizations (see related links for examples):
 %%		]]
 %%	]]
 %%]
-section:SelectionChange[Selection Change Components]
+section2:SelectionChange[Selection Change Components]
 
 In this section we presents some components that are based on selection. These components extends the
 class codeRef[it.rcpvision.emf.components.views.AbstractOnSelectionView].
@@ -218,7 +423,7 @@ ul[
 	item[ref:EmfSelectionHelper[EmfSelectionHelper]]
 ]
 
-section2:AbstractOnSelectionTableView[On Selection Table View (Abstract)]
+section3:AbstractOnSelectionTableView[On Selection Table View (Abstract)]
 
 codeRef[it.rcpvision.emf.components.views.AbstractOnSelectionTableView]
 
@@ -254,7 +459,7 @@ codeRef[it.rcpvision.emf.components.views.AbstractOnSelectionTableView]
 %%		]]
 %%	]]
 %%]
-section2:OnSelectionFormView[On Selection Form View]
+section3:OnSelectionFormView[On Selection Form View]
 
 codeRef[it.rcpvision.emf.components.views.OnSelectionFormView]
 
@@ -290,7 +495,7 @@ codeRef[it.rcpvision.emf.components.views.OnSelectionFormView]
 %%		]]
 %%	]]
 %%]
-section2:OnSelectionListView[On Selection List View]
+section3:OnSelectionListView[On Selection List View]
 
 codeRef[it.rcpvision.emf.components.views.OnSelectionListView]
 
@@ -314,7 +519,7 @@ codeRef[it.rcpvision.emf.components.views.OnSelectionListView]
 %%		item[ref:ViewerContextMenuFactory[ViewerContextMenuFactory]]
 %%	]]
 %%]
-section2:OnSelectionTreeView[On Selection Tree View]
+section3:OnSelectionTreeView[On Selection Tree View]
 
 codeRef[it.rcpvision.emf.components.views.OnSelectionTreeView]
 
@@ -338,7 +543,7 @@ codeRef[it.rcpvision.emf.components.views.OnSelectionTreeView]
 %%		item[ref:ViewerContextMenuFactory[ViewerContextMenuFactory]]
 %%	]]
 %%]
-section2:OnSelectionTreeFormView[On Selection Tree Form View]
+section3:OnSelectionTreeFormView[On Selection Tree Form View]
 
 codeRef[it.rcpvision.emf.components.views.OnSelectionTreeFormView]
 
@@ -386,5 +591,5 @@ codeRef[it.rcpvision.emf.components.views.OnSelectionTreeFormView]
 %%		]]
 %%	]]
 %%]
-section:Editor[Editor component]
+section2:Editor[Editor component]
 

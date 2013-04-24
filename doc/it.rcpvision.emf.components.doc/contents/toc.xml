@@ -18,27 +18,55 @@
 			</topic>
 		</topic>
 		<topic href="contents/03-Components.html#Components" label="Components" >
-			<topic href="contents/03-Components.html#ResourceBased" label="Resource Based Components" >
-				<topic href="contents/03-Components.html#TableResourceView" label="Table Resource View" >
+			<topic href="contents/03-Components.html#FormComponent" label="Form Component" >
+				<topic href="contents/03-Components.html#Form_FeatureList" label="Form Customization: Feature List" >
 				</topic>
-				<topic href="contents/03-Components.html#TreeResourceView" label="Tree Resource View" >
+				<topic href="contents/03-Components.html#Form_FeatureDescription" label="Form Customization: Property Description" >
 				</topic>
-				<topic href="contents/03-Components.html#AbstractSaveableTreeFormView" label="Tree Form Resource View" >
+				<topic href="contents/03-Components.html#Form_FormControlFactory" label="Form Customization: Form Control Factory" >
 				</topic>
-			</topic>
-			<topic href="contents/03-Components.html#SelectionChange" label="Selection Change Components" >
-				<topic href="contents/03-Components.html#AbstractOnSelectionTableView" label="On Selection Table View (Abstract)" >
-				</topic>
-				<topic href="contents/03-Components.html#OnSelectionFormView" label="On Selection Form View" >
-				</topic>
-				<topic href="contents/03-Components.html#OnSelectionListView" label="On Selection List View" >
-				</topic>
-				<topic href="contents/03-Components.html#OnSelectionTreeView" label="On Selection Tree View" >
-				</topic>
-				<topic href="contents/03-Components.html#OnSelectionTreeFormView" label="On Selection Tree Form View" >
+				<topic href="contents/03-Components.html#Form_ProposalProvider" label="Form Customization: Proposal Provider" >
 				</topic>
 			</topic>
-			<topic href="contents/03-Components.html#Editor" label="Editor component" >
+			<topic href="contents/03-Components.html#TreeComponent" label="Tree Component" >
+				<topic href="contents/03-Components.html#Tree_LabelProvider" label="Tree Customization: Label Provider" >
+				</topic>
+				<topic href="contents/03-Components.html#Tree_ContentProvider" label="Tree Customization: Content Provider" >
+				</topic>
+				<topic href="contents/03-Components.html#Tree_ContextMenuFactory" label="Tree Customization: Context Menu Factory" >
+				</topic>
+			</topic>
+			<topic href="contents/03-Components.html#TreeFormComponent" label="Tree FormComponent" >
+			</topic>
+			<topic href="contents/03-Components.html#TableComponent" label="Table Component" >
+			</topic>
+			<topic href="contents/03-Components.html#SampleImplementation" label="Sample Implementations" >
+				<topic href="contents/03-Components.html#ResourceBased" label="Resource Based Components" >
+				</topic>
+				<topic href="contents/03-Components.html#Resource_ResourceLoader" label="Resource Customization: Context Menu Factory" >
+				</topic>
+				<topic href="contents/03-Components.html#Resource_AdapterFactoryEditingDomain" label="Resource Customization: Adapter Factory Editing Domain" >
+					<topic href="contents/03-Components.html#TableResourceView" label="Table Resource View" >
+					</topic>
+					<topic href="contents/03-Components.html#TreeResourceView" label="Tree Resource View" >
+					</topic>
+					<topic href="contents/03-Components.html#AbstractSaveableTreeFormView" label="Tree Form Resource View" >
+					</topic>
+				</topic>
+				<topic href="contents/03-Components.html#SelectionChange" label="Selection Change Components" >
+					<topic href="contents/03-Components.html#AbstractOnSelectionTableView" label="On Selection Table View (Abstract)" >
+					</topic>
+					<topic href="contents/03-Components.html#OnSelectionFormView" label="On Selection Form View" >
+					</topic>
+					<topic href="contents/03-Components.html#OnSelectionListView" label="On Selection List View" >
+					</topic>
+					<topic href="contents/03-Components.html#OnSelectionTreeView" label="On Selection Tree View" >
+					</topic>
+					<topic href="contents/03-Components.html#OnSelectionTreeFormView" label="On Selection Tree Form View" >
+					</topic>
+				</topic>
+				<topic href="contents/03-Components.html#Editor" label="Editor component" >
+				</topic>
 			</topic>
 		</topic>
 		<topic href="contents/04-Customization.html#Customization" label="Customization" >
@@ -114,6 +142,8 @@
 			</topic>
 		</topic>
 		<topic href="contents/06-AdvancedComponents.html#AdvancedComponents" label="Advanced Components" >
+		</topic>
+		<topic href="contents/07-Eclipse4.html#Eclipse4" label="Eclipse 4" >
 		</topic>
 	</topic>
 	<topic href="contents/00-Main_5.html#Emf%20Components%20Guide_5" label="Appendix" >
