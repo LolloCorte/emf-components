@@ -235,8 +235,6 @@ public class EmfComponentsAbstractTests {
 		// // OK!
 		// }
 
-		bot.resetWorkbench();
-
 		editorNamesToId = new HashMap<String, String>();
 		editorNamesToId.put(EMF_TREE_EDITOR,
 				EmfComponentsTestsActivator.EMF_TREE_EDITOR);
@@ -254,7 +252,7 @@ public class EmfComponentsAbstractTests {
 
 	@AfterClass
 	public static void clean() throws CoreException {
-
+		bot.resetWorkbench();
 	}
 
 	@After
