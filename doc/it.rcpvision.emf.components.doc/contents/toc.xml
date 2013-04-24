@@ -144,6 +144,12 @@
 		<topic href="contents/06-AdvancedComponents.html#AdvancedComponents" label="Advanced Components" >
 		</topic>
 		<topic href="contents/07-Eclipse4.html#Eclipse4" label="Eclipse 4" >
+			<topic href="contents/07-Eclipse4.html#GetFirstExample" label="First Example Setup" >
+			</topic>
+			<topic href="contents/07-Eclipse4.html#CreateEclipse4Application" label="Create an Eclipse 4 Application" >
+			</topic>
+			<topic href="contents/07-Eclipse4.html#Eclipse4ApplicationAndEMFComponents" label="Make them work together" >
+			</topic>
 		</topic>
 	</topic>
 	<topic href="contents/00-Main_5.html#Emf%20Components%20Guide_5" label="Appendix" >
