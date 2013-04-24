@@ -15,7 +15,6 @@ import it.rcpvision.emf.components.edit.ui.provider.InjectableAdapterFactoryLabe
 import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider;
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
 import it.rcpvision.emf.components.factories.ColumnLabelProviderFactory;
-import it.rcpvision.emf.components.factories.EmfActionFactory;
 import it.rcpvision.emf.components.factories.FormFactory;
 import it.rcpvision.emf.components.factories.TreeFormFactory;
 import it.rcpvision.emf.components.factories.ViewerFactory;
@@ -165,11 +164,7 @@ public class EmfComponentsGuiceModule extends AbstractGenericModule {
 	public Diagnostician bindDiagnostician() {
 		return Diagnostician.INSTANCE;
 	}
-
-	public Class<? extends EmfActionFactory> bindEmfActionFactory() {
-		return EmfActionFactory.class;
-	}
-
+	
 	public Class<? extends EmptyResourceInitializer> bindEmptyResourceInitializer() {
 		return EmptyResourceInitializer.class;
 	}

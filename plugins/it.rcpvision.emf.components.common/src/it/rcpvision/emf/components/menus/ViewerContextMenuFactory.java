@@ -23,9 +23,9 @@ import org.eclipse.ui.IWorkbenchPart;
 public class ViewerContextMenuFactory {
 
 	public MenuManager createContextMenuFor(StructuredViewer viewer,
-			IWorkbenchPart part, AdapterFactoryEditingDomain editingDomain) {
+			AdapterFactoryEditingDomain editingDomain) {
 		MenuManager menuManager = createMenuManager();
-		createMenu(viewer, part, menuManager);
+		createMenu(viewer, menuManager);
 		
 		addDragAndDrop(viewer, editingDomain);
 		
@@ -44,11 +44,10 @@ public class ViewerContextMenuFactory {
 	}
 
 	protected void createMenu(StructuredViewer viewer,
-			IWorkbenchPart part, MenuManager menuManager) {
+			MenuManager menuManager) {
 		Menu menu = menuManager.createContextMenu(viewer.getControl());
 		viewer.getControl().setMenu(menu);
-		part.getSite().registerContextMenu(menuManager,
-				new UnwrappingSelectionProvider(viewer));
+		
 	}
 
 	protected MenuManager createMenuManager() {

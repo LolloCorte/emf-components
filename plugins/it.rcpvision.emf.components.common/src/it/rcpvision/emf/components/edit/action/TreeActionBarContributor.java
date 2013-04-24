@@ -1,5 +1,7 @@
 package it.rcpvision.emf.components.edit.action;
 
+import it.rcpvision.emf.components.EmfComponentsActivator;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -22,41 +24,41 @@ import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredViewer;
-import org.eclipse.ui.ISharedImages;
-import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.PlatformUI;
+
+import com.google.inject.Inject;
 
 public class TreeActionBarContributor implements IMenuListener,
 		ISelectionChangedListener {
 
-	private IWorkbenchPart workbenchPart;
+	private static final String IMG_TOOL_DELETE = "icons/delete_16x16.gif";
 
 	protected EditingDomain editingDomain;
 
-	public void initialize(IWorkbenchPart workbenchPart,
-			EditingDomain editingDomain) {
+	public void initialize(EditingDomain editingDomain) {
 		this.editingDomain = editingDomain;
-		this.workbenchPart = workbenchPart;
 
 		createChildMenuManager = new MenuManager("&New Child");
 		createSiblingMenuManager = new MenuManager("N&ew Sibling");
 		
-		createDeleteAction();
 	}
 
 	public void menuAboutToShow(IMenuManager menuManager) {
-		addDeleteAction(menuManager);
+		
 		MenuManager submenuManager = null;
-
-		submenuManager = new MenuManager(
-				"&New Child");
-		populateManager(submenuManager, createChildActions, null);
-		menuManager.add(submenuManager);
-
-		submenuManager = new MenuManager(
-				"N&ew Sibling");
-		populateManager(submenuManager, createSiblingActions, null);
-		menuManager.add(submenuManager);
+		if (createChildMenuManager != null) {
+			submenuManager = new MenuManager(
+					"&New Child");
+			populateManager(submenuManager, createChildActions, null);
+			menuManager.add(submenuManager);
+		}
+		if (createSiblingMenuManager != null) {
+			submenuManager = new MenuManager(
+					"N&ew Sibling");
+			populateManager(submenuManager, createSiblingActions, null);
+			menuManager.add(submenuManager);
+		}
+		
+		actionManager.menuAboutToShow(menuManager);
 	}
 
 	protected SelectionChangedEvent lastSelectionChangedEvent;
@@ -87,7 +89,7 @@ public class TreeActionBarContributor implements IMenuListener,
 			newSiblingDescriptors = editingDomain.getNewChildDescriptors(null,
 					object);
 			
-			deleteAction.updateSelection(structuredSelection);
+			actionManager.updateSelection(structuredSelection);
 		}
 
 		// Generate actions for selection; populate and redraw the menus.
@@ -116,7 +118,8 @@ public class TreeActionBarContributor implements IMenuListener,
 
 	protected IMenuManager createSiblingMenuManager;
 
-	protected DeleteAction deleteAction;
+	@Inject
+	protected EditingActionManager actionManager;
 
 	protected StructuredViewer viewer;
 
@@ -159,19 +162,6 @@ public class TreeActionBarContributor implements IMenuListener,
 		}
 	}
 
-	// EditingDomainActionBarContributor
-	protected void addDeleteAction(IMenuManager menuManager) {
-		menuManager.add(new ActionContributionItem(deleteAction));
-	}
-
-	protected DeleteAction createDeleteAction() {
-		ISharedImages sharedImages = PlatformUI.getWorkbench()
-				.getSharedImages();
-		deleteAction = new DeleteAction(editingDomain, true);
-		deleteAction.setImageDescriptor(sharedImages
-				.getImageDescriptor(ISharedImages.IMG_TOOL_DELETE));
-		return deleteAction;
-	}
 
 	protected Collection<IAction> generateCreateChildActions(
 			Collection<?> descriptors, ISelection selection) {
@@ -187,7 +177,7 @@ public class TreeActionBarContributor implements IMenuListener,
 						continue;
 					}
 				}
-				actions.add(new CreateChildAction(workbenchPart, selection,
+				actions.add(new CreateChildAction(editingDomain, selection,
 						descriptor));
 			}
 		}
@@ -206,7 +196,7 @@ public class TreeActionBarContributor implements IMenuListener,
 						continue;
 					}
 				}
-				actions.add(new CreateSiblingAction(workbenchPart, selection,
+				actions.add(new CreateSiblingAction(editingDomain, selection,
 						descriptor));
 			}
 		}

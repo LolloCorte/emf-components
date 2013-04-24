@@ -2,6 +2,7 @@ package it.rcpvision.emf.components;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -68,6 +69,10 @@ public class EmfComponentsActivator extends AbstractUIPlugin {
 		log(new Status(IStatus.ERROR, EmfComponentsActivator.PLUGIN_ID,
 				exception.getMessage(),
 				exception));
+	}
+	
+	public static ImageDescriptor getImageDescriptor(String path) {
+		return imageDescriptorFromPlugin(PLUGIN_ID, path);
 	}
 
 }

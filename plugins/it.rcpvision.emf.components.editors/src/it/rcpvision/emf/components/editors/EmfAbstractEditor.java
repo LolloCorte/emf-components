@@ -75,6 +75,7 @@ import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
+import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
 import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import org.eclipse.jface.action.IMenuListener;
@@ -807,7 +808,8 @@ protected ViewerContextMenuFactory viewerContextMenuFactory;
 	}
 
 	public void createContextMenuFor(StructuredViewer viewer) {
-		MenuManager menuManager = viewerContextMenuFactory.createContextMenuFor(viewer, this, getEditingDomain());
+		MenuManager menuManager = viewerContextMenuFactory.createContextMenuFor(viewer, getEditingDomain());
+		getSite().registerContextMenu(menuManager,new UnwrappingSelectionProvider(viewer));
 		menuManager.addMenuListener(this);
 		
 		ViewerMouseAdapter listener = getViewerMouseAdapter();
