@@ -5,6 +5,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.ui.action.CreateChildAction;
 import org.eclipse.emf.edit.ui.action.CreateSiblingAction;
 import org.eclipse.jface.action.ActionContributionItem;
@@ -15,6 +16,7 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.SubContributionItem;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
 
 public class EmfActionManager {
 
@@ -27,7 +29,21 @@ public class EmfActionManager {
 	   */
 	  protected Collection<IAction> createSiblingActions;
 	  
+	  /**
+	   * This is the menu manager into which menu contribution items should be added for CreateChild actions.
+	   * <!-- begin-user-doc -->
+	   * <!-- end-user-doc -->
+	   * @generated
+	   */
+	  protected IMenuManager createChildMenuManager;
 
+	  /**
+	   * This is the menu manager into which menu contribution items should be added for CreateSibling actions.
+	   * <!-- begin-user-doc -->
+	   * <!-- end-user-doc -->
+	   * @generated
+	   */
+	  protected IMenuManager createSiblingMenuManager;
 
 	/**
 	   * This will contain one {@link org.eclipse.emf.edit.ui.action.CreateChildAction} corresponding to each descriptor
@@ -83,7 +99,7 @@ public class EmfActionManager {
 	   * <!-- end-user-doc -->
 	   * @generated NOT
 	   */
-	  protected void generateCreateChildActions(EditingDomain domain, Collection<?> descriptors, ISelection selection)
+	  private void generateCreateChildActions(EditingDomain domain, Collection<?> descriptors, ISelection selection)
 	  {
 	    Collection<IAction> actions = new ArrayList<IAction>();
 	    if (descriptors != null)
@@ -104,7 +120,7 @@ public class EmfActionManager {
 	   * <!-- end-user-doc -->
 	   * @generated NOT
 	   */
-	  protected void generateCreateSiblingActions(EditingDomain domain, Collection<?> descriptors, ISelection selection)
+	  private void generateCreateSiblingActions(EditingDomain domain, Collection<?> descriptors, ISelection selection)
 	  {
 	    Collection<IAction> actions = new ArrayList<IAction>();
 	    if (descriptors != null)
@@ -179,5 +195,54 @@ public class EmfActionManager {
 	
 	public void populateSibilingMenuManager(IMenuManager menuManager) {
 		 populateManager(menuManager, createSiblingActions, null);
+	}
+
+	public void contributeToMenu(IMenuManager submenuManager) {
+		// Prepare for CreateChild item addition or removal.
+	    //
+	    createChildMenuManager = new MenuManager("&New Child");
+	    submenuManager.insertBefore("additions", createChildMenuManager);
+
+	    // Prepare for CreateSibling item addition or removal.
+	    //
+	    createSiblingMenuManager = new MenuManager("N&ew Sibling");
+	    submenuManager.insertBefore("additions", createSiblingMenuManager);
+	}
+
+	public void updateSelection(ISelection selection, EditingDomain domain) {
+		// Remove any menu items for old selection.
+	    //
+	    depopulateChildManager(createChildMenuManager);
+	     depopulateSibilingManager(createSiblingMenuManager);
+	    
+
+	    // Query the new selection for appropriate new child/sibling descriptors
+	    //
+	    Collection<?> newChildDescriptors = null;
+	    Collection<?> newSiblingDescriptors = null;
+
+	    if (selection instanceof IStructuredSelection && ((IStructuredSelection)selection).size() == 1)
+	    {
+	      Object object = ((IStructuredSelection)selection).getFirstElement();
+
+	      newChildDescriptors = domain.getNewChildDescriptors(object, null);
+	      newSiblingDescriptors = domain.getNewChildDescriptors(null, object);
+	    }
+
+	    // Generate actions for selection; populate and redraw the menus.
+	    //
+	    generateCreateChildActions(domain,newChildDescriptors, selection);
+	    generateCreateSiblingActions(domain,newSiblingDescriptors, selection);
+
+	    if (createChildMenuManager != null)
+	    {
+	    	populateChildMenuManager(createChildMenuManager);
+	    	createChildMenuManager.update(true);
+	    }
+	    if (createSiblingMenuManager != null)
+	    {
+	    	populateSibilingMenuManager(createSiblingMenuManager);
+	    	createSiblingMenuManager.update(true);
+	    }
 	}
 }

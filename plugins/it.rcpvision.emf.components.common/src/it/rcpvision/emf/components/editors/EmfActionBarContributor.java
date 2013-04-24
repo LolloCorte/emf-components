@@ -125,21 +125,7 @@ public class EmfActionBarContributor
     };
 
 
-  /**
-   * This is the menu manager into which menu contribution items should be added for CreateChild actions.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected IMenuManager createChildMenuManager;
-
-  /**
-   * This is the menu manager into which menu contribution items should be added for CreateSibling actions.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected IMenuManager createSiblingMenuManager;
+  
 
   protected SelectionChangedEvent lastSelectionChangedEvent;
   
@@ -237,15 +223,7 @@ public class EmfActionBarContributor
     submenuManager.add(new Separator("additions"));
     submenuManager.add(new Separator("additions-end"));
 
-    // Prepare for CreateChild item addition or removal.
-    //
-    createChildMenuManager = new MenuManager("&New Child");
-    submenuManager.insertBefore("additions", createChildMenuManager);
-
-    // Prepare for CreateSibling item addition or removal.
-    //
-    createSiblingMenuManager = new MenuManager("N&ew Sibling");
-    submenuManager.insertBefore("additions", createSiblingMenuManager);
+    emfActionManager.contributeToMenu(submenuManager);
     
     // Force an update because Eclipse hides empty menus now.
     //
@@ -317,44 +295,8 @@ public class EmfActionBarContributor
   {
     lastSelectionChangedEvent = event;
 
-    // Remove any menu items for old selection.
-    //
-    emfActionManager.depopulateChildManager(createChildMenuManager);
-    emfActionManager.depopulateSibilingManager(createSiblingMenuManager);
-    
-
-    // Query the new selection for appropriate new child/sibling descriptors
-    //
-    Collection<?> newChildDescriptors = null;
-    Collection<?> newSiblingDescriptors = null;
-
-    ISelection selection = event.getSelection();
-    if (selection instanceof IStructuredSelection && ((IStructuredSelection)selection).size() == 1)
-    {
-      Object object = ((IStructuredSelection)selection).getFirstElement();
-
-      EditingDomain domain = ((IEditingDomainProvider)activePart).getEditingDomain();
-
-      newChildDescriptors = domain.getNewChildDescriptors(object, null);
-      newSiblingDescriptors = domain.getNewChildDescriptors(null, object);
-    }
-
-    // Generate actions for selection; populate and redraw the menus.
-    //
-    EditingDomain editingDomain = ((IEditingDomainProvider)activePart).getEditingDomain();
-    emfActionManager.generateCreateChildActions(editingDomain,newChildDescriptors, selection);
-    emfActionManager.generateCreateSiblingActions(editingDomain,newSiblingDescriptors, selection);
-
-    if (createChildMenuManager != null)
-    {
-    	emfActionManager.populateChildMenuManager(createChildMenuManager);
-    	createChildMenuManager.update(true);
-    }
-    if (createSiblingMenuManager != null)
-    {
-    	emfActionManager.populateSibilingMenuManager(createSiblingMenuManager);
-    	createSiblingMenuManager.update(true);
-    }
+    EditingDomain domain = ((IEditingDomainProvider)activePart).getEditingDomain();
+    emfActionManager.updateSelection(event.getSelection(), domain);
   
   }
 

@@ -45,6 +45,7 @@ public abstract class AbstractSaveableView extends ViewPart implements
 	protected ResourceSaveManager resourceSaveManager;
 
 	@Inject
+//	private TreeActionBarContributor actionBarContributor;
 	private EmfActionBarContributor actionBarContributor;
 
 	@Inject

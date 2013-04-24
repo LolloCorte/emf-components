@@ -13,6 +13,7 @@ import org.eclipse.emf.edit.ui.action.UndoAction;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.Separator;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IActionBars;
@@ -59,33 +60,37 @@ public class EditingActionManager {
 	   */
 	  private RedoAction redoAction;
 
-
-	public void initializeActions(IActionBars actionBars) {
-		ISharedImages sharedImages = getSharedImages();
-		
+	  public EditingActionManager() {
+		  ISharedImages sharedImages = getSharedImages();
+			
 		deleteAction = createDeleteAction(); 
 	    deleteAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_DELETE));
-	    actionBars.setGlobalActionHandler(ActionFactory.DELETE.getId(), deleteAction);
-
+	   
 	    cutAction = createCutAction();
 	    cutAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_CUT));
-	    actionBars.setGlobalActionHandler(ActionFactory.CUT.getId(), cutAction);
-
+	    
 	    copyAction = createCopyAction();
 	    copyAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_COPY));
-	    actionBars.setGlobalActionHandler(ActionFactory.COPY.getId(), copyAction);
-
+	    
 	    pasteAction = createPasteAction();
 	    pasteAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_PASTE));
-	    actionBars.setGlobalActionHandler(ActionFactory.PASTE.getId(), pasteAction);
-
+	    
 	    undoAction = createUndoAction();
 	    undoAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_UNDO));
-	    actionBars.setGlobalActionHandler(ActionFactory.UNDO.getId(), undoAction);
+	    
 
 	    redoAction = createRedoAction();
 	    redoAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_REDO));
-	    actionBars.setGlobalActionHandler(ActionFactory.REDO.getId(), redoAction);
+	  }
+	  
+	public void initializeActions(IActionBars actionBars) {
+
+		actionBars.setGlobalActionHandler(ActionFactory.DELETE.getId(), deleteAction);
+		actionBars.setGlobalActionHandler(ActionFactory.CUT.getId(), cutAction);
+		actionBars.setGlobalActionHandler(ActionFactory.COPY.getId(), copyAction);
+		actionBars.setGlobalActionHandler(ActionFactory.PASTE.getId(), pasteAction);
+		actionBars.setGlobalActionHandler(ActionFactory.UNDO.getId(), undoAction);
+		actionBars.setGlobalActionHandler(ActionFactory.REDO.getId(), redoAction);
 	}
 
 	protected ISharedImages getSharedImages() {
@@ -147,13 +152,14 @@ public class EditingActionManager {
 
 	}
 
-	public void updateSelection(IStructuredSelection structuredSelection) {
-	      deleteAction.updateSelection(structuredSelection);
-	      cutAction.updateSelection(structuredSelection);
-	      copyAction.updateSelection(structuredSelection);
-	      pasteAction.updateSelection(structuredSelection);
-	      
-	      
+	public void updateSelection(ISelection selection) {
+		if (selection instanceof IStructuredSelection) {
+			IStructuredSelection structuredSelection = (IStructuredSelection) selection;
+			deleteAction.updateSelection(structuredSelection);
+			cutAction.updateSelection(structuredSelection);
+			copyAction.updateSelection(structuredSelection);
+			pasteAction.updateSelection(structuredSelection);
+		}
 	}
 
 	public void updateUndoRedo() {
