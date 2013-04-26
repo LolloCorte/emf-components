@@ -163,6 +163,8 @@ public class ViewerInitializer {
 //		ViewerSelectionProvider viewerSelectionProvider = new ViewerSelectionProvider(viewer);
 //		viewerSelectionProvider.addSelectionChangedListener(treeActionBarContributor);
 		viewer.addSelectionChangedListener(treeActionBarContributor);
+		treeActionBarContributor.initialize(editingDomain);
+		
 	}
 
 	protected AdapterFactoryEditingDomain loadResource(URI resourceURI) {

@@ -45,8 +45,8 @@ public abstract class AbstractSaveableView extends ViewPart implements
 	protected ResourceSaveManager resourceSaveManager;
 
 	@Inject
-	private TreeActionBarContributor actionBarContributor;
-//	private EmfActionBarContributor actionBarContributor;
+//	private TreeActionBarContributor actionBarContributor;
+	private EmfActionBarContributor actionBarContributor;
 
 	@Inject
 	private ViewerInitializer viewerInitializer;
@@ -150,11 +150,10 @@ public abstract class AbstractSaveableView extends ViewPart implements
 	}
 
 	protected void addContextMenu(StructuredViewer viewer) {
-		actionBarContributor.initialize(editingDomain);
-		viewerInitializer.addContextMenu(viewer, actionBarContributor,
-				editingDomain, this);
 //		viewerInitializer.addContextMenu(viewer, actionBarContributor,
-//				editingDomain, this, this);
+//				editingDomain, this);
+		viewerInitializer.addContextMenu(viewer, actionBarContributor,
+				editingDomain, this, this);
 	}
 
 	protected Resource getResource() {
