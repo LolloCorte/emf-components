@@ -5,7 +5,6 @@ import java.util.Collection;
 
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.ui.action.CreateChildAction;
 import org.eclipse.emf.edit.ui.action.CreateSiblingAction;
 import org.eclipse.jface.action.ActionContributionItem;
@@ -15,8 +14,13 @@ import org.eclipse.jface.action.IContributionManager;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.SubContributionItem;
+import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.swt.graphics.Image;
+
+import com.google.inject.Inject;
 
 public class EmfActionManager {
 
@@ -54,8 +58,9 @@ public class EmfActionManager {
 	   */
 	  protected Collection<IAction> createChildActions;
 
-	
-	
+	  @Inject
+	  protected ILabelProvider iLabelProvider;
+
 	 /**
 	   * This removes from the specified <code>manager</code> all {@link org.eclipse.jface.action.ActionContributionItem}s
 	   * based on the {@link org.eclipse.jface.action.IAction}s contained in the <code>actions</code> collection.
@@ -106,7 +111,10 @@ public class EmfActionManager {
 	    {
 	      for (Object descriptor : descriptors)
 	      {
-	        actions.add(new CreateChildAction(domain, selection, descriptor));
+	    	  CreateChildAction act = new CreateChildAction(domain, selection, descriptor);
+	    	  Object imageObj = iLabelProvider.getImage(((CommandParameter) descriptor).getValue());
+	    	  act.setImageDescriptor(ImageDescriptor.createFromImage((Image)imageObj));
+	    	  actions.add(act);
 	      }
 	    }
 	    createChildActions= actions;
@@ -127,7 +135,10 @@ public class EmfActionManager {
 	    {
 	      for (Object descriptor : descriptors)
 	      {
-	        actions.add(new CreateSiblingAction(domain, selection, descriptor));
+	    	  CreateSiblingAction act = new CreateSiblingAction(domain, selection, descriptor);
+	    	  Object imageObj = iLabelProvider.getImage(((CommandParameter) descriptor).getValue());
+	    	  act .setImageDescriptor(ImageDescriptor.createFromImage((Image)imageObj));
+	    	  actions.add(act);
 	      }
 	    }
 	    createSiblingActions= actions;
