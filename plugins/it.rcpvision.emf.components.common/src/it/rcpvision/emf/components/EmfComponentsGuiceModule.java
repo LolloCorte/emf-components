@@ -9,11 +9,14 @@ import it.rcpvision.emf.components.builders.TableViewerBuilder;
 import it.rcpvision.emf.components.builders.TableViewerColumnBuilder;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.edit.ResourceSaveManager;
+import it.rcpvision.emf.components.edit.action.EditingActionManager;
+import it.rcpvision.emf.components.edit.action.TreeActionBarContributor;
 import it.rcpvision.emf.components.edit.domain.InjectableAdapterFactoryEditingDomain;
 import it.rcpvision.emf.components.edit.provider.InjectableAdapterFactory;
 import it.rcpvision.emf.components.edit.ui.provider.InjectableAdapterFactoryLabelProvider;
 import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider;
 import it.rcpvision.emf.components.editors.EmfActionBarContributor;
+import it.rcpvision.emf.components.editors.EmfActionManager;
 import it.rcpvision.emf.components.factories.ColumnLabelProviderFactory;
 import it.rcpvision.emf.components.factories.FormFactory;
 import it.rcpvision.emf.components.factories.TreeFormFactory;
@@ -140,7 +143,19 @@ public class EmfComponentsGuiceModule extends AbstractGenericModule {
 	public Class<? extends EmfActionBarContributor> bindEmfActionBarContributor() {
 		return EmfActionBarContributor.class;
 	}
+	
+	public Class<? extends TreeActionBarContributor> bindTreeActionBarContributor() {
+		return TreeActionBarContributor.class;
+	}
+	
+	public Class<? extends EmfActionManager> bindEmfActionManager() {
+		return EmfActionManager.class;
+	}
 
+	public Class<? extends EditingActionManager> bindEditingActionManager() {
+		return EditingActionManager.class;
+	}
+	
 	public Class<? extends EditingDomainFinder> bindEditingDomainFinder() {
 		return EditingDomainFinder.class;
 	}
