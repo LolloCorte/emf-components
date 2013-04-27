@@ -60,31 +60,30 @@ public class EditingActionManager {
 	   */
 	  private RedoAction redoAction;
 
-	  public EditingActionManager() {
-		  ISharedImages sharedImages = getSharedImages();
-			
-		deleteAction = createDeleteAction(); 
-	    deleteAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_DELETE));
-	   
-	    cutAction = createCutAction();
-	    cutAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_CUT));
-	    
-	    copyAction = createCopyAction();
-	    copyAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_COPY));
-	    
-	    pasteAction = createPasteAction();
-	    pasteAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_PASTE));
-	    
-	    undoAction = createUndoAction();
-	    undoAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_UNDO));
-	    
-
-	    redoAction = createRedoAction();
-	    redoAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_REDO));
-	  }
-	  
+	
 	public void initializeActions(IActionBars actionBars) {
 
+		  ISharedImages sharedImages = getSharedImages();
+			
+			deleteAction = createDeleteAction(); 
+		    deleteAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_DELETE));
+		   
+		    cutAction = createCutAction();
+		    cutAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_CUT));
+		    
+		    copyAction = createCopyAction();
+		    copyAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_COPY));
+		    
+		    pasteAction = createPasteAction();
+		    pasteAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_PASTE));
+		    
+		    undoAction = createUndoAction();
+		    undoAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_UNDO));
+		    
+
+		    redoAction = createRedoAction();
+		    redoAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_REDO));
+		    
 		actionBars.setGlobalActionHandler(ActionFactory.DELETE.getId(), deleteAction);
 		actionBars.setGlobalActionHandler(ActionFactory.CUT.getId(), cutAction);
 		actionBars.setGlobalActionHandler(ActionFactory.COPY.getId(), copyAction);
