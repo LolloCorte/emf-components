@@ -40,130 +40,28 @@ import org.eclipse.ui.PartInitException;
 
 import com.google.inject.Inject;
 
-
 /**
  * This is the action bar contributor for the Emf actions.
  * 
  * It comes from the original EcoreActionBarContributor with some modifications
- * so that we can use a {@link IWorkbenchPart} instead of an {@link IEditorPart}.
+ * so that we can use a {@link IWorkbenchPart} instead of an {@link IEditorPart}
+ * .
  */
-public class EmfActionBarContributor
-  extends EditingActionBarContributor
-  implements ISelectionChangedListener
-{
-  /**
-   * This keeps track of the active part.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected IWorkbenchPart activePart;
+public class EmfActionBarContributor extends EditingActionBarContributor
+		implements ISelectionChangedListener {
 
-  /**
-   * This keeps track of the current selection provider.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected ISelectionProvider selectionProvider;
-  
-  
-  @Inject
-  protected EmfActionManager emfActionManager;
+	protected IWorkbenchPart activePart;
 
-  /**
-   * This action opens the Properties view.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected IAction showPropertiesViewAction =
-    new Action("Show &Properties View")
-    {
-      @Override
-      public void run()
-      {
-        try
-        {
-          getPage().showView("org.eclipse.ui.views.PropertySheet");
-        }
-        catch (PartInitException exception)
-        {
-          EmfComponentsActivator.log(exception);
-        }
-      }
-    };
+	protected ISelectionProvider selectionProvider;
 
-  /**
-   * This action refreshes the viewer of the current editor if the editor
-   * implements {@link org.eclipse.emf.common.ui.viewer.IViewerProvider}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected IAction refreshViewerAction =
-    new Action("&Refresh")
-    {
-      @Override
-      public boolean isEnabled()
-      {
-        return activePart instanceof IViewerProvider;
-      }
+	@Inject
+	protected EmfActionManager emfActionManager;
 
-      @Override
-      public void run()
-      {
-        if (activePart instanceof IViewerProvider)
-        {
-          Viewer viewer = ((IViewerProvider)activePart).getViewer();
-          if (viewer != null)
-          {
-            viewer.refresh();
-          }
-        }
-      }
-    };
+	protected SelectionChangedEvent lastSelectionChangedEvent;
 
-
-  
-
-  protected SelectionChangedEvent lastSelectionChangedEvent;
-  
-  protected ViewerFilterAction showGenericsAction = 
-    new ViewerFilterAction("Show &Generics", IAction.AS_CHECK_BOX)
-    {
-      @Override
-      protected void refreshViewers()
-      {
-        super.refreshViewers();
-        if (lastSelectionChangedEvent != null && activePart instanceof IEditingDomainProvider)
-        {
-          selectionChanged(lastSelectionChangedEvent); 
-        }
-      }
-      
-      @Override
-      public boolean select(Viewer viewer, Object parentElement, Object element)
-      {
-        return isChecked() ||
-         !(element instanceof ETypeParameter || 
-           element instanceof EGenericType);
-      }    
-    };
-  
-  /**
-   * This creates an instance of the contributor.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated NOT
-   */
-  public EmfActionBarContributor()
-  {
-    super(ADDITIONS_LAST_STYLE);
-    
-    showGenericsAction.setChecked
-      (Boolean.parseBoolean(EmfComponentsActivator.getDefault().getDialogSettings().get("showGenericsAction")));    
-  }
+	public EmfActionBarContributor() {
+		super(ADDITIONS_LAST_STYLE);
+	}
 
 	@Override
 	protected void initializeActions(IActionBars actionBars) {
@@ -172,185 +70,93 @@ public class EmfActionBarContributor
 		validateAction = editingActionManager.createValidateAction();
 		controlAction = editingActionManager.createControlAction();
 	}
-  
-  public void showGenerics(boolean isChecked)
-  {
-    if (showGenericsAction != null)
-    {
-      showGenericsAction.setChecked(isChecked);
-    }
-  }
 
-  @Override
-  public void dispose()
-  {
-    EmfComponentsActivator.getDefault().getDialogSettings().put(
-      "showGenericsAction", Boolean.toString(showGenericsAction.isChecked()));
-    
-    super.dispose();
-  }
+	@Override
+	public void contributeToToolBar(IToolBarManager toolBarManager) {
+		toolBarManager.add(new Separator("ecore-settings"));
+		toolBarManager.add(new Separator("ecore-additions"));
+	}
 
-  /**
-   * This adds Separators for editor additions to the tool bar.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void contributeToToolBar(IToolBarManager toolBarManager)
-  {
-    toolBarManager.add(new Separator("ecore-settings"));
-    toolBarManager.add(new Separator("ecore-additions"));
-  }
+	@Override
+	public void contributeToMenu(IMenuManager menuManager) {
+		super.contributeToMenu(menuManager);
 
-  /**
-   * This adds to the menu bar a menu and some separators for editor additions,
-   * as well as the sub-menus for object creation items.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated NOT
-   */
-  @Override
-  public void contributeToMenu(IMenuManager menuManager)
-  {
-    super.contributeToMenu(menuManager);
+		IMenuManager submenuManager = createSubmenuManager();
 
-    IMenuManager submenuManager = createSubmenuManager();
+		menuManager.insertAfter("additions", submenuManager);
+		submenuManager.add(new Separator("settings"));
+		submenuManager.add(new Separator("actions"));
+		submenuManager.add(new Separator("additions"));
+		submenuManager.add(new Separator("additions-end"));
 
-    menuManager.insertAfter("additions", submenuManager);
-    submenuManager.add(new Separator("settings"));
-    submenuManager.add(new Separator("actions"));
-    submenuManager.add(new Separator("additions"));
-    submenuManager.add(new Separator("additions-end"));
+		emfActionManager.contributeToMenu(submenuManager);
 
-    emfActionManager.contributeToMenu(submenuManager);
-    
-    // Force an update because Eclipse hides empty menus now.
-    //
-    submenuManager.addMenuListener
-      (new IMenuListener()
-       {
-         public void menuAboutToShow(IMenuManager menuManager)
-         {
-           menuManager.updateAll(true);
-         }
-       });
+		submenuManager.addMenuListener(new IMenuListener() {
+			public void menuAboutToShow(IMenuManager menuManager) {
+				menuManager.updateAll(true);
+			}
+		});
 
-    addGlobalActions(submenuManager);
-    submenuManager.insertBefore("additions-end", showGenericsAction);
-  }
+		addGlobalActions(submenuManager);
+	}
 
-  protected IMenuManager createSubmenuManager()
-  {
-    return new MenuManager("Emf Components", "it.rcpvision.emf.components.MenuID");
-  }
+	protected IMenuManager createSubmenuManager() {
+		return new MenuManager("Emf Components",
+				"it.rcpvision.emf.components.MenuID");
+	}
 
-  
+	public void setActivePart(IWorkbenchPart part) {
+		super.setActivePart(part);
+		activePart = part;
 
-  public void setActivePart(IWorkbenchPart part) {
-	  super.setActivePart(part);
-	activePart = part;
+		if (selectionProvider != null) {
+			selectionProvider.removeSelectionChangedListener(this);
+		}
+		if (part == null) {
+			selectionProvider = null;
+		} else {
+			selectionProvider = part.getSite().getSelectionProvider();
+		}
 
-    // Switch to the new selection provider.
-    //
-    if (selectionProvider != null)
-    {
-      selectionProvider.removeSelectionChangedListener(this);
-    }
-    if (part == null)
-    {
-      selectionProvider = null;
-    }
-    else
-    {
-        selectionProvider = part.getSite().getSelectionProvider();
-    }
-    
-    if (selectionProvider != null) {
-      selectionProvider = part.getSite().getSelectionProvider();
-      selectionProvider.addSelectionChangedListener(this);
+		if (selectionProvider != null) {
+			selectionProvider = part.getSite().getSelectionProvider();
+			selectionProvider.addSelectionChangedListener(this);
 
-      // Fake a selection changed event to update the menus.
-      //
-      if (selectionProvider.getSelection() != null)
-      {
-        selectionChanged(new SelectionChangedEvent(selectionProvider, selectionProvider.getSelection()));
-      }
-    }
-}
-  
-  @Override
-  public void setActiveEditor(IEditorPart part)
-  {
-	  super.setActiveEditor(part);
-	   setActivePart(part);
-    
-      showGenericsAction.setEnabled(false);
-   
-  }
+			if (selectionProvider.getSelection() != null) {
+				selectionChanged(new SelectionChangedEvent(selectionProvider,
+						selectionProvider.getSelection()));
+			}
+		}
+	}
 
-  
-  
-  public void selectionChanged(SelectionChangedEvent event)
-  {
-    lastSelectionChangedEvent = event;
+	@Override
+	public void setActiveEditor(IEditorPart part) {
+		super.setActiveEditor(part);
+		setActivePart(part);
+	}
 
-    EditingDomain domain = ((IEditingDomainProvider)activePart).getEditingDomain();
-    emfActionManager.updateSelection(event.getSelection(), domain);
-  
-  }
+	public void selectionChanged(SelectionChangedEvent event) {
+		lastSelectionChangedEvent = event;
+		EditingDomain domain = ((IEditingDomainProvider) activePart)
+				.getEditingDomain();
+		emfActionManager.updateSelection(event.getSelection(), domain);
+	}
 
- 
+	@Override
+	public void menuAboutToShow(IMenuManager menuManager) {
+		super.menuAboutToShow(menuManager);
+		emfActionManager.menuAboutToShow(menuManager);
+	}
 
- 
+	@Override
+	protected void addGlobalActions(IMenuManager menuManager) {
+		menuManager.insertAfter("additions-end", new Separator("ui-actions"));
+		super.addGlobalActions(menuManager);
+	}
 
-  
-
-  
-    
- 
-
-  /**
-   * This populates the pop-up menu before it appears.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void menuAboutToShow(IMenuManager menuManager)
-  {
-    super.menuAboutToShow(menuManager);
-    emfActionManager.menuAboutToShow(menuManager);
-  }
-
-  /**
-   * This inserts global actions before the "additions-end" separator.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  protected void addGlobalActions(IMenuManager menuManager)
-  {
-    menuManager.insertAfter("additions-end", new Separator("ui-actions"));
-    menuManager.insertAfter("ui-actions", showPropertiesViewAction);
-
-    refreshViewerAction.setEnabled(refreshViewerAction.isEnabled());		
-    menuManager.insertAfter("ui-actions", refreshViewerAction);
-
-    super.addGlobalActions(menuManager);
-  }
-
-  /**
-   * This ensures that a delete action will clean up all references to deleted objects.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  protected boolean removeAllReferencesOnDelete()
-  {
-    return true;
-  }
+	@Override
+	protected boolean removeAllReferencesOnDelete() {
+		return true;
+	}
 
 }
