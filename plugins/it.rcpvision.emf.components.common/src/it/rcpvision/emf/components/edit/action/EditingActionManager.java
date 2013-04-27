@@ -25,71 +25,57 @@ import org.eclipse.ui.views.properties.IPropertySheetPage;
 
 public class EditingActionManager {
 
+	private CommandActionHandler deleteAction;
 
-	  /**
-	   * This is the action used to implement delete.
-	   */
-	  private CommandActionHandler deleteAction;
+	private CommandActionHandler cutAction;
 
-	  /**
-	   * This is the action used to implement cut.
-	   */
-	  private CommandActionHandler cutAction;
+	private CommandActionHandler copyAction;
 
-	  /**
-	   * This is the action used to implement copy.
-	   */
-	  private CommandActionHandler copyAction;
+	private CommandActionHandler pasteAction;
 
-	  /**
-	   * This is the action used to implement paste.
-	   */
-	  private CommandActionHandler pasteAction;
+	private UndoAction undoAction;
 
-	  /**
-	   * This is the action used to implement undo.
-	   */
-	  private UndoAction undoAction;
+	private RedoAction redoAction;
 
-	  public UndoAction getUndoAction() {
-		return undoAction;
-	}
-
-	/**
-	   * This is the action used to implement redo.
-	   */
-	  private RedoAction redoAction;
-
-	
 	public void initializeActions(IActionBars actionBars) {
 
-		  ISharedImages sharedImages = getSharedImages();
-			
-			deleteAction = createDeleteAction(); 
-		    deleteAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_DELETE));
-		   
-		    cutAction = createCutAction();
-		    cutAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_CUT));
-		    
-		    copyAction = createCopyAction();
-		    copyAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_COPY));
-		    
-		    pasteAction = createPasteAction();
-		    pasteAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_PASTE));
-		    
-		    undoAction = createUndoAction();
-		    undoAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_UNDO));
-		    
+		ISharedImages sharedImages = getSharedImages();
 
-		    redoAction = createRedoAction();
-		    redoAction.setImageDescriptor(sharedImages.getImageDescriptor(ISharedImages.IMG_TOOL_REDO));
-		    
-		actionBars.setGlobalActionHandler(ActionFactory.DELETE.getId(), deleteAction);
+		deleteAction = createDeleteAction();
+		deleteAction.setImageDescriptor(sharedImages
+				.getImageDescriptor(ISharedImages.IMG_TOOL_DELETE));
+
+		cutAction = createCutAction();
+		cutAction.setImageDescriptor(sharedImages
+				.getImageDescriptor(ISharedImages.IMG_TOOL_CUT));
+
+		copyAction = createCopyAction();
+		copyAction.setImageDescriptor(sharedImages
+				.getImageDescriptor(ISharedImages.IMG_TOOL_COPY));
+
+		pasteAction = createPasteAction();
+		pasteAction.setImageDescriptor(sharedImages
+				.getImageDescriptor(ISharedImages.IMG_TOOL_PASTE));
+
+		undoAction = createUndoAction();
+		undoAction.setImageDescriptor(sharedImages
+				.getImageDescriptor(ISharedImages.IMG_TOOL_UNDO));
+
+		redoAction = createRedoAction();
+		redoAction.setImageDescriptor(sharedImages
+				.getImageDescriptor(ISharedImages.IMG_TOOL_REDO));
+
+		actionBars.setGlobalActionHandler(ActionFactory.DELETE.getId(),
+				deleteAction);
 		actionBars.setGlobalActionHandler(ActionFactory.CUT.getId(), cutAction);
-		actionBars.setGlobalActionHandler(ActionFactory.COPY.getId(), copyAction);
-		actionBars.setGlobalActionHandler(ActionFactory.PASTE.getId(), pasteAction);
-		actionBars.setGlobalActionHandler(ActionFactory.UNDO.getId(), undoAction);
-		actionBars.setGlobalActionHandler(ActionFactory.REDO.getId(), redoAction);
+		actionBars.setGlobalActionHandler(ActionFactory.COPY.getId(),
+				copyAction);
+		actionBars.setGlobalActionHandler(ActionFactory.PASTE.getId(),
+				pasteAction);
+		actionBars.setGlobalActionHandler(ActionFactory.UNDO.getId(),
+				undoAction);
+		actionBars.setGlobalActionHandler(ActionFactory.REDO.getId(),
+				redoAction);
 	}
 
 	protected ISharedImages getSharedImages() {
@@ -97,58 +83,44 @@ public class EditingActionManager {
 	}
 
 	public void shareGlobalActions(IPage page, IActionBars actionBars) {
-		if (!(page instanceof IPropertySheetPage))
-	    {
-	      actionBars.setGlobalActionHandler(ActionFactory.DELETE.getId(), deleteAction);
-	      actionBars.setGlobalActionHandler(ActionFactory.CUT.getId(), cutAction);
-	      actionBars.setGlobalActionHandler(ActionFactory.COPY.getId(), copyAction);
-	      actionBars.setGlobalActionHandler(ActionFactory.PASTE.getId(), pasteAction);
-	    }
-	    actionBars.setGlobalActionHandler(ActionFactory.UNDO.getId(), undoAction);
-	    actionBars.setGlobalActionHandler(ActionFactory.REDO.getId(), redoAction);
+		if (!(page instanceof IPropertySheetPage)) {
+			actionBars.setGlobalActionHandler(ActionFactory.DELETE.getId(),
+					deleteAction);
+			actionBars.setGlobalActionHandler(ActionFactory.CUT.getId(),
+					cutAction);
+			actionBars.setGlobalActionHandler(ActionFactory.COPY.getId(),
+					copyAction);
+			actionBars.setGlobalActionHandler(ActionFactory.PASTE.getId(),
+					pasteAction);
+		}
+		actionBars.setGlobalActionHandler(ActionFactory.UNDO.getId(),
+				undoAction);
+		actionBars.setGlobalActionHandler(ActionFactory.REDO.getId(),
+				redoAction);
 	}
-
-//	public void shareGlobalActions(IViewPart part, IActionBars actionBars) {
-//		if (!(part instanceof PropertySheet))
-//	    {
-//	      actionBars.setGlobalActionHandler(ActionFactory.DELETE.getId(), deleteAction);
-//	      actionBars.setGlobalActionHandler(ActionFactory.CUT.getId(), cutAction);
-//	      actionBars.setGlobalActionHandler(ActionFactory.COPY.getId(), copyAction);
-//	      actionBars.setGlobalActionHandler(ActionFactory.PASTE.getId(), pasteAction);
-//	    }
-//	    actionBars.setGlobalActionHandler(ActionFactory.UNDO.getId(), undoAction);
-//	    actionBars.setGlobalActionHandler(ActionFactory.REDO.getId(), redoAction);
-//	}
 
 	public void removeSelectionChangeListener(
 			ISelectionProvider selectionProvider) {
-
-	      selectionProvider.removeSelectionChangedListener(deleteAction);
-	      selectionProvider.removeSelectionChangedListener(cutAction);
-	      selectionProvider.removeSelectionChangedListener(copyAction);
-	      selectionProvider.removeSelectionChangedListener(pasteAction);
-	      
-	     
-
+		selectionProvider.removeSelectionChangedListener(deleteAction);
+		selectionProvider.removeSelectionChangedListener(cutAction);
+		selectionProvider.removeSelectionChangedListener(copyAction);
+		selectionProvider.removeSelectionChangedListener(pasteAction);
 	}
 
 	public void setEditingDomain(EditingDomain editingDomain) {
 		deleteAction.setEditingDomain(editingDomain);
-	      cutAction.setEditingDomain(editingDomain);
-	      copyAction.setEditingDomain(editingDomain);
-	      pasteAction.setEditingDomain(editingDomain);
-	      undoAction.setEditingDomain(editingDomain);
-	      redoAction.setEditingDomain(editingDomain);
-	      
+		cutAction.setEditingDomain(editingDomain);
+		copyAction.setEditingDomain(editingDomain);
+		pasteAction.setEditingDomain(editingDomain);
+		undoAction.setEditingDomain(editingDomain);
+		redoAction.setEditingDomain(editingDomain);
 	}
 
 	public void addSelectionListener(ISelectionProvider selectionProvider) {
-	      selectionProvider.addSelectionChangedListener(deleteAction);
-	      selectionProvider.addSelectionChangedListener(cutAction);
-	      selectionProvider.addSelectionChangedListener(copyAction);
-	      selectionProvider.addSelectionChangedListener(pasteAction);
-	          
-
+		selectionProvider.addSelectionChangedListener(deleteAction);
+		selectionProvider.addSelectionChangedListener(cutAction);
+		selectionProvider.addSelectionChangedListener(copyAction);
+		selectionProvider.addSelectionChangedListener(pasteAction);
 	}
 
 	public void updateSelection(ISelection selection) {
@@ -163,46 +135,46 @@ public class EditingActionManager {
 
 	public void updateUndoRedo() {
 		undoAction.update();
-	     redoAction.update();
+		redoAction.update();
 	}
 
 	public void menuAboutToShow(IMenuManager menuManager) {
 		menuManager.add(new ActionContributionItem(undoAction));
-	    menuManager.add(new ActionContributionItem(redoAction));
-	    menuManager.add(new Separator());
-	    menuManager.add(new ActionContributionItem(cutAction));
-	    menuManager.add(new ActionContributionItem(copyAction));
-	    menuManager.add(new ActionContributionItem(pasteAction));
-	    menuManager.add(new Separator());
-	    menuManager.add(new ActionContributionItem(deleteAction));
-	    menuManager.add(new Separator());
+		menuManager.add(new ActionContributionItem(redoAction));
+		menuManager.add(new Separator());
+		menuManager.add(new ActionContributionItem(cutAction));
+		menuManager.add(new ActionContributionItem(copyAction));
+		menuManager.add(new ActionContributionItem(pasteAction));
+		menuManager.add(new Separator());
+		menuManager.add(new ActionContributionItem(deleteAction));
+		menuManager.add(new Separator());
 	}
 
-	public DeleteAction createDeleteAction() {
+	protected DeleteAction createDeleteAction() {
 		return new DeleteAction(true);
 	}
 
-	public CutAction createCutAction() {
+	protected CutAction createCutAction() {
 		return new CutAction();
 	}
 
-	public CopyAction createCopyAction() {
+	protected CopyAction createCopyAction() {
 		return new CopyAction();
 	}
 
-	public PasteAction createPasteAction() {
+	protected PasteAction createPasteAction() {
 		return new PasteAction();
 	}
 
-	public UndoAction createUndoAction() {
+	protected UndoAction createUndoAction() {
 		return new UndoAction();
 	}
 
-	public RedoAction createRedoAction() {
+	protected RedoAction createRedoAction() {
 		return new RedoAction();
 	}
 
-	public LoadResourceAction createLoadResourceAction() {
+	protected LoadResourceAction createLoadResourceAction() {
 		return new LoadResourceAction();
 	}
 
@@ -213,4 +185,9 @@ public class EditingActionManager {
 	public EditingDomainValidateAction createValidateAction() {
 		return new EditingDomainValidateAction();
 	}
+
+	public UndoAction getUndoAction() {
+		return undoAction;
+	}
+
 }
