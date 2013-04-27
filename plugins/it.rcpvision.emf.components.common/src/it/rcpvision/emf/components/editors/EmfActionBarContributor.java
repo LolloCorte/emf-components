@@ -1,42 +1,20 @@
 package it.rcpvision.emf.components.editors;
 
-import it.rcpvision.emf.components.EmfComponentsActivator;
 import it.rcpvision.emf.components.edit.action.EditingActionBarContributor;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
-import org.eclipse.emf.common.ui.action.ViewerFilterAction;
-import org.eclipse.emf.common.ui.viewer.IViewerProvider;
-import org.eclipse.emf.ecore.EGenericType;
-import org.eclipse.emf.ecore.ETypeParameter;
-import org.eclipse.emf.ecore.EcorePackage;
-import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
-import org.eclipse.emf.edit.ui.action.CreateChildAction;
-import org.eclipse.emf.edit.ui.action.CreateSiblingAction;
-import org.eclipse.jface.action.Action;
-import org.eclipse.jface.action.ActionContributionItem;
-import org.eclipse.jface.action.IAction;
-import org.eclipse.jface.action.IContributionItem;
-import org.eclipse.jface.action.IContributionManager;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
-import org.eclipse.jface.action.SubContributionItem;
-import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
-import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
-import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.PartInitException;
 
 import com.google.inject.Inject;
 
@@ -50,14 +28,10 @@ import com.google.inject.Inject;
 public class EmfActionBarContributor extends EditingActionBarContributor
 		implements ISelectionChangedListener {
 
-	protected IWorkbenchPart activePart;
-
-	protected ISelectionProvider selectionProvider;
 
 	@Inject
 	protected EmfActionManager emfActionManager;
 
-	protected SelectionChangedEvent lastSelectionChangedEvent;
 
 	public EmfActionBarContributor() {
 		super(ADDITIONS_LAST_STYLE);
@@ -108,25 +82,6 @@ public class EmfActionBarContributor extends EditingActionBarContributor
 	public void setActivePart(IWorkbenchPart part) {
 		super.setActivePart(part);
 		activePart = part;
-
-		if (selectionProvider != null) {
-			selectionProvider.removeSelectionChangedListener(this);
-		}
-		if (part == null) {
-			selectionProvider = null;
-		} else {
-			selectionProvider = part.getSite().getSelectionProvider();
-		}
-
-		if (selectionProvider != null) {
-			selectionProvider = part.getSite().getSelectionProvider();
-			selectionProvider.addSelectionChangedListener(this);
-
-			if (selectionProvider.getSelection() != null) {
-				selectionChanged(new SelectionChangedEvent(selectionProvider,
-						selectionProvider.getSelection()));
-			}
-		}
 	}
 
 	@Override
@@ -136,7 +91,6 @@ public class EmfActionBarContributor extends EditingActionBarContributor
 	}
 
 	public void selectionChanged(SelectionChangedEvent event) {
-		lastSelectionChangedEvent = event;
 		EditingDomain domain = ((IEditingDomainProvider) activePart)
 				.getEditingDomain();
 		emfActionManager.updateSelection(event.getSelection(), domain);
