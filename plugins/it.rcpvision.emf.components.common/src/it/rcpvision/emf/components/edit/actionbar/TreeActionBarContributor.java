@@ -16,8 +16,6 @@ import com.google.inject.Inject;
 public class TreeActionBarContributor implements IMenuListener,
 		ISelectionChangedListener {
 
-	private static final String IMG_TOOL_DELETE = "icons/delete_16x16.gif";
-
 	protected EditingDomain editingDomain;
 
 	@Inject
@@ -45,10 +43,7 @@ public class TreeActionBarContributor implements IMenuListener,
 		emfActionManager.updateSelection(event.getSelection(), editingDomain);
 	}
 
-
-
 	protected StructuredViewer viewer;
-
 
     public void setViewerForSelection(StructuredViewer viewer) {
         this.viewer = viewer;
