@@ -16,21 +16,121 @@ Instead of using the Extension Point mechanism, EMF Components leverages from DS
 <p>
 Because of this, it is very easy to use it with Eclipse 4.
 </p>
+<a name="GetFirstExample"></a>
+<h2>First Example Setup</h2>
 <p>
-Just be sure to start (as illustrated in section <a href="02-GettingStarted.html#GettingStarted" title="Go to &quot;Getting Started&quot;">Getting Started</a>) with a "Eclipse Modeling Tools" package from <a href="http://www.eclipse.org/downloads/">Eclipse
-Downloads</a>
-<div class="image" >
-<img src="images/eclipseModelingTools.png" class=" " 
-/>
-<div class="caption">
-</div>
-</div>
+If you followed the steps described in section <a href="02-GettingStarted.html#GettingStarted" title="Go to &quot;Getting Started&quot;">Getting Started</a> you will have already
+what we need to begin. Otherwise the following wizard will bring you to that point.
 </p>
 <p>
-of course you will have to install the <em>E4 Tools</em>, e.g. from the following update site:
+<ol>
+	<li>
+		File -&gt; New... -&gt; Example...
+	</li>
+	<li>
+		from Category "Emf Components Examples", select "Emf Components First Example"
+	</li>
+	<li>
+		press Next and Finish
+	</li>
+</ol>
 </p>
 <p>
-<a href="http://download.vogella.com/juno/e4tools">http://download.vogella.com/juno/e4tools</a>
+You will end up with three plug-ins:
+</p>
+<p>
+<ul>
+	<li>
+		it.rcpvision.emf.components.examples.firstexample (the EMF Components example plug-in)
+	</li>
+	<li>
+		org.eclipse.emf.examples.library (the model plug-in)
+	</li>
+	<li>
+		org.eclipse.emf.examples.library.edit (the model.edit plug-in)
+	</li>
+</ul>
+</p>
+<p>
+As a reminder, in section <a href="02-GettingStarted.html#GettingStarted" title="Go to &quot;Getting Started&quot;">Getting Started</a> we reached the point where we launched a second Eclipse
+instance (but, of course, just defining a product you could have a standalone 3.x application) with a
+view (called "My Library Tree Form") that allowed to manage the model.
+</p>
+<a name="PrepareForEclipse4Application"></a>
+<h2>Preparing for Eclipse 4 Application</h2>
+<p>
+What we will do now is starting from the previous step and create an Eclipse 4 Application, on top of
+the previous plug-ins, that comes to the same result, but now with a pure Eclipse 4 Part.
+</p>
+<p>
+In order to do this we need to export the <em>"it.rcpvision.emf.components.examples.firstexample"</em> package from the first plug-in.
+</p>
+<a name="CreateEclipse4Application"></a>
+<h2>Create an Eclipse 4 Application</h2>
+<p>
+Now let&apos;s create a new Eclipse 4 application, e.g. <em>"it.rcpvision.emf.components.examples.firstexample.application"</em>
+(you can find details on how to create Eclipse 4 applications in <a href="http://www.rcp-vision.com/?p=4694&lang=en">our
+tutorials</a>).
+</p>
+<p>
+Create a Part and ensure that the application starts. Please note that you may need to check the launch
+and add required dependencies: this is due to a temporary bug in the Modeling package.
+</p>
+<a name="Eclipse4ApplicationAndEMFComponents"></a>
+<h2>Make them work together</h2>
+<p>
+We need <em>Dependencies</em> from the previous plug-ins: so open <em>MANIFEST.MF</em> file, go to <em>Dependencies</em>
+tab and add them. Add also <em>"it.rcpvision.emf.components"</em> plug-in. Don&apos;t forget to add them, and the
+required plug-ins, also to the Product.
+</p>
+<p>
+Open the Part java class and, put the following code in the <em>@PostConstruct</em> method.
+</p>
+<p>
+<div class="literallayout">
+<div class="incode">
+<p class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;@PostConstruct
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;createComposite(Composite&nbsp;parent)&nbsp;{
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent.setLayout(new&nbsp;FillLayout());
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;TreeFormFactory&nbsp;treeFormFactory&nbsp;=&nbsp;FirstexampleActivator.getDefault()
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;.getInjector().getInstance(TreeFormFactory.class);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;ResourceLoader&nbsp;resourceLoader&nbsp;=&nbsp;FirstexampleActivator.getDefault()
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;.getInjector().getInstance(ResourceLoader.class);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;TreeFormComposite&nbsp;treeFormComposite&nbsp;=&nbsp;treeFormFactory
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;.createTreeFormMasterDetailComposite(parent,&nbsp;SWT.BORDER);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;URI&nbsp;uri&nbsp;=&nbsp;URI.createFileURI(System.getProperty(<span class="string">"user.home"</span>)
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;<span class="string">"/MyLibrary.library"</span>);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;AdapterFactoryEditingDomain&nbsp;editingDomain&nbsp;=&nbsp;FirstexampleActivator
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;.getDefault().getInjector()
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;.getInstance(AdapterFactoryEditingDomain.class);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Resource&nbsp;resource&nbsp;=&nbsp;resourceLoader.getResource(editingDomain,&nbsp;uri)
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;.getResource();
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;treeFormComposite.update(resource);
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+
+<br/>
+</p>
+</div>
+</div>
 </p>
 </body>
 </html>

@@ -34,6 +34,7 @@ the previous plug-ins, that comes to the same result, but now with a pure Eclips
 
 In order to do this we need to export the e["it.rcpvision.emf.components.examples.firstexample"] package from the first plug-in.
 
+
 section:CreateEclipse4Application[Create an Eclipse 4 Application]
 
 Now let's create a new Eclipse 4 application, e.g. e["it.rcpvision.emf.components.examples.firstexample.application"]
