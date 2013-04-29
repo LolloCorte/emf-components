@@ -41,6 +41,22 @@ public class EditingActionManager {
 
 	public void initializeActions(IActionBars actionBars) {
 
+		createActions();
+
+		actionBars.setGlobalActionHandler(ActionFactory.DELETE.getId(),
+				deleteAction);
+		actionBars.setGlobalActionHandler(ActionFactory.CUT.getId(), cutAction);
+		actionBars.setGlobalActionHandler(ActionFactory.COPY.getId(),
+				copyAction);
+		actionBars.setGlobalActionHandler(ActionFactory.PASTE.getId(),
+				pasteAction);
+		actionBars.setGlobalActionHandler(ActionFactory.UNDO.getId(),
+				undoAction);
+		actionBars.setGlobalActionHandler(ActionFactory.REDO.getId(),
+				redoAction);
+	}
+
+	public void createActions() {
 		ISharedImages sharedImages = getSharedImages();
 
 		deleteAction = createDeleteAction();
@@ -66,18 +82,6 @@ public class EditingActionManager {
 		redoAction = createRedoAction();
 		redoAction.setImageDescriptor(sharedImages
 				.getImageDescriptor(ISharedImages.IMG_TOOL_REDO));
-
-		actionBars.setGlobalActionHandler(ActionFactory.DELETE.getId(),
-				deleteAction);
-		actionBars.setGlobalActionHandler(ActionFactory.CUT.getId(), cutAction);
-		actionBars.setGlobalActionHandler(ActionFactory.COPY.getId(),
-				copyAction);
-		actionBars.setGlobalActionHandler(ActionFactory.PASTE.getId(),
-				pasteAction);
-		actionBars.setGlobalActionHandler(ActionFactory.UNDO.getId(),
-				undoAction);
-		actionBars.setGlobalActionHandler(ActionFactory.REDO.getId(),
-				redoAction);
 	}
 
 	protected ISharedImages getSharedImages() {
