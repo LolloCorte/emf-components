@@ -1,6 +1,6 @@
 package it.rcpvision.emf.components.editors;
 
-import it.rcpvision.emf.components.edit.action.EditingActionBarContributor;
+import it.rcpvision.emf.components.edit.actionbar.EditingActionBarContributor;
 
 import java.util.ArrayList;
 import java.util.Arrays;

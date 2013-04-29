@@ -1,7 +1,8 @@
-package it.rcpvision.emf.components.edit.action;
+package it.rcpvision.emf.components.edit.actionbar;
 
 import it.rcpvision.emf.components.EmfComponentsActivator;
-import it.rcpvision.emf.components.editors.EmfActionManager;
+import it.rcpvision.emf.components.edit.action.EditingActionManager;
+import it.rcpvision.emf.components.edit.action.EmfActionManager;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -44,9 +45,6 @@ public class TreeActionBarContributor implements IMenuListener,
 
 	public void initialize(EditingDomain editingDomain) {
 		this.editingDomain = editingDomain;
-
-		createChildMenuManager = new MenuManager("&New Child");
-		createSiblingMenuManager = new MenuManager("N&ew Sibling");
 		
 		editingActionManager.setEditingDomain(editingDomain);
 	}
@@ -60,18 +58,11 @@ public class TreeActionBarContributor implements IMenuListener,
 	protected SelectionChangedEvent lastSelectionChangedEvent;
 
 	public void selectionChanged(SelectionChangedEvent event) {
-		lastSelectionChangedEvent = event;
-		// Remove any menu items for old selection.
-		//
-		
-			
 		editingActionManager.updateSelection(event.getSelection());
 		emfActionManager.updateSelection(event.getSelection(), editingDomain);
 	}
 
-	protected IMenuManager createChildMenuManager;
-
-	protected IMenuManager createSiblingMenuManager;
+	
 
 	protected StructuredViewer viewer;
 

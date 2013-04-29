@@ -17,6 +17,7 @@
 package it.rcpvision.emf.components.editors;
 
 
+import it.rcpvision.emf.components.edit.actionbar.WorkbenchActionBarContributor;
 import it.rcpvision.emf.components.editors.listeners.ResourceDeltaVisitor;
 import it.rcpvision.emf.components.editors.outline.EmfEditorContentOutlineFactory;
 import it.rcpvision.emf.components.editors.outline.EmfEditorContentOutlinePage;
@@ -809,7 +810,7 @@ protected ViewerInitializer viewerInitializer;
 	}
 
 	public void createContextMenuFor(StructuredViewer viewer) {
-		viewerInitializer.addContextMenu(viewer, (EmfActionBarContributor)getActionBarContributor(),
+		viewerInitializer.addContextMenu(viewer, (WorkbenchActionBarContributor)getActionBarContributor(),
 				editingDomain, this, this);
 		
 		ViewerMouseAdapter listener = getViewerMouseAdapter();
@@ -1387,9 +1388,9 @@ protected ViewerInitializer viewerInitializer;
    * <!-- end-user-doc -->
    * @generated
    */
-  public EmfActionBarContributor getActionBarContributor()
+  public WorkbenchActionBarContributor getActionBarContributor()
   {
-    return (EmfActionBarContributor)getEditorSite().getActionBarContributor();
+    return (WorkbenchActionBarContributor)getEditorSite().getActionBarContributor();
   }
 
   /**

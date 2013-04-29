@@ -1,4 +1,4 @@
-package it.rcpvision.emf.components.editors;
+package it.rcpvision.emf.components.edit.action;
 
 import java.util.ArrayList;
 import java.util.Collection;

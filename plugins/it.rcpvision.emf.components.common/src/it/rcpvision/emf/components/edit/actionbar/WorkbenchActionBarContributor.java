@@ -1,5 +1,8 @@
-package it.rcpvision.emf.components.edit.action;
+package it.rcpvision.emf.components.edit.actionbar;
 
+import it.rcpvision.emf.components.edit.action.EditingActionManager;
+import it.rcpvision.emf.components.edit.action.EditingDomainValidateAction;
+import it.rcpvision.emf.components.edit.action.EmfActionManager;
 import it.rcpvision.emf.components.util.ActionBarsUtils;
 
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -10,10 +13,13 @@ import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.jface.action.IToolBarManager;
+import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorPart;
@@ -43,9 +49,9 @@ import com.google.inject.Inject;
  * 
  * to contribute the Edit menu actions to a pop-up menu.
  */
-public class EditingActionBarContributor extends
+public class WorkbenchActionBarContributor extends
 		MultiPageEditorActionBarContributor implements IMenuListener,
-		IPropertyListener {
+		IPropertyListener, ISelectionChangedListener {
 
 	protected IWorkbenchPart activePart;
 
@@ -58,11 +64,18 @@ public class EditingActionBarContributor extends
 	protected int style;
 
 	@Inject
+	protected EmfActionManager emfActionManager;
+	
+	@Inject
 	protected EditingActionManager editingActionManager;
 
 	protected ISelectionProvider explicitSelectionProvider = null;
 
-	public EditingActionBarContributor(int style) {
+	public WorkbenchActionBarContributor() {
+		this(ADDITIONS_LAST_STYLE);
+	}
+	
+	public WorkbenchActionBarContributor(int style) {
 		super();
 		this.style = style;
 	}
@@ -80,6 +93,8 @@ public class EditingActionBarContributor extends
 
 	protected void initializeActions(IActionBars actionBars) {
 		editingActionManager.initializeActions(actionBars);
+		validateAction = editingActionManager.createValidateAction();
+		controlAction = editingActionManager.createControlAction();
 	}
 
 	protected boolean removeAllReferencesOnDelete() {
@@ -88,7 +103,24 @@ public class EditingActionBarContributor extends
 
 	@Override
 	public void contributeToMenu(IMenuManager menuManager) {
-		super.contributeToMenu(menuManager);
+		IMenuManager submenuManager = new MenuManager("Emf Components",
+				"it.rcpvision.emf.components.MenuID");
+
+		menuManager.insertAfter("additions", submenuManager);
+		submenuManager.add(new Separator("settings"));
+		submenuManager.add(new Separator("actions"));
+		submenuManager.add(new Separator("additions"));
+		submenuManager.add(new Separator("additions-end"));
+
+		emfActionManager.contributeToMenu(submenuManager);
+
+		submenuManager.addMenuListener(new IMenuListener() {
+			public void menuAboutToShow(IMenuManager menuManager) {
+				menuManager.updateAll(true);
+			}
+		});
+
+		addGlobalActions(submenuManager);
 	}
 
 	@Override
@@ -98,7 +130,8 @@ public class EditingActionBarContributor extends
 
 	@Override
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
-		super.contributeToToolBar(toolBarManager);
+		toolBarManager.add(new Separator("ecore-settings"));
+		toolBarManager.add(new Separator("ecore-additions"));
 	}
 
 	public void shareGlobalActions(IPage page, IActionBars actionBars) {
@@ -119,7 +152,7 @@ public class EditingActionBarContributor extends
 		setActivePart(part);
 	}
 
-	protected void setActivePart(IWorkbenchPart part) {
+	public void setActivePart(IWorkbenchPart part) {
 		if (part != activePart) {
 			if (activePart != null) {
 				deactivate();
@@ -131,6 +164,7 @@ public class EditingActionBarContributor extends
 
 			}
 		}
+		activePart = part;
 	}
 
 	@Override
@@ -236,6 +270,8 @@ public class EditingActionBarContributor extends
 		menuManager.add(new Separator("additions-end"));
 
 		addGlobalActions(menuManager);
+		
+		emfActionManager.menuAboutToShow(menuManager);
 	}
 
 	protected void ensureActionsAreInitialized() {
@@ -245,6 +281,8 @@ public class EditingActionBarContributor extends
 	}
 
 	protected void addGlobalActions(IMenuManager menuManager) {
+		menuManager.insertAfter("additions-end", new Separator("ui-actions"));
+		
 		String key = (style & ADDITIONS_LAST_STYLE) == 0 ? "additions-end"
 				: "additions";
 		if (validateAction != null) {
@@ -264,6 +302,12 @@ public class EditingActionBarContributor extends
 
 	public void propertyChanged(Object source, int id) {
 		update();
+	}
+
+	public void selectionChanged(SelectionChangedEvent event) {
+		EditingDomain domain = ((IEditingDomainProvider) activePart)
+				.getEditingDomain();
+		emfActionManager.updateSelection(event.getSelection(), domain);
 	}
 
 }

@@ -1,8 +1,7 @@
 package it.rcpvision.emf.components.views;
 
 import it.rcpvision.emf.components.edit.ResourceSaveManager;
-import it.rcpvision.emf.components.edit.action.TreeActionBarContributor;
-import it.rcpvision.emf.components.editors.EmfActionBarContributor;
+import it.rcpvision.emf.components.edit.actionbar.WorkbenchActionBarContributor;
 import it.rcpvision.emf.components.resource.ResourceLoader;
 import it.rcpvision.emf.components.util.EmfCommandsUtil;
 import it.rcpvision.emf.components.viewers.ViewerInitializer;
@@ -46,7 +45,7 @@ public abstract class AbstractSaveableView extends ViewPart implements
 
 	@Inject
 //	private TreeActionBarContributor actionBarContributor;
-	private EmfActionBarContributor actionBarContributor;
+	private WorkbenchActionBarContributor actionBarContributor;
 
 	@Inject
 	private ViewerInitializer viewerInitializer;
