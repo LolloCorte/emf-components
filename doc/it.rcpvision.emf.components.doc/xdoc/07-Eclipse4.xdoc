@@ -15,7 +15,7 @@ ol[
 	item[press Next and Finish]
 ]
 
-You will end up with three plug-ins: 
+You will end up with three plug-ins:
 
 ul[
 item[it.rcpvision.emf.components.examples.firstexample (the EMF Components example plug-in)]
@@ -23,9 +23,16 @@ item[org.eclipse.emf.examples.library (the model plug-in)]
 item[org.eclipse.emf.examples.library.edit (the model.edit plug-in)]
 ]
 
-Let's export the e["it.rcpvision.emf.components.examples.firstexample"] package from the first plug-in.
+As a reminder, in section ref:GettingStarted[Getting Started] we reached the point where we launched a second Eclipse
+instance (but, of course, just defining a product you could have a standalone 3.x application) with a
+view (called "My Library Tree Form") that allowed to manage the model.
 
-/it.rcpvision.emf.components.examples.firstexample/src/it/rcpvision/emf/components/examples/firstexample/FirstexampleActivator.java
+section:PrepareForEclipse4Application[Preparing for Eclipse 4 Application]
+
+What we will do now is starting from the previous step and create an Eclipse 4 Application, on top of
+the previous plug-ins, that comes to the same result, but now with a pure Eclipse 4 Part.
+
+In order to do this we need to export the e["it.rcpvision.emf.components.examples.firstexample"] package from the first plug-in.
 
 section:CreateEclipse4Application[Create an Eclipse 4 Application]
 
@@ -48,30 +55,31 @@ Open the Part java class and, put the following code in the e[@PostConstruct] me
 code[EmfComponents][
 	@PostConstruct
 	public void createComposite(Composite parent) {
-	
-		parent.setLayout(new FillLayout());
-	
+
+			parent.setLayout(new FillLayout());
+
 		TreeFormFactory treeFormFactory = FirstexampleActivator.getDefault()
 				.getInjector().getInstance(TreeFormFactory.class);
-	
+
 		ResourceLoader resourceLoader = FirstexampleActivator.getDefault()
 				.getInjector().getInstance(ResourceLoader.class);
-		
+
 		TreeFormComposite treeFormComposite = treeFormFactory
 				.createTreeFormMasterDetailComposite(parent, SWT.BORDER);
-		
+
 		URI uri = URI.createFileURI(System.getProperty("user.home")
 				+ "/MyLibrary.library");
-	
+
 		AdapterFactoryEditingDomain editingDomain = FirstexampleActivator
 				.getDefault().getInjector()
 				.getInstance(AdapterFactoryEditingDomain.class);
-	
+
 		Resource resource = resourceLoader.getResource(editingDomain, uri)
 				.getResource();
-	
+
 		treeFormComposite.update(resource);
 	}
+
 ]
 
 
