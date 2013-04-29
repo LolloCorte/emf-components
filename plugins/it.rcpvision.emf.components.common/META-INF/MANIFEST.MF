@@ -10,7 +10,8 @@ Require-Bundle: org.eclipse.emf.databinding.edit;bundle-version="1.2.0";visibili
  org.eclipse.emf.ecore.edit;bundle-version="2.7.0";visibility:=reexport,
  org.eclipse.core.runtime;bundle-version="3.5.0";visibility:=reexport,
  org.eclipse.core.commands;bundle-version="3.5.0";visibility:=reexport,
- it.rcpvision.emf.components.runtime.common;bundle-version="0.1.0";visibility:=reexport
+ it.rcpvision.emf.components.runtime.common;bundle-version="0.1.0";visibility:=reexport,
+ org.eclipse.ui.workbench;bundle-version="3.104.0"
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ActivationPolicy: lazy
 Export-Package: it.rcpvision.emf.components,

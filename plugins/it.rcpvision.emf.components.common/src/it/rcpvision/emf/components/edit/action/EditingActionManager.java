@@ -13,13 +13,15 @@ import org.eclipse.emf.edit.ui.action.UndoAction;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.Separator;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.ISharedImages;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.ActionFactory;
+import org.eclipse.ui.internal.WorkbenchImages;
 import org.eclipse.ui.part.IPage;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 
@@ -79,7 +81,14 @@ public class EditingActionManager {
 	}
 
 	protected ISharedImages getSharedImages() {
-		return PlatformUI.getWorkbench().getSharedImages();
+		return new ISharedImages() {
+			public Image getImage(String symbolicName) {
+				return getImageDescriptor(symbolicName).createImage();
+			}
+			public ImageDescriptor getImageDescriptor(String symbolicName) {
+				return (ImageDescriptor) WorkbenchImages.getDescriptors().get(symbolicName);
+			}
+		};
 	}
 
 	public void shareGlobalActions(IPage page, IActionBars actionBars) {
