@@ -15,5 +15,18 @@
             name="Mail Message View">
       </view>
    </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="it.rcpvision.emf.components.examples.mail.rcp.perspective">
+         <view
+               id="it.rcpvision.emf.components.examples.mail.messageview.views.MessageView"
+               minimized="false"
+               ratio="0.25"
+               relationship="bottom"
+               relative="org.eclipse.ui.editorss">
+         </view>
+      </perspectiveExtension>
+   </extension>
 
 </plugin>

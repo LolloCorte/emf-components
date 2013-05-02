@@ -53,4 +53,18 @@
          version="0.0.0"
          unpack="false"/>
 
+   <plugin
+         id="it.rcpvision.emf.components.examples.mail.mailsview"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="it.rcpvision.emf.components.examples.mail.messageview"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
 </feature>
