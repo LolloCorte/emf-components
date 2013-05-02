@@ -90,7 +90,7 @@ public class EditingActionManager {
 				return getImageDescriptor(symbolicName).createImage();
 			}
 			public ImageDescriptor getImageDescriptor(String symbolicName) {
-				return (ImageDescriptor) WorkbenchImages.getDescriptors().get(symbolicName);
+				return (ImageDescriptor) WorkbenchImages.getImageDescriptor(symbolicName);
 			}
 		};
 	}
