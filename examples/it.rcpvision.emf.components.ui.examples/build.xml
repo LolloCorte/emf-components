@@ -29,7 +29,6 @@
 	<target name="zip_all_examples">
 		<zip_example name="it.rcpvision.emf.components.examples.mail.rcp" />
 		<zip_example name="it.rcpvision.emf.components.examples.mail.model" />
-		<zip_example name="it.rcpvision.emf.components.examples.mail.feature" source="../../features/" />
 		<zip_example name="it.rcpvision.emf.components.examples.mail.accountsview" />
 		<zip_example name="it.rcpvision.emf.components.examples.mail.mailsview" />
 		<zip_example name="it.rcpvision.emf.components.examples.mail.messageview" />

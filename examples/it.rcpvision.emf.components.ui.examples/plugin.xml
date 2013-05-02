@@ -110,11 +110,6 @@
                name="it.rcpvision.emf.components.examples.mail.messageview">
          </projectDescriptor>
          <projectDescriptor
-               contentURI="contents/it.rcpvision.emf.components.examples.mail.feature.zip"
-               description="Mail Feature"
-               name="it.rcpvision.emf.components.examples.mail.feature">
-         </projectDescriptor>
-         <projectDescriptor
                contentURI="contents/it.rcpvision.emf.components.examples.mail.product.feature.zip"
                description="Mail Product Feature"
                name="it.rcpvision.emf.components.examples.mail.product.feature">

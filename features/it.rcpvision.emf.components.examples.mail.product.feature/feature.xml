@@ -18,10 +18,6 @@
    </license>
 
    <includes
-         id="it.rcpvision.emf.components.examples.mail.feature"
-         version="0.0.0"/>
-
-   <includes
          id="org.eclipse.rcp"
          version="0.0.0"/>
 
@@ -62,6 +58,20 @@
 
    <plugin
          id="it.rcpvision.emf.components.examples.mail.messageview"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="it.rcpvision.emf.components.examples.mail.model"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="it.rcpvision.emf.components.examples.mail.accountsview"
          download-size="0"
          install-size="0"
          version="0.0.0"
