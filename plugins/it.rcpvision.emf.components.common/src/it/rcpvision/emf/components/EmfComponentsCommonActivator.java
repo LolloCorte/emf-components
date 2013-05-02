@@ -69,5 +69,5 @@ public class EmfComponentsCommonActivator extends AbstractUIPlugin {
 				exception.getMessage(),
 				exception));
 	}
-
+	
 }

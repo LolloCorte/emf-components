@@ -105,8 +105,6 @@
 				</topic>
 			</topic>
 			<topic href="contents/04-Customization.html#SelectionAndMenu" label="Selection And Menu" >
-				<topic href="contents/04-Customization.html#EmfActionBarContributor" label="Emf Action Bar Contributor" >
-				</topic>
 				<topic href="contents/04-Customization.html#EmfSelectionHelper" label="Emf Selection Helper" >
 				</topic>
 			</topic>
@@ -119,8 +117,6 @@
 				</topic>
 			</topic>
 			<topic href="contents/04-Customization.html#Factories" label="Factories" >
-				<topic href="contents/04-Customization.html#EmfActionFactory" label="Emf Action Factory" >
-				</topic>
 				<topic href="contents/04-Customization.html#FormFactory" label="Form Factory" >
 				</topic>
 				<topic href="contents/04-Customization.html#JfaceProviderFactory" label="Jface Provider Factory" >
@@ -146,9 +142,13 @@
 		<topic href="contents/07-Eclipse4.html#Eclipse4" label="Eclipse 4" >
 			<topic href="contents/07-Eclipse4.html#GetFirstExample" label="First Example Setup" >
 			</topic>
+			<topic href="contents/07-Eclipse4.html#PrepareForEclipse4Application" label="Preparing for a pure Eclipse 4 Application" >
+			</topic>
 			<topic href="contents/07-Eclipse4.html#CreateEclipse4Application" label="Create an Eclipse 4 Application" >
 			</topic>
-			<topic href="contents/07-Eclipse4.html#Eclipse4ApplicationAndEMFComponents" label="Make them work together" >
+			<topic href="contents/07-Eclipse4.html#Eclipse4ApplicationAndEMFComponents" label="Using an EMF Parsley TreeComposite into an Eclipse 4 Part" >
+			</topic>
+			<topic href="contents/07-Eclipse4.html#Eclipse4Save" label="Adding the dirty state and Save command" >
 			</topic>
 		</topic>
 	</topic>

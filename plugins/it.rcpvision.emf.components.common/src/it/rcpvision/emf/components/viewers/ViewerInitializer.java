@@ -3,7 +3,8 @@
  */
 package it.rcpvision.emf.components.viewers;
 
-import it.rcpvision.emf.components.editors.EmfActionBarContributor;
+import it.rcpvision.emf.components.edit.actionbar.WorkbenchActionBarContributor;
+import it.rcpvision.emf.components.edit.actionbar.TreeActionBarContributor;
 import it.rcpvision.emf.components.menus.ViewerContextMenuFactory;
 import it.rcpvision.emf.components.resource.ResourceLoader;
 
@@ -13,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
+import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.viewers.IBaseLabelProvider;
@@ -124,12 +126,15 @@ public class ViewerInitializer {
 	 * @param activePart
 	 */
 	public void addContextMenu(StructuredViewer viewer,
-			EmfActionBarContributor actionBarContributor,
+			WorkbenchActionBarContributor actionBarContributor,
 			AdapterFactoryEditingDomain editingDomain,
 			IMenuListener menuListener, IWorkbenchPart activePart) {
 
 		MenuManager menuManager = viewerContextMenuFactory
-				.createContextMenuFor(viewer, activePart, editingDomain);
+				.createContextMenuFor(viewer, editingDomain);
+		activePart.getSite().registerContextMenu(menuManager,
+				new UnwrappingSelectionProvider(viewer));
+		
 		menuManager.addMenuListener(menuListener);
 
 		ViewerSelectionProvider viewerSelectionProvider = new ViewerSelectionProvider(
@@ -140,6 +145,25 @@ public class ViewerInitializer {
 				.addSelectionChangedListener(actionBarContributor);
 
 		actionBarContributor.setActivePart(activePart);
+	}
+	
+	
+	
+	
+	public void addContextMenu(StructuredViewer viewer, 
+			TreeActionBarContributor treeActionBarContributor,
+			AdapterFactoryEditingDomain editingDomain, 
+			IMenuListener menuListener){
+		
+		final MenuManager menuManager = viewerContextMenuFactory
+				.createContextMenuFor(viewer, editingDomain);
+
+		menuManager.addMenuListener(menuListener);
+//		ViewerSelectionProvider viewerSelectionProvider = new ViewerSelectionProvider(viewer);
+//		viewerSelectionProvider.addSelectionChangedListener(treeActionBarContributor);
+		viewer.addSelectionChangedListener(treeActionBarContributor);
+		treeActionBarContributor.initialize(editingDomain);
+		
 	}
 
 	protected AdapterFactoryEditingDomain loadResource(URI resourceURI) {

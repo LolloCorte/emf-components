@@ -205,10 +205,6 @@ codeRef[it.rcpvision.emf.components.menus.ViewerContextMenuFactory]
 
 section:SelectionAndMenu[Selection And Menu]
 
-section2:EmfActionBarContributor[Emf Action Bar Contributor]
-
-codeRef[it.rcpvision.emf.components.editors.EmfActionBarContributor]
-
 section2:EmfSelectionHelper[Emf Selection Helper]
 
 codeRef[it.rcpvision.emf.components.util.EmfSelectionHelper]
@@ -242,10 +238,6 @@ codeRef[it.rcpvision.emf.components.builders.TableViewerEditableColumnBuilder]
 
 
 section:Factories[Factories]
-
-section2:EmfActionFactory[Emf Action Factory]
-
-codeRef[it.rcpvision.emf.components.factories.EmfActionFactory]
 
 section2:FormFactory[Form Factory]
 

@@ -17,7 +17,7 @@
 package it.rcpvision.emf.components.editors;
 
 
-import it.rcpvision.emf.components.edit.action.EditingActionBarContributor;
+import it.rcpvision.emf.components.edit.actionbar.WorkbenchActionBarContributor;
 import it.rcpvision.emf.components.editors.listeners.ResourceDeltaVisitor;
 import it.rcpvision.emf.components.editors.outline.EmfEditorContentOutlineFactory;
 import it.rcpvision.emf.components.editors.outline.EmfEditorContentOutlinePage;
@@ -27,6 +27,7 @@ import it.rcpvision.emf.components.listeners.ViewerMouseAdapter;
 import it.rcpvision.emf.components.menus.ViewerContextMenuFactory;
 import it.rcpvision.emf.components.resource.ResourceLoader;
 import it.rcpvision.emf.components.util.EmfComponentsUtil;
+import it.rcpvision.emf.components.viewers.ViewerInitializer;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -80,7 +81,6 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IStatusLineManager;
-import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.viewers.ISelection;
@@ -458,6 +458,9 @@ protected ResourceLoader resourceLoader;
 @Inject
 protected ViewerContextMenuFactory viewerContextMenuFactory;
 
+@Inject 
+protected ViewerInitializer viewerInitializer; 
+
   /**
    * Handles activation of the editor or it's associated views.
    * <!-- begin-user-doc -->
@@ -807,8 +810,8 @@ protected ViewerContextMenuFactory viewerContextMenuFactory;
 	}
 
 	public void createContextMenuFor(StructuredViewer viewer) {
-		MenuManager menuManager = viewerContextMenuFactory.createContextMenuFor(viewer, this, getEditingDomain());
-		menuManager.addMenuListener(this);
+		viewerInitializer.addContextMenu(viewer, (WorkbenchActionBarContributor)getActionBarContributor(),
+				editingDomain, this, this);
 		
 		ViewerMouseAdapter listener = getViewerMouseAdapter();
 		viewer.getControl().addMouseListener(listener);
@@ -1385,9 +1388,9 @@ protected ViewerContextMenuFactory viewerContextMenuFactory;
    * <!-- end-user-doc -->
    * @generated
    */
-  public EditingActionBarContributor getActionBarContributor()
+  public WorkbenchActionBarContributor getActionBarContributor()
   {
-    return (EditingActionBarContributor)getEditorSite().getActionBarContributor();
+    return (WorkbenchActionBarContributor)getEditorSite().getActionBarContributor();
   }
 
   /**

@@ -5,13 +5,8 @@ package it.rcpvision.emf.components.editors;
 
 import it.rcpvision.emf.components.resource.LoadResourceResponse;
 
-import java.util.Iterator;
-
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EGenericType;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.presentation.EcoreEditorPlugin;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
@@ -51,8 +46,6 @@ public class EmfTreeEditor extends EmfAbstractEditor {
 				editingDomain);
 		selectionViewer = emfTreeViewer;
 		setSelectionOnRoot(selectionViewer);
-
-		updateActionBarContributor();
 
 		new AdapterFactoryTreeEditor(emfTreeViewer.getTree(), adapterFactory);
 
@@ -94,23 +87,6 @@ public class EmfTreeEditor extends EmfAbstractEditor {
 		}
 		editingDomain.getResourceSet().eAdapters()
 				.add(problemIndicationAdapter);
-	}
-
-	protected void updateActionBarContributor() {
-		if (!editingDomain.getResourceSet().getResources().isEmpty()) {
-			for (Iterator<EObject> i = editingDomain.getResourceSet()
-					.getResources().get(0).getAllContents(); i.hasNext();) {
-				EObject eObject = i.next();
-				if (eObject instanceof ETypeParameter
-						|| eObject instanceof EGenericType
-						&& !((EGenericType) eObject).getETypeArguments()
-								.isEmpty()) {
-					((EmfActionBarContributor) getActionBarContributor())
-							.showGenerics(true);
-					break;
-				}
-			}
-		}
 	}
 
 	/**

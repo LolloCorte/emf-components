@@ -1,7 +1,7 @@
 package it.rcpvision.emf.components.views;
 
 import it.rcpvision.emf.components.edit.ResourceSaveManager;
-import it.rcpvision.emf.components.editors.EmfActionBarContributor;
+import it.rcpvision.emf.components.edit.actionbar.WorkbenchActionBarContributor;
 import it.rcpvision.emf.components.resource.ResourceLoader;
 import it.rcpvision.emf.components.util.EmfCommandsUtil;
 import it.rcpvision.emf.components.viewers.ViewerInitializer;
@@ -44,7 +44,8 @@ public abstract class AbstractSaveableView extends ViewPart implements
 	protected ResourceSaveManager resourceSaveManager;
 
 	@Inject
-	private EmfActionBarContributor actionBarContributor;
+//	private TreeActionBarContributor actionBarContributor;
+	private WorkbenchActionBarContributor actionBarContributor;
 
 	@Inject
 	private ViewerInitializer viewerInitializer;
@@ -148,6 +149,8 @@ public abstract class AbstractSaveableView extends ViewPart implements
 	}
 
 	protected void addContextMenu(StructuredViewer viewer) {
+//		viewerInitializer.addContextMenu(viewer, actionBarContributor,
+//				editingDomain, this);
 		viewerInitializer.addContextMenu(viewer, actionBarContributor,
 				editingDomain, this, this);
 	}

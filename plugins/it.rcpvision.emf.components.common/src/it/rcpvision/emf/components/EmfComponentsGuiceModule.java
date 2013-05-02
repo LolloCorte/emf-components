@@ -9,13 +9,15 @@ import it.rcpvision.emf.components.builders.TableViewerBuilder;
 import it.rcpvision.emf.components.builders.TableViewerColumnBuilder;
 import it.rcpvision.emf.components.edit.EditingDomainFinder;
 import it.rcpvision.emf.components.edit.ResourceSaveManager;
+import it.rcpvision.emf.components.edit.action.EditingActionManager;
+import it.rcpvision.emf.components.edit.action.EmfActionManager;
+import it.rcpvision.emf.components.edit.actionbar.WorkbenchActionBarContributor;
+import it.rcpvision.emf.components.edit.actionbar.TreeActionBarContributor;
 import it.rcpvision.emf.components.edit.domain.InjectableAdapterFactoryEditingDomain;
 import it.rcpvision.emf.components.edit.provider.InjectableAdapterFactory;
 import it.rcpvision.emf.components.edit.ui.provider.InjectableAdapterFactoryLabelProvider;
 import it.rcpvision.emf.components.edit.ui.provider.ViewerContentProvider;
-import it.rcpvision.emf.components.editors.EmfActionBarContributor;
 import it.rcpvision.emf.components.factories.ColumnLabelProviderFactory;
-import it.rcpvision.emf.components.factories.EmfActionFactory;
 import it.rcpvision.emf.components.factories.FormFactory;
 import it.rcpvision.emf.components.factories.TreeFormFactory;
 import it.rcpvision.emf.components.factories.ViewerFactory;
@@ -138,10 +140,22 @@ public class EmfComponentsGuiceModule extends AbstractGenericModule {
 		return TableViewerColumnBuilder.class;
 	}
 
-	public Class<? extends EmfActionBarContributor> bindEmfActionBarContributor() {
-		return EmfActionBarContributor.class;
+	public Class<? extends WorkbenchActionBarContributor> bindEmfActionBarContributor() {
+		return WorkbenchActionBarContributor.class;
+	}
+	
+	public Class<? extends TreeActionBarContributor> bindTreeActionBarContributor() {
+		return TreeActionBarContributor.class;
+	}
+	
+	public Class<? extends EmfActionManager> bindEmfActionManager() {
+		return EmfActionManager.class;
 	}
 
+	public Class<? extends EditingActionManager> bindEditingActionManager() {
+		return EditingActionManager.class;
+	}
+	
 	public Class<? extends EditingDomainFinder> bindEditingDomainFinder() {
 		return EditingDomainFinder.class;
 	}
@@ -165,11 +179,7 @@ public class EmfComponentsGuiceModule extends AbstractGenericModule {
 	public Diagnostician bindDiagnostician() {
 		return Diagnostician.INSTANCE;
 	}
-
-	public Class<? extends EmfActionFactory> bindEmfActionFactory() {
-		return EmfActionFactory.class;
-	}
-
+	
 	public Class<? extends EmptyResourceInitializer> bindEmptyResourceInitializer() {
 		return EmptyResourceInitializer.class;
 	}
