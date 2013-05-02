@@ -121,8 +121,11 @@ In this example we provides two Writer for the Feature 'Author' of the EClass 'B
 
 section:TreeComponent[Tree Component]
 
-The e[Tree Component] provides a tree rapresentation of data that can be e[TODO(alimentato in inglese)] with an EResource, a
+The e[Tree Component] provides a tree rapresentation of data that can be feeded with an EResource, a
 Resource URI, and a simple EObject. This component use the EMF Meta-Model information to display objects in the tree. 
+
+img[images/03-components-tree.png][][ ][]
+
 This visualization can be customized in several way via the standard EMF Edit facilities or with the EMF Components codeinjection based mechanism.
 
 section2:Tree_LabelProvider[Tree Customization: Label Provider]
@@ -191,7 +194,14 @@ section2:Tree_ContextMenuFactory[Tree Customization: Context Menu Factory]
 
 e[TODO]
 
-section:TreeFormComponent[Tree FormComponent]
+section:TreeFormComponent[Tree Form Component]
+
+The e[Tree Form Component] contains a ref:TreeComponent that provides a tree rapresentation of data that can be feeded with
+an EResource, a Resource URI, and a simple EObject. This component use the EMF Meta-Model information to display objects in 
+the tree. The component also combines a ref:FormComponent detail that display the current selected object.
+
+img[images/03-components-treeform.png][][ ][]
+
 
 section:TableComponent[Table Component]
 
